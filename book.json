@@ -1,12 +1,12 @@
 {
 	"title": "Fluentd v0.12 Documentation",
 	"plugins": [
-		"addcssjs"
+		"addcssjs", "favicon"
 	],
 
 	"pluginsConfig": {
 		"addcssjs": {
-			"js": ["js/heapanalytics.js", "js/googleanalytics.js"]
+			"js": [".gitbook/assets/js/googleanalytics.js"]
 		}
 	}
 }
