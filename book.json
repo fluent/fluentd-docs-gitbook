@@ -7,6 +7,15 @@
 	"pluginsConfig": {
 		"addcssjs": {
 			"js": [".gitbook/assets/js/googleanalytics.js"]
+		},
+		"favicon": {
+			"shortcut": ".gitbook/assets/images/favicon.ico",
+			"bookmark": ".gitbook/assets/images/favicon.ico",
+			"appleTouch": ".gitbook/assets/images/apple-icon.png",
+			"appleTouchMore": {
+				"120x120": ".gitbook/assets/images/apple-icon-120x120.png",
+				"180x180": ".gitbook/assets/images/apple-icon-180x180.png"
+			}
 		}
 	}
 }
