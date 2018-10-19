@@ -1,3 +1,6 @@
+<section id="main">
+<div id="page">
+<div class="topic_content">
 <article>
 <div style="text-align:right">
 <div style="text-align:right">
@@ -45,7 +48,7 @@ record:
 {"message":"Hello world. I am a line of log!"}
 </pre>
 <div style="text-align:right">
-  Last updated: 2018-10-18 23:38:34 +0000
+  Last updated: 2018-10-19 00:26:16 +0000
   </div>
 <hr size="1" style="margin-top: 10px; margin-bottom: 10px; color: rgba(0, 0, 0, .15);"/>
 <div style="text-align:right">
@@ -68,3 +71,8 @@ Versions
     If this article is incorrect or outdated, or omits critical information, please <a href="https://github.com/fluent/fluentd-docs/issues?state=open">let us know</a>. <a href="http://www.fluentd.org/">Fluentd</a> is a  open source project under <a href="https://cncf.io/">Cloud Native Computing Foundation (CNCF)</a>. All components are available under the Apache 2 License.
   </p>
 </article>
+</div>
+<!-- /#topic_content -->
+</div>
+<!-- /#page -->
+</section>

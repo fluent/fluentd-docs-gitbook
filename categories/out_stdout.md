@@ -1,3 +1,6 @@
+<section id="main">
+<div id="page">
+<div class="topic_content">
 <article>
 <div style="text-align:right">
 <div style="text-align:right">
@@ -78,3 +81,8 @@ Versions
     If this article is incorrect or outdated, or omits critical information, please <a href="https://github.com/fluent/fluentd-docs/issues?state=open">let us know</a>. <a href="http://www.fluentd.org/">Fluentd</a> is a  open source project under <a href="https://cncf.io/">Cloud Native Computing Foundation (CNCF)</a>. All components are available under the Apache 2 License.
   </p>
 </article>
+</div>
+<!-- /#topic_content -->
+</div>
+<!-- /#page -->
+</section>

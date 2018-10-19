@@ -1,3 +1,6 @@
+<section id="main">
+<div id="page">
+<div class="topic_content">
 <article>
 <div style="text-align:right">
 <div style="text-align:right">
@@ -95,7 +98,7 @@ record:
 <p><a href="/articles/fluentd-ui#intail-setting">fluentd-ui’s in_tail editor</a> helps your regexp testing. Another way, <a href="http://fluentular.herokuapp.com/">Fluentular</a> is a great website to test your regexp for Fluentd configuration.</p>
 <p>NOTE: You may hit Application Error at Fluentular due to <a href="https://www.heroku.com/pricing">heroku free plan limitation</a>. Retry a few hours later or use fluentd-ui instead.</p>
 <div style="text-align:right">
-  Last updated: 2018-10-18 20:57:45 +0000
+  Last updated: 2018-10-19 00:25:44 +0000
   </div>
 <hr size="1" style="margin-top: 10px; margin-bottom: 10px; color: rgba(0, 0, 0, .15);"/>
 <div style="text-align:right">
@@ -118,3 +121,8 @@ Versions
     If this article is incorrect or outdated, or omits critical information, please <a href="https://github.com/fluent/fluentd-docs/issues?state=open">let us know</a>. <a href="http://www.fluentd.org/">Fluentd</a> is a  open source project under <a href="https://cncf.io/">Cloud Native Computing Foundation (CNCF)</a>. All components are available under the Apache 2 License.
   </p>
 </article>
+</div>
+<!-- /#topic_content -->
+</div>
+<!-- /#page -->
+</section>

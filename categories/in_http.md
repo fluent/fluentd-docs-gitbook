@@ -1,3 +1,6 @@
+<section id="main">
+<div id="page">
+<div class="topic_content">
 <article>
 <div style="text-align:right">
 <div style="text-align:right">
@@ -145,12 +148,11 @@ Here is a simple bechmark result on MacBook Pro with ruby 2.3:</p>
 <a name="why-in_http-removes-%E2%80%98+%E2%80%99-from-my-log?"></a><h3>Why in_http removes ‘+’ from my log?</h3>
 <p>This is HTTP spec, not fluentd problem. You need to encode your payload properly or use multipart request.
 Here is ruby example:</p>
-<pre class="CodeRay">
-# OK
+<pre class="CodeRay"># OK
 URI.encode_www_form({json: {"message" =&gt; "foo+bar"}.to_json})
 
 # NG
-"json=#{"message" =&gt; "foo+bar"}.to_json}"
+"json=#{ {"message" =&gt; "foo+bar"}.to_json}"
 </pre>
 <p>curl command example:</p>
 <pre class="CodeRay"># OK
@@ -183,3 +185,8 @@ Versions
     If this article is incorrect or outdated, or omits critical information, please <a href="https://github.com/fluent/fluentd-docs/issues?state=open">let us know</a>. <a href="http://www.fluentd.org/">Fluentd</a> is a  open source project under <a href="https://cncf.io/">Cloud Native Computing Foundation (CNCF)</a>. All components are available under the Apache 2 License.
   </p>
 </article>
+</div>
+<!-- /#topic_content -->
+</div>
+<!-- /#page -->
+</section>
