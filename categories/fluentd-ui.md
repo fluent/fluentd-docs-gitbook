@@ -1,80 +1,115 @@
-<hgroup>
-<h1>Fluentd UI</h1>
-</hgroup>
-<p><a href="https://github.com/fluent/fluentd-ui">fluentd-ui</a> is a browser-based <a href="http://fluentd.org/">fluentd</a> and <a href="http://docs.treasuredata.com/articles/td-agent">td-agent</a> manager that supports following operations.</p>
-<ul>
-<li>Install, uninstall, and upgrade Fluentd plugins</li>
-<li>start/stop/restart fluentd process</li>
-<li>Configure Fluentd settings such as config file content, pid file path, etc</li>
-<li>View Fluentd log with simple error viewer</li>
-</ul>
-<a name="getting-started"></a>
-<section id="table-of-contents"><h3>Table of Contents</h3>
-<ul id="toc">
-<li class="toc-item"><a href="#getting-started">Getting Started</a></li>
-<li class="toc-item"><a href="#screenshots">Screenshots</a></li>
-<ul class="sub-toc">
-<li class="sub-toc-item"><a href="#dashboard">Dashboard</a></li>
-<li class="sub-toc-item"><a href="#setting">Setting</a></li>
-<li class="sub-toc-item"><a href="#in_tail-setting">in_tail setting</a></li>
-<li class="sub-toc-item"><a href="#plugin">Plugin</a></li>
-</ul>
-</ul>
-</section>
-<h2>Getting Started</h2>
-<p>If you’ve installed td-agent, you can start it by <code>td-agent-ui start</code> as below:</p>
-<pre class="CodeRay">$ sudo /usr/sbin/td-agent-ui start
+Fluentd UI
+==========
+
+[fluentd-ui](https://github.com/fluent/fluentd-ui) is a browser-based
+[fluentd](http://fluentd.org/) and
+[td-agent](http://docs.treasuredata.com/articles/td-agent) manager that
+supports following operations.
+
+-   Install, uninstall, and upgrade Fluentd plugins
+-   start/stop/restart fluentd process
+-   Configure Fluentd settings such as config file content, pid file
+    path, etc
+-   View Fluentd log with simple error viewer
+
+[]{#getting-started}
+
+::: {#table-of-contents .section}
+### Table of Contents
+
+[Getting Started](#getting-started)
+
+[Screenshots](#screenshots)
+
+-   [Dashboard](#dashboard)
+-   [Setting](#setting)
+-   [in\_tail setting](#in_tail-setting)
+-   [Plugin](#plugin)
+:::
+
+Getting Started
+---------------
+
+If you've installed td-agent, you can start it by `td-agent-ui start` as
+below:
+
+``` {.CodeRay}
+$ sudo /usr/sbin/td-agent-ui start
 Puma 2.9.2 starting...
 * Min threads: 0, max threads: 16
 * Environment: production
 * Listening on tcp://0.0.0.0:9292
-</pre>
-<p>Or if you use fluentd gem, install fluentd-ui via <code>gem</code> command at first.</p>
-<pre class="CodeRay">$ gem install -V fluentd-ui
+```
+
+Or if you use fluentd gem, install fluentd-ui via `gem` command at
+first.
+
+``` {.CodeRay}
+$ gem install -V fluentd-ui
 $ fluentd-ui start
 Puma 2.9.2 starting...
 * Min threads: 0, max threads: 16
 * Environment: production
 * Listening on tcp://0.0.0.0:9292
-</pre>
-<p>Then, open <a href="http://localhost:9292/">http://localhost:9292/</a> by your browser.</p>
-<p>The default account is username=“admin” and password=“changeme”</p>
-<p><img alt="fluentd-ui" src="/images/fluentd-ui/fluentd-ui.gif"/></p>
-<a name="screenshots"></a><h2>Screenshots</h2>
-<p>(v0.3.9)</p>
-<a name="dashboard"></a><h3>Dashboard</h3>
-<p><img alt="dashboard" src="/images/fluentd-ui/dashboard.gif"/></p>
-<a name="setting"></a><h3>Setting</h3>
-<p><img alt="setting" src="/images/fluentd-ui/setting.gif"/></p>
-<a name="in_tail-setting"></a><h3>in_tail setting</h3>
-<p><img alt="in_tail" src="/images/fluentd-ui/in_tail.gif"/></p>
-<a name="plugin"></a><h3>Plugin</h3>
-<p><img alt="plugin" src="/images/fluentd-ui/plugin.gif"/></p>
-<p><img alt="ss01" src="/images/fluentd-ui/01.png"/>
-<img alt="ss02" src="/images/fluentd-ui/02.png"/>
-<img alt="ss03" src="/images/fluentd-ui/03.png"/>
-<img alt="ss04" src="/images/fluentd-ui/04.png"/>
-<img alt="ss05" src="/images/fluentd-ui/05.png"/></p>
-<div style="text-align:right">
-  Last updated: 2015-05-28 06:46:49 UTC
-  </div>
-<hr size="1" style="margin-top: 10px; margin-bottom: 10px; color: rgba(0, 0, 0, .15);"/>
-<div style="text-align:right">
-Versions 
-  
-    
-    | <a href="/v1.0/articles/fluentd-ui">v1.0 (td-agent3)</a>
-    
-  
+```
 
-  
+Then, open <http://localhost:9292/> by your browser.
 
-  
-    
-    | <b><i>v0.12</i> (td-agent2)<b>
-</b></b>
-</div>
-<hr size="1" style="margin-top: 10px; margin-bottom: 10px; color: rgba(0, 0, 0, .15);"/>
-<p>
-    If this article is incorrect or outdated, or omits critical information, please <a href="https://github.com/fluent/fluentd-docs/issues?state=open">let us know</a>. <a href="http://www.fluentd.org/">Fluentd</a> is a  open source project under <a href="https://cncf.io/">Cloud Native Computing Foundation (CNCF)</a>. All components are available under the Apache 2 License.
-  </p>
+The default account is username="admin" and password="changeme"
+
+![fluentd-ui](/images/fluentd-ui/fluentd-ui.gif)
+
+[]{#screenshots}
+
+Screenshots
+-----------
+
+(v0.3.9)
+
+[]{#dashboard}
+
+### Dashboard
+
+![dashboard](/images/fluentd-ui/dashboard.gif)
+
+[]{#setting}
+
+### Setting
+
+![setting](/images/fluentd-ui/setting.gif)
+
+[]{#in_tail-setting}
+
+### in\_tail setting
+
+![in\_tail](/images/fluentd-ui/in_tail.gif)
+
+[]{#plugin}
+
+### Plugin
+
+![plugin](/images/fluentd-ui/plugin.gif)
+
+![ss01](/images/fluentd-ui/01.png) ![ss02](/images/fluentd-ui/02.png)
+![ss03](/images/fluentd-ui/03.png) ![ss04](/images/fluentd-ui/04.png)
+![ss05](/images/fluentd-ui/05.png)
+
+::: {style="text-align:right"}
+Last updated: 2015-05-28 06:46:49 UTC
+:::
+
+------------------------------------------------------------------------
+
+::: {style="text-align:right"}
+Versions \| [v1.0 (td-agent3)](/v1.0/articles/fluentd-ui) \| ***v0.12*
+(td-agent2) **
+:::
+
+------------------------------------------------------------------------
+
+If this article is incorrect or outdated, or omits critical information,
+please [let us
+know](https://github.com/fluent/fluentd-docs/issues?state=open).
+[Fluentd](http://www.fluentd.org/) is a open source project under [Cloud
+Native Computing Foundation (CNCF)](https://cncf.io/). All components
+are available under the Apache 2 License.

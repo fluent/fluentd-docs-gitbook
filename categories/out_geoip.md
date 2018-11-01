@@ -1,56 +1,80 @@
-<hgroup>
-<h1>GeoIP Output Plugin</h1>
-</hgroup>
-<p>The <code>out_geoip</code> Buffered Output plugin adds geographic location information to logs using the Maxmind GeoIP databases.</p>
-<table class="note">
-<td class="icon"></td>
-<td class="content">This document doesn't describe all parameters. If you want to know full features, check the Further Reading section.</td>
-</table>
-<a name="prerequisites"></a>
-<section id="table-of-contents"><h3>Table of Contents</h3>
-<ul id="toc">
-<li class="toc-item"><a href="#prerequisites">Prerequisites</a></li>
-<li class="toc-item"><a href="#install">Install</a></li>
-<li class="toc-item"><a href="#example-configuration">Example Configuration</a></li>
-<li class="toc-item"><a href="#parameters">Parameters</a></li>
-<ul class="sub-toc">
-<li class="sub-toc-item"><a href="#geoip_lookup_key-(required)">geoip_lookup_key (required)</a></li>
-<li class="sub-toc-item"><a href="#remove_tag_prefix-/-add_tag_prefix-(requires-one-or-the-other)">remove_tag_prefix / add_tag_prefix (requires one or the other)</a></li>
-<li class="sub-toc-item"><a href="#enable_key_***-(requires-at-least-one)">enable_key_*** (requires at least one)</a></li>
-<li class="sub-toc-item"><a href="#include_tag_key">include_tag_key</a></li>
-<li class="sub-toc-item"><a href="#tag_key">tag_key</a></li>
-</ul>
-<li class="toc-item"><a href="#buffer-parameters">Buffer Parameters</a></li>
-<ul class="sub-toc">
-<li class="sub-toc-item"><a href="#buffer_type">buffer_type</a></li>
-<li class="sub-toc-item"><a href="#buffer_queue_limit,-buffer_chunk_limit">buffer_queue_limit, buffer_chunk_limit</a></li>
-<li class="sub-toc-item"><a href="#flush_interval">flush_interval</a></li>
-</ul>
-<li class="toc-item"><a href="#use-cases">Use Cases</a></li>
-<li class="toc-item"><a href="#further-reading">Further Reading</a></li>
-</ul>
-</section>
-<h2>Prerequisites</h2>
-<ul>
-<li>
-<p>The GeoIP library.</p>
-<p>  :::term
-  # for RHEL/CentOS
-  $ sudo yum install geoip-devel –enablerepo=epel</p>
-<p>  # for Ubuntu/Debian
-  $ sudo apt-get install libgeoip-dev</p>
-<p>  # for MacOSX (brew)
-  $ brew install geoip</p>
-</li>
-</ul>
-<a name="install"></a><h2>Install</h2>
-<p><code>out_geoip</code> is not included in td-agent. All users must install the fluent-plugin-geoip gem using the following command.</p>
-<pre class="CodeRay"><span class="comment">$</span><span class="function"> fluent-gem install fluent-plugin-geoip
-</span><span class="comment">$</span><span class="function"> sudo /usr/sbin/td-agent-gem install fluent-plugin-geoip
-</span></pre>
-<a name="example-configuration"></a><h2>Example Configuration</h2>
-<p>The configuration shown below adds geolocation information to apache.access</p>
-<pre class="CodeRay">&lt;match test.message&gt;
+GeoIP Output Plugin
+===================
+
+The `out_geoip` Buffered Output plugin adds geographic location
+information to logs using the Maxmind GeoIP databases.
+
+This document doesn\'t describe all parameters. If you want to know full
+features, check the Further Reading section.
+
+[]{#prerequisites}
+
+::: {#table-of-contents .section}
+### Table of Contents
+
+[Prerequisites](#prerequisites)
+
+[Install](#install)
+
+[Example Configuration](#example-configuration)
+
+[Parameters](#parameters)
+
+-   [geoip\_lookup\_key (required)](#geoip_lookup_key-(required))
+-   [remove\_tag\_prefix / add\_tag\_prefix (requires one or the
+    other)](#remove_tag_prefix-/-add_tag_prefix-(requires-one-or-the-other))
+-   [enable\_key\_\*\*\* (requires at least
+    one)](#enable_key_***-(requires-at-least-one))
+-   [include\_tag\_key](#include_tag_key)
+-   [tag\_key](#tag_key)
+
+[Buffer Parameters](#buffer-parameters)
+
+-   [buffer\_type](#buffer_type)
+-   [buffer\_queue\_limit,
+    buffer\_chunk\_limit](#buffer_queue_limit,-buffer_chunk_limit)
+-   [flush\_interval](#flush_interval)
+
+[Use Cases](#use-cases)
+
+[Further Reading](#further-reading)
+:::
+
+Prerequisites
+-------------
+
+-   The GeoIP library.
+
+    :::term \# for RHEL/CentOS \$ sudo yum install geoip-devel
+    --enablerepo=epel
+
+    \# for Ubuntu/Debian \$ sudo apt-get install libgeoip-dev
+
+    \# for MacOSX (brew) \$ brew install geoip
+
+[]{#install}
+
+Install
+-------
+
+`out_geoip` is not included in td-agent. All users must install the
+fluent-plugin-geoip gem using the following command.
+
+``` {.CodeRay}
+$ fluent-gem install fluent-plugin-geoip
+$ sudo /usr/sbin/td-agent-gem install fluent-plugin-geoip
+```
+
+[]{#example-configuration}
+
+Example Configuration
+---------------------
+
+The configuration shown below adds geolocation information to
+apache.access
+
+``` {.CodeRay}
+<match test.message>
   @type geoip
   geoip_lookup_key        host
   enable_key_country_code geoip_country
@@ -60,7 +84,7 @@
   remove_tag_prefix       test.
   add_tag_prefix          geoip.
   flush_interval          5s
-&lt;/match&gt;
+</match>
 
 
 :::text
@@ -79,52 +103,119 @@ geoip.message: {
   "geoip_lat":37.4192008972168,
   "geoip_lon":-122.05740356445312
 }
-</pre>
-<table class="note">
-<td class="icon"></td>
-<td class="content">Please see the <a href="https://github.com/y-ken/fluent-plugin-geoip#readme">fluent-plugin-geoip README</a> for further details.</td>
-</table>
-<a name="parameters"></a><h2>Parameters</h2>
-<a name="geoip_lookup_key-(required)"></a><h3>geoip_lookup_key (required)</h3>
-<p>Specifies the geoip lookup field (default: host)
-If accessing a nested hash value, delimit the key with ‘.’, as in ‘host.ip’.</p>
-<a name="remove_tag_prefix-/-add_tag_prefix-(requires-one-or-the-other)"></a><h3>remove_tag_prefix / add_tag_prefix (requires one or the other)</h3>
-<p>Set tag replace rule.</p>
-<a name="enable_key_***-(requires-at-least-one)"></a><h3>enable_key_*** (requires at least one)</h3>
-<p>Specifies the geographic data that will be added to the record. The supported parameters are shown below:</p>
-<ul>
-<li>enable_key_city</li>
-<li>enable_key_latitude</li>
-<li>enable_key_longitude</li>
-<li>enable_key_country_code3</li>
-<li>enable_key_country_code</li>
-<li>enable_key_country_name</li>
-<li>enable_key_dma_code</li>
-<li>enable_key_area_code</li>
-<li>enable_key_region</li>
-</ul>
-<a name="include_tag_key"></a><h3>include_tag_key</h3>
-<p>Set to <code>true</code> to include the original tag name in the record. (default: false)</p>
-<a name="tag_key"></a><h3>tag_key</h3>
-<p>Adds the tag name into the record using this value as the key name When <code>include_tag_key</code> is set to <code>true</code>.</p>
-<a name="buffer-parameters"></a><h2>Buffer Parameters</h2>
-<p>For advanced usage, you can tune Fluentd’s internal buffering mechanism with these parameters.</p>
-<a name="buffer_type"></a><h3>buffer_type</h3>
-<p>The buffer type is <code>memory</code> by default (<a href="buf_memory">buf_memory</a>). The <code>file</code> (<a href="buf_file">buf_file</a>) buffer type can be chosen as well. Unlike many other output plugins, the <code>buffer_path</code> parameter MUST be specified when using <code>buffer_type file</code>.</p>
-<a name="buffer_queue_limit,-buffer_chunk_limit"></a><h3>buffer_queue_limit, buffer_chunk_limit</h3>
-<p>The length of the chunk queue and the size of each chunk, respectively. Please see the <a href="buffer-plugin-overview">Buffer Plugin Overview</a> article for the basic buffer structure. The default values are 64 and 256m, respectively. The suffixes “k” (KB), “m” (MB), and “g” (GB) can be used for buffer_chunk_limit.</p>
-<a name="flush_interval"></a><h3>flush_interval</h3>
-<p>The interval between forced data flushes. The default is nil (don’t force flush and wait until the end of time slice + time_slice_wait). The suffixes “s” (seconds), “m” (minutes), and “h” (hours) can be used.</p>
-<h4>log_level option</h4>
-<p>The <code>log_level</code> option allows the user to set different levels of logging for each plugin. The supported log levels are: <code>fatal</code>, <code>error</code>, <code>warn</code>, <code>info</code>, <code>debug</code>, and <code>trace</code>.</p>
-<p>Please see the <a href="logging">logging article</a> for further details.</p>
-<a name="use-cases"></a><h2>Use Cases</h2>
-<h4>Plot real time access statistics on a world map using Elasticsearch and Kibana</h4>
-<p>The <code>country_code</code> field is needed to visualize access statistics on a world map using <a href="http://www.elasticsearch.org/overview/kibana/">Kibana</a>.</p>
-<p>Note: The following plugins are required:
- * fluent-plugin-geoip
- * fluent-plugin-elasticsearch</p>
-<pre class="CodeRay">&lt;match td.apache.access&gt;
+```
+
+Please see the [fluent-plugin-geoip
+README](https://github.com/y-ken/fluent-plugin-geoip#readme) for further
+details.
+
+[]{#parameters}
+
+Parameters
+----------
+
+[]{#geoip_lookup_key-(required)}
+
+### geoip\_lookup\_key (required)
+
+Specifies the geoip lookup field (default: host) If accessing a nested
+hash value, delimit the key with '.', as in 'host.ip'.
+
+[]{#remove_tag_prefix-/-add_tag_prefix-(requires-one-or-the-other)}
+
+### remove\_tag\_prefix / add\_tag\_prefix (requires one or the other)
+
+Set tag replace rule.
+
+[]{#enable_key_***-(requires-at-least-one)}
+
+### enable\_key\_\*\*\* (requires at least one)
+
+Specifies the geographic data that will be added to the record. The
+supported parameters are shown below:
+
+-   enable\_key\_city
+-   enable\_key\_latitude
+-   enable\_key\_longitude
+-   enable\_key\_country\_code3
+-   enable\_key\_country\_code
+-   enable\_key\_country\_name
+-   enable\_key\_dma\_code
+-   enable\_key\_area\_code
+-   enable\_key\_region
+
+[]{#include_tag_key}
+
+### include\_tag\_key
+
+Set to `true` to include the original tag name in the record. (default:
+false)
+
+[]{#tag_key}
+
+### tag\_key
+
+Adds the tag name into the record using this value as the key name When
+`include_tag_key` is set to `true`.
+
+[]{#buffer-parameters}
+
+Buffer Parameters
+-----------------
+
+For advanced usage, you can tune Fluentd's internal buffering mechanism
+with these parameters.
+
+[]{#buffer_type}
+
+### buffer\_type
+
+The buffer type is `memory` by default ([buf\_memory](buf_memory)). The
+`file` ([buf\_file](buf_file)) buffer type can be chosen as well. Unlike
+many other output plugins, the `buffer_path` parameter MUST be specified
+when using `buffer_type file`.
+
+[]{#buffer_queue_limit,-buffer_chunk_limit}
+
+### buffer\_queue\_limit, buffer\_chunk\_limit
+
+The length of the chunk queue and the size of each chunk, respectively.
+Please see the [Buffer Plugin Overview](buffer-plugin-overview) article
+for the basic buffer structure. The default values are 64 and 256m,
+respectively. The suffixes "k" (KB), "m" (MB), and "g" (GB) can be used
+for buffer\_chunk\_limit.
+
+[]{#flush_interval}
+
+### flush\_interval
+
+The interval between forced data flushes. The default is nil (don't
+force flush and wait until the end of time slice + time\_slice\_wait).
+The suffixes "s" (seconds), "m" (minutes), and "h" (hours) can be used.
+
+#### log\_level option
+
+The `log_level` option allows the user to set different levels of
+logging for each plugin. The supported log levels are: `fatal`, `error`,
+`warn`, `info`, `debug`, and `trace`.
+
+Please see the [logging article](logging) for further details.
+
+[]{#use-cases}
+
+Use Cases
+---------
+
+#### Plot real time access statistics on a world map using Elasticsearch and Kibana
+
+The `country_code` field is needed to visualize access statistics on a
+world map using [Kibana](http://www.elasticsearch.org/overview/kibana/).
+
+Note: The following plugins are required: \* fluent-plugin-geoip \*
+fluent-plugin-elasticsearch
+
+``` {.CodeRay}
+<match td.apache.access>
   @type geoip
 
   # Set key name for the client ip address values
@@ -136,37 +227,41 @@ If accessing a nested hash value, delimit the key with ‘.’, as in ‘host.ip
   # Swap tag prefix from 'td.' to 'es.'
   remove_tag_prefix    td.
   add_tag_prefix       es.
-&lt;/match&gt;
+</match>
 
-&lt;match es.apache.access&gt;
+<match es.apache.access>
   @type            elasticsearch
   host            localhost
   port            9200
   type_name       apache
   logstash_format true
   flush_interval  10s
-&lt;/match&gt;
-</pre>
-<a name="further-reading"></a><h2>Further Reading</h2>
-<ul>
-<li><a href="https://github.com/y-ken/fluent-plugin-geoip">fluent-plugin-geoip repository</a></li>
-</ul>
-<div style="text-align:right">
-  Last updated: 2016-08-29 20:30:56 UTC
-  </div>
-<hr size="1" style="margin-top: 10px; margin-bottom: 10px; color: rgba(0, 0, 0, .15);"/>
-<div style="text-align:right">
-Versions 
-  
+</match>
+```
 
-  
+[]{#further-reading}
 
-  
-    
-    | <b><i>v0.12</i> (td-agent2)<b>
-</b></b>
-</div>
-<hr size="1" style="margin-top: 10px; margin-bottom: 10px; color: rgba(0, 0, 0, .15);"/>
-<p>
-    If this article is incorrect or outdated, or omits critical information, please <a href="https://github.com/fluent/fluentd-docs/issues?state=open">let us know</a>. <a href="http://www.fluentd.org/">Fluentd</a> is a  open source project under <a href="https://cncf.io/">Cloud Native Computing Foundation (CNCF)</a>. All components are available under the Apache 2 License.
-  </p>
+Further Reading
+---------------
+
+-   [fluent-plugin-geoip
+    repository](https://github.com/y-ken/fluent-plugin-geoip)
+
+::: {style="text-align:right"}
+Last updated: 2016-08-29 20:30:56 UTC
+:::
+
+------------------------------------------------------------------------
+
+::: {style="text-align:right"}
+Versions \| ***v0.12* (td-agent2) **
+:::
+
+------------------------------------------------------------------------
+
+If this article is incorrect or outdated, or omits critical information,
+please [let us
+know](https://github.com/fluent/fluentd-docs/issues?state=open).
+[Fluentd](http://www.fluentd.org/) is a open source project under [Cloud
+Native Computing Foundation (CNCF)](https://cncf.io/). All components
+are available under the Apache 2 License.

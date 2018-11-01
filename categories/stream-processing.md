@@ -1,15 +1,20 @@
-<hgroup>
-<h1>Stream Processing</h1>
-</hgroup>
-<div class="padder">
-<h2>Articles</h2>
-<ul class="articles results">
-<li><a href="/v0.12/articles/filter-modify-apache">Easy Data Stream Manipulation using Fluentd</a></li>
-</ul>
-<ul class="articles results">
-<li><a href="/v0.12/articles/kinesis-stream">Stream Data Collection to Kinesis Stream</a></li>
-</ul>
-<ul class="articles results">
-<li><a href="/v0.12/articles/cep-norikra">Fluentd and Norikra: Complex Event Processing</a></li>
-</ul>
-</div>
+Stream Processing
+=================
+
+::: {.padder}
+Articles
+--------
+
+-   [Easy Data Stream Manipulation using
+    Fluentd](/v0.12/articles/filter-modify-apache)
+
+<!-- -->
+
+-   [Stream Data Collection to Kinesis
+    Stream](/v0.12/articles/kinesis-stream)
+
+<!-- -->
+
+-   [Fluentd and Norikra: Complex Event
+    Processing](/v0.12/articles/cep-norikra)
+:::

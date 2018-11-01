@@ -1,68 +1,138 @@
-<hgroup>
-<h1>Kubernetes Logging with Fluentd</h1>
-</hgroup>
-<p><img alt="" src="/images/fluentd_kubernetes.png"/></p>
-<p><a href="http://kubernetes.io">Kubernetes</a> provides two logging end-points for applications and cluster logs: Stackdriver Logging for use with Google Cloud Platform and Elasticsearch. Behind the scenes there is a logging agent that take cares of log collection, parsing and distribution: <a href="http://www.fluentd.org">Fluentd</a>.</p>
-<p>The following document focus on how to deploy Fluentd in Kubernetes and extend the possibilities to have different destinations for your logs.</p>
-<a name="getting-started"></a>
-<section id="table-of-contents"><h3>Table of Contents</h3>
-<ul id="toc">
-<li class="toc-item"><a href="#getting-started">Getting Started</a></li>
-<li class="toc-item"><a href="#fluentd-daemonset">Fluentd DaemonSet</a></li>
-<ul class="sub-toc">
-<li class="sub-toc-item"><a href="#get-fluentd-daemonset-sources">Get Fluentd DaemonSet sources</a></li>
-<li class="sub-toc-item"><a href="#daemonset-content">DaemonSet Content</a></li>
-</ul>
-<li class="toc-item"><a href="#logging-to-elasticsearch">Logging to Elasticsearch</a></li>
-<ul class="sub-toc">
-<li class="sub-toc-item"><a href="#requirements">Requirements</a></li>
-</ul>
-</ul>
-</section>
-<h2>Getting Started</h2>
-<p>The following document assumes that you have a Kubernetes cluster running or at least a local (single) node that can be used for testing purposes.</p>
-<p>Before to get started, make sure you understand or have a basic idea about the following concepts from Kubernetes:</p>
-<ul>
-<li>
-<a href="https://kubernetes.io/docs/admin/node/">Node</a>
-<blockquote><p>A node is a worker machine in Kubernetes, previously known as a minion. A node may be a VM or physical machine, depending on the cluster. Each node has the services necessary to run pods and is managed by the master components…</p></blockquote>
-</li>
-<li>
-<a href="https://kubernetes.io/docs/user-guide/pods/">Pod</a>
-<blockquote><p>A pod (as in a pod of whales or pea pod) is a group of one or more containers (such as Docker containers), the shared storage for those containers, and options about how to run the containers. Pods are always co-located and co-scheduled, and run in a shared context…</p></blockquote>
-</li>
-<li>
-<a href="https://kubernetes.io/docs/admin/daemons/">DaemonSet</a>
-<blockquote><p>A DaemonSet ensures that all (or some) nodes run a copy of a pod. As nodes are added to the cluster, pods are added to them. As nodes are removed from the cluster, those pods are garbage collected. Deleting a DaemonSet will clean up the pods it created…</p></blockquote>
-</li>
-</ul>
-<p>Since applications runs in Pods and multiple Pods might exists across multiple nodes, we need a specific Fluentd-Pod that takes care of log collection on each node: <a href="fluentd_daemonset.md">Fluentd DaemonSet</a>.</p>
-<a name="fluentd-daemonset"></a><h2>Fluentd DaemonSet</h2>
-<p>For <a href="https://kubernetes.io">Kubernetes</a>, a <a href="https://kubernetes.io/docs/admin/daemons/">DaemonSet</a> ensures that all (or some) nodes run a copy of a <em>pod</em>. In order to solve log collection we are going to implement a Fluentd DaemonSet.</p>
-<p>Fluentd is flexible enough and have the proper plugins to distribute logs to different third party applications like databases or cloud services, so the principal question is to know: <em>where the logs will be stored ?</em>. Once we got that question answered, we can move forward configuring our DaemonSet.</p>
-<p>The below steps will focus on sending the logs to a Elasticsearch Pod.</p>
-<a name="get-fluentd-daemonset-sources"></a><h3>Get Fluentd DaemonSet sources</h3>
-<p>We have created a Fluentd DaemonSet that have the proper rules and container image ready to get started:</p>
-<ul>
-<li><a href="https://github.com/fluent/fluentd-kubernetes-daemonset">https://github.com/fluent/fluentd-kubernetes-daemonset</a></li>
-</ul>
-<p>Please grab a copy of the repository from the command line using GIT:</p>
-<pre class="CodeRay"><span class="comment">$</span><span class="function"> git clone https://github.com/fluent/fluentd-kubernetes-daemonset
-</span></pre>
-<a name="daemonset-content"></a><h3>DaemonSet Content</h3>
-<p>The cloned repository contains the several configurations that allow to deploy Fluentd as a DaemonSet, the Docker container image distributed on the repository also comes pre-configured so Fluentd can gather all logs from the Kubernetes node environment and also it appends the proper metadata to the logs.</p>
-<p>This repository has several presets for alpine/debian with popular outputs.</p>
-<ul>
-<li><a href="https://github.com/fluent/fluentd-kubernetes-daemonset/tree/master/docker-image/v0.12">DaemonSet preset settings</a></li>
-</ul>
-<a name="logging-to-elasticsearch"></a><h2>Logging to Elasticsearch</h2>
-<a name="requirements"></a><h3>Requirements</h3>
-<p>From the fluentd-kubernetes-daemonset/ directory, find the Yaml configuration file:</p>
-<ul>
-<li><a href="https://github.com/fluent/fluentd-kubernetes-daemonset/blob/master/fluentd-daemonset-elasticsearch.yaml">fluentd-daemonset-elasticsearch.yaml</a></li>
-</ul>
-<p>As an example let’s see a part of  the file content:</p>
-<pre class="CodeRay">apiVersion: extensions/v1beta1
+Kubernetes Logging with Fluentd
+===============================
+
+![](/images/fluentd_kubernetes.png)
+
+[Kubernetes](http://kubernetes.io) provides two logging end-points for
+applications and cluster logs: Stackdriver Logging for use with Google
+Cloud Platform and Elasticsearch. Behind the scenes there is a logging
+agent that take cares of log collection, parsing and distribution:
+[Fluentd](http://www.fluentd.org).
+
+The following document focus on how to deploy Fluentd in Kubernetes and
+extend the possibilities to have different destinations for your logs.
+
+[]{#getting-started}
+
+::: {#table-of-contents .section}
+### Table of Contents
+
+[Getting Started](#getting-started)
+
+[Fluentd DaemonSet](#fluentd-daemonset)
+
+-   [Get Fluentd DaemonSet sources](#get-fluentd-daemonset-sources)
+-   [DaemonSet Content](#daemonset-content)
+
+[Logging to Elasticsearch](#logging-to-elasticsearch)
+
+-   [Requirements](#requirements)
+:::
+
+Getting Started
+---------------
+
+The following document assumes that you have a Kubernetes cluster
+running or at least a local (single) node that can be used for testing
+purposes.
+
+Before to get started, make sure you understand or have a basic idea
+about the following concepts from Kubernetes:
+
+-   [Node](https://kubernetes.io/docs/admin/node/)
+
+    > A node is a worker machine in Kubernetes, previously known as a
+    > minion. A node may be a VM or physical machine, depending on the
+    > cluster. Each node has the services necessary to run pods and is
+    > managed by the master components...
+
+-   [Pod](https://kubernetes.io/docs/user-guide/pods/)
+
+    > A pod (as in a pod of whales or pea pod) is a group of one or more
+    > containers (such as Docker containers), the shared storage for
+    > those containers, and options about how to run the containers.
+    > Pods are always co-located and co-scheduled, and run in a shared
+    > context...
+
+-   [DaemonSet](https://kubernetes.io/docs/admin/daemons/)
+
+    > A DaemonSet ensures that all (or some) nodes run a copy of a pod.
+    > As nodes are added to the cluster, pods are added to them. As
+    > nodes are removed from the cluster, those pods are garbage
+    > collected. Deleting a DaemonSet will clean up the pods it
+    > created...
+
+Since applications runs in Pods and multiple Pods might exists across
+multiple nodes, we need a specific Fluentd-Pod that takes care of log
+collection on each node: [Fluentd DaemonSet](fluentd_daemonset.md).
+
+[]{#fluentd-daemonset}
+
+Fluentd DaemonSet
+-----------------
+
+For [Kubernetes](https://kubernetes.io), a
+[DaemonSet](https://kubernetes.io/docs/admin/daemons/) ensures that all
+(or some) nodes run a copy of a *pod*. In order to solve log collection
+we are going to implement a Fluentd DaemonSet.
+
+Fluentd is flexible enough and have the proper plugins to distribute
+logs to different third party applications like databases or cloud
+services, so the principal question is to know: *where the logs will be
+stored ?*. Once we got that question answered, we can move forward
+configuring our DaemonSet.
+
+The below steps will focus on sending the logs to a Elasticsearch Pod.
+
+[]{#get-fluentd-daemonset-sources}
+
+### Get Fluentd DaemonSet sources
+
+We have created a Fluentd DaemonSet that have the proper rules and
+container image ready to get started:
+
+-   <https://github.com/fluent/fluentd-kubernetes-daemonset>
+
+Please grab a copy of the repository from the command line using GIT:
+
+``` {.CodeRay}
+$ git clone https://github.com/fluent/fluentd-kubernetes-daemonset
+```
+
+[]{#daemonset-content}
+
+### DaemonSet Content
+
+The cloned repository contains the several configurations that allow to
+deploy Fluentd as a DaemonSet, the Docker container image distributed on
+the repository also comes pre-configured so Fluentd can gather all logs
+from the Kubernetes node environment and also it appends the proper
+metadata to the logs.
+
+This repository has several presets for alpine/debian with popular
+outputs.
+
+-   [DaemonSet preset
+    settings](https://github.com/fluent/fluentd-kubernetes-daemonset/tree/master/docker-image/v0.12)
+
+[]{#logging-to-elasticsearch}
+
+Logging to Elasticsearch
+------------------------
+
+[]{#requirements}
+
+### Requirements
+
+From the fluentd-kubernetes-daemonset/ directory, find the Yaml
+configuration file:
+
+-   [fluentd-daemonset-elasticsearch.yaml](https://github.com/fluent/fluentd-kubernetes-daemonset/blob/master/fluentd-daemonset-elasticsearch.yaml)
+
+As an example let's see a part of the file content:
+
+``` {.CodeRay}
+apiVersion: extensions/v1beta1
 kind: DaemonSet
 metadata:
   name: fluentd
@@ -80,46 +150,35 @@ spec:
           - name:  FLUENT_ELASTICSEARCH_PORT
             value: "9200"
         ...
-</pre>
-<p>The Yaml file have two relevant environment variables that are used by Fluentd when the container starts:</p>
-<table>
-<thead>
-<tr>
-<th> Environment Variable           </th>
-<th> Description </th>
-<th> Default              </th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td> FLUENT_ELASTICSEARCH_HOST    </td>
-<td> Specify the host name or IP address.</td>
-<td>elasticsearch-logging </td>
-</tr>
-<tr>
-<td> FLUENT_ELASTICSEARCH_PORT    </td>
-<td> Elasticsearch TCP port             </td>
-<td> 9200                 </td>
-</tr>
-</tbody>
-</table>
-<p>Any relevant change needs to be done to the Yaml file before to deploy it. Using the default values assumes that at least an Elasticsearch Pod <strong>elasticsearch-logging</strong> exists in the cluster.</p>
-<div style="text-align:right">
-  Last updated: 2017-02-13 20:29:22 UTC
-  </div>
-<hr size="1" style="margin-top: 10px; margin-bottom: 10px; color: rgba(0, 0, 0, .15);"/>
-<div style="text-align:right">
-Versions 
-  
+```
 
-  
+The Yaml file have two relevant environment variables that are used by
+Fluentd when the container starts:
 
-  
-    
-    | <b><i>v0.12</i> (td-agent2)<b>
-</b></b>
-</div>
-<hr size="1" style="margin-top: 10px; margin-bottom: 10px; color: rgba(0, 0, 0, .15);"/>
-<p>
-    If this article is incorrect or outdated, or omits critical information, please <a href="https://github.com/fluent/fluentd-docs/issues?state=open">let us know</a>. <a href="http://www.fluentd.org/">Fluentd</a> is a  open source project under <a href="https://cncf.io/">Cloud Native Computing Foundation (CNCF)</a>. All components are available under the Apache 2 License.
-  </p>
+  Environment Variable          Description                            Default
+  ----------------------------- -------------------------------------- -----------------------
+  FLUENT\_ELASTICSEARCH\_HOST   Specify the host name or IP address.   elasticsearch-logging
+  FLUENT\_ELASTICSEARCH\_PORT   Elasticsearch TCP port                 9200
+
+Any relevant change needs to be done to the Yaml file before to deploy
+it. Using the default values assumes that at least an Elasticsearch Pod
+**elasticsearch-logging** exists in the cluster.
+
+::: {style="text-align:right"}
+Last updated: 2017-02-13 20:29:22 UTC
+:::
+
+------------------------------------------------------------------------
+
+::: {style="text-align:right"}
+Versions \| ***v0.12* (td-agent2) **
+:::
+
+------------------------------------------------------------------------
+
+If this article is incorrect or outdated, or omits critical information,
+please [let us
+know](https://github.com/fluent/fluentd-docs/issues?state=open).
+[Fluentd](http://www.fluentd.org/) is a open source project under [Cloud
+Native Computing Foundation (CNCF)](https://cncf.io/). All components
+are available under the Apache 2 License.

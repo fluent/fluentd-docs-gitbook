@@ -1,193 +1,241 @@
-<hgroup>
-<h1>Routing Examples</h1>
-</hgroup>
-<p>This article shows typical routing examples.</p>
-<a name="simple-input--&gt;-filter--&gt;-output"></a>
-<section id="table-of-contents"><h3>Table of Contents</h3>
-<ul id="toc">
-<li class="toc-item"><a href="#simple-input--&gt;-filter--&gt;-output">Simple Input -&gt; Filter -&gt; Output</a></li>
-<ul class="sub-toc">
-<li class="sub-toc-item"><a href="#two-input-cases">Two input cases</a></li>
-</ul>
-<li class="toc-item"><a href="#input--&gt;-filter--&gt;-output-with-label">Input -&gt; Filter -&gt; Output with Label</a></li>
-<li class="toc-item"><a href="#re-route-event-by-tag">Re-route event by tag</a></li>
-<li class="toc-item"><a href="#re-route-event-by-record-content">Re-route event by record content</a></li>
-<li class="toc-item"><a href="#re-route-event-to-other-label">Re-route event to other Label</a></li>
-</ul>
-</section>
-<h2>Simple Input -&gt; Filter -&gt; Output</h2>
-<pre class="CodeRay">&lt;source&gt;
+Routing Examples
+================
+
+This article shows typical routing examples.
+
+[]{#simple-input-->-filter-->-output}
+
+::: {#table-of-contents .section}
+### Table of Contents
+
+[Simple Input -\> Filter -\>
+Output](#simple-input--%3E-filter--%3E-output)
+
+-   [Two input cases](#two-input-cases)
+
+[Input -\> Filter -\> Output with
+Label](#input--%3E-filter--%3E-output-with-label)
+
+[Re-route event by tag](#re-route-event-by-tag)
+
+[Re-route event by record content](#re-route-event-by-record-content)
+
+[Re-route event to other Label](#re-route-event-to-other-label)
+:::
+
+Simple Input -\> Filter -\> Output
+----------------------------------
+
+``` {.CodeRay}
+<source>
   @type forward
-&lt;/source&gt;
+</source>
 
-&lt;filter app.**&gt;
+<filter app.**>
   @type record_transformer
-  &lt;record&gt;
+  <record>
     hostname "#{Socket.gethostname}"
-  &lt;/record&gt;
-&lt;/filter&gt;
+  </record>
+</filter>
 
-&lt;match app.**&gt;
+<match app.**>
   @type file
   # ...
-&lt;/match&gt;
-</pre>
-<a name="two-input-cases"></a><h3>Two input cases</h3>
-<pre class="CodeRay">&lt;source&gt;
-  @type forward
-&lt;/source&gt;
+</match>
+```
 
-&lt;source&gt;
+[]{#two-input-cases}
+
+### Two input cases
+
+``` {.CodeRay}
+<source>
+  @type forward
+</source>
+
+<source>
   @type tail
   tag system.logs
   # ...
-&lt;/source&gt;
+</source>
 
-&lt;filter app.**&gt;
+<filter app.**>
   @type record_transformer
-  &lt;record&gt;
+  <record>
     hostname "#{Socket.gethostname}"
-  &lt;/record&gt;
-&lt;/filter&gt;
+  </record>
+</filter>
 
-&lt;match {app.**,system.logs}&gt;
+<match {app.**,system.logs}>
   @type file
   # ...
-&lt;/match&gt;
-</pre>
-<p>If you want to separate data pipeline for each sources, use Label.</p>
-<a name="input--&gt;-filter--&gt;-output-with-label"></a><h2>Input -&gt; Filter -&gt; Output with Label</h2>
-<p>Label reduces complex tag handling by separating data pipeline.</p>
-<pre class="CodeRay">&lt;source&gt;
+</match>
+```
+
+If you want to separate data pipeline for each sources, use Label.
+
+[]{#input-->-filter-->-output-with-label}
+
+Input -\> Filter -\> Output with Label
+--------------------------------------
+
+Label reduces complex tag handling by separating data pipeline.
+
+``` {.CodeRay}
+<source>
   @type forward
-&lt;/source&gt;
+</source>
 
-&lt;source&gt;
+<source>
   @type dstat
-  @label @METRICS # dstat events are routed to &lt;label @METRICS&gt;
+  @label @METRICS # dstat events are routed to <label @METRICS>
   # ...
-&lt;/source&gt;
+</source>
 
-&lt;filter app.**&gt;
+<filter app.**>
   @type record_transformer
-  &lt;record&gt;
+  <record>
     # ...
-  &lt;/record&gt;
-&lt;/filter&gt;
+  </record>
+</filter>
 
-&lt;match app.**&gt;
+<match app.**>
   @type file
   # ...
-&lt;/match&gt;
+</match>
 
-&lt;label @METRICS&gt;
-  &lt;match **&gt;
+<label @METRICS>
+  <match **>
     @type elasticsearch
     # ...
-  &lt;/match&gt;
-&lt;/label&gt;
-</pre>
-<a name="re-route-event-by-tag"></a><h2>Re-route event by tag</h2>
-<p>Use <a href="https://github.com/tagomoris/fluent-plugin-route">fluent-plugin-route</a> plugin. <code>route</code> plugin rewrites tag and re-emit events to other match or Label.</p>
-<pre class="CodeRay">&lt;match worker.**&gt;
+  </match>
+</label>
+```
+
+[]{#re-route-event-by-tag}
+
+Re-route event by tag
+---------------------
+
+Use
+[fluent-plugin-route](https://github.com/tagomoris/fluent-plugin-route)
+plugin. `route` plugin rewrites tag and re-emit events to other match or
+Label.
+
+``` {.CodeRay}
+<match worker.**>
   @type route
   remove_tag_prefix worker
   add_tag_prefix metrics.event
 
-  &lt;route **&gt;
+  <route **>
     copy # For fall-through. Without copy, routing is stopped here. 
-  &lt;/route&gt;
-  &lt;route **&gt;
+  </route>
+  <route **>
     copy
     @label @BACKUP
-  &lt;/route&gt;
-&lt;/match&gt;
+  </route>
+</match>
 
-&lt;match metrics.event.**&gt;
+<match metrics.event.**>
   @type stdout
-&lt;/match&gt;
+</match>
 
-&lt;label @BACKUP&gt;
-  &lt;match metrics.event.**&gt;
+<label @BACKUP>
+  <match metrics.event.**>
     @type file
     path /var/log/fluent/bakcup
-  &lt;/match&gt;
-&lt;/label&gt;
-</pre>
-<a name="re-route-event-by-record-content"></a><h2>Re-route event by record content</h2>
-<p>Use <a href="https://github.com/fluent/fluent-plugin-rewrite-tag-filter">fluent-plugin-rewrite-tag-filter</a>.</p>
-<pre class="CodeRay">&lt;source&gt;
+  </match>
+</label>
+```
+
+[]{#re-route-event-by-record-content}
+
+Re-route event by record content
+--------------------------------
+
+Use
+[fluent-plugin-rewrite-tag-filter](https://github.com/fluent/fluent-plugin-rewrite-tag-filter).
+
+``` {.CodeRay}
+<source>
   @type forward
-&lt;/source&gt;
+</source>
 
 # event example: app.logs {"message":"[info]: ..."}
-&lt;match app.**&gt;
+<match app.**>
   @type rewrite_tag_filter
   rewriterule1 message ^\[(\w+)\] $1.${tag}
-&lt;/match&gt;
+</match>
 
 # send mail when receives alert level logs
-&lt;match alert.app.**&gt;
+<match alert.app.**>
   @type mail
   # ...
-&lt;/match&gt;
+</match>
 
 # other logs are stored into file
-&lt;match *.app.**&gt;
+<match *.app.**>
   @type file
   # ...
-&lt;/match&gt;
-</pre>
-<p>See also <a href="out_rewrite_tag_filter">out_rewrite_tag_filter</a> article.</p>
-<a name="re-route-event-to-other-label"></a><h2>Re-route event to other Label</h2>
-<p>Use <a href="out_relabel">out_relabel</a> plugin. <code>relabel</code> plugin simply emits events to Label. No tag rewrite.</p>
-<pre class="CodeRay">&lt;source&gt;
-  @type forward
-&lt;/source&gt;
+</match>
+```
 
-&lt;match app.**&gt;
+See also [out\_rewrite\_tag\_filter](out_rewrite_tag_filter) article.
+
+[]{#re-route-event-to-other-label}
+
+Re-route event to other Label
+-----------------------------
+
+Use [out\_relabel](out_relabel) plugin. `relabel` plugin simply emits
+events to Label. No tag rewrite.
+
+``` {.CodeRay}
+<source>
+  @type forward
+</source>
+
+<match app.**>
   @type copy
-  &lt;store&gt;
+  <store>
     @type forward
     # ...
-  &lt;/store&gt;
-  &lt;store&gt;
+  </store>
+  <store>
     @type relabel
     @label @NOTIFICATION
-  &lt;/store&gt;
-&lt;/match&gt;
+  </store>
+</match>
 
-&lt;label @NOTIFICATION&gt;
-  &lt;filter app.**&gt;
+<label @NOTIFICATION>
+  <filter app.**>
     @type grep
     regexp1 message ERROR
-  &lt;/filter&gt;
+  </filter>
 
-  &lt;match app.**&gt;
+  <match app.**>
     @type mail
-  &lt;/match&gt;
-&lt;/label&gt;
-</pre>
-<div style="text-align:right">
-  Last updated: 2016-12-08 02:03:30 UTC
-  </div>
-<hr size="1" style="margin-top: 10px; margin-bottom: 10px; color: rgba(0, 0, 0, .15);"/>
-<div style="text-align:right">
-Versions 
-  
-    
-    | <a href="/v1.0/articles/routing-examples">v1.0 (td-agent3)</a>
-    
-  
+  </match>
+</label>
+```
 
-  
+::: {style="text-align:right"}
+Last updated: 2016-12-08 02:03:30 UTC
+:::
 
-  
-    
-    | <b><i>v0.12</i> (td-agent2)<b>
-</b></b>
-</div>
-<hr size="1" style="margin-top: 10px; margin-bottom: 10px; color: rgba(0, 0, 0, .15);"/>
-<p>
-    If this article is incorrect or outdated, or omits critical information, please <a href="https://github.com/fluent/fluentd-docs/issues?state=open">let us know</a>. <a href="http://www.fluentd.org/">Fluentd</a> is a  open source project under <a href="https://cncf.io/">Cloud Native Computing Foundation (CNCF)</a>. All components are available under the Apache 2 License.
-  </p>
+------------------------------------------------------------------------
+
+::: {style="text-align:right"}
+Versions \| [v1.0 (td-agent3)](/v1.0/articles/routing-examples) \|
+***v0.12* (td-agent2) **
+:::
+
+------------------------------------------------------------------------
+
+If this article is incorrect or outdated, or omits critical information,
+please [let us
+know](https://github.com/fluent/fluentd-docs/issues?state=open).
+[Fluentd](http://www.fluentd.org/) is a open source project under [Cloud
+Native Computing Foundation (CNCF)](https://cncf.io/). All components
+are available under the Apache 2 License.
