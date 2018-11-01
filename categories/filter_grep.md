@@ -1,25 +1,3 @@
-<section id="main">
-<div id="page">
-<div class="topic_content">
-<article>
-<div style="text-align:right">
-<div style="text-align:right">
-Versions 
-  
-    
-    | <a href="/v1.0/articles/filter_grep">v1.0 (td-agent3)</a>
-    
-  
-
-  
-
-  
-    
-    | <b><i>v0.12</i> (td-agent2)<b>
-</b></b>
-</div>
-</div>
-<hr size="1" style="margin-top: 10px; margin-bottom: 10px; color: rgba(0, 0, 0, .15);"/>
 <hgroup>
 <h1>grep Filter Plugin</h1>
 </hgroup>
@@ -180,9 +158,3 @@ Versions
 <p>
     If this article is incorrect or outdated, or omits critical information, please <a href="https://github.com/fluent/fluentd-docs/issues?state=open">let us know</a>. <a href="http://www.fluentd.org/">Fluentd</a> is a  open source project under <a href="https://cncf.io/">Cloud Native Computing Foundation (CNCF)</a>. All components are available under the Apache 2 License.
   </p>
-</article>
-</div>
-<!-- /#topic_content -->
-</div>
-<!-- /#page -->
-</section>

@@ -1,6 +1,3 @@
-<section id="main">
-<div id="page">
-<div class="topic_content">
 <hgroup>
 <h1>Recipes</h1>
 </hgroup>
@@ -97,8 +94,3 @@
 <li><a href="/v0.12/articles/recipe-csv-to-s3">Recipe CSV To S3</a></li>
 </ul>
 </div>
-</div>
-<!-- /#topic_content -->
-</div>
-<!-- /#page -->
-</section>

@@ -1,6 +1,3 @@
-<section id="main">
-<div id="page">
-<div class="topic_content">
 <hgroup>
 <h1>Stream Processing</h1>
 </hgroup>
@@ -16,8 +13,3 @@
 <li><a href="/v0.12/articles/cep-norikra">Fluentd and Norikra: Complex Event Processing</a></li>
 </ul>
 </div>
-</div>
-<!-- /#topic_content -->
-</div>
-<!-- /#page -->
-</section>

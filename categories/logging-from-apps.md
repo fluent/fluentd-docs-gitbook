@@ -1,6 +1,3 @@
-<section id="main">
-<div id="page">
-<div class="topic_content">
 <hgroup>
 <h1>Centralized App Logging</h1>
 </hgroup>
@@ -28,8 +25,3 @@
 <li><a href="/v0.12/articles/scala">Centralize Logs from Scala Applications</a></li>
 </ul>
 </div>
-</div>
-<!-- /#topic_content -->
-</div>
-<!-- /#page -->
-</section>

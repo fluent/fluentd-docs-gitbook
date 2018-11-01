@@ -1,6 +1,3 @@
-<section id="main">
-<div id="page">
-<div class="topic_content">
 <hgroup>
 <h1>Installation</h1>
 </hgroup>
@@ -37,8 +34,3 @@
 <li><a href="/v0.12/articles/install-on-beanstalk">Installing Fluentd on AWS Elastic Beanstalk</a></li>
 </ul>
 </div>
-</div>
-<!-- /#topic_content -->
-</div>
-<!-- /#page -->
-</section>

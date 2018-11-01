@@ -1,6 +1,3 @@
-<section id="main">
-<div id="page">
-<div class="topic_content">
 <hgroup>
 <h1>Connecting to Data Storages</h1>
 </hgroup>
@@ -19,8 +16,3 @@
 <li><a href="/v0.12/articles/collect-glusterfs-logs">Collecting GlusterFS Logs</a></li>
 </ul>
 </div>
-</div>
-<!-- /#topic_content -->
-</div>
-<!-- /#page -->
-</section>
