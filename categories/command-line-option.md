@@ -127,16 +127,12 @@ Send to other machine:
 % echo '{"message":"hello"}' | fluent-cat debug.log --host testserver --port 24225
 ```
 
-::: {style="text-align:right"}
 Last updated: 2017-01-25 02:58:15 UTC
-:::
 
 ------------------------------------------------------------------------
 
-::: {style="text-align:right"}
 Versions \| [v1.0 (td-agent3)](/v1.0/articles/command-line-option) \|
 ***v0.12* (td-agent2) **
-:::
 
 ------------------------------------------------------------------------
 

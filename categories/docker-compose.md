@@ -6,10 +6,8 @@ logs to EFK (Elasticsearch + Fluentd + Kibana) stack. The example uses
 [Docker Compose](https://docs.docker.com/compose/) for setting up
 multiple containers.
 
-![](/images/kibana5-screenshot.png){width="90%"}\
+![](/images/kibana5-screenshot.png){width="90%"}
 
-\
-\
 
 [Elasticsearch](https://www.elastic.co/products/elasticsearch) is an
 open source search engine known for its ease of use.
@@ -218,16 +216,10 @@ to `Index name or pattern` and press `Create` button.
 
 ![](/images/efk-kibana-1.png){width="100%"}\
 
-\
-\
-
 Then, go to `Discover` tab to seek for the logs. As you can see, logs
 are properly collected into Elasticsearch + Kibana, via Fluentd.
 
 ![](/images/efk-kibana-2.png){width="100%"}\
-
-\
-\
 
 []{#conclusion}
 

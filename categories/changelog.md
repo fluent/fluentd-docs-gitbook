@@ -24,16 +24,12 @@ td-agent ChangeLog
 td-agent's ChangeLog can be found
 [here](http://docs.treasuredata.com/articles/td-agent-changelog).
 
-::: {style="text-align:right"}
 Last updated: 2016-06-06 04:47:13 UTC
-:::
 
 ------------------------------------------------------------------------
 
-::: {style="text-align:right"}
 Versions \| [v1.0 (td-agent3)](/v1.0/articles/changelog) \| ***v0.12*
 (td-agent2) **
-:::
 
 ------------------------------------------------------------------------
 

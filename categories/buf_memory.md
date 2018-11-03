@@ -63,16 +63,12 @@ If true, queued chunks are flushed at shutdown process. The default is
 The interval between retries. The suffixes "s" (seconds), "m" (minutes),
 and "h" (hours) can be used.
 
-::: {style="text-align:right"}
 Last updated: 2016-10-21 06:29:58 UTC
-:::
 
 ------------------------------------------------------------------------
 
-::: {style="text-align:right"}
 Versions \| [v1.0 (td-agent3)](/v1.0/articles/buf_memory) \| ***v0.12*
 (td-agent2) **
-:::
 
 ------------------------------------------------------------------------
 

@@ -20,9 +20,6 @@ first.
 [What is Fluentd?](/articles/architecture)
 :::
 
-\
-\
-
 []{#prerequisites}
 
 ::: {#table-of-contents .section}

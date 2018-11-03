@@ -8,9 +8,6 @@ one of its ideal use cases.
 
 ![](/images/raspberry-pi-cloud-data-logger.png){width="400px"}
 
-\
-\
-
 This article introduces how to transport sensor data from Raspberry Pi
 to the cloud, using Fluentd as the data collector. For the cloud side,
 we'll use the [Treasure Data](http://www.fluentd.org/treasuredata) cloud
@@ -20,10 +17,6 @@ place.
 ::: {.btn-look style="width: 300px;"}
 [What is Fluentd?](/articles/architecture)
 :::
-
-\
-\
-\
 
 []{#install-raspbian}
 

@@ -4,16 +4,12 @@ Bug Tracking
 [Github Issues](https://github.com/fluent/fluentd/issues) is used for
 tracking bugs. Please report any bugs or send pull requests here.
 
-::: {style="text-align:right"}
 Last updated: 2016-06-06 04:47:13 UTC
-:::
 
 ------------------------------------------------------------------------
 
-::: {style="text-align:right"}
 Versions \| [v1.0 (td-agent3)](/v1.0/articles/bug-tracking) \| ***v0.12*
 (td-agent2) **
-:::
 
 ------------------------------------------------------------------------
 
