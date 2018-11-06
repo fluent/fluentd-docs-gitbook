@@ -1,6 +1,3 @@
-
-
-
 Monitoring Fluentd (Prometheus)
 ===============================
 

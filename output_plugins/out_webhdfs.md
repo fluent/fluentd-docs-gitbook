@@ -1,6 +1,3 @@
-
-
-
 HDFS (WebHDFS) Output Plugin
 ============================
 

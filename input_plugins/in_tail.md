@@ -1,6 +1,3 @@
-
-
-
 tail Input Plugin
 =================
 

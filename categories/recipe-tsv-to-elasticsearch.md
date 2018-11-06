@@ -1,6 +1,3 @@
-
-
-
 Getting Data From Tsv Into Elasticsearch Using Fluentd
 ======================================================
 

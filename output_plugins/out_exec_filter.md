@@ -1,6 +1,3 @@
-
-
-
 exec\_filter Output Plugin
 ==========================
 

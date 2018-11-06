@@ -1,6 +1,3 @@
-
-
-
 UDP Input Plugin
 ================
 

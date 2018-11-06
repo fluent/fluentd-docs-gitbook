@@ -1,6 +1,3 @@
-
-
-
 Collecting Log Data from Windows
 ================================
 

@@ -1,6 +1,3 @@
-
-
-
 Getting Data From Nginx Into S3 Using Fluentd
 =============================================
 

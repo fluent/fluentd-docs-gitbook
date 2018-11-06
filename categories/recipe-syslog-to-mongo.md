@@ -1,6 +1,3 @@
-
-
-
 Getting Data From Syslog Into Mongo Using Fluentd
 =================================================
 

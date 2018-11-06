@@ -1,6 +1,3 @@
-
-
-
 Getting Data From Nginx Into Treasure Data Using Fluentd
 ========================================================
 

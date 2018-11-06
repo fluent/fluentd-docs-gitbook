@@ -1,6 +1,3 @@
-
-
-
 forward Output Plugin
 =====================
 

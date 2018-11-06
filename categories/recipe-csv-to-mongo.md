@@ -1,6 +1,3 @@
-
-
-
 Getting Data From Csv Into Mongo Using Fluentd
 ==============================================
 

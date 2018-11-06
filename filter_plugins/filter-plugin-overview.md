@@ -1,6 +1,3 @@
-
-
-
 Filter Plugin Overview
 ======================
 

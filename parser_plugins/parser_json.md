@@ -1,6 +1,3 @@
-
-
-
 json Parser Plugin
 ==================
 

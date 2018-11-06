@@ -1,6 +1,3 @@
-
-
-
 stdout Output Plugin
 ====================
 

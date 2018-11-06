@@ -1,6 +1,3 @@
-
-
-
 Collecting GlusterFS Logs with Fluentd
 ======================================
 

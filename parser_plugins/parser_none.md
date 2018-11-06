@@ -1,6 +1,3 @@
-
-
-
 none Parser Plugin
 ==================
 

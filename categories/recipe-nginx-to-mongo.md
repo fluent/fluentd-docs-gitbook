@@ -1,6 +1,3 @@
-
-
-
 Getting Data From Nginx Into Mongo Using Fluentd
 ================================================
 

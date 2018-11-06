@@ -1,6 +1,3 @@
-
-
-
 Apache Kafka Output Plugin
 ==========================
 

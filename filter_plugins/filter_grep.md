@@ -1,6 +1,3 @@
-
-
-
 grep Filter Plugin
 ==================
 

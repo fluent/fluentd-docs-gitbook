@@ -1,6 +1,3 @@
-
-
-
 Before Installing Fluentd
 =========================
 

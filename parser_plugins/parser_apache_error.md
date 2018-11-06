@@ -1,6 +1,3 @@
-
-
-
 apache\_error Parser Plugin
 ===========================
 

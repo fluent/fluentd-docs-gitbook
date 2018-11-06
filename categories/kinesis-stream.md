@@ -1,6 +1,3 @@
-
-
-
 Collect Log Files into Kinesis Stream in Real-Time
 ==================================================
 

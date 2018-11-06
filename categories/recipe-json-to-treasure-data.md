@@ -1,6 +1,3 @@
-
-
-
 Getting Data From Json Into Treasure Data Using Fluentd
 =======================================================
 

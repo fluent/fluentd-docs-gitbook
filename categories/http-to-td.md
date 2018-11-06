@@ -1,6 +1,3 @@
-
-
-
 Cloud Big Data Analytics with Treasure Data
 ===========================================
 

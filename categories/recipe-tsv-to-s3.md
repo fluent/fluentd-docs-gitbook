@@ -1,6 +1,3 @@
-
-
-
 Getting Data From Tsv Into S3 Using Fluentd
 ===========================================
 

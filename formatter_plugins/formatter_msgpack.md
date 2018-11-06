@@ -1,6 +1,3 @@
-
-
-
 msgpack Formatter Plugin
 ========================
 

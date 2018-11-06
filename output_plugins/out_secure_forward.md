@@ -1,6 +1,3 @@
-
-
-
 Secure Forward Output Plugin
 ============================
 

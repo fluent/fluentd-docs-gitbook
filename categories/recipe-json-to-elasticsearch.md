@@ -1,6 +1,3 @@
-
-
-
 Getting Data From Json Into Elasticsearch Using Fluentd
 =======================================================
 

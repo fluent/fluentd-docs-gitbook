@@ -1,6 +1,3 @@
-
-
-
 Getting Data From Syslog Into S3 Using Fluentd
 ==============================================
 

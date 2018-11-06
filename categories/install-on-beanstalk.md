@@ -1,6 +1,3 @@
-
-
-
 Installing Fluentd (td-agent) on Elastic Beanstalk
 ==================================================
 

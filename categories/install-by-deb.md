@@ -1,6 +1,3 @@
-
-
-
 Installing Fluentd Using deb Package
 ====================================
 

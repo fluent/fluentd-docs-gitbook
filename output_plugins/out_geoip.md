@@ -1,6 +1,3 @@
-
-
-
 GeoIP Output Plugin
 ===================
 

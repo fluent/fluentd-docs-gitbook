@@ -1,6 +1,3 @@
-
-
-
 Multiprocess Input Plugin
 =========================
 

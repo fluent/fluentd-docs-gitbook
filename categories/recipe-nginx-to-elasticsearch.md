@@ -1,6 +1,3 @@
-
-
-
 Getting Data From Nginx Into Elasticsearch Using Fluentd
 ========================================================
 

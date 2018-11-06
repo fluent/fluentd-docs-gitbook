@@ -1,6 +1,3 @@
-
-
-
 Getting Data From Csv Into Elasticsearch Using Fluentd
 ======================================================
 

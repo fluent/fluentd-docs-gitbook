@@ -1,6 +1,3 @@
-
-
-
 copy Output Plugin
 ==================
 

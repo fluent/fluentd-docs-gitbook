@@ -1,6 +1,3 @@
-
-
-
 Fluentd and Norikra: Complex Event Processing
 =============================================
 

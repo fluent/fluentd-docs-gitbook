@@ -1,6 +1,3 @@
-
-
-
 null Output Plugin
 ==================
 

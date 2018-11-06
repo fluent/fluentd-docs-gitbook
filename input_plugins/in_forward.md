@@ -1,6 +1,3 @@
-
-
-
 forward Input Plugin
 ====================
 

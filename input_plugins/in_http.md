@@ -1,6 +1,3 @@
-
-
-
 http Input Plugin
 =================
 

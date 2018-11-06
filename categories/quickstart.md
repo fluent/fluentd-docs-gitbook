@@ -1,6 +1,3 @@
-
-
-
 Quickstart Guide
 ================
 

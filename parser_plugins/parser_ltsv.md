@@ -1,6 +1,3 @@
-
-
-
 LTSV Parser Plugin
 ==================
 

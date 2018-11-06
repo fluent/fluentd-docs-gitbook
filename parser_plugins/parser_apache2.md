@@ -1,6 +1,3 @@
-
-
-
 apache2 Parser Plugin
 =====================
 

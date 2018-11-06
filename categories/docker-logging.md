@@ -1,6 +1,3 @@
-
-
-
 Docker Logging Driver and Fluentd
 =================================
 

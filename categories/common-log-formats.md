@@ -1,6 +1,3 @@
-
-
-
 Common Log Formats and How To Parse Them
 ========================================
 

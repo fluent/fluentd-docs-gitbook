@@ -1,6 +1,3 @@
-
-
-
 exec Input Plugin
 =================
 

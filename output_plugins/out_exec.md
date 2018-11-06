@@ -1,6 +1,3 @@
-
-
-
 exec Output Plugin
 ==================
 

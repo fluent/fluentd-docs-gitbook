@@ -1,6 +1,3 @@
-
-
-
 nginx Parser Plugin
 ===================
 

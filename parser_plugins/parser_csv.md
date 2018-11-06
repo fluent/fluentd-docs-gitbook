@@ -1,6 +1,3 @@
-
-
-
 CSV Parser Plugin
 =================
 

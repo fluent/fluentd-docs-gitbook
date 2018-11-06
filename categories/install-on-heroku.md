@@ -1,6 +1,3 @@
-
-
-
 Install Fluentd (td-agent) on Heroku
 ====================================
 

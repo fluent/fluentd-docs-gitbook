@@ -1,6 +1,3 @@
-
-
-
 Cloud Data Logger by Raspberry Pi
 =================================
 

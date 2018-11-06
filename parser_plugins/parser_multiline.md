@@ -1,6 +1,3 @@
-
-
-
 multiline Parser Plugin
 =======================
 

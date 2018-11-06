@@ -1,6 +1,3 @@
-
-
-
 Getting Data From Tsv Into Treasure Data Using Fluentd
 ======================================================
 

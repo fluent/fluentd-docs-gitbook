@@ -1,6 +1,3 @@
-
-
-
 Plugin Management
 =================
 

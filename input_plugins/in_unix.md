@@ -1,6 +1,3 @@
-
-
-
 Unix Domain Socket Input Plugin
 ===============================
 

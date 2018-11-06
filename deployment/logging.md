@@ -1,6 +1,3 @@
-
-
-
 Logging of Fluentd
 ==================
 

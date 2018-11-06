@@ -1,6 +1,3 @@
-
-
-
 Centralize Logs from Ruby Applications
 ======================================
 

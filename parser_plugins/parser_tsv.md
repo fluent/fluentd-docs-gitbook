@@ -1,6 +1,3 @@
-
-
-
 TSV Parser Plugin
 =================
 

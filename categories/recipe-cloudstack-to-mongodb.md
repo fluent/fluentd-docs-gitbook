@@ -1,6 +1,3 @@
-
-
-
 Storing CloudStack Logs into MongoDB
 ====================================
 

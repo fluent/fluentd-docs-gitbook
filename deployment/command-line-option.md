@@ -1,6 +1,3 @@
-
-
-
 Fluentd command line option
 ===========================
 

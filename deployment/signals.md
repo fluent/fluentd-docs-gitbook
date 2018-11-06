@@ -1,6 +1,3 @@
-
-
-
 Fluentd's Signal Handling
 =========================
 

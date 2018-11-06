@@ -1,6 +1,3 @@
-
-
-
 Free Alternative to Splunk Using Fluentd
 ========================================
 

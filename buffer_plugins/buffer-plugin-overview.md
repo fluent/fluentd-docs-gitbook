@@ -1,6 +1,3 @@
-
-
-
 Buffer Plugin Overview
 ======================
 

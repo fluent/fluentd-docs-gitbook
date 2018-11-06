@@ -1,6 +1,3 @@
-
-
-
 Configuration File Syntax
 =========================
 

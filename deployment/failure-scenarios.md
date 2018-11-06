@@ -1,6 +1,3 @@
-
-
-
 Failure Scenarios
 =================
 

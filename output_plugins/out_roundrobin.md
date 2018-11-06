@@ -1,6 +1,3 @@
-
-
-
 roundrobin Output Plugin
 ========================
 

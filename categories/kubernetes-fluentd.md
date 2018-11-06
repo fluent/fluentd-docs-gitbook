@@ -1,6 +1,3 @@
-
-
-
 Kubernetes Logging with Fluentd
 ===============================
 

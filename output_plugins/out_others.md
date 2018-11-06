@@ -1,6 +1,3 @@
-
-
-
 Other Output Plugins
 ====================
 

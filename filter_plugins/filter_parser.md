@@ -1,6 +1,3 @@
-
-
-
 parser Filter Plugin
 ====================
 

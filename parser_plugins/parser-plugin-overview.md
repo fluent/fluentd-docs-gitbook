@@ -1,6 +1,3 @@
-
-
-
 Parser Plugin Overview
 ======================
 

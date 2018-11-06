@@ -1,6 +1,3 @@
-
-
-
 Getting Data From Apache Logs Into S3 Using Fluentd
 ===================================================
 

@@ -1,6 +1,3 @@
-
-
-
 file Buffer Plugin
 ==================
 

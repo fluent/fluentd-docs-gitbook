@@ -1,6 +1,3 @@
-
-
-
 Writing plugins
 ===============
 

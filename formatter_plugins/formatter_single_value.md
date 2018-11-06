@@ -1,6 +1,3 @@
-
-
-
 single\_value Formatter Plugin
 ==============================
 

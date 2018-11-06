@@ -1,6 +1,3 @@
-
-
-
 Forwarding Data Over SSL
 ========================
 

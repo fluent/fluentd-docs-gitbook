@@ -1,6 +1,3 @@
-
-
-
 ltsv Formatter Plugin
 =====================
 

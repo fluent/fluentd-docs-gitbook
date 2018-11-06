@@ -1,6 +1,3 @@
-
-
-
 Getting Data From Json Into S3 Using Fluentd
 ============================================
 

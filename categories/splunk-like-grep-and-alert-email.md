@@ -1,6 +1,3 @@
-
-
-
 Splunk-like Grep-and-Alert-Email System Using Fluentd
 =====================================================
 

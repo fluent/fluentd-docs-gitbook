@@ -1,6 +1,3 @@
-
-
-
 csv Formatter Plugin
 ====================
 

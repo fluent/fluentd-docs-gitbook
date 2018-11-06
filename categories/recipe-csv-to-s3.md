@@ -1,6 +1,3 @@
-
-
-
 Getting Data From Csv Into S3 Using Fluentd
 ===========================================
 

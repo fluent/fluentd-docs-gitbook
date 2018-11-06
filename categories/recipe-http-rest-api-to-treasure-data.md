@@ -1,6 +1,3 @@
-
-
-
 Getting Data From Http Rest Api Into Treasure Data Using Fluentd
 ================================================================
 

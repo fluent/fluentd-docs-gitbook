@@ -1,6 +1,3 @@
-
-
-
 TCP Input Plugin
 ================
 

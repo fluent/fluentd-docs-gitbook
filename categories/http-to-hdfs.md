@@ -1,6 +1,3 @@
-
-
-
 Fluentd + HDFS: Instant Big Data Collection
 ===========================================
 

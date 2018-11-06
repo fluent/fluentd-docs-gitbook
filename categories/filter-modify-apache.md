@@ -1,6 +1,3 @@
-
-
-
 Easy Data Stream Manipulation using Fluentd
 ===========================================
 

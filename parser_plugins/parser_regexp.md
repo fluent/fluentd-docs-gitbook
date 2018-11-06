@@ -1,6 +1,3 @@
-
-
-
 regexp Parser Plugin
 ====================
 

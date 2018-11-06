@@ -1,6 +1,3 @@
-
-
-
 Text Formatter Overview
 =======================
 

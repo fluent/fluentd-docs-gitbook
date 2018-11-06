@@ -1,6 +1,3 @@
-
-
-
 syslog Parser Plugin
 ====================
 

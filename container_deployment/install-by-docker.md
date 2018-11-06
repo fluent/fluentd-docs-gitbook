@@ -1,6 +1,3 @@
-
-
-
 Installing Fluentd with Docker
 ==============================
 

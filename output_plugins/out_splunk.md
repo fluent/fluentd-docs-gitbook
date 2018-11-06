@@ -1,6 +1,3 @@
-
-
-
 Splunk Enterprise and Splunk Cloud output plugin
 ================================================
 

@@ -1,6 +1,3 @@
-
-
-
 json Formatter Plugin
 =====================
 

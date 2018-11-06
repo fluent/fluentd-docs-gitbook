@@ -1,6 +1,3 @@
-
-
-
 Getting Data From Syslog Into Treasure Data Using Fluentd
 =========================================================
 

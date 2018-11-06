@@ -1,6 +1,3 @@
-
-
-
 Performance Tuning (Single Process)
 ===================================
 

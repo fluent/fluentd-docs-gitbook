@@ -1,6 +1,3 @@
-
-
-
 rewrite\_tag\_filter Output Plugin
 ==================================
 

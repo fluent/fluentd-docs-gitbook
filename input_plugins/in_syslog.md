@@ -1,6 +1,3 @@
-
-
-
 syslog Input Plugin
 ===================
 

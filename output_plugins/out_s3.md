@@ -1,6 +1,3 @@
-
-
-
 Amazon S3 Output Plugin
 =======================
 

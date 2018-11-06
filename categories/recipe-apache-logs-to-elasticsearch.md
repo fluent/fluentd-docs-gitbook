@@ -1,6 +1,3 @@
-
-
-
 Getting Data From Apache Logs Into Elasticsearch Using Fluentd
 ==============================================================
 

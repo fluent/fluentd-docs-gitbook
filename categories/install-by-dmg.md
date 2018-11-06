@@ -1,6 +1,3 @@
-
-
-
 Installing Fluentd using .dmg Installer (MacOS X)
 =================================================
 

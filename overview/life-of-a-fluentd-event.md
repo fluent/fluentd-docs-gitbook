@@ -1,6 +1,3 @@
-
-
-
 Life of a Fluentd event
 =======================
 

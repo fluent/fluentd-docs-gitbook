@@ -1,6 +1,3 @@
-
-
-
 record\_transformer Filter Plugin
 =================================
 

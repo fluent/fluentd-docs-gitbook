@@ -1,6 +1,3 @@
-
-
-
 Installing Fluentd Using Ruby Gem
 =================================
 

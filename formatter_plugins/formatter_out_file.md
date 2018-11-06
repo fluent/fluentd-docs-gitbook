@@ -1,6 +1,3 @@
-
-
-
 out\_file Formatter Plugin
 ==========================
 

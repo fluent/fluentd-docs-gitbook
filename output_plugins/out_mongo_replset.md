@@ -1,6 +1,3 @@
-
-
-
 MongoDB ReplicaSet Output Plugin
 ================================
 

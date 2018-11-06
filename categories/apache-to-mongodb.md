@@ -1,6 +1,3 @@
-
-
-
 Store Apache Logs into MongoDB
 ==============================
 

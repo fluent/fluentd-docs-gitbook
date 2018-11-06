@@ -1,6 +1,3 @@
-
-
-
 memory Buffer Plugin
 ====================
 

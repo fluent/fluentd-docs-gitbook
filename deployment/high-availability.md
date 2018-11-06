@@ -1,6 +1,3 @@
-
-
-
 Fluentd High Availability Configuration
 =======================================
 

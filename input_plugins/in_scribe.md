@@ -1,6 +1,3 @@
-
-
-
 scribe Input Plugin
 ===================
 
