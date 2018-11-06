@@ -175,8 +175,8 @@ write a plugin/extend the syslog plugin so that you can parse the
 Learn More
 ----------
 
--   [Fluentd Architecture](architecture)
--   [Fluentd Get Started](quickstart)
+-   [Fluentd Architecture](/articles/architecture)
+-   [Fluentd Get Started](/articles/quickstart)
 
 
 ------------------------------------------------------------------------

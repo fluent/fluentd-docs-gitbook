@@ -21,13 +21,13 @@ Step1: Installing Fluentd
 Please follow the installation/quickstart guides below that matches your
 environment.
 
--   [Install Fluentd by RPM package](articles/install-by-rpm) (Redhat Linux)
--   [Install Fluentd by Deb package](articles/install-by-deb) (Ubuntu/Debian
+-   [Install Fluentd by RPM package](/articles/install-by-rpm) (Redhat Linux)
+-   [Install Fluentd by Deb package](/articles/install-by-deb) (Ubuntu/Debian
     Linux)
--   [Install Fluentd by DMG package](articles/install-by-dmg) (Mac OS X)
--   [Install Fluentd by Ruby Gem](articles/install-by-gem)
--   [Install Fluentd by Chef](articles/install-by-chef)
--   [Install Fluentd from source](articles/install-from-source)
+-   [Install Fluentd by DMG package](/articles/install-by-dmg) (Mac OS X)
+-   [Install Fluentd by Ruby Gem](/articles/install-by-gem)
+-   [Install Fluentd by Chef](/articles/install-by-chef)
+-   [Install Fluentd from source](/articles/install-from-source)
 
 Fluentd v0.12 doesn\'t support Windows environment. Please see
 [Collecting Log Data from Windows](windows) for details. Fluentd v1.x
