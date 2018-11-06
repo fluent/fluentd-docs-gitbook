@@ -1,3 +1,15 @@
+::: {#main .section}
+::: {#page}
+::: {.topic_content}
+::: {style="text-align:right"}
+::: {style="text-align:right"}
+Versions \| [v1.0 (td-agent3)](/v1.0/articles/out_exec) \| ***v0.12*
+(td-agent2) **
+:::
+:::
+
+------------------------------------------------------------------------
+
 exec Output Plugin
 ==================
 
@@ -58,6 +70,9 @@ process is required.
   time_format %Y-%m-%d %H:%M:%S
 </match>
 ```
+:::
+:::
+:::
 
 Please see the [Config File](config-file) article for the basic
 structure and syntax of the configuration file.

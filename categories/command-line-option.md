@@ -1,3 +1,15 @@
+::: {#main .section}
+::: {#page}
+::: {.topic_content}
+::: {style="text-align:right"}
+::: {style="text-align:right"}
+Versions \| [v1.0 (td-agent3)](/v1.0/articles/command-line-option) \|
+***v0.12* (td-agent2) **
+:::
+:::
+
+------------------------------------------------------------------------
+
 Fluentd command line option
 ===========================
 
@@ -127,12 +139,16 @@ Send to other machine:
 % echo '{"message":"hello"}' | fluent-cat debug.log --host testserver --port 24225
 ```
 
+::: {style="text-align:right"}
 Last updated: 2017-01-25 02:58:15 UTC
+:::
 
 ------------------------------------------------------------------------
 
+::: {style="text-align:right"}
 Versions \| [v1.0 (td-agent3)](/v1.0/articles/command-line-option) \|
 ***v0.12* (td-agent2) **
+:::
 
 ------------------------------------------------------------------------
 
@@ -142,3 +158,6 @@ know](https://github.com/fluent/fluentd-docs/issues?state=open).
 [Fluentd](http://www.fluentd.org/) is a open source project under [Cloud
 Native Computing Foundation (CNCF)](https://cncf.io/). All components
 are available under the Apache 2 License.
+:::
+:::
+:::

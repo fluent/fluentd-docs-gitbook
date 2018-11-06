@@ -1,3 +1,15 @@
+::: {#main .section}
+::: {#page}
+::: {.topic_content}
+::: {style="text-align:right"}
+::: {style="text-align:right"}
+Versions \| [v1.0 (td-agent3)](/v1.0/articles/parser_multiline) \|
+***v0.12* (td-agent2) **
+:::
+:::
+
+------------------------------------------------------------------------
+
 multiline Parser Plugin
 =======================
 
@@ -8,6 +20,9 @@ The `multiline` parser parses log with `formatN` and `format_firstline`
 parameters. `format_firstline` is for detecting start line of multiline
 log. `formatN`, N's range is 1..20, is the list of Regexp format for
 multiline log.
+:::
+:::
+:::
 
 Unlike other parser plugins, this plugin needs special code in input
 plugin, e.g. handle format\_firstline. So currently, in\_tail plugin
@@ -179,7 +194,7 @@ record:
 ```
 
 ::: {style="text-align:right"}
-Last updated: 2018-10-19 00:26:13 +0000
+Last updated: 2018-11-06 18:16:45 +0000
 :::
 
 ------------------------------------------------------------------------

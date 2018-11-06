@@ -1,3 +1,15 @@
+::: {#main .section}
+::: {#page}
+::: {.topic_content}
+::: {style="text-align:right"}
+::: {style="text-align:right"}
+Versions \| [v1.0 (td-agent3)](/v1.0/articles/in_forward) \| ***v0.12*
+(td-agent2) **
+:::
+:::
+
+------------------------------------------------------------------------
+
 forward Input Plugin
 ====================
 
@@ -8,11 +20,14 @@ messages.
 This plugin is mainly used to receive event logs from other Fluentd
 instances, the fluent-cat command, or client libraries. This is by far
 the most efficient way to retrieve the records.
+:::
+:::
+:::
 
 Do **NOT** use this plugin for inter-DC or public internet data transfer
 without secure connections. To provide the reliable / low-latency
-transfer, we assume this plugin is only used within private networks.
-
+transfer, we assume this plugin is only used within private networks.\
+\
 If you open up the port of this plugin to the internet, the attacker can
 easily crash Fluentd by using the specific packet. If you require a
 secure connection between nodes, please consider using

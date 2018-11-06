@@ -1,3 +1,15 @@
+::: {#main .section}
+::: {#page}
+::: {.topic_content}
+::: {style="text-align:right"}
+::: {style="text-align:right"}
+Versions \| [v1.0 (td-agent3)](/v1.0/articles/life-of-a-fluentd-event)
+\| ***v0.12* (td-agent2) **
+:::
+:::
+
+------------------------------------------------------------------------
+
 Life of a Fluentd event
 =======================
 
@@ -335,3 +347,6 @@ know](https://github.com/fluent/fluentd-docs/issues?state=open).
 [Fluentd](http://www.fluentd.org/) is a open source project under [Cloud
 Native Computing Foundation (CNCF)](https://cncf.io/). All components
 are available under the Apache 2 License.
+:::
+:::
+:::

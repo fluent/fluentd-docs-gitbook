@@ -1,8 +1,22 @@
+::: {#main .section}
+::: {#page}
+::: {.topic_content}
+::: {style="text-align:right"}
+::: {style="text-align:right"}
+Versions \| ***v0.12* (td-agent2) **
+:::
+:::
+
+------------------------------------------------------------------------
+
 Secure Forward Output Plugin
 ============================
 
 The `out_secure_forward` output plugin sends messages via **SSL with
 authentication** (cf. [in\_secure\_forward](in_secure_forward)).
+:::
+:::
+:::
 
 This document doesn\'t describe all parameters. If you want to know full
 features, check the Further Reading section.

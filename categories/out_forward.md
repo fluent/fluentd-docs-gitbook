@@ -1,3 +1,15 @@
+::: {#main .section}
+::: {#page}
+::: {.topic_content}
+::: {style="text-align:right"}
+::: {style="text-align:right"}
+Versions \| [v1.0 (td-agent3)](/v1.0/articles/out_forward) \| ***v0.12*
+(td-agent2) **
+:::
+:::
+
+------------------------------------------------------------------------
+
 forward Output Plugin
 =====================
 
@@ -13,6 +25,9 @@ available automatically after a few seconds.
 
 The `out_forward` plugin supports at-most-once and at-least-once
 semantics. The default is at-most-once.
+:::
+:::
+:::
 
 Do **NOT** use this plugin for inter-DC or public internet data transfer
 without secure connections. All the data is not encrypted, and this

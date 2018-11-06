@@ -1,9 +1,24 @@
+::: {#main .section}
+::: {#page}
+::: {.topic_content}
+::: {style="text-align:right"}
+::: {style="text-align:right"}
+Versions \| [v1.0 (td-agent3)](/v1.0/articles/out_mongo_replset) \|
+***v0.12* (td-agent2) **
+:::
+:::
+
+------------------------------------------------------------------------
+
 MongoDB ReplicaSet Output Plugin
 ================================
 
 The `out_mongo_replset` Buffered Output plugin writes records into
 [MongoDB](http://mongodb.org/), the emerging document-oriented database
 system.
+:::
+:::
+:::
 
 This plugin is for users using ReplicaSet. If you are not using
 ReplicaSet, please see the [out\_mongo](out_mongo) article instead.

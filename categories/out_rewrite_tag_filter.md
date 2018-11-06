@@ -1,3 +1,15 @@
+::: {#main .section}
+::: {#page}
+::: {.topic_content}
+::: {style="text-align:right"}
+::: {style="text-align:right"}
+Versions \| [v1.0 (td-agent3)](/v1.0/articles/out_rewrite_tag_filter) \|
+***v0.12* (td-agent2) **
+:::
+:::
+
+------------------------------------------------------------------------
+
 rewrite\_tag\_filter Output Plugin
 ==================================
 
@@ -134,6 +146,9 @@ other matched record as new tag name.
   @type null
 </match>
 ```
+:::
+:::
+:::
 
 Please see the
 [README.md](https://github.com/fluent/fluent-plugin-rewrite-tag-filter)

@@ -1,3 +1,15 @@
+::: {#main .section}
+::: {#page}
+::: {.topic_content}
+::: {style="text-align:right"}
+::: {style="text-align:right"}
+Versions \| [v1.0 (td-agent3)](/v1.0/articles/buffer-plugin-overview) \|
+***v0.12* (td-agent2) **
+:::
+:::
+
+------------------------------------------------------------------------
+
 Buffer Plugin Overview
 ======================
 
@@ -47,8 +59,11 @@ records concatenated into a single blob. Chunks are periodically flushed
 to the output queue and then sent to the specified destination. Here is
 the diagram of how it works:
 
+<div>
+
 [![](/images/buffer-internal-and-parameters.png)](/images/buffer-internal-and-parameters.png)
 
+</div>
 
 []{#common-parameters}
 
@@ -214,12 +229,16 @@ List of Buffer Plugins
 -   [buf\_memory](buf_memory)
 -   [buf\_file](buf_file)
 
+::: {style="text-align:right"}
 Last updated: 2016-12-07 08:32:02 UTC
+:::
 
 ------------------------------------------------------------------------
 
+::: {style="text-align:right"}
 Versions \| [v1.0 (td-agent3)](/v1.0/articles/buffer-plugin-overview) \|
 ***v0.12* (td-agent2) **
+:::
 
 ------------------------------------------------------------------------
 
@@ -229,3 +248,6 @@ know](https://github.com/fluent/fluentd-docs/issues?state=open).
 [Fluentd](http://www.fluentd.org/) is a open source project under [Cloud
 Native Computing Foundation (CNCF)](https://cncf.io/). All components
 are available under the Apache 2 License.
+:::
+:::
+:::

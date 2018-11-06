@@ -1,3 +1,15 @@
+::: {#main .section}
+::: {#page}
+::: {.topic_content}
+::: {style="text-align:right"}
+::: {style="text-align:right"}
+Versions \| [v1.0 (td-agent3)](/v1.0/articles/in_tcp) \| ***v0.12*
+(td-agent2) **
+:::
+:::
+
+------------------------------------------------------------------------
+
 TCP Input Plugin
 ================
 
@@ -40,6 +52,9 @@ process is required.
   delimiter \n # optional. \n (newline) by default
 </source>
 ```
+:::
+:::
+:::
 
 Please see the [Config File](config-file) article for the basic
 structure and syntax of the configuration file.

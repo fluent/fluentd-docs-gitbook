@@ -1,3 +1,15 @@
+::: {#main .section}
+::: {#page}
+::: {.topic_content}
+::: {style="text-align:right"}
+::: {style="text-align:right"}
+Versions \| [v1.0 (td-agent3)](/v1.0/articles/config-file) \| ***v0.12*
+(td-agent2) **
+:::
+:::
+
+------------------------------------------------------------------------
+
 Configuration File Syntax
 =========================
 
@@ -168,6 +180,9 @@ a string separated by '.'s (e.g. myapp.access), and is used as the
 directions for Fluentd's internal routing engine. The time field is
 specified by input plugins, and it must be in the Unix time format. The
 record is a JSON object.
+:::
+:::
+:::
 
 Fluentd accepts all non-period characters as a part of a tag. However,
 since the tag is sometimes used in a different context by output

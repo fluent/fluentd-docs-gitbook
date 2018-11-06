@@ -1,14 +1,119 @@
-Monitoring
-==========
+::: {#main .section}
+::: {#page}
+::: {.topic_content}
+::: {style="text-align:right"}
+::: {style="text-align:right"}
+Versions \| [v1.0 (td-agent3)](/v1.0/articles/monitoring) \| ***v0.12*
+(td-agent2) **
+:::
+:::
 
+------------------------------------------------------------------------
 
-Articles
---------
+Monitoring Fluentd
+==================
 
--   [Monitoring Overview](/v0.12/articles/monitoring)
+This article desribes how to monitor Fluentd.
 
+[]{#fluentd-metrics-monitoring}
 
--   [Monitoring (Prometheus)](/v0.12/articles/monitoring-prometheus)
+::: {#table-of-contents .section}
+### Table of Contents
 
+-   [Fluentd Metrics Monitoring](#fluentd-metrics-monitoring)
+-   [Process Monitoring](#process-monitoring)
+-   [Port Monitoring](#port-monitoring)
+-   [Debug Port](#debug-port)
+:::
 
--   [Monitoring (REST API)](/v0.12/articles/monitoring-rest-api)
+Fluentd Metrics Monitoring
+--------------------------
+
+Fluentd can expose internal metrics via REST API, and works with
+monitoring tools such as [Prometheus](https://prometheus.io/),
+[Datadog](https://www.datadoghq.com/), etc. Our recommendation is to use
+Prometheus, since we will be collaborating more in the future under the
+[CNCF (Cloud Native Computing Foundation)](https://www.cncf.io/).
+
+-   [Monitoring Fluentd (Prometheus)](monitoring-prometheus)
+-   [Monitoring Fluentd
+    (Datadog)](https://docs.datadoghq.com/integrations/fluentd/)
+-   [Monitoring Fluentd (REST API)](monitoring-rest-api)
+
+[]{#process-monitoring}
+
+Process Monitoring
+------------------
+
+Two `ruby` processes (parent and child) are executed. Please make sure
+that these processes are running. The example for `td-agent` is shown
+below.
+
+``` {.CodeRay}
+/opt/td-agent/embedded/bin/ruby /usr/sbin/td-agent
+  --daemon /var/run/td-agent/td-agent.pid
+  --log /var/log/td-agent/td-agent.log
+```
+
+For td-agent on Linux, you can check the process statuses with the
+following command. Two processes should be shown if there are no issues.
+
+``` {.CodeRay}
+$ ps w -C ruby -C td-agent --no-heading
+32342 ?        Sl     0:00 /opt/td-agent/embedded/bin/ruby /usr/sbin/td-agent --daemon /var/run/td-agent/td-agent.pid --log /var/log/td-agent/td-agent.log
+32345 ?        Sl     0:01 /opt/td-agent/embedded/bin/ruby /usr/sbin/td-agent --daemon /var/run/td-agent/td-agent.pid --log /var/log/td-agent/td-agent.log
+```
+
+[]{#port-monitoring}
+
+Port Monitoring
+---------------
+
+Fluentd opens several ports according to the configuration file. We
+recommend checking the availability of these ports. The default port
+settings are shown below:
+
+-   TCP 0.0.0.0 9880 (HTTP by default)
+-   TCP 0.0.0.0 24224 (Forward by default)
+
+[]{#debug-port}
+
+Debug Port
+----------
+
+A debug port for local communication is recommended for trouble
+shooting. Please note that the configuration below will be required.
+
+``` {.CodeRay}
+<source>
+  @type debug_agent
+  bind 127.0.0.1
+  port 24230
+</source>
+```
+
+You can attach the process using the `fluent-debug` command through
+dRuby.
+
+::: {style="text-align:right"}
+Last updated: 2017-01-28 04:02:44 UTC
+:::
+
+------------------------------------------------------------------------
+
+::: {style="text-align:right"}
+Versions \| [v1.0 (td-agent3)](/v1.0/articles/monitoring) \| ***v0.12*
+(td-agent2) **
+:::
+
+------------------------------------------------------------------------
+
+If this article is incorrect or outdated, or omits critical information,
+please [let us
+know](https://github.com/fluent/fluentd-docs/issues?state=open).
+[Fluentd](http://www.fluentd.org/) is a open source project under [Cloud
+Native Computing Foundation (CNCF)](https://cncf.io/). All components
+are available under the Apache 2 License.
+:::
+:::
+:::

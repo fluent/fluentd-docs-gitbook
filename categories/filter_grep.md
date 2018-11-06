@@ -1,3 +1,15 @@
+::: {#main .section}
+::: {#page}
+::: {.topic_content}
+::: {style="text-align:right"}
+::: {style="text-align:right"}
+Versions \| [v1.0 (td-agent3)](/v1.0/articles/filter_grep) \| ***v0.12*
+(td-agent2) **
+:::
+:::
+
+------------------------------------------------------------------------
+
 grep Filter Plugin
 ==================
 
@@ -206,6 +218,9 @@ Here is `excludeN` version of `<exclude>` example:
 exclude1 status_code ^5\d\d$
 exclude2 url \.css$
 ```
+:::
+:::
+:::
 
 If `<regexp>` and `<exclude>` are used together, both are applied.
 

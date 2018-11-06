@@ -1,3 +1,14 @@
+::: {#main .section}
+::: {#page}
+::: {.topic_content}
+::: {style="text-align:right"}
+::: {style="text-align:right"}
+Versions \| ***v0.12* (td-agent2) **
+:::
+:::
+
+------------------------------------------------------------------------
+
 scribe Input Plugin
 ===================
 
@@ -48,6 +59,9 @@ Example Configuration
   msg_format json
 </source>
 ```
+:::
+:::
+:::
 
 Please see the [Config File](config-file) article for the basic
 structure and syntax of the configuration file.

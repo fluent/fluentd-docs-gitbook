@@ -1,3 +1,15 @@
+::: {#main .section}
+::: {#page}
+::: {.topic_content}
+::: {style="text-align:right"}
+::: {style="text-align:right"}
+Versions \| [v1.0 (td-agent3)](/v1.0/articles/logging) \| ***v0.12*
+(td-agent2) **
+:::
+:::
+
+------------------------------------------------------------------------
+
 Logging of Fluentd
 ==================
 
@@ -123,6 +135,9 @@ options should be set as follows:
 
 If you don't specify the `log_level` parameter, the plugin will use the
 global log level.
+:::
+:::
+:::
 
 Some plugins haven\'t supported per-plugin logging yet. The [logging
 section of the Plugin Development article](plugin-development#logging)

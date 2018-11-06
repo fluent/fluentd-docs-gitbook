@@ -1,3 +1,15 @@
+::: {#main .section}
+::: {#page}
+::: {.topic_content}
+::: {style="text-align:right"}
+::: {style="text-align:right"}
+Versions \| [v1.0 (td-agent3)](/v1.0/articles/formatter_hash) \|
+***v0.12* (td-agent2) **
+:::
+:::
+
+------------------------------------------------------------------------
+
 hash Formatter Plugin
 =====================
 
@@ -123,7 +135,7 @@ This incoming event is formatted to:
 ```
 
 ::: {style="text-align:right"}
-Last updated: 2018-10-18 18:33:38 +0000
+Last updated: 2018-11-06 18:17:11 +0000
 :::
 
 ------------------------------------------------------------------------
@@ -141,3 +153,6 @@ know](https://github.com/fluent/fluentd-docs/issues?state=open).
 [Fluentd](http://www.fluentd.org/) is a open source project under [Cloud
 Native Computing Foundation (CNCF)](https://cncf.io/). All components
 are available under the Apache 2 License.
+:::
+:::
+:::

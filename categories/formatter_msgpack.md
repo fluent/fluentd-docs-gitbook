@@ -1,3 +1,15 @@
+::: {#main .section}
+::: {#page}
+::: {.topic_content}
+::: {style="text-align:right"}
+::: {style="text-align:right"}
+Versions \| [v1.0 (td-agent3)](/v1.0/articles/formatter_msgpack) \|
+***v0.12* (td-agent2) **
+:::
+:::
+
+------------------------------------------------------------------------
+
 msgpack Formatter Plugin
 ========================
 
@@ -118,7 +130,7 @@ With `include_tag_key true` and `tag_key event_tag`, result is:
 ```
 
 ::: {style="text-align:right"}
-Last updated: 2018-10-18 23:38:54 +0000
+Last updated: 2018-11-06 18:17:08 +0000
 :::
 
 ------------------------------------------------------------------------
@@ -136,3 +148,6 @@ know](https://github.com/fluent/fluentd-docs/issues?state=open).
 [Fluentd](http://www.fluentd.org/) is a open source project under [Cloud
 Native Computing Foundation (CNCF)](https://cncf.io/). All components
 are available under the Apache 2 License.
+:::
+:::
+:::

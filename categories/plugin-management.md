@@ -1,3 +1,15 @@
+::: {#main .section}
+::: {#page}
+::: {.topic_content}
+::: {style="text-align:right"}
+::: {style="text-align:right"}
+Versions \| [v1.0 (td-agent3)](/v1.0/articles/plugin-management) \|
+***v0.12* (td-agent2) **
+:::
+:::
+
+------------------------------------------------------------------------
+
 Plugin Management
 =================
 
@@ -37,6 +49,9 @@ wrapper around the `gem` command.
 ``` {.CodeRay}
 fluent-gem install fluent-plugin-grep
 ```
+:::
+:::
+:::
 
 Ruby doesn\'t guarantee C extension API compatibility between its major
 versions. If you update Fluentd\'s Ruby version, you should re-install

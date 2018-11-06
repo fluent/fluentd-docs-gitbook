@@ -1,3 +1,15 @@
+::: {#main .section}
+::: {#page}
+::: {.topic_content}
+::: {style="text-align:right"}
+::: {style="text-align:right"}
+Versions \| [v1.0 (td-agent3)](/v1.0/articles/out_webhdfs) \| ***v0.12*
+(td-agent2) **
+:::
+:::
+
+------------------------------------------------------------------------
+
 HDFS (WebHDFS) Output Plugin
 ============================
 
@@ -7,6 +19,9 @@ hourly basis. This means that when you first import records using the
 plugin, no file is created immediately. The file will be created when
 the `time_slice_format` condition has been met. To change the output
 frequency, please modify the `time_slice_format` value.
+:::
+:::
+:::
 
 This document doesn\'t describe all parameters. If you want to know full
 features, check the Further Reading section.

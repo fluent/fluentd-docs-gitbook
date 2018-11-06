@@ -1,3 +1,14 @@
+::: {#main .section}
+::: {#page}
+::: {.topic_content}
+::: {style="text-align:right"}
+::: {style="text-align:right"}
+Versions \| ***v0.12* (td-agent2) **
+:::
+:::
+
+------------------------------------------------------------------------
+
 Collecting Log Data from Windows
 ================================
 
@@ -19,6 +30,9 @@ first.
 ::: {.btn-look style="width: 300px;"}
 [What is Fluentd?](/articles/architecture)
 :::
+
+\
+\
 
 []{#prerequisites}
 
@@ -229,3 +243,6 @@ know](https://github.com/fluent/fluentd-docs/issues?state=open).
 [Fluentd](http://www.fluentd.org/) is a open source project under [Cloud
 Native Computing Foundation (CNCF)](https://cncf.io/). All components
 are available under the Apache 2 License.
+:::
+:::
+:::

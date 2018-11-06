@@ -1,3 +1,15 @@
+::: {#main .section}
+::: {#page}
+::: {.topic_content}
+::: {style="text-align:right"}
+::: {style="text-align:right"}
+Versions \| [v1.0 (td-agent3)](/v1.0/articles/in_http) \| ***v0.12*
+(td-agent2) **
+:::
+:::
+
+------------------------------------------------------------------------
+
 http Input Plugin
 =================
 
@@ -52,6 +64,9 @@ process is required.
   keepalive_timeout 10s
 </source>
 ```
+:::
+:::
+:::
 
 Please see the [Config File](config-file) article for the basic
 structure and syntax of the configuration file.
@@ -234,7 +249,7 @@ properly or use multipart request. Here is ruby example:
 URI.encode_www_form({json: {"message" => "foo+bar"}.to_json})
 
 # NG
-"json=#{ {"message" => "foo+bar"}.to_json}"
+"json=#{{"message" => "foo+bar"}.to_json}"
 ```
 
 curl command example:

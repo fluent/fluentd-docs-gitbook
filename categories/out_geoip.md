@@ -1,8 +1,22 @@
+::: {#main .section}
+::: {#page}
+::: {.topic_content}
+::: {style="text-align:right"}
+::: {style="text-align:right"}
+Versions \| ***v0.12* (td-agent2) **
+:::
+:::
+
+------------------------------------------------------------------------
+
 GeoIP Output Plugin
 ===================
 
 The `out_geoip` Buffered Output plugin adds geographic location
 information to logs using the Maxmind GeoIP databases.
+:::
+:::
+:::
 
 This document doesn\'t describe all parameters. If you want to know full
 features, check the Further Reading section.

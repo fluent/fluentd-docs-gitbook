@@ -1,3 +1,14 @@
+::: {#main .section}
+::: {#page}
+::: {.topic_content}
+::: {style="text-align:right"}
+::: {style="text-align:right"}
+Versions \| ***v0.12* (td-agent2) **
+:::
+:::
+
+------------------------------------------------------------------------
+
 Unix Domain Socket Input Plugin
 ===============================
 
@@ -31,6 +42,9 @@ process is required.
   path /path/to/socket.sock
 </source>
 ```
+:::
+:::
+:::
 
 Please see the [Config File](config-file) article for the basic
 structure and syntax of the configuration file.

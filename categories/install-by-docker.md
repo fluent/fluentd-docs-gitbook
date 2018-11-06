@@ -1,3 +1,14 @@
+::: {#main .section}
+::: {#page}
+::: {.topic_content}
+::: {style="text-align:right"}
+::: {style="text-align:right"}
+Versions \| ***v0.12* (td-agent2) **
+:::
+:::
+
+------------------------------------------------------------------------
+
 Installing Fluentd with Docker
 ==============================
 
@@ -42,6 +53,9 @@ Then, please download Fluentd v0.12's image by `docker pull` command.
 ``` {.CodeRay}
 $ docker pull fluent/fluentd:v0.12-debian
 ```
+:::
+:::
+:::
 
 Debian and Alpine Linux version is available for Fluentd image. Debian
 version is recommended officially since it has jemalloc support, however

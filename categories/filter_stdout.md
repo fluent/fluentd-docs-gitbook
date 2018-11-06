@@ -1,3 +1,15 @@
+::: {#main .section}
+::: {#page}
+::: {.topic_content}
+::: {style="text-align:right"}
+::: {style="text-align:right"}
+Versions \| [v1.0 (td-agent3)](/v1.0/articles/filter_stdout) \|
+***v0.12* (td-agent2) **
+:::
+:::
+
+------------------------------------------------------------------------
+
 stdout Filter Plugin
 ====================
 
@@ -34,6 +46,9 @@ A sample output is as follows:
 
 where the first part shows the output time, the second part shows the
 tag, and the third part shows the record.
+:::
+:::
+:::
 
 The first part shows the \*\*output\*\* time, not the time attribute of
 message event structure as \`out\_stdout\` does.
