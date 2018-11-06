@@ -1,12 +1,5 @@
-::: {#main .section}
-::: {#page}
-::: {.topic_content}
-::: {style="text-align:right"}
-::: {style="text-align:right"}
-Versions \| ***v0.12* (td-agent2) **
-:::
-:::
 
+Versions \| ***v0.12* (td-agent2) **
 ------------------------------------------------------------------------
 
 Performance Tuning (Multi Process)
@@ -43,8 +36,6 @@ process](performance-tuning-single-process).
     have?](#how-many-processes-should-we-have?)
 
 [Fluentd v1.0 or Later](#fluentd-v1.0-or-later)
-:::
-
 2-Tier Process Topology
 -----------------------
 
@@ -52,8 +43,6 @@ In multi-process environment, we recommend to have the following 2-tier
 process topology within the same server.
 
 ![](/images/multi_process_topology.png){width="100%"}
-
-[]{#1st-tier:-input-processes}
 
 ### 1st Tier: Input Processes
 
@@ -66,8 +55,6 @@ In the config, it will be recommended to use shorter `flush_interval`
 (e.g. 1s) with smaller `buffer_chunk_size` (e.g. 1MB) to immediately
 forward incoming data to 2nd tier output processes.
 
-[]{#2nd-tier:-output-processes}
-
 ### 2nd Tier: Output Processes
 
 These process will be in charge for filter and output to your favorite
@@ -77,8 +64,6 @@ processes, by [in\_forward](in_forward).
 The output processes are shared across all input processes, by
 out\_forward's load balancing mechanism. In this way, you can simply add
 more output processes to handle more capacity across all inputs.
-
-[]{#reasons-behind-this-design}
 
 ### Reasons behind this Design
 
@@ -109,8 +94,6 @@ buffered and routed to different output processes automatically. Also
 crashed processes will be automaticlaly relaunched by supervisor
 process.
 
-[]{#example-configuration}
-
 Example Configuration
 ---------------------
 
@@ -127,8 +110,6 @@ Fluentd.
 $ bundle install
 $ bundle exec fluentd -c fluentd.conf
 ```
-
-[]{#files}
 
 ### Files
 
@@ -167,23 +148,17 @@ metrics to [Prometheus](https://prometheus.io/) monitoring system. The
 repository also has `./prometheus` directory, which contains example
 `prometheus.yml` configuration.
 
-[]{#how-to-add-input-processes?}
-
 ### How to add input processes?
 
 Please add `in_xyz.conf`. Please make sure you have `<match>` section,
 to forward incoming data to 2nd tier output processes. Finally, register
 the process in `fluentd.conf`.
 
-[]{#how-to-add-output-processes?}
-
 ### How to add output processes?
 
 Please add `out_N.conf`, and register the process in both
 `options_forward.conf` and `fluentd.conf` which list up all the output
 processes.
-
-[]{#how-many-processes-should-we-have?}
 
 ### How many processes should we have?
 
@@ -194,24 +169,16 @@ When you perform the benchmark, please carefully look at which processes
 are the bottleneck. Please add the processes depending on its resource
 usages.
 
-[]{#fluentd-v1.0-or-later}
-
 Fluentd v1.0 or Later
 ---------------------
 
 Fluentd v1.0 or later has native multi-process support. We recommend you
 to upgrade to simplify the config file if possible.
 
-::: {style="text-align:right"}
+
 Last updated: 2018-11-06 18:14:03 +0000
-:::
-
 ------------------------------------------------------------------------
-
-::: {style="text-align:right"}
 Versions \| ***v0.12* (td-agent2) **
-:::
-
 ------------------------------------------------------------------------
 
 If this article is incorrect or outdated, or omits critical information,
@@ -220,6 +187,3 @@ know](https://github.com/fluent/fluentd-docs/issues?state=open).
 [Fluentd](http://www.fluentd.org/) is a open source project under [Cloud
 Native Computing Foundation (CNCF)](https://cncf.io/). All components
 are available under the Apache 2 License.
-:::
-:::
-:::

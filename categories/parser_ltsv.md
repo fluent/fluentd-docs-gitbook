@@ -1,13 +1,6 @@
-::: {#main .section}
-::: {#page}
-::: {.topic_content}
-::: {style="text-align:right"}
-::: {style="text-align:right"}
+
 Versions \| [v1.0 (td-agent3)](/v1.0/articles/parser_ltsv) \| ***v0.12*
 (td-agent2) **
-:::
-:::
-
 ------------------------------------------------------------------------
 
 LTSV Parser Plugin
@@ -29,24 +22,16 @@ The `ltsv` parser plugin parses [LTSV](http://ltsv.org/) format.
 -   [types](#types)
 
 [Example](#example)
-:::
-
 Parameters
 ----------
-
-[]{#delimiter}
 
 ### delimiter
 
 Specify field delimiter. Default is `\t`.
 
-[]{#label_delimiter}
-
 ### label\_delimiter
 
 Specify key-value delimiter. Default is `:`.
-
-[]{#time_key}
 
 ### time\_key
 
@@ -54,8 +39,6 @@ Specify time field for event time. Default is `time`.
 
 If there is no time field in the record, this parser uses current time
 as an event time.
-
-[]{#time_format}
 
 ### time\_format
 
@@ -68,8 +51,6 @@ See
 [Time\#strptime](http://ruby-doc.org/stdlib-2.4.1/libdoc/time/rdoc/Time.html#method-c-strptime)
 for additional format information.
 
-[]{#null_value_pattern}
-
 ### null\_value\_pattern
 
 Specify null value pattern. Default is `nil`.
@@ -77,14 +58,10 @@ Specify null value pattern. Default is `nil`.
 If given field value is matched with this pattern, the field value is
 replaced with `nil`.
 
-[]{#null_empty_string}
-
 ### null\_empty\_string
 
 If `true`, empty string field is replaced with `nil`. Default is
 `false`.
-
-[]{#types}
 
 ### types
 
@@ -128,8 +105,6 @@ value "3,4,5", `types item_ids:array` parses it as \["3", "4", "5"\].
 Alternatively, if the value is "Adam\|Alice\|Bob",
 `types item_ids:array:|` parses it as \["Adam", "Alice", "Bob"\].
 
-[]{#example}
-
 Example
 -------
 
@@ -154,17 +129,11 @@ record:
 If you set `null_value_pattern '-'` in the configuration, `user` field
 becomes `nil` instead of `"-"`.
 
-::: {style="text-align:right"}
+
 Last updated: 2018-11-06 18:16:35 +0000
-:::
-
 ------------------------------------------------------------------------
-
-::: {style="text-align:right"}
 Versions \| [v1.0 (td-agent3)](/v1.0/articles/parser_ltsv) \| ***v0.12*
 (td-agent2) **
-:::
-
 ------------------------------------------------------------------------
 
 If this article is incorrect or outdated, or omits critical information,
@@ -173,6 +142,3 @@ know](https://github.com/fluent/fluentd-docs/issues?state=open).
 [Fluentd](http://www.fluentd.org/) is a open source project under [Cloud
 Native Computing Foundation (CNCF)](https://cncf.io/). All components
 are available under the Apache 2 License.
-:::
-:::
-:::

@@ -1,13 +1,6 @@
-::: {#main .section}
-::: {#page}
-::: {.topic_content}
-::: {style="text-align:right"}
-::: {style="text-align:right"}
+
 Versions \| [v1.0 (td-agent3)](/v1.0/articles/nodejs) \| ***v0.12*
 (td-agent2) **
-:::
-:::
-
 ------------------------------------------------------------------------
 
 Centralize Logs from Node.js Applications
@@ -39,16 +32,12 @@ This article explains how to use the fluent-logger-node library.
 -   [High-Availability Configurations of
     Fluentd](#high-availability-configurations-of-fluentd)
 -   [Monitoring](#monitoring)
-:::
-
 Prerequisites
 -------------
 
 -   Basic knowledge of Node.js and NPM
 -   Basic knowledge of Fluentd
 -   Node.js 0.6 or higher
-
-[]{#installing-fluentd}
 
 Installing Fluentd
 ------------------
@@ -59,8 +48,6 @@ Please refer to the following documents to install fluentd.
 -   [Install Fluentd with deb Package](install-by-deb)
 -   [Install Fluentd with Ruby Gem](install-by-gem)
 -   [Install Fluentd from source](install-from-source)
-
-[]{#modifying-the-config-file}
 
 Modifying the Config File
 -------------------------
@@ -85,19 +72,13 @@ Please restart your agent once these lines are in place.
 $ sudo /etc/init.d/td-agent restart
 ```
 
-[]{#using-fluent-logger-node}
-
 Using fluent-logger-node
 ------------------------
-
-[]{#obtaining-the-most-recent-version}
 
 ### Obtaining the Most Recent Version
 
 The most recent version of fluent-logger-node can be found
 [here](https://www.npmjs.com/package/fluent-logger).
-
-[]{#a-sample-application}
 
 ### A Sample Application
 
@@ -160,12 +141,8 @@ $ node index.js
 The logs should be output to `/var/log/td-agent/td-agent.log` or stdout
 of the Fluentd process via the [stdout Output plugin](out_stdout).
 
-[]{#production-deployments}
-
 Production Deployments
 ----------------------
-
-[]{#output-plugins}
 
 ### Output Plugins
 
@@ -184,8 +161,6 @@ writing records to other destinations:
     -   [Output to File](out_file)
     -   [etc...](http://fluentd.org/plugin/)
 
-[]{#high-availability-configurations-of-fluentd}
-
 ### High-Availability Configurations of Fluentd
 
 For high-traffic websites (more than 5 application nodes), we recommend
@@ -194,8 +169,6 @@ data transfer reliability and query performance.
 
 -   [High-Availability Configurations of Fluentd](high-availability)
 
-[]{#monitoring}
-
 ### Monitoring
 
 Monitoring Fluentd itself is also important. The article below describes
@@ -203,17 +176,11 @@ general monitoring methods for td-agent.
 
 -   [Monitoring Fluentd](monitoring)
 
-::: {style="text-align:right"}
+
 Last updated: 2017-01-30 13:27:02 UTC
-:::
-
 ------------------------------------------------------------------------
-
-::: {style="text-align:right"}
 Versions \| [v1.0 (td-agent3)](/v1.0/articles/nodejs) \| ***v0.12*
 (td-agent2) **
-:::
-
 ------------------------------------------------------------------------
 
 If this article is incorrect or outdated, or omits critical information,
@@ -222,6 +189,3 @@ know](https://github.com/fluent/fluentd-docs/issues?state=open).
 [Fluentd](http://www.fluentd.org/) is a open source project under [Cloud
 Native Computing Foundation (CNCF)](https://cncf.io/). All components
 are available under the Apache 2 License.
-:::
-:::
-:::

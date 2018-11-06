@@ -1,12 +1,5 @@
-::: {#main .section}
-::: {#page}
-::: {.topic_content}
-::: {style="text-align:right"}
-::: {style="text-align:right"}
-Versions \| ***v0.12* (td-agent2) **
-:::
-:::
 
+Versions \| ***v0.12* (td-agent2) **
 ------------------------------------------------------------------------
 
 Docker Logging via EFK (Elasticsearch + Fluentd + Kibana) Stack with Docker Compose
@@ -55,16 +48,12 @@ Fluentd.
     Kibana](#step-4:-confirm-logs-from-kibana)
 -   [Conclusion](#conclusion)
 -   [Learn More](#learn-more)
-:::
-
 Prerequisites: Docker
 ---------------------
 
 Please download and install Docker / Docker Compose. Well, that's it :)
 
 -   [Docker Installation](https://docs.docker.com/engine/installation/)
-
-[]{#step-0:-prepare-docker-compose.yml}
 
 Step 0: prepare docker-compose.yml
 ----------------------------------
@@ -124,8 +113,6 @@ default container logging driver. All of the logs from `web` container
 will be automatically forwarded to host:port specified by
 `fluentd-address`.
 
-[]{#step-1:-prepare-fluentd-image-with-your-config-+-plugin}
-
 Step 1: Prepare Fluentd image with your Config + Plugin
 -------------------------------------------------------
 
@@ -172,8 +159,6 @@ forwarding logs to Elasticsearch.
 </match>
 ```
 
-[]{#step-2:-start-containers}
-
 Step 2: Start Containers
 ------------------------
 
@@ -193,8 +178,6 @@ a1b15a7210f6        dockercomposeefk_fluentd   "/bin/sh -c 'exec ..."   About an
 01e43b191cc1        kibana                     "/docker-entrypoin..."   About an hour ago   Up 45 seconds       0.0.0.0:5601->5601/tcp                                         dockercomposeefk_kibana_1
 b7b439415898        elasticsearch              "/docker-entrypoin..."   About an hour ago   Up 50 seconds       0.0.0.0:9200->9200/tcp, 9300/tcp                               dockercomposeefk_elasticsearch_1
 ```
-
-[]{#step-3:-generate-httpd-access-logs}
 
 Step 3: Generate httpd Access Logs
 ----------------------------------
@@ -216,8 +199,6 @@ $ repeat 10 curl http://localhost:80/
 <html><body><h1>It works!</h1></body></html>
 ```
 
-[]{#step-4:-confirm-logs-from-kibana}
-
 Step 4: Confirm Logs from Kibana
 --------------------------------
 
@@ -238,8 +219,6 @@ are properly collected into Elasticsearch + Kibana, via Fluentd.
 \
 \
 
-[]{#conclusion}
-
 Conclusion
 ----------
 
@@ -249,8 +228,6 @@ this repository.
 
 -   <https://github.com/kzk/docker-compose-efk>
 
-[]{#learn-more}
-
 Learn More
 ----------
 
@@ -258,16 +235,10 @@ Learn More
 -   [Fluentd Get Started](quickstart)
 -   [Downloading Fluentd](http://www.fluentd.org/download)
 
-::: {style="text-align:right"}
+
 Last updated: 2017-02-10 20:45:52 UTC
-:::
-
 ------------------------------------------------------------------------
-
-::: {style="text-align:right"}
 Versions \| ***v0.12* (td-agent2) **
-:::
-
 ------------------------------------------------------------------------
 
 If this article is incorrect or outdated, or omits critical information,
@@ -276,6 +247,3 @@ know](https://github.com/fluent/fluentd-docs/issues?state=open).
 [Fluentd](http://www.fluentd.org/) is a open source project under [Cloud
 Native Computing Foundation (CNCF)](https://cncf.io/). All components
 are available under the Apache 2 License.
-:::
-:::
-:::

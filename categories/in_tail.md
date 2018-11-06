@@ -1,13 +1,6 @@
-::: {#main .section}
-::: {#page}
-::: {.topic_content}
-::: {style="text-align:right"}
-::: {style="text-align:right"}
+
 Versions \| [v1.0 (td-agent3)](/v1.0/articles/in_tail) \| ***v0.12*
 (td-agent2) **
-:::
-:::
-
 ------------------------------------------------------------------------
 
 tail Input Plugin
@@ -50,8 +43,6 @@ of text files. Its behavior is similar to the `tail -F` command.
 -   [logrotate setting](#logrotate-setting)
 -   [What happens when in\_tail receives
     BufferQueueLimitError?](#what-happens-when-in_tail-receives-bufferqueuelimiterror?)
-:::
-
 Example Configuration
 ---------------------
 
@@ -67,14 +58,8 @@ process is required.
   format apache2
 </source>
 ```
-:::
-:::
-:::
-
 Please see the [Config File](config-file) article for the basic
 structure and syntax of the configuration file.
-
-[]{#how-it-works}
 
 ### How it Works
 
@@ -86,18 +71,12 @@ structure and syntax of the configuration file.
     td-agent read before the restart. This position is recorded in the
     position file specified by the pos\_file parameter.
 
-[]{#parameters}
-
 Parameters
 ----------
-
-[]{#@type-(required)}
 
 ### \@type (required)
 
 The value must be `tail`.
-
-[]{#tag-(required)}
 
 ### tag (required)
 
@@ -113,8 +92,6 @@ tag foo.*
 ```
 
 in\_tail emits the parsed events with the 'foo.path.to.file' tag.
-
-[]{#path-(required)}
 
 ### path (required)
 
@@ -135,8 +112,6 @@ You should not use \'\*\' with log rotation because it may cause the log
 duplication. In such case, you should separate in\_tail plugin
 configuration.
 
-[]{#exclude_path}
-
 ### exclude\_path
 
 The paths to exclude the files from watcher list. For example, if you
@@ -147,14 +122,10 @@ path /path/to/*
 exclude_path ["/path/to/*.gz", "/path/to/*.zip"]
 ```
 
-[]{#refresh_interval}
-
 ### refresh\_interval
 
 The interval of refreshing the list of watch file. Default is 60
 seconds.
-
-[]{#limit_recently_modified}
 
 ### limit\_recently\_modified
 
@@ -163,16 +134,12 @@ This parameter is available since v0.12.33.
 Limit the watching files that the modification time is within the
 specified time range when use `*` in `path` parameter.
 
-[]{#skip_refresh_on_startup}
-
 ### skip\_refresh\_on\_startup
 
 This parameter is available since v0.12.33.
 
 Skip the refresh of watching list on startup. This reduces the start up
 time when use `*` in `path`.
-
-[]{#read_from_head}
 
 ### read\_from\_head
 
@@ -186,8 +153,6 @@ rotation will not occur in `*` directory.
 When this is true, in\_tail tries to read a file during start up phase.
 If target file is large, it takes long time and starting other plugins
 isn\'t executed until reading file is finished.
-
-[]{#encoding,-from_encoding}
 
 ### encoding, from\_encoding
 
@@ -209,16 +174,12 @@ You can get supported encoding list by typing following command:
 $ ruby -e 'p Encoding.name_list.sort'
 ```
 
-[]{#read_lines_limit}
-
 ### read\_lines\_limit
 
 The number of reading lines at each IO. Default is 1000 lines.
 
 If you see "Size of the emitted data exceeds buffer\_chunk\_limit." log
 with in\_tail, set smaller value.
-
-[]{#multiline_flush_interval}
 
 ### multiline\_flush\_interval
 
@@ -228,8 +189,6 @@ disabled.
 If you set `multiline_flush_interval 5s`, in\_tail flushes buffered
 event after 5 seconds from last emit. This option is useful when you use
 `format_firstline` option. Since v0.12.20 or later.
-
-[]{#pos_file-(highly-recommended)}
 
 ### pos\_file (highly recommended)
 
@@ -251,14 +210,10 @@ the content of pos\_file is growing until restart when you tails lots of
 files with dynamic path setting. I will fix this problem in the future.
 Check [this issue](https://github.com/fluent/fluentd/issues/1126).
 
-[]{#format-(required)}
-
 ### format (required)
 
 The format of the log. `in_tail` uses parser plugin to parse the log.
 See [parser article](parser-plugin-overview) for more detail.
-
-[]{#path_key}
 
 ### path\_key
 
@@ -271,8 +226,6 @@ path_key tailed_path
 
 With this config, generated events are like
 `{"tailed_path":"/path/to/access.log","k1":"v1",...,"kN":"vN"}`.
-
-[]{#rotate_wait}
 
 ### rotate\_wait
 
@@ -287,8 +240,6 @@ from getting lost. By default, this time interval is 5 seconds.
 
 The rotate\_wait parameter accepts a single integer representing the
 number of seconds you want this time interval to be.
-
-[]{#enable_watch_timer}
 
 ### enable\_watch\_timer
 
@@ -308,8 +259,6 @@ properly without the additional watch timer. At some point in the
 future, depending on feedback and testing, the additional watch timer
 may be disabled by default.
 
-[]{#ignore_repeated_permission_error}
-
 ### ignore\_repeated\_permission\_error
 
 If you hard to exclude non-permision files from watching list, set this
@@ -323,20 +272,14 @@ logging for each plugin. The supported log levels are: `fatal`, `error`,
 
 Please see the [logging article](logging) for further details.
 
-[]{#faq}
-
 FAQ
 ---
-
-[]{#in_tail-doesn%E2%80%99t-start-to-read-log-file,-why?}
 
 ### in\_tail doesn't start to read log file, why?
 
 `in_tail` follows `tail -F` command behaviour by default, so `in_tail`
 reads only newer logs. If you want to read existing lines for batch use
 case, set `read_from_head true`.
-
-[]{#logrotate-setting}
 
 ### logrotate setting
 
@@ -347,25 +290,17 @@ tail.
 This parameter doesn't fit typical application log cases, so check your
 `logrotate` setting which doesn't include `nocreate` parameter.
 
-[]{#what-happens-when-in_tail-receives-bufferqueuelimiterror?}
-
 ### What happens when in\_tail receives BufferQueueLimitError?
 
 in\_tail stops reading new lines and pos file update until
 BufferQueueLimitError is resolved. After resolved BufferQueueLimitError,
 restart emitting new lines and pos file update.
 
-::: {style="text-align:right"}
+
 Last updated: 2017-03-16 10:35:45 UTC
-:::
-
 ------------------------------------------------------------------------
-
-::: {style="text-align:right"}
 Versions \| [v1.0 (td-agent3)](/v1.0/articles/in_tail) \| ***v0.12*
 (td-agent2) **
-:::
-
 ------------------------------------------------------------------------
 
 If this article is incorrect or outdated, or omits critical information,

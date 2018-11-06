@@ -1,13 +1,6 @@
-::: {#main .section}
-::: {#page}
-::: {.topic_content}
-::: {style="text-align:right"}
-::: {style="text-align:right"}
+
 Versions \| [v1.0 (td-agent3)](/v1.0/articles/formatter-plugin-overview)
 \| ***v0.12* (td-agent2) **
-:::
-:::
-
 ------------------------------------------------------------------------
 
 Text Formatter Overview
@@ -27,16 +20,12 @@ Formatter Plugin.
 -   [List of Built-in Formatters](#list-of-built-in-formatters)
 -   [List of Output Plugins with Text Formatter
     Support](#list-of-output-plugins-with-text-formatter-support)
-:::
-
 Overview
 --------
 
 Sometimes, the output format for an output plugin does not meet one's
 needs. Fluentd has a pluggable system called Text Formatter that lets
 the user extend and re-use custom output formats.
-
-[]{#how-to-use}
 
 How To Use
 ----------
@@ -72,8 +61,6 @@ retain the event's timestamp and tag.
 See [this section](plugin-development#text-formatter-plugins) to learn
 how to develop a custom formatter.
 
-[]{#list-of-built-in-formatters}
-
 List of Built-in Formatters
 ---------------------------
 
@@ -85,25 +72,17 @@ List of Built-in Formatters
 -   [hash](formatter_hash)
 -   [single\_value](formatter_single_value)
 
-[]{#list-of-output-plugins-with-text-formatter-support}
-
 List of Output Plugins with Text Formatter Support
 --------------------------------------------------
 
 -   [out\_file](out_file)
 -   [out\_s3](out_s3)
 
-::: {style="text-align:right"}
+
 Last updated: 2015-12-01 21:20:32 UTC
-:::
-
 ------------------------------------------------------------------------
-
-::: {style="text-align:right"}
 Versions \| [v1.0 (td-agent3)](/v1.0/articles/formatter-plugin-overview)
 \| ***v0.12* (td-agent2) **
-:::
-
 ------------------------------------------------------------------------
 
 If this article is incorrect or outdated, or omits critical information,
@@ -112,6 +91,3 @@ know](https://github.com/fluent/fluentd-docs/issues?state=open).
 [Fluentd](http://www.fluentd.org/) is a open source project under [Cloud
 Native Computing Foundation (CNCF)](https://cncf.io/). All components
 are available under the Apache 2 License.
-:::
-:::
-:::

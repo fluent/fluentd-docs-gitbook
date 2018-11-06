@@ -14,13 +14,9 @@ we'll use the [Treasure Data](http://www.fluentd.org/treasuredata) cloud
 data service as an example, but you can use any cloud service in its
 place.
 
-::: {.btn-look style="width: 300px;"}
+
 [What is Fluentd?](/articles/architecture)
-:::
 
-[]{#install-raspbian}
-
-::: {#table-of-contents .section}
 ### Table of Contents
 
 -   [Install Raspbian](#install-raspbian)
@@ -29,8 +25,6 @@ place.
 -   [Upload Test](#upload-test)
 -   [Conclusion](#conclusion)
 -   [Learn More](#learn-more)
-:::
-
 Install Raspbian
 ----------------
 
@@ -40,8 +34,6 @@ Raspberry Pi by following the instructions in the blog post below:
 
 -   [Getting Started with Raspberry Pi: Installing
     Raspbian](http://www.andrewmunsell.com/blog/getting-started-raspberry-pi-install-raspbian)
-
-[]{#install-fluentd}
 
 Install Fluentd
 ---------------
@@ -59,8 +51,6 @@ We'll now install Fluentd and the necessary plugins.
 $ sudo gem install fluentd -v "~> 0.12.0"
 $ sudo fluent-gem install fluent-plugin-td
 ```
-
-[]{#configure-and-launch-fluentd}
 
 Configure and Launch Fluentd
 ----------------------------
@@ -98,8 +88,6 @@ Finally, please launch Fluentd via your terminal.
 $ fluentd -c fluent.conf
 ```
 
-[]{#upload-test}
-
 Upload Test
 -----------
 
@@ -132,8 +120,6 @@ SELECT AVG(sensor1) FROM raspberrypi;
 SELECT SUM(sensor2) FROM raspberrypi;
 ```
 
-[]{#conclusion}
-
 Conclusion
 ----------
 
@@ -141,24 +127,16 @@ Raspberry Pi is an ideal platform for prototyping data logger hardware.
 Fluentd helps Raspberry Pi transfer the collected data to the cloud
 easily and reliably.
 
-[]{#learn-more}
-
 Learn More
 ----------
 
 -   [Fluentd Architecture](architecture)
 -   [Fluentd Get Started](quickstart)
 
-::: {style="text-align:right"}
+
 Last updated: 2016-06-14 11:55:31 UTC
-:::
-
 ------------------------------------------------------------------------
-
-::: {style="text-align:right"}
 Versions \| ***v0.12* (td-agent2) **
-:::
-
 ------------------------------------------------------------------------
 
 If this article is incorrect or outdated, or omits critical information,

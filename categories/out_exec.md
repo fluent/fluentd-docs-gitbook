@@ -1,13 +1,6 @@
-::: {#main .section}
-::: {#page}
-::: {.topic_content}
-::: {style="text-align:right"}
-::: {style="text-align:right"}
+
 Versions \| [v1.0 (td-agent3)](/v1.0/articles/out_exec) \| ***v0.12*
 (td-agent2) **
-:::
-:::
-
 ------------------------------------------------------------------------
 
 exec Output Plugin
@@ -49,8 +42,6 @@ stream](#example:-running-fizzbuzz-against-data-stream)
     disable\_retry\_limit](#retry_limit,-disable_retry_limit)
 -   [num\_threads](#num_threads)
 -   [slow\_flush\_log\_threshold](#slow_flush_log_threshold)
-:::
-
 Example Configuration
 ---------------------
 
@@ -68,14 +59,8 @@ process is required.
   time_format %Y-%m-%d %H:%M:%S
 </match>
 ```
-:::
-:::
-:::
-
 Please see the [Config File](config-file) article for the basic
 structure and syntax of the configuration file.
-
-[]{#example:-running-fizzbuzz-against-data-stream}
 
 Example: Running FizzBuzz against data stream
 ---------------------------------------------
@@ -163,25 +148,17 @@ fizz
 fizzbuzz
 ```
 
-[]{#parameters}
-
 Parameters
 ----------
-
-[]{#@type-(required)}
 
 ### \@type (required)
 
 The value must be `exec`.
 
-[]{#command-(required)}
-
 ### command (required)
 
 The command (program) to execute. The exec plugin passes the path of a
 TSV file as the last argument.
-
-[]{#format}
 
 ### format
 
@@ -201,36 +178,26 @@ keys k1,k2,k3
 -   json
 -   msgpack
 
-[]{#tag_key}
-
 ### tag\_key
 
 The name of the key to use as the event tag. This replaces the value in
 the event record.
-
-[]{#time_key}
 
 ### time\_key
 
 The name of the key to use as the event time. This replaces the the
 value in the event record.
 
-[]{#time_format}
-
 ### time\_format
 
 The format for event time used when the `time_key` parameter is
 specified. The default is UNIX time (integer).
-
-[]{#time-sliced-output-parameters}
 
 Time Sliced Output Parameters
 -----------------------------
 
 For advanced usage, you can tune Fluentd's internal buffering mechanism
 with these parameters.
-
-[]{#time_slice_format}
 
 ### time\_slice\_format
 
@@ -246,8 +213,6 @@ are replaced with actual values when the file is created:
 
 The default format is `%Y%m%d%H`, which creates one file per hour.
 
-[]{#time_slice_wait}
-
 ### time\_slice\_wait
 
 The amount of time Fluentd will wait for old logs to arrive. This is
@@ -262,15 +227,11 @@ uploaded together with all the other logs from 1:00 to 1:59 in one
 transaction, avoiding extra overhead. Larger values can be set as
 needed.
 
-[]{#buffer_type}
-
 ### buffer\_type
 
 The buffer type is `file` by default ([buf\_file](buf_file)). The
 `memory` ([buf\_memory](buf_memory)) buffer type can be chosen as well.
 If you use `file` buffer type, `buffer_path` parameter is required.
-
-[]{#buffer_queue_limit,-buffer_chunk_limit}
 
 ### buffer\_queue\_limit, buffer\_chunk\_limit
 
@@ -280,21 +241,15 @@ for the basic buffer structure. The default values are 64 and 8m,
 respectively. The suffixes "k" (KB), "m" (MB), and "g" (GB) can be used
 for buffer\_chunk\_limit.
 
-[]{#flush_interval}
-
 ### flush\_interval
 
 The interval between data flushes. The default is 60s. The suffixes "s"
 (seconds), "m" (minutes), and "h" (hours) can be used.
 
-[]{#flush_at_shutdown}
-
 ### flush\_at\_shutdown
 
 If set to true, Fluentd waits for the buffer to flush at shutdown. By
 default, it is set to true for Memory Buffer and false for File Buffer.
-
-[]{#retry_wait,-max_retry_wait}
 
 ### retry\_wait, max\_retry\_wait
 
@@ -307,8 +262,6 @@ Since td-agent will retry 17 times before giving up by default (see the
 approximately 131072 seconds (roughly 36 hours) in the default
 configurations.
 
-[]{#retry_limit,-disable_retry_limit}
-
 ### retry\_limit, disable\_retry\_limit
 
 The limit on the number of retries before buffered data is discarded,
@@ -317,15 +270,11 @@ is ignored and there is no limit). The default values are 17 and false
 (not disabled). If the limit is reached, buffered data is discarded and
 the retry interval is reset to its initial value (`retry_wait`).
 
-[]{#num_threads}
-
 ### num\_threads
 
 The number of threads to flush the buffer. This option can be used to
 parallelize writes into the output(s) designated by the output plugin.
 The default is 1.
-
-[]{#slow_flush_log_threshold}
 
 ### slow\_flush\_log\_threshold
 
@@ -339,17 +288,11 @@ logging for each plugin. The supported log levels are: `fatal`, `error`,
 
 Please see the [logging article](logging) for further details.
 
-::: {style="text-align:right"}
+
 Last updated: 2015-12-01 21:20:32 UTC
-:::
-
 ------------------------------------------------------------------------
-
-::: {style="text-align:right"}
 Versions \| [v1.0 (td-agent3)](/v1.0/articles/out_exec) \| ***v0.12*
 (td-agent2) **
-:::
-
 ------------------------------------------------------------------------
 
 If this article is incorrect or outdated, or omits critical information,

@@ -1,12 +1,5 @@
-::: {#main .section}
-::: {#page}
-::: {.topic_content}
-::: {style="text-align:right"}
-::: {style="text-align:right"}
-Versions \| ***v0.12* (td-agent2) **
-:::
-:::
 
+Versions \| ***v0.12* (td-agent2) **
 ------------------------------------------------------------------------
 
 Docker Logging Driver and Fluentd
@@ -34,10 +27,6 @@ For Docker v1.8, we have implemented a native **[Fluentd Docker logging
 driver](https://docs.docker.com/engine/admin/logging/fluentd/)**, now
 you are able to have an unified and structured logging system with the
 simplicity and high performance [Fluentd](http://fluentd.org).
-:::
-:::
-:::
-
 Currently, fluentd logging driver doesn\'t support sub-second precision.
 
 
@@ -61,8 +50,6 @@ Currently, fluentd logging driver doesn\'t support sub-second precision.
 [Development Environments](#development-environments)
 
 [Production Environments](#production-environments)
-:::
-
 Getting Started
 ---------------
 
@@ -80,8 +67,6 @@ This article launches Fluentd as standard process, not a container.
 Prease refer [Docker Logging via EFK (Elasticsearch + Fluentd + Kibana)
 Stack with Docker Compose](docker-logging-efk-compose) for fully
 containerized environment tutorial.
-
-[]{#step-1:-create-the-fluentd-configuration-file}
 
 ### Step 1: Create the Fluentd configuration file
 
@@ -105,8 +90,6 @@ entries:
   type stdout
 </match>
 ```
-
-[]{#step-2:-start-fluentd}
 
 ### Step 2: Start Fluentd
 
@@ -139,8 +122,6 @@ $ fluentd -c in_docker.conf
 2015-09-01 15:07:12 -0600 [info]: listening fluent socket on 0.0.0.0:24224
 ```
 
-[]{#step-3:-start-docker-container-with-fluentd-driver}
-
 ### Step 3: Start Docker container with Fluentd driver
 
 By default, the Fluentd logging driver will try to find a local Fluentd
@@ -159,8 +140,6 @@ $ docker run --log-driver=fluentd ubuntu echo "Hello Fluentd!"
 Hello Fluentd!
 ```
 
-[]{#step-4:-confirm}
-
 ### Step 4: Confirm
 
 Now on the Fluentd output, you will see the incoming message from the
@@ -174,8 +153,6 @@ At this point you will notice something interesting, the incoming
 messages have a timestamp, are tagged with the container\_id and
 contains general information from the source container along the
 message, everything in JSON format.
-
-[]{#additional-step-1:-parse-log-message}
 
 ### Additional Step 1: Parse log message
 
@@ -204,8 +181,6 @@ Filtered event:
 ``` {.CodeRay}
 2015-09-01 15:10:40 -0600 docker.3fd8678d487e: {"source":"stdout","log":"{\"key\":\"value\"}","container_id":"3fd8678d487e540c7a303e1613101e746c5012f3317434eda93f24351c1928f7","container_name":"/angry_kalam","key":"value"}
 ```
-
-[]{#additional-step-2:-concatenate-multiple-lines-log-messages}
 
 ### Additional Step 2: Concatenate multiple lines log messages
 
@@ -241,8 +216,6 @@ Filtered events:
 If the logs are typical stacktraces, consider [detect-exceptions
 plugin](https://github.com/GoogleCloudPlatform/fluent-plugin-detect-exceptions)
 instead.
-
-[]{#driver-options}
 
 Driver options
 --------------
@@ -282,8 +255,6 @@ Additionally this option allows to specify some internal variables:
 $ docker run --log-driver=fluentd --log-opt tag=docker.{{.ID}} ubuntu echo "..."
 ```
 
-[]{#development-environments}
-
 Development Environments
 ------------------------
 
@@ -299,8 +270,6 @@ Compose.
 -   [Docker Logging via EFK (Elasticsearch + Fluentd + Kibana) Stack
     with Docker Compose](docker-logging-efk-compose)
 
-[]{#production-environments}
-
 Production Environments
 -----------------------
 
@@ -312,16 +281,10 @@ tools as well.
 -   [Kubernetes's Logging
     Overview](https://kubernetes.io/docs/user-guide/logging/overview/)
 
-::: {style="text-align:right"}
+
 Last updated: 2017-01-30 13:27:02 UTC
-:::
-
 ------------------------------------------------------------------------
-
-::: {style="text-align:right"}
 Versions \| ***v0.12* (td-agent2) **
-:::
-
 ------------------------------------------------------------------------
 
 If this article is incorrect or outdated, or omits critical information,

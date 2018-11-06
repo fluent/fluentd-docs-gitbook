@@ -1,13 +1,6 @@
-::: {#main .section}
-::: {#page}
-::: {.topic_content}
-::: {style="text-align:right"}
-::: {style="text-align:right"}
+
 Versions \| [v1.0 (td-agent3)](/v1.0/articles/high-availability) \|
 ***v0.12* (td-agent2) **
-:::
-:::
-
 ------------------------------------------------------------------------
 
 Fluentd High Availability Configuration
@@ -36,8 +29,6 @@ configuration of `Fluentd`.
 
 -   ["no nodes are
     available"](#%E2%80%9Cno-nodes-are-available%E2%80%9D)
-:::
-
 Message Delivery Semantics
 --------------------------
 
@@ -68,8 +59,6 @@ delivery failures.
 However, most failure scenarios are preventable. The following sections
 describe how to set up Fluentd's topology for high availability.
 
-[]{#network-topology}
-
 Network Topology
 ----------------
 
@@ -90,8 +79,6 @@ Fluentd can act as either a log forwarder or a log aggregator, depending
 on its configuration. The next sections describes the respective setups.
 We assume that the active log aggregator has ip '192.168.0.1' and that
 the backup has ip '192.168.0.2'.
-
-[]{#log-forwarder-configuration}
 
 Log Forwarder Configuration
 ---------------------------
@@ -139,8 +126,6 @@ When the active aggregator (192.168.0.1) dies, the logs will instead be
 sent to the backup aggregator (192.168.0.2). If both servers die, the
 logs are buffered on-disk at the corresponding forwarder nodes.
 
-[]{#log-aggregator-configuration}
-
 Log Aggregator Configuration
 ----------------------------
 
@@ -164,12 +149,8 @@ The incoming logs are buffered, then periodically uploaded into the
 cloud. If upload fails, the logs are stored on the local disk until the
 retransmission succeeds.
 
-[]{#failure-case-scenarios}
-
 Failure Case Scenarios
 ----------------------
-
-[]{#forwarder-failure}
 
 ### Forwarder Failure
 
@@ -189,8 +170,6 @@ However, possible message loss scenarios do exist:
     writing them into the buffer.
 -   The forwarder's disk is broken, and the file buffer is lost.
 
-[]{#aggregator-failure}
-
 ### Aggregator Failure
 
 When log aggregators receive events from log forwarders, the events are
@@ -209,12 +188,8 @@ However, possible message loss scenarios do exist:
     writing them into the buffer.
 -   The aggregator's disk is broken, and the file buffer is lost.
 
-[]{#trouble-shooting}
-
 Trouble Shooting
 ----------------
-
-[]{#%E2%80%9Cno-nodes-are-available%E2%80%9D}
 
 ### "no nodes are available"
 
@@ -232,17 +207,11 @@ issue](http://kb.vmware.com/selfservice/microsites/search.do?language=en_US&cmd=
 where VMware will occasionally lose small UDP packages used for
 heartbeat.
 
-::: {style="text-align:right"}
+
 Last updated: 2015-12-01 21:20:32 UTC
-:::
-
 ------------------------------------------------------------------------
-
-::: {style="text-align:right"}
 Versions \| [v1.0 (td-agent3)](/v1.0/articles/high-availability) \|
 ***v0.12* (td-agent2) **
-:::
-
 ------------------------------------------------------------------------
 
 If this article is incorrect or outdated, or omits critical information,
@@ -251,6 +220,3 @@ know](https://github.com/fluent/fluentd-docs/issues?state=open).
 [Fluentd](http://www.fluentd.org/) is a open source project under [Cloud
 Native Computing Foundation (CNCF)](https://cncf.io/). All components
 are available under the Apache 2 License.
-:::
-:::
-:::

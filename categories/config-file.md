@@ -1,13 +1,6 @@
-::: {#main .section}
-::: {#page}
-::: {.topic_content}
-::: {style="text-align:right"}
-::: {style="text-align:right"}
+
 Versions \| [v1.0 (td-agent3)](/v1.0/articles/config-file) \| ***v0.12*
 (td-agent2) **
-:::
-:::
-
 ------------------------------------------------------------------------
 
 Configuration File Syntax
@@ -66,8 +59,6 @@ directive](#(6)-re-use-your-config:-the-%E2%80%9C@include%E2%80%9D-directive)
 -   [Multi line support for " quoted string, array and hash
     values](#multi-line-support-for-%E2%80%9C-quoted-string,-array-and-hash-values)
 -   [Embedded Ruby code](#embedded-ruby-code)
-:::
-
 Introduction: The Life of a Fluentd Event
 -----------------------------------------
 
@@ -80,8 +71,6 @@ specifying the plugin parameters. The file is required for Fluentd to
 operate properly.
 
 See also [Life of a Fluentd Event](life-of-a-fluentd-event) article.
-
-[]{#config-file-location}
 
 Config File Location
 --------------------
@@ -116,14 +105,10 @@ For example, `/etc/td-agent/td-agent.conf` is specified via
 
 See [Command Line Option article](command-line-option).
 
-[]{#character-encoding}
-
 Character encoding
 ------------------
 
 Fluentd assumes configuration file is UTF-8 or ASCII.
-
-[]{#list-of-directives}
 
 List of Directives
 ------------------
@@ -139,8 +124,6 @@ The configuration file consists of the following directives:
 6.  **\@include** directives include other files.
 
 Let's actually create a configuration file step by step.
-
-[]{#(1)-%E2%80%9Csource%E2%80%9D:-where-all-the-data-come-from}
 
 (1) "source": where all the data come from
 ------------------------------------------
@@ -178,10 +161,6 @@ a string separated by '.'s (e.g. myapp.access), and is used as the
 directions for Fluentd's internal routing engine. The time field is
 specified by input plugins, and it must be in the Unix time format. The
 record is a JSON object.
-:::
-:::
-:::
-
 Fluentd accepts all non-period characters as a part of a tag. However,
 since the tag is sometimes used in a different context by output
 destinations (e.g., table name, database name, key name, etc.), **it is
@@ -202,8 +181,6 @@ record: {"event":"data"}
 You can add new input sources by writing your own plugins. For further
 information regarding Fluentd's input sources, please refer to the
 [Input Plugin Overview](input-plugin-overview) article.
-
-[]{#(2)-%E2%80%9Cmatch%E2%80%9D:-tell-fluentd-what-to-do!}
 
 (2) "match": Tell fluentd what to do!
 -------------------------------------
@@ -251,8 +228,6 @@ your own plugins. For further information regarding Fluentd's output
 destinations, please refer to the [Output Plugin
 Overview](output-plugin-overview) article.
 
-[]{#(3)-%E2%80%9Cfilter%E2%80%9D:-event-processing-pipeline}
-
 (3) "filter": Event processing pipeline
 ---------------------------------------
 
@@ -295,8 +270,6 @@ You can also add new filters by writing your own plugins. For further
 information regarding Fluentd's filter destinations, please refer to the
 [Filter Plugin Overview](filter-plugin-overview) article.
 
-[]{#(4)-set-system-wide-configuration:-the-%E2%80%9Csystem%E2%80%9D-directive}
-
 (4) Set system wide configuration: the "system" directive
 ---------------------------------------------------------
 
@@ -323,8 +296,6 @@ Here is an example:
 </system>
 ```
 
-[]{#process_name}
-
 ### process\_name
 
 If set this parameter, fluentd's supervisor and worker process names are
@@ -345,8 +316,6 @@ foo      45647   0.0  0.1  2481260  23700 s001  S+    7:04AM   0:00.40 superviso
 ```
 
 This feature requires ruby 2.1 or later.
-
-[]{#(5)-group-filter-and-output:-the-%E2%80%9Clabel%E2%80%9D-directive}
 
 (5) Group filter and output: the "label" directive
 --------------------------------------------------
@@ -396,8 +365,6 @@ events are routed to `grep` filter / `s3` output inside `@SYSTEM` label.
 
 "label" is useful for event flow separation without tag prefix.
 
-[]{#@error-label}
-
 ### \@ERROR label
 
 `@ERROR` label is a built-in label used for error record emitted by
@@ -406,8 +373,6 @@ plugin's `emit_error_event` API.
 If you set `<label @ERROR>` in the configuration, events are routed to
 this label when emit related error, e.g. buffer is full or invalid
 record.
-
-[]{#(6)-re-use-your-config:-the-%E2%80%9C@include%E2%80%9D-directive}
 
 (6) Re-use your config: the "\@include" directive
 -------------------------------------------------
@@ -455,8 +420,6 @@ prone. Please separate `@include` for safety.
 @include z.conf
 ```
 
-[]{#how-match-patterns-work}
-
 How match patterns work
 -----------------------
 
@@ -464,8 +427,6 @@ As described above, Fluentd allows you to route events based on their
 tags. Although you can just specify the exact tag to be matched (like
 `<filter app.log>`), there are a number of techniques you can use to
 manage the data flow more efficiently.
-
-[]{#wildcards-and-expansions}
 
 ### Wildcards and Expansions
 
@@ -497,8 +458,6 @@ tags.
 
     -   The patterns `<match a.** b.*>` match `a`, `a.b`, `a.b.c` (from
         the first pattern) and `b.d` (from the second pattern).
-
-[]{#note-on-match-order}
 
 ### Note on Match Order
 
@@ -553,8 +512,6 @@ for the reason explained above.
   path /var/log/fluent/access
 </match>
 ```
-
-[]{#supported-data-types-for-values}
 
 Supported Data Types for Values
 -------------------------------
@@ -611,8 +568,6 @@ plugin author know.
 `array` and `hash` are JSON because almost all programming languages and
 infrastructure tools can generate JSON value easily than unusual format.
 
-[]{#common-plugin-parameter}
-
 Common plugin parameter
 -----------------------
 
@@ -629,8 +584,6 @@ These parameters are system reserved and it has `@` prefix.
 
 `type`, `id` and `log_level` are supported for backward compatibility.
 
-[]{#check-configuration-file}
-
 Check configuration file
 ------------------------
 
@@ -641,14 +594,10 @@ You can check your configuration without plugins start by specifying
 $ fluentd --dry-run -c fluent.conf
 ```
 
-[]{#format-tips}
-
 Format tips
 -----------
 
 This section describes useful features in configuration format.
-
-[]{#multi-line-support-for-%E2%80%9C-quoted-string,-array-and-hash-values}
 
 ### Multi line support for " quoted string, array and hash values
 
@@ -691,8 +640,6 @@ Example2: map plugin:
 
 We will remove this restriction with configuration parser improvement.
 
-[]{#embedded-ruby-code}
-
 ### Embedded Ruby code
 
 You can evaluate the Ruby code with `#{}` in `"` quoted string. This is
@@ -716,17 +663,11 @@ literal.
 str_param "foo\nbar" # \n is interpreted as actual LF character
 ```
 
-::: {style="text-align:right"}
+
 Last updated: 2017-03-03 06:10:26 UTC
-:::
-
 ------------------------------------------------------------------------
-
-::: {style="text-align:right"}
 Versions \| [v1.0 (td-agent3)](/v1.0/articles/config-file) \| ***v0.12*
 (td-agent2) **
-:::
-
 ------------------------------------------------------------------------
 
 If this article is incorrect or outdated, or omits critical information,

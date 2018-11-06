@@ -1,13 +1,6 @@
-::: {#main .section}
-::: {#page}
-::: {.topic_content}
-::: {style="text-align:right"}
-::: {style="text-align:right"}
+
 Versions \| [v1.0 (td-agent3)](/v1.0/articles/parser_multiline) \|
 ***v0.12* (td-agent2) **
-:::
-:::
-
 ------------------------------------------------------------------------
 
 multiline Parser Plugin
@@ -20,10 +13,6 @@ The `multiline` parser parses log with `formatN` and `format_firstline`
 parameters. `format_firstline` is for detecting start line of multiline
 log. `formatN`, N's range is 1..20, is the list of Regexp format for
 multiline log.
-:::
-:::
-:::
-
 Unlike other parser plugins, this plugin needs special code in input
 plugin, e.g. handle format\_firstline. So currently, in\_tail plugin
 works with \`multiline\` but other input plugins don\'t work with
@@ -44,18 +33,12 @@ works with \`multiline\` but other input plugins don\'t work with
 
 -   [Rails log](#rails-log)
 -   [Java stacktrace log](#java-stacktrace-log)
-:::
-
 Parameters
 ----------
-
-[]{#time_key}
 
 ### time\_key
 
 Specify the field for event time. Default is `time`.
-
-[]{#time_format}
 
 ### time\_format
 
@@ -64,8 +47,6 @@ Specify time format for `time_key`.
 See
 [Time\#strptime](http://ruby-doc.org/stdlib-2.4.1/libdoc/time/rdoc/Time.html#method-c-strptime)
 for additional format information.
-
-[]{#format_firstline}
 
 ### format\_firstline
 
@@ -76,8 +57,6 @@ If `format_firstline` is not specified, input plugin should store
 unmatched new lines in temporary buffer and try to match buffered logs
 with each new line.
 
-[]{#formatn}
-
 ### formatN
 
 Specify regexp patterns. For readability, you can separate regexp
@@ -85,19 +64,13 @@ patterns into multiple regexpN parameters, See "Rails log" example.
 These patterns are joined and constructs regexp pattern with multiline
 mode.
 
-[]{#keep_time_key}
-
 ### keep\_time\_key
 
 If you want to keep time field in the record, set `true`. Default is
 `false`.
 
-[]{#example}
-
 Example
 -------
-
-[]{#rails-log}
 
 ### Rails log
 
@@ -139,8 +112,6 @@ record:
   ...
 }
 ```
-
-[]{#java-stacktrace-log}
 
 ### Java stacktrace log
 
@@ -191,17 +162,11 @@ record:
 }
 ```
 
-::: {style="text-align:right"}
+
 Last updated: 2018-11-06 18:16:45 +0000
-:::
-
 ------------------------------------------------------------------------
-
-::: {style="text-align:right"}
 Versions \| [v1.0 (td-agent3)](/v1.0/articles/parser_multiline) \|
 ***v0.12* (td-agent2) **
-:::
-
 ------------------------------------------------------------------------
 
 If this article is incorrect or outdated, or omits critical information,

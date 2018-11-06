@@ -1,13 +1,6 @@
-::: {#main .section}
-::: {#page}
-::: {.topic_content}
-::: {style="text-align:right"}
-::: {style="text-align:right"}
+
 Versions \| [v1.0 (td-agent3)](/v1.0/articles/out_s3) \| ***v0.12*
 (td-agent2) **
-:::
-:::
-
 ------------------------------------------------------------------------
 
 Amazon S3 Output Plugin
@@ -19,10 +12,6 @@ basis. This means that when you first import records using the plugin,
 no file is created immediately. The file will be created when the
 `time_slice_format` condition has been met. To change the output
 frequency, please modify the `time_slice_format` value.
-:::
-:::
-:::
-
 This document doesn\'t describe all parameters. If you want to know full
 features, check the Further Reading section.
 
@@ -68,8 +57,6 @@ features, check the Further Reading section.
 -   [slow\_flush\_log\_threshold](#slow_flush_log_threshold)
 
 [Further Reading](#further-reading)
-:::
-
 Installation
 ------------
 
@@ -79,8 +66,6 @@ to install the fluent-plugin-s3 gem using the following command.
 ``` {.CodeRay}
 $ fluent-gem install fluent-plugin-s3
 ```
-
-[]{#example-configuration}
 
 Example Configuration
 ---------------------
@@ -114,44 +99,30 @@ Please make sure that you have **enough space in the buffer\_path
 directory**. Running out of disk space is a problem frequently reported
 by users.
 
-[]{#parameters}
-
 Parameters
 ----------
-
-[]{#@type-(required)}
 
 ### \@type (required)
 
 The value must be `s3`.
-
-[]{#aws_key_id-(required/optional)}
 
 ### aws\_key\_id (required/optional)
 
 The AWS access key id. This parameter is required when your agent is not
 running on an EC2 instance with an IAM Instance Profile.
 
-[]{#aws_sec_key-(required/optional)}
-
 ### aws\_sec\_key (required/optional)
 
 The AWS secret key. This parameter is required when your agent is not
 running on an EC2 instance with an IAM Instance Profile.
 
-[]{#s3_bucket-(required)}
-
 ### s3\_bucket (required)
 
 The Amazon S3 bucket name.
 
-[]{#buffer_path-(required)}
-
 ### buffer\_path (required)
 
 The path prefix of the log buffer files.
-
-[]{#s3_region}
 
 ### s3\_region
 
@@ -167,8 +138,6 @@ are the region examples.
 
 The full list can be found [official AWS
 document](http://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region).
-
-[]{#s3_endpoint}
 
 ### s3\_endpoint
 
@@ -190,21 +159,15 @@ correct region.
 The most recent versions of the endpoints can be found
 [here](http://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region).
 
-[]{#format}
-
 ### format
 
 The format of the S3 object. The default is `out_file`.
 
 See [formatter article](formatter-plugin-overview) for more detail.
 
-[]{#time_format}
-
 ### time\_format
 
 The format of the time written in files. The default format is ISO-8601.
-
-[]{#path}
 
 ### path
 
@@ -213,8 +176,6 @@ The path prefix of the files on S3. The default is "" (no prefix).
 The actual path on S3 will be:
 "{path}{time\_slice\_format}\_{sequential\_index}.gz" (see
 \`s3\_object\_key\_format\`)
-
-[]{#s3_object_key_format}
 
 ### s3\_object\_key\_format
 
@@ -241,41 +202,29 @@ Also, always make sure that %{index} appears in the customized
 \`s3\_object\_key\_format\` (Otherwise, multiple buffer flushes within
 the same time slice throws an error).
 
-[]{#utc}
-
 ### utc
 
 Uses UTC for path formatting. The default format is localtime.
-
-[]{#store_as}
 
 ### store\_as
 
 The compression type. The default is "gzip", but you can also choose
 "lzo", "json", or "txt".
 
-[]{#proxy_uri}
-
 ### proxy\_uri
 
 The proxy url. The default is nil.
-
-[]{#ssl_verify_peer}
 
 ### ssl\_verify\_peer
 
 Verify SSL certificate of the endpoint. The default is true. Set false
 when you want to ignore the endpoint SSL certificate.
 
-[]{#time-sliced-output-parameters}
-
 Time Sliced Output Parameters
 -----------------------------
 
 For advanced usage, you can tune Fluentd's internal buffering mechanism
 with these parameters.
-
-[]{#time_slice_format}
 
 ### time\_slice\_format
 
@@ -291,8 +240,6 @@ are replaced with actual values when the file is created:
 
 The default format is `%Y%m%d%H`, which creates one file per hour.
 
-[]{#time_slice_wait}
-
 ### time\_slice\_wait
 
 The amount of time Fluentd will wait for old logs to arrive. This is
@@ -307,15 +254,11 @@ uploaded together with all the other logs from 1:00 to 1:59 in one
 transaction, avoiding extra overhead. Larger values can be set as
 needed.
 
-[]{#buffer_type}
-
 ### buffer\_type
 
 The buffer type is `file` by default ([buf\_file](buf_file)). The
 `memory` ([buf\_memory](buf_memory)) buffer type can be chosen as well.
 If you use `file` buffer type, `buffer_path` parameter is required.
-
-[]{#buffer_queue_limit,-buffer_chunk_limit}
 
 ### buffer\_queue\_limit, buffer\_chunk\_limit
 
@@ -325,21 +268,15 @@ for the basic buffer structure. The default values are 64 and 8m,
 respectively. The suffixes "k" (KB), "m" (MB), and "g" (GB) can be used
 for buffer\_chunk\_limit.
 
-[]{#flush_interval}
-
 ### flush\_interval
 
 The interval between data flushes. The default is 60s. The suffixes "s"
 (seconds), "m" (minutes), and "h" (hours) can be used.
 
-[]{#flush_at_shutdown}
-
 ### flush\_at\_shutdown
 
 If set to true, Fluentd waits for the buffer to flush at shutdown. By
 default, it is set to true for Memory Buffer and false for File Buffer.
-
-[]{#retry_wait,-max_retry_wait}
 
 ### retry\_wait, max\_retry\_wait
 
@@ -352,8 +289,6 @@ Since td-agent will retry 17 times before giving up by default (see the
 approximately 131072 seconds (roughly 36 hours) in the default
 configurations.
 
-[]{#retry_limit,-disable_retry_limit}
-
 ### retry\_limit, disable\_retry\_limit
 
 The limit on the number of retries before buffered data is discarded,
@@ -362,15 +297,11 @@ is ignored and there is no limit). The default values are 17 and false
 (not disabled). If the limit is reached, buffered data is discarded and
 the retry interval is reset to its initial value (`retry_wait`).
 
-[]{#num_threads}
-
 ### num\_threads
 
 The number of threads to flush the buffer. This option can be used to
 parallelize writes into the output(s) designated by the output plugin.
 The default is 1.
-
-[]{#slow_flush_log_threshold}
 
 ### slow\_flush\_log\_threshold
 
@@ -384,8 +315,6 @@ logging for each plugin. The supported log levels are: `fatal`, `error`,
 
 Please see the [logging article](logging) for further details.
 
-[]{#further-reading}
-
 Further Reading
 ---------------
 
@@ -395,17 +324,11 @@ to know about other configurations, please check the link below.
 -   [fluent-plugin-s3
     repository](https://github.com/fluent/fluent-plugin-s3)
 
-::: {style="text-align:right"}
+
 Last updated: 2016-12-14 15:07:04 UTC
-:::
-
 ------------------------------------------------------------------------
-
-::: {style="text-align:right"}
 Versions \| [v1.0 (td-agent3)](/v1.0/articles/out_s3) \| ***v0.12*
 (td-agent2) **
-:::
-
 ------------------------------------------------------------------------
 
 If this article is incorrect or outdated, or omits critical information,

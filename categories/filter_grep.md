@@ -1,13 +1,6 @@
-::: {#main .section}
-::: {#page}
-::: {.topic_content}
-::: {style="text-align:right"}
-::: {style="text-align:right"}
+
 Versions \| [v1.0 (td-agent3)](/v1.0/articles/filter_grep) \| ***v0.12*
 (td-agent2) **
-:::
-:::
-
 ------------------------------------------------------------------------
 
 grep Filter Plugin
@@ -31,8 +24,6 @@ specified fields.
 -   [excludeN (optional)](#excluden-(optional))
 
 [Learn More](#learn-more)
-:::
-
 Example Configurations
 ----------------------
 
@@ -79,12 +70,8 @@ whereas the following examples are filtered out:
 {"message":"It's cool outside today"}
 ```
 
-[]{#parameters}
-
 Parameters
 ----------
-
-[]{#<regexp>-directive-(optional)}
 
 ### \<regexp\> directive (optional)
 
@@ -141,8 +128,6 @@ it is filtered out.
 
 Learn regular expressions for more patterns.
 
-[]{#regexpn-(optional)}
-
 ### regexpN (optional)
 
 This is deprecated parameter. Use `<regexp>` instead if you use v0.12.38
@@ -157,8 +142,6 @@ Here is `regexpN` version of `<regexp>` example:
 regexp1 price [1-9]\d*
 regexp2 item_name ^book_
 ```
-
-[]{#<exclude>-directive-(optional)}
 
 ### \<exclude\> directive (optional)
 
@@ -200,8 +183,6 @@ have
 Then, any event whose "status\_code" is 5xx OR "url" ends with ".css" is
 filtered out.
 
-[]{#excluden-(optional)}
-
 ### excludeN (optional)
 
 This is deprecated parameter. Use `<exclude>` instead if you use
@@ -216,13 +197,7 @@ Here is `excludeN` version of `<exclude>` example:
 exclude1 status_code ^5\d\d$
 exclude2 url \.css$
 ```
-:::
-:::
-:::
-
 If `<regexp>` and `<exclude>` are used together, both are applied.
-
-[]{#learn-more}
 
 Learn More
 ----------
@@ -230,17 +205,11 @@ Learn More
 -   [Filter Plugin Overview](filter-plugin-overview)
 -   [record\_transformer Filter Plugin](filter_record_transformer)
 
-::: {style="text-align:right"}
+
 Last updated: 2016-09-21 02:58:49 UTC
-:::
-
 ------------------------------------------------------------------------
-
-::: {style="text-align:right"}
 Versions \| [v1.0 (td-agent3)](/v1.0/articles/filter_grep) \| ***v0.12*
 (td-agent2) **
-:::
-
 ------------------------------------------------------------------------
 
 If this article is incorrect or outdated, or omits critical information,

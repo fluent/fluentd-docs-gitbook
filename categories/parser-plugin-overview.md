@@ -1,13 +1,6 @@
-::: {#main .section}
-::: {#page}
-::: {.topic_content}
-::: {style="text-align:right"}
-::: {style="text-align:right"}
+
 Versions \| [v1.0 (td-agent3)](/v1.0/articles/parser-plugin-overview) \|
 ***v0.12* (td-agent2) **
-:::
-:::
-
 ------------------------------------------------------------------------
 
 Parser Plugin Overview
@@ -32,8 +25,6 @@ Parser Plugin.
 
 [List of Core Input Plugins with Parser
 support](#list-of-core-input-plugins-with-parser-support)
-:::
-
 Overview
 --------
 
@@ -43,8 +34,6 @@ Sometimes, the `format` parameter for input plugins (ex:
 example, a context-dependent grammar that can't be parsed with a regular
 expression). To address such cases. Fluentd has a pluggable system that
 enables the user to create their own parser formats.
-
-[]{#how-to-use}
 
 How To Use
 ----------
@@ -66,8 +55,6 @@ Here is a simple example to read Nginx access logs using `in_tail` and
 </source>
 ```
 
-[]{#list-of-built-in-parsers}
-
 List of Built-in Parsers
 ------------------------
 
@@ -83,16 +70,12 @@ List of Built-in Parsers
 -   [multiline](parser_multiline)
 -   [none](parser_none)
 
-[]{#3rd-party-parsers}
-
 ### 3rd party Parsers
 
 -   [grok](https://github.com/fluent/fluent-plugin-grok-parser)
 
 If you are familiar with grok patterns, grok-parser plugin is useful.
 Use `< 1.0.0` versions for fluentd v0.12.
-
-[]{#list-of-core-input-plugins-with-parser-support}
 
 List of Core Input Plugins with Parser support
 ----------------------------------------------
@@ -105,17 +88,11 @@ with `format` parameter.
 -   [in\_syslog](in_syslog)
 -   [in\_http](in_http)
 
-::: {style="text-align:right"}
+
 Last updated: 2016-04-29 16:26:52 UTC
-:::
-
 ------------------------------------------------------------------------
-
-::: {style="text-align:right"}
 Versions \| [v1.0 (td-agent3)](/v1.0/articles/parser-plugin-overview) \|
 ***v0.12* (td-agent2) **
-:::
-
 ------------------------------------------------------------------------
 
 If this article is incorrect or outdated, or omits critical information,
@@ -124,6 +101,3 @@ know](https://github.com/fluent/fluentd-docs/issues?state=open).
 [Fluentd](http://www.fluentd.org/) is a open source project under [Cloud
 Native Computing Foundation (CNCF)](https://cncf.io/). All components
 are available under the Apache 2 License.
-:::
-:::
-:::

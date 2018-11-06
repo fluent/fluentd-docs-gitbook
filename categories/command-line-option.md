@@ -1,13 +1,6 @@
-::: {#main .section}
-::: {#page}
-::: {.topic_content}
-::: {style="text-align:right"}
-::: {style="text-align:right"}
+
 Versions \| [v1.0 (td-agent3)](/v1.0/articles/command-line-option) \|
 ***v0.12* (td-agent2) **
-:::
-:::
-
 ------------------------------------------------------------------------
 
 Fluentd command line option
@@ -26,8 +19,6 @@ This article describes built-in commands and its options
 [fluent-cat](#fluent-cat)
 
 -   [example](#example)
-:::
-
 fluentd
 -------
 
@@ -62,8 +53,6 @@ Usage: fluentd [options]
     -G, --gem-path GEM_INSTALL_PATH  Gemfile install path (default: $(dirname $gemfile)/vendor/bundle)
 ```
 
-[]{#important-options}
-
 ### Important options
 
 #### --suppress-config-dump
@@ -92,15 +81,11 @@ option is useful.
 If you want to use your supervisor tools, this option avoids double
 supervisor.
 
-[]{#set-via-configuration-file}
-
 ### Set via configuration file
 
 Several options could be set via `<system>` directive configuration
 file. See [configuration file
 article](/articles/config-file#4-set-system-wide-configuration-the-ldquosystemrdquo-directive).
-
-[]{#fluent-cat}
 
 fluent-cat
 ----------
@@ -121,8 +106,6 @@ Usage: fluent-cat [options] <tag>
         --message-key KEY            key field for none format (default: message)
 ```
 
-[]{#example}
-
 ### example
 
 Send json message with `debug.log` tag to local fluentd:
@@ -137,17 +120,11 @@ Send to other machine:
 % echo '{"message":"hello"}' | fluent-cat debug.log --host testserver --port 24225
 ```
 
-::: {style="text-align:right"}
+
 Last updated: 2017-01-25 02:58:15 UTC
-:::
-
 ------------------------------------------------------------------------
-
-::: {style="text-align:right"}
 Versions \| [v1.0 (td-agent3)](/v1.0/articles/command-line-option) \|
 ***v0.12* (td-agent2) **
-:::
-
 ------------------------------------------------------------------------
 
 If this article is incorrect or outdated, or omits critical information,
@@ -156,6 +133,3 @@ know](https://github.com/fluent/fluentd-docs/issues?state=open).
 [Fluentd](http://www.fluentd.org/) is a open source project under [Cloud
 Native Computing Foundation (CNCF)](https://cncf.io/). All components
 are available under the Apache 2 License.
-:::
-:::
-:::

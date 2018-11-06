@@ -1,12 +1,5 @@
-::: {#main .section}
-::: {#page}
-::: {.topic_content}
-::: {style="text-align:right"}
-::: {style="text-align:right"}
-Versions \| ***v0.12* (td-agent2) **
-:::
-:::
 
+Versions \| ***v0.12* (td-agent2) **
 ------------------------------------------------------------------------
 
 Unix Domain Socket Input Plugin
@@ -26,8 +19,6 @@ Unix Domain Socket. The wire protocol is the same as
 -   [\@type (required)](#@type-(required))
 -   [path (required)](#path-(required))
 -   [backlog](#backlog)
-:::
-
 Example Configuration
 ---------------------
 
@@ -40,31 +31,19 @@ process is required.
   path /path/to/socket.sock
 </source>
 ```
-:::
-:::
-:::
-
 Please see the [Config File](config-file) article for the basic
 structure and syntax of the configuration file.
 
-[]{#parameters}
-
 Parameters
 ----------
-
-[]{#@type-(required)}
 
 ### \@type (required)
 
 The value must be `unix`.
 
-[]{#path-(required)}
-
 ### path (required)
 
 The path to your Unix Domain Socket.
-
-[]{#backlog}
 
 ### backlog
 
@@ -78,16 +57,10 @@ logging for each plugin. The supported log levels are: `fatal`, `error`,
 
 Please see the [logging article](logging) for further details.
 
-::: {style="text-align:right"}
+
 Last updated: 2016-10-21 06:29:58 UTC
-:::
-
 ------------------------------------------------------------------------
-
-::: {style="text-align:right"}
 Versions \| ***v0.12* (td-agent2) **
-:::
-
 ------------------------------------------------------------------------
 
 If this article is incorrect or outdated, or omits critical information,

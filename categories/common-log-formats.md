@@ -1,12 +1,5 @@
-::: {#main .section}
-::: {#page}
-::: {.topic_content}
-::: {style="text-align:right"}
-::: {style="text-align:right"}
-Versions \| ***v0.12* (td-agent2) **
-:::
-:::
 
+Versions \| ***v0.12* (td-agent2) **
 ------------------------------------------------------------------------
 
 Common Log Formats and How To Parse Them
@@ -110,8 +103,6 @@ the [Tail input plugin](in_tail).
 
     Use the [GlusterFS input plugin.](collect-glusterfs-logs)
 
-[]{#do-you-not-see-what-you-are-looking-for?}
-
 ### Do you not see what you are looking for?
 
 Give us a shout on
@@ -121,16 +112,10 @@ list](https://groups.google.com/forum/#!forum/fluentd). Better yet, we
 always welcome a [pull
 request](https://github.com/fluent/fluentd-docs/pulls)!
 
-::: {style="text-align:right"}
+
 Last updated: 2016-06-13 06:11:23 UTC
-:::
-
 ------------------------------------------------------------------------
-
-::: {style="text-align:right"}
 Versions \| ***v0.12* (td-agent2) **
-:::
-
 ------------------------------------------------------------------------
 
 If this article is incorrect or outdated, or omits critical information,
@@ -139,6 +124,3 @@ know](https://github.com/fluent/fluentd-docs/issues?state=open).
 [Fluentd](http://www.fluentd.org/) is a open source project under [Cloud
 Native Computing Foundation (CNCF)](https://cncf.io/). All components
 are available under the Apache 2 License.
-:::
-:::
-:::

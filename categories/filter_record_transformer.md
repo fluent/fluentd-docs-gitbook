@@ -1,13 +1,6 @@
-::: {#main .section}
-::: {#page}
-::: {.topic_content}
-::: {style="text-align:right"}
-::: {style="text-align:right"}
+
 Versions \| [v1.0 (td-agent3)](/v1.0/articles/filter_record_transformer)
 \| ***v0.12* (td-agent2) **
-:::
-:::
-
 ------------------------------------------------------------------------
 
 record\_transformer Filter Plugin
@@ -40,8 +33,6 @@ add/delete/modify events, this plugin is the first filter to try.
 [FAQ](#faq)
 
 [Learn More](#learn-more)
-:::
-
 Example Configurations
 ----------------------
 
@@ -142,12 +133,8 @@ So, if an event with the tag "web.auth" and record
 `{"user_id":1, "status":"ok"}` comes in, it transforms it into
 `{"user_id":1, "status":"ok", "service_name":"auth"}`.
 
-[]{#parameters}
-
 Parameters
 ----------
-
-[]{#<record>-directive}
 
 ### \<record\> directive
 
@@ -190,8 +177,6 @@ tag_prefix[1] = debug.my       tag_suffix[1] = my.app
 tag_prefix[2] = debug.my.app   tag_suffix[2] = app
 ```
 
-[]{#enable_ruby-(optional)}
-
 ### enable\_ruby (optional)
 
 When set to true, the full Ruby syntax is enabled in the `${...}`
@@ -213,8 +198,6 @@ escaped_tag ${tag.gsub('.', '-')}
 last_tag ${tag_parts.last}
 foo_${record["key"]} bar_${record["value"]}
 ```
-
-[]{#auto_typecast-(optional)}
 
 ### auto\_typecast (optional)
 
@@ -240,34 +223,24 @@ foo 1
 Internally, this keeps the original value type only when a single
 placeholder is used.
 
-[]{#renew_record-(optional)}
-
 ### renew\_record (optional)
 
 By default, the record transformer filter mutates the incoming data.
 However, if this parameter is set to true, it modifies a new empty hash
 instead.
 
-[]{#renew_time_key-(optional,-string-type)}
-
 ### renew\_time\_key (optional, string type)
 
 `renew_time_key foo` overwrites the time of events with a value of the
 record field `foo` if exists. The value of `foo` must be a unix time.
 
-[]{#keep_keys-(optional,-array-type)}
-
 ### keep\_keys (optional, array type)
 
 A list of keys to keep. Only relevant if `renew_record` is set to true.
 
-[]{#remove_keys-(optional,-array-type)}
-
 ### remove\_keys (optional, array type)
 
 A list of keys to delete.
-
-[]{#need-more-performance?}
 
 Need more performance?
 ----------------------
@@ -278,8 +251,6 @@ is light-weight and faster version of `filter_record_transformer`.
 `filter_record_transformer` features, but it covers popular cases. If
 you need better performace for mutating records, consider
 `filter_record_modifier` instead.
-
-[]{#faq}
 
 FAQ
 ---
@@ -293,24 +264,16 @@ because `${tag}` is unclear for event tag or `record["tag"]`. So the
 
 Since v0.14, `${key}` short-cut syntax is removed.
 
-[]{#learn-more}
-
 Learn More
 ----------
 
 -   [Filter Plugin Overview](filter-plugin-overview)
 
-::: {style="text-align:right"}
+
 Last updated: 2017-03-28 08:14:54 UTC
-:::
-
 ------------------------------------------------------------------------
-
-::: {style="text-align:right"}
 Versions \| [v1.0 (td-agent3)](/v1.0/articles/filter_record_transformer)
 \| ***v0.12* (td-agent2) **
-:::
-
 ------------------------------------------------------------------------
 
 If this article is incorrect or outdated, or omits critical information,
@@ -319,6 +282,3 @@ know](https://github.com/fluent/fluentd-docs/issues?state=open).
 [Fluentd](http://www.fluentd.org/) is a open source project under [Cloud
 Native Computing Foundation (CNCF)](https://cncf.io/). All components
 are available under the Apache 2 License.
-:::
-:::
-:::

@@ -1,12 +1,5 @@
-::: {#main .section}
-::: {#page}
-::: {.topic_content}
-::: {style="text-align:right"}
-::: {style="text-align:right"}
-Versions \| ***v0.12* (td-agent2) **
-:::
-:::
 
+Versions \| ***v0.12* (td-agent2) **
 ------------------------------------------------------------------------
 
 Kubernetes Logging with Fluentd
@@ -36,8 +29,6 @@ extend the possibilities to have different destinations for your logs.
 [Logging to Elasticsearch](#logging-to-elasticsearch)
 
 -   [Requirements](#requirements)
-:::
-
 Getting Started
 ---------------
 
@@ -75,8 +66,6 @@ Since applications runs in Pods and multiple Pods might exists across
 multiple nodes, we need a specific Fluentd-Pod that takes care of log
 collection on each node: [Fluentd DaemonSet](fluentd_daemonset.md).
 
-[]{#fluentd-daemonset}
-
 Fluentd DaemonSet
 -----------------
 
@@ -93,8 +82,6 @@ configuring our DaemonSet.
 
 The below steps will focus on sending the logs to a Elasticsearch Pod.
 
-[]{#get-fluentd-daemonset-sources}
-
 ### Get Fluentd DaemonSet sources
 
 We have created a Fluentd DaemonSet that have the proper rules and
@@ -107,8 +94,6 @@ Please grab a copy of the repository from the command line using GIT:
 ``` {.CodeRay}
 $ git clone https://github.com/fluent/fluentd-kubernetes-daemonset
 ```
-
-[]{#daemonset-content}
 
 ### DaemonSet Content
 
@@ -124,12 +109,8 @@ outputs.
 -   [DaemonSet preset
     settings](https://github.com/fluent/fluentd-kubernetes-daemonset/tree/master/docker-image/v0.12)
 
-[]{#logging-to-elasticsearch}
-
 Logging to Elasticsearch
 ------------------------
-
-[]{#requirements}
 
 ### Requirements
 
@@ -173,16 +154,10 @@ Any relevant change needs to be done to the Yaml file before to deploy
 it. Using the default values assumes that at least an Elasticsearch Pod
 **elasticsearch-logging** exists in the cluster.
 
-::: {style="text-align:right"}
+
 Last updated: 2017-02-13 20:29:22 UTC
-:::
-
 ------------------------------------------------------------------------
-
-::: {style="text-align:right"}
 Versions \| ***v0.12* (td-agent2) **
-:::
-
 ------------------------------------------------------------------------
 
 If this article is incorrect or outdated, or omits critical information,
@@ -191,6 +166,3 @@ know](https://github.com/fluent/fluentd-docs/issues?state=open).
 [Fluentd](http://www.fluentd.org/) is a open source project under [Cloud
 Native Computing Foundation (CNCF)](https://cncf.io/). All components
 are available under the Apache 2 License.
-:::
-:::
-:::

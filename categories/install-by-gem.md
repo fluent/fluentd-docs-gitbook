@@ -1,13 +1,6 @@
-::: {#main .section}
-::: {#page}
-::: {.topic_content}
-::: {style="text-align:right"}
-::: {style="text-align:right"}
+
 Versions \| [v1.0 (td-agent3)](/v1.0/articles/install-by-gem) \|
 ***v0.12* (td-agent2) **
-:::
-:::
-
 ------------------------------------------------------------------------
 
 Installing Fluentd Using Ruby Gem
@@ -23,15 +16,11 @@ This article explains how to install Fluentd using Ruby gem.
 -   [Step2: Install Fluentd gem](#step2:-install-fluentd-gem)
 -   [Step3: Run](#step3:-run)
 -   [Next Steps](#next-steps)
-:::
-
 Step0: Before Installation
 --------------------------
 
 Please follow the [Preinstallation Guide](before-install) to configure
 your OS properly. This will prevent many unnecessary problems.
-
-[]{#step1:-install-ruby-interpreter}
 
 Step1: Install Ruby interpreter
 -------------------------------
@@ -39,8 +28,6 @@ Step1: Install Ruby interpreter
 Please install Ruby \>= 1.9.3 on your local environment. In addition,
 install ruby-dev package via package manager to build native extension
 gems.
-
-[]{#step2:-install-fluentd-gem}
 
 Step2: Install Fluentd gem
 --------------------------
@@ -54,8 +41,6 @@ $ gem install fluentd -v "~> 0.12.0" --no-ri --no-rdoc
 
 `-v "~> 0.12.0"` is needed for v0.12 installation. Without it, you
 install v0.14 series.
-
-[]{#step3:-run}
 
 Step3: Run
 ----------
@@ -76,10 +61,6 @@ output the following message:
 ``` {.CodeRay}
 2011-07-10 16:49:50 +0900 debug.test: {"json":"message"}
 ```
-:::
-:::
-:::
-
 It\'s HIGHLY recommended that you set up **ntpd** on the node to prevent
 invalid timestamps in your logs.
 
@@ -94,8 +75,6 @@ process management tools such as
 [runit](http://smarden.org/runit/),
 [supervisord](http://supervisord.org/), or
 [upstart](http://upstart.ubuntu.com/).
-
-[]{#next-steps}
 
 Next Steps
 ----------
@@ -114,17 +93,11 @@ sources.
     -   [Store Apache Log into MongoDB](apache-to-mongodb)
     -   [Data Collection into HDFS](http-to-hdfs)
 
-::: {style="text-align:right"}
+
 Last updated: 2017-01-31 02:32:30 UTC
-:::
-
 ------------------------------------------------------------------------
-
-::: {style="text-align:right"}
 Versions \| [v1.0 (td-agent3)](/v1.0/articles/install-by-gem) \|
 ***v0.12* (td-agent2) **
-:::
-
 ------------------------------------------------------------------------
 
 If this article is incorrect or outdated, or omits critical information,

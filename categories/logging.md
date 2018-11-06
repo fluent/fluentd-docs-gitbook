@@ -1,13 +1,6 @@
-::: {#main .section}
-::: {#page}
-::: {.topic_content}
-::: {style="text-align:right"}
-::: {style="text-align:right"}
+
 Versions \| [v1.0 (td-agent3)](/v1.0/articles/logging) \| ***v0.12*
 (td-agent2) **
-:::
-:::
-
 ------------------------------------------------------------------------
 
 Logging of Fluentd
@@ -40,8 +33,6 @@ can be set for global logging and plugin level logging.
     service](#case1:-send-fluentd-logs-to-monitoring-service)
 -   [Case2: Use aggregation/monitoring
     server](#case2:-use-aggregation/monitoring-server)
-:::
-
 Log Level
 ---------
 
@@ -58,15 +49,11 @@ verbosity:
 The default log level is `info`, and Fluentd outputs `info`, `warn`,
 `error` and `fatal` logs by default.
 
-[]{#global-logs}
-
 Global Logs
 -----------
 
 Global logging is used by Fluentd core and plugins that don't set their
 own log levels. The global log level can be adjusted up or down.
-
-[]{#by-command-line-option}
 
 ### By Command Line Option
 
@@ -92,8 +79,6 @@ $ fluentd -q  ... # warn level
 $ fluentd -qq ... # error level
 ```
 
-[]{#by-config-file}
-
 ### By Config File
 
 You can also change the logging level with `<system>` section in the
@@ -105,8 +90,6 @@ config file like below.
   log_level error
 </system>
 ```
-
-[]{#per-plugin-log}
 
 Per Plugin Log
 --------------
@@ -133,15 +116,9 @@ options should be set as follows:
 
 If you don't specify the `log_level` parameter, the plugin will use the
 global log level.
-:::
-:::
-:::
-
 Some plugins haven\'t supported per-plugin logging yet. The [logging
 section of the Plugin Development article](plugin-development#logging)
 explains how to update such plugins to support the new log level system.
-
-[]{#suppress-repeated-stacktrace}
 
 Suppress repeated stacktrace
 ----------------------------
@@ -176,8 +153,6 @@ logs are changed to:
 Same stacktrace is replaced with `suppressed same stacktrace` message
 until other stacktrace is received.
 
-[]{#output-to-log-file}
-
 Output to log file
 ------------------
 
@@ -189,8 +164,6 @@ $ fluentd -o /path/to/log_file
 ```
 
 Fluentd doesn\'t support log rotation yet.
-
-[]{#capture-fluentd-logs}
 
 Capture Fluentd logs
 --------------------
@@ -218,8 +191,6 @@ then Fluentd outputs `fluent.info` logs to stdout like below:
 2014-02-27 00:00:01 +0900 [info]: process finished code = 0
 ```
 
-[]{#case1:-send-fluentd-logs-to-monitoring-service}
-
 ### Case1: Send Fluentd logs to monitoring service
 
 You can send Fluentd logs to a monitoring service by plugins, e.g.
@@ -239,8 +210,6 @@ datadog, sentry, irc, etc.
   # parameters...
 </match>
 ```
-
-[]{#case2:-use-aggregation/monitoring-server}
 
 ### Case2: Use aggregation/monitoring server
 
@@ -301,17 +270,11 @@ If an error occurs, you will get a notification message in your irc
 01:01  fluentd: [11:10:24] notice: fluent.warn [2014/02/27 01:00:00] @leaf.server.domain detached forwarding server 'server.name'
 ```
 
-::: {style="text-align:right"}
+
 Last updated: 2016-07-01 09:50:35 UTC
-:::
-
 ------------------------------------------------------------------------
-
-::: {style="text-align:right"}
 Versions \| [v1.0 (td-agent3)](/v1.0/articles/logging) \| ***v0.12*
 (td-agent2) **
-:::
-
 ------------------------------------------------------------------------
 
 If this article is incorrect or outdated, or omits critical information,

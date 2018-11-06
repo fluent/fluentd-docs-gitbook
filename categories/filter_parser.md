@@ -1,13 +1,6 @@
-::: {#main .section}
-::: {#page}
-::: {.topic_content}
-::: {style="text-align:right"}
-::: {style="text-align:right"}
+
 Versions \| [v1.0 (td-agent3)](/v1.0/articles/filter_parser) \|
 ***v0.12* (td-agent2) **
-:::
-:::
-
 ------------------------------------------------------------------------
 
 parser Filter Plugin
@@ -35,8 +28,6 @@ and mutates its event record with parsed result.
 -   [emit\_invalid\_record\_to\_error](#emit_invalid_record_to_error)
 
 [Learn More](#learn-more)
-:::
-
 Example Configurations
 ----------------------
 
@@ -61,24 +52,16 @@ parser plugin, so you can re-use pre-defined format like `apache`,
 `json` and etc. See document page for more details: [Parser Plugin
 Overview](/articles/parser-plugin-overview)
 
-[]{#parameters}
-
 Parameters
 ----------
-
-[]{#format}
 
 ### format
 
 This is required parameter. Specify parser format or regexp pattern.
 
-[]{#key_name}
-
 ### key\_name
 
 This is required parameter. Specify field name in the record to parse.
-
-[]{#reserve_data}
 
 ### reserve\_data
 
@@ -107,8 +90,6 @@ Without `reserve_data`, result is below
 # output data: {"user":1,"num":2}
 ```
 
-[]{#suppress_parse_error_log}
-
 ### suppress\_parse\_error\_log
 
 If `true`, a plugin suppresses `pattern not match` warning log. Default
@@ -117,22 +98,16 @@ is `false`.
 This parameter is useful for parsing mixed logs and you want to ignore
 non target lines.
 
-[]{#ignore_key_not_exist}
-
 ### ignore\_key\_not\_exist
 
 Ignore "key not exist" log. Default is `false`.
 
 Useful case is same with `suppress_parse_error_log`.
 
-[]{#replace_invalid_sequence}
-
 ### replace\_invalid\_sequence
 
 If `true`, invalid string is replaced with safe characters and re-parse
 it. Default is `false`.
-
-[]{#inject_key_prefix}
 
 ### inject\_key\_prefix
 
@@ -155,8 +130,6 @@ With above configuration, result is below:
 # output data: {"log":"{\"user\":1,\"num\":2}","data.user":1, "data.num":2}
 ```
 
-[]{#hash_value_field}
-
 ### hash\_value\_field
 
 Store parsed values as a hash value in a field. Default is `nil`.
@@ -177,13 +150,9 @@ With above configuration, result is below:
 # output data: {"parsed":{"user":1,"num":2}}
 ```
 
-[]{#time_parse}
-
 ### time\_parse
 
 If false, time parsing is disabled in the parser. Default is true.
-
-[]{#emit_invalid_record_to_error}
 
 ### emit\_invalid\_record\_to\_error
 
@@ -196,24 +165,16 @@ are
 
 You can rescue unexpected format logs in `@ERROR` label.
 
-[]{#learn-more}
-
 Learn More
 ----------
 
 -   [Filter Plugin Overview](filter-plugin-overview)
 
-::: {style="text-align:right"}
+
 Last updated: 2017-03-16 10:36:00 UTC
-:::
-
 ------------------------------------------------------------------------
-
-::: {style="text-align:right"}
 Versions \| [v1.0 (td-agent3)](/v1.0/articles/filter_parser) \|
 ***v0.12* (td-agent2) **
-:::
-
 ------------------------------------------------------------------------
 
 If this article is incorrect or outdated, or omits critical information,
@@ -222,6 +183,3 @@ know](https://github.com/fluent/fluentd-docs/issues?state=open).
 [Fluentd](http://www.fluentd.org/) is a open source project under [Cloud
 Native Computing Foundation (CNCF)](https://cncf.io/). All components
 are available under the Apache 2 License.
-:::
-:::
-:::

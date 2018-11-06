@@ -1,14 +1,7 @@
-::: {#main .section}
-::: {#page}
-::: {.topic_content}
-::: {style="text-align:right"}
-::: {style="text-align:right"}
+
 Versions \| [v1.0
 (td-agent3)](/v1.0/articles/free-alternative-to-splunk-by-fluentd) \|
 ***v0.12* (td-agent2) **
-:::
-:::
-
 ------------------------------------------------------------------------
 
 Free Alternative to Splunk Using Fluentd
@@ -44,10 +37,8 @@ this combined log search solution. This article was tested on Mac OS X
 Mountain Lion. **If you're not familiar with Fluentd**, please learn
 more about Fluentd first.
 
-::: {.btn-look style="width: 300px;"}
-[What is Fluentd?](/articles/architecture)
-:::
 
+[What is Fluentd?](/articles/architecture)
 \
 \
 
@@ -71,12 +62,8 @@ more about Fluentd first.
 [Conclusion](#conclusion)
 
 [Learn More](#learn-more)
-:::
-
 Prerequisites
 -------------
-
-[]{#java-for-elasticsearch}
 
 ### Java for Elasticsearch
 
@@ -91,8 +78,6 @@ Java HotSpot(TM) 64-Bit Server VM (build 25.111-b14, mixed mode)
 
 Now that we've checked for prerequisites, we're now ready to install and
 set up the three open source tools.
-
-[]{#set-up-elasticsearch}
 
 Set Up Elasticsearch
 --------------------
@@ -111,8 +96,6 @@ Once installation is complete, start Elasticsearch.
 ``` {.CodeRay}
 $ ./bin/elasticsearch
 ```
-
-[]{#set-up-kibana}
 
 Set Up Kibana
 -------------
@@ -136,8 +119,6 @@ $ ./bin/kibana
 ```
 
 Access `http://localhost:5601` in your browser.
-
-[]{#set-up-fluentd-(td-agent)}
 
 Set Up Fluentd (td-agent)
 -------------------------
@@ -190,8 +171,6 @@ Once everything has been set up and configured, we'll start td-agent.
 $ sudo /etc/init.d/td-agent start
 ```
 
-[]{#set-up-rsyslogd}
-
 Set Up rsyslogd
 ---------------
 
@@ -209,8 +188,6 @@ Please restart the rsyslog service once the modification is complete.
 ``` {.CodeRay}
 $ sudo /etc/init.d/rsyslog restart
 ```
-
-[]{#store-and-search-event-logs}
 
 Store and Search Event Logs
 ---------------------------
@@ -246,8 +223,6 @@ errors can be found at `/etc/td-agent/td-agent.log`.
 </match>
 ```
 
-[]{#conclusion}
-
 Conclusion
 ----------
 
@@ -260,8 +235,6 @@ If you will be using these components in production, you may want to
 modify some of the configurations (e.g. JVM, Elasticsearch, Fluentd
 buffer, etc.) according to your needs.
 
-[]{#learn-more}
-
 Learn More
 ----------
 
@@ -269,18 +242,12 @@ Learn More
 -   [Fluentd Get Started](quickstart)
 -   [Downloading Fluentd](http://www.fluentd.org/download)
 
-::: {style="text-align:right"}
+
 Last updated: 2016-12-07 02:27:29 UTC
-:::
-
 ------------------------------------------------------------------------
-
-::: {style="text-align:right"}
 Versions \| [v1.0
 (td-agent3)](/v1.0/articles/free-alternative-to-splunk-by-fluentd) \|
 ***v0.12* (td-agent2) **
-:::
-
 ------------------------------------------------------------------------
 
 If this article is incorrect or outdated, or omits critical information,
@@ -289,6 +256,3 @@ know](https://github.com/fluent/fluentd-docs/issues?state=open).
 [Fluentd](http://www.fluentd.org/) is a open source project under [Cloud
 Native Computing Foundation (CNCF)](https://cncf.io/). All components
 are available under the Apache 2 License.
-:::
-:::
-:::

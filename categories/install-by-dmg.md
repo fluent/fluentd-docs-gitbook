@@ -1,13 +1,6 @@
-::: {#main .section}
-::: {#page}
-::: {.topic_content}
-::: {style="text-align:right"}
-::: {style="text-align:right"}
+
 Versions \| [v1.0 (td-agent3)](/v1.0/articles/install-by-dmg) \|
 ***v0.12* (td-agent2) **
-:::
-:::
-
 ------------------------------------------------------------------------
 
 Installing Fluentd using .dmg Installer (MacOS X)
@@ -27,8 +20,6 @@ Inc](http://www.treasuredata.com/), on MacOS X.
     HTTP](#step3:-post-sample-logs-via-http)
 -   [Uninstall td-agent](#uninstall-td-agent)
 -   [Next Steps](#next-steps)
-:::
-
 What is td-agent?
 -----------------
 
@@ -44,16 +35,12 @@ differences between Fluentd and td-agent can be found
 For MacOS X, we're using the OS native .dmg Installer to distribute
 td-agent.
 
-[]{#step1:-install-td-agent}
-
 Step1: Install td-agent
 -----------------------
 
 Please download the `.dmg` file from here, and install the software.
 
 -   [Download](https://td-agent-package-browser.herokuapp.com/2/macosx)
-
-[]{#step2:-launch-td-agent}
 
 Step2: Launch td-agent
 ----------------------
@@ -77,8 +64,6 @@ stop the agent, please execute the command below.
 $ sudo launchctl unload /Library/LaunchDaemons/td-agent.plist
 ```
 
-[]{#step3:-post-sample-logs-via-http}
-
 Step3: Post Sample Logs via HTTP
 --------------------------------
 
@@ -92,8 +77,6 @@ $ tail -n 1 /var/log/td-agent/td-agent.log
 2013-04-19 16:51:47 -0700 debug.test: {"json":"message"}
 ```
 
-[]{#uninstall-td-agent}
-
 Uninstall td-agent
 ------------------
 
@@ -105,8 +88,6 @@ directories.
 -   /etc/td-agent
 -   /opt/td-agent
 -   /var/log/td-agent
-
-[]{#next-steps}
 
 Next Steps
 ----------
@@ -131,17 +112,11 @@ Please refer to the resources below for further steps.
     td-agent](http://docs.treasuredata.com/articles/td-agent-changelog)
 -   [Chef Cookbook](https://github.com/treasure-data/chef-td-agent/)
 
-::: {style="text-align:right"}
+
 Last updated: 2016-10-21 06:12:48 UTC
-:::
-
 ------------------------------------------------------------------------
-
-::: {style="text-align:right"}
 Versions \| [v1.0 (td-agent3)](/v1.0/articles/install-by-dmg) \|
 ***v0.12* (td-agent2) **
-:::
-
 ------------------------------------------------------------------------
 
 If this article is incorrect or outdated, or omits critical information,
@@ -150,6 +125,3 @@ know](https://github.com/fluent/fluentd-docs/issues?state=open).
 [Fluentd](http://www.fluentd.org/) is a open source project under [Cloud
 Native Computing Foundation (CNCF)](https://cncf.io/). All components
 are available under the Apache 2 License.
-:::
-:::
-:::

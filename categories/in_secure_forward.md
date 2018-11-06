@@ -1,12 +1,5 @@
-::: {#main .section}
-::: {#page}
-::: {.topic_content}
-::: {style="text-align:right"}
-::: {style="text-align:right"}
-Versions \| ***v0.12* (td-agent2) **
-:::
-:::
 
+Versions \| ***v0.12* (td-agent2) **
 ------------------------------------------------------------------------
 
 Secure Forward Input Plugin
@@ -14,10 +7,6 @@ Secure Forward Input Plugin
 
 The `in_secure_forward` input plugin accepts messages via **SSL with
 authentication** (cf. [out\_secure\_forward](out_secure_forward)).
-:::
-:::
-:::
-
 This document doesn\'t describe all parameters. If you want to know full
 features, check the Further Reading section.
 
@@ -54,8 +43,6 @@ features, check the Further Reading section.
 -   [socket\_interval\_msec (integer)](#socket_interval_msec-(integer))
 
 [Further Reading](#further-reading)
-:::
-
 Installation
 ------------
 
@@ -63,15 +50,11 @@ Installation
 `fluentd` gem. In order to install it, please refer to the [Plugin
 Management](plugin-management) article.
 
-[]{#example-configurations}
-
 Example Configurations
 ----------------------
 
 This section provides some example configurations for
 `in_secure_forward`.
-
-[]{#minimalist-configuration}
 
 ### Minimalist Configuration
 
@@ -89,8 +72,6 @@ copy that file to output plugin side by safe way (scp, or anyway else).
   ca_private_key_passphrase passphrase_for_private_CA_secret_key
 </source>
 ```
-
-[]{#check-username/password-from-clients}
 
 ### Check username/password from Clients
 
@@ -114,8 +95,6 @@ copy that file to output plugin side by safe way (scp, or anyway else).
   </user>
 </source>
 ```
-
-[]{#deny-unknown-source-ip/hosts}
 
 ### Deny Unknown Source IP/hosts
 
@@ -180,74 +159,50 @@ You can use the username/password check and client check together:
 </source>
 ```
 
-[]{#secure-sender-receiver-setup}
-
 ### Secure Sender-Receiver Setup
 
 Please refer to the **Secure Sender-Receiver Setup** [sample
 documentation](out_secure_forward#Secure-Sender-Receiver-Setup).
 
-[]{#parameters}
-
 Parameters
 ----------
-
-[]{#@type}
 
 ### \@type
 
 This parameter is required. Its value must be `secure_forward`.
 
-[]{#port-(integer)}
-
 ### port (integer)
 
 The default value is 24284.
 
-[]{#bind-(string)}
-
 ### bind (string)
 
 The default value is 0.0.0.0.
-
-[]{#secure-(bool)}
 
 ### secure (bool)
 
 Indicate published connection is secure or not. Specify `yes` (or
 `true`) if secure encryption needed.
 
-[]{#self_hostname-(string)}
-
 ### self\_hostname (string)
 
 Default value of the auto-generated certificate common name (CN).
-
-[]{#shared_key-(string)}
 
 ### shared\_key (string)
 
 Shared key between nodes.
 
-[]{#allow_keepalive-(bool)}
-
 ### allow\_keepalive (bool)
 
 Accept keepalive connection. The default value is `true`.
-
-[]{#allow_anonymous_source-(bool)}
 
 ### allow\_anonymous\_source (bool)
 
 Accept connections from unknown hosts.
 
-[]{#authentication-(bool)}
-
 ### authentication (bool)
 
 Require password authentication. The default value is `false`.
-
-[]{#ca_cert_path-(string)}
 
 ### ca\_cert\_path (string)
 
@@ -255,34 +210,24 @@ The path to the private CA certificate file, which is required to use
 private CA. (One of this parameter or `cert_path` is required for
 `secure yes` configuration.)
 
-[]{#ca_private_key_path-(string)}
-
 ### ca\_private\_key\_path (string)
 
 The path to the private key for private CA certificate key file.
-
-[]{#ca_private_key_passphrase-(string)}
 
 ### ca\_private\_key\_passphrase (string)
 
 The passphrase string for private key file, specified by
 `ca_private_key_path`.
 
-[]{#read_length-(size)}
-
 ### read\_length (size)
 
 The number of bytes read per nonblocking read. The default value is
 8MB=8*1024*1024 bytes.
 
-[]{#read_interval_msec-(integer)}
-
 ### read\_interval\_msec (integer)
 
 The interval between the non-blocking reads, in milliseconds. The
 default value is 50.
-
-[]{#socket_interval_msec-(integer)}
 
 ### socket\_interval\_msec (integer)
 
@@ -297,24 +242,16 @@ logging for each plugin. The supported log levels are: `fatal`, `error`,
 
 Please see the [logging article](logging) for further details.
 
-[]{#further-reading}
-
 Further Reading
 ---------------
 
 -   [fluent-plugin-secure-forward
     repository](https://github.com/tagomoris/fluent-plugin-secure-forward)
 
-::: {style="text-align:right"}
+
 Last updated: 2015-12-01 21:20:32 UTC
-:::
-
 ------------------------------------------------------------------------
-
-::: {style="text-align:right"}
 Versions \| ***v0.12* (td-agent2) **
-:::
-
 ------------------------------------------------------------------------
 
 If this article is incorrect or outdated, or omits critical information,

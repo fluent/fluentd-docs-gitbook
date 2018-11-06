@@ -1,13 +1,6 @@
-::: {#main .section}
-::: {#page}
-::: {.topic_content}
-::: {style="text-align:right"}
-::: {style="text-align:right"}
+
 Versions \| [v1.0 (td-agent3)](/v1.0/articles/kinesis-stream) \|
 ***v0.12* (td-agent2) **
-:::
-:::
-
 ------------------------------------------------------------------------
 
 Collect Log Files into Kinesis Stream in Real-Time
@@ -47,8 +40,6 @@ developed and published by Amazon Web Services officially.
 [Conclusion](#conclusion)
 
 [Learn More](#learn-more)
-:::
-
 Background
 ----------
 
@@ -66,8 +57,6 @@ applications for specialized needs.
 This article will show you how to use [Fluentd](http://fluentd.org/) to
 import Apache logs into Amazon Kinesis.
 
-[]{#mechanism}
-
 Mechanism
 ---------
 
@@ -77,8 +66,6 @@ In this example, Fluentd does 3 things:
 2.  It parses the incoming log entries into meaningful fields (such as
     `ip`, `path`, etc.) and buffers them.
 3.  It writes the buffered data to Amazon Kinesis periodically.
-
-[]{#install}
 
 Install
 -------
@@ -95,8 +82,6 @@ You can install Fluentd via major packaging systems.
 -   [RPM Package](install-by-rpm)
 -   [Ruby gem](install-by-gem)
 
-[]{#install-kinesis-plugin}
-
 Install Kinesis Plugin
 ----------------------
 
@@ -107,16 +92,12 @@ install it manually.
 $ sudo td-agent-gem install fluent-plugin-kinesis
 ```
 
-[]{#configuration}
-
 Configuration
 -------------
 
 Let's start configuring Fluentd. If you used the deb/rpm package,
 Fluentd's config file is located at /etc/td-agent/td-agent.conf.
 Otherwise, it is located at /etc/fluentd/fluentd.conf.
-
-[]{#tail-input}
 
 ### Tail Input
 
@@ -133,10 +114,6 @@ configuration file should look like this:
   tag kinesis.apache.access
 </source>
 ```
-:::
-:::
-:::
-
 Please make sure that your Apache outputs are in the default
 \'combined\' format. \`format apache2\` cannot parse custom log formats.
 Please see the [in\_tail](in_tail) article for more information.
@@ -153,8 +130,6 @@ Let's go through the configuration line by line.
 
 That's it! You should now be able to output a JSON-formatted data stream
 for Fluentd to process.
-
-[]{#amazon-kinesis-output}
 
 ### Amazon Kinesis Output
 
@@ -214,8 +189,6 @@ have AES keys in the configuration file, [IAM Role based
 authentication](http://docs.aws.amazon.com/kinesis/latest/dev/controlling-access.html)
 is available too for EC2 nodes.
 
-[]{#test}
-
 Test
 ----
 
@@ -235,8 +208,6 @@ server. This example uses the `ab` (Apache Bench) program.
 $ ab -n 100 -c 10 http://localhost/
 ```
 
-[]{#faqs}
-
 FAQs
 ----
 
@@ -249,15 +220,11 @@ lot more community contributed plugins and libraries. For outputs, you
 can send not only Kinesis, but multiple destinations like Amazon S3,
 local file storage, etc.
 
-[]{#conclusion}
-
 Conclusion
 ----------
 
 Fluentd + Amazon Kinesis makes real-time log collection simple, easy,
 and robust.
-
-[]{#learn-more}
 
 Learn More
 ----------
@@ -269,17 +236,11 @@ Learn More
     Plugin](https://github.com/awslabs/aws-fluent-plugin-kinesis) (Made
     by Amazon Web Services)
 
-::: {style="text-align:right"}
+
 Last updated: 2016-06-28 12:40:54 UTC
-:::
-
 ------------------------------------------------------------------------
-
-::: {style="text-align:right"}
 Versions \| [v1.0 (td-agent3)](/v1.0/articles/kinesis-stream) \|
 ***v0.12* (td-agent2) **
-:::
-
 ------------------------------------------------------------------------
 
 If this article is incorrect or outdated, or omits critical information,

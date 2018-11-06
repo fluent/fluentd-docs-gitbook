@@ -1,13 +1,6 @@
-::: {#main .section}
-::: {#page}
-::: {.topic_content}
-::: {style="text-align:right"}
-::: {style="text-align:right"}
+
 Versions \| [v1.0 (td-agent3)](/v1.0/articles/in_dummy) \| ***v0.12*
 (td-agent2) **
-:::
-:::
-
 ------------------------------------------------------------------------
 
 dummy Input Plugin
@@ -29,8 +22,6 @@ testing, debugging, benchmarking and getting started with Fluentd.
 -   [auto\_increment\_key (optional, string
     type)](#auto_increment_key-(optional,-string-type))
 -   [rate (optional, integer type)](#rate-(optional,-integer-type))
-:::
-
 Example Configuration
 ---------------------
 
@@ -43,31 +34,19 @@ process is required.
   dummy {"hello":"world"}
 </source>
 ```
-:::
-:::
-:::
-
 Please see the [Config File](config-file) article for the basic
 structure and syntax of the configuration file.
 
-[]{#parameters}
-
 Parameters
 ----------
-
-[]{#@type-(required)}
 
 ### \@type (required)
 
 The value must be `dummy`.
 
-[]{#tag-(required)}
-
 ### tag (required)
 
 The value is the tag assigned to the generated events.
-
-[]{#dummy-(optional)}
 
 ### dummy (optional)
 
@@ -76,8 +55,6 @@ hashes or a single JSON hash. If it is an array of JSON hashes, the
 hashes in the array are cycled through in order. By default, the value
 is `[{"message":"dummy"}]` (i.e., it continues to generate events with
 the record {"message":"dummy"}).
-
-[]{#auto_increment_key-(optional,-string-type)}
 
 ### auto\_increment\_key (optional, string type)
 
@@ -90,8 +67,6 @@ events look like
 2014-12-14 23:23:38 +0000 test: {"message":"dummy","foo_key":1}
 2014-12-14 23:23:38 +0000 test: {"message":"dummy","foo_key":2}
 ```
-
-[]{#rate-(optional,-integer-type)}
 
 ### rate (optional, integer type)
 
@@ -106,17 +81,11 @@ logging for each plugin. The supported log levels are: `fatal`, `error`,
 
 Please see the [logging article](logging) for further details.
 
-::: {style="text-align:right"}
+
 Last updated: 2015-12-01 21:20:32 UTC
-:::
-
 ------------------------------------------------------------------------
-
-::: {style="text-align:right"}
 Versions \| [v1.0 (td-agent3)](/v1.0/articles/in_dummy) \| ***v0.12*
 (td-agent2) **
-:::
-
 ------------------------------------------------------------------------
 
 If this article is incorrect or outdated, or omits critical information,

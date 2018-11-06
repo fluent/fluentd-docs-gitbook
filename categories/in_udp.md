@@ -1,13 +1,6 @@
-::: {#main .section}
-::: {#page}
-::: {.topic_content}
-::: {style="text-align:right"}
-::: {style="text-align:right"}
+
 Versions \| [v1.0 (td-agent3)](/v1.0/articles/in_udp) \| ***v0.12*
 (td-agent2) **
-:::
-:::
-
 ------------------------------------------------------------------------
 
 UDP Input Plugin
@@ -31,8 +24,6 @@ The `in_udp` Input plugin enables Fluentd to accept UDP payload.
 [FAQ](#faq)
 
 -   [How to prevent request drop?](#how-to-prevent-request-drop?)
-:::
-
 Example Configuration
 ---------------------
 
@@ -49,10 +40,6 @@ process is required.
   body_size_limit 1MB # optional. 4096 bytes by default
 </source>
 ```
-:::
-:::
-:::
-
 Please see the [Config File](config-file) article for the basic
 structure and syntax of the configuration file.
 
@@ -62,18 +49,12 @@ parameter). If you have high-volume UDP traffic, please make sure to
 follow the instruction described at [Before Installing
 Fluentd](before-install).
 
-[]{#parameters}
-
 Parameters
 ----------
-
-[]{#@type-(required)}
 
 ### \@type (required)
 
 The value must be `udp`.
-
-[]{#tag-(required)}
 
 ### tag (required)
 
@@ -83,13 +64,9 @@ tag of output events.
 
 The port to listen to. Default Value = 5160
 
-[]{#bind}
-
 ### bind
 
 The bind address to listen to. Default Value = 0.0.0.0
-
-[]{#source_hostname_key}
 
 ### source\_hostname\_key
 
@@ -113,8 +90,6 @@ then the client's hostname is set to `client_host` field.
 }
 ```
 
-[]{#format-(required)}
-
 ### format (required)
 
 The format of the UDP payload. `in_udp` uses parser plugin to parse the
@@ -128,12 +103,8 @@ logging for each plugin. The supported log levels are: `fatal`, `error`,
 
 Please see the [logging article](logging) for further details.
 
-[]{#faq}
-
 FAQ
 ---
-
-[]{#how-to-prevent-request-drop?}
 
 ### How to prevent request drop?
 
@@ -145,17 +116,11 @@ This means in\_udp with one process can't handle such traffic. Try
 to resolve the problem. See [issue
 1334](https://github.com/fluent/fluentd/issues/1334) for more detail.
 
-::: {style="text-align:right"}
+
 Last updated: 2016-12-19 03:25:48 UTC
-:::
-
 ------------------------------------------------------------------------
-
-::: {style="text-align:right"}
 Versions \| [v1.0 (td-agent3)](/v1.0/articles/in_udp) \| ***v0.12*
 (td-agent2) **
-:::
-
 ------------------------------------------------------------------------
 
 If this article is incorrect or outdated, or omits critical information,

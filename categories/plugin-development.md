@@ -1,13 +1,6 @@
-::: {#main .section}
-::: {#page}
-::: {.topic_content}
-::: {style="text-align:right"}
-::: {style="text-align:right"}
+
 Versions \| [v1.0 (td-agent3)](/v1.0/articles/plugin-development) \|
 ***v0.12* (td-agent2) **
-:::
-:::
-
 ------------------------------------------------------------------------
 
 Writing plugins
@@ -64,8 +57,6 @@ Plugins](#writing-non-buffered-output-plugins)
 -   [Run test](#run-test)
 
 [Further Reading](#further-reading)
-:::
-
 Installing custom plugins
 -------------------------
 
@@ -88,8 +79,6 @@ installed using RubyGems. For further information, please see the [list
 of Fluentd plugins](http://www.fluentd.org/plugins) for third-party
 plugins.
 
-[]{#overview}
-
 Overview
 --------
 
@@ -98,8 +87,6 @@ before they dive into writing their own plugins.
 
 (The slides are taken from [Naotoshi Seo's](//github.com/sonots)
 [RubyKaigi 2014 talk](//rubykaigi.org/2014/presentation/S-NaotoshiSeo).)
-
-[]{#fluentd-version-and-plugin-api}
 
 ### Fluentd version and Plugin API
 
@@ -112,16 +99,12 @@ new v1.0 API based Plugin doesn't work with v0.12.
 
 This document based on v0.12 Plugin API.
 
-[]{#send-a-patch-or-fork?}
-
 ### Send a patch or fork?
 
 If you have a problem with existing plugins or new feature idea, sending
 a patch is better. If the plugin author is non-active, try to become new
 plugin maintainer first. Forking a plugin and release alternative
 plugin, e.g. fluent-plugin-xxx-alt, is final approach.
-
-[]{#plugin-versioning-policy}
 
 Plugin versioning policy
 ------------------------
@@ -136,8 +119,6 @@ update major version to avoid user troubles. For example, new v0.14 API
 based plugin doesn't work with fluentd v0.12. So if you release your
 existing plugin with new v0.14 API, please update major version, `0.5.0`
 -\> `1.0.0`, `1.2.0` -\> `2.0.0`.
-
-[]{#writing-input-plugins}
 
 Writing Input Plugins
 ---------------------
@@ -209,8 +190,6 @@ records.each { |record|
 router.emit_stream(tag, es)
 ```
 
-[]{#record-format}
-
 ### Record format
 
 Fluentd plugins assume the record is a JSON so the key should be the
@@ -221,8 +200,6 @@ problem.
 router.emit(tag, time, {'foo' => 'bar'})  # OK!
 router.emit(tag, time, {:foo => 'bar'})   # NG!
 ```
-
-[]{#writing-buffered-output-plugins}
 
 Writing Buffered Output Plugins
 -------------------------------
@@ -298,8 +275,6 @@ module Fluent
 end
 ```
 
-[]{#writing-time-sliced-output-plugins}
-
 Writing Time Sliced Output Plugins
 ----------------------------------
 
@@ -330,8 +305,6 @@ module Fluent
   end
 end
 ```
-
-[]{#writing-non-buffered-output-plugins}
 
 Writing Non-buffered Output Plugins
 -----------------------------------
@@ -384,8 +357,6 @@ module Fluent
   end
 end
 ```
-
-[]{#filter-plugins}
 
 Filter Plugins
 --------------
@@ -445,8 +416,6 @@ See [Writing Input
 plugins](/articles/plugin-development#writing-input-plugins) section for
 the details of `tag`, `time` and `record`.
 
-[]{#filter_stream-method}
-
 ### filter\_stream method
 
 Almost plugins could be implemented by overriding `filter` method. But
@@ -473,8 +442,6 @@ end
 `filter_stream` should return
 [EventStream](https://github.com/fluent/fluentd/blob/master/lib/fluent/event.rb)
 object.
-
-[]{#parser-plugins}
 
 Parser Plugins
 --------------
@@ -563,8 +530,6 @@ path. Then, if in\_tail is configured as
 Then, the log line like `2014-01-01T00:00:00 k=v a=b` is parsed as
 `2013-01-01 00:00:00 +0000 test: {"k":"v","a":"b"}`.
 
-[]{#parser-api}
-
 ### Parser API
 
 Current `Parser#parse` API is called with block. We will remove
@@ -576,8 +541,6 @@ parser.parse(text) { |time, record| ... }
 # NG. This API will be removed
 time, record = parser.parse(text) # or parser.call(text)
 ```
-
-[]{#text-formatter-plugins}
 
 Text Formatter Plugins
 ----------------------
@@ -647,8 +610,6 @@ Then, if out\_file is configured as
 and if the record `{"k1": 100, "k2": 200}` is matched, the output file
 should look like `100,200`
 
-[]{#error-stream}
-
 Error stream
 ------------
 
@@ -662,8 +623,6 @@ There are several use cases:
 -   Rescue invalid event which hard to serialize in the output, e.g.
     can't convert a record into BSON.
 
-[]{#api}
-
 ### API
 
 ``` {.CodeRay}
@@ -675,8 +634,6 @@ There are several use cases:
 -   time: Integer: recommend to use incoming event time
 -   record: Hash: recommend to use incoming event record
 -   error: Exception: use a raised exception
-
-[]{#config_param}
 
 config\_param
 -------------
@@ -697,8 +654,6 @@ doesn't specify `param2`, fluentd set `10` to `param2` automatically. If
 a user sets "5" to `param2` parameter, fluentd converts it into integer
 type automatically.
 
-[]{#access-parameter-value}
-
 ### Access parameter value
 
 `config_param` sets parsed result to `:name` instance variable after
@@ -713,8 +668,6 @@ def configure(conf)
   p @param # You can access parsed result via instance variable. :param is used for variable name
 end
 ```
-
-[]{#supported-types}
 
 ### Supported types
 
@@ -741,8 +694,6 @@ config_param :time_param, :time
 config_param :enum_param, :enum, list: [:tcp, :udp]
 ```
 
-[]{#supported-options}
-
 ### Supported options
 
 -   `default`: Specified parameter becomes optional. `type` value or
@@ -760,8 +711,6 @@ These options can be combined.
 ``` {.CodeRay}
 config_param :param, :array, default: [1, 2], secret: true, deprecated: "Use new_param instead"
 ```
-
-[]{#debugging-plugins}
 
 Debugging plugins
 -----------------
@@ -830,8 +779,6 @@ combination. The result is same as above but more simpler.
 </match>
 ```
 
-[]{#writing-test-cases}
-
 Writing test cases
 ------------------
 
@@ -850,8 +797,6 @@ Fluent::Test::OutputTestDriver
 
 Please see Fluentd's source code for details.
 
-[]{#run-test}
-
 ### Run test
 
 Fluentd test follows standard gem way and uses test-unit library. Use
@@ -868,25 +813,17 @@ If you want to run only one file, use `TEST` environment variable:
 $ bundle exec rake test TEST=test/plugin/test_out_foo.rb
 ```
 
-[]{#further-reading}
-
 Further Reading
 ---------------
 
 -   [Slides: Dive into Fluentd
     Plugin](http://www.slideshare.net/repeatedly/dive-into-fluentd-plugin-v012)
 
-::: {style="text-align:right"}
+
 Last updated: 2017-03-02 23:21:14 UTC
-:::
-
 ------------------------------------------------------------------------
-
-::: {style="text-align:right"}
 Versions \| [v1.0 (td-agent3)](/v1.0/articles/plugin-development) \|
 ***v0.12* (td-agent2) **
-:::
-
 ------------------------------------------------------------------------
 
 If this article is incorrect or outdated, or omits critical information,
@@ -895,6 +832,3 @@ know](https://github.com/fluent/fluentd-docs/issues?state=open).
 [Fluentd](http://www.fluentd.org/) is a open source project under [Cloud
 Native Computing Foundation (CNCF)](https://cncf.io/). All components
 are available under the Apache 2 License.
-:::
-:::
-:::

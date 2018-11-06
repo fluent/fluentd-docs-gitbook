@@ -1,13 +1,6 @@
-::: {#main .section}
-::: {#page}
-::: {.topic_content}
-::: {style="text-align:right"}
-::: {style="text-align:right"}
+
 Versions \| [v1.0 (td-agent3)](/v1.0/articles/input-plugin-overview) \|
 ***v0.12* (td-agent2) **
-:::
-:::
-
 ------------------------------------------------------------------------
 
 Input Plugin Overview
@@ -25,8 +18,6 @@ Input Plugin.
 -   [Overview](#overview)
 -   [List of Input Plugins](#list-of-input-plugins)
 -   [Other Input Plugins](#other-input-plugins)
-:::
-
 Overview
 --------
 
@@ -34,8 +25,6 @@ Input plugins extend Fluentd to retrieve and pull event logs from
 external sources. An input plugin typically creates a thread socket and
 a listen socket. It can also be written to periodically pull data from
 data sources.
-
-[]{#list-of-input-plugins}
 
 List of Input Plugins
 ---------------------
@@ -47,8 +36,6 @@ List of Input Plugins
 -   [in\_exec](in_exec)
 -   [in\_syslog](in_syslog)
 
-[]{#other-input-plugins}
-
 Other Input Plugins
 -------------------
 
@@ -57,17 +44,11 @@ Input plugins.
 
 -   [Fluentd plugins](http://fluentd.org/plugin/)
 
-::: {style="text-align:right"}
+
 Last updated: 2017-04-17 07:04:27 UTC
-:::
-
 ------------------------------------------------------------------------
-
-::: {style="text-align:right"}
 Versions \| [v1.0 (td-agent3)](/v1.0/articles/input-plugin-overview) \|
 ***v0.12* (td-agent2) **
-:::
-
 ------------------------------------------------------------------------
 
 If this article is incorrect or outdated, or omits critical information,
@@ -76,6 +57,3 @@ know](https://github.com/fluent/fluentd-docs/issues?state=open).
 [Fluentd](http://www.fluentd.org/) is a open source project under [Cloud
 Native Computing Foundation (CNCF)](https://cncf.io/). All components
 are available under the Apache 2 License.
-:::
-:::
-:::

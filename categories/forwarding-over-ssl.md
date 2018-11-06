@@ -1,12 +1,5 @@
-::: {#main .section}
-::: {#page}
-::: {.topic_content}
-::: {style="text-align:right"}
-::: {style="text-align:right"}
-Versions \| ***v0.12* (td-agent2) **
-:::
-:::
 
+Versions \| ***v0.12* (td-agent2) **
 ------------------------------------------------------------------------
 
 Forwarding Data Over SSL
@@ -20,8 +13,6 @@ Forwarding Data Over SSL
 -   [Setup: Sender](#setup:-sender)
 -   [Confirm: Send an Event Over SSL](#confirm:-send-an-event-over-ssl)
 -   [Resources](#resources)
-:::
-
 Overview
 --------
 
@@ -33,8 +24,6 @@ It is intended as a quick introduction. For comprehensive documentation,
 including parameter definitions, please checkout out the
 [out\_secure\_forward](out_secure_forward) and
 [in\_secure\_forward](in_secure_forward).
-
-[]{#setup:-receiver}
 
 Setup: Receiver
 ---------------
@@ -67,8 +56,6 @@ STDOUT (which is fed into `var/log/td-agent/td-agent.log` for td-agent)
 using [out\_stdout](out_stdout).
 
 Then, (re)start Fluentd/td-agent.
-
-[]{#setup:-sender}
 
 Setup: Sender
 -------------
@@ -105,8 +92,6 @@ the receiver's.
 
 Then, (re)start td-agent.
 
-[]{#confirm:-send-an-event-over-ssl}
-
 Confirm: Send an Event Over SSL
 -------------------------------
 
@@ -126,8 +111,6 @@ Now, checking the receiver's Fluentd's log (for td-agent, this would be
 2014-10-21 18:18:26 -0400 secure.test: {"message":"testing the SSL forwarding"}
 ```
 
-[]{#resources}
-
 Resources
 ---------
 
@@ -136,16 +119,10 @@ Resources
 -   [the secure forward plugin's GitHub
     repo](//github.com/fluent/fluent-plugin-secure-forward)
 
-::: {style="text-align:right"}
+
 Last updated: 2016-07-01 09:50:35 UTC
-:::
-
 ------------------------------------------------------------------------
-
-::: {style="text-align:right"}
 Versions \| ***v0.12* (td-agent2) **
-:::
-
 ------------------------------------------------------------------------
 
 If this article is incorrect or outdated, or omits critical information,
@@ -154,6 +131,3 @@ know](https://github.com/fluent/fluentd-docs/issues?state=open).
 [Fluentd](http://www.fluentd.org/) is a open source project under [Cloud
 Native Computing Foundation (CNCF)](https://cncf.io/). All components
 are available under the Apache 2 License.
-:::
-:::
-:::

@@ -1,12 +1,5 @@
-::: {#main .section}
-::: {#page}
-::: {.topic_content}
-::: {style="text-align:right"}
-::: {style="text-align:right"}
-Versions \| ***v0.12* (td-agent2) **
-:::
-:::
 
+Versions \| ***v0.12* (td-agent2) **
 ------------------------------------------------------------------------
 
 Collecting Log Data from Windows
@@ -27,10 +20,8 @@ when you must collect data streams from Windows machines. For example:
 **If you're not familiar with Fluentd**, please learn more about Fluentd
 first.
 
-::: {.btn-look style="width: 300px;"}
-[What is Fluentd?](/articles/architecture)
-:::
 
+[What is Fluentd?](/articles/architecture)
 \
 \
 
@@ -49,8 +40,6 @@ first.
 -   [Next Step](#next-step)
 
 [Learn More](#learn-more)
-:::
-
 Prerequisites
 -------------
 
@@ -58,12 +47,8 @@ Prerequisites
     runs on Windows.
 2.  A Linux server (we assume Ubuntu 12 for this article)
 
-[]{#setup}
-
 Setup
 -----
-
-[]{#set-up-a-linux-server-with-rsyslogd-and-fluentd}
 
 ### Set up a Linux server with rsyslogd and Fluentd
 
@@ -91,8 +76,6 @@ Setup
     ```
 
 5.  Start td-agent by running `sudo service td-agent start`
-
-[]{#set-up-nxlog-on-windows}
 
 ### Set up nxlog on Windows
 
@@ -134,8 +117,6 @@ Setup
     parameter inside \<Input in&gt...\</Input\>) as a syslog message to
     a remote Fluentd/Treasure Agent instance.
 
-[]{#test}
-
 ### Test
 
 1.  Go to nxlog's directory (in Powershell or Command Prompt) and run
@@ -168,8 +149,6 @@ Setup
 
 4.  You successfully sent data from a Windows machine to a remote
     Fluentd instance running on Linux.
-
-[]{#parsing-json-logs}
 
 ### Parsing JSON Logs
 
@@ -204,8 +183,6 @@ On the Linux machine running Fluentd, you see the following line:
 2014-12-20 02:22:44 +0000 windowslog: {"name":"Sadayuki","age":27}
 ```
 
-[]{#next-step}
-
 ### Next Step
 
 This example showed that we can collect data from a Windows machine and
@@ -215,24 +192,16 @@ unstructured text. For production purposes, you would probably want to
 write a plugin/extend the syslog plugin so that you can parse the
 "message" field in the event.
 
-[]{#learn-more}
-
 Learn More
 ----------
 
 -   [Fluentd Architecture](architecture)
 -   [Fluentd Get Started](quickstart)
 
-::: {style="text-align:right"}
+
 Last updated: 2016-06-13 06:11:23 UTC
-:::
-
 ------------------------------------------------------------------------
-
-::: {style="text-align:right"}
 Versions \| ***v0.12* (td-agent2) **
-:::
-
 ------------------------------------------------------------------------
 
 If this article is incorrect or outdated, or omits critical information,
@@ -241,6 +210,3 @@ know](https://github.com/fluent/fluentd-docs/issues?state=open).
 [Fluentd](http://www.fluentd.org/) is a open source project under [Cloud
 Native Computing Foundation (CNCF)](https://cncf.io/). All components
 are available under the Apache 2 License.
-:::
-:::
-:::

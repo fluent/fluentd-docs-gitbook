@@ -1,13 +1,6 @@
-::: {#main .section}
-::: {#page}
-::: {.topic_content}
-::: {style="text-align:right"}
-::: {style="text-align:right"}
+
 Versions \| [v1.0 (td-agent3)](/v1.0/articles/parser_apache2) \|
 ***v0.12* (td-agent2) **
-:::
-:::
-
 ------------------------------------------------------------------------
 
 apache2 Parser Plugin
@@ -25,19 +18,13 @@ The `apache2` parser plugin parses apache2 logs.
 [Regexp patterns](#regexp-patterns)
 
 [Example](#example)
-:::
-
 Parameters
 ----------
-
-[]{#keep_time_key}
 
 ### keep\_time\_key
 
 If you want to keep time field in the record, set `true`. Default is
 `false`.
-
-[]{#regexp-patterns}
 
 Regexp patterns
 ---------------
@@ -55,8 +42,6 @@ are included in the event record. `time` is used for the event time.
 `code` and `size` fields are converted into integer type automatically.
 And if the field value is `-`, it is interpreted as `nil`. See "Result
 Example".
-
-[]{#example}
 
 Example
 -------
@@ -84,17 +69,11 @@ record:
 }
 ```
 
-::: {style="text-align:right"}
+
 Last updated: 2018-11-06 18:16:25 +0000
-:::
-
 ------------------------------------------------------------------------
-
-::: {style="text-align:right"}
 Versions \| [v1.0 (td-agent3)](/v1.0/articles/parser_apache2) \|
 ***v0.12* (td-agent2) **
-:::
-
 ------------------------------------------------------------------------
 
 If this article is incorrect or outdated, or omits critical information,
@@ -103,6 +82,3 @@ know](https://github.com/fluent/fluentd-docs/issues?state=open).
 [Fluentd](http://www.fluentd.org/) is a open source project under [Cloud
 Native Computing Foundation (CNCF)](https://cncf.io/). All components
 are available under the Apache 2 License.
-:::
-:::
-:::

@@ -1,13 +1,6 @@
-::: {#main .section}
-::: {#page}
-::: {.topic_content}
-::: {style="text-align:right"}
-::: {style="text-align:right"}
+
 Versions \| [v1.0 (td-agent3)](/v1.0/articles/parser_apache_error) \|
 ***v0.12* (td-agent2) **
-:::
-:::
-
 ------------------------------------------------------------------------
 
 apache\_error Parser Plugin
@@ -26,19 +19,13 @@ The `apache_error` parser plugin parses apache error logs.
 [Regexp patterns](#regexp-patterns)
 
 [Example](#example)
-:::
-
 Parameters
 ----------
-
-[]{#keep_time_key}
 
 ### keep\_time\_key
 
 If you want to keep time field in the record, set `true`. Default is
 `false`.
-
-[]{#types}
 
 ### types
 
@@ -82,8 +69,6 @@ value "3,4,5", `types item_ids:array` parses it as \["3", "4", "5"\].
 Alternatively, if the value is "Adam\|Alice\|Bob",
 `types item_ids:array:|` parses it as \["Adam", "Alice", "Bob"\].
 
-[]{#regexp-patterns}
-
 Regexp patterns
 ---------------
 
@@ -95,8 +80,6 @@ format /^\[[^ ]* (?<time>[^\]]*)\] \[(?<level>[^\]]*)\](?: \[pid (?<pid>[^\]]*)\
 
 `level`, `pid`, `client` and `message` are included in the event record.
 `time` is used for the event time.
-
-[]{#example}
 
 Example
 -------
@@ -119,17 +102,11 @@ record:
 }
 ```
 
-::: {style="text-align:right"}
+
 Last updated: 2018-11-06 18:16:27 +0000
-:::
-
 ------------------------------------------------------------------------
-
-::: {style="text-align:right"}
 Versions \| [v1.0 (td-agent3)](/v1.0/articles/parser_apache_error) \|
 ***v0.12* (td-agent2) **
-:::
-
 ------------------------------------------------------------------------
 
 If this article is incorrect or outdated, or omits critical information,
@@ -138,6 +115,3 @@ know](https://github.com/fluent/fluentd-docs/issues?state=open).
 [Fluentd](http://www.fluentd.org/) is a open source project under [Cloud
 Native Computing Foundation (CNCF)](https://cncf.io/). All components
 are available under the Apache 2 License.
-:::
-:::
-:::

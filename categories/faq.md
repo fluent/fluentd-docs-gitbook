@@ -1,13 +1,6 @@
-::: {#main .section}
-::: {#page}
-::: {.topic_content}
-::: {style="text-align:right"}
-::: {style="text-align:right"}
+
 Versions \| [v1.0 (td-agent3)](/v1.0/articles/faq) \| ***v0.12*
 (td-agent2) **
-:::
-:::
-
 ------------------------------------------------------------------------
 
 FAQ
@@ -53,19 +46,13 @@ support?](#what-version-of-ruby-does-fluentd-support?)
     plugin?](#how-do-i-develop-a-custom-plugin?)
 
 [HOWTOs](#howtos)
-:::
-
 What version of Ruby does fluentd support?
 ------------------------------------------
 
 Fluentd v0.12 works on 1.9.3 or later. Since v1.x, 2.1 or later.
 
-[]{#known-issue}
-
 Known Issue
 -----------
-
-[]{#i-use-fluentd-with-ruby-2.0-but-fluentd-seems-deadlocked.-why?}
 
 ### I use Fluentd with Ruby 2.0 but Fluentd seems deadlocked. Why?
 
@@ -87,12 +74,8 @@ install specified Ruby version using
 Using td-agent is another way to avoid this problem because td-agent
 includes own Ruby.
 
-[]{#operations}
-
 Operations
 ----------
-
-[]{#i-have-millisecond-timestamp-log-but-fluentd-drops-subsecond.-why?}
 
 ### I have millisecond timestamp log but fluentd drops subsecond. Why?
 
@@ -104,15 +87,11 @@ millisecond/nanosecond timestamp properly.
 
 Visit [v1.x document](https://docs.fluentd.org/v1.0/articles/quickstart)
 
-[]{#i-have-a-weird-timestamp-value,-what-happened?}
-
 ### I have a weird timestamp value, what happened?
 
 The timestamps of Fluentd and its logger libraries depend on your
 system's clock. It's highly recommended that you set up NTP on your
 nodes so that your clocks remain synced with the correct clocks.
-
-[]{#i-installed-td-agent-and-want-to-add-custom-plugins.-how-do-i-do-it?}
 
 ### I installed td-agent and want to add custom plugins. How do I do it?
 
@@ -149,21 +128,15 @@ to your `~/.bash_profile`.
 If you would like to find out more about plugin management, please take
 a look at the [Plugin Management](/articles/plugin-management) article.
 
-[]{#i-installed-the-plugin-and-it-updates-fluentd-from-v0.12-to-v1.x.-why?}
-
 ### I installed the plugin and it updates fluentd from v0.12 to v1.x. Why?
 
 You installed v1.0 based plugin. See [Plugin
 Management](/articles/plugin-management#plugin-version-management).
 
-[]{#how-can-i-match-(send)-an-event-to-multiple-outputs?}
-
 ### How can I match (send) an event to multiple outputs?
 
 You can use the `copy` [output plugin](/articles/out_copy) to send the
 same event to multiple output destinations.
-
-[]{#how-can-i-use-environment-variables-to-configure-parameters-dynamically?}
 
 ### How can I use environment variables to configure parameters dynamically?
 
@@ -174,8 +147,6 @@ some_field "#{ENV['FOO_HOME']}"
 ```
 
 Note that it must be double quotes and not single quotes
-
-[]{#fluentd-raises-an-error-for-host:port.-why?}
 
 ### Fluentd raises an error for host:port. Why?
 
@@ -189,8 +160,6 @@ There are several reasons:
 
 If you get other errors, google it.
 
-[]{#i-got-%E2%80%9Cno-patterns-matched%E2%80%9D-in-the-log,-why?}
-
 ### I got "no patterns matched" in the log, why?
 
 This means you emit the event but no `<match>` directive for emitted
@@ -200,14 +169,10 @@ to define `<match>` for `foo.bar` tag like `<match foo.**>`.
 See also: [Life of a Fluentd event](life-of-a-fluentd-event) or [Config
 File](config-file)
 
-[]{#file-buffer-doesn%E2%80%99t-work-properly,-why?}
-
 ### File buffer doesn't work properly, why?
 
 `file` buffer has limitations. Check [`buf_file`
 article](buf_file#limitation).
-
-[]{#i-got-enconding-error-inside-plugin.-how-to-fix-it?}
 
 ### I got enconding error inside plugin. How to fix it?
 
@@ -229,19 +194,13 @@ There are several approaches to avoid this problem.
 -   Use `yajl` instead of `json` when error happens inside
     `JSON.parse/JSON.dump`
 
-[]{#plugin-development}
-
 Plugin Development
 ------------------
-
-[]{#how-do-i-develop-a-custom-plugin?}
 
 ### How do I develop a custom plugin?
 
 Please refer to the [Plugin Development
 Guide](http://docs.fluentd.org/articles/plugin-development).
-
-[]{#howtos}
 
 HOWTOs
 ------
@@ -256,17 +215,11 @@ your Regexps.
 If you do NOT want to write any Regexp, look at [the Grok
 parser](https://github.com/kiyoto/fluent-plugin-grok-parser).
 
-::: {style="text-align:right"}
+
 Last updated: 2016-12-12 09:43:19 UTC
-:::
-
 ------------------------------------------------------------------------
-
-::: {style="text-align:right"}
 Versions \| [v1.0 (td-agent3)](/v1.0/articles/faq) \| ***v0.12*
 (td-agent2) **
-:::
-
 ------------------------------------------------------------------------
 
 If this article is incorrect or outdated, or omits critical information,
@@ -275,6 +228,3 @@ know](https://github.com/fluent/fluentd-docs/issues?state=open).
 [Fluentd](http://www.fluentd.org/) is a open source project under [Cloud
 Native Computing Foundation (CNCF)](https://cncf.io/). All components
 are available under the Apache 2 License.
-:::
-:::
-:::

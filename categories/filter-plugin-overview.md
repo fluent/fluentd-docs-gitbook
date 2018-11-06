@@ -1,13 +1,6 @@
-::: {#main .section}
-::: {#page}
-::: {.topic_content}
-::: {style="text-align:right"}
-::: {style="text-align:right"}
+
 Versions \| [v1.0 (td-agent3)](/v1.0/articles/filter-plugin-overview) \|
 ***v0.12* (td-agent2) **
-:::
-:::
-
 ------------------------------------------------------------------------
 
 Filter Plugin Overview
@@ -25,8 +18,6 @@ Filter Plugin.
 -   [Overview](#overview)
 -   [How to Use](#how-to-use)
 -   [List of Filter Plugins](#list-of-filter-plugins)
-:::
-
 Overview
 --------
 
@@ -36,8 +27,6 @@ cases are:
 1.  Filtering out events by grepping the value of one or more fields.
 2.  Enriching events by adding new fields.
 3.  Deleting or masking certain fields for privacy and compliance.
-
-[]{#how-to-use}
 
 How to Use
 ----------
@@ -81,8 +70,6 @@ Only the events whose "message" field contain "cool" get the new field
 Users can create their own custom plugins with a bit of Ruby. See [this
 section](plugin-development#filter-plugins) for more information.
 
-[]{#list-of-filter-plugins}
-
 List of Filter Plugins
 ----------------------
 
@@ -90,17 +77,11 @@ List of Filter Plugins
 -   [record-transformer](filter_record_transformer)
 -   [filter\_stdout](filter_stdout)
 
-::: {style="text-align:right"}
+
 Last updated: 2016-04-10 18:48:58 UTC
-:::
-
 ------------------------------------------------------------------------
-
-::: {style="text-align:right"}
 Versions \| [v1.0 (td-agent3)](/v1.0/articles/filter-plugin-overview) \|
 ***v0.12* (td-agent2) **
-:::
-
 ------------------------------------------------------------------------
 
 If this article is incorrect or outdated, or omits critical information,
@@ -109,6 +90,3 @@ know](https://github.com/fluent/fluentd-docs/issues?state=open).
 [Fluentd](http://www.fluentd.org/) is a open source project under [Cloud
 Native Computing Foundation (CNCF)](https://cncf.io/). All components
 are available under the Apache 2 License.
-:::
-:::
-:::

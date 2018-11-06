@@ -1,13 +1,6 @@
-::: {#main .section}
-::: {#page}
-::: {.topic_content}
-::: {style="text-align:right"}
-::: {style="text-align:right"}
+
 Versions \| [v1.0 (td-agent3)](/v1.0/articles/fluentd-ui) \| ***v0.12*
 (td-agent2) **
-:::
-:::
-
 ------------------------------------------------------------------------
 
 Fluentd UI
@@ -35,8 +28,6 @@ supports following operations.
 -   [Setting](#setting)
 -   [in\_tail setting](#in_tail-setting)
 -   [Plugin](#plugin)
-:::
-
 Getting Started
 ---------------
 
@@ -69,32 +60,22 @@ The default account is username="admin" and password="changeme"
 
 ![fluentd-ui](/images/fluentd-ui/fluentd-ui.gif)
 
-[]{#screenshots}
-
 Screenshots
 -----------
 
 (v0.3.9)
 
-[]{#dashboard}
-
 ### Dashboard
 
 ![dashboard](/images/fluentd-ui/dashboard.gif)
-
-[]{#setting}
 
 ### Setting
 
 ![setting](/images/fluentd-ui/setting.gif)
 
-[]{#in_tail-setting}
-
 ### in\_tail setting
 
 ![in\_tail](/images/fluentd-ui/in_tail.gif)
-
-[]{#plugin}
 
 ### Plugin
 
@@ -104,17 +85,11 @@ Screenshots
 ![ss03](/images/fluentd-ui/03.png) ![ss04](/images/fluentd-ui/04.png)
 ![ss05](/images/fluentd-ui/05.png)
 
-::: {style="text-align:right"}
+
 Last updated: 2015-05-28 06:46:49 UTC
-:::
-
 ------------------------------------------------------------------------
-
-::: {style="text-align:right"}
 Versions \| [v1.0 (td-agent3)](/v1.0/articles/fluentd-ui) \| ***v0.12*
 (td-agent2) **
-:::
-
 ------------------------------------------------------------------------
 
 If this article is incorrect or outdated, or omits critical information,
@@ -123,6 +98,3 @@ know](https://github.com/fluent/fluentd-docs/issues?state=open).
 [Fluentd](http://www.fluentd.org/) is a open source project under [Cloud
 Native Computing Foundation (CNCF)](https://cncf.io/). All components
 are available under the Apache 2 License.
-:::
-:::
-:::

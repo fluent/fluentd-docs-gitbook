@@ -1,14 +1,7 @@
-::: {#main .section}
-::: {#page}
-::: {.topic_content}
-::: {style="text-align:right"}
-::: {style="text-align:right"}
+
 Versions \| [v1.0
 (td-agent3)](/v1.0/articles/splunk-like-grep-and-alert-email) \|
 ***v0.12* (td-agent2) **
-:::
-:::
-
 ------------------------------------------------------------------------
 
 Splunk-like Grep-and-Alert-Email System Using Fluentd
@@ -40,8 +33,6 @@ Using Fluentd"](free-alternative-to-splunk-by-fluentd).
 [Test the configuration](#test-the-configuration)
 
 [What's next?](#what%E2%80%99s-next?)
-:::
-
 Installing the requisites
 -------------------------
 
@@ -62,12 +53,8 @@ $ sudo /usr/sbin/td-agent-gem install fluent-plugin-mail
 Note: If you installed Fluentd using ruby gems, use `gem` command
 instead of `td-agent-gem`.
 
-[]{#configuration}
-
 Configuration
 -------------
-
-[]{#full-configuration-example}
 
 ### Full configuration example
 
@@ -123,8 +110,6 @@ Before proceeding, please confirm:
 -   The access log file has a proper file permission. You need to make
     the file readable to the td-agent/Fluentd daemon.
 
-[]{#how-this-configuration-works}
-
 ### How this configuration works
 
 The configuration above consists of three main parts:
@@ -143,8 +128,6 @@ The configuration above consists of three main parts:
 
 In this way, fluentd now works as an email alerting system that monitors
 the web service for you.
-
-[]{#test-the-configuration}
 
 Test the configuration
 ----------------------
@@ -168,8 +151,6 @@ manually will produce the same result.
 
 Now you will receive an alert email titled "HTTP SERVER ERROR".
 
-[]{#what%E2%80%99s-next?}
-
 What's next?
 ------------
 
@@ -186,18 +167,12 @@ You can learn more about Fluentd and its plugins by
     list](https://groups.google.com/forum/#!forum/fluentd)
 -   [signing up for our newsletters](https://www.fluentd.org/newsletter)
 
-::: {style="text-align:right"}
+
 Last updated: 2015-12-01 21:20:32 UTC
-:::
-
 ------------------------------------------------------------------------
-
-::: {style="text-align:right"}
 Versions \| [v1.0
 (td-agent3)](/v1.0/articles/splunk-like-grep-and-alert-email) \|
 ***v0.12* (td-agent2) **
-:::
-
 ------------------------------------------------------------------------
 
 If this article is incorrect or outdated, or omits critical information,
@@ -206,6 +181,3 @@ know](https://github.com/fluent/fluentd-docs/issues?state=open).
 [Fluentd](http://www.fluentd.org/) is a open source project under [Cloud
 Native Computing Foundation (CNCF)](https://cncf.io/). All components
 are available under the Apache 2 License.
-:::
-:::
-:::

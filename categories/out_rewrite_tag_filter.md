@@ -1,13 +1,6 @@
-::: {#main .section}
-::: {#page}
-::: {.topic_content}
-::: {style="text-align:right"}
-::: {style="text-align:right"}
+
 Versions \| [v1.0 (td-agent3)](/v1.0/articles/out_rewrite_tag_filter) \|
 ***v0.12* (td-agent2) **
-:::
-:::
-
 ------------------------------------------------------------------------
 
 rewrite\_tag\_filter Output Plugin
@@ -45,8 +38,6 @@ request-uri, regex-backreference and so on with regular expression.
 
 -   [With rewrite-tag-filter, logs are not forwarded.
     Why?](#with-rewrite-tag-filter,-logs-are-not-forwarded.-why?)
-:::
-
 How it works
 ------------
 
@@ -75,8 +66,6 @@ It is a sample to arrange the tags by the regexp matched value of
 +----------------------------------------+        +----------------------------------------------+
 ```
 
-[]{#install}
-
 Install
 -------
 
@@ -87,8 +76,6 @@ fluent-plugin-rewrite-tag-filter gem using the following command.
 ``` {.CodeRay}
 $ fluent-gem install fluent-plugin-rewrite-tag-filter
 ```
-
-[]{#example-configuration}
 
 Example Configuration
 ---------------------
@@ -144,20 +131,12 @@ other matched record as new tag name.
   @type null
 </match>
 ```
-:::
-:::
-:::
-
 Please see the
 [README.md](https://github.com/fluent/fluent-plugin-rewrite-tag-filter)
 for further details.
 
-[]{#parameters}
-
 Parameters
 ----------
-
-[]{#rewriterulen-(required-at-least-one)}
 
 ### rewriteruleN (required at least one)
 
@@ -169,14 +148,10 @@ It works with the order \<num\> ascending, regexp matching
 \<regex\_pattern\> for the values of \<key\> from each record, re-emit
 with \<new\_tag\>.
 
-[]{#capitalize_regex_backreference}
-
 ### capitalize\_regex\_backreference
 
 Capitalize letter for every matched regex backreference. (ex: maps -\>
 Maps)
-
-[]{#hostname_command}
 
 ### hostname\_command
 
@@ -191,8 +166,6 @@ logging for each plugin. The supported log levels are: `fatal`, `error`,
 
 Please see the [logging article](logging) for further details.
 
-[]{#<rule>-section-(optional)-(multiple)}
-
 ### \<rule\> section (optional) (multiple)
 
 -   **key** (string) (required): The field name to which the regular
@@ -205,8 +178,6 @@ Please see the [logging article](logging) for further details.
 
 It works with the order of appearance, regexp matching `rule/pattern`
 for the values of `rule/key` from each record, re-emit with `rule/tag`.
-
-[]{#placeholders}
 
 Placeholders
 ------------
@@ -221,8 +192,6 @@ details at
 -   \_\_TAG\_PARTS\[n\]\_\_
 -   \${hostname}
 -   \_\_HOSTNAME\_\_
-
-[]{#use-cases}
 
 Use cases
 ---------
@@ -449,12 +418,8 @@ fluent-plugin-irc
 </match>
 ```
 
-[]{#faq}
-
 FAQ
 ---
-
-[]{#with-rewrite-tag-filter,-logs-are-not-forwarded.-why?}
 
 ### With rewrite-tag-filter, logs are not forwarded. Why?
 
@@ -496,17 +461,11 @@ tag like below:
 </match>
 ```
 
-::: {style="text-align:right"}
+
 Last updated: 2016-12-08 03:25:57 UTC
-:::
-
 ------------------------------------------------------------------------
-
-::: {style="text-align:right"}
 Versions \| [v1.0 (td-agent3)](/v1.0/articles/out_rewrite_tag_filter) \|
 ***v0.12* (td-agent2) **
-:::
-
 ------------------------------------------------------------------------
 
 If this article is incorrect or outdated, or omits critical information,

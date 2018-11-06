@@ -1,13 +1,6 @@
-::: {#main .section}
-::: {#page}
-::: {.topic_content}
-::: {style="text-align:right"}
-::: {style="text-align:right"}
+
 Versions \| [v1.0 (td-agent3)](/v1.0/articles/monitoring) \| ***v0.12*
 (td-agent2) **
-:::
-:::
-
 ------------------------------------------------------------------------
 
 Monitoring Fluentd
@@ -22,8 +15,6 @@ This article desribes how to monitor Fluentd.
 -   [Process Monitoring](#process-monitoring)
 -   [Port Monitoring](#port-monitoring)
 -   [Debug Port](#debug-port)
-:::
-
 Fluentd Metrics Monitoring
 --------------------------
 
@@ -37,8 +28,6 @@ Prometheus, since we will be collaborating more in the future under the
 -   [Monitoring Fluentd
     (Datadog)](https://docs.datadoghq.com/integrations/fluentd/)
 -   [Monitoring Fluentd (REST API)](monitoring-rest-api)
-
-[]{#process-monitoring}
 
 Process Monitoring
 ------------------
@@ -62,8 +51,6 @@ $ ps w -C ruby -C td-agent --no-heading
 32345 ?        Sl     0:01 /opt/td-agent/embedded/bin/ruby /usr/sbin/td-agent --daemon /var/run/td-agent/td-agent.pid --log /var/log/td-agent/td-agent.log
 ```
 
-[]{#port-monitoring}
-
 Port Monitoring
 ---------------
 
@@ -73,8 +60,6 @@ settings are shown below:
 
 -   TCP 0.0.0.0 9880 (HTTP by default)
 -   TCP 0.0.0.0 24224 (Forward by default)
-
-[]{#debug-port}
 
 Debug Port
 ----------
@@ -93,17 +78,11 @@ shooting. Please note that the configuration below will be required.
 You can attach the process using the `fluent-debug` command through
 dRuby.
 
-::: {style="text-align:right"}
+
 Last updated: 2017-01-28 04:02:44 UTC
-:::
-
 ------------------------------------------------------------------------
-
-::: {style="text-align:right"}
 Versions \| [v1.0 (td-agent3)](/v1.0/articles/monitoring) \| ***v0.12*
 (td-agent2) **
-:::
-
 ------------------------------------------------------------------------
 
 If this article is incorrect or outdated, or omits critical information,
@@ -112,6 +91,3 @@ know](https://github.com/fluent/fluentd-docs/issues?state=open).
 [Fluentd](http://www.fluentd.org/) is a open source project under [Cloud
 Native Computing Foundation (CNCF)](https://cncf.io/). All components
 are available under the Apache 2 License.
-:::
-:::
-:::

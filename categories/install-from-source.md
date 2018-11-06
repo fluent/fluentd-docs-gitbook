@@ -1,13 +1,6 @@
-::: {#main .section}
-::: {#page}
-::: {.topic_content}
-::: {style="text-align:right"}
-::: {style="text-align:right"}
+
 Versions \| [v1.0 (td-agent3)](/v1.0/articles/install-from-source) \|
 ***v0.12* (td-agent2) **
-:::
-:::
-
 ------------------------------------------------------------------------
 
 Installing Fluentd from Source
@@ -25,14 +18,10 @@ repository). This is useful for developers.
 -   [Step-3: Build and Install](#step-3:-build-and-install)
 -   [Step-4: Run](#step-4:-run)
 -   [Next Steps](#next-steps)
-:::
-
 Step-1: Install Ruby interpreter
 --------------------------------
 
 Please install Ruby \>= 1.9.3 and bundler on your local environment.
-
-[]{#step-2:-fetch-source-code}
 
 Step-2: Fetch Source Code
 -------------------------
@@ -49,8 +38,6 @@ $ git checkout -b v0.12 origin/v0.12
 master branch is now for v1.x development so you need to checkout v0.12
 branch.
 
-[]{#step-3:-build-and-install}
-
 Step-3: Build and Install
 -------------------------
 
@@ -66,8 +53,6 @@ $ bundle exec rake build
 fluentd xxx built to pkg/fluentd-xxx.gem.
 $ gem install pkg/fluentd-xxx.gem
 ```
-
-[]{#step-4:-run}
 
 Step-4: Run
 -----------
@@ -88,10 +73,6 @@ output the following message:
 ``` {.CodeRay}
 2011-07-10 16:49:50 +0900 debug.test: {"json":"message"}
 ```
-:::
-:::
-:::
-
 It\'s HIGHLY recommended that you set up **ntpd** on the node to prevent
 invalid timestamps in your logs.
 
@@ -99,8 +80,6 @@ For large deployments, you must use
 [jemalloc](http://www.canonware.com/jemalloc/) to avoid memory
 fragmentation. This is already included in the [rpm](install-by-rpm) and
 [deb](install-by-deb) packages.
-
-[]{#next-steps}
 
 Next Steps
 ----------
@@ -119,17 +98,11 @@ sources.
     -   [Store Apache Log into MongoDB](apache-to-mongodb)
     -   [Data Collection into HDFS](http-to-hdfs)
 
-::: {style="text-align:right"}
+
 Last updated: 2016-03-01 14:27:20 UTC
-:::
-
 ------------------------------------------------------------------------
-
-::: {style="text-align:right"}
 Versions \| [v1.0 (td-agent3)](/v1.0/articles/install-from-source) \|
 ***v0.12* (td-agent2) **
-:::
-
 ------------------------------------------------------------------------
 
 If this article is incorrect or outdated, or omits critical information,

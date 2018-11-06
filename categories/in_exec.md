@@ -1,13 +1,6 @@
-::: {#main .section}
-::: {#page}
-::: {.topic_content}
-::: {style="text-align:right"}
-::: {style="text-align:right"}
+
 Versions \| [v1.0 (td-agent3)](/v1.0/articles/in_exec) \| ***v0.12*
 (td-agent2) **
-:::
-:::
-
 ------------------------------------------------------------------------
 
 exec Input Plugin
@@ -39,8 +32,6 @@ please use the run\_interval parameter.
 
 [Real World Use Case: using in\_exec to scrape Hacker News Top
 Page](#real-world-use-case:-using-in_exec-to-scrape-hacker-news-top-page)
-:::
-
 Example Configuration
 ---------------------
 
@@ -58,31 +49,19 @@ process is required.
   run_interval 10s
 </source>
 ```
-:::
-:::
-:::
-
 Please see the [Config File](config-file) article for the basic
 structure and syntax of the configuration file.
 
-[]{#parameters}
-
 Parameters
 ----------
-
-[]{#@type-(required)}
 
 ### \@type (required)
 
 The value must be `exec`.
 
-[]{#command-(required)}
-
 ### command (required)
 
 The command (program) to execute.
-
-[]{#format}
 
 ### format
 
@@ -106,13 +85,9 @@ When using the json format, this plugin uses the Yajl library to parse
 the program output. Yajl buffers data internally so the output isn\'t
 always instantaneous.
 
-[]{#tag-(required-if-tag_key-is-not-specified)}
-
 ### tag (required if tag\_key is not specified)
 
 tag of the output events.
-
-[]{#tag_key}
 
 ### tag\_key
 
@@ -120,22 +95,16 @@ The key to use as the event tag instead of the value in the event
 record. If this parameter is not specified, the `tag` parameter will be
 used instead.
 
-[]{#time_key}
-
 ### time\_key
 
 The key to use as the event time instead of the value in the event
 record. If this parameter is not specified, the current time will be
 used instead.
 
-[]{#time_format}
-
 ### time\_format
 
 The format of the event time used for the time\_key parameter. The
 default is UNIX time (integer).
-
-[]{#run_interval}
 
 ### run\_interval
 
@@ -149,8 +118,6 @@ logging for each plugin. The supported log levels are: `fatal`, `error`,
 `warn`, `info`, `debug`, and `trace`.
 
 Please see the [logging article](logging) for further details.
-
-[]{#real-world-use-case:-using-in_exec-to-scrape-hacker-news-top-page}
 
 Real World Use Case: using in\_exec to scrape Hacker News Top Page
 ------------------------------------------------------------------
@@ -199,17 +166,11 @@ into various backend systems like
 [HDFS](http-to-hdfs), [MongoDB](apache-to-mongodb), [AWS](apache-to-s3),
 etc.
 
-::: {style="text-align:right"}
+
 Last updated: 2016-07-26 23:53:19 UTC
-:::
-
 ------------------------------------------------------------------------
-
-::: {style="text-align:right"}
 Versions \| [v1.0 (td-agent3)](/v1.0/articles/in_exec) \| ***v0.12*
 (td-agent2) **
-:::
-
 ------------------------------------------------------------------------
 
 If this article is incorrect or outdated, or omits critical information,

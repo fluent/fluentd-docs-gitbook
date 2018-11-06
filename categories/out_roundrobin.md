@@ -1,13 +1,6 @@
-::: {#main .section}
-::: {#page}
-::: {.topic_content}
-::: {style="text-align:right"}
-::: {style="text-align:right"}
+
 Versions \| [v1.0 (td-agent3)](/v1.0/articles/out_roundrobin) \|
 ***v0.12* (td-agent2) **
-:::
-:::
-
 ------------------------------------------------------------------------
 
 roundrobin Output Plugin
@@ -26,8 +19,6 @@ using a round-robin algorithm.
 -   [\@type (required)](#@type-(required))
 -   [\<store\> (required at least
     one)](#%3Cstore%3E-(required-at-least-one))
-:::
-
 Example Configuration
 ---------------------
 
@@ -51,25 +42,15 @@ installation process is required.
   </store>
 </match>
 ```
-:::
-:::
-:::
-
 Please see the [Config File](config-file) article for the basic
 structure and syntax of the configuration file.
-
-[]{#parameters}
 
 Parameters
 ----------
 
-[]{#@type-(required)}
-
 ### \@type (required)
 
 The value must be `roundrobin`.
-
-[]{#<store>-(required-at-least-one)}
 
 ### \<store\> (required at least one)
 
@@ -84,17 +65,11 @@ logging for each plugin. The supported log levels are: `fatal`, `error`,
 
 Please see the [logging article](logging) for further details.
 
-::: {style="text-align:right"}
+
 Last updated: 2015-12-01 21:20:32 UTC
-:::
-
 ------------------------------------------------------------------------
-
-::: {style="text-align:right"}
 Versions \| [v1.0 (td-agent3)](/v1.0/articles/out_roundrobin) \|
 ***v0.12* (td-agent2) **
-:::
-
 ------------------------------------------------------------------------
 
 If this article is incorrect or outdated, or omits critical information,

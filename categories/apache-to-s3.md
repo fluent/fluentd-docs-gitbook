@@ -1,13 +1,6 @@
-::: {#main .section}
-::: {#page}
-::: {.topic_content}
-::: {style="text-align:right"}
-::: {style="text-align:right"}
+
 Versions \| [v1.0 (td-agent3)](/v1.0/articles/apache-to-s3) \| ***v0.12*
 (td-agent2) **
-:::
-:::
-
 ------------------------------------------------------------------------
 
 Store Apache Logs into Amazon S3
@@ -36,8 +29,6 @@ in real-time.
 [Conclusion](#conclusion)
 
 [Learn More](#learn-more)
-:::
-
 Background
 ----------
 
@@ -51,8 +42,6 @@ data archiving.
 This article will show you how to use [Fluentd](http://fluentd.org/) to
 import Apache logs into Amazon S3.
 
-[]{#mechanism}
-
 Mechanism
 ---------
 
@@ -62,8 +51,6 @@ Fluentd does 3 things:
 2.  It parses the incoming log entries into meaningful fields (such as
     `ip`, `path`, etc.) and buffers them.
 3.  It writes the buffered data to Amazon S3 periodically.
-
-[]{#install}
 
 Install
 -------
@@ -84,16 +71,12 @@ plugin, please use `gem install fluent-plugin-s3`.
 -   [RPM Package](install-by-rpm)
 -   [Ruby gem](install-by-gem)
 
-[]{#configuration}
-
 Configuration
 -------------
 
 Let's start configuring Fluentd. If you used the deb/rpm package,
 Fluentd's config file is located at /etc/td-agent/td-agent.conf.
 Otherwise, it is located at /etc/fluentd/fluentd.conf.
-
-[]{#tail-input}
 
 ### Tail Input
 
@@ -110,10 +93,6 @@ configuration file should look like this:
   tag s3.apache.access
 </source>
 ```
-:::
-:::
-:::
-
 Please make sure that your Apache outputs are in the default
 \'combined\' format. \`format apache2\` cannot parse custom log formats.
 Please see the [in\_tail](in_tail) article for more information.
@@ -130,8 +109,6 @@ Let's go through the configuration line by line.
 
 That's it! You should now be able to output a JSON-formatted data stream
 for Fluentd to process.
-
-[]{#amazon-s3-output}
 
 ### Amazon S3 Output
 
@@ -162,8 +139,6 @@ If a matching tag is found in a log, then the config inside
 config inside). In this example, the `s3.apache.access` tag (generated
 by `tail`) is always used.
 
-[]{#test}
-
 Test
 ----
 
@@ -185,14 +160,10 @@ no file is created immediately. The file will be created when the
 frequency, please modify the `time_slice_format` value. To write files
 every minute, please use `%Y%m%d%H%M` for the `time_slice_format`.
 
-[]{#conclusion}
-
 Conclusion
 ----------
 
 Fluentd + Amazon S3 makes real-time log archiving simple.
-
-[]{#learn-more}
 
 Learn More
 ----------
@@ -201,17 +172,11 @@ Learn More
 -   [Fluentd Get Started](quickstart)
 -   [Amazon S3 Output plugin](out_s3)
 
-::: {style="text-align:right"}
+
 Last updated: 2015-12-01 21:20:32 UTC
-:::
-
 ------------------------------------------------------------------------
-
-::: {style="text-align:right"}
 Versions \| [v1.0 (td-agent3)](/v1.0/articles/apache-to-s3) \| ***v0.12*
 (td-agent2) **
-:::
-
 ------------------------------------------------------------------------
 
 If this article is incorrect or outdated, or omits critical information,

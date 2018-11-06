@@ -1,13 +1,6 @@
-::: {#main .section}
-::: {#page}
-::: {.topic_content}
-::: {style="text-align:right"}
-::: {style="text-align:right"}
+
 Versions \| [v1.0 (td-agent3)](/v1.0/articles/trouble-shooting) \|
 ***v0.12* (td-agent2) **
-:::
-:::
-
 ------------------------------------------------------------------------
 
 Troubleshooting Fluentd
@@ -28,8 +21,6 @@ Troubleshooting Fluentd
 [High CPU usage issue](#high-cpu-usage-issue)
 
 [Check uncaught logs](#check-uncaught-logs)
-:::
-
 Look at Logs
 ------------
 
@@ -37,15 +28,11 @@ If things aren't happening as expected, please first look at your logs.
 For td-agent (rpm/deb), the logs are located at
 `/var/log/td-agent/td-agent.log`.
 
-[]{#turn-on-verbose-logging}
-
 Turn on Verbose Logging
 -----------------------
 
 You can get more information about the logs if verbose logging is turned
 on. Please follow the steps below.
-
-[]{#rpm/deb}
 
 ### rpm/deb
 
@@ -66,8 +53,6 @@ td-agent v2.2.1. If you are using an older version of td-agent, you need
 to edit `/etc/init.d/td-agent` and insert `-vv` options to
 TD\_AGENT\_ARGS or DAEMON\_ARGS manually.
 
-[]{#gem}
-
 ### gem
 
 Please add `-vv` to your command line.
@@ -76,8 +61,6 @@ Please add `-vv` to your command line.
 $ fluentd .. -vv
 ```
 
-[]{#dump-fluentd-internal-information}
-
 Dump fluentd internal information
 ---------------------------------
 
@@ -85,8 +68,6 @@ Fluentd uses [sigdump](https://github.com/frsyuki/sigdump) for dumping
 fluentd internal information to local file, e.g. thread dump, object
 allocation and etc. If you have a problem with fluentd like process
 hang, please send `SIGCONT` to fluentd parent and child processes.
-
-[]{#high-cpu-usage-issue}
 
 High CPU usage issue
 --------------------
@@ -105,8 +86,6 @@ Examples](http://www.brendangregg.com/perf.html) page.\
 If you want to know which call causes the problem,
 [pid2line.rb](https://gist.github.com/nurse/0619b6af90df140508c2) is
 useful.
-
-[]{#check-uncaught-logs}
 
 Check uncaught logs
 -------------------
@@ -131,17 +110,11 @@ simulate `/etc/init.d/td-agent start` without daemonize.
 $ sudo LD_PRELOAD=/opt/td-agent/embedded/lib/libjemalloc.so /usr/sbin/td-agent -c /etc/td-agent/td-agent.conf --user td-agent --group td-agent
 ```
 
-::: {style="text-align:right"}
+
 Last updated: 2016-09-05 20:13:06 UTC
-:::
-
 ------------------------------------------------------------------------
-
-::: {style="text-align:right"}
 Versions \| [v1.0 (td-agent3)](/v1.0/articles/trouble-shooting) \|
 ***v0.12* (td-agent2) **
-:::
-
 ------------------------------------------------------------------------
 
 If this article is incorrect or outdated, or omits critical information,
@@ -150,6 +123,3 @@ know](https://github.com/fluent/fluentd-docs/issues?state=open).
 [Fluentd](http://www.fluentd.org/) is a open source project under [Cloud
 Native Computing Foundation (CNCF)](https://cncf.io/). All components
 are available under the Apache 2 License.
-:::
-:::
-:::

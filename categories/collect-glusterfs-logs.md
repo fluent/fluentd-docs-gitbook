@@ -1,12 +1,5 @@
-::: {#main .section}
-::: {#page}
-::: {.topic_content}
-::: {style="text-align:right"}
-::: {style="text-align:right"}
-Versions \| ***v0.12* (td-agent2) **
-:::
-:::
 
+Versions \| ***v0.12* (td-agent2) **
 ------------------------------------------------------------------------
 
 Collecting GlusterFS Logs with Fluentd
@@ -32,8 +25,6 @@ Nodes](#setting-up-fluentd-on-glusterfs-nodes)
 [Acknowledgement](#acknowledgement)
 
 [Learn More](#learn-more)
-:::
-
 Background
 ----------
 
@@ -57,12 +48,8 @@ For this example, we chose Elasticsearch as the backend system.
 
 ![](/images/glusterfs-fluentd.png)
 
-[]{#setting-up-fluentd-on-glusterfs-nodes}
-
 Setting up Fluentd on GlusterFS Nodes
 -------------------------------------
-
-[]{#step-1:-installing-fluentd}
 
 ### Step 1: Installing Fluentd
 
@@ -83,8 +70,6 @@ Installing ri documentation for fluent-plugin-glusterfs-1.0.0...
 Installing RDoc documentation for fluent-plugin-glusterfs-1.0.0...
 ```
 
-[]{#step-2:-making-glusterfs-log-files-readable-by-fluentd}
-
 ### Step 2: Making GlusterFS Log Files Readable by Fluentd
 
 By default, only `root` can read the GlusterFS log files. We'll allow
@@ -100,10 +85,6 @@ $ ls -alF /var/log/glusterfs/etc-glusterfs-glusterd.vol.log
 
 Now, modify Fluentd's configuration file. It is located at
 `/etc/td-agent/td-agent.conf`.
-:::
-:::
-:::
-
 \`td-agent\` is Fluentd\'s rpm/deb package maintained by \[Treasure
 Data\](http://docs.treasuredata.com/articles/td-agent)
 
@@ -151,8 +132,6 @@ Finally, start td-agent. Fluentd will started with the updated setup.
 $ sudo service td-agent start
 Starting td-agent:                                         [  OK  ]
 ```
-
-[]{#step-3:-setting-up-the-aggregator-fluentd-server}
 
 ### Step 3: Setting Up the Aggregator Fluentd Server
 
@@ -206,16 +185,12 @@ $ sudo cat /etc/td-agent/td-agent.conf
 That's it! You should now be able to search and visualize your GlusterFS
 logs with [Kibana](http://www.elasticsearch.org/overview/kibana).
 
-[]{#acknowledgement}
-
 Acknowledgement
 ---------------
 
 This article is inspired by [Daisuke Sasaki's article on Classmethod's
 website](http://dev.classmethod.jp/cloud/aws/glusterfs-with-fluentd/).
 Thanks Daisuke!
-
-[]{#learn-more}
 
 Learn More
 ----------
@@ -225,16 +200,10 @@ Learn More
 -   [GlusterFS Input
     Plugin](https://github.com/keithseahus/fluent-plugin-glusterfs)
 
-::: {style="text-align:right"}
+
 Last updated: 2015-12-01 21:20:32 UTC
-:::
-
 ------------------------------------------------------------------------
-
-::: {style="text-align:right"}
 Versions \| ***v0.12* (td-agent2) **
-:::
-
 ------------------------------------------------------------------------
 
 If this article is incorrect or outdated, or omits critical information,

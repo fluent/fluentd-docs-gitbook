@@ -1,13 +1,6 @@
-::: {#main .section}
-::: {#page}
-::: {.topic_content}
-::: {style="text-align:right"}
-::: {style="text-align:right"}
+
 Versions \| [v1.0 (td-agent3)](/v1.0/articles/routing-examples) \|
 ***v0.12* (td-agent2) **
-:::
-:::
-
 ------------------------------------------------------------------------
 
 Routing Examples
@@ -31,8 +24,6 @@ Label](#input--%3E-filter--%3E-output-with-label)
 [Re-route event by record content](#re-route-event-by-record-content)
 
 [Re-route event to other Label](#re-route-event-to-other-label)
-:::
-
 Simple Input -\> Filter -\> Output
 ----------------------------------
 
@@ -53,8 +44,6 @@ Simple Input -\> Filter -\> Output
   # ...
 </match>
 ```
-
-[]{#two-input-cases}
 
 ### Two input cases
 
@@ -83,8 +72,6 @@ Simple Input -\> Filter -\> Output
 ```
 
 If you want to separate data pipeline for each sources, use Label.
-
-[]{#input-->-filter-->-output-with-label}
 
 Input -\> Filter -\> Output with Label
 --------------------------------------
@@ -122,8 +109,6 @@ Label reduces complex tag handling by separating data pipeline.
 </label>
 ```
 
-[]{#re-route-event-by-tag}
-
 Re-route event by tag
 ---------------------
 
@@ -159,8 +144,6 @@ Label.
 </label>
 ```
 
-[]{#re-route-event-by-record-content}
-
 Re-route event by record content
 --------------------------------
 
@@ -192,8 +175,6 @@ Use
 ```
 
 See also [out\_rewrite\_tag\_filter](out_rewrite_tag_filter) article.
-
-[]{#re-route-event-to-other-label}
 
 Re-route event to other Label
 -----------------------------
@@ -230,17 +211,11 @@ events to Label. No tag rewrite.
 </label>
 ```
 
-::: {style="text-align:right"}
+
 Last updated: 2016-12-08 02:03:30 UTC
-:::
-
 ------------------------------------------------------------------------
-
-::: {style="text-align:right"}
 Versions \| [v1.0 (td-agent3)](/v1.0/articles/routing-examples) \|
 ***v0.12* (td-agent2) **
-:::
-
 ------------------------------------------------------------------------
 
 If this article is incorrect or outdated, or omits critical information,
@@ -249,6 +224,3 @@ know](https://github.com/fluent/fluentd-docs/issues?state=open).
 [Fluentd](http://www.fluentd.org/) is a open source project under [Cloud
 Native Computing Foundation (CNCF)](https://cncf.io/). All components
 are available under the Apache 2 License.
-:::
-:::
-:::

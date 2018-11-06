@@ -1,13 +1,6 @@
-::: {#main .section}
-::: {#page}
-::: {.topic_content}
-::: {style="text-align:right"}
-::: {style="text-align:right"}
+
 Versions \| [v1.0 (td-agent3)](/v1.0/articles/buf_memory) \| ***v0.12*
 (td-agent2) **
-:::
-:::
-
 ------------------------------------------------------------------------
 
 memory Buffer Plugin
@@ -22,8 +15,6 @@ logs that can't be written quickly are deleted.
 
 -   [Example Config](#example-config)
 -   [Parameters](#parameters)
-:::
-
 Example Config
 --------------
 
@@ -32,14 +23,8 @@ Example Config
   buffer_type memory
 </match>
 ```
-:::
-:::
-:::
-
 Please see the [Config File](config-file) article for the basic
 structure and syntax of the configuration file.
-
-[]{#parameters}
 
 Parameters
 ----------
@@ -76,17 +61,11 @@ If true, queued chunks are flushed at shutdown process. The default is
 The interval between retries. The suffixes "s" (seconds), "m" (minutes),
 and "h" (hours) can be used.
 
-::: {style="text-align:right"}
+
 Last updated: 2016-10-21 06:29:58 UTC
-:::
-
 ------------------------------------------------------------------------
-
-::: {style="text-align:right"}
 Versions \| [v1.0 (td-agent3)](/v1.0/articles/buf_memory) \| ***v0.12*
 (td-agent2) **
-:::
-
 ------------------------------------------------------------------------
 
 If this article is incorrect or outdated, or omits critical information,

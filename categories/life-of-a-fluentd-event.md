@@ -1,13 +1,6 @@
-::: {#main .section}
-::: {#page}
-::: {.topic_content}
-::: {style="text-align:right"}
-::: {style="text-align:right"}
+
 Versions \| [v1.0 (td-agent3)](/v1.0/articles/life-of-a-fluentd-event)
 \| ***v0.12* (td-agent2) **
-:::
-:::
-
 ------------------------------------------------------------------------
 
 Life of a Fluentd event
@@ -36,8 +29,6 @@ complete cycle including *Setup*, *Inputs*, *Filters*, *Matches* and
 [Conclusion](#conclusion)
 
 [Learn More](#learn-more)
-:::
-
 Basic Setup
 -----------
 
@@ -105,8 +96,6 @@ $ bin/fluentd -c in_http.conf
 2015-01-19 12:39:57 -0600 test.cycle: {"action":"login","user":2}
 ```
 
-[]{#event-structure}
-
 Event structure
 ---------------
 
@@ -133,8 +122,6 @@ time: 1362020400   # 28/Feb/2013:12:00:00 +0900
 record: {"user":"-","method":"GET","code":200,"size":777,"host":"192.168.0.1","path":"/"}
 ```
 
-[]{#processing-events}
-
 Processing Events
 -----------------
 
@@ -145,8 +132,6 @@ through a chain of procedures that may alter the *Events* cycle.
 Now we will expand the previous basic example and add more steps in our
 *Setup* to demonstrate how the *Events* cycle can be altered. We will do
 this through the new *Filters* implementation.
-
-[]{#filters}
 
 ### Filters
 
@@ -230,8 +215,6 @@ needed. Considering that the configuration file might grow and start
 getting a bit complex, a new feature called *Labels* has been added that
 aims to help manage this complexity.
 
-[]{#labels}
-
 ### Labels
 
 The *Labels* implementation aims to reduce configuration file complexity
@@ -270,8 +253,6 @@ section. Every *Event* reported on the *Source* is routed by the
 *Routing* engine and continue processing on *STAGING*, skipping the old
 filter definition.
 
-[]{#buffers}
-
 ### Buffers
 
 In this example, we use `stdout` non-buffered output, but in production
@@ -284,8 +265,6 @@ Using buffered output you don't see received events immediately, unlike
 Buffers are important for reliability and throughput. See
 [Output](output-plugin-overview) and [Buffer](buffer-plugin-overview)
 articles.
-
-[]{#execution-unit}
 
 Execution unit
 --------------
@@ -307,8 +286,6 @@ the output responsibility. This de-couples the input/output and this
 model has merits, separate responsibilities, easy error handling, good
 performance.
 
-[]{#conclusion}
-
 Conclusion
 ----------
 
@@ -318,25 +295,17 @@ referenced *Label*, with any *Event* being filtered out at any moment.
 The new *Routing* engine behavior aims to provide more flexibility and
 simplifies the processing before events reach the *Output* plugin.
 
-[]{#learn-more}
-
 Learn More
 ----------
 
 -   [Fluentd v0.12 Blog
     Announcement](http://www.fluentd.org/blog/fluentd-v0.12-is-released)
 
-::: {style="text-align:right"}
+
 Last updated: 2016-02-01 15:01:24 UTC
-:::
-
 ------------------------------------------------------------------------
-
-::: {style="text-align:right"}
 Versions \| [v1.0 (td-agent3)](/v1.0/articles/life-of-a-fluentd-event)
 \| ***v0.12* (td-agent2) **
-:::
-
 ------------------------------------------------------------------------
 
 If this article is incorrect or outdated, or omits critical information,
@@ -345,6 +314,3 @@ know](https://github.com/fluent/fluentd-docs/issues?state=open).
 [Fluentd](http://www.fluentd.org/) is a open source project under [Cloud
 Native Computing Foundation (CNCF)](https://cncf.io/). All components
 are available under the Apache 2 License.
-:::
-:::
-:::

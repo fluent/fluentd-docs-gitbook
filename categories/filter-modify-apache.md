@@ -1,13 +1,6 @@
-::: {#main .section}
-::: {#page}
-::: {.topic_content}
-::: {style="text-align:right"}
-::: {style="text-align:right"}
+
 Versions \| [v1.0 (td-agent3)](/v1.0/articles/filter-modify-apache) \|
 ***v0.12* (td-agent2) **
-:::
-:::
-
 ------------------------------------------------------------------------
 
 Easy Data Stream Manipulation using Fluentd
@@ -28,16 +21,12 @@ explain how to solve each task using one or more Fluentd plugins.
     hostname)](#scenario:-adding-a-new-field-(such-as-hostname))
 -   [Solution: Use
     fluent-plugin-record-modifier](#solution:-use-fluent-plugin-record-modifier)
-:::
-
 Scenario: Filtering Data by the Value of a Field
 ------------------------------------------------
 
 Let's suppose our Fluentd instances are collecting data from Apache web
 server logs via [in\_tail](in_tail). Our goal is to filter out all the
 200 requests.
-
-[]{#solution:-use-fluent-plugin-grep}
 
 Solution: Use fluent-plugin-grep
 --------------------------------
@@ -106,8 +95,6 @@ many dead links there are in the wild by filtering out internal links)
 ...
 ```
 
-[]{#scenario:-adding-a-new-field-(such-as-hostname)}
-
 Scenario: Adding a New Field (such as hostname)
 -----------------------------------------------
 
@@ -116,8 +103,6 @@ existing field in our log data. For example, many Fluentd users need to
 add the hostname of their servers to the Apache web server log data in
 order to compute the number of requests handled by each server (i.e.,
 store them in MongoDB/HDFS and run GROUP-BYs).
-
-[]{#solution:-use-fluent-plugin-record-modifier}
 
 Solution: Use fluent-plugin-record-modifier
 -------------------------------------------
@@ -156,17 +141,11 @@ configuration parsing phase. It inlines the host name of the server that
 the Fluentd instance is running on (in this example, our server's name
 is "our\_server").
 
-::: {style="text-align:right"}
+
 Last updated: 2016-07-01 09:50:35 UTC
-:::
-
 ------------------------------------------------------------------------
-
-::: {style="text-align:right"}
 Versions \| [v1.0 (td-agent3)](/v1.0/articles/filter-modify-apache) \|
 ***v0.12* (td-agent2) **
-:::
-
 ------------------------------------------------------------------------
 
 If this article is incorrect or outdated, or omits critical information,
@@ -175,6 +154,3 @@ know](https://github.com/fluent/fluentd-docs/issues?state=open).
 [Fluentd](http://www.fluentd.org/) is a open source project under [Cloud
 Native Computing Foundation (CNCF)](https://cncf.io/). All components
 are available under the Apache 2 License.
-:::
-:::
-:::

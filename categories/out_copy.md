@@ -1,13 +1,6 @@
-::: {#main .section}
-::: {#page}
-::: {.topic_content}
-::: {style="text-align:right"}
-::: {style="text-align:right"}
+
 Versions \| [v1.0 (td-agent3)](/v1.0/articles/out_copy) \| ***v0.12*
 (td-agent2) **
-:::
-:::
-
 ------------------------------------------------------------------------
 
 copy Output Plugin
@@ -31,8 +24,6 @@ The `copy` output plugin copies events to multiple outputs.
 
 -   [How to ignore each error in
     \\\<store\>?](#how-to-ignore-each-error-in-%5C%3Cstore%3E?)
-:::
-
 Example Configuration
 ---------------------
 
@@ -55,10 +46,6 @@ process is required.
   </store>
 </match>
 ```
-:::
-:::
-:::
-
 Please see the [Config File](config-file) article for the basic
 structure and syntax of the configuration file.
 
@@ -90,18 +77,12 @@ respective plugins.)
 </match>
 ```
 
-[]{#parameters}
-
 Parameters
 ----------
-
-[]{#@type-(required)}
 
 ### \@type (required)
 
 The value must be `copy`.
-
-[]{#deep_copy}
 
 ### deep\_copy
 
@@ -109,8 +90,6 @@ The value must be `copy`.
 
 When `deep_copy` is true, `out_copy` passes different record to each
 `store` plugin.
-
-[]{#<store>-(at-least-one-required)}
 
 ### \<store\> (at least one required)
 
@@ -125,12 +104,8 @@ logging for each plugin. The supported log levels are: `fatal`, `error`,
 
 Please see the [logging article](logging) for further details.
 
-[]{#faq}
-
 FAQ
 ---
-
-[]{#how-to-ignore-each-error-in-%5C<store>?}
 
 ### How to ignore each error in \\\<store\>?
 
@@ -139,17 +114,11 @@ to ignore an exception from less important `<store>`, you can use 3rd
 party [out\_copy\_ex](https://github.com/sonots/fluent-plugin-copy_ex)
 instead.
 
-::: {style="text-align:right"}
+
 Last updated: 2016-12-19 06:57:20 UTC
-:::
-
 ------------------------------------------------------------------------
-
-::: {style="text-align:right"}
 Versions \| [v1.0 (td-agent3)](/v1.0/articles/out_copy) \| ***v0.12*
 (td-agent2) **
-:::
-
 ------------------------------------------------------------------------
 
 If this article is incorrect or outdated, or omits critical information,

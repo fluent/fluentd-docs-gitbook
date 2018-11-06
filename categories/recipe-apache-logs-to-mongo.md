@@ -1,12 +1,5 @@
-::: {#main .section}
-::: {#page}
-::: {.topic_content}
-::: {style="text-align:right"}
-::: {style="text-align:right"}
-Versions \| ***v0.12* (td-agent2) **
-:::
-:::
 
+Versions \| ***v0.12* (td-agent2) **
 ------------------------------------------------------------------------
 
 Getting Data From Apache Logs Into Mongo Using Fluentd
@@ -16,10 +9,6 @@ Looking to get data out of apache logs into mongo? You can do that with
 [fluentd](//fluentd.org) in **10 minutes**!
 
 ![](/images/plugin_icon/apache_logs.png)
-:::
-:::
-:::
-
 [→]{style="font-size:50px"}
 
 ![](/images/plugin_icon/mongo.png)
@@ -64,16 +53,10 @@ fluentd in production, consider using [td-agent](articles/td-agent), the
 enterprise version of Fluentd packaged and maintained by [Treasure Data,
 Inc.](//www.treasure-data.com).
 
-::: {style="text-align:right"}
+
 Last updated: 2016-06-13 06:11:23 UTC
-:::
-
 ------------------------------------------------------------------------
-
-::: {style="text-align:right"}
 Versions \| ***v0.12* (td-agent2) **
-:::
-
 ------------------------------------------------------------------------
 
 If this article is incorrect or outdated, or omits critical information,

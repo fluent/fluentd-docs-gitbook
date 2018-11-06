@@ -1,13 +1,6 @@
-::: {#main .section}
-::: {#page}
-::: {.topic_content}
-::: {style="text-align:right"}
-::: {style="text-align:right"}
+
 Versions \| [v1.0 (td-agent3)](/v1.0/articles/apache-to-mongodb) \|
 ***v0.12* (td-agent2) **
-:::
-:::
-
 ------------------------------------------------------------------------
 
 Store Apache Logs into MongoDB
@@ -36,8 +29,6 @@ semi-structured logs in real-time.
 [Conclusion](#conclusion)
 
 [Learn More](#learn-more)
-:::
-
 Background
 ----------
 
@@ -56,8 +47,6 @@ JSON-like format to manage semi-structured data.
 This article will show you how to use [Fluentd](http://fluentd.org/) to
 import Apache logs into MongoDB.
 
-[]{#mechanism}
-
 Mechanism
 ---------
 
@@ -71,8 +60,6 @@ Fluentd does 3 things:
 2.  It parses the incoming log entries into meaningful fields (such as
     `ip`, `path`, etc.) and buffers them.
 3.  It writes the buffered data to MongoDB periodically.
-
-[]{#install}
 
 Install
 -------
@@ -97,16 +84,12 @@ For MongoDB, please refer to the following downloads page.
 
 -   [MongoDB Downloads](http://www.mongodb.org/downloads)
 
-[]{#configuration}
-
 Configuration
 -------------
 
 Let's start configuring Fluentd. If you used the deb/rpm package,
 Fluentd's config file is located at /etc/td-agent/td-agent.conf.
 Otherwise, it is located at /etc/fluentd/fluentd.conf.
-
-[]{#tail-input}
 
 ### Tail Input
 
@@ -123,10 +106,6 @@ configuration file should look like this:
   tag mongo.apache.access
 </source>
 ```
-:::
-:::
-:::
-
 Please make sure that your Apache outputs are in the default
 \'combined\' format. \`format apache2\` cannot parse custom log formats.
 Please see the [in\_tail](in_tail) article for more information.
@@ -143,8 +122,6 @@ Let's go through the configuration line by line.
 
 That's it! You should now be able to output a JSON-formatted data stream
 for Fluentd to process.
-
-[]{#mongodb-output}
 
 ### MongoDB Output
 
@@ -188,8 +165,6 @@ For additional configuration parameters, please see the [MongoDB Output
 plugin](out_mongo) article. If you are using ReplicaSet, please see the
 [MongoDB ReplicaSet Output plugin](out_mongo_replset) article.
 
-[]{#test}
-
 Test
 ----
 
@@ -211,15 +186,11 @@ $ mongo
 { "_id" : ObjectId("4ed1ed3a340765ce73000003"), "host" : "127.0.0.1", "user" : "-", "method" : "GET", "path" : "/", "code" : "200", "size" : "44", "time" : ISODate("2011-11-27T07:56:34Z") }
 ```
 
-[]{#conclusion}
-
 Conclusion
 ----------
 
 Fluentd + MongoDB makes real-time log collection simple, easy, and
 robust.
-
-[]{#learn-more}
 
 Learn More
 ----------
@@ -229,17 +200,11 @@ Learn More
 -   [MongoDB Output Plugin](out_mongo)
 -   [MongoDB ReplicaSet Output Plugin](out_mongo_replset)
 
-::: {style="text-align:right"}
+
 Last updated: 2016-02-22 23:29:31 UTC
-:::
-
 ------------------------------------------------------------------------
-
-::: {style="text-align:right"}
 Versions \| [v1.0 (td-agent3)](/v1.0/articles/apache-to-mongodb) \|
 ***v0.12* (td-agent2) **
-:::
-
 ------------------------------------------------------------------------
 
 If this article is incorrect or outdated, or omits critical information,

@@ -1,13 +1,6 @@
-::: {#main .section}
-::: {#page}
-::: {.topic_content}
-::: {style="text-align:right"}
-::: {style="text-align:right"}
+
 Versions \| [v1.0 (td-agent3)](/v1.0/articles/filter_stdout) \|
 ***v0.12* (td-agent2) **
-:::
-:::
-
 ------------------------------------------------------------------------
 
 stdout Filter Plugin
@@ -23,8 +16,6 @@ purposes.
 -   [Example Configurations](#example-configurations)
 -   [Parameters](#parameters)
 -   [Learn More](#learn-more)
-:::
-
 Example Configurations
 ----------------------
 
@@ -44,14 +35,8 @@ A sample output is as follows:
 
 where the first part shows the output time, the second part shows the
 tag, and the third part shows the record.
-:::
-:::
-:::
-
 The first part shows the \*\*output\*\* time, not the time attribute of
 message event structure as \`out\_stdout\` does.
-
-[]{#parameters}
 
 Parameters
 ----------
@@ -382,24 +367,16 @@ logging for each plugin. The supported log levels are: `fatal`, `error`,
 
 Please see the [logging article](logging) for further details.
 
-[]{#learn-more}
-
 Learn More
 ----------
 
 -   [Filter Plugin Overview](filter-plugin-overview)
 
-::: {style="text-align:right"}
+
 Last updated: 2016-10-21 06:29:58 UTC
-:::
-
 ------------------------------------------------------------------------
-
-::: {style="text-align:right"}
 Versions \| [v1.0 (td-agent3)](/v1.0/articles/filter_stdout) \|
 ***v0.12* (td-agent2) **
-:::
-
 ------------------------------------------------------------------------
 
 If this article is incorrect or outdated, or omits critical information,

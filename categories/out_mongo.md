@@ -1,13 +1,6 @@
-::: {#main .section}
-::: {#page}
-::: {.topic_content}
-::: {style="text-align:right"}
-::: {style="text-align:right"}
+
 Versions \| [v1.0 (td-agent3)](/v1.0/articles/out_mongo) \| ***v0.12*
 (td-agent2) **
-:::
-:::
-
 ------------------------------------------------------------------------
 
 MongoDB Output Plugin
@@ -16,10 +9,6 @@ MongoDB Output Plugin
 The `out_mongo` Buffered Output plugin writes records into
 [MongoDB](http://mongodb.org/), the emerging document-oriented database
 system.
-:::
-:::
-:::
-
 If you\'re using ReplicaSet, please see the
 [out\_mongo\_replset](out_mongo_replset) article instead.
 
@@ -63,8 +52,6 @@ features, check the Further Reading section.
 -   [slow\_flush\_log\_threshold](#slow_flush_log_threshold)
 
 [Further Reading](#further-reading)
-:::
-
 Why Fluentd with MongoDB?
 -------------------------
 
@@ -76,8 +63,6 @@ This has the following advantages:
 2.  higher MongoDB insertion throughput while maintaining JSON record
     structure
 
-[]{#install}
-
 Install
 -------
 
@@ -87,8 +72,6 @@ need to install the fluent-plugin-mongo gem using the following command.
 ``` {.CodeRay}
 $ fluent-gem install fluent-plugin-mongo
 ```
-
-[]{#example-configuration}
 
 Example Configuration
 ---------------------
@@ -124,42 +107,28 @@ article for real-world use cases.
 Please see the [Config File](config-file) article for the basic
 structure and syntax of the configuration file.
 
-[]{#parameters}
-
 Parameters
 ----------
-
-[]{#type-(required)}
 
 ### type (required)
 
 The value must be `mongo`.
 
-[]{#host-(required)}
-
 ### host (required)
 
 The MongoDB hostname.
-
-[]{#port-(required)}
 
 ### port (required)
 
 The MongoDB port.
 
-[]{#database-(required)}
-
 ### database (required)
 
 The database name.
 
-[]{#collection-(required,-if-not-tag_mapped)}
-
 ### collection (required, if not tag\_mapped)
 
 The collection name.
-
-[]{#capped}
 
 ### capped
 
@@ -171,25 +140,17 @@ data.
 
 Sets the capped collection size.
 
-[]{#user}
-
 ### user
 
 The username to use for authentication.
-
-[]{#password}
 
 ### password
 
 The password to use for authentication.
 
-[]{#time_key}
-
 ### time\_key
 
 The key name of timestamp. (default is "time")
-
-[]{#tag_mapped}
 
 ### tag\_mapped
 
@@ -219,15 +180,11 @@ within the `fluentd` database.
 
 This option is useful for flexible log collection.
 
-[]{#buffered-output-parameters}
-
 Buffered Output Parameters
 --------------------------
 
 For advanced usage, you can tune Fluentd's internal buffering mechanism
 with these parameters.
-
-[]{#buffer_type}
 
 ### buffer\_type
 
@@ -235,8 +192,6 @@ The buffer type is `memory` by default ([buf\_memory](buf_memory)) for
 the ease of testing, however `file` ([buf\_file](buf_file)) buffer type
 is always recommended for the production deployments. If you use `file`
 buffer type, `buffer_path` parameter is required.
-
-[]{#buffer_queue_limit,-buffer_chunk_limit}
 
 ### buffer\_queue\_limit, buffer\_chunk\_limit
 
@@ -246,21 +201,15 @@ for the basic buffer structure. The default values are 64 and 8m,
 respectively. The suffixes "k" (KB), "m" (MB), and "g" (GB) can be used
 for buffer\_chunk\_limit.
 
-[]{#flush_interval}
-
 ### flush\_interval
 
 The interval between data flushes. The default is 60s. The suffixes "s"
 (seconds), "m" (minutes), and "h" (hours) can be used.
 
-[]{#flush_at_shutdown}
-
 ### flush\_at\_shutdown
 
 If set to true, Fluentd waits for the buffer to flush at shutdown. By
 default, it is set to true for Memory Buffer and false for File Buffer.
-
-[]{#retry_wait,-max_retry_wait}
 
 ### retry\_wait, max\_retry\_wait
 
@@ -273,8 +222,6 @@ Since td-agent will retry 17 times before giving up by default (see the
 approximately 131072 seconds (roughly 36 hours) in the default
 configurations.
 
-[]{#retry_limit,-disable_retry_limit}
-
 ### retry\_limit, disable\_retry\_limit
 
 The limit on the number of retries before buffered data is discarded,
@@ -283,16 +230,12 @@ is ignored and there is no limit). The default values are 17 and false
 (not disabled). If the limit is reached, buffered data is discarded and
 the retry interval is reset to its initial value (`retry_wait`).
 
-[]{#num_threads}
-
 ### num\_threads
 
 The number of threads to flush the buffer. This option can be used to
 parallelize writes into the output(s) designated by the output plugin.
 Increasing the number of threads improves the flush throughput to hide
 write / network latency. The default is 1.
-
-[]{#slow_flush_log_threshold}
 
 ### slow\_flush\_log\_threshold
 
@@ -314,25 +257,17 @@ logging for each plugin. The supported log levels are: `fatal`, `error`,
 
 Please see the [logging article](logging) for further details.
 
-[]{#further-reading}
-
 Further Reading
 ---------------
 
 -   [fluent-plugin-mongo
     repository](https://github.com/fluent/fluent-plugin-mongo)
 
-::: {style="text-align:right"}
+
 Last updated: 2015-12-01 21:20:32 UTC
-:::
-
 ------------------------------------------------------------------------
-
-::: {style="text-align:right"}
 Versions \| [v1.0 (td-agent3)](/v1.0/articles/out_mongo) \| ***v0.12*
 (td-agent2) **
-:::
-
 ------------------------------------------------------------------------
 
 If this article is incorrect or outdated, or omits critical information,

@@ -1,13 +1,6 @@
-::: {#main .section}
-::: {#page}
-::: {.topic_content}
-::: {style="text-align:right"}
-::: {style="text-align:right"}
+
 Versions \| [v1.0 (td-agent3)](/v1.0/articles/in_http) \| ***v0.12*
 (td-agent2) **
-:::
-:::
-
 ------------------------------------------------------------------------
 
 http Input Plugin
@@ -45,8 +38,6 @@ POSTed body element becomes the record itself.
 
 -   [Why in\_http removes '+' from my
     log?](#why-in_http-removes-%E2%80%98+%E2%80%99-from-my-log?)
-:::
-
 Example Configuration
 ---------------------
 
@@ -62,14 +53,8 @@ process is required.
   keepalive_timeout 10s
 </source>
 ```
-:::
-:::
-:::
-
 Please see the [Config File](config-file) article for the basic
 structure and syntax of the configuration file.
-
-[]{#example-usage}
 
 ### Example Usage
 
@@ -80,49 +65,33 @@ $ curl -X POST -d 'json={"action":"login","user":2}'
   http://localhost:8888/test.tag.here;
 ```
 
-[]{#parameters}
-
 Parameters
 ----------
-
-[]{#@type-(required)}
 
 ### \@type (required)
 
 The value must be `http`.
 
-[]{#port}
-
 ### port
 
 The port to listen to. Default Value = 9880
-
-[]{#bind}
 
 ### bind
 
 The bind address to listen to. Default Value = 0.0.0.0 (all addresses)
 
-[]{#body_size_limit}
-
 ### body\_size\_limit
 
 The size limit of the POSTed element. Default Value = 32MB
-
-[]{#keepalive_timeout}
 
 ### keepalive\_timeout
 
 The timeout limit for keeping the connection alive. Default Value = 10
 seconds
 
-[]{#add_http_headers}
-
 ### add\_http\_headers
 
 Add `HTTP_` prefix headers to the record. The default is `false`
-
-[]{#add_remote_addr}
 
 ### add\_remote\_addr
 
@@ -139,16 +108,12 @@ X-Forwarded-For: host3
 
 If send above multiple headers, `REMOTE_ADDR` value is `host1`.
 
-[]{#cors_allow_origins}
-
 ### cors\_allow\_origins
 
 White list domains for CORS. Default is no check.
 
 If you set `["domain1", "domain2"]` to `cors_allow_origins`, `in_http`
 returns `403` to access from othe domains.
-
-[]{#format}
 
 ### format
 
@@ -189,12 +154,8 @@ logging for each plugin. The supported log levels are: `fatal`, `error`,
 
 Please see the [logging article](logging) for further details.
 
-[]{#additional-features}
-
 Additional Features
 -------------------
-
-[]{#time-query-parameter}
 
 ### time query parameter
 
@@ -205,8 +166,6 @@ If you want to pass the event time from your application, please use the
 $ curl -X POST -d 'json={"action":"login","user":2}'
   "http://localhost:8888/test.tag.here?time=1392021185"
 ```
-
-[]{#batch-mode}
 
 ### Batch mode
 
@@ -230,12 +189,8 @@ bechmark result on MacBook Pro with ruby 2.3:
 Tested configuration and ruby script is
 [here](https://gist.github.com/repeatedly/672ac73abf7cbcb629aaec791838cf6d).
 
-[]{#faq}
-
 FAQ
 ---
-
-[]{#why-in_http-removes-%E2%80%98+%E2%80%99-from-my-log?}
 
 ### Why in\_http removes '+' from my log?
 
@@ -260,17 +215,11 @@ curl -X POST -H 'Content-Type: multipart/form-data' -F 'json={"message":"foo+bar
 curl -X POST -F 'json={"message":"foo+bar"}' http://localhost:8888/test.tag.here
 ```
 
-::: {style="text-align:right"}
+
 Last updated: 2017-03-21 23:41:43 UTC
-:::
-
 ------------------------------------------------------------------------
-
-::: {style="text-align:right"}
 Versions \| [v1.0 (td-agent3)](/v1.0/articles/in_http) \| ***v0.12*
 (td-agent2) **
-:::
-
 ------------------------------------------------------------------------
 
 If this article is incorrect or outdated, or omits critical information,

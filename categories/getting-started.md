@@ -16,16 +16,12 @@ flexibility.
 Fluentd's scalability has been proven in the field: its largest user
 currently collects logs from **500,000+ servers**.
 
-[]{#step1:-installing-fluentd}
 
-::: {#table-of-contents .section}
 ### Table of Contents
 
 -   [Step1: Installing Fluentd](#step1:-installing-fluentd)
 -   [Step2: Use Cases](#step2:-use-cases)
 -   [Step3: Learn More](#step3:-learn-more)
-:::
-
 Step1: Installing Fluentd
 -------------------------
 
@@ -43,8 +39,6 @@ environment.
 Fluentd v0.12 doesn\'t support Windows environment. Please see
 [Collecting Log Data from Windows](windows) for details. Fluentd v1.x
 supports Windows.
-
-[]{#step2:-use-cases}
 
 Step2: Use Cases
 ----------------
@@ -68,8 +62,6 @@ refer to the article(s) that suits your needs.
 -   Happy Users :)
     -   [Users](users)
 
-[]{#step3:-learn-more}
-
 Step3: Learn More
 -----------------
 
@@ -88,17 +80,11 @@ learn more about Fluentd.
 -   [High Availability Configuration](high-availability)
 -   [FAQ](faq)
 
-::: {style="text-align:right"}
+
 Last updated: 2017-03-08 14:51:05 UTC
-:::
-
 ------------------------------------------------------------------------
-
-::: {style="text-align:right"}
 Versions \| [v1.0 (td-agent3)](/v1.0/articles/quickstart) \| ***v0.12*
 (td-agent2) **
-:::
-
 ------------------------------------------------------------------------
 
 If this article is incorrect or outdated, or omits critical information,

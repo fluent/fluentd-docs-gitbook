@@ -1,13 +1,6 @@
-::: {#main .section}
-::: {#page}
-::: {.topic_content}
-::: {style="text-align:right"}
-::: {style="text-align:right"}
+
 Versions \| [v1.0 (td-agent3)](/v1.0/articles/failure-scenarios) \|
 ***v0.12* (td-agent2) **
-:::
-:::
-
 ------------------------------------------------------------------------
 
 Failure Scenarios
@@ -26,8 +19,6 @@ Availability](high-availability), so that each app node has its local
 -   [Forwarder or Aggregator Fluentd Goes
     Down](#forwarder-or-aggregator-fluentd-goes-down)
 -   [Storage Destination Goes Down](#storage-destination-goes-down)
-:::
-
 Apps Cannot Post Records to Forwarder
 -------------------------------------
 
@@ -49,8 +40,6 @@ logs.
 
 When trying to resend logs to the local forwarder, some implementations
 will use exponential backoff to prevent excessive re-connect requests.
-
-[]{#forwarder-or-aggregator-fluentd-goes-down}
 
 Forwarder or Aggregator Fluentd Goes Down
 -----------------------------------------
@@ -75,8 +64,6 @@ Please note that the data will be lost if the buffer file is broken due
 to I/O errors. The data will also be lost if the disk is full, since
 there is nowhere to store the data on disk.
 
-[]{#storage-destination-goes-down}
-
 Storage Destination Goes Down
 -----------------------------
 
@@ -89,17 +76,11 @@ accepting new logs once they reach their buffer limits. If you're using
 [buf\_file](buf_file), aggregators will continue accepting logs until
 they run out of disk space.
 
-::: {style="text-align:right"}
+
 Last updated: 2016-06-06 04:47:13 UTC
-:::
-
 ------------------------------------------------------------------------
-
-::: {style="text-align:right"}
 Versions \| [v1.0 (td-agent3)](/v1.0/articles/failure-scenarios) \|
 ***v0.12* (td-agent2) **
-:::
-
 ------------------------------------------------------------------------
 
 If this article is incorrect or outdated, or omits critical information,
@@ -108,6 +89,3 @@ know](https://github.com/fluent/fluentd-docs/issues?state=open).
 [Fluentd](http://www.fluentd.org/) is a open source project under [Cloud
 Native Computing Foundation (CNCF)](https://cncf.io/). All components
 are available under the Apache 2 License.
-:::
-:::
-:::

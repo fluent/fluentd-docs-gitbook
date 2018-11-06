@@ -1,13 +1,6 @@
-::: {#main .section}
-::: {#page}
-::: {.topic_content}
-::: {style="text-align:right"}
-::: {style="text-align:right"}
+
 Versions \| [v1.0 (td-agent3)](/v1.0/articles/plugin-management) \|
 ***v0.12* (td-agent2) **
-:::
-:::
-
 ------------------------------------------------------------------------
 
 Plugin Management
@@ -36,8 +29,6 @@ This article explains how to manage Fluentd plugins, including adding
 [Plugin version management](#plugin-version-management)
 
 ["--gemfile" option](#%E2%80%9C%E2%80%93gemfile%E2%80%9D-option)
-:::
-
 fluent-gem
 ----------
 
@@ -47,15 +38,9 @@ wrapper around the `gem` command.
 ``` {.CodeRay}
 fluent-gem install fluent-plugin-grep
 ```
-:::
-:::
-:::
-
 Ruby doesn\'t guarantee C extension API compatibility between its major
 versions. If you update Fluentd\'s Ruby version, you should re-install
 the plugins that depend on C extension.
-
-[]{#if-using-td-agent,-use-/usr/sbin/td-agent-gem}
 
 ### If Using td-agent, Use /usr/sbin/td-agent-gem
 
@@ -66,8 +51,6 @@ system, rvm, etc.), you won't be able to find your "installed" plugins.
 Please see [this
 FAQ](/articles/faq#i-installed-td-agent-and-want-to-add-custom-plugins-how-do-i-do-it)
 for more information.
-
-[]{#gem-and-native-extension}
 
 ### Gem and native extension
 
@@ -98,8 +81,6 @@ Gem files will remain installed in /opt/td-agent/embedded/lib/ruby/gems/2.1.0/ge
 Results logged to /opt/td-agent/embedded/lib/ruby/gems/2.1.0/extensions/x86_64-linux/2.1.0/string-scrub-0.0.3/gem_make.out
 ```
 
-[]{#%E2%80%9C-p%E2%80%9D-option}
-
 "-p" option
 -----------
 
@@ -114,8 +95,6 @@ fluentd -p /path/to/plugin
 
 You can specify the `-p` option more than once.
 
-[]{#add-a-plugin-via-/etc/fluent/plugin}
-
 Add a Plugin Via /etc/fluent/plugin
 -----------------------------------
 
@@ -126,15 +105,11 @@ default. Thus, any additional plugins that are placed in
 For example, if `/etc/fluent/plugin/out_foo.rb` exists, you can use
 `@type foo` in `<match>`.
 
-[]{#if-using-td-agent,-use-/etc/td-agent/plugin}
-
 ### If Using td-agent, Use /etc/td-agent/plugin
 
 If you are using td-agent, Fluentd uses the `/etc/td-agent/plugin`
 directory instead of `/etc/fluent/plugin`. Please put your plugins here
 instead.
-
-[]{#plugin-version-management}
 
 Plugin version management
 -------------------------
@@ -167,8 +142,6 @@ You should specify target version with `-v` option.
 `/usr/sbin/td-agent-gem` is also same because `/usr/sbin/td-agent-gem`
 uses `gem` command internally.
 
-[]{#%E2%80%9C%E2%80%93gemfile%E2%80%9D-option}
-
 "--gemfile" option
 ------------------
 
@@ -200,17 +173,11 @@ In addition, if you update Fluentd's Ruby version, Bundler will
 re-install the listed gems for the new Ruby version. This allows you to
 avoid the C extension API compatibility problem.
 
-::: {style="text-align:right"}
+
 Last updated: 2017-04-17 12:58:47 UTC
-:::
-
 ------------------------------------------------------------------------
-
-::: {style="text-align:right"}
 Versions \| [v1.0 (td-agent3)](/v1.0/articles/plugin-management) \|
 ***v0.12* (td-agent2) **
-:::
-
 ------------------------------------------------------------------------
 
 If this article is incorrect or outdated, or omits critical information,

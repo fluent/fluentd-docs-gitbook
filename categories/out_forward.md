@@ -1,13 +1,6 @@
-::: {#main .section}
-::: {#page}
-::: {.topic_content}
-::: {style="text-align:right"}
-::: {style="text-align:right"}
+
 Versions \| [v1.0 (td-agent3)](/v1.0/articles/out_forward) \| ***v0.12*
 (td-agent2) **
-:::
-:::
-
 ------------------------------------------------------------------------
 
 forward Output Plugin
@@ -25,10 +18,6 @@ available automatically after a few seconds.
 
 The `out_forward` plugin supports at-most-once and at-least-once
 semantics. The default is at-most-once.
-:::
-:::
-:::
-
 Do **NOT** use this plugin for inter-DC or public internet data transfer
 without secure connections. All the data is not encrypted, and this
 plugin is not designed for high-latency network environment. If you
@@ -76,8 +65,6 @@ require a secure connection between nodes, please consider using
 
 -   ["no nodes are
     available"](#%E2%80%9Cno-nodes-are-available%E2%80%9D)
-:::
-
 Example Configuration
 ---------------------
 
@@ -115,18 +102,12 @@ process is required.
 Please see the [Config File](config-file) article for the basic
 structure and syntax of the configuration file.
 
-[]{#parameters}
-
 Parameters
 ----------
-
-[]{#@type-(required)}
 
 ### \@type (required)
 
 The value must be `forward`.
-
-[]{#<server>-(at-least-one-is-required)}
 
 ### \<server\> (at least one is required)
 
@@ -145,14 +126,10 @@ The destination servers. Each server must have following information.
     `false`. standby servers will be selected when all non-standby
     servers went down.
 
-[]{#require_ack_response}
-
 ### require\_ack\_response
 
 Change the protocol to at-least-once. The plugin waits the ack from
 destination's in\_forward plugin.
-
-[]{#ack_response_timeout}
 
 ### ack\_response\_timeout
 
@@ -161,46 +138,32 @@ is 190. This default value is based on popular tcp\_syn\_retries.
 
 If set `0`, this plugin doesn't wait the ack response.
 
-[]{#<secondary>-(optional)}
-
 ### \<secondary\> (optional)
 
 The backup destination that is used when all servers are unavailable.
 
-[]{#send_timeout}
-
 ### send\_timeout
 
 The timeout time when sending event logs. The default is 60 seconds.
-
-[]{#recover_wait}
 
 ### recover\_wait
 
 The wait time before accepting a server fault recovery. The default is
 10 seconds.
 
-[]{#heartbeat_type}
-
 ### heartbeat\_type
 
 The transport protocol to use for heartbeats. The default is "udp", but
 you can select "tcp" as well. Set "none" to disable heartbeat.
 
-[]{#heartbeat_interval}
-
 ### heartbeat\_interval
 
 The interval of the heartbeat packer. The default is 1 second.
-
-[]{#phi_failure_detector}
 
 ### phi\_failure\_detector
 
 Use the "Phi accrual failure detector" to detect server failure. The
 default value is `true`.
-
-[]{#phi_threshold}
 
 ### phi\_threshold
 
@@ -213,14 +176,10 @@ are using longer \`heartbeat\_interval\`, please use the larger
 destination servers. The default value 16 is tuned for
 \`heartbeat\_interval\` 1s.
 
-[]{#hard_timeout}
-
 ### hard\_timeout
 
 The hard timeout used to detect server failure. The default value is
 equal to the send\_timeout parameter.
-
-[]{#standby}
 
 ### standby
 
@@ -249,14 +208,10 @@ promoted to an active node. The standby node is not used by the
 </match>
 ```
 
-[]{#expire_dns_cache}
-
 ### expire\_dns\_cache
 
 Set TTL to expire DNS cache in seconds. Set 0 not to use DNS Cache. The
 default is nil (which means the persistent cache).
-
-[]{#dns_round_robin}
 
 ### dns\_round\_robin
 
@@ -266,15 +221,11 @@ to send data when a hostname has serveral IP addresses.
 \`heartbeat\_type udp\` is not available with \`dns\_round\_robin
 true\`. Use \`heartbeat\_type tcp\` or \`heartbeat\_type none\`.
 
-[]{#buffered-output-parameters}
-
 Buffered Output Parameters
 --------------------------
 
 For advanced usage, you can tune Fluentd's internal buffering mechanism
 with these parameters.
-
-[]{#buffer_type}
 
 ### buffer\_type
 
@@ -282,8 +233,6 @@ The buffer type is `memory` by default ([buf\_memory](buf_memory)) for
 the ease of testing, however `file` ([buf\_file](buf_file)) buffer type
 is always recommended for the production deployments. If you use `file`
 buffer type, `buffer_path` parameter is required.
-
-[]{#buffer_queue_limit,-buffer_chunk_limit}
 
 ### buffer\_queue\_limit, buffer\_chunk\_limit
 
@@ -293,21 +242,15 @@ for the basic buffer structure. The default values are 64 and 8m,
 respectively. The suffixes "k" (KB), "m" (MB), and "g" (GB) can be used
 for buffer\_chunk\_limit.
 
-[]{#flush_interval}
-
 ### flush\_interval
 
 The interval between data flushes. The default is 60s. The suffixes "s"
 (seconds), "m" (minutes), and "h" (hours) can be used.
 
-[]{#flush_at_shutdown}
-
 ### flush\_at\_shutdown
 
 If set to true, Fluentd waits for the buffer to flush at shutdown. By
 default, it is set to true for Memory Buffer and false for File Buffer.
-
-[]{#retry_wait,-max_retry_wait}
 
 ### retry\_wait, max\_retry\_wait
 
@@ -320,8 +263,6 @@ Since td-agent will retry 17 times before giving up by default (see the
 approximately 131072 seconds (roughly 36 hours) in the default
 configurations.
 
-[]{#retry_limit,-disable_retry_limit}
-
 ### retry\_limit, disable\_retry\_limit
 
 The limit on the number of retries before buffered data is discarded,
@@ -330,16 +271,12 @@ is ignored and there is no limit). The default values are 17 and false
 (not disabled). If the limit is reached, buffered data is discarded and
 the retry interval is reset to its initial value (`retry_wait`).
 
-[]{#num_threads}
-
 ### num\_threads
 
 The number of threads to flush the buffer. This option can be used to
 parallelize writes into the output(s) designated by the output plugin.
 Increasing the number of threads improves the flush throughput to hide
 write / network latency. The default is 1.
-
-[]{#slow_flush_log_threshold}
 
 ### slow\_flush\_log\_threshold
 
@@ -361,12 +298,8 @@ logging for each plugin. The supported log levels are: `fatal`, `error`,
 
 Please see the [logging article](logging) for further details.
 
-[]{#troubleshooting}
-
 Troubleshooting
 ---------------
-
-[]{#%E2%80%9Cno-nodes-are-available%E2%80%9D}
 
 ### "no nodes are available"
 
@@ -384,17 +317,11 @@ issue](http://kb.vmware.com/selfservice/microsites/search.do?language=en_US&cmd=
 where VMware will occasionally lose small UDP packets used for
 heartbeat.
 
-::: {style="text-align:right"}
+
 Last updated: 2015-12-01 21:20:32 UTC
-:::
-
 ------------------------------------------------------------------------
-
-::: {style="text-align:right"}
 Versions \| [v1.0 (td-agent3)](/v1.0/articles/out_forward) \| ***v0.12*
 (td-agent2) **
-:::
-
 ------------------------------------------------------------------------
 
 If this article is incorrect or outdated, or omits critical information,

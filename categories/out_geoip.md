@@ -1,12 +1,5 @@
-::: {#main .section}
-::: {#page}
-::: {.topic_content}
-::: {style="text-align:right"}
-::: {style="text-align:right"}
-Versions \| ***v0.12* (td-agent2) **
-:::
-:::
 
+Versions \| ***v0.12* (td-agent2) **
 ------------------------------------------------------------------------
 
 GeoIP Output Plugin
@@ -14,10 +7,6 @@ GeoIP Output Plugin
 
 The `out_geoip` Buffered Output plugin adds geographic location
 information to logs using the Maxmind GeoIP databases.
-:::
-:::
-:::
-
 This document doesn\'t describe all parameters. If you want to know full
 features, check the Further Reading section.
 
@@ -50,8 +39,6 @@ features, check the Further Reading section.
 [Use Cases](#use-cases)
 
 [Further Reading](#further-reading)
-:::
-
 Prerequisites
 -------------
 
@@ -64,8 +51,6 @@ Prerequisites
 
     \# for MacOSX (brew) \$ brew install geoip
 
-[]{#install}
-
 Install
 -------
 
@@ -76,8 +61,6 @@ fluent-plugin-geoip gem using the following command.
 $ fluent-gem install fluent-plugin-geoip
 $ sudo /usr/sbin/td-agent-gem install fluent-plugin-geoip
 ```
-
-[]{#example-configuration}
 
 Example Configuration
 ---------------------
@@ -121,25 +104,17 @@ Please see the [fluent-plugin-geoip
 README](https://github.com/y-ken/fluent-plugin-geoip#readme) for further
 details.
 
-[]{#parameters}
-
 Parameters
 ----------
-
-[]{#geoip_lookup_key-(required)}
 
 ### geoip\_lookup\_key (required)
 
 Specifies the geoip lookup field (default: host) If accessing a nested
 hash value, delimit the key with '.', as in 'host.ip'.
 
-[]{#remove_tag_prefix-/-add_tag_prefix-(requires-one-or-the-other)}
-
 ### remove\_tag\_prefix / add\_tag\_prefix (requires one or the other)
 
 Set tag replace rule.
-
-[]{#enable_key_***-(requires-at-least-one)}
 
 ### enable\_key\_\*\*\* (requires at least one)
 
@@ -156,29 +131,21 @@ supported parameters are shown below:
 -   enable\_key\_area\_code
 -   enable\_key\_region
 
-[]{#include_tag_key}
-
 ### include\_tag\_key
 
 Set to `true` to include the original tag name in the record. (default:
 false)
-
-[]{#tag_key}
 
 ### tag\_key
 
 Adds the tag name into the record using this value as the key name When
 `include_tag_key` is set to `true`.
 
-[]{#buffer-parameters}
-
 Buffer Parameters
 -----------------
 
 For advanced usage, you can tune Fluentd's internal buffering mechanism
 with these parameters.
-
-[]{#buffer_type}
 
 ### buffer\_type
 
@@ -187,8 +154,6 @@ The buffer type is `memory` by default ([buf\_memory](buf_memory)). The
 many other output plugins, the `buffer_path` parameter MUST be specified
 when using `buffer_type file`.
 
-[]{#buffer_queue_limit,-buffer_chunk_limit}
-
 ### buffer\_queue\_limit, buffer\_chunk\_limit
 
 The length of the chunk queue and the size of each chunk, respectively.
@@ -196,8 +161,6 @@ Please see the [Buffer Plugin Overview](buffer-plugin-overview) article
 for the basic buffer structure. The default values are 64 and 256m,
 respectively. The suffixes "k" (KB), "m" (MB), and "g" (GB) can be used
 for buffer\_chunk\_limit.
-
-[]{#flush_interval}
 
 ### flush\_interval
 
@@ -212,8 +175,6 @@ logging for each plugin. The supported log levels are: `fatal`, `error`,
 `warn`, `info`, `debug`, and `trace`.
 
 Please see the [logging article](logging) for further details.
-
-[]{#use-cases}
 
 Use Cases
 ---------
@@ -251,24 +212,16 @@ fluent-plugin-elasticsearch
 </match>
 ```
 
-[]{#further-reading}
-
 Further Reading
 ---------------
 
 -   [fluent-plugin-geoip
     repository](https://github.com/y-ken/fluent-plugin-geoip)
 
-::: {style="text-align:right"}
+
 Last updated: 2016-08-29 20:30:56 UTC
-:::
-
 ------------------------------------------------------------------------
-
-::: {style="text-align:right"}
 Versions \| ***v0.12* (td-agent2) **
-:::
-
 ------------------------------------------------------------------------
 
 If this article is incorrect or outdated, or omits critical information,

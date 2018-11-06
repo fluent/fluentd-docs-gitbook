@@ -1,13 +1,6 @@
-::: {#main .section}
-::: {#page}
-::: {.topic_content}
-::: {style="text-align:right"}
-::: {style="text-align:right"}
+
 Versions \| [v1.0 (td-agent3)](/v1.0/articles/buf_file) \| ***v0.12*
 (td-agent2) **
-:::
-:::
-
 ------------------------------------------------------------------------
 
 file Buffer Plugin
@@ -22,8 +15,6 @@ uses files to store buffer chunks on disk.
 -   [Example Config](#example-config)
 -   [Parameters](#parameters)
 -   [Caution](#caution)
-:::
-
 Example Config
 --------------
 
@@ -33,14 +24,8 @@ Example Config
   buffer_path /var/log/fluent/myapp.*.buffer
 </match>
 ```
-:::
-:::
-:::
-
 Please see the [Config File](config-file) article for the basic
 structure and syntax of the configuration file.
-
-[]{#parameters}
 
 Parameters
 ----------
@@ -118,8 +103,6 @@ and "h" (hours) can be used.
 
 Limitation
 
-[]{#caution}
-
 Caution
 -------
 
@@ -128,17 +111,11 @@ file system. Don't use `file` buffer on remote file system, e.g. NFS,
 GlusterFS, HDFS and etc. We observed major data loss by using remote
 file system.
 
-::: {style="text-align:right"}
+
 Last updated: 2016-12-07 10:53:25 UTC
-:::
-
 ------------------------------------------------------------------------
-
-::: {style="text-align:right"}
 Versions \| [v1.0 (td-agent3)](/v1.0/articles/buf_file) \| ***v0.12*
 (td-agent2) **
-:::
-
 ------------------------------------------------------------------------
 
 If this article is incorrect or outdated, or omits critical information,

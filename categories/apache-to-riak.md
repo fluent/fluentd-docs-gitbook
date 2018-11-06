@@ -1,12 +1,5 @@
-::: {#main .section}
-::: {#page}
-::: {.topic_content}
-::: {style="text-align:right"}
-::: {style="text-align:right"}
-Versions \| ***v0.12* (td-agent2) **
-:::
-:::
 
+Versions \| ***v0.12* (td-agent2) **
 ------------------------------------------------------------------------
 
 Store Apache Logs into Riak
@@ -34,8 +27,6 @@ Plugin](#installing-the-fluentd-riak-output-plugin)
 [Testing](#testing)
 
 [Learn More](#learn-more)
-:::
-
 Prerequisites
 -------------
 
@@ -45,15 +36,11 @@ Prerequisites
 3.  Riak is installed
 4.  An Apache web server log
 
-[]{#installing-the-fluentd-riak-output-plugin}
-
 Installing the Fluentd Riak Output Plugin
 -----------------------------------------
 
 The [Riak output plugin](https://github.com/kuenishi/fluent-plugin-riak)
 is used to output data from a Fluentd node to a Riak node.
-
-[]{#rubygems-users}
 
 ### Rubygems Users
 
@@ -63,8 +50,6 @@ Rubygems users can run the command below to install the plugin:
 $ gem install fluent-plugin-riak
 ```
 
-[]{#td-agent-users}
-
 ### td-agent Users
 
 If you are using td-agent, run following command to install the Riak
@@ -73,8 +58,6 @@ output plugin.
 -   td-agent v2: `/usr/sbin/td-agent-gem install fluent-plugin-riak`
 -   td-agent v1: \`/usr/lib/fluent/ruby/bin/fluent-gem install
     fluent-plugin-riak
-
-[]{#configuring-fluentd}
 
 Configuring Fluentd
 -------------------
@@ -111,8 +94,6 @@ events whose tags start with `riak.` and send all matches to a Riak node
 located at `localhost:8087`. You can send events to multiple nodes by
 writing `nodes host1 host2 host3` instead.
 
-[]{#testing}
-
 Testing
 -------
 
@@ -121,10 +102,6 @@ Launch Fluentd with the following command:
 ``` {.CodeRay}
 $ fluentd -c fluentd.conf
 ```
-:::
-:::
-:::
-
 Please confirm that you have the file access permissions to (1) read the
 Apache log file and (2) write to
 \`/var/log/fluentd/apache2.access\_log.pos\` (sudo-ing might help).
@@ -154,8 +131,6 @@ $ curl http://localhost:8098/buckets/fluentlog/keys/2014-01-23-d30b0698-b9de-429
 
 There it is! (the response JSON is formatted for readability)
 
-[]{#learn-more}
-
 Learn More
 ----------
 
@@ -163,16 +138,10 @@ Learn More
 -   [Fluentd Get Started](quickstart)
 -   [Riak Output Plugin](http://github.com/kuenishi/fluent-plugin-riak)
 
-::: {style="text-align:right"}
+
 Last updated: 2015-12-01 21:20:32 UTC
-:::
-
 ------------------------------------------------------------------------
-
-::: {style="text-align:right"}
 Versions \| ***v0.12* (td-agent2) **
-:::
-
 ------------------------------------------------------------------------
 
 If this article is incorrect or outdated, or omits critical information,

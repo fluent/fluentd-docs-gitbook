@@ -1,13 +1,6 @@
-::: {#main .section}
-::: {#page}
-::: {.topic_content}
-::: {style="text-align:right"}
-::: {style="text-align:right"}
+
 Versions \| [v1.0 (td-agent3)](/v1.0/articles/buffer-plugin-overview) \|
 ***v0.12* (td-agent2) **
-:::
-:::
-
 ------------------------------------------------------------------------
 
 Buffer Plugin Overview
@@ -35,8 +28,6 @@ high-level overview of Buffer plugins.
 -   [FAQ](#faq)
 
 [List of Buffer Plugins](#list-of-buffer-plugins)
-:::
-
 Buffer Plugin Overview
 ----------------------
 
@@ -46,8 +37,6 @@ transmitting to S3.
 
 Buffer plugins are, as you can tell by the name, *pluggable*. So you can
 choose a suitable backend based on your system requirements.
-
-[]{#buffer-structure}
 
 Buffer Structure
 ----------------
@@ -62,8 +51,6 @@ the diagram of how it works:
 [![](/images/buffer-internal-and-parameters.png)](/images/buffer-internal-and-parameters.png)
 
 </div>
-
-[]{#common-parameters}
 
 ### Common Parameters
 
@@ -91,8 +78,6 @@ through config options.
 
 -   The interval in seconds to wait before invoking the next buffer
     flush (default: 60)
-
-[]{#handling-queue-overflow}
 
 ### Handling queue overflow
 
@@ -130,8 +115,6 @@ measures you can take:
 3.  Use a `<secondary>` tag to route overflowed events to another backup
     destination.
 
-[]{#handling-write-failures}
-
 ### Handling write failures
 
 The chunks in the output queue are written out to the destination one by
@@ -167,8 +150,6 @@ control the behaviour finely through the following options:
     unset)
 -   If the wait interval reaches this limit, the exponentiation stops.
 
-[]{#slicing-data-by-time}
-
 Slicing Data by Time
 --------------------
 
@@ -189,8 +170,6 @@ operates. For example, `out_s3` and `out_file` will enable the
 time-slicing mode. For the list of output plugins which enable the
 time-slicing mode, see [this
 page](output-plugin-overview#list-of-time-sliced-output-plugins).
-
-[]{#faq}
 
 ### FAQ
 
@@ -219,25 +198,17 @@ Alternatively, you can also flush the chunks regularly using
 mutually exclusive. If you set `flush_interval`, `time_slice_wait` will
 be ignored and fluentd would issue a warning.
 
-[]{#list-of-buffer-plugins}
-
 List of Buffer Plugins
 ----------------------
 
 -   [buf\_memory](buf_memory)
 -   [buf\_file](buf_file)
 
-::: {style="text-align:right"}
+
 Last updated: 2016-12-07 08:32:02 UTC
-:::
-
 ------------------------------------------------------------------------
-
-::: {style="text-align:right"}
 Versions \| [v1.0 (td-agent3)](/v1.0/articles/buffer-plugin-overview) \|
 ***v0.12* (td-agent2) **
-:::
-
 ------------------------------------------------------------------------
 
 If this article is incorrect or outdated, or omits critical information,
@@ -246,6 +217,3 @@ know](https://github.com/fluent/fluentd-docs/issues?state=open).
 [Fluentd](http://www.fluentd.org/) is a open source project under [Cloud
 Native Computing Foundation (CNCF)](https://cncf.io/). All components
 are available under the Apache 2 License.
-:::
-:::
-:::

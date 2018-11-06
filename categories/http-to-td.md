@@ -1,13 +1,6 @@
-::: {#main .section}
-::: {#page}
-::: {.topic_content}
-::: {style="text-align:right"}
-::: {style="text-align:right"}
+
 Versions \| [v1.0 (td-agent3)](/v1.0/articles/http-to-td) \| ***v0.12*
 (td-agent2) **
-:::
-:::
-
 ------------------------------------------------------------------------
 
 Cloud Big Data Analytics with Treasure Data
@@ -39,8 +32,6 @@ Cloud Data Service.
 [Conclusion](#conclusion)
 
 [Learn More](#learn-more)
-:::
-
 Background
 ----------
 
@@ -58,8 +49,6 @@ to spend engineering resources maintaining your backend infrastructure.
 This article will show you how to use [Fluentd](http://fluentd.org/) to
 receive data from HTTP and stream it into TD.
 
-[]{#architecture}
-
 Architecture
 ------------
 
@@ -69,8 +58,6 @@ The figure below shows the high-level architecture.
 
 \
 \
-
-[]{#install}
 
 Install
 -------
@@ -90,8 +77,6 @@ plugin, please use `gem install fluent-plugin-td`.
 -   [RPM Package](install-by-rpm)
 -   [Ruby gem](install-by-gem)
 
-[]{#signup}
-
 Signup
 ------
 
@@ -107,16 +92,12 @@ $ td apikey:show
 kdfasklj218dsakfdas0983120
 ```
 
-[]{#fluentd-configuration}
-
 Fluentd Configuration
 ---------------------
 
 Let's start configuring Fluentd. If you used the deb/rpm package,
 Fluentd's config file is located at /etc/td-agent/td-agent.conf.
 Otherwise, it is located at /etc/fluentd/fluentd.conf.
-
-[]{#http-input}
 
 ### HTTP Input
 
@@ -129,8 +110,6 @@ HTTP. The Fluentd configuration file should look like this:
   port 8888
 </source>
 ```
-
-[]{#treasure-data-output}
 
 ### Treasure Data Output
 
@@ -153,8 +132,6 @@ The match section specifies the regexp used to look for matching tags.
 If a matching tag is found in a log, then the config inside
 `<match>...</match>` is used (i.e. the log is routed according to the
 config inside).
-
-[]{#test}
 
 Test
 ----
@@ -198,17 +175,11 @@ Result     :
 |   1 |
 +-----+
 ```
-:::
-:::
-:::
-
 It\'s not advisable to send sensitive user information to the cloud. To
 assist with this need, out\_tdlog comes with some anonymization systems.
 Please see the [Treasure Data
 plugin](http://github.com/treasure-data/fluent-plugin-td/) article for
 details.
-
-[]{#conclusion}
 
 Conclusion
 ----------
@@ -218,8 +189,6 @@ in days, not months. Treasure Data is a useful solution if you don't
 want to spend engineering resources maintaining the backend storage and
 analytics infrastructure.
 
-[]{#learn-more}
-
 Learn More
 ----------
 
@@ -228,17 +197,11 @@ Learn More
 -   [Treasure Data](http://www.fluentd.org/treasuredata)
 -   [Treasure Data: Documentation](http://docs.treasuredata.com/)
 
-::: {style="text-align:right"}
+
 Last updated: 2015-12-01 21:20:32 UTC
-:::
-
 ------------------------------------------------------------------------
-
-::: {style="text-align:right"}
 Versions \| [v1.0 (td-agent3)](/v1.0/articles/http-to-td) \| ***v0.12*
 (td-agent2) **
-:::
-
 ------------------------------------------------------------------------
 
 If this article is incorrect or outdated, or omits critical information,

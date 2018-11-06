@@ -1,13 +1,6 @@
-::: {#main .section}
-::: {#page}
-::: {.topic_content}
-::: {style="text-align:right"}
-::: {style="text-align:right"}
+
 Versions \| [v1.0 (td-agent3)](/v1.0/articles/in_tcp) \| ***v0.12*
 (td-agent2) **
-:::
-:::
-
 ------------------------------------------------------------------------
 
 TCP Input Plugin
@@ -32,8 +25,6 @@ Don't use this plugin for receiving logs from client libraries. Use
 -   [delimiter](#delimiter)
 -   [source\_hostname\_key](#source_hostname_key)
 -   [format (required)](#format-(required))
-:::
-
 Example Configuration
 ---------------------
 
@@ -50,10 +41,6 @@ process is required.
   delimiter \n # optional. \n (newline) by default
 </source>
 ```
-:::
-:::
-:::
-
 Please see the [Config File](config-file) article for the basic
 structure and syntax of the configuration file.
 
@@ -62,42 +49,28 @@ proper kernel parameter settings. If you have high-volume TCP traffic,
 please make sure to follow the instruction described at [Before
 Installing Fluentd](before-install).
 
-[]{#parameters}
-
 Parameters
 ----------
-
-[]{#@type-(required)}
 
 ### \@type (required)
 
 The value must be `tcp`.
 
-[]{#tag-(required)}
-
 ### tag (required)
 
 tag of output events.
-
-[]{#port}
 
 ### port
 
 The port to listen to. Default Value = 5170
 
-[]{#bind}
-
 ### bind
 
 The bind address to listen to. Default Value = 0.0.0.0
 
-[]{#delimiter}
-
 ### delimiter
 
 The payload is read up to this character. By default, it is "\\n".
-
-[]{#source_hostname_key}
 
 ### source\_hostname\_key
 
@@ -120,8 +93,6 @@ then the client's hostname is set to `client_host` field.
     "client_host": "client.hostname.org"
 }
 ```
-
-[]{#format-(required)}
 
 ### format (required)
 
@@ -155,17 +126,11 @@ logging for each plugin. The supported log levels are: `fatal`, `error`,
 
 Please see the [logging article](logging) for further details.
 
-::: {style="text-align:right"}
+
 Last updated: 2016-10-21 06:29:58 UTC
-:::
-
 ------------------------------------------------------------------------
-
-::: {style="text-align:right"}
 Versions \| [v1.0 (td-agent3)](/v1.0/articles/in_tcp) \| ***v0.12*
 (td-agent2) **
-:::
-
 ------------------------------------------------------------------------
 
 If this article is incorrect or outdated, or omits critical information,

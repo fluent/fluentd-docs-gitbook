@@ -1,14 +1,7 @@
-::: {#main .section}
-::: {#page}
-::: {.topic_content}
-::: {style="text-align:right"}
-::: {style="text-align:right"}
+
 Versions \| [v1.0
 (td-agent3)](/v1.0/articles/performance-tuning-single-process) \|
 ***v0.12* (td-agent2) **
-:::
-:::
-
 ------------------------------------------------------------------------
 
 Performance Tuning (Single Process)
@@ -33,16 +26,12 @@ CPU cores.
     S3/TD](#use-external-gzip-command-for-s3/td)
 -   [Reduce memory usage](#reduce-memory-usage)
 -   [Multi-process plugin](#multi-process-plugin)
-:::
-
 Check top command
 -----------------
 
 If Fluentd doesn't perform as well as you had expected, please check the
 `top` command first. You need to identify which part of your system is
 the bottleneck (CPU? Memory? Disk I/O? etc).
-
-[]{#avoid-extra-computations}
 
 Avoid extra computations
 ------------------------
@@ -53,8 +42,6 @@ quite a bit internally, but adding too much logic to Fluentd's
 configuration file makes it difficult to read and maintain, while making
 it also less robust. The configuration file should be as simple as
 possible.
-
-[]{#use-num_threads-parameter}
 
 Use num\_threads parameter
 --------------------------
@@ -74,8 +61,6 @@ is available for all output plugins.
 
 The important point is this option doesn't improve the processing
 performance, e.g. numerical computation, mutating record, etc.
-
-[]{#use-external-gzip-command-for-s3/td}
 
 Use external gzip command for S3/TD
 -----------------------------------
@@ -111,8 +96,6 @@ While not a perfect solution to leverage multiple CPU cores, this can be
 effective for most Fluentd deployments. As before, you can run this with
 `num_threads` option as well.
 
-[]{#reduce-memory-usage}
-
 Reduce memory usage
 -------------------
 
@@ -142,8 +125,6 @@ and [Watching and Understanding the Ruby 2.1 Garbage Collector at
 Work](https://thorstenball.com/blog/2014/03/12/watching-understanding-ruby-2.1-garbage-collector/)
 article for more detail.
 
-[]{#multi-process-plugin}
-
 Multi-process plugin
 --------------------
 
@@ -154,18 +135,12 @@ recommend using the `in_multiprocess` plugin.
 -   [Performance Tuning (Multi
     Process)](performance-tuning-multi-process)
 
-::: {style="text-align:right"}
+
 Last updated: 2018-11-06 18:14:00 +0000
-:::
-
 ------------------------------------------------------------------------
-
-::: {style="text-align:right"}
 Versions \| [v1.0
 (td-agent3)](/v1.0/articles/performance-tuning-single-process) \|
 ***v0.12* (td-agent2) **
-:::
-
 ------------------------------------------------------------------------
 
 If this article is incorrect or outdated, or omits critical information,
@@ -174,6 +149,3 @@ know](https://github.com/fluent/fluentd-docs/issues?state=open).
 [Fluentd](http://www.fluentd.org/) is a open source project under [Cloud
 Native Computing Foundation (CNCF)](https://cncf.io/). All components
 are available under the Apache 2 License.
-:::
-:::
-:::

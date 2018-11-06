@@ -1,13 +1,6 @@
-::: {#main .section}
-::: {#page}
-::: {.topic_content}
-::: {style="text-align:right"}
-::: {style="text-align:right"}
+
 Versions \| [v1.0 (td-agent3)](/v1.0/articles/monitoring-prometheus) \|
 ***v0.12* (td-agent2) **
-:::
-:::
-
 ------------------------------------------------------------------------
 
 Monitoring Fluentd (Prometheus)
@@ -49,8 +42,6 @@ Fluentd](#how-to-use-prometheus-to-monitor-fluentd)
 Alerting](#grafana-for-advanced-visualization-/-alerting)
 
 [Further Readings](#further-readings)
-:::
-
 Installation
 ------------
 
@@ -66,8 +57,6 @@ If you are using td-agent, use `td-agent-gem` for installation.
 $ sudo td-agent-gem install fluent-plugin-prometheus --version=0.4.0
 ```
 
-[]{#example-fluentd-configuration}
-
 Example Fluentd Configuration
 -----------------------------
 
@@ -77,8 +66,6 @@ parts:
 -   Step 1: Prometheus Filter Plugin to count Incoming Records
 -   Step 2: Prometheus Output Plugih to count Outgoing Records
 -   Step 3: Prometheus Input Plugin to expose metrics via HTTP
-
-[]{#step-1:-counting-incoming-records-by-prometheus-filter-plugin}
 
 ### Step 1: Counting Incoming Records by Prometheus Filter Plugin
 
@@ -108,8 +95,6 @@ starts adding the internal counter as the record comes in.
   </metric>
 </filter>
 ```
-
-[]{#step-2:-counting-outgoing-records-by-prometheus-output-plugin}
 
 ### Step 2: Counting Outgoing Records by Prometheus Output Plugin
 
@@ -146,8 +131,6 @@ goes out.
 </match>
 ```
 
-[]{#step-3:-expose-metrics-by-prometheus-input-plugin-via-http}
-
 ### Step 3: Expose Metrics by Prometheus Input Plugin via HTTP
 
 Finally, please use `prometheus` input plugin to expose internal counter
@@ -169,8 +152,6 @@ information via HTTP.
   </labels>
 </source>
 ```
-
-[]{#step-4:-check-the-configuration}
 
 ### Step 4: Check the Configuration
 
@@ -212,8 +193,6 @@ fluentd_output_status_buffer_queue_length{hostname="KZK.local",plugin_id="object
 ....
 ```
 
-[]{#example-prometheus-configuration}
-
 Example Prometheus Configuration
 --------------------------------
 
@@ -239,12 +218,8 @@ $ ./prometheus --config.file="prometheus.yml"
 
 Now please open your browser and access to `http://localhost:9090/`.
 
-[]{#how-to-use-prometheus-to-monitor-fluentd}
-
 How to use Prometheus to monitor Fluentd
 ----------------------------------------
-
-[]{#list-of-fluentd-nodes}
 
 ### List of Fluentd nodes
 
@@ -252,8 +227,6 @@ If you go to `http://localhost:9090/targets`, Prometheus will show you a
 list of Fluentd nodes and its status.
 
 ![](/images/prometheus-targets.png)
-
-[]{#list-of-fluentd-metrics}
 
 ### List of Fluentd metrics
 
@@ -275,8 +248,6 @@ Please pick `fluentd_input_status_num_records_total`, and you'll see the
 total incoming records per tag.
 
 ![](/images/prometheus-graph.png){width="100%"}
-
-[]{#example-prometheus-queries}
 
 ### Example Prometheus Queries
 
@@ -309,8 +280,6 @@ sum(rate(fluentd_output_status_num_records_total[1m])) by (tag)
 rate(fluentd_output_status_emit_count[1m])
 ```
 
-[]{#metrics-to-monitor}
-
 ### Metrics to Monitor
 
 In addition to the traffic metrics introduced above, it is important to
@@ -334,8 +303,6 @@ max_over_time(fluentd_output_status_retry_wait[1m])
 rate(fluentd_output_status_retry_count[1m])
 ```
 
-[]{#grafana-for-advanced-visualization-/-alerting}
-
 Grafana for Advanced Visualization / Alerting
 ---------------------------------------------
 
@@ -348,8 +315,6 @@ Prometheus.
 
 ![](/images/prometheus-grafana.png)
 
-[]{#further-readings}
-
 Further Readings
 ----------------
 
@@ -357,17 +322,11 @@ Further Readings
     Documentation](https://prometheus.io/docs/introduction/overview/)
 -   [Grafana Documentation](http://docs.grafana.org/)
 
-::: {style="text-align:right"}
+
 Last updated: 2018-11-06 18:13:43 +0000
-:::
-
 ------------------------------------------------------------------------
-
-::: {style="text-align:right"}
 Versions \| [v1.0 (td-agent3)](/v1.0/articles/monitoring-prometheus) \|
 ***v0.12* (td-agent2) **
-:::
-
 ------------------------------------------------------------------------
 
 If this article is incorrect or outdated, or omits critical information,
@@ -376,6 +335,3 @@ know](https://github.com/fluent/fluentd-docs/issues?state=open).
 [Fluentd](http://www.fluentd.org/) is a open source project under [Cloud
 Native Computing Foundation (CNCF)](https://cncf.io/). All components
 are available under the Apache 2 License.
-:::
-:::
-:::

@@ -1,13 +1,6 @@
-::: {#main .section}
-::: {#page}
-::: {.topic_content}
-::: {style="text-align:right"}
-::: {style="text-align:right"}
+
 Versions \| [v1.0 (td-agent3)](/v1.0/articles/in_forward) \| ***v0.12*
 (td-agent2) **
-:::
-:::
-
 ------------------------------------------------------------------------
 
 forward Input Plugin
@@ -20,10 +13,6 @@ messages.
 This plugin is mainly used to receive event logs from other Fluentd
 instances, the fluent-cat command, or client libraries. This is by far
 the most efficient way to retrieve the records.
-:::
-:::
-:::
-
 Do **NOT** use this plugin for inter-DC or public internet data transfer
 without secure connections. To provide the reliable / low-latency
 transfer, we assume this plugin is only used within private networks.\
@@ -62,8 +51,6 @@ secure connection between nodes, please consider using
 -   [How to parse incoming events?](#how-to-parse-incoming-events?)
 -   [I got MessagePack::UnknownExtTypeError error.
     Why?](#i-got-messagepack::unknownexttypeerror-error.-why?)
-:::
-
 Example Configuration
 ---------------------
 
@@ -81,36 +68,24 @@ process is required.
 Please see the [Config File](config-file) article for the basic
 structure and syntax of the configuration file.
 
-[]{#parameters}
-
 Parameters
 ----------
-
-[]{#@type-(required)}
 
 ### \@type (required)
 
 The value must be `forward`.
 
-[]{#port}
-
 ### port
 
 The port to listen to. Default Value = 24224
-
-[]{#bind}
 
 ### bind
 
 The bind address to listen to. Default Value = 0.0.0.0 (all addresses)
 
-[]{#linger_timeout}
-
 ### linger\_timeout
 
 The timeout time used to set linger option. The default is 0
-
-[]{#chunk_size_limit}
 
 ### chunk\_size\_limit
 
@@ -118,23 +93,17 @@ The size limit of the the received chunk. If the chunk size is larger
 than this value, then the received chunk is dropped. The default is nil
 (no limit).
 
-[]{#chunk_size_warn_limit}
-
 ### chunk\_size\_warn\_limit
 
 The warning size limit of the received chunk. If the chunk size is
 larger than this value, a warning message will be sent. The default is
 nil (no warning).
 
-[]{#skip_invalid_event-(v0.12.20-or-later)}
-
 ### skip\_invalid\_event (v0.12.20 or later)
 
 Skip an event if incoming event is invalid. The default is false.
 
 This option is useful at forwarder, not aggragator. v0.12.20 or later.
-
-[]{#source_hostname_key-(v0.12.28-or-later)}
 
 ### source\_hostname\_key (v0.12.28 or later)
 
@@ -152,8 +121,6 @@ logging for each plugin. The supported log levels are: `fatal`, `error`,
 `warn`, `info`, `debug`, and `trace`.
 
 Please see the [logging article](logging) for further details.
-
-[]{#protocol}
 
 Protocol
 --------
@@ -182,27 +149,19 @@ example:
   ["myapp.access", [[1308466941, {"a":1}], [1308466942, {"b":2}]]]
 ```
 
-[]{#communication-with-v1.0}
-
 ### Communication with v1.0
 
 v0.12 `in_forward` can't accept data from v1.0 `out_forward` because
 time format is different. If you want to forward data from v1.0 to
 v0.12, set `time_as_integer` in v1.0 `out_forward`.
 
-[]{#faq}
-
 FAQ
 ---
-
-[]{#why-in_forward-doesn%E2%80%99t-have-tag-parameter?}
 
 ### Why in\_forward doesn't have tag parameter?
 
 `in_forward` uses `tag` of incoming events so no fixed `tag` parameter.
 See above "Protocol" section.
-
-[]{#how-to-parse-incoming-events?}
 
 ### How to parse incoming events?
 
@@ -214,8 +173,6 @@ pipeline.\
 See Docker logging driver usecase: [Docker
 Logging](http://www.fluentd.org/guides/recipes/docker-logging)
 
-[]{#i-got-messagepack::unknownexttypeerror-error.-why?}
-
 ### I got MessagePack::UnknownExtTypeError error. Why?
 
 This error happens when forwarder's fluentd is v0.14/v1.0 and receiver's
@@ -223,17 +180,11 @@ fluentd is 0.12. To avoid this problem, set `time_as_integer` to
 `out_forward` setting in v0.14/v1.0 fluentd. See "Communication with
 v1.0".
 
-::: {style="text-align:right"}
+
 Last updated: 2016-11-10 02:29:44 UTC
-:::
-
 ------------------------------------------------------------------------
-
-::: {style="text-align:right"}
 Versions \| [v1.0 (td-agent3)](/v1.0/articles/in_forward) \| ***v0.12*
 (td-agent2) **
-:::
-
 ------------------------------------------------------------------------
 
 If this article is incorrect or outdated, or omits critical information,

@@ -1,13 +1,6 @@
-::: {#main .section}
-::: {#page}
-::: {.topic_content}
-::: {style="text-align:right"}
-::: {style="text-align:right"}
+
 Versions \| [v1.0 (td-agent3)](/v1.0/articles/out_stdout) \| ***v0.12*
 (td-agent2) **
-:::
-:::
-
 ------------------------------------------------------------------------
 
 stdout Output Plugin
@@ -25,8 +18,6 @@ with daemon mode). This output plugin is useful for debugging purposes.
 
 -   [\@type (required)](#@type-(required))
 -   [output\_type](#output_type)
-:::
-
 Example Configuration
 ---------------------
 
@@ -38,25 +29,15 @@ process is required.
   @type stdout
 </match>
 ```
-:::
-:::
-:::
-
 Please see the [Config File](config-file) article for the basic
 structure and syntax of the configuration file.
-
-[]{#parameters}
 
 Parameters
 ----------
 
-[]{#@type-(required)}
-
 ### \@type (required)
 
 The value must be `stdout`.
-
-[]{#output_type}
 
 ### output\_type
 
@@ -73,17 +54,11 @@ logging for each plugin. The supported log levels are: `fatal`, `error`,
 
 Please see the [logging article](logging) for further details.
 
-::: {style="text-align:right"}
+
 Last updated: 2016-10-21 06:29:58 UTC
-:::
-
 ------------------------------------------------------------------------
-
-::: {style="text-align:right"}
 Versions \| [v1.0 (td-agent3)](/v1.0/articles/out_stdout) \| ***v0.12*
 (td-agent2) **
-:::
-
 ------------------------------------------------------------------------
 
 If this article is incorrect or outdated, or omits critical information,

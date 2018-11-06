@@ -1,12 +1,5 @@
-::: {#main .section}
-::: {#page}
-::: {.topic_content}
-::: {style="text-align:right"}
-::: {style="text-align:right"}
-Versions \| ***v0.12* (td-agent2) **
-:::
-:::
 
+Versions \| ***v0.12* (td-agent2) **
 ------------------------------------------------------------------------
 
 scribe Input Plugin
@@ -30,8 +23,6 @@ Scribe infrastructure.
 -   [Example Usage](#example-usage)
 
 [Parameters](#parameters)
-:::
-
 Install
 -------
 
@@ -42,8 +33,6 @@ command.
 ``` {.CodeRay}
 $ fluent-gem install fluent-plugin-scribe
 ```
-
-[]{#example-configuration}
 
 Example Configuration
 ---------------------
@@ -57,14 +46,8 @@ Example Configuration
   msg_format json
 </source>
 ```
-:::
-:::
-:::
-
 Please see the [Config File](config-file) article for the basic
 structure and syntax of the configuration file.
-
-[]{#example-usage}
 
 ### Example Usage
 
@@ -76,8 +59,6 @@ posts logs to `in_scribe`.
 Scribe's `category` field becomes the `tag` of the Fluentd event log and
 Scribe's `message` field becomes the record itself. The `msg_format`
 parameter specifies the format of the `message` field.
-
-[]{#parameters}
 
 Parameters
 ----------
@@ -148,16 +129,10 @@ logging for each plugin. The supported log levels are: `fatal`, `error`,
 
 Please see the [logging article](logging) for further details.
 
-::: {style="text-align:right"}
+
 Last updated: 2016-10-21 06:29:58 UTC
-:::
-
 ------------------------------------------------------------------------
-
-::: {style="text-align:right"}
 Versions \| ***v0.12* (td-agent2) **
-:::
-
 ------------------------------------------------------------------------
 
 If this article is incorrect or outdated, or omits critical information,

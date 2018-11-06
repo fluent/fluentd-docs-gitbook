@@ -1,12 +1,5 @@
-::: {#main .section}
-::: {#page}
-::: {.topic_content}
-::: {style="text-align:right"}
-::: {style="text-align:right"}
-Versions \| ***v0.12* (td-agent2) **
-:::
-:::
 
+Versions \| ***v0.12* (td-agent2) **
 ------------------------------------------------------------------------
 
 Multiprocess Input Plugin
@@ -34,8 +27,6 @@ plugin to handle 10+ billion records / day.
 -   [cmdline (required)](#cmdline-(required))
 -   [sleep\_before\_start](#sleep_before_start)
 -   [sleep\_before\_shutdown](#sleep_before_shutdown)
-:::
-
 Install
 -------
 
@@ -47,8 +38,6 @@ must install fluent-plugin-multiprocess manually.
     `/usr/sbin/td-agent-gem install fluent-plugin-multiprocess`
 -   td-agent v1:
     `/usr/lib/fluent/ruby/bin/fluent-gem install fluent-plugin-multiprocess`
-
-[]{#example-configuration}
 
 Example Configuration
 ---------------------
@@ -74,68 +63,46 @@ Example Configuration
   </process>
 </source>
 ```
-:::
-:::
-:::
-
 Please see the [Config File](config-file) article for the basic
 structure and syntax of the configuration file.
 
 Especially for daemonized fluentd (ex: td-agent), \`\--log\` option MUST
 be specified to put logs of child processes.
 
-[]{#parameters}
-
 Parameters
 ----------
-
-[]{#@type-(required)}
 
 ### \@type (required)
 
 The value must be `multiprocess`.
-
-[]{#graceful_kill_interval}
 
 ### graceful\_kill\_interval
 
 The interval to send the signal to gracefully shut down the process
 (default: 2sec).
 
-[]{#graceful_kill_interval_increment}
-
 ### graceful\_kill\_interval\_increment
 
 The increment time, when graceful shutdown fails (default: 3sec).
-
-[]{#graceful_kill_timeout}
 
 ### graceful\_kill\_timeout
 
 The timeout, to identify the failure of graceful shutdown (default:
 60sec).
 
-[]{#process-(required)}
-
 ### process (required)
 
 The `process` section sets the command line arguments of a child
 process. This plugin creates one child process for each section.
 
-[]{#cmdline-(required)}
-
 ### cmdline (required)
 
 The `cmdline` option is required in a section
-
-[]{#sleep_before_start}
 
 ### sleep\_before\_start
 
 This parameter sets the wait time before starting the process (default:
 0sec).
-
-[]{#sleep_before_shutdown}
 
 ### sleep\_before\_shutdown
 
@@ -150,16 +117,10 @@ logging for each plugin. The supported log levels are: `fatal`, `error`,
 
 Please see the [logging article](logging) for further details.
 
-::: {style="text-align:right"}
+
 Last updated: 2016-10-21 06:29:58 UTC
-:::
-
 ------------------------------------------------------------------------
-
-::: {style="text-align:right"}
 Versions \| ***v0.12* (td-agent2) **
-:::
-
 ------------------------------------------------------------------------
 
 If this article is incorrect or outdated, or omits critical information,

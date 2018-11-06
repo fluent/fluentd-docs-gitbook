@@ -1,13 +1,6 @@
-::: {#main .section}
-::: {#page}
-::: {.topic_content}
-::: {style="text-align:right"}
-::: {style="text-align:right"}
+
 Versions \| [v1.0 (td-agent3)](/v1.0/articles/cep-norikra) \| ***v0.12*
 (td-agent2) **
-:::
-:::
-
 ------------------------------------------------------------------------
 
 Fluentd and Norikra: Complex Event Processing
@@ -44,8 +37,6 @@ complex event processing platform.
 [Conclusion](#conclusion)
 
 [Learn More](#learn-more)
-:::
-
 Background
 ----------
 
@@ -78,16 +69,12 @@ and the [Fluentd norikra
 plugin](https://github.com/norikra/fluent-plugin-norikra) to create a
 robust stream data processing platform.
 
-[]{#architecture}
-
 Architecture
 ------------
 
 The figure below shows the high-level architecture.
 
 ![](/images/fluentd-norikra-overview.png)
-
-[]{#installation}
 
 Installation
 ------------
@@ -100,8 +87,6 @@ configuration. Please install the following on the same node:
     Plugin](https://github.com/norikra/fluent-plugin-norikra/)
 -   [Norikra](http://norikra.github.io/)
 
-[]{#installing-fluentd-and-fluentd-plugin-norikra}
-
 ### Installing Fluentd and fluentd-plugin-norikra
 
 Fluentd can be installed through rubygems or via deb/rpm packages.
@@ -113,8 +98,6 @@ Fluentd can be installed through rubygems or via deb/rpm packages.
 fluent-plugin-norikra can be installed with the
 `gem install fluent-plugin-norikra` (or fluent-gem) command.
 
-[]{#installing-norikra}
-
 ### Installing Norikra
 
 Norikra requires JRuby. You can download the JRuby binary directly from
@@ -123,8 +106,6 @@ of `JRUBY_INSTALL_DIRECTORY/bin`.
 
 Once JRuby has been installed, simply entering `jgem install norikra`
 will install Norikra.
-
-[]{#verify-installation}
 
 ### Verify Installation
 
@@ -142,16 +123,12 @@ command will launch the Norikra server in your console.
 You can also check the current Norikra's status via the WebUI
 (http://localhost:26578/).
 
-[]{#fluentd-configuration}
-
 Fluentd Configuration
 ---------------------
 
 We'll now configure Fluentd. If you used the deb/rpm package, Fluentd's
 config file is located at /etc/td-agent/td-agent.conf. Otherwise, it is
 located at /etc/fluentd/fluentd.conf.
-
-[]{#http-input}
 
 ### HTTP Input
 
@@ -164,8 +141,6 @@ HTTP. The Fluentd configuration file should look like this:
   port 8888
 </source>
 ```
-
-[]{#norikra-output}
 
 ### Norikra Output
 
@@ -203,8 +178,6 @@ the Norikra server. We can also specify these sets per target with
 available, please refer to the [fluent-plugin-norikra
 documentation](https://github.com/norikra/fluent-plugin-norikra).
 
-[]{#test}
-
 Test
 ----
 
@@ -239,8 +212,6 @@ action  string  false
 user    integer false
 2 fields found.
 ```
-
-[]{#registering-queries-and-fetching-outputs}
 
 ### Registering Queries and Fetching Outputs
 
@@ -308,16 +279,12 @@ first 10 seconds, and counts events per `action` for events with
 that no events arrived (This is teardown records, and reported only
 once).
 
-[]{#conclusion}
-
 Conclusion
 ----------
 
 We can create a stream data processing platform without any schema
 definitions, using Fluentd and Norikra. This platform enables an agile
 stream processing environment that can handle real workloads.
-
-[]{#learn-more}
 
 Learn More
 ----------
@@ -329,17 +296,11 @@ Learn More
 -   [Slides:
     fluent-plugin-norikra](http://www.slideshare.net/tagomoris/fluentpluginnorikra-fluentdcasual)
 
-::: {style="text-align:right"}
+
 Last updated: 2015-12-01 21:20:32 UTC
-:::
-
 ------------------------------------------------------------------------
-
-::: {style="text-align:right"}
 Versions \| [v1.0 (td-agent3)](/v1.0/articles/cep-norikra) \| ***v0.12*
 (td-agent2) **
-:::
-
 ------------------------------------------------------------------------
 
 If this article is incorrect or outdated, or omits critical information,
@@ -348,6 +309,3 @@ know](https://github.com/fluent/fluentd-docs/issues?state=open).
 [Fluentd](http://www.fluentd.org/) is a open source project under [Cloud
 Native Computing Foundation (CNCF)](https://cncf.io/). All components
 are available under the Apache 2 License.
-:::
-:::
-:::

@@ -1,13 +1,6 @@
-::: {#main .section}
-::: {#page}
-::: {.topic_content}
-::: {style="text-align:right"}
-::: {style="text-align:right"}
+
 Versions \| [v1.0 (td-agent3)](/v1.0/articles/before-install) \|
 ***v0.12* (td-agent2) **
-:::
-:::
-
 ------------------------------------------------------------------------
 
 Before Installing Fluentd
@@ -25,8 +18,6 @@ unnecessary problems.
     Descriptors](#increase-max-#-of-file-descriptors)
 -   [Optimize Network Kernel
     Parameters](#optimize-network-kernel-parameters)
-:::
-
 Set Up NTP
 ----------
 
@@ -34,16 +25,10 @@ It's HIGHLY recommended that you set up NTP daemon (e.g.
 *[chrony](https://chrony.tuxfamily.org/)*, *ntpd*, etc) on the node to
 have accurate current timestamp. This is crucial for the
 production-grade logging services.
-:::
-:::
-:::
-
 For AWS (Amazon Web Services) users we recommend to use Amazon Time Sync
 Service, AWS hosted NTP server. Please check [AWS EC2: Setting the Time
 for Your Linux
 Instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/set-time.html).
-
-[]{#increase-max-#-of-file-descriptors}
 
 Increase Max \# of File Descriptors
 -----------------------------------
@@ -77,8 +62,6 @@ the estimation examples:
 -   output: The used file descriptors are less than others. Temporary
     file for upload, connection pooling in the client library, etc
 
-[]{#optimize-network-kernel-parameters}
-
 Optimize Network Kernel Parameters
 ----------------------------------
 
@@ -105,17 +88,11 @@ Performance](https://www.slideshare.net/brendangregg/how-netflix-tunes-ec2-insta
 by [Brendan Gregg](http://www.brendangregg.com/), Senior Performance
 Architect at AWS re:Invent 2017.
 
-::: {style="text-align:right"}
+
 Last updated: 2017-12-21 06:46:42 UTC
-:::
-
 ------------------------------------------------------------------------
-
-::: {style="text-align:right"}
 Versions \| [v1.0 (td-agent3)](/v1.0/articles/before-install) \|
 ***v0.12* (td-agent2) **
-:::
-
 ------------------------------------------------------------------------
 
 If this article is incorrect or outdated, or omits critical information,

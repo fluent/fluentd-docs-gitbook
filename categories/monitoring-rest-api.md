@@ -1,13 +1,6 @@
-::: {#main .section}
-::: {#page}
-::: {.topic_content}
-::: {style="text-align:right"}
-::: {style="text-align:right"}
+
 Versions \| [v1.0 (td-agent3)](/v1.0/articles/monitoring-rest-api) \|
 ***v0.12* (td-agent2) **
-:::
-:::
-
 ------------------------------------------------------------------------
 
 Monitoring Fluentd (REST API)
@@ -26,8 +19,6 @@ API.
 [Monitoring the event flow](#monitoring-the-event-flow)
 
 [Datadog (dd-agent) Integration](#datadog-(dd-agent)-integration)
-:::
-
 Monitoring Agent
 ----------------
 
@@ -81,8 +72,6 @@ $ curl http://host:24220/api/plugins.json
 }
 ```
 
-[]{#reuse-plugins}
-
 ### Reuse plugins
 
 Since v0.12.17, `monitor_agent` plugin has `tag` parameter. If you set
@@ -94,8 +83,6 @@ Since v0.12.17, `monitor_agent` plugin has `tag` parameter. If you set
 2015-09-16 20:28:19 +0900 monitor.metrics: {"plugin_id":"object:3fc62f0e9c84","plugin_category":"output","type":"stdout","output_plugin":true,"retry_count":null}
 ```
 
-[]{#monitoring-the-event-flow}
-
 Monitoring the event flow
 -------------------------
 
@@ -103,8 +90,6 @@ Use
 [flowcounter](https://github.com/tagomoris/fluent-plugin-flowcounter) or
 [flowcounter\_simple](https://github.com/sonots/fluent-plugin-flowcounter-simple)
 plugin.
-
-[]{#datadog-(dd-agent)-integration}
 
 Datadog (dd-agent) Integration
 ------------------------------
@@ -117,17 +102,11 @@ Please refer this documentation for more details.
 -   [Datadog-Fluentd
     Integration](http://docs.datadoghq.com/integrations/fluentd/)
 
-::: {style="text-align:right"}
+
 Last updated: 2018-11-06 12:46:50 +0000
-:::
-
 ------------------------------------------------------------------------
-
-::: {style="text-align:right"}
 Versions \| [v1.0 (td-agent3)](/v1.0/articles/monitoring-rest-api) \|
 ***v0.12* (td-agent2) **
-:::
-
 ------------------------------------------------------------------------
 
 If this article is incorrect or outdated, or omits critical information,
@@ -136,6 +115,3 @@ know](https://github.com/fluent/fluentd-docs/issues?state=open).
 [Fluentd](http://www.fluentd.org/) is a open source project under [Cloud
 Native Computing Foundation (CNCF)](https://cncf.io/). All components
 are available under the Apache 2 License.
-:::
-:::
-:::

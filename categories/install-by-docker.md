@@ -1,12 +1,5 @@
-::: {#main .section}
-::: {#page}
-::: {.topic_content}
-::: {style="text-align:right"}
-::: {style="text-align:right"}
-Versions \| ***v0.12* (td-agent2) **
-:::
-:::
 
+Versions \| ***v0.12* (td-agent2) **
 ------------------------------------------------------------------------
 
 Installing Fluentd with Docker
@@ -32,16 +25,12 @@ image](https://hub.docker.com/r/fluent/fluentd/), maintained by
 -   [Step3: Post Sample Logs via
     HTTP](#step3:-post-sample-logs-via-http)
 -   [Next Steps](#next-steps)
-:::
-
 Step 0: Install Docker
 ----------------------
 
 Please download and install [Docker](https://www.docker.com/) from here.
 
 -   [Docker Installation](https://docs.docker.com/engine/installation/)
-
-[]{#step-1:-pull-fluentd%E2%80%99s-docker-image}
 
 Step 1: Pull Fluentd's Docker image
 -----------------------------------
@@ -51,15 +40,9 @@ Then, please download Fluentd v0.12's image by `docker pull` command.
 ``` {.CodeRay}
 $ docker pull fluent/fluentd:v0.12-debian
 ```
-:::
-:::
-:::
-
 Debian and Alpine Linux version is available for Fluentd image. Debian
 version is recommended officially since it has jemalloc support, however
 Alpine image is smaller.
-
-[]{#step-2:-launch-fluentd-container}
 
 Step 2: Launch Fluentd Container
 --------------------------------
@@ -103,8 +86,6 @@ $ docker run -d \
 </ROOT>
 ```
 
-[]{#step3:-post-sample-logs-via-http}
-
 Step3: Post Sample Logs via HTTP
 --------------------------------
 
@@ -125,8 +106,6 @@ b495e527850c        fluent/fluentd      "/bin/sh -c 'exec ..."   2 hours ago    
 $ docker logs b495e527850c | tail -n 1
 2017-01-30 14:04:37 +0000 sample.test: {"json":"message"}
 ```
-
-[]{#next-steps}
 
 Next Steps
 ----------
@@ -155,16 +134,10 @@ data from various data sources.
     -   [Store Apache Log into MongoDB](apache-to-mongodb)
     -   [Data Collection into HDFS](http-to-hdfs)
 
-::: {style="text-align:right"}
+
 Last updated: 2017-02-10 20:45:52 UTC
-:::
-
 ------------------------------------------------------------------------
-
-::: {style="text-align:right"}
 Versions \| ***v0.12* (td-agent2) **
-:::
-
 ------------------------------------------------------------------------
 
 If this article is incorrect or outdated, or omits critical information,

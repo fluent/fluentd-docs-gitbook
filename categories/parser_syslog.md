@@ -1,13 +1,6 @@
-::: {#main .section}
-::: {#page}
-::: {.topic_content}
-::: {style="text-align:right"}
-::: {style="text-align:right"}
+
 Versions \| [v1.0 (td-agent3)](/v1.0/articles/parser_syslog) \|
 ***v0.12* (td-agent2) **
-:::
-:::
-
 ------------------------------------------------------------------------
 
 syslog Parser Plugin
@@ -35,19 +28,13 @@ supports two RFC formats, rfc3164 and rfc5424.
 
 -   [rfc3164 log](#rfc3164-log)
 -   [rfc5424 log](#rfc5424-log)
-:::
-
 Parameters
 ----------
-
-[]{#time_format}
 
 ### time\_format
 
 Specify time format for event time. Default is "%b %d %H:%M:%S" for
 rfc3164 protocol.
-
-[]{#message_format}
 
 ### message\_format
 
@@ -61,26 +48,18 @@ message. `syslog` parser detects message format by using message prefix.
 This parameter is used inside `in_syslog` plugin because the file logs
 via syslog don't have `<9>` like priority prefix.
 
-[]{#with_priority}
-
 ### with\_priority
 
 If the incoming logs have priority prefix, e.g. \<9\>, set `true`.
 Default is `false`.
-
-[]{#keep_time_key}
 
 ### keep\_time\_key
 
 If you want to keep time field in the record, set `true`. Default is
 `false`.
 
-[]{#regexp-patterns}
-
 Regexp patterns
 ---------------
-
-[]{#rfc3164-pattern}
 
 ### rfc3164 pattern
 
@@ -97,8 +76,6 @@ record. `time` is used for the event time.
 If `with_priority` is `false`, `^\<(?<pri>[0-9]+)\>` is removed from the
 pattern.
 
-[]{#rfc5424-pattern}
-
 ### rfc5424 pattern
 
 ``` {.CodeRay}
@@ -111,12 +88,8 @@ included in the event record. `time` is used for the event time.
 
 `pri` value is converted into integer type.
 
-[]{#example}
-
 Example
 -------
-
-[]{#rfc3164-log}
 
 ### rfc3164 log
 
@@ -139,8 +112,6 @@ record:
   "message": "[error] Syslog test"
 }
 ```
-
-[]{#rfc5424-log}
 
 ### rfc5424 log
 
@@ -166,17 +137,11 @@ record:
 }
 ```
 
-::: {style="text-align:right"}
+
 Last updated: 2018-11-06 18:16:33 +0000
-:::
-
 ------------------------------------------------------------------------
-
-::: {style="text-align:right"}
 Versions \| [v1.0 (td-agent3)](/v1.0/articles/parser_syslog) \|
 ***v0.12* (td-agent2) **
-:::
-
 ------------------------------------------------------------------------
 
 If this article is incorrect or outdated, or omits critical information,
@@ -185,6 +150,3 @@ know](https://github.com/fluent/fluentd-docs/issues?state=open).
 [Fluentd](http://www.fluentd.org/) is a open source project under [Cloud
 Native Computing Foundation (CNCF)](https://cncf.io/). All components
 are available under the Apache 2 License.
-:::
-:::
-:::

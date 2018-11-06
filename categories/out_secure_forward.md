@@ -1,12 +1,5 @@
-::: {#main .section}
-::: {#page}
-::: {.topic_content}
-::: {style="text-align:right"}
-::: {style="text-align:right"}
-Versions \| ***v0.12* (td-agent2) **
-:::
-:::
 
+Versions \| ***v0.12* (td-agent2) **
 ------------------------------------------------------------------------
 
 Secure Forward Output Plugin
@@ -14,10 +7,6 @@ Secure Forward Output Plugin
 
 The `out_secure_forward` output plugin sends messages via **SSL with
 authentication** (cf. [in\_secure\_forward](in_secure_forward)).
-:::
-:::
-:::
-
 This document doesn\'t describe all parameters. If you want to know full
 features, check the Further Reading section.
 
@@ -63,8 +52,6 @@ features, check the Further Reading section.
 -   [slow\_flush\_log\_threshold](#slow_flush_log_threshold)
 
 [Further Reading](#further-reading)
-:::
-
 Installation
 ------------
 
@@ -72,15 +59,11 @@ Installation
 `fluentd` gem. In order to install it, please refer to the [Plugin
 Management](plugin-management) article.
 
-[]{#example-configurations}
-
 Example Configurations
 ----------------------
 
 This section provides some example configurations for
 `out_secure_forward`.
-
-[]{#minimalist-configuration}
 
 ### Minimalist Configuration
 
@@ -121,8 +104,6 @@ available for such cases.
   </server>
 </match>
 ```
-
-[]{#multiple-forward-destinations-over-ssl}
 
 ### Multiple Forward Destinations over SSL
 
@@ -182,8 +163,6 @@ connection does NOT get disconnected unless there is a connection issue
   </server>
 </match>
 ```
-
-[]{#secure-sender-receiver-setup}
 
 ### Secure Sender-Receiver Setup
 
@@ -410,37 +389,25 @@ set to none for simplicity here).
 </match>
 ```
 
-[]{#parameters}
-
 Parameters
 ----------
-
-[]{#@type}
 
 ### \@type
 
 This parameter is required. Its value must be `secure_forward`.
 
-[]{#port-(integer)}
-
 ### port (integer)
 
 The default value is 24284.
-
-[]{#bind-(string)}
 
 ### bind (string)
 
 The default value is 0.0.0.0.
 
-[]{#secure-(bool)}
-
 ### secure (bool)
 
 Indicate published connection is secure or not. Specify `yes` (or
 `true`) if secure encryption needed.
-
-[]{#ca_cert_path-(string)}
 
 ### ca\_cert\_path (string)
 
@@ -448,59 +415,41 @@ The file path of private CA certificate file. This file must be shared
 with input plugin. The default is blank, but this parameter must be
 specified except for the case to use certificates signed by public CA.
 
-[]{#self_hostname-(string)}
-
 ### self\_hostname (string)
 
 Default value of the auto-generated certificate common name (CN).
 
-[]{#shared_key-(string)}
-
 ### shared\_key (string)
 
 Shared key between nodes..
-
-[]{#keepalive-(time)}
 
 ### keepalive (time)
 
 The duration for keepalive. If this parameter is not specified,
 keepalive is disabled.
 
-[]{#send_timeout-(time)}
-
 ### send\_timeout (time)
 
 The send timeout value for sockets. The default value is 60 seconds.
 
-[]{#reconnect_interval-(time)}
-
 ### reconnect\_interval (time)
 
 The interval between SSL reconnects. The default value is 5 seconds.
-
-[]{#read_length-(integer)}
 
 ### read\_length (integer)
 
 The number of bytes read per nonblocking read. The default value is
 8MB=8*1024*1024 bytes.
 
-[]{#read_interval_msec-(integer)}
-
 ### read\_interval\_msec (integer)
 
 The interval between the non-blocking reads, in milliseconds. The
 default value is 50.
 
-[]{#socket_interval_msec-(integer)}
-
 ### socket\_interval\_msec (integer)
 
 The interval between SSL reconnects in milliseconds. The default value
 is 200.
-
-[]{#buffered-output-parameters}
 
 Buffered Output Parameters
 --------------------------
@@ -508,16 +457,12 @@ Buffered Output Parameters
 For advanced usage, you can tune Fluentd's internal buffering mechanism
 with these parameters.
 
-[]{#buffer_type}
-
 ### buffer\_type
 
 The buffer type is `memory` by default ([buf\_memory](buf_memory)) for
 the ease of testing, however `file` ([buf\_file](buf_file)) buffer type
 is always recommended for the production deployments. If you use `file`
 buffer type, `buffer_path` parameter is required.
-
-[]{#buffer_queue_limit,-buffer_chunk_limit}
 
 ### buffer\_queue\_limit, buffer\_chunk\_limit
 
@@ -527,21 +472,15 @@ for the basic buffer structure. The default values are 64 and 8m,
 respectively. The suffixes "k" (KB), "m" (MB), and "g" (GB) can be used
 for buffer\_chunk\_limit.
 
-[]{#flush_interval}
-
 ### flush\_interval
 
 The interval between data flushes. The default is 60s. The suffixes "s"
 (seconds), "m" (minutes), and "h" (hours) can be used.
 
-[]{#flush_at_shutdown}
-
 ### flush\_at\_shutdown
 
 If set to true, Fluentd waits for the buffer to flush at shutdown. By
 default, it is set to true for Memory Buffer and false for File Buffer.
-
-[]{#retry_wait,-max_retry_wait}
 
 ### retry\_wait, max\_retry\_wait
 
@@ -554,8 +493,6 @@ Since td-agent will retry 17 times before giving up by default (see the
 approximately 131072 seconds (roughly 36 hours) in the default
 configurations.
 
-[]{#retry_limit,-disable_retry_limit}
-
 ### retry\_limit, disable\_retry\_limit
 
 The limit on the number of retries before buffered data is discarded,
@@ -564,16 +501,12 @@ is ignored and there is no limit). The default values are 17 and false
 (not disabled). If the limit is reached, buffered data is discarded and
 the retry interval is reset to its initial value (`retry_wait`).
 
-[]{#num_threads}
-
 ### num\_threads
 
 The number of threads to flush the buffer. This option can be used to
 parallelize writes into the output(s) designated by the output plugin.
 Increasing the number of threads improves the flush throughput to hide
 write / network latency. The default is 1.
-
-[]{#slow_flush_log_threshold}
 
 ### slow\_flush\_log\_threshold
 
@@ -595,24 +528,16 @@ logging for each plugin. The supported log levels are: `fatal`, `error`,
 
 Please see the [logging article](logging) for further details.
 
-[]{#further-reading}
-
 Further Reading
 ---------------
 
 -   [fluent-plugin-secure-forward
     repository](https://github.com/tagomoris/fluent-plugin-secure-forward)
 
-::: {style="text-align:right"}
+
 Last updated: 2016-07-01 09:50:35 UTC
-:::
-
 ------------------------------------------------------------------------
-
-::: {style="text-align:right"}
 Versions \| ***v0.12* (td-agent2) **
-:::
-
 ------------------------------------------------------------------------
 
 If this article is incorrect or outdated, or omits critical information,

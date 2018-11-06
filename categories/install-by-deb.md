@@ -1,13 +1,6 @@
-::: {#main .section}
-::: {#page}
-::: {.topic_content}
-::: {style="text-align:right"}
-::: {style="text-align:right"}
+
 Versions \| [v1.0 (td-agent3)](/v1.0/articles/install-by-deb) \|
 ***v0.12* (td-agent2) **
-:::
-:::
-
 ------------------------------------------------------------------------
 
 Installing Fluentd Using deb Package
@@ -28,8 +21,6 @@ Inc](http://www.treasuredata.com/).
 -   [Step3: Post Sample Logs via
     HTTP](#step3:-post-sample-logs-via-http)
 -   [Next Steps](#next-steps)
-:::
-
 What is td-agent?
 -----------------
 
@@ -48,15 +39,11 @@ ruby 2.5 and td-agent 2.3 or earlier uses ruby 2.1. ruby 2.1 is EOL so
 we recommend to use td-agent 2.5 for new deployment. td-agent 2.5 and
 td-agent 2.3 use fluentd v0.12 serise so the behaviour is same.
 
-[]{#step-0:-before-installation}
-
 Step 0: Before Installation
 ---------------------------
 
 Please follow the [Preinstallation Guide](before-install) to configure
 your OS properly. This will prevent many unnecessary problems.
-
-[]{#step-1-:-install-from-apt-repository}
 
 Step 1 : Install from Apt Repository
 ------------------------------------
@@ -68,10 +55,6 @@ LTS / Lucid 64bit/32bit".
 
 For Debian, we currently support Jessie, Wheezy and Squeeze. There is no
 32bit packages for Debian.
-:::
-:::
-:::
-
 We might not provide td-agent for older distributions. For example, we
 don\'t provide latest td-agent version for squeeze and lucid for now.
 
@@ -144,8 +127,6 @@ It's HIGHLY recommended that you set up **ntpd** on the node to prevent
 invalid timestamps in your logs. Please check the [Preinstallation
 Guide](before-install).
 
-[]{#step2:-launch-daemon}
-
 Step2: Launch Daemon
 --------------------
 
@@ -170,8 +151,6 @@ $ sudo /etc/init.d/td-agent status
 Please make sure **your configuration file** is located at
 `/etc/td-agent/td-agent.conf`.
 
-[]{#step3:-post-sample-logs-via-http}
-
 Step3: Post Sample Logs via HTTP
 --------------------------------
 
@@ -182,8 +161,6 @@ You can post sample log records using the curl command.
 ``` {.CodeRay}
 $ curl -X POST -d 'json={"json":"message"}' http://localhost:8888/debug.test
 ```
-
-[]{#next-steps}
 
 Next Steps
 ----------
@@ -208,17 +185,11 @@ Please refer to the resources below for further steps.
     td-agent](http://docs.treasuredata.com/articles/td-agent-changelog)
 -   [Chef Cookbook](https://github.com/treasure-data/chef-td-agent/)
 
-::: {style="text-align:right"}
+
 Last updated: 2016-07-11 22:54:57 UTC
-:::
-
 ------------------------------------------------------------------------
-
-::: {style="text-align:right"}
 Versions \| [v1.0 (td-agent3)](/v1.0/articles/install-by-deb) \|
 ***v0.12* (td-agent2) **
-:::
-
 ------------------------------------------------------------------------
 
 If this article is incorrect or outdated, or omits critical information,

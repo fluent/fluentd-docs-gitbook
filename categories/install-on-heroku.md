@@ -1,12 +1,5 @@
-::: {#main .section}
-::: {#page}
-::: {.topic_content}
-::: {style="text-align:right"}
-::: {style="text-align:right"}
-Versions \| ***v0.12* (td-agent2) **
-:::
-:::
 
+Versions \| ***v0.12* (td-agent2) **
 ------------------------------------------------------------------------
 
 Install Fluentd (td-agent) on Heroku
@@ -26,8 +19,6 @@ This article describes how to install Fluentd (td-agent) on
 -   [2. Using Git](#2.-using-git)
 
 [Test](#test)
-:::
-
 With non-Treasure Data backend
 ------------------------------
 
@@ -60,8 +51,6 @@ $ git commit -a -m 'update config file'
 $ git push heroku master
 ```
 
-[]{#with-treasure-data-as-a-backend}
-
 With Treasure Data as a Backend
 -------------------------------
 
@@ -79,8 +68,6 @@ Your App ------> Heroku-hosted Fluentd ------> Treasure Data
 
 is what you want, there are two ways to deploy it.
 
-[]{#1.-heroku-button}
-
 ### 1. Heroku Button
 
 Clicking on the following button automatically launched td-agent on
@@ -90,8 +77,6 @@ Heroku:
 
 You can read more about this approach
 [here](https://github.com/treasure-data/heroku-td-agent).
-
-[]{#2.-using-git}
 
 ### 2. Using Git
 
@@ -122,8 +107,6 @@ $ git push heroku master
 To retrieve your `treasure_data_api_key_value`, see
 [here](http://docs.treasuredata.com/articles/get-apikey).
 
-[]{#test}
-
 Test
 ----
 
@@ -149,16 +132,10 @@ The output will be available on STDOUT.
 $ heroku logs --tail
 ```
 
-::: {style="text-align:right"}
+
 Last updated: 2016-06-06 04:47:13 UTC
-:::
-
 ------------------------------------------------------------------------
-
-::: {style="text-align:right"}
 Versions \| ***v0.12* (td-agent2) **
-:::
-
 ------------------------------------------------------------------------
 
 If this article is incorrect or outdated, or omits critical information,
@@ -167,6 +144,3 @@ know](https://github.com/fluent/fluentd-docs/issues?state=open).
 [Fluentd](http://www.fluentd.org/) is a open source project under [Cloud
 Native Computing Foundation (CNCF)](https://cncf.io/). All components
 are available under the Apache 2 License.
-:::
-:::
-:::

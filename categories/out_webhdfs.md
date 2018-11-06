@@ -1,13 +1,6 @@
-::: {#main .section}
-::: {#page}
-::: {.topic_content}
-::: {style="text-align:right"}
-::: {style="text-align:right"}
+
 Versions \| [v1.0 (td-agent3)](/v1.0/articles/out_webhdfs) \| ***v0.12*
 (td-agent2) **
-:::
-:::
-
 ------------------------------------------------------------------------
 
 HDFS (WebHDFS) Output Plugin
@@ -19,10 +12,6 @@ hourly basis. This means that when you first import records using the
 plugin, no file is created immediately. The file will be created when
 the `time_slice_format` condition has been met. To change the output
 frequency, please modify the `time_slice_format` value.
-:::
-:::
-:::
-
 This document doesn\'t describe all parameters. If you want to know full
 features, check the Further Reading section.
 
@@ -58,8 +47,6 @@ out\_webhdfs)](#time-sliced-output-parameters-(and-overwritten-values-by-out_web
 -   [num\_threads](#num_threads)
 
 [Further Reading](#further-reading)
-:::
-
 Install
 -------
 
@@ -70,8 +57,6 @@ using the following command.
 ``` {.CodeRay}
 $ fluent-gem install fluent-plugin-webhdfs
 ```
-
-[]{#hdfs-configuration}
 
 HDFS Configuration
 ------------------
@@ -97,8 +82,6 @@ cluster.
 </property>
 ```
 
-[]{#example-configuration}
-
 Example Configuration
 ---------------------
 
@@ -118,30 +101,20 @@ Collection](http-to-hdfs) article for real-world use cases.
 Please see the [Config File](config-file) article for the basic
 structure and syntax of the configuration file.
 
-[]{#parameters}
-
 Parameters
 ----------
-
-[]{#@type-(required)}
 
 ### \@type (required)
 
 The value must be `webhfds`.
 
-[]{#host-(required)}
-
 ### host (required)
 
 The namenode hostname.
 
-[]{#port-(required)}
-
 ### port (required)
 
 The namenode port number.
-
-[]{#path-(required)}
 
 ### path (required)
 
@@ -153,15 +126,11 @@ Path value can contain time placeholders (see `time_slice_format`
 section). If path contains time placeholders, webhdfs output configures
 `time_slice_format` automatically with these placeholders.
 
-[]{#time-sliced-output-parameters-(and-overwritten-values-by-out_webhdfs)}
-
 Time Sliced Output Parameters (and overwritten values by out\_webhdfs)
 ----------------------------------------------------------------------
 
 For advanced usage, you can tune Fluentd's internal buffering mechanism
 with these parameters.
-
-[]{#time_slice_format}
 
 ### time\_slice\_format
 
@@ -178,8 +147,6 @@ are replaced with actual values when the file is created:
 The default format is `%Y%m%d%H`, which creates one file per hour. This
 parameter may be overwritten by `path` configuration.
 
-[]{#time_slice_wait}
-
 ### time\_slice\_wait
 
 The amount of time Fluentd will wait for old logs to arrive. This is
@@ -194,15 +161,11 @@ uploaded together with all the other logs from 1:00 to 1:59 in one
 transaction, avoiding extra overhead. Larger values can be set as
 needed.
 
-[]{#buffer_type}
-
 ### buffer\_type
 
 The buffer type is `memory` by default ([buf\_memory](buf_memory)). The
 `file` ([buf\_file](buf_file)) buffer type can be chosen as well. If you
 use `file` buffer type, `buffer_path` parameter is required.
-
-[]{#buffer_queue_limit,-buffer_chunk_limit}
 
 ### buffer\_queue\_limit, buffer\_chunk\_limit
 
@@ -212,23 +175,17 @@ for the basic buffer structure. The default values are 64 and 8m,
 respectively. The suffixes "k" (KB), "m" (MB), and "g" (GB) can be used
 for buffer\_chunk\_limit.
 
-[]{#flush_interval}
-
 ### flush\_interval
 
 The interval between data flushes. The default is unspecified, and
 buffer chunks will be flushed at the end of time slices. The suffixes
 "s" (seconds), "m" (minutes), and "h" (hours) can be used.
 
-[]{#flush_at_shutdown}
-
 ### flush\_at\_shutdown
 
 The boolean value to specify whether to flush buffer chunks at shutdown
 time, or not. The default is true. Specify true if you use `memory`
 buffer type.
-
-[]{#retry_wait,-max_retry_wait}
 
 ### retry\_wait, max\_retry\_wait
 
@@ -241,8 +198,6 @@ Since td-agent will retry 17 times before giving up by default (see the
 approximately 131072 seconds (roughly 36 hours) in the default
 configurations.
 
-[]{#retry_limit,-disable_retry_limit}
-
 ### retry\_limit, disable\_retry\_limit
 
 The limit on the number of retries before buffered data is discarded,
@@ -250,8 +205,6 @@ and an option to disable that limit (if true, the value of `retry_limit`
 is ignored and there is no limit). The default values are 17 and false
 (not disabled). If the limit is reached, buffered data is discarded and
 the retry interval is reset to its initial value (`retry_wait`).
-
-[]{#num_threads}
 
 ### num\_threads
 
@@ -267,8 +220,6 @@ logging for each plugin. The supported log levels are: `fatal`, `error`,
 
 Please see the [logging article](logging) for further details.
 
-[]{#further-reading}
-
 Further Reading
 ---------------
 
@@ -277,17 +228,11 @@ Further Reading
 -   [Slides: Fluentd and
     WebHDFS](http://www.slideshare.net/tagomoris/fluentd-and-webhdfs)
 
-::: {style="text-align:right"}
+
 Last updated: 2016-07-01 09:50:35 UTC
-:::
-
 ------------------------------------------------------------------------
-
-::: {style="text-align:right"}
 Versions \| [v1.0 (td-agent3)](/v1.0/articles/out_webhdfs) \| ***v0.12*
 (td-agent2) **
-:::
-
 ------------------------------------------------------------------------
 
 If this article is incorrect or outdated, or omits critical information,
