@@ -1,5 +1,6 @@
 
-Versions \| [v1.0 (td-agent3)](/v1.0/articles/in_exec) \| ***v0.12*(td-agent2) **
+Versions \| [v1.0 (td-agent3)](/v1.0/articles/in_exec) \|
+***v0.12*(td-agent2) **
 ------------------------------------------------------------------------
 
 exec Input Plugin
@@ -168,7 +169,8 @@ etc.
 
 Last updated: 2016-07-26 23:53:19 UTC
 ------------------------------------------------------------------------
-Versions \| [v1.0 (td-agent3)](/v1.0/articles/in_exec) \| ***v0.12*(td-agent2) **
+Versions \| [v1.0 (td-agent3)](/v1.0/articles/in_exec) \|
+***v0.12*(td-agent2) **
 ------------------------------------------------------------------------
 
 If this article is incorrect or outdated, or omits critical information,

@@ -1,5 +1,6 @@
 
-Versions \| [v1.0 (td-agent3)](/v1.0/articles/filter_grep) \| ***v0.12*(td-agent2) **
+Versions \| [v1.0 (td-agent3)](/v1.0/articles/filter_grep) \|
+***v0.12*(td-agent2) **
 ------------------------------------------------------------------------
 
 grep Filter Plugin
@@ -207,7 +208,8 @@ Learn More
 
 Last updated: 2016-09-21 02:58:49 UTC
 ------------------------------------------------------------------------
-Versions \| [v1.0 (td-agent3)](/v1.0/articles/filter_grep) \| ***v0.12*(td-agent2) **
+Versions \| [v1.0 (td-agent3)](/v1.0/articles/filter_grep) \|
+***v0.12*(td-agent2) **
 ------------------------------------------------------------------------
 
 If this article is incorrect or outdated, or omits critical information,

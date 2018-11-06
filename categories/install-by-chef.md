@@ -1,5 +1,6 @@
 
-Versions \| ***v0.12* (td-agent2) **
+Versions \|
+***v0.12* (td-agent2) **
 ------------------------------------------------------------------------
 
 Installing Fluentd Using Chef
@@ -52,7 +53,8 @@ sources.
 
 Last updated: 2016-06-06 04:47:13 UTC
 ------------------------------------------------------------------------
-Versions \| ***v0.12* (td-agent2) **
+Versions \|
+***v0.12* (td-agent2) **
 ------------------------------------------------------------------------
 
 If this article is incorrect or outdated, or omits critical information,

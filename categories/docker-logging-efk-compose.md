@@ -1,5 +1,6 @@
 
-Versions \| ***v0.12* (td-agent2) **
+Versions \|
+***v0.12* (td-agent2) **
 ------------------------------------------------------------------------
 
 Docker Logging via EFK (Elasticsearch + Fluentd + Kibana) Stack with Docker Compose
@@ -232,7 +233,8 @@ Learn More
 
 Last updated: 2017-02-10 20:45:52 UTC
 ------------------------------------------------------------------------
-Versions \| ***v0.12* (td-agent2) **
+Versions \|
+***v0.12* (td-agent2) **
 ------------------------------------------------------------------------
 
 If this article is incorrect or outdated, or omits critical information,

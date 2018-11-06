@@ -1,5 +1,6 @@
 
-Versions \| [v1.0 (td-agent3)](/v1.0/articles/parser_json) \| ***v0.12*(td-agent2) **
+Versions \| [v1.0 (td-agent3)](/v1.0/articles/parser_json) \|
+***v0.12*(td-agent2) **
 ------------------------------------------------------------------------
 
 json Parser Plugin
@@ -68,7 +69,8 @@ record:
 
 Last updated: 2018-11-06 18:02:28 +0000
 ------------------------------------------------------------------------
-Versions \| [v1.0 (td-agent3)](/v1.0/articles/parser_json) \| ***v0.12*(td-agent2) **
+Versions \| [v1.0 (td-agent3)](/v1.0/articles/parser_json) \|
+***v0.12*(td-agent2) **
 ------------------------------------------------------------------------
 
 If this article is incorrect or outdated, or omits critical information,

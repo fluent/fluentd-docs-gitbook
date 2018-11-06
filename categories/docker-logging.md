@@ -1,5 +1,6 @@
 
-Versions \| ***v0.12* (td-agent2) **
+Versions \|
+***v0.12* (td-agent2) **
 ------------------------------------------------------------------------
 
 Docker Logging Driver and Fluentd
@@ -284,7 +285,8 @@ tools as well.
 
 Last updated: 2017-01-30 13:27:02 UTC
 ------------------------------------------------------------------------
-Versions \| ***v0.12* (td-agent2) **
+Versions \|
+***v0.12* (td-agent2) **
 ------------------------------------------------------------------------
 
 If this article is incorrect or outdated, or omits critical information,

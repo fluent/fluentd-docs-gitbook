@@ -1,6 +1,7 @@
 
 Versions \| [v1.0 (td-agent3)](/v1.0/articles/formatter-plugin-overview)
-\| ***v0.12* (td-agent2) **
+\|
+***v0.12* (td-agent2) **
 ------------------------------------------------------------------------
 
 Text Formatter Overview
@@ -82,7 +83,8 @@ List of Output Plugins with Text Formatter Support
 Last updated: 2015-12-01 21:20:32 UTC
 ------------------------------------------------------------------------
 Versions \| [v1.0 (td-agent3)](/v1.0/articles/formatter-plugin-overview)
-\| ***v0.12* (td-agent2) **
+\|
+***v0.12* (td-agent2) **
 ------------------------------------------------------------------------
 
 If this article is incorrect or outdated, or omits critical information,

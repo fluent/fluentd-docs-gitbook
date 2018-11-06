@@ -1,5 +1,6 @@
 
-Versions \| ***v0.12* (td-agent2) **
+Versions \|
+***v0.12* (td-agent2) **
 ------------------------------------------------------------------------
 
 Storing CloudStack Logs into MongoDB
@@ -289,7 +290,8 @@ aggregation framework, have fun.
 
 Last updated: 2016-06-13 06:11:23 UTC
 ------------------------------------------------------------------------
-Versions \| ***v0.12* (td-agent2) **
+Versions \|
+***v0.12* (td-agent2) **
 ------------------------------------------------------------------------
 
 If this article is incorrect or outdated, or omits critical information,

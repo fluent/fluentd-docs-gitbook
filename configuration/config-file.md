@@ -1,5 +1,6 @@
 
-Versions \| [v1.0 (td-agent3)](/v1.0/articles/config-file) \| ***v0.12*(td-agent2) **
+Versions \| [v1.0 (td-agent3)](/v1.0/articles/config-file) \|
+***v0.12*(td-agent2) **
 ------------------------------------------------------------------------
 
 Configuration File Syntax
@@ -665,7 +666,8 @@ str_param "foo\nbar" # \n is interpreted as actual LF character
 
 Last updated: 2017-03-03 06:10:26 UTC
 ------------------------------------------------------------------------
-Versions \| [v1.0 (td-agent3)](/v1.0/articles/config-file) \| ***v0.12*(td-agent2) **
+Versions \| [v1.0 (td-agent3)](/v1.0/articles/config-file) \|
+***v0.12*(td-agent2) **
 ------------------------------------------------------------------------
 
 If this article is incorrect or outdated, or omits critical information,

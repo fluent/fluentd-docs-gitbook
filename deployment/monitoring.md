@@ -1,5 +1,6 @@
 
-Versions \| [v1.0 (td-agent3)](/v1.0/articles/monitoring) \| ***v0.12*(td-agent2) **
+Versions \| [v1.0 (td-agent3)](/v1.0/articles/monitoring) \|
+***v0.12*(td-agent2) **
 ------------------------------------------------------------------------
 
 Monitoring Fluentd
@@ -80,7 +81,8 @@ dRuby.
 
 Last updated: 2017-01-28 04:02:44 UTC
 ------------------------------------------------------------------------
-Versions \| [v1.0 (td-agent3)](/v1.0/articles/monitoring) \| ***v0.12*(td-agent2) **
+Versions \| [v1.0 (td-agent3)](/v1.0/articles/monitoring) \|
+***v0.12*(td-agent2) **
 ------------------------------------------------------------------------
 
 If this article is incorrect or outdated, or omits critical information,

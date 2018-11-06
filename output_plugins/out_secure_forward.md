@@ -1,5 +1,6 @@
 
-Versions \| ***v0.12* (td-agent2) **
+Versions \|
+***v0.12* (td-agent2) **
 ------------------------------------------------------------------------
 
 Secure Forward Output Plugin
@@ -537,7 +538,8 @@ Further Reading
 
 Last updated: 2016-07-01 09:50:35 UTC
 ------------------------------------------------------------------------
-Versions \| ***v0.12* (td-agent2) **
+Versions \|
+***v0.12* (td-agent2) **
 ------------------------------------------------------------------------
 
 If this article is incorrect or outdated, or omits critical information,

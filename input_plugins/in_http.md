@@ -1,5 +1,6 @@
 
-Versions \| [v1.0 (td-agent3)](/v1.0/articles/in_http) \| ***v0.12*(td-agent2) **
+Versions \| [v1.0 (td-agent3)](/v1.0/articles/in_http) \|
+***v0.12*(td-agent2) **
 ------------------------------------------------------------------------
 
 http Input Plugin
@@ -217,7 +218,8 @@ curl -X POST -F 'json={"message":"foo+bar"}' http://localhost:8888/test.tag.here
 
 Last updated: 2017-03-21 23:41:43 UTC
 ------------------------------------------------------------------------
-Versions \| [v1.0 (td-agent3)](/v1.0/articles/in_http) \| ***v0.12*(td-agent2) **
+Versions \| [v1.0 (td-agent3)](/v1.0/articles/in_http) \|
+***v0.12*(td-agent2) **
 ------------------------------------------------------------------------
 
 If this article is incorrect or outdated, or omits critical information,

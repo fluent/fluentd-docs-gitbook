@@ -1,5 +1,6 @@
 
-Versions \| [v1.0 (td-agent3)](/v1.0/articles/parser_tsv) \| ***v0.12*(td-agent2) **
+Versions \| [v1.0 (td-agent3)](/v1.0/articles/parser_tsv) \|
+***v0.12*(td-agent2) **
 ------------------------------------------------------------------------
 
 TSV Parser Plugin
@@ -129,7 +130,8 @@ becomes `nil` instead of `"-"`.
 
 Last updated: 2018-11-06 18:16:40 +0000
 ------------------------------------------------------------------------
-Versions \| [v1.0 (td-agent3)](/v1.0/articles/parser_tsv) \| ***v0.12*(td-agent2) **
+Versions \| [v1.0 (td-agent3)](/v1.0/articles/parser_tsv) \|
+***v0.12*(td-agent2) **
 ------------------------------------------------------------------------
 
 If this article is incorrect or outdated, or omits critical information,

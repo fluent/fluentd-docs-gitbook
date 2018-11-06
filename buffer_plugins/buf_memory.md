@@ -1,5 +1,6 @@
 
-Versions \| [v1.0 (td-agent3)](/v1.0/articles/buf_memory) \| ***v0.12*(td-agent2) **
+Versions \| [v1.0 (td-agent3)](/v1.0/articles/buf_memory) \|
+***v0.12*(td-agent2) **
 ------------------------------------------------------------------------
 
 memory Buffer Plugin
@@ -63,7 +64,8 @@ and "h" (hours) can be used.
 
 Last updated: 2016-10-21 06:29:58 UTC
 ------------------------------------------------------------------------
-Versions \| [v1.0 (td-agent3)](/v1.0/articles/buf_memory) \| ***v0.12*(td-agent2) **
+Versions \| [v1.0 (td-agent3)](/v1.0/articles/buf_memory) \|
+***v0.12*(td-agent2) **
 ------------------------------------------------------------------------
 
 If this article is incorrect or outdated, or omits critical information,
