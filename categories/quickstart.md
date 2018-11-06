@@ -1,6 +1,5 @@
 
-Versions \| [v1.0 (td-agent3)](/v1.0/articles/quickstart) \| ***v0.12*
-(td-agent2) **
+Versions \| [v1.0 (td-agent3)](/v1.0/articles/quickstart) \| ***v0.12*(td-agent2) **
 ------------------------------------------------------------------------
 
 Quickstart Guide
@@ -11,7 +10,7 @@ fully open-source log collector that instantly enables you to have a
 '**Log Everything**' architecture with [600+ types of
 systems](http://fluentd.org/plugin/).
 
-![](/images/fluentd-architecture.png){width="450px"}\
+![](/images/fluentd-architecture.png)\
 \
 
 Fluentd treats logs as JSON, a popular machine-readable format. It is
@@ -87,8 +86,7 @@ learn more about Fluentd.
 
 Last updated: 2017-03-08 14:51:05 UTC
 ------------------------------------------------------------------------
-Versions \| [v1.0 (td-agent3)](/v1.0/articles/quickstart) \| ***v0.12*
-(td-agent2) **
+Versions \| [v1.0 (td-agent3)](/v1.0/articles/quickstart) \| ***v0.12*(td-agent2) **
 ------------------------------------------------------------------------
 
 If this article is incorrect or outdated, or omits critical information,

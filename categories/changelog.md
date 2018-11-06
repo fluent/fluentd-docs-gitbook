@@ -1,6 +1,5 @@
 
-Versions \| [v1.0 (td-agent3)](/v1.0/articles/changelog) \| ***v0.12*
-(td-agent2) **
+Versions \| [v1.0 (td-agent3)](/v1.0/articles/changelog) \| ***v0.12*(td-agent2) **
 ------------------------------------------------------------------------
 
 ChangeLog
@@ -26,8 +25,7 @@ td-agent's ChangeLog can be found
 
 Last updated: 2016-06-06 04:47:13 UTC
 ------------------------------------------------------------------------
-Versions \| [v1.0 (td-agent3)](/v1.0/articles/changelog) \| ***v0.12*
-(td-agent2) **
+Versions \| [v1.0 (td-agent3)](/v1.0/articles/changelog) \| ***v0.12*(td-agent2) **
 ------------------------------------------------------------------------
 
 If this article is incorrect or outdated, or omits critical information,

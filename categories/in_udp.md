@@ -1,6 +1,5 @@
 
-Versions \| [v1.0 (td-agent3)](/v1.0/articles/in_udp) \| ***v0.12*
-(td-agent2) **
+Versions \| [v1.0 (td-agent3)](/v1.0/articles/in_udp) \| ***v0.12*(td-agent2) **
 ------------------------------------------------------------------------
 
 UDP Input Plugin
@@ -119,8 +118,7 @@ to resolve the problem. See [issue
 
 Last updated: 2016-12-19 03:25:48 UTC
 ------------------------------------------------------------------------
-Versions \| [v1.0 (td-agent3)](/v1.0/articles/in_udp) \| ***v0.12*
-(td-agent2) **
+Versions \| [v1.0 (td-agent3)](/v1.0/articles/in_udp) \| ***v0.12*(td-agent2) **
 ------------------------------------------------------------------------
 
 If this article is incorrect or outdated, or omits critical information,

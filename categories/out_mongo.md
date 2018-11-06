@@ -1,6 +1,5 @@
 
-Versions \| [v1.0 (td-agent3)](/v1.0/articles/out_mongo) \| ***v0.12*
-(td-agent2) **
+Versions \| [v1.0 (td-agent3)](/v1.0/articles/out_mongo) \| ***v0.12*(td-agent2) **
 ------------------------------------------------------------------------
 
 MongoDB Output Plugin
@@ -266,8 +265,7 @@ Further Reading
 
 Last updated: 2015-12-01 21:20:32 UTC
 ------------------------------------------------------------------------
-Versions \| [v1.0 (td-agent3)](/v1.0/articles/out_mongo) \| ***v0.12*
-(td-agent2) **
+Versions \| [v1.0 (td-agent3)](/v1.0/articles/out_mongo) \| ***v0.12*(td-agent2) **
 ------------------------------------------------------------------------
 
 If this article is incorrect or outdated, or omits critical information,

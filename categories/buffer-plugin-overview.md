@@ -46,11 +46,11 @@ records concatenated into a single blob. Chunks are periodically flushed
 to the output queue and then sent to the specified destination. Here is
 the diagram of how it works:
 
-<div>
+
 
 [![](/images/buffer-internal-and-parameters.png)](/images/buffer-internal-and-parameters.png)
 
-</div>
+
 
 ### Common Parameters
 

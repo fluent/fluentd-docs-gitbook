@@ -1,6 +1,5 @@
 
-Versions \| [v1.0 (td-agent3)](/v1.0/articles/out_stdout) \| ***v0.12*
-(td-agent2) **
+Versions \| [v1.0 (td-agent3)](/v1.0/articles/out_stdout) \| ***v0.12*(td-agent2) **
 ------------------------------------------------------------------------
 
 stdout Output Plugin
@@ -57,8 +56,7 @@ Please see the [logging article](logging) for further details.
 
 Last updated: 2016-10-21 06:29:58 UTC
 ------------------------------------------------------------------------
-Versions \| [v1.0 (td-agent3)](/v1.0/articles/out_stdout) \| ***v0.12*
-(td-agent2) **
+Versions \| [v1.0 (td-agent3)](/v1.0/articles/out_stdout) \| ***v0.12*(td-agent2) **
 ------------------------------------------------------------------------
 
 If this article is incorrect or outdated, or omits critical information,

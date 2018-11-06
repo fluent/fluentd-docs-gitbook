@@ -10,7 +10,7 @@ single-board computer. Because it is low-cost and easy to equip with
 various types of sensors, using Raspberry Pi as a cloud data logger is
 one of its ideal use cases.
 
-![](/images/raspberry-pi-cloud-data-logger.png){width="400px"}
+![](/images/raspberry-pi-cloud-data-logger.png)
 
 \
 \

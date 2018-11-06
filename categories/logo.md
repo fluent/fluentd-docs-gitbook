@@ -1,6 +1,5 @@
 
-Versions \| [v1.0 (td-agent3)](/v1.0/articles/logo) \| ***v0.12*
-(td-agent2) **
+Versions \| [v1.0 (td-agent3)](/v1.0/articles/logo) \| ***v0.12*(td-agent2) **
 ------------------------------------------------------------------------
 
 Fluentd Logos
@@ -18,50 +17,38 @@ Feel free to use these logos on your slides, blog posts, etc.!
 Square
 ------
 
-<div>
 
-[![](https://raw.githubusercontent.com/fluent/fluentd-docs/master/public/logo/Fluentd_square.png){width="200px"}](https://raw.githubusercontent.com/fluent/fluentd-docs/master/public/logo/Fluentd_square.png)
 
-</div>
+[![](https://raw.githubusercontent.com/fluent/fluentd-docs/master/public/logo/Fluentd_square.png)](https://raw.githubusercontent.com/fluent/fluentd-docs/master/public/logo/Fluentd_square.png)
 
-<div>
+
+
 
 [\[PNG\]](https://raw.githubusercontent.com/fluent/fluentd-docs/master/public/logo/Fluentd_square.png)
 [\[SVG\]](https://raw.githubusercontent.com/fluent/fluentd-docs/master/public/logo/Fluentd_square.svg)
 
-</div>
 
 Horizontal
 ----------
 
-<div>
+[![](https://raw.githubusercontent.com/fluent/fluentd-docs/master/public/logo/Fluentd_horizontal.png)](https://raw.githubusercontent.com/fluent/fluentd-docs/master/public/logo/Fluentd_horizontal.png)
 
-[![](https://raw.githubusercontent.com/fluent/fluentd-docs/master/public/logo/Fluentd_horizontal.png){width="400px"}](https://raw.githubusercontent.com/fluent/fluentd-docs/master/public/logo/Fluentd_horizontal.png)
-
-</div>
-
-<div>
 
 [\[PNG\]](https://raw.githubusercontent.com/fluent/fluentd-docs/master/public/logo/Fluentd_horizontal.png)
 [\[SVG\]](https://raw.githubusercontent.com/fluent/fluentd-docs/master/public/logo/Fluentd_horizontal.svg)
 
-</div>
 
 Icon
 ----
 
-<div>
+[![](https://raw.githubusercontent.com/fluent/fluentd-docs/master/public/logo/Fluentd_icon.png)](https://raw.githubusercontent.com/fluent/fluentd-docs/master/public/logo/Fluentd_icon.png)
 
-[![](https://raw.githubusercontent.com/fluent/fluentd-docs/master/public/logo/Fluentd_icon.png){width="200px"}](https://raw.githubusercontent.com/fluent/fluentd-docs/master/public/logo/Fluentd_icon.png)
 
-</div>
-
-<div>
 
 [\[PNG\]](https://raw.githubusercontent.com/fluent/fluentd-docs/master/public/logo/Fluentd_icon.png)
 [\[SVG\]](https://raw.githubusercontent.com/fluent/fluentd-docs/master/public/logo/Fluentd_icon.svg)
 
-</div>
+
 
 Links
 -----
@@ -73,8 +60,7 @@ Links
 
 Last updated: 2016-06-24 05:11:59 UTC
 ------------------------------------------------------------------------
-Versions \| [v1.0 (td-agent3)](/v1.0/articles/logo) \| ***v0.12*
-(td-agent2) **
+Versions \| [v1.0 (td-agent3)](/v1.0/articles/logo) \| ***v0.12*(td-agent2) **
 ------------------------------------------------------------------------
 
 If this article is incorrect or outdated, or omits critical information,

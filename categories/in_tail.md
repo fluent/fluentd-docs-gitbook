@@ -1,6 +1,5 @@
 
-Versions \| [v1.0 (td-agent3)](/v1.0/articles/in_tail) \| ***v0.12*
-(td-agent2) **
+Versions \| [v1.0 (td-agent3)](/v1.0/articles/in_tail) \| ***v0.12*(td-agent2) **
 ------------------------------------------------------------------------
 
 tail Input Plugin
@@ -299,8 +298,7 @@ restart emitting new lines and pos file update.
 
 Last updated: 2017-03-16 10:35:45 UTC
 ------------------------------------------------------------------------
-Versions \| [v1.0 (td-agent3)](/v1.0/articles/in_tail) \| ***v0.12*
-(td-agent2) **
+Versions \| [v1.0 (td-agent3)](/v1.0/articles/in_tail) \| ***v0.12*(td-agent2) **
 ------------------------------------------------------------------------
 
 If this article is incorrect or outdated, or omits critical information,

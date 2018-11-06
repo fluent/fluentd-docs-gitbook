@@ -1,6 +1,5 @@
 
-Versions \| [v1.0 (td-agent3)](/v1.0/articles/rpc) \| ***v0.12*
-(td-agent2) **
+Versions \| [v1.0 (td-agent3)](/v1.0/articles/rpc) \| ***v0.12*(td-agent2) **
 ------------------------------------------------------------------------
 
 Fluentd's HTTP RPC
@@ -74,8 +73,7 @@ Replacement of signal's [SIGHUP](signals#sighup). reload configuration.
 
 Last updated: 2016-03-01 13:42:40 UTC
 ------------------------------------------------------------------------
-Versions \| [v1.0 (td-agent3)](/v1.0/articles/rpc) \| ***v0.12*
-(td-agent2) **
+Versions \| [v1.0 (td-agent3)](/v1.0/articles/rpc) \| ***v0.12*(td-agent2) **
 ------------------------------------------------------------------------
 
 If this article is incorrect or outdated, or omits critical information,

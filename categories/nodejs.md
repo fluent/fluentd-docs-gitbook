@@ -1,6 +1,5 @@
 
-Versions \| [v1.0 (td-agent3)](/v1.0/articles/nodejs) \| ***v0.12*
-(td-agent2) **
+Versions \| [v1.0 (td-agent3)](/v1.0/articles/nodejs) \| ***v0.12*(td-agent2) **
 ------------------------------------------------------------------------
 
 Centralize Logs from Node.js Applications
@@ -179,8 +178,7 @@ general monitoring methods for td-agent.
 
 Last updated: 2017-01-30 13:27:02 UTC
 ------------------------------------------------------------------------
-Versions \| [v1.0 (td-agent3)](/v1.0/articles/nodejs) \| ***v0.12*
-(td-agent2) **
+Versions \| [v1.0 (td-agent3)](/v1.0/articles/nodejs) \| ***v0.12*(td-agent2) **
 ------------------------------------------------------------------------
 
 If this article is incorrect or outdated, or omits critical information,
