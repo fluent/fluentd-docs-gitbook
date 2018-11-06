@@ -21,9 +21,7 @@ authentication** (cf. [in\_secure\_forward](in_secure_forward)).
 This document doesn\'t describe all parameters. If you want to know full
 features, check the Further Reading section.
 
-[]{#installation}
 
-::: {#table-of-contents .section}
 ### Table of Contents
 
 [Installation](#installation)

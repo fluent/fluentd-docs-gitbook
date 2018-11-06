@@ -25,9 +25,7 @@ format /.../ # regexp parser is used
 format json  # json parser is used
 ```
 
-[]{#parameters}
 
-::: {#table-of-contents .section}
 ### Table of Contents
 
 [Parameters](#parameters)

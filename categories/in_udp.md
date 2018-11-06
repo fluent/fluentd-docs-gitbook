@@ -15,9 +15,7 @@ UDP Input Plugin
 
 The `in_udp` Input plugin enables Fluentd to accept UDP payload.
 
-[]{#example-configuration}
 
-::: {#table-of-contents .section}
 ### Table of Contents
 
 [Example Configuration](#example-configuration)

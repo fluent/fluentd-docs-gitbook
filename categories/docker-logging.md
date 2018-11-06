@@ -40,9 +40,7 @@ simplicity and high performance [Fluentd](http://fluentd.org).
 
 Currently, fluentd logging driver doesn\'t support sub-second precision.
 
-[]{#getting-started}
 
-::: {#table-of-contents .section}
 ### Table of Contents
 
 [Getting Started](#getting-started)

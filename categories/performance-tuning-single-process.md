@@ -23,9 +23,7 @@ please also visit [Performance Tuning
 (Multi-Process)](performance-tuning-multi-process) to utilize multiple
 CPU cores.
 
-[]{#check-top-command}
 
-::: {#table-of-contents .section}
 ### Table of Contents
 
 -   [Check top command](#check-top-command)

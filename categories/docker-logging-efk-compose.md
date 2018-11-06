@@ -40,9 +40,7 @@ pipeline. In this article, we will set up 4 containers, each includes:
 All of `httpd`'s logs will be ingested into Elasticsearch + Kibana, via
 Fluentd.
 
-[]{#prerequisites:-docker}
 
-::: {#table-of-contents .section}
 ### Table of Contents
 
 -   [Prerequisites: Docker](#prerequisites:-docker)

@@ -15,9 +15,7 @@ nginx Parser Plugin
 
 The `nginx` parser plugin parses default nginx logs.
 
-[]{#parameters}
 
-::: {#table-of-contents .section}
 ### Table of Contents
 
 [Parameters](#parameters)

@@ -17,9 +17,7 @@ The `memory` buffer plugin provides a fast buffer implementation. It
 uses memory to store buffer chunks. When Fluentd is shut down, buffered
 logs that can't be written quickly are deleted.
 
-[]{#example-config}
 
-::: {#table-of-contents .section}
 ### Table of Contents
 
 -   [Example Config](#example-config)

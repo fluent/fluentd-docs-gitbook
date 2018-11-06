@@ -15,9 +15,7 @@ copy Output Plugin
 
 The `copy` output plugin copies events to multiple outputs.
 
-[]{#example-configuration}
 
-::: {#table-of-contents .section}
 ### Table of Contents
 
 [Example Configuration](#example-configuration)

@@ -26,9 +26,7 @@ If you\'re using ReplicaSet, please see the
 This document doesn\'t describe all parameters. If you want to know full
 features, check the Further Reading section.
 
-[]{#why-fluentd-with-mongodb?}
 
-::: {#table-of-contents .section}
 ### Table of Contents
 
 [Why Fluentd with MongoDB?](#why-fluentd-with-mongodb?)

@@ -20,9 +20,7 @@ Since both Prometheus and Fluentd are under [CNCF (Cloud Native
 Computing Foundation)](https://www.cncf.io/), Fluentd project is
 recommending to use Prometheus by default to monitor Fluentd.
 
-[]{#installation}
 
-::: {#table-of-contents .section}
 ### Table of Contents
 
 [Installation](#installation)

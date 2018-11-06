@@ -19,9 +19,7 @@ The `csv` formatter plugin output an event as CSV.
 "value1"[delimiter]"value2"[delimiter]"value3"\n
 ```
 
-[]{#parameters}
 
-::: {#table-of-contents .section}
 ### Table of Contents
 
 [Parameters](#parameters)

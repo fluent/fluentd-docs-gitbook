@@ -51,9 +51,7 @@ more about Fluentd first.
 \
 \
 
-[]{#prerequisites}
 
-::: {#table-of-contents .section}
 ### Table of Contents
 
 [Prerequisites](#prerequisites)

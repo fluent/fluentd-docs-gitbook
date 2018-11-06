@@ -20,9 +20,7 @@ Since Scribe hasn't been well maintained recently, this plugin is useful
 for existing Scribe users who want to use Fluentd with an existing
 Scribe infrastructure.
 
-[]{#install}
 
-::: {#table-of-contents .section}
 ### Table of Contents
 
 [Install](#install)

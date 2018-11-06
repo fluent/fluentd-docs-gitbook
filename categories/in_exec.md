@@ -20,9 +20,7 @@ MessagePack from the stdout of the program.
 You can run a program periodically or permanently. To run periodically,
 please use the run\_interval parameter.
 
-[]{#example-configuration}
 
-::: {#table-of-contents .section}
 ### Table of Contents
 
 [Example Configuration](#example-configuration)

@@ -18,9 +18,7 @@ Data](www.fluentd.org/treasuredata) with [Fluentd](http://fluentd.org/)
 to aggregate semi-structured logs into Treasure Data (TD), which offers
 Cloud Data Service.
 
-[]{#background}
 
-::: {#table-of-contents .section}
 ### Table of Contents
 
 [Background](#background)

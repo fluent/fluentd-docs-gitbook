@@ -13,9 +13,7 @@ Versions \| [v1.0 (td-agent3)](/v1.0/articles/plugin-development) \|
 Writing plugins
 ===============
 
-[]{#installing-custom-plugins}
 
-::: {#table-of-contents .section}
 ### Table of Contents
 
 [Installing custom plugins](#installing-custom-plugins)

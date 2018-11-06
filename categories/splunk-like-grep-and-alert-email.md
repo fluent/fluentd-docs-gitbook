@@ -27,9 +27,7 @@ If you want a more general introduction to use Fluentd as a free
 alternative to Splunk, see the article ["Free Alternative to Splunk
 Using Fluentd"](free-alternative-to-splunk-by-fluentd).
 
-[]{#installing-the-requisites}
 
-::: {#table-of-contents .section}
 ### Table of Contents
 
 [Installing the requisites](#installing-the-requisites)

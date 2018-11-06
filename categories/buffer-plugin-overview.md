@@ -19,9 +19,7 @@ Fluentd has 6 types of plugins: [Input](input-plugin-overview),
 and [Buffer](buffer-plugin-overview). This article will provide a
 high-level overview of Buffer plugins.
 
-[]{#buffer-plugin-overview}
 
-::: {#table-of-contents .section}
 ### Table of Contents
 
 [Buffer Plugin Overview](#buffer-plugin-overview)

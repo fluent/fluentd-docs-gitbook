@@ -35,9 +35,7 @@ plugin is not designed for high-latency network environment. If you
 require a secure connection between nodes, please consider using
 [in\_secure\_forward](in_secure_forward).
 
-[]{#example-configuration}
 
-::: {#table-of-contents .section}
 ### Table of Contents
 
 [Example Configuration](#example-configuration)

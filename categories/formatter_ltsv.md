@@ -19,9 +19,7 @@ The `ltsv` formatter plugin output an event as [LTSV](http://ltsv.org).
 field1[label_delimiter]value1[delimiter]field2[label_delimiter]value2\n
 ```
 
-[]{#parameters}
 
-::: {#table-of-contents .section}
 ### Table of Contents
 
 [Parameters](#parameters)

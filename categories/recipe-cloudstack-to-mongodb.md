@@ -56,9 +56,7 @@ UEMURA](https://github.com/u-ichi). It is slightly different from using
 CloudStack management server and directly collect those. Here we rely on
 the `listEvents` API.
 
-[]{#getting-started}
 
-::: {#table-of-contents .section}
 ### Table of Contents
 
 -   [Getting Started](#getting-started)

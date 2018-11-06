@@ -13,9 +13,7 @@ Versions \| [v1.0 (td-agent3)](/v1.0/articles/changelog) \| ***v0.12*
 ChangeLog
 =========
 
-[]{#fluentd-changelog}
 
-::: {#table-of-contents .section}
 ### Table of Contents
 
 -   [Fluentd ChangeLog](#fluentd-changelog)

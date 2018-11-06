@@ -24,9 +24,7 @@ supports following operations.
     path, etc
 -   View Fluentd log with simple error viewer
 
-[]{#getting-started}
 
-::: {#table-of-contents .section}
 ### Table of Contents
 
 [Getting Started](#getting-started)

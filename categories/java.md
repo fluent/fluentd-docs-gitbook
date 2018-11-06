@@ -18,9 +18,7 @@ library is used to post records from Java applications to Fluentd.
 
 This article explains how to use the fluent-logger-java library.
 
-[]{#prerequisites}
 
-::: {#table-of-contents .section}
 ### Table of Contents
 
 [Prerequisites](#prerequisites)

@@ -16,9 +16,7 @@ syslog Input Plugin
 The `in_syslog` Input plugin enables Fluentd to retrieve records via the
 syslog protocol on UDP or TCP.
 
-[]{#example-configuration}
 
-::: {#table-of-contents .section}
 ### Table of Contents
 
 [Example Configuration](#example-configuration)

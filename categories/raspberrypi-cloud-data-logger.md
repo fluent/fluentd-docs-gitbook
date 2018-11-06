@@ -36,9 +36,7 @@ place.
 \
 \
 
-[]{#install-raspbian}
 
-::: {#table-of-contents .section}
 ### Table of Contents
 
 -   [Install Raspbian](#install-raspbian)

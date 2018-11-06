@@ -17,9 +17,7 @@ The `filter_stdout` filter plugin prints events to stdout (or logs if
 launched with daemon mode). This filter plugin is useful for debugging
 purposes.
 
-[]{#example-configurations}
 
-::: {#table-of-contents .section}
 ### Table of Contents
 
 -   [Example Configurations](#example-configurations)

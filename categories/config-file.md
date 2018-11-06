@@ -16,9 +16,7 @@ Configuration File Syntax
 This article describes the basic concepts of Fluentd's configuration
 file syntax.
 
-[]{#introduction:-the-life-of-a-fluentd-event}
 
-::: {#table-of-contents .section}
 ### Table of Contents
 
 [Introduction: The Life of a Fluentd

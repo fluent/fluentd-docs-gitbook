@@ -25,9 +25,7 @@ Before you have multi-process configuration, please make sure you have
 done [all the optimization you can do with single
 process](performance-tuning-single-process).
 
-[]{#2-tier-process-topology}
 
-::: {#table-of-contents .section}
 ### Table of Contents
 
 [2-Tier Process Topology](#2-tier-process-topology)

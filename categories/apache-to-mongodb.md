@@ -17,9 +17,7 @@ This article explains how to use [Fluentd](http://fluentd.org/)'s
 MongoDB Output plugin ([out\_mongo](out_mongo)) to aggregate
 semi-structured logs in real-time.
 
-[]{#background}
 
-::: {#table-of-contents .section}
 ### Table of Contents
 
 [Background](#background)

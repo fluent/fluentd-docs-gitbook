@@ -19,9 +19,7 @@ library is used to post records from Python applications to Fluentd.
 
 This article explains how to use the fluent-logger-python library.
 
-[]{#prerequisites}
 
-::: {#table-of-contents .section}
 ### Table of Contents
 
 [Prerequisites](#prerequisites)

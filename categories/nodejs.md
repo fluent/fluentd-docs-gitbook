@@ -18,9 +18,7 @@ library is used to post records from Node.js applications to Fluentd.
 
 This article explains how to use the fluent-logger-node library.
 
-[]{#prerequisites}
 
-::: {#table-of-contents .section}
 ### Table of Contents
 
 [Prerequisites](#prerequisites)

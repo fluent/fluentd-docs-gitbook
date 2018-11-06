@@ -18,9 +18,7 @@ The `in_tcp` Input plugin enables Fluentd to accept TCP payload.
 Don't use this plugin for receiving logs from client libraries. Use
 `in_forward` for such cases.
 
-[]{#example-configuration}
 
-::: {#table-of-contents .section}
 ### Table of Contents
 
 [Example Configuration](#example-configuration)

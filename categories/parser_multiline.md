@@ -29,9 +29,7 @@ plugin, e.g. handle format\_firstline. So currently, in\_tail plugin
 works with \`multiline\` but other input plugins don\'t work with
 \`multiline\`.
 
-[]{#parameters}
 
-::: {#table-of-contents .section}
 ### Table of Contents
 
 [Parameters](#parameters)

@@ -16,9 +16,7 @@ Monitoring Fluentd (REST API)
 This article describes how to get the internal Fluentd metrics via REST
 API.
 
-[]{#monitoring-agent}
 
-::: {#table-of-contents .section}
 ### Table of Contents
 
 [Monitoring Agent](#monitoring-agent)

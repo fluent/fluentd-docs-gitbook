@@ -14,9 +14,7 @@ Installing Fluentd Using Chef
 
 This article explains how to install Fluentd using Chef.
 
-[]{#step0:-before-installation}
 
-::: {#table-of-contents .section}
 ### Table of Contents
 
 -   [Step0: Before Installation](#step0:-before-installation)

@@ -22,9 +22,7 @@ time[delimiter]tag[delimiter]record\n
 
 This format is a default format of `out_file` plugin.
 
-[]{#parameters}
 
-::: {#table-of-contents .section}
 ### Table of Contents
 
 [Parameters](#parameters)

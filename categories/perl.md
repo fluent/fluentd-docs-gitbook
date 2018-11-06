@@ -18,9 +18,7 @@ library is used to post records from Perl applications to Fluentd.
 
 This article explains how to use the Fluent::Logger library.
 
-[]{#prerequisites}
 
-::: {#table-of-contents .section}
 ### Table of Contents
 
 [Prerequisites](#prerequisites)

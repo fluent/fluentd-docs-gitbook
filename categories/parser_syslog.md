@@ -16,9 +16,7 @@ syslog Parser Plugin
 The `syslog` parser plugin parses syslog generated logs. This plugin
 supports two RFC formats, rfc3164 and rfc5424.
 
-[]{#parameters}
 
-::: {#table-of-contents .section}
 ### Table of Contents
 
 [Parameters](#parameters)

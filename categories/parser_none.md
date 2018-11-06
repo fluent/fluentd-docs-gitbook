@@ -16,9 +16,7 @@ none Parser Plugin
 The `none` parser plugin parses the line as-is with single field. This
 format is to defer parsing/structuring the data.
 
-[]{#parameters}
 
-::: {#table-of-contents .section}
 ### Table of Contents
 
 [Parameters](#parameters)

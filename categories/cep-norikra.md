@@ -17,9 +17,7 @@ This article explains how to use [Fluentd](http://fluentd.org/) and
 [Norikra](http://norikra.github.io) to create a SQL-based real-time
 complex event processing platform.
 
-[]{#background}
 
-::: {#table-of-contents .section}
 ### Table of Contents
 
 [Background](#background)

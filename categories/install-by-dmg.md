@@ -17,9 +17,7 @@ This article explains how to install td-agent, the stable Fluentd
 distribution package maintained by [Treasure Data,
 Inc](http://www.treasuredata.com/), on MacOS X.
 
-[]{#what-is-td-agent?}
 
-::: {#table-of-contents .section}
 ### Table of Contents
 
 -   [What is td-agent?](#what-is-td-agent?)

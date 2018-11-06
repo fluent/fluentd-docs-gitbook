@@ -12,9 +12,7 @@ Versions \| ***v0.12* (td-agent2) **
 Forwarding Data Over SSL
 ========================
 
-[]{#overview}
 
-::: {#table-of-contents .section}
 ### Table of Contents
 
 -   [Overview](#overview)

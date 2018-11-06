@@ -23,9 +23,7 @@ agent that take cares of log collection, parsing and distribution:
 The following document focus on how to deploy Fluentd in Kubernetes and
 extend the possibilities to have different destinations for your logs.
 
-[]{#getting-started}
 
-::: {#table-of-contents .section}
 ### Table of Contents
 
 [Getting Started](#getting-started)

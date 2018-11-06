@@ -18,9 +18,7 @@ aggregate semi-structured logs in real-time.
 
 ![](http://docs.fluentd.org/images/fluentd-riak.png){height="280px"}
 
-[]{#prerequisites}
 
-::: {#table-of-contents .section}
 ### Table of Contents
 
 [Prerequisites](#prerequisites)

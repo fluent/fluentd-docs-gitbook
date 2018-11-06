@@ -13,9 +13,7 @@ Versions \| [v1.0 (td-agent3)](/v1.0/articles/support) \| ***v0.12*
 Support
 =======
 
-[]{#mailing-list-(google-groups)}
 
-::: {#table-of-contents .section}
 ### Table of Contents
 
 -   [Mailing List (Google Groups)](#mailing-list-(google-groups))

@@ -20,9 +20,7 @@ immediately. The file will be created when the `time_slice_format`
 condition has been met. To change the output frequency, please modify
 the `time_slice_format` value.
 
-[]{#example-configuration}
 
-::: {#table-of-contents .section}
 ### Table of Contents
 
 [Example Configuration](#example-configuration)

@@ -15,9 +15,7 @@ Fluentd Logos
 
 Feel free to use these logos on your slides, blog posts, etc.!
 
-[]{#square}
 
-::: {#table-of-contents .section}
 ### Table of Contents
 
 -   [Square](#square)

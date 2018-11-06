@@ -13,9 +13,7 @@ Versions \| [v1.0 (td-agent3)](/v1.0/articles/faq) \| ***v0.12*
 FAQ
 ===
 
-[]{#what-version-of-ruby-does-fluentd-support?}
 
-::: {#table-of-contents .section}
 ### Table of Contents
 
 [What version of Ruby does fluentd

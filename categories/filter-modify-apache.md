@@ -17,9 +17,7 @@ In this article, we introduce several common data manipulation
 challenges faced by our users (such as filtering and modifying data) and
 explain how to solve each task using one or more Fluentd plugins.
 
-[]{#scenario:-filtering-data-by-the-value-of-a-field}
 
-::: {#table-of-contents .section}
 ### Table of Contents
 
 -   [Scenario: Filtering Data by the Value of a

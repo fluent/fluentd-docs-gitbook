@@ -15,9 +15,7 @@ TSV Parser Plugin
 
 The `tsv` parser plugin parses TSV format.
 
-[]{#parameters}
 
-::: {#table-of-contents .section}
 ### Table of Contents
 
 [Parameters](#parameters)

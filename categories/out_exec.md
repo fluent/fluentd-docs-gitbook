@@ -18,9 +18,7 @@ program. The program receives the path to a file containing the incoming
 events as its last argument. The file format is tab-separated values
 (TSV) by default.
 
-[]{#example-configuration}
 
-::: {#table-of-contents .section}
 ### Table of Contents
 
 [Example Configuration](#example-configuration)

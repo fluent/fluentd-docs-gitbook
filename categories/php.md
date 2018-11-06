@@ -18,9 +18,7 @@ library is used to post records from PHP applications to Fluentd.
 
 This article explains how to use the fluent-logger-php library.
 
-[]{#prerequisites}
 
-::: {#table-of-contents .section}
 ### Table of Contents
 
 [Prerequisites](#prerequisites)

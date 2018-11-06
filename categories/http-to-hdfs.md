@@ -17,9 +17,7 @@ This article explains how to use [Fluentd](http://fluentd.org/)'s
 [WebHDFS Output plugin](http://github.com/fluent/fluent-plugin-webhdfs/)
 to aggregate semi-structured logs into Hadoop HDFS.
 
-[]{#background}
 
-::: {#table-of-contents .section}
 ### Table of Contents
 
 [Background](#background)

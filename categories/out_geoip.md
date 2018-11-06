@@ -21,9 +21,7 @@ information to logs using the Maxmind GeoIP databases.
 This document doesn\'t describe all parameters. If you want to know full
 features, check the Further Reading section.
 
-[]{#prerequisites}
 
-::: {#table-of-contents .section}
 ### Table of Contents
 
 [Prerequisites](#prerequisites)

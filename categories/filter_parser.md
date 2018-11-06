@@ -16,9 +16,7 @@ parser Filter Plugin
 The `filter_parser` filter plugin "parses" string field in event records
 and mutates its event record with parsed result.
 
-[]{#example-configurations}
 
-::: {#table-of-contents .section}
 ### Table of Contents
 
 [Example Configurations](#example-configurations)

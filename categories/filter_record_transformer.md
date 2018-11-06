@@ -17,9 +17,7 @@ The `filter_record_transformer` filter plugin mutates/transforms
 incoming event streams in a versatile manner. If there is a need to
 add/delete/modify events, this plugin is the first filter to try.
 
-[]{#example-configurations}
 
-::: {#table-of-contents .section}
 ### Table of Contents
 
 [Example Configurations](#example-configurations)

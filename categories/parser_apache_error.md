@@ -15,9 +15,7 @@ apache\_error Parser Plugin
 
 The `apache_error` parser plugin parses apache error logs.
 
-[]{#parameters}
 
-::: {#table-of-contents .section}
 ### Table of Contents
 
 [Parameters](#parameters)

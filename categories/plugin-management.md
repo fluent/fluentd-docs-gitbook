@@ -16,9 +16,7 @@ Plugin Management
 This article explains how to manage Fluentd plugins, including adding
 3rd party plugins.
 
-[]{#fluent-gem}
 
-::: {#table-of-contents .section}
 ### Table of Contents
 
 [fluent-gem](#fluent-gem)

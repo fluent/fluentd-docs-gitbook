@@ -15,9 +15,7 @@ Fluentd's HTTP RPC
 
 This article explains how `Fluentd` handles HTTP RPC.
 
-[]{#overview}
 
-::: {#table-of-contents .section}
 ### Table of Contents
 
 [Overview](#overview)

@@ -18,9 +18,7 @@ The `json` formatter plugin converts an event to json.
 By default, `json` formatter result doesn't contain `tag` and `time`
 field.
 
-[]{#parameters}
 
-::: {#table-of-contents .section}
 ### Table of Contents
 
 [Parameters](#parameters)

@@ -15,9 +15,7 @@ Fluentd command line option
 
 This article describes built-in commands and its options
 
-[]{#fluentd}
 
-::: {#table-of-contents .section}
 ### Table of Contents
 
 [fluentd](#fluentd)

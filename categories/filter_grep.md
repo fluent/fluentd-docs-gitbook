@@ -16,9 +16,7 @@ grep Filter Plugin
 The `filter_grep` filter plugin "greps" events by the values of
 specified fields.
 
-[]{#example-configurations}
 
-::: {#table-of-contents .section}
 ### Table of Contents
 
 [Example Configurations](#example-configurations)

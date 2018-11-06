@@ -17,9 +17,7 @@ By default, Fluentd only uses a single CPU core on the system. The
 by spawning multiple child processes. One Fluentd user is using this
 plugin to handle 10+ billion records / day.
 
-[]{#install}
 
-::: {#table-of-contents .section}
 ### Table of Contents
 
 [Install](#install)

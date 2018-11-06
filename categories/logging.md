@@ -18,9 +18,7 @@ This article describes Fluentd's logging mechanism.
 Fluentd has two log layers: global and per plugin. Different log levels
 can be set for global logging and plugin level logging.
 
-[]{#log-level}
 
-::: {#table-of-contents .section}
 ### Table of Contents
 
 [Log Level](#log-level)

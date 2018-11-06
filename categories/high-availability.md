@@ -16,9 +16,7 @@ Fluentd High Availability Configuration
 For high-traffic websites, we recommend using a high availability
 configuration of `Fluentd`.
 
-[]{#message-delivery-semantics}
 
-::: {#table-of-contents .section}
 ### Table of Contents
 
 [Message Delivery Semantics](#message-delivery-semantics)

@@ -15,9 +15,7 @@ Fluentd's Signal Handling
 
 This article explains how `Fluentd` handles UNIX signals.
 
-[]{#process-model}
 
-::: {#table-of-contents .section}
 ### Table of Contents
 
 [Process Model](#process-model)

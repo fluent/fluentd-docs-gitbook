@@ -23,9 +23,7 @@ system.
 This plugin is for users using ReplicaSet. If you are not using
 ReplicaSet, please see the [out\_mongo](out_mongo) article instead.
 
-[]{#why-fluentd-with-mongodb?}
 
-::: {#table-of-contents .section}
 ### Table of Contents
 
 [Why Fluentd with MongoDB?](#why-fluentd-with-mongodb?)

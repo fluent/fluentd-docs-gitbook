@@ -24,9 +24,7 @@ developed and published by Amazon Web Services officially.
 \
 \
 
-[]{#background}
 
-::: {#table-of-contents .section}
 ### Table of Contents
 
 [Background](#background)

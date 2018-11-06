@@ -19,9 +19,7 @@ instead of the whole record.
 This formatter is often used in conjunction with [in\_tail](in_tail)'s
 `format none`.
 
-[]{#parameters}
 
-::: {#table-of-contents .section}
 ### Table of Contents
 
 [Parameters](#parameters)

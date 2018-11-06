@@ -33,9 +33,7 @@ easily crash Fluentd by using the specific packet. If you require a
 secure connection between nodes, please consider using
 [in\_secure\_forward](in_secure_forward).
 
-[]{#example-configuration}
 
-::: {#table-of-contents .section}
 ### Table of Contents
 
 [Example Configuration](#example-configuration)

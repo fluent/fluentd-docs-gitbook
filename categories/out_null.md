@@ -15,9 +15,7 @@ null Output Plugin
 
 The `null` output plugin just throws away events.
 
-[]{#example-configuration}
 
-::: {#table-of-contents .section}
 ### Table of Contents
 
 [Example Configuration](#example-configuration)

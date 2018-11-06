@@ -19,9 +19,7 @@ matches/unmatches with the regular expression. Also you can change a tag
 from apache log by domain, status-code(ex. 500 error), user-agent,
 request-uri, regex-backreference and so on with regular expression.
 
-[]{#how-it-works}
 
-::: {#table-of-contents .section}
 ### Table of Contents
 
 [How it works](#how-it-works)

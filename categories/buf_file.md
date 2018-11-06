@@ -16,9 +16,7 @@ file Buffer Plugin
 The `file` buffer plugin provides a persistent buffer implementation. It
 uses files to store buffer chunks on disk.
 
-[]{#example-config}
 
-::: {#table-of-contents .section}
 ### Table of Contents
 
 -   [Example Config](#example-config)

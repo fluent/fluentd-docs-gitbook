@@ -16,9 +16,7 @@ stdout Output Plugin
 The `stdout` output plugin prints events to stdout (or logs if launched
 with daemon mode). This output plugin is useful for debugging purposes.
 
-[]{#example-configuration}
 
-::: {#table-of-contents .section}
 ### Table of Contents
 
 [Example Configuration](#example-configuration)

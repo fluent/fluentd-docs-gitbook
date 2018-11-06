@@ -15,9 +15,7 @@ LTSV Parser Plugin
 
 The `ltsv` parser plugin parses [LTSV](http://ltsv.org/) format.
 
-[]{#parameters}
 
-::: {#table-of-contents .section}
 ### Table of Contents
 
 [Parameters](#parameters)

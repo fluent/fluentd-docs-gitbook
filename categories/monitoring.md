@@ -15,9 +15,7 @@ Monitoring Fluentd
 
 This article desribes how to monitor Fluentd.
 
-[]{#fluentd-metrics-monitoring}
 
-::: {#table-of-contents .section}
 ### Table of Contents
 
 -   [Fluentd Metrics Monitoring](#fluentd-metrics-monitoring)

@@ -17,9 +17,7 @@ This article explains how to use [Fluentd](http://fluentd.org/)'s Amazon
 S3 Output plugin ([out\_s3](out_s3)) to aggregate semi-structured logs
 in real-time.
 
-[]{#background}
 
-::: {#table-of-contents .section}
 ### Table of Contents
 
 [Background](#background)

@@ -13,9 +13,7 @@ Versions \| [v1.0 (td-agent3)](/v1.0/articles/trouble-shooting) \|
 Troubleshooting Fluentd
 =======================
 
-[]{#look-at-logs}
 
-::: {#table-of-contents .section}
 ### Table of Contents
 
 [Look at Logs](#look-at-logs)

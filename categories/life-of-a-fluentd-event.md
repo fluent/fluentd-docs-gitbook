@@ -18,9 +18,7 @@ processed by [Fluentd](http://fluentd.org) using examples. It covers the
 complete cycle including *Setup*, *Inputs*, *Filters*, *Matches* and
 *Labels*.
 
-[]{#basic-setup}
 
-::: {#table-of-contents .section}
 ### Table of Contents
 
 [Basic Setup](#basic-setup)

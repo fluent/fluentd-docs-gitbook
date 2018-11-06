@@ -15,9 +15,7 @@ json Parser Plugin
 
 The `json` parser plugin parses JSON logs. One JSON map per line.
 
-[]{#parameters}
 
-::: {#table-of-contents .section}
 ### Table of Contents
 
 [Parameters](#parameters)

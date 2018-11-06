@@ -16,9 +16,7 @@ roundrobin Output Plugin
 The `roundrobin` Output plugin distributes events to multiple outputs
 using a round-robin algorithm.
 
-[]{#example-configuration}
 
-::: {#table-of-contents .section}
 ### Table of Contents
 
 [Example Configuration](#example-configuration)

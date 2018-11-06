@@ -15,9 +15,7 @@ apache2 Parser Plugin
 
 The `apache2` parser plugin parses apache2 logs.
 
-[]{#parameters}
 
-::: {#table-of-contents .section}
 ### Table of Contents
 
 [Parameters](#parameters)

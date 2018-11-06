@@ -16,9 +16,7 @@ dummy Input Plugin
 The `in_dummy` input plugin generates dummy events. It is useful for
 testing, debugging, benchmarking and getting started with Fluentd.
 
-[]{#example-configuration}
 
-::: {#table-of-contents .section}
 ### Table of Contents
 
 [Example Configuration](#example-configuration)

@@ -15,9 +15,7 @@ Routing Examples
 
 This article shows typical routing examples.
 
-[]{#simple-input-->-filter-->-output}
 
-::: {#table-of-contents .section}
 ### Table of Contents
 
 [Simple Input -\> Filter -\>

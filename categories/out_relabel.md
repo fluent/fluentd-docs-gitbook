@@ -15,9 +15,7 @@ relabel Output Plugin
 
 The `relabel` output plugin re-labels events.
 
-[]{#example-configuration}
 
-::: {#table-of-contents .section}
 ### Table of Contents
 
 [Example Configuration](#example-configuration)

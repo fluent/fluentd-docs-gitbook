@@ -21,9 +21,7 @@ Kafka](https://kafka.apache.org/).
 This document doesn\'t describe all parameters. If you want to know full
 features, check the Further Reading section.
 
-[]{#installation}
 
-::: {#table-of-contents .section}
 ### Table of Contents
 
 [Installation](#installation)

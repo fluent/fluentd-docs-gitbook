@@ -18,9 +18,7 @@ The `hash` formatter plugin converts an event to ruby hash.
 By default, `hash` formatter result doesn't contain `tag` and `time`
 field.
 
-[]{#parameters}
 
-::: {#table-of-contents .section}
 ### Table of Contents
 
 [Parameters](#parameters)

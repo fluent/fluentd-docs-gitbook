@@ -15,9 +15,7 @@ Installing Fluentd Using Ruby Gem
 
 This article explains how to install Fluentd using Ruby gem.
 
-[]{#step0:-before-installation}
 
-::: {#table-of-contents .section}
 ### Table of Contents
 
 -   [Step0: Before Installation](#step0:-before-installation)

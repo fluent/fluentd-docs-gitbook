@@ -18,9 +18,7 @@ library is used to post records from Scala applications to Fluentd.
 
 This article explains how to use the fluent-logger-scala library.
 
-[]{#prerequisites}
 
-::: {#table-of-contents .section}
 ### Table of Contents
 
 [Prerequisites](#prerequisites)

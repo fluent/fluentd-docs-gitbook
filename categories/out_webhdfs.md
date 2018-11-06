@@ -26,9 +26,7 @@ frequency, please modify the `time_slice_format` value.
 This document doesn\'t describe all parameters. If you want to know full
 features, check the Further Reading section.
 
-[]{#install}
 
-::: {#table-of-contents .section}
 ### Table of Contents
 
 [Install](#install)
