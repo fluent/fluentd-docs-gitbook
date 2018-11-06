@@ -144,7 +144,7 @@ syslogs, or any single- or multi-lined logs.
 You can learn more about Fluentd and its plugins by
 
 -   exploring other [plugins](http://fluentd.org/plugin/)
--   browsing [recipes](/v0.12/articles/recipes)
+-   browsing [recipes](/articles/recipes)
 -   asking questions on the [mailing
     list](https://groups.google.com/forum/#!forum/fluentd)
 -   [signing up for our newsletters](https://www.fluentd.org/newsletter)
