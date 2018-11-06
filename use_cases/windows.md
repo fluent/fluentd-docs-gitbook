@@ -22,8 +22,6 @@ first.
 
 
 [What is Fluentd?](/articles/architecture)
-\
-\
 
 
 ### Table of Contents

@@ -55,8 +55,6 @@ The figure below shows the high-level architecture.
 
 ![](/images/treasuredata_architecture.png){width="600"}
 
-\
-\
 
 Install
 -------

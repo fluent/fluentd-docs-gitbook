@@ -14,8 +14,6 @@ developed and published by Amazon Web Services officially.
 
 ![](/images/fluentd-kinesis.png){width="70%"}
 
-\
-\
 
 
 ### Table of Contents

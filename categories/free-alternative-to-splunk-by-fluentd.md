@@ -14,8 +14,6 @@ open source projects: Elasticsearch, Kibana, and Fluentd.
 
 ![](/images/kibana5-screenshot.png){width="90%"}\
 
-\
-\
 
 [Elasticsearch](https://www.elastic.co/products/elasticsearch) is an
 open source search engine known for its ease of use.
@@ -29,8 +27,6 @@ that provides an open-source Splunk alternative, all for free.
 
 ![](/images/fluentd-elasticsearch-kibana.png){width="540"}
 
-\
-\
 
 In this guide, we will go over installation, setup, and basic use of
 this combined log search solution. This article was tested on Mac OS X
@@ -39,8 +35,6 @@ more about Fluentd first.
 
 
 [What is Fluentd?](/articles/architecture)
-\
-\
 
 
 ### Table of Contents
@@ -198,8 +192,6 @@ accessing Kibana's index.html in your browser. Here is an image example.
 
 ![](/images/kibana5-screenshot.png){width="90%"}
 
-\
-\
 
 To manually send logs to Elasticsearch, please use the `logger` command.
 

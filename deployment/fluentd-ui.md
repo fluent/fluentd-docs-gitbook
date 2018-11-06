@@ -1,5 +1,6 @@
 
-Versions \| [v1.0 (td-agent3)](/v1.0/articles/fluentd-ui) \| ***v0.12*(td-agent2) **
+Versions \| [v1.0 (td-agent3)](/v1.0/articles/fluentd-ui) \|
+***v0.12*(td-agent2) **
 ------------------------------------------------------------------------
 
 Fluentd UI
@@ -87,7 +88,8 @@ Screenshots
 
 Last updated: 2015-05-28 06:46:49 UTC
 ------------------------------------------------------------------------
-Versions \| [v1.0 (td-agent3)](/v1.0/articles/fluentd-ui) \| ***v0.12*(td-agent2) **
+Versions \| [v1.0 (td-agent3)](/v1.0/articles/fluentd-ui) \|
+***v0.12*(td-agent2) **
 ------------------------------------------------------------------------
 
 If this article is incorrect or outdated, or omits critical information,
