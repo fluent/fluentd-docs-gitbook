@@ -144,7 +144,7 @@ syslogs, or any single- or multi-lined logs.
 You can learn more about Fluentd and its plugins by
 
 -   exploring other [plugins](http://fluentd.org/plugin/)
--   browsing [recipes](/v0.12/categories/recipes)
+-   browsing [recipes](/v0.12/articles/recipes)
 -   asking questions on the [mailing
     list](https://groups.google.com/forum/#!forum/fluentd)
 -   [signing up for our newsletters](https://www.fluentd.org/newsletter)
@@ -153,8 +153,7 @@ You can learn more about Fluentd and its plugins by
 
 
 If this article is incorrect or outdated, or omits critical information,
-please [let us
-know](https://github.com/fluent/fluentd-docs/issues?state=open).
+please [let us know](https://github.com/fluent/fluentd-docs/issues?state=open).
 [Fluentd](http://www.fluentd.org/) is a open source project under [Cloud
 Native Computing Foundation (CNCF)](https://cncf.io/). All components
 are available under the Apache 2 License.
