@@ -21,13 +21,13 @@ Step1: Installing Fluentd
 Please follow the installation/quickstart guides below that matches your
 environment.
 
--   [Install Fluentd by RPM package](install-by-rpm) (Redhat Linux)
--   [Install Fluentd by Deb package](install-by-deb) (Ubuntu/Debian
+-   [Install Fluentd by RPM package](articles/install-by-rpm) (Redhat Linux)
+-   [Install Fluentd by Deb package](articles/install-by-deb) (Ubuntu/Debian
     Linux)
--   [Install Fluentd by DMG package](install-by-dmg) (Mac OS X)
--   [Install Fluentd by Ruby Gem](install-by-gem)
--   [Install Fluentd by Chef](install-by-chef)
--   [Install Fluentd from source](install-from-source)
+-   [Install Fluentd by DMG package](articles/install-by-dmg) (Mac OS X)
+-   [Install Fluentd by Ruby Gem](articles/install-by-gem)
+-   [Install Fluentd by Chef](articles/install-by-chef)
+-   [Install Fluentd from source](articles/install-from-source)
 
 Fluentd v0.12 doesn\'t support Windows environment. Please see
 [Collecting Log Data from Windows](windows) for details. Fluentd v1.x
@@ -40,20 +40,20 @@ The articles shown below cover the typical use cases of Fluentd. Please
 refer to the article(s) that suits your needs.
 
 -   Use Cases
-    -   [Data Search like Splunk](free-alternative-to-splunk-by-fluentd)
-    -   [Data Filtering and Alerting](splunk-like-grep-and-alert-email)
-    -   [Data Analytics with Treasure Data](http-to-td)
-    -   [Data Collection to MongoDB](apache-to-mongodb)
-    -   [Data Collection to HDFS](http-to-hdfs)
-    -   [Data Archiving to Amazon S3](apache-to-s3)
-    -   [Windows Event Collection](windows)
+    -   [Data Search like Splunk](/articles/free-alternative-to-splunk-by-fluentd)
+    -   [Data Filtering and Alerting](/articles/splunk-like-grep-and-alert-email)
+    -   [Data Analytics with Treasure Data](/articles/http-to-td)
+    -   [Data Collection to MongoDB](/articles/apache-to-mongodb)
+    -   [Data Collection to HDFS](/articles/http-to-hdfs)
+    -   [Data Archiving to Amazon S3](/articles/apache-to-s3)
+    -   [Windows Event Collection](/articles/windows)
 -   Basic Configuration
-    -   [Config File](config-file)
+    -   [Config File](/articles/config-file)
 -   Application Logs
-    -   [Ruby](ruby), [Java](java), [Python](python), [PHP](php),
-        [Perl](perl), [Node.js](nodejs), [Scala](scala)
+    -   [Ruby](/articles/ruby), [Java](/articles/java), [Python](/articles/python), [PHP](/articles/php),
+        [Perl](/articles/perl), [Node.js](/articles/nodejs), [Scala](/articles/scala)
 -   Happy Users :)
-    -   [Users](users)
+    -   [Users](/articles/users)
 
 Step3: Learn More
 -----------------
@@ -61,17 +61,17 @@ Step3: Learn More
 The articles shown below will provide detailed information for you to
 learn more about Fluentd.
 
--   [Architecture Overview](architecture)
--   [Life of a Fluentd Event](life-of-a-fluentd-event)
+-   [Architecture Overview](/articles/architecture)
+-   [Life of a Fluentd Event](/articles/life-of-a-fluentd-event)
 -   Plugin Overview
-    -   [Input Plugins](input-plugin-overview)
-    -   [Output Plugins](output-plugin-overview)
-    -   [Buffer Plugins](buffer-plugin-overview)
-    -   [Filter Plugins](filter-plugin-overview)
-    -   [Parser Plugins](parser-plugin-overview)
-    -   [Formatter Plugins](formatter-plugin-overview)
--   [High Availability Configuration](high-availability)
--   [FAQ](faq)
+    -   [Input Plugins](/articles/input-plugin-overview)
+    -   [Output Plugins](/articles/output-plugin-overview)
+    -   [Buffer Plugins](/articles/buffer-plugin-overview)
+    -   [Filter Plugins](/articles/filter-plugin-overview)
+    -   [Parser Plugins](/articles/parser-plugin-overview)
+    -   [Formatter Plugins](/articles/formatter-plugin-overview)
+-   [High Availability Configuration](/articles/high-availability)
+-   [FAQ](/articles/faq)
 
 
 ------------------------------------------------------------------------
