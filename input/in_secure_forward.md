@@ -7,38 +7,6 @@ This document doesn\'t describe all parameters. If you want to know full
 features, check the Further Reading section.
 
 
-### Table of Contents
-
-[Installation](#installation)
-
-[Example Configurations](#example-configurations)
-
--   [Minimalist Configuration](#minimalist-configuration)
--   [Check username/password from
-    Clients](#check-username/password-from-clients)
--   [Deny Unknown Source IP/hosts](#deny-unknown-source-ip/hosts)
--   [Secure Sender-Receiver Setup](#secure-sender-receiver-setup)
-
-[Parameters](#parameters)
-
--   [\@type](#@type)
--   [port (integer)](#port-(integer))
--   [bind (string)](#bind-(string))
--   [secure (bool)](#secure-(bool))
--   [self\_hostname (string)](#self_hostname-(string))
--   [shared\_key (string)](#shared_key-(string))
--   [allow\_keepalive (bool)](#allow_keepalive-(bool))
--   [allow\_anonymous\_source (bool)](#allow_anonymous_source-(bool))
--   [authentication (bool)](#authentication-(bool))
--   [ca\_cert\_path (string)](#ca_cert_path-(string))
--   [ca\_private\_key\_path (string)](#ca_private_key_path-(string))
--   [ca\_private\_key\_passphrase
-    (string)](#ca_private_key_passphrase-(string))
--   [read\_length (size)](#read_length-(size))
--   [read\_interval\_msec (integer)](#read_interval_msec-(integer))
--   [socket\_interval\_msec (integer)](#socket_interval_msec-(integer))
-
-[Further Reading](#further-reading)
 Installation
 ------------
 

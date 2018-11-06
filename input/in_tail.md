@@ -5,39 +5,6 @@ The `in_tail` Input plugin allows Fluentd to read events from the tail
 of text files. Its behavior is similar to the `tail -F` command.
 
 
-### Table of Contents
-
-[Example Configuration](#example-configuration)
-
--   [How it Works](#how-it-works)
-
-[Parameters](#parameters)
-
--   [\@type (required)](#@type-(required))
--   [tag (required)](#tag-(required))
--   [path (required)](#path-(required))
--   [exclude\_path](#exclude_path)
--   [refresh\_interval](#refresh_interval)
--   [limit\_recently\_modified](#limit_recently_modified)
--   [skip\_refresh\_on\_startup](#skip_refresh_on_startup)
--   [read\_from\_head](#read_from_head)
--   [encoding, from\_encoding](#encoding,-from_encoding)
--   [read\_lines\_limit](#read_lines_limit)
--   [multiline\_flush\_interval](#multiline_flush_interval)
--   [pos\_file (highly recommended)](#pos_file-(highly-recommended))
--   [format (required)](#format-(required))
--   [path\_key](#path_key)
--   [rotate\_wait](#rotate_wait)
--   [enable\_watch\_timer](#enable_watch_timer)
--   [ignore\_repeated\_permission\_error](#ignore_repeated_permission_error)
-
-[FAQ](#faq)
-
--   [in\_tail doesn't start to read log file,
-    why?](#in_tail-doesn%E2%80%99t-start-to-read-log-file,-why?)
--   [logrotate setting](#logrotate-setting)
--   [What happens when in\_tail receives
-    BufferQueueLimitError?](#what-happens-when-in_tail-receives-bufferqueuelimiterror?)
 Example Configuration
 ---------------------
 

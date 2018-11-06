@@ -7,27 +7,6 @@ Fluentd has two log layers: global and per plugin. Different log levels
 can be set for global logging and plugin level logging.
 
 
-### Table of Contents
-
-[Log Level](#log-level)
-
-[Global Logs](#global-logs)
-
--   [By Command Line Option](#by-command-line-option)
--   [By Config File](#by-config-file)
-
-[Per Plugin Log](#per-plugin-log)
-
-[Suppress repeated stacktrace](#suppress-repeated-stacktrace)
-
-[Output to log file](#output-to-log-file)
-
-[Capture Fluentd logs](#capture-fluentd-logs)
-
--   [Case1: Send Fluentd logs to monitoring
-    service](#case1:-send-fluentd-logs-to-monitoring-service)
--   [Case2: Use aggregation/monitoring
-    server](#case2:-use-aggregation/monitoring-server)
 Log Level
 ---------
 

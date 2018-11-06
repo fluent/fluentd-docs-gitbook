@@ -8,18 +8,6 @@ and [Buffer](buffer-plugin-overview). This article gives an overview of
 Parser Plugin.
 
 
-### Table of Contents
-
-[Overview](#overview)
-
-[How To Use](#how-to-use)
-
-[List of Built-in Parsers](#list-of-built-in-parsers)
-
--   [3rd party Parsers](#3rd-party-parsers)
-
-[List of Core Input Plugins with Parser
-support](#list-of-core-input-plugins-with-parser-support)
 Overview
 --------
 

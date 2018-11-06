@@ -5,15 +5,6 @@ The `roundrobin` Output plugin distributes events to multiple outputs
 using a round-robin algorithm.
 
 
-### Table of Contents
-
-[Example Configuration](#example-configuration)
-
-[Parameters](#parameters)
-
--   [\@type (required)](#@type-(required))
--   [\<store\> (required at least
-    one)](#%3Cstore%3E-(required-at-least-one))
 Example Configuration
 ---------------------
 

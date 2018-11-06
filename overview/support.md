@@ -2,10 +2,6 @@ Support
 =======
 
 
-### Table of Contents
-
--   [Mailing List (Google Groups)](#mailing-list-(google-groups))
--   [Slack](#slack)
 Mailing List (Google Groups)
 ----------------------------
 

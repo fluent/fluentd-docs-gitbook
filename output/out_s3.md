@@ -11,47 +11,6 @@ This document doesn\'t describe all parameters. If you want to know full
 features, check the Further Reading section.
 
 
-### Table of Contents
-
-[Installation](#installation)
-
-[Example Configuration](#example-configuration)
-
-[Parameters](#parameters)
-
--   [\@type (required)](#@type-(required))
--   [aws\_key\_id (required/optional)](#aws_key_id-(required/optional))
--   [aws\_sec\_key
-    (required/optional)](#aws_sec_key-(required/optional))
--   [s3\_bucket (required)](#s3_bucket-(required))
--   [buffer\_path (required)](#buffer_path-(required))
--   [s3\_region](#s3_region)
--   [s3\_endpoint](#s3_endpoint)
--   [format](#format)
--   [time\_format](#time_format)
--   [path](#path)
--   [s3\_object\_key\_format](#s3_object_key_format)
--   [utc](#utc)
--   [store\_as](#store_as)
--   [proxy\_uri](#proxy_uri)
--   [ssl\_verify\_peer](#ssl_verify_peer)
-
-[Time Sliced Output Parameters](#time-sliced-output-parameters)
-
--   [time\_slice\_format](#time_slice_format)
--   [time\_slice\_wait](#time_slice_wait)
--   [buffer\_type](#buffer_type)
--   [buffer\_queue\_limit,
-    buffer\_chunk\_limit](#buffer_queue_limit,-buffer_chunk_limit)
--   [flush\_interval](#flush_interval)
--   [flush\_at\_shutdown](#flush_at_shutdown)
--   [retry\_wait, max\_retry\_wait](#retry_wait,-max_retry_wait)
--   [retry\_limit,
-    disable\_retry\_limit](#retry_limit,-disable_retry_limit)
--   [num\_threads](#num_threads)
--   [slow\_flush\_log\_threshold](#slow_flush_log_threshold)
-
-[Further Reading](#further-reading)
 Installation
 ------------
 

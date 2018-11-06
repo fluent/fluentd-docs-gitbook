@@ -4,16 +4,6 @@ Fluentd command line option
 This article describes built-in commands and its options
 
 
-### Table of Contents
-
-[fluentd](#fluentd)
-
--   [Important options](#important-options)
--   [Set via configuration file](#set-via-configuration-file)
-
-[fluent-cat](#fluent-cat)
-
--   [example](#example)
 fluentd
 -------
 

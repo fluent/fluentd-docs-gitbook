@@ -6,10 +6,6 @@ uses memory to store buffer chunks. When Fluentd is shut down, buffered
 logs that can't be written quickly are deleted.
 
 
-### Table of Contents
-
--   [Example Config](#example-config)
--   [Parameters](#parameters)
 Example Config
 --------------
 

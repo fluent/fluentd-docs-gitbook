@@ -7,26 +7,6 @@ library is used to post records from Node.js applications to Fluentd.
 This article explains how to use the fluent-logger-node library.
 
 
-### Table of Contents
-
-[Prerequisites](#prerequisites)
-
-[Installing Fluentd](#installing-fluentd)
-
-[Modifying the Config File](#modifying-the-config-file)
-
-[Using fluent-logger-node](#using-fluent-logger-node)
-
--   [Obtaining the Most Recent
-    Version](#obtaining-the-most-recent-version)
--   [A Sample Application](#a-sample-application)
-
-[Production Deployments](#production-deployments)
-
--   [Output Plugins](#output-plugins)
--   [High-Availability Configurations of
-    Fluentd](#high-availability-configurations-of-fluentd)
--   [Monitoring](#monitoring)
 Prerequisites
 -------------
 

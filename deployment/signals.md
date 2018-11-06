@@ -4,16 +4,6 @@ Fluentd's Signal Handling
 This article explains how `Fluentd` handles UNIX signals.
 
 
-### Table of Contents
-
-[Process Model](#process-model)
-
-[Signals](#signals)
-
--   [SIGINT or SIGTERM](#sigint-or-sigterm)
--   [SIGUSR1](#sigusr1)
--   [SIGHUP](#sighup)
--   [SIGCONT](#sigcont)
 Process Model
 -------------
 

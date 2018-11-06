@@ -20,46 +20,6 @@ require a secure connection between nodes, please consider using
 [in\_secure\_forward](in_secure_forward).
 
 
-### Table of Contents
-
-[Example Configuration](#example-configuration)
-
-[Parameters](#parameters)
-
--   [\@type (required)](#@type-(required))
--   [\<server\> (at least one is
-    required)](#%3Cserver%3E-(at-least-one-is-required))
--   [require\_ack\_response](#require_ack_response)
--   [ack\_response\_timeout](#ack_response_timeout)
--   [\<secondary\> (optional)](#%3Csecondary%3E-(optional))
--   [send\_timeout](#send_timeout)
--   [recover\_wait](#recover_wait)
--   [heartbeat\_type](#heartbeat_type)
--   [heartbeat\_interval](#heartbeat_interval)
--   [phi\_failure\_detector](#phi_failure_detector)
--   [phi\_threshold](#phi_threshold)
--   [hard\_timeout](#hard_timeout)
--   [standby](#standby)
--   [expire\_dns\_cache](#expire_dns_cache)
--   [dns\_round\_robin](#dns_round_robin)
-
-[Buffered Output Parameters](#buffered-output-parameters)
-
--   [buffer\_type](#buffer_type)
--   [buffer\_queue\_limit,
-    buffer\_chunk\_limit](#buffer_queue_limit,-buffer_chunk_limit)
--   [flush\_interval](#flush_interval)
--   [flush\_at\_shutdown](#flush_at_shutdown)
--   [retry\_wait, max\_retry\_wait](#retry_wait,-max_retry_wait)
--   [retry\_limit,
-    disable\_retry\_limit](#retry_limit,-disable_retry_limit)
--   [num\_threads](#num_threads)
--   [slow\_flush\_log\_threshold](#slow_flush_log_threshold)
-
-[Troubleshooting](#troubleshooting)
-
--   ["no nodes are
-    available"](#%E2%80%9Cno-nodes-are-available%E2%80%9D)
 Example Configuration
 ---------------------
 

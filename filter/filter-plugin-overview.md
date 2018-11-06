@@ -8,11 +8,6 @@ and [Buffer](buffer-plugin-overview). This article gives an overview of
 Filter Plugin.
 
 
-### Table of Contents
-
--   [Overview](#overview)
--   [How to Use](#how-to-use)
--   [List of Filter Plugins](#list-of-filter-plugins)
 Overview
 --------
 

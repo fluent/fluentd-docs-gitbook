@@ -7,36 +7,6 @@ program output. It passes tab-separated values (TSV) to stdin and reads
 TSV from stdout by default.
 
 
-### Table of Contents
-
-[Example Configuration](#example-configuration)
-
-[Parameters](#parameters)
-
--   [\@type (required)](#@type-(required))
--   [command (required)](#command-(required))
--   [num\_children](#num_children)
--   [child\_respawn](#child_respawn)
--   [in\_format](#in_format)
--   [out\_format](#out_format)
--   [tag\_key](#tag_key)
--   [time\_key](#time_key)
--   [time\_format](#time_format)
-
-[Buffered Output Parameters](#buffered-output-parameters)
-
--   [buffer\_type](#buffer_type)
--   [buffer\_queue\_limit,
-    buffer\_chunk\_limit](#buffer_queue_limit,-buffer_chunk_limit)
--   [flush\_interval](#flush_interval)
--   [flush\_at\_shutdown](#flush_at_shutdown)
--   [retry\_wait, max\_retry\_wait](#retry_wait,-max_retry_wait)
--   [retry\_limit,
-    disable\_retry\_limit](#retry_limit,-disable_retry_limit)
--   [num\_threads](#num_threads)
--   [slow\_flush\_log\_threshold](#slow_flush_log_threshold)
-
-[Script example](#script-example)
 Example Configuration
 ---------------------
 

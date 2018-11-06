@@ -6,13 +6,6 @@ installing Fluentd. Failing to do so will be the cause of many
 unnecessary problems.
 
 
-### Table of Contents
-
--   [Set Up NTP](#set-up-ntp)
--   [Increase Max \# of File
-    Descriptors](#increase-max-#-of-file-descriptors)
--   [Optimize Network Kernel
-    Parameters](#optimize-network-kernel-parameters)
 Set Up NTP
 ----------
 

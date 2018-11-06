@@ -20,20 +20,6 @@ first.
 [What is Fluentd?](/articles/architecture)
 
 
-### Table of Contents
-
-[Prerequisites](#prerequisites)
-
-[Setup](#setup)
-
--   [Set up a Linux server with rsyslogd and
-    Fluentd](#set-up-a-linux-server-with-rsyslogd-and-fluentd)
--   [Set up nxlog on Windows](#set-up-nxlog-on-windows)
--   [Test](#test)
--   [Parsing JSON Logs](#parsing-json-logs)
--   [Next Step](#next-step)
-
-[Learn More](#learn-more)
 Prerequisites
 -------------
 

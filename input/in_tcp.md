@@ -7,19 +7,6 @@ Don't use this plugin for receiving logs from client libraries. Use
 `in_forward` for such cases.
 
 
-### Table of Contents
-
-[Example Configuration](#example-configuration)
-
-[Parameters](#parameters)
-
--   [\@type (required)](#@type-(required))
--   [tag (required)](#tag-(required))
--   [port](#port)
--   [bind](#bind)
--   [delimiter](#delimiter)
--   [source\_hostname\_key](#source_hostname_key)
--   [format (required)](#format-(required))
 Example Configuration
 ---------------------
 

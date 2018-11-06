@@ -8,30 +8,6 @@ field1[label_delimiter]value1[delimiter]field2[label_delimiter]value2\n
 ```
 
 
-### Table of Contents
-
-[Parameters](#parameters)
-
--   [delimiter (String, Optional. defaults to
-    "\\t"(TAB))](#delimiter-(string,-optional.-defaults-to-%E2%80%9C%5Ct%E2%80%9D(tab)))
--   [label\_delimiter (String, Optional. defaults to
-    ":")](#label_delimiter-(string,-optional.-defaults-to-%E2%80%9C:%E2%80%9D))
--   [add\_newline (Boolean, Optional, defaults to
-    true)](#add_newline-(boolean,-optional,-defaults-to-true))
--   [include\_time\_key (Boolean, Optional, defaults to
-    false)](#include_time_key-(boolean,-optional,-defaults-to-false))
--   [time\_key (String, Optional, defaults to
-    "time")](#time_key-(string,-optional,-defaults-to-%E2%80%9Ctime%E2%80%9D))
--   [time\_format (String. Optional)](#time_format-(string.-optional))
--   [include\_tag\_key (Boolean. Optional, defaults to
-    false)](#include_tag_key-(boolean.-optional,-defaults-to-false))
--   [tag\_key (String, Optional, defaults to
-    "tag")](#tag_key-(string,-optional,-defaults-to-%E2%80%9Ctag%E2%80%9D))
--   [localtime (Boolean. Optional, defaults to
-    true)](#localtime-(boolean.-optional,-defaults-to-true))
--   [timezone (String. Optional)](#timezone-(string.-optional))
-
-[Example](#example)
 Parameters
 ----------
 

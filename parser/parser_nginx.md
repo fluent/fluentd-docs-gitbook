@@ -4,16 +4,6 @@ nginx Parser Plugin
 The `nginx` parser plugin parses default nginx logs.
 
 
-### Table of Contents
-
-[Parameters](#parameters)
-
--   [keep\_time\_key](#keep_time_key)
--   [types](#types)
-
-[Regexp patterns](#regexp-patterns)
-
-[Example](#example)
 Parameters
 ----------
 

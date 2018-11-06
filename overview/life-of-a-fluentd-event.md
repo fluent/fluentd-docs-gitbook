@@ -7,23 +7,6 @@ complete cycle including *Setup*, *Inputs*, *Filters*, *Matches* and
 *Labels*.
 
 
-### Table of Contents
-
-[Basic Setup](#basic-setup)
-
-[Event structure](#event-structure)
-
-[Processing Events](#processing-events)
-
--   [Filters](#filters)
--   [Labels](#labels)
--   [Buffers](#buffers)
-
-[Execution unit](#execution-unit)
-
-[Conclusion](#conclusion)
-
-[Learn More](#learn-more)
 Basic Setup
 -----------
 

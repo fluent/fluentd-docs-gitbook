@@ -7,47 +7,6 @@ This document doesn\'t describe all parameters. If you want to know full
 features, check the Further Reading section.
 
 
-### Table of Contents
-
-[Installation](#installation)
-
-[Example Configurations](#example-configurations)
-
--   [Minimalist Configuration](#minimalist-configuration)
--   [Multiple Forward Destinations over
-    SSL](#multiple-forward-destinations-over-ssl)
--   [Secure Sender-Receiver Setup](#secure-sender-receiver-setup)
-
-[Parameters](#parameters)
-
--   [\@type](#@type)
--   [port (integer)](#port-(integer))
--   [bind (string)](#bind-(string))
--   [secure (bool)](#secure-(bool))
--   [ca\_cert\_path (string)](#ca_cert_path-(string))
--   [self\_hostname (string)](#self_hostname-(string))
--   [shared\_key (string)](#shared_key-(string))
--   [keepalive (time)](#keepalive-(time))
--   [send\_timeout (time)](#send_timeout-(time))
--   [reconnect\_interval (time)](#reconnect_interval-(time))
--   [read\_length (integer)](#read_length-(integer))
--   [read\_interval\_msec (integer)](#read_interval_msec-(integer))
--   [socket\_interval\_msec (integer)](#socket_interval_msec-(integer))
-
-[Buffered Output Parameters](#buffered-output-parameters)
-
--   [buffer\_type](#buffer_type)
--   [buffer\_queue\_limit,
-    buffer\_chunk\_limit](#buffer_queue_limit,-buffer_chunk_limit)
--   [flush\_interval](#flush_interval)
--   [flush\_at\_shutdown](#flush_at_shutdown)
--   [retry\_wait, max\_retry\_wait](#retry_wait,-max_retry_wait)
--   [retry\_limit,
-    disable\_retry\_limit](#retry_limit,-disable_retry_limit)
--   [num\_threads](#num_threads)
--   [slow\_flush\_log\_threshold](#slow_flush_log_threshold)
-
-[Further Reading](#further-reading)
 Installation
 ------------
 

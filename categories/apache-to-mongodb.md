@@ -6,24 +6,6 @@ MongoDB Output plugin ([out\_mongo](out_mongo)) to aggregate
 semi-structured logs in real-time.
 
 
-### Table of Contents
-
-[Background](#background)
-
-[Mechanism](#mechanism)
-
-[Install](#install)
-
-[Configuration](#configuration)
-
--   [Tail Input](#tail-input)
--   [MongoDB Output](#mongodb-output)
-
-[Test](#test)
-
-[Conclusion](#conclusion)
-
-[Learn More](#learn-more)
 Background
 ----------
 

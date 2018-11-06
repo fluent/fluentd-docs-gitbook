@@ -5,14 +5,6 @@ This article explains how to install Fluentd from source code (git
 repository). This is useful for developers.
 
 
-### Table of Contents
-
--   [Step-1: Install Ruby
-    interpreter](#step-1:-install-ruby-interpreter)
--   [Step-2: Fetch Source Code](#step-2:-fetch-source-code)
--   [Step-3: Build and Install](#step-3:-build-and-install)
--   [Step-4: Run](#step-4:-run)
--   [Next Steps](#next-steps)
 Step-1: Install Ruby interpreter
 --------------------------------
 

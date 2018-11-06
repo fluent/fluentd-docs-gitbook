@@ -27,26 +27,6 @@ simplicity and high performance [Fluentd](http://fluentd.org).
 Currently, fluentd logging driver doesn\'t support sub-second precision.
 
 
-### Table of Contents
-
-[Getting Started](#getting-started)
-
--   [Step 1: Create the Fluentd configuration
-    file](#step-1:-create-the-fluentd-configuration-file)
--   [Step 2: Start Fluentd](#step-2:-start-fluentd)
--   [Step 3: Start Docker container with Fluentd
-    driver](#step-3:-start-docker-container-with-fluentd-driver)
--   [Step 4: Confirm](#step-4:-confirm)
--   [Additional Step 1: Parse log
-    message](#additional-step-1:-parse-log-message)
--   [Additional Step 2: Concatenate multiple lines log
-    messages](#additional-step-2:-concatenate-multiple-lines-log-messages)
-
-[Driver options](#driver-options)
-
-[Development Environments](#development-environments)
-
-[Production Environments](#production-environments)
 Getting Started
 ---------------
 

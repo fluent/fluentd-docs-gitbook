@@ -6,33 +6,6 @@ POST. The URL path becomes the `tag` of the Fluentd event log and the
 POSTed body element becomes the record itself.
 
 
-### Table of Contents
-
-[Example Configuration](#example-configuration)
-
--   [Example Usage](#example-usage)
-
-[Parameters](#parameters)
-
--   [\@type (required)](#@type-(required))
--   [port](#port)
--   [bind](#bind)
--   [body\_size\_limit](#body_size_limit)
--   [keepalive\_timeout](#keepalive_timeout)
--   [add\_http\_headers](#add_http_headers)
--   [add\_remote\_addr](#add_remote_addr)
--   [cors\_allow\_origins](#cors_allow_origins)
--   [format](#format)
-
-[Additional Features](#additional-features)
-
--   [time query parameter](#time-query-parameter)
--   [Batch mode](#batch-mode)
-
-[FAQ](#faq)
-
--   [Why in\_http removes '+' from my
-    log?](#why-in_http-removes-%E2%80%98+%E2%80%99-from-my-log?)
 Example Configuration
 ---------------------
 

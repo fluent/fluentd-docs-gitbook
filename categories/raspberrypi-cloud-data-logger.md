@@ -19,14 +19,6 @@ place.
 [What is Fluentd?](/articles/architecture)
 
 
-### Table of Contents
-
--   [Install Raspbian](#install-raspbian)
--   [Install Fluentd](#install-fluentd)
--   [Configure and Launch Fluentd](#configure-and-launch-fluentd)
--   [Upload Test](#upload-test)
--   [Conclusion](#conclusion)
--   [Learn More](#learn-more)
 Install Raspbian
 ----------------
 

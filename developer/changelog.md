@@ -2,11 +2,6 @@ ChangeLog
 =========
 
 
-### Table of Contents
-
--   [Fluentd ChangeLog](#fluentd-changelog)
--   [td-agent ChangeLog](#td-agent-changelog)
-
 Fluentd ChangeLog
 -----------------
 

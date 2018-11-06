@@ -6,15 +6,6 @@ Unix Domain Socket. The wire protocol is the same as
 [in\_forward](in_forward), but the transport layer is different.
 
 
-### Table of Contents
-
-[Example Configuration](#example-configuration)
-
-[Parameters](#parameters)
-
--   [\@type (required)](#@type-(required))
--   [path (required)](#path-(required))
--   [backlog](#backlog)
 Example Configuration
 ---------------------
 

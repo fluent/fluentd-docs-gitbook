@@ -8,46 +8,6 @@ This plugin is for users using ReplicaSet. If you are not using
 ReplicaSet, please see the [out\_mongo](out_mongo) article instead.
 
 
-### Table of Contents
-
-[Why Fluentd with MongoDB?](#why-fluentd-with-mongodb?)
-
-[Install](#install)
-
-[Example Configuration](#example-configuration)
-
-[Parameters](#parameters)
-
--   [type (required)](#type-(required))
--   [nodes (required)](#nodes-(required))
--   [database (required)](#database-(required))
--   [collection (required if not
-    tag\_mapped)](#collection-(required-if-not-tag_mapped))
--   [capped](#capped)
--   [capped\_size](#capped_size)
--   [user](#user)
--   [password](#password)
--   [tag\_mapped](#tag_mapped)
--   [name](#name)
--   [read](#read)
--   [refresh\_mode](#refresh_mode)
--   [refresh\_interval](#refresh_interval)
--   [num\_retries](#num_retries)
-
-[Buffered Output Parameters](#buffered-output-parameters)
-
--   [buffer\_type](#buffer_type)
--   [buffer\_queue\_limit,
-    buffer\_chunk\_limit](#buffer_queue_limit,-buffer_chunk_limit)
--   [flush\_interval](#flush_interval)
--   [flush\_at\_shutdown](#flush_at_shutdown)
--   [retry\_wait, max\_retry\_wait](#retry_wait,-max_retry_wait)
--   [retry\_limit,
-    disable\_retry\_limit](#retry_limit,-disable_retry_limit)
--   [num\_threads](#num_threads)
--   [slow\_flush\_log\_threshold](#slow_flush_log_threshold)
-
-[Further Readings](#further-readings)
 Why Fluentd with MongoDB?
 -------------------------
 

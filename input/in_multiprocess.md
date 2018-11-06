@@ -7,22 +7,6 @@ by spawning multiple child processes. One Fluentd user is using this
 plugin to handle 10+ billion records / day.
 
 
-### Table of Contents
-
-[Install](#install)
-
-[Example Configuration](#example-configuration)
-
-[Parameters](#parameters)
-
--   [\@type (required)](#@type-(required))
--   [graceful\_kill\_interval](#graceful_kill_interval)
--   [graceful\_kill\_interval\_increment](#graceful_kill_interval_increment)
--   [graceful\_kill\_timeout](#graceful_kill_timeout)
--   [process (required)](#process-(required))
--   [cmdline (required)](#cmdline-(required))
--   [sleep\_before\_start](#sleep_before_start)
--   [sleep\_before\_shutdown](#sleep_before_shutdown)
 Install
 -------
 

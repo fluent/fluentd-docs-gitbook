@@ -8,21 +8,6 @@ aggregate semi-structured logs in real-time.
 ![](http://docs.fluentd.org/images/fluentd-riak.png){height="280px"}
 
 
-### Table of Contents
-
-[Prerequisites](#prerequisites)
-
-[Installing the Fluentd Riak Output
-Plugin](#installing-the-fluentd-riak-output-plugin)
-
--   [Rubygems Users](#rubygems-users)
--   [td-agent Users](#td-agent-users)
-
-[Configuring Fluentd](#configuring-fluentd)
-
-[Testing](#testing)
-
-[Learn More](#learn-more)
 Prerequisites
 -------------
 

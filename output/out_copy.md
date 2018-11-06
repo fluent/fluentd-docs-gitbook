@@ -4,21 +4,6 @@ copy Output Plugin
 The `copy` output plugin copies events to multiple outputs.
 
 
-### Table of Contents
-
-[Example Configuration](#example-configuration)
-
-[Parameters](#parameters)
-
--   [\@type (required)](#@type-(required))
--   [deep\_copy](#deep_copy)
--   [\<store\> (at least one
-    required)](#%3Cstore%3E-(at-least-one-required))
-
-[FAQ](#faq)
-
--   [How to ignore each error in
-    \\\<store\>?](#how-to-ignore-each-error-in-%5C%3Cstore%3E?)
 Example Configuration
 ---------------------
 

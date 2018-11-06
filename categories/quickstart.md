@@ -15,11 +15,6 @@ Fluentd's scalability has been proven in the field: its largest user
 currently collects logs from **500,000+ servers**.
 
 
-### Table of Contents
-
--   [Step1: Installing Fluentd](#step1:-installing-fluentd)
--   [Step2: Use Cases](#step2:-use-cases)
--   [Step3: Learn More](#step3:-learn-more)
 Step1: Installing Fluentd
 -------------------------
 

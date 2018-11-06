@@ -6,26 +6,6 @@ This article explains how to use [Fluentd](http://fluentd.org/)'s
 to aggregate semi-structured logs into Hadoop HDFS.
 
 
-### Table of Contents
-
-[Background](#background)
-
-[Architecture](#architecture)
-
-[Install](#install)
-
-[Fluentd Configuration](#fluentd-configuration)
-
--   [HTTP Input](#http-input)
--   [WebHDFS Output](#webhdfs-output)
-
-[HDFS Configuration](#hdfs-configuration)
-
-[Test](#test)
-
-[Conclusion](#conclusion)
-
-[Learn More](#learn-more)
 Background
 ----------
 

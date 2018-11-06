@@ -4,12 +4,6 @@ Installing Fluentd Using Chef
 This article explains how to install Fluentd using Chef.
 
 
-### Table of Contents
-
--   [Step0: Before Installation](#step0:-before-installation)
--   [Step1: Import Recipe](#step1:-import-recipe)
--   [Step2: Run chef-client](#step2:-run-chef-client)
--   [Next Steps](#next-steps)
 Step0: Before Installation
 --------------------------
 

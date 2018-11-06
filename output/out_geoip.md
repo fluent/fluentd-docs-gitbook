@@ -7,34 +7,6 @@ This document doesn\'t describe all parameters. If you want to know full
 features, check the Further Reading section.
 
 
-### Table of Contents
-
-[Prerequisites](#prerequisites)
-
-[Install](#install)
-
-[Example Configuration](#example-configuration)
-
-[Parameters](#parameters)
-
--   [geoip\_lookup\_key (required)](#geoip_lookup_key-(required))
--   [remove\_tag\_prefix / add\_tag\_prefix (requires one or the
-    other)](#remove_tag_prefix-/-add_tag_prefix-(requires-one-or-the-other))
--   [enable\_key\_\*\*\* (requires at least
-    one)](#enable_key_***-(requires-at-least-one))
--   [include\_tag\_key](#include_tag_key)
--   [tag\_key](#tag_key)
-
-[Buffer Parameters](#buffer-parameters)
-
--   [buffer\_type](#buffer_type)
--   [buffer\_queue\_limit,
-    buffer\_chunk\_limit](#buffer_queue_limit,-buffer_chunk_limit)
--   [flush\_interval](#flush_interval)
-
-[Use Cases](#use-cases)
-
-[Further Reading](#further-reading)
 Prerequisites
 -------------
 

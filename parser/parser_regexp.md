@@ -14,20 +14,6 @@ format json  # json parser is used
 ```
 
 
-### Table of Contents
-
-[Parameters](#parameters)
-
--   [time\_key](#time_key)
--   [time\_format](#time_format)
--   [keep\_time\_key](#keep_time_key)
--   [types](#types)
-
-[Example](#example)
-
-[FAQ](#faq)
-
--   [How to debug my regexp pattern?](#how-to-debug-my-regexp-pattern?)
 Parameters
 ----------
 

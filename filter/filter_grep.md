@@ -5,20 +5,6 @@ The `filter_grep` filter plugin "greps" events by the values of
 specified fields.
 
 
-### Table of Contents
-
-[Example Configurations](#example-configurations)
-
-[Parameters](#parameters)
-
--   [\<regexp\> directive
-    (optional)](#%3Cregexp%3E-directive-(optional))
--   [regexpN (optional)](#regexpn-(optional))
--   [\<exclude\> directive
-    (optional)](#%3Cexclude%3E-directive-(optional))
--   [excludeN (optional)](#excluden-(optional))
-
-[Learn More](#learn-more)
 Example Configurations
 ----------------------
 

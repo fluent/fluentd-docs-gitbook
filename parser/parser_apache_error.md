@@ -4,16 +4,6 @@ apache\_error Parser Plugin
 The `apache_error` parser plugin parses apache error logs.
 
 
-### Table of Contents
-
-[Parameters](#parameters)
-
--   [keep\_time\_key](#keep_time_key)
--   [types](#types)
-
-[Regexp patterns](#regexp-patterns)
-
-[Example](#example)
 Parameters
 ----------
 

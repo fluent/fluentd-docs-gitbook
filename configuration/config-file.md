@@ -5,55 +5,6 @@ This article describes the basic concepts of Fluentd's configuration
 file syntax.
 
 
-### Table of Contents
-
-[Introduction: The Life of a Fluentd
-Event](#introduction:-the-life-of-a-fluentd-event)
-
-[Config File Location](#config-file-location)
-
-[Character encoding](#character-encoding)
-
-[List of Directives](#list-of-directives)
-
-[(1) "source": where all the data come
-from](#(1)-%E2%80%9Csource%E2%80%9D:-where-all-the-data-come-from)
-
-[(2) "match": Tell fluentd what to
-do!](#(2)-%E2%80%9Cmatch%E2%80%9D:-tell-fluentd-what-to-do!)
-
-[(3) "filter": Event processing
-pipeline](#(3)-%E2%80%9Cfilter%E2%80%9D:-event-processing-pipeline)
-
-[(4) Set system wide configuration: the "system"
-directive](#(4)-set-system-wide-configuration:-the-%E2%80%9Csystem%E2%80%9D-directive)
-
--   [process\_name](#process_name)
-
-[(5) Group filter and output: the "label"
-directive](#(5)-group-filter-and-output:-the-%E2%80%9Clabel%E2%80%9D-directive)
-
--   [\@ERROR label](#@error-label)
-
-[(6) Re-use your config: the "\@include"
-directive](#(6)-re-use-your-config:-the-%E2%80%9C@include%E2%80%9D-directive)
-
-[How match patterns work](#how-match-patterns-work)
-
--   [Wildcards and Expansions](#wildcards-and-expansions)
--   [Note on Match Order](#note-on-match-order)
-
-[Supported Data Types for Values](#supported-data-types-for-values)
-
-[Common plugin parameter](#common-plugin-parameter)
-
-[Check configuration file](#check-configuration-file)
-
-[Format tips](#format-tips)
-
--   [Multi line support for " quoted string, array and hash
-    values](#multi-line-support-for-%E2%80%9C-quoted-string,-array-and-hash-values)
--   [Embedded Ruby code](#embedded-ruby-code)
 Introduction: The Life of a Fluentd Event
 -----------------------------------------
 

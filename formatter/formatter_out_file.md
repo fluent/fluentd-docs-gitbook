@@ -11,30 +11,6 @@ time[delimiter]tag[delimiter]record\n
 This format is a default format of `out_file` plugin.
 
 
-### Table of Contents
-
-[Parameters](#parameters)
-
--   [delimiter (String, Optional, default to
-    "\\t"(TAB))](#delimiter-(string,-optional,-default-to-%E2%80%9C%5Ct%E2%80%9D(tab)))
--   [output\_tag (Boolean, Optional, defaults to
-    true)](#output_tag-(boolean,-optional,-defaults-to-true))
--   [output\_time (Boolean, Optional, defaults to
-    true)](#output_time-(boolean,-optional,-defaults-to-true))
--   [include\_time\_key (Boolean, Optional, defaults to
-    false)](#include_time_key-(boolean,-optional,-defaults-to-false))
--   [time\_key (String, Optional, defaults to
-    "time")](#time_key-(string,-optional,-defaults-to-%E2%80%9Ctime%E2%80%9D))
--   [time\_format (String. Optional)](#time_format-(string.-optional))
--   [include\_tag\_key (Boolean. Optional, defaults to
-    false)](#include_tag_key-(boolean.-optional,-defaults-to-false))
--   [tag\_key (String, Optional, defaults to
-    "tag")](#tag_key-(string,-optional,-defaults-to-%E2%80%9Ctag%E2%80%9D))
--   [localtime (Boolean. Optional, defaults to
-    true)](#localtime-(boolean.-optional,-defaults-to-true))
--   [timezone (String. Optional)](#timezone-(string.-optional))
-
-[Example](#example)
 Parameters
 ----------
 

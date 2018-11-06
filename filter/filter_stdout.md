@@ -6,11 +6,6 @@ launched with daemon mode). This filter plugin is useful for debugging
 purposes.
 
 
-### Table of Contents
-
--   [Example Configurations](#example-configurations)
--   [Parameters](#parameters)
--   [Learn More](#learn-more)
 Example Configurations
 ----------------------
 

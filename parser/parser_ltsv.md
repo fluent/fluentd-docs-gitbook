@@ -4,19 +4,6 @@ LTSV Parser Plugin
 The `ltsv` parser plugin parses [LTSV](http://ltsv.org/) format.
 
 
-### Table of Contents
-
-[Parameters](#parameters)
-
--   [delimiter](#delimiter)
--   [label\_delimiter](#label_delimiter)
--   [time\_key](#time_key)
--   [time\_format](#time_format)
--   [null\_value\_pattern](#null_value_pattern)
--   [null\_empty\_string](#null_empty_string)
--   [types](#types)
-
-[Example](#example)
 Parameters
 ----------
 

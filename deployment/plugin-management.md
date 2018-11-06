@@ -5,25 +5,6 @@ This article explains how to manage Fluentd plugins, including adding
 3rd party plugins.
 
 
-### Table of Contents
-
-[fluent-gem](#fluent-gem)
-
--   [If Using td-agent, Use
-    /usr/sbin/td-agent-gem](#if-using-td-agent,-use-/usr/sbin/td-agent-gem)
--   [Gem and native extension](#gem-and-native-extension)
-
-["-p" option](#%E2%80%9C-p%E2%80%9D-option)
-
-[Add a Plugin Via
-/etc/fluent/plugin](#add-a-plugin-via-/etc/fluent/plugin)
-
--   [If Using td-agent, Use
-    /etc/td-agent/plugin](#if-using-td-agent,-use-/etc/td-agent/plugin)
-
-[Plugin version management](#plugin-version-management)
-
-["--gemfile" option](#%E2%80%9C%E2%80%93gemfile%E2%80%9D-option)
 fluent-gem
 ----------
 

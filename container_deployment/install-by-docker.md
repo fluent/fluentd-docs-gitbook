@@ -11,16 +11,6 @@ image](https://hub.docker.com/r/fluent/fluentd/), maintained by
     (Source)](https://github.com/fluent/fluentd-docker-image)
 
 
-### Table of Contents
-
--   [Step 0: Install Docker](#step-0:-install-docker)
--   [Step 1: Pull Fluentd's Docker
-    image](#step-1:-pull-fluentd%E2%80%99s-docker-image)
--   [Step 2: Launch Fluentd
-    Container](#step-2:-launch-fluentd-container)
--   [Step3: Post Sample Logs via
-    HTTP](#step3:-post-sample-logs-via-http)
--   [Next Steps](#next-steps)
 Step 0: Install Docker
 ----------------------
 

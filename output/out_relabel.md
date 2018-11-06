@@ -4,14 +4,6 @@ relabel Output Plugin
 The `relabel` output plugin re-labels events.
 
 
-### Table of Contents
-
-[Example Configuration](#example-configuration)
-
-[Parameters](#parameters)
-
--   [\@type (required)](#@type-(required))
--   [\@label](#@label)
 Example Configuration
 ---------------------
 

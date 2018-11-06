@@ -4,26 +4,6 @@ msgpack Formatter Plugin
 The `msgpack` formatter plugin converts an event to msgpack binary.
 
 
-### Table of Contents
-
-[Parameters](#parameters)
-
--   [include\_time\_key (Boolean, Optional, defaults to
-    false)](#include_time_key-(boolean,-optional,-defaults-to-false))
--   [time\_key (String, Optional, defaults to
-    "time")](#time_key-(string,-optional,-defaults-to-%E2%80%9Ctime%E2%80%9D))
--   [time\_format (String. Optional)](#time_format-(string.-optional))
--   [include\_tag\_key (Boolean. Optional, defaults to
-    false)](#include_tag_key-(boolean.-optional,-defaults-to-false))
--   [tag\_key (String, Optional, defaults to
-    "tag")](#tag_key-(string,-optional,-defaults-to-%E2%80%9Ctag%E2%80%9D))
--   [localtime (Boolean. Optional, defaults to
-    true)](#localtime-(boolean.-optional,-defaults-to-true))
--   [timezone (String. Optional)](#timezone-(string.-optional))
--   [time\_as\_epoch (Boolean, Optional, defaults to
-    false)](#time_as_epoch-(boolean,-optional,-defaults-to-false))
-
-[Example](#example)
 Parameters
 ----------
 

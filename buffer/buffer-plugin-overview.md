@@ -8,21 +8,6 @@ and [Buffer](buffer-plugin-overview). This article will provide a
 high-level overview of Buffer plugins.
 
 
-### Table of Contents
-
-[Buffer Plugin Overview](#buffer-plugin-overview)
-
-[Buffer Structure](#buffer-structure)
-
--   [Common Parameters](#common-parameters)
--   [Handling queue overflow](#handling-queue-overflow)
--   [Handling write failures](#handling-write-failures)
-
-[Slicing Data by Time](#slicing-data-by-time)
-
--   [FAQ](#faq)
-
-[List of Buffer Plugins](#list-of-buffer-plugins)
 Buffer Plugin Overview
 ----------------------
 

@@ -46,10 +46,6 @@ CloudStack management server and directly collect those. Here we rely on
 the `listEvents` API.
 
 
-### Table of Contents
-
--   [Getting Started](#getting-started)
--   [Plugging MongoDB](#plugging-mongodb)
 Getting Started
 ---------------
 

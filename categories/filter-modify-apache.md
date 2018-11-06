@@ -6,16 +6,6 @@ challenges faced by our users (such as filtering and modifying data) and
 explain how to solve each task using one or more Fluentd plugins.
 
 
-### Table of Contents
-
--   [Scenario: Filtering Data by the Value of a
-    Field](#scenario:-filtering-data-by-the-value-of-a-field)
--   [Solution: Use
-    fluent-plugin-grep](#solution:-use-fluent-plugin-grep)
--   [Scenario: Adding a New Field (such as
-    hostname)](#scenario:-adding-a-new-field-(such-as-hostname))
--   [Solution: Use
-    fluent-plugin-record-modifier](#solution:-use-fluent-plugin-record-modifier)
 Scenario: Filtering Data by the Value of a Field
 ------------------------------------------------
 

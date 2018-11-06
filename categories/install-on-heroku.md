@@ -4,17 +4,6 @@ Install Fluentd (td-agent) on Heroku
 This article describes how to install Fluentd (td-agent) on
 [Heroku](http://www.heroku.com/).
 
-
-### Table of Contents
-
-[With non-Treasure Data backend](#with-non-treasure-data-backend)
-
-[With Treasure Data as a Backend](#with-treasure-data-as-a-backend)
-
--   [1. Heroku Button](#1.-heroku-button)
--   [2. Using Git](#2.-using-git)
-
-[Test](#test)
 With non-Treasure Data backend
 ------------------------------
 

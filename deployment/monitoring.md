@@ -4,12 +4,6 @@ Monitoring Fluentd
 This article desribes how to monitor Fluentd.
 
 
-### Table of Contents
-
--   [Fluentd Metrics Monitoring](#fluentd-metrics-monitoring)
--   [Process Monitoring](#process-monitoring)
--   [Port Monitoring](#port-monitoring)
--   [Debug Port](#debug-port)
 Fluentd Metrics Monitoring
 --------------------------
 

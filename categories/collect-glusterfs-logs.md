@@ -5,22 +5,6 @@ This article shows how to use Fluentd to collect GlusterFS logs for
 analysis (search, analytics, troubleshooting, etc.)
 
 
-### Table of Contents
-
-[Background](#background)
-
-[Setting up Fluentd on GlusterFS
-Nodes](#setting-up-fluentd-on-glusterfs-nodes)
-
--   [Step 1: Installing Fluentd](#step-1:-installing-fluentd)
--   [Step 2: Making GlusterFS Log Files Readable by
-    Fluentd](#step-2:-making-glusterfs-log-files-readable-by-fluentd)
--   [Step 3: Setting Up the Aggregator Fluentd
-    Server](#step-3:-setting-up-the-aggregator-fluentd-server)
-
-[Acknowledgement](#acknowledgement)
-
-[Learn More](#learn-more)
 Background
 ----------
 

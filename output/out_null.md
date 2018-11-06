@@ -4,13 +4,6 @@ null Output Plugin
 The `null` output plugin just throws away events.
 
 
-### Table of Contents
-
-[Example Configuration](#example-configuration)
-
-[Parameters](#parameters)
-
--   [\@type (required)](#@type-(required))
 Example Configuration
 ---------------------
 

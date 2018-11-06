@@ -14,20 +14,6 @@ works with \`multiline\` but other input plugins don\'t work with
 \`multiline\`.
 
 
-### Table of Contents
-
-[Parameters](#parameters)
-
--   [time\_key](#time_key)
--   [time\_format](#time_format)
--   [format\_firstline](#format_firstline)
--   [formatN](#formatn)
--   [keep\_time\_key](#keep_time_key)
-
-[Example](#example)
-
--   [Rails log](#rails-log)
--   [Java stacktrace log](#java-stacktrace-log)
 Parameters
 ----------
 

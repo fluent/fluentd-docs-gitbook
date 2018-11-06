@@ -7,13 +7,6 @@ Availability](high-availability), so that each app node has its local
 *forwarders* and all logs are aggregated into multiple *aggregators*.
 
 
-### Table of Contents
-
--   [Apps Cannot Post Records to
-    Forwarder](#apps-cannot-post-records-to-forwarder)
--   [Forwarder or Aggregator Fluentd Goes
-    Down](#forwarder-or-aggregator-fluentd-goes-down)
--   [Storage Destination Goes Down](#storage-destination-goes-down)
 Apps Cannot Post Records to Forwarder
 -------------------------------------
 

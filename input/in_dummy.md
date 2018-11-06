@@ -5,18 +5,6 @@ The `in_dummy` input plugin generates dummy events. It is useful for
 testing, debugging, benchmarking and getting started with Fluentd.
 
 
-### Table of Contents
-
-[Example Configuration](#example-configuration)
-
-[Parameters](#parameters)
-
--   [\@type (required)](#@type-(required))
--   [tag (required)](#tag-(required))
--   [dummy (optional)](#dummy-(optional))
--   [auto\_increment\_key (optional, string
-    type)](#auto_increment_key-(optional,-string-type))
--   [rate (optional, integer type)](#rate-(optional,-integer-type))
 Example Configuration
 ---------------------
 

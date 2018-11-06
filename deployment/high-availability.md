@@ -5,25 +5,6 @@ For high-traffic websites, we recommend using a high availability
 configuration of `Fluentd`.
 
 
-### Table of Contents
-
-[Message Delivery Semantics](#message-delivery-semantics)
-
-[Network Topology](#network-topology)
-
-[Log Forwarder Configuration](#log-forwarder-configuration)
-
-[Log Aggregator Configuration](#log-aggregator-configuration)
-
-[Failure Case Scenarios](#failure-case-scenarios)
-
--   [Forwarder Failure](#forwarder-failure)
--   [Aggregator Failure](#aggregator-failure)
-
-[Trouble Shooting](#trouble-shooting)
-
--   ["no nodes are
-    available"](#%E2%80%9Cno-nodes-are-available%E2%80%9D)
 Message Delivery Semantics
 --------------------------
 

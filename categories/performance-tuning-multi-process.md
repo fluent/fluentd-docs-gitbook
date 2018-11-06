@@ -15,23 +15,6 @@ done [all the optimization you can do with single
 process](performance-tuning-single-process).
 
 
-### Table of Contents
-
-[2-Tier Process Topology](#2-tier-process-topology)
-
--   [1st Tier: Input Processes](#1st-tier:-input-processes)
--   [2nd Tier: Output Processes](#2nd-tier:-output-processes)
--   [Reasons behind this Design](#reasons-behind-this-design)
-
-[Example Configuration](#example-configuration)
-
--   [Files](#files)
--   [How to add input processes?](#how-to-add-input-processes?)
--   [How to add output processes?](#how-to-add-output-processes?)
--   [How many processes should we
-    have?](#how-many-processes-should-we-have?)
-
-[Fluentd v1.0 or Later](#fluentd-v1.0-or-later)
 2-Tier Process Topology
 -----------------------
 

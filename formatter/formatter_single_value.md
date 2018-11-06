@@ -8,16 +8,6 @@ This formatter is often used in conjunction with [in\_tail](in_tail)'s
 `format none`.
 
 
-### Table of Contents
-
-[Parameters](#parameters)
-
--   [add\_newline (Boolean, Optional, defaults to
-    true)](#add_newline-(boolean,-optional,-defaults-to-true))
--   [message\_key (String, Optional, defaults to
-    "message")](#message_key-(string,-optional,-defaults-to-%E2%80%9Cmessage%E2%80%9D))
-
-[Example](#example)
 Parameters
 ----------
 

@@ -8,13 +8,6 @@ and [Buffer](buffer-plugin-overview). This article gives an overview of
 Formatter Plugin.
 
 
-### Table of Contents
-
--   [Overview](#overview)
--   [How To Use](#how-to-use)
--   [List of Built-in Formatters](#list-of-built-in-formatters)
--   [List of Output Plugins with Text Formatter
-    Support](#list-of-output-plugins-with-text-formatter-support)
 Overview
 --------
 

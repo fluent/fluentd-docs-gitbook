@@ -8,17 +8,6 @@ This plugin uses
 method.
 
 
-### Table of Contents
-
-[Parameters](#parameters)
-
--   [time\_key](#time_key)
--   [time\_format](#time_format)
--   [null\_value\_pattern](#null_value_pattern)
--   [null\_empty\_string](#null_empty_string)
--   [types](#types)
-
-[Example](#example)
 Parameters
 ----------
 

@@ -6,28 +6,6 @@ incoming event streams in a versatile manner. If there is a need to
 add/delete/modify events, this plugin is the first filter to try.
 
 
-### Table of Contents
-
-[Example Configurations](#example-configurations)
-
-[Parameters](#parameters)
-
--   [\<record\> directive](#%3Crecord%3E-directive)
--   [enable\_ruby (optional)](#enable_ruby-(optional))
--   [auto\_typecast (optional)](#auto_typecast-(optional))
--   [renew\_record (optional)](#renew_record-(optional))
--   [renew\_time\_key (optional, string
-    type)](#renew_time_key-(optional,-string-type))
--   [keep\_keys (optional, array
-    type)](#keep_keys-(optional,-array-type))
--   [remove\_keys (optional, array
-    type)](#remove_keys-(optional,-array-type))
-
-[Need more performance?](#need-more-performance?)
-
-[FAQ](#faq)
-
-[Learn More](#learn-more)
 Example Configurations
 ----------------------
 

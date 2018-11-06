@@ -8,11 +8,6 @@ and [Buffer](buffer-plugin-overview). This article gives an overview of
 Input Plugin.
 
 
-### Table of Contents
-
--   [Overview](#overview)
--   [List of Input Plugins](#list-of-input-plugins)
--   [Other Input Plugins](#other-input-plugins)
 Overview
 --------
 

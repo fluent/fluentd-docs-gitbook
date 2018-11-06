@@ -2,13 +2,6 @@ Forwarding Data Over SSL
 ========================
 
 
-### Table of Contents
-
--   [Overview](#overview)
--   [Setup: Receiver](#setup:-receiver)
--   [Setup: Sender](#setup:-sender)
--   [Confirm: Send an Event Over SSL](#confirm:-send-an-event-over-ssl)
--   [Resources](#resources)
 Overview
 --------
 

@@ -5,24 +5,6 @@ The `filter_parser` filter plugin "parses" string field in event records
 and mutates its event record with parsed result.
 
 
-### Table of Contents
-
-[Example Configurations](#example-configurations)
-
-[Parameters](#parameters)
-
--   [format](#format)
--   [key\_name](#key_name)
--   [reserve\_data](#reserve_data)
--   [suppress\_parse\_error\_log](#suppress_parse_error_log)
--   [ignore\_key\_not\_exist](#ignore_key_not_exist)
--   [replace\_invalid\_sequence](#replace_invalid_sequence)
--   [inject\_key\_prefix](#inject_key_prefix)
--   [hash\_value\_field](#hash_value_field)
--   [time\_parse](#time_parse)
--   [emit\_invalid\_record\_to\_error](#emit_invalid_record_to_error)
-
-[Learn More](#learn-more)
 Example Configurations
 ----------------------
 

@@ -7,26 +7,6 @@ to aggregate semi-structured logs into Treasure Data (TD), which offers
 Cloud Data Service.
 
 
-### Table of Contents
-
-[Background](#background)
-
-[Architecture](#architecture)
-
-[Install](#install)
-
-[Signup](#signup)
-
-[Fluentd Configuration](#fluentd-configuration)
-
--   [HTTP Input](#http-input)
--   [Treasure Data Output](#treasure-data-output)
-
-[Test](#test)
-
-[Conclusion](#conclusion)
-
-[Learn More](#learn-more)
 Background
 ----------
 

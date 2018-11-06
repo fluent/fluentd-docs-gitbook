@@ -5,15 +5,6 @@ This article describes how to get the internal Fluentd metrics via REST
 API.
 
 
-### Table of Contents
-
-[Monitoring Agent](#monitoring-agent)
-
--   [Reuse plugins](#reuse-plugins)
-
-[Monitoring the event flow](#monitoring-the-event-flow)
-
-[Datadog (dd-agent) Integration](#datadog-(dd-agent)-integration)
 Monitoring Agent
 ----------------
 

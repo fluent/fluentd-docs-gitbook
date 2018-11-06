@@ -5,13 +5,6 @@ The `none` parser plugin parses the line as-is with single field. This
 format is to defer parsing/structuring the data.
 
 
-### Table of Contents
-
-[Parameters](#parameters)
-
--   [message\_key](#message_key)
-
-[Example](#example)
 Parameters
 ----------
 

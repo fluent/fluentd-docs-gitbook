@@ -2,56 +2,6 @@ Writing plugins
 ===============
 
 
-### Table of Contents
-
-[Installing custom plugins](#installing-custom-plugins)
-
-[Overview](#overview)
-
--   [Fluentd version and Plugin API](#fluentd-version-and-plugin-api)
--   [Send a patch or fork?](#send-a-patch-or-fork?)
-
-[Plugin versioning policy](#plugin-versioning-policy)
-
-[Writing Input Plugins](#writing-input-plugins)
-
--   [Record format](#record-format)
-
-[Writing Buffered Output Plugins](#writing-buffered-output-plugins)
-
-[Writing Time Sliced Output
-Plugins](#writing-time-sliced-output-plugins)
-
-[Writing Non-buffered Output
-Plugins](#writing-non-buffered-output-plugins)
-
-[Filter Plugins](#filter-plugins)
-
--   [filter\_stream method](#filter_stream-method)
-
-[Parser Plugins](#parser-plugins)
-
--   [Parser API](#parser-api)
-
-[Text Formatter Plugins](#text-formatter-plugins)
-
-[Error stream](#error-stream)
-
--   [API](#api)
-
-[config\_param](#config_param)
-
--   [Access parameter value](#access-parameter-value)
--   [Supported types](#supported-types)
--   [Supported options](#supported-options)
-
-[Debugging plugins](#debugging-plugins)
-
-[Writing test cases](#writing-test-cases)
-
--   [Run test](#run-test)
-
-[Further Reading](#further-reading)
 Installing custom plugins
 -------------------------
 

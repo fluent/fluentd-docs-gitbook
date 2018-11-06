@@ -2,20 +2,6 @@ Troubleshooting Fluentd
 =======================
 
 
-### Table of Contents
-
-[Look at Logs](#look-at-logs)
-
-[Turn on Verbose Logging](#turn-on-verbose-logging)
-
--   [rpm/deb](#rpm/deb)
--   [gem](#gem)
-
-[Dump fluentd internal information](#dump-fluentd-internal-information)
-
-[High CPU usage issue](#high-cpu-usage-issue)
-
-[Check uncaught logs](#check-uncaught-logs)
 Look at Logs
 ------------
 

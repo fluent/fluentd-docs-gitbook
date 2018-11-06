@@ -13,16 +13,6 @@ supports following operations.
 -   View Fluentd log with simple error viewer
 
 
-### Table of Contents
-
-[Getting Started](#getting-started)
-
-[Screenshots](#screenshots)
-
--   [Dashboard](#dashboard)
--   [Setting](#setting)
--   [in\_tail setting](#in_tail-setting)
--   [Plugin](#plugin)
 Getting Started
 ---------------
 

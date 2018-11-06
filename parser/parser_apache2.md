@@ -4,15 +4,6 @@ apache2 Parser Plugin
 The `apache2` parser plugin parses apache2 logs.
 
 
-### Table of Contents
-
-[Parameters](#parameters)
-
--   [keep\_time\_key](#keep_time_key)
-
-[Regexp patterns](#regexp-patterns)
-
-[Example](#example)
 Parameters
 ----------
 

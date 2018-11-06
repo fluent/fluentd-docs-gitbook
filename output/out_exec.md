@@ -7,36 +7,6 @@ events as its last argument. The file format is tab-separated values
 (TSV) by default.
 
 
-### Table of Contents
-
-[Example Configuration](#example-configuration)
-
-[Example: Running FizzBuzz against data
-stream](#example:-running-fizzbuzz-against-data-stream)
-
-[Parameters](#parameters)
-
--   [\@type (required)](#@type-(required))
--   [command (required)](#command-(required))
--   [format](#format)
--   [tag\_key](#tag_key)
--   [time\_key](#time_key)
--   [time\_format](#time_format)
-
-[Time Sliced Output Parameters](#time-sliced-output-parameters)
-
--   [time\_slice\_format](#time_slice_format)
--   [time\_slice\_wait](#time_slice_wait)
--   [buffer\_type](#buffer_type)
--   [buffer\_queue\_limit,
-    buffer\_chunk\_limit](#buffer_queue_limit,-buffer_chunk_limit)
--   [flush\_interval](#flush_interval)
--   [flush\_at\_shutdown](#flush_at_shutdown)
--   [retry\_wait, max\_retry\_wait](#retry_wait,-max_retry_wait)
--   [retry\_limit,
-    disable\_retry\_limit](#retry_limit,-disable_retry_limit)
--   [num\_threads](#num_threads)
--   [slow\_flush\_log\_threshold](#slow_flush_log_threshold)
 Example Configuration
 ---------------------
 

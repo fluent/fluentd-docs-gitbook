@@ -10,29 +10,6 @@ developed and published by Amazon Web Services officially.
 ![](/images/fluentd-kinesis.png){width="70%"}
 
 
-
-### Table of Contents
-
-[Background](#background)
-
-[Mechanism](#mechanism)
-
-[Install](#install)
-
-[Install Kinesis Plugin](#install-kinesis-plugin)
-
-[Configuration](#configuration)
-
--   [Tail Input](#tail-input)
--   [Amazon Kinesis Output](#amazon-kinesis-output)
-
-[Test](#test)
-
-[FAQs](#faqs)
-
-[Conclusion](#conclusion)
-
-[Learn More](#learn-more)
 Background
 ----------
 

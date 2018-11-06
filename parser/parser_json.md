@@ -4,15 +4,6 @@ json Parser Plugin
 The `json` parser plugin parses JSON logs. One JSON map per line.
 
 
-### Table of Contents
-
-[Parameters](#parameters)
-
--   [time\_key](#time_key)
--   [time\_format](#time_format)
--   [keep\_time\_key](#keep_time_key)
-
-[Example](#example)
 Parameters
 ----------
 

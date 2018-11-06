@@ -6,24 +6,6 @@ S3 Output plugin ([out\_s3](out_s3)) to aggregate semi-structured logs
 in real-time.
 
 
-### Table of Contents
-
-[Background](#background)
-
-[Mechanism](#mechanism)
-
-[Install](#install)
-
-[Configuration](#configuration)
-
--   [Tail Input](#tail-input)
--   [Amazon S3 Output](#amazon-s3-output)
-
-[Test](#test)
-
-[Conclusion](#conclusion)
-
-[Learn More](#learn-more)
 Background
 ----------
 

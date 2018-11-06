@@ -10,15 +10,6 @@ for existing Scribe users who want to use Fluentd with an existing
 Scribe infrastructure.
 
 
-### Table of Contents
-
-[Install](#install)
-
-[Example Configuration](#example-configuration)
-
--   [Example Usage](#example-usage)
-
-[Parameters](#parameters)
 Install
 -------
 

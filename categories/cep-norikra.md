@@ -6,32 +6,6 @@ This article explains how to use [Fluentd](http://fluentd.org/) and
 complex event processing platform.
 
 
-### Table of Contents
-
-[Background](#background)
-
-[Architecture](#architecture)
-
-[Installation](#installation)
-
--   [Installing Fluentd and
-    fluentd-plugin-norikra](#installing-fluentd-and-fluentd-plugin-norikra)
--   [Installing Norikra](#installing-norikra)
--   [Verify Installation](#verify-installation)
-
-[Fluentd Configuration](#fluentd-configuration)
-
--   [HTTP Input](#http-input)
--   [Norikra Output](#norikra-output)
-
-[Test](#test)
-
--   [Registering Queries and Fetching
-    Outputs](#registering-queries-and-fetching-outputs)
-
-[Conclusion](#conclusion)
-
-[Learn More](#learn-more)
 Background
 ----------
 

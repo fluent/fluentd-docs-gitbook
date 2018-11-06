@@ -9,34 +9,6 @@ Computing Foundation)](https://www.cncf.io/), Fluentd project is
 recommending to use Prometheus by default to monitor Fluentd.
 
 
-### Table of Contents
-
-[Installation](#installation)
-
-[Example Fluentd Configuration](#example-fluentd-configuration)
-
--   [Step 1: Counting Incoming Records by Prometheus Filter
-    Plugin](#step-1:-counting-incoming-records-by-prometheus-filter-plugin)
--   [Step 2: Counting Outgoing Records by Prometheus Output
-    Plugin](#step-2:-counting-outgoing-records-by-prometheus-output-plugin)
--   [Step 3: Expose Metrics by Prometheus Input Plugin via
-    HTTP](#step-3:-expose-metrics-by-prometheus-input-plugin-via-http)
--   [Step 4: Check the Configuration](#step-4:-check-the-configuration)
-
-[Example Prometheus Configuration](#example-prometheus-configuration)
-
-[How to use Prometheus to monitor
-Fluentd](#how-to-use-prometheus-to-monitor-fluentd)
-
--   [List of Fluentd nodes](#list-of-fluentd-nodes)
--   [List of Fluentd metrics](#list-of-fluentd-metrics)
--   [Example Prometheus Queries](#example-prometheus-queries)
--   [Metrics to Monitor](#metrics-to-monitor)
-
-[Grafana for Advanced Visualization /
-Alerting](#grafana-for-advanced-visualization-/-alerting)
-
-[Further Readings](#further-readings)
 Installation
 ------------
 

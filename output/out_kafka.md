@@ -7,39 +7,6 @@ This document doesn\'t describe all parameters. If you want to know full
 features, check the Further Reading section.
 
 
-### Table of Contents
-
-[Installation](#installation)
-
-[Example Configuration](#example-configuration)
-
-[Parameters](#parameters)
-
--   [\@type (required)](#@type-(required))
--   [brokers (required/optional)](#brokers-(required/optional))
--   [default\_topic](#default_topic)
--   [default\_partition\_key](#default_partition_key)
--   [default\_message\_key](#default_message_key)
--   [output\_data\_type](#output_data_type)
--   [max\_send\_retries](#max_send_retries)
--   [required\_acks](#required_acks)
--   [ack\_timeout](#ack_timeout)
--   [compression\_codec](#compression_codec)
-
-[Buffered Output Parameters](#buffered-output-parameters)
-
--   [buffer\_type](#buffer_type)
--   [buffer\_queue\_limit,
-    buffer\_chunk\_limit](#buffer_queue_limit,-buffer_chunk_limit)
--   [flush\_interval](#flush_interval)
--   [flush\_at\_shutdown](#flush_at_shutdown)
--   [retry\_wait, max\_retry\_wait](#retry_wait,-max_retry_wait)
--   [retry\_limit,
-    disable\_retry\_limit](#retry_limit,-disable_retry_limit)
--   [num\_threads](#num_threads)
--   [slow\_flush\_log\_threshold](#slow_flush_log_threshold)
-
-[Further Reading](#further-reading)
 Installation
 ------------
 

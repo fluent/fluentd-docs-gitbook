@@ -4,18 +4,6 @@ Fluentd's HTTP RPC
 This article explains how `Fluentd` handles HTTP RPC.
 
 
-### Table of Contents
-
-[Overview](#overview)
-
-[Configuration](#configuration)
-
-[RPCs](#rpcs)
-
--   [/api/processes.interruptWorkers](#/api/processes.interruptworkers)
--   [/api/processes.killWorkers](#/api/processes.killworkers)
--   [/api/plugins.flushBuffers](#/api/plugins.flushbuffers)
--   [/api/config.reload](#/api/config.reload)
 Overview
 --------
 

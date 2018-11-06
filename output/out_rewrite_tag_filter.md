@@ -8,31 +8,6 @@ from apache log by domain, status-code(ex. 500 error), user-agent,
 request-uri, regex-backreference and so on with regular expression.
 
 
-### Table of Contents
-
-[How it works](#how-it-works)
-
-[Install](#install)
-
-[Example Configuration](#example-configuration)
-
-[Parameters](#parameters)
-
--   [rewriteruleN (required at least
-    one)](#rewriterulen-(required-at-least-one))
--   [capitalize\_regex\_backreference](#capitalize_regex_backreference)
--   [hostname\_command](#hostname_command)
--   [\<rule\> section (optional)
-    (multiple)](#%3Crule%3E-section-(optional)-(multiple))
-
-[Placeholders](#placeholders)
-
-[Use cases](#use-cases)
-
-[FAQ](#faq)
-
--   [With rewrite-tag-filter, logs are not forwarded.
-    Why?](#with-rewrite-tag-filter,-logs-are-not-forwarded.-why?)
 How it works
 ------------
 

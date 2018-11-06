@@ -6,15 +6,6 @@ distribution package maintained by [Treasure Data,
 Inc](http://www.treasuredata.com/), on MacOS X.
 
 
-### Table of Contents
-
--   [What is td-agent?](#what-is-td-agent?)
--   [Step1: Install td-agent](#step1:-install-td-agent)
--   [Step2: Launch td-agent](#step2:-launch-td-agent)
--   [Step3: Post Sample Logs via
-    HTTP](#step3:-post-sample-logs-via-http)
--   [Uninstall td-agent](#uninstall-td-agent)
--   [Next Steps](#next-steps)
 What is td-agent?
 -----------------
 

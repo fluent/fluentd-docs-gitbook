@@ -6,16 +6,6 @@ stable Fluentd distribution package maintained by [Treasure Data,
 Inc](http://www.treasuredata.com/).
 
 
-### Table of Contents
-
--   [What is td-agent?](#what-is-td-agent?)
--   [Step 0: Before Installation](#step-0:-before-installation)
--   [Step 1: Install from rpm
-    Repository](#step-1:-install-from-rpm-repository)
--   [Step2: Launch Daemon](#step2:-launch-daemon)
--   [Step3: Post Sample Logs via
-    HTTP](#step3:-post-sample-logs-via-http)
--   [Next Steps](#next-steps)
 What is td-agent?
 -----------------
 

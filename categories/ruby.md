@@ -7,22 +7,6 @@ library is used to post records from Ruby applications to Fluentd.
 This article explains how to use the fluent-logger-ruby library.
 
 
-### Table of Contents
-
-[Prerequisites](#prerequisites)
-
-[Installing Fluentd](#installing-fluentd)
-
-[Modifying the Config File](#modifying-the-config-file)
-
-[Using fluent-logger-ruby](#using-fluent-logger-ruby)
-
-[Production Deployments](#production-deployments)
-
--   [Output Plugins](#output-plugins)
--   [High-Availability Configurations of
-    Fluentd](#high-availability-configurations-of-fluentd)
--   [Monitoring](#monitoring)
 Prerequisites
 -------------
 

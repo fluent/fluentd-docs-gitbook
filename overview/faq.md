@@ -2,45 +2,6 @@ FAQ
 ===
 
 
-### Table of Contents
-
-[What version of Ruby does fluentd
-support?](#what-version-of-ruby-does-fluentd-support?)
-
-[Known Issue](#known-issue)
-
--   [I use Fluentd with Ruby 2.0 but Fluentd seems deadlocked.
-    Why?](#i-use-fluentd-with-ruby-2.0-but-fluentd-seems-deadlocked.-why?)
-
-[Operations](#operations)
-
--   [I have millisecond timestamp log but fluentd drops subsecond.
-    Why?](#i-have-millisecond-timestamp-log-but-fluentd-drops-subsecond.-why?)
--   [I have a weird timestamp value, what
-    happened?](#i-have-a-weird-timestamp-value,-what-happened?)
--   [I installed td-agent and want to add custom plugins. How do I do
-    it?](#i-installed-td-agent-and-want-to-add-custom-plugins.-how-do-i-do-it?)
--   [I installed the plugin and it updates fluentd from v0.12 to v1.x.
-    Why?](#i-installed-the-plugin-and-it-updates-fluentd-from-v0.12-to-v1.x.-why?)
--   [How can I match (send) an event to multiple
-    outputs?](#how-can-i-match-(send)-an-event-to-multiple-outputs?)
--   [How can I use environment variables to configure parameters
-    dynamically?](#how-can-i-use-environment-variables-to-configure-parameters-dynamically?)
--   [Fluentd raises an error for host:port.
-    Why?](#fluentd-raises-an-error-for-host:port.-why?)
--   [I got "no patterns matched" in the log,
-    why?](#i-got-%E2%80%9Cno-patterns-matched%E2%80%9D-in-the-log,-why?)
--   [File buffer doesn't work properly,
-    why?](#file-buffer-doesn%E2%80%99t-work-properly,-why?)
--   [I got enconding error inside plugin. How to fix
-    it?](#i-got-enconding-error-inside-plugin.-how-to-fix-it?)
-
-[Plugin Development](#plugin-development)
-
--   [How do I develop a custom
-    plugin?](#how-do-i-develop-a-custom-plugin?)
-
-[HOWTOs](#howtos)
 What version of Ruby does fluentd support?
 ------------------------------------------
 

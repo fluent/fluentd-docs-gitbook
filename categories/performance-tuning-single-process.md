@@ -11,15 +11,6 @@ please also visit [Performance Tuning
 CPU cores.
 
 
-### Table of Contents
-
--   [Check top command](#check-top-command)
--   [Avoid extra computations](#avoid-extra-computations)
--   [Use num\_threads parameter](#use-num_threads-parameter)
--   [Use external gzip command for
-    S3/TD](#use-external-gzip-command-for-s3/td)
--   [Reduce memory usage](#reduce-memory-usage)
--   [Multi-process plugin](#multi-process-plugin)
 Check top command
 -----------------
 

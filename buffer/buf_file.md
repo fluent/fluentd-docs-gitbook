@@ -5,11 +5,6 @@ The `file` buffer plugin provides a persistent buffer implementation. It
 uses files to store buffer chunks on disk.
 
 
-### Table of Contents
-
--   [Example Config](#example-config)
--   [Parameters](#parameters)
--   [Caution](#caution)
 Example Config
 --------------
 

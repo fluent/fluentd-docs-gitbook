@@ -11,37 +11,6 @@ This document doesn\'t describe all parameters. If you want to know full
 features, check the Further Reading section.
 
 
-### Table of Contents
-
-[Install](#install)
-
-[HDFS Configuration](#hdfs-configuration)
-
-[Example Configuration](#example-configuration)
-
-[Parameters](#parameters)
-
--   [\@type (required)](#@type-(required))
--   [host (required)](#host-(required))
--   [port (required)](#port-(required))
--   [path (required)](#path-(required))
-
-[Time Sliced Output Parameters (and overwritten values by
-out\_webhdfs)](#time-sliced-output-parameters-(and-overwritten-values-by-out_webhdfs))
-
--   [time\_slice\_format](#time_slice_format)
--   [time\_slice\_wait](#time_slice_wait)
--   [buffer\_type](#buffer_type)
--   [buffer\_queue\_limit,
-    buffer\_chunk\_limit](#buffer_queue_limit,-buffer_chunk_limit)
--   [flush\_interval](#flush_interval)
--   [flush\_at\_shutdown](#flush_at_shutdown)
--   [retry\_wait, max\_retry\_wait](#retry_wait,-max_retry_wait)
--   [retry\_limit,
-    disable\_retry\_limit](#retry_limit,-disable_retry_limit)
--   [num\_threads](#num_threads)
-
-[Further Reading](#further-reading)
 Install
 -------
 

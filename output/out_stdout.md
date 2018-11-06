@@ -5,14 +5,6 @@ The `stdout` output plugin prints events to stdout (or logs if launched
 with daemon mode). This output plugin is useful for debugging purposes.
 
 
-### Table of Contents
-
-[Example Configuration](#example-configuration)
-
-[Parameters](#parameters)
-
--   [\@type (required)](#@type-(required))
--   [output\_type](#output_type)
 Example Configuration
 ---------------------
 

@@ -8,48 +8,6 @@ and [Buffer](buffer-plugin-overview). This article gives an overview of
 Output Plugin.
 
 
-### Table of Contents
-
-[Overview](#overview)
-
-[List of Non-Buffered Output
-Plugins](#list-of-non-buffered-output-plugins)
-
-[List of Buffered Output Plugins](#list-of-buffered-output-plugins)
-
-[List of Time Sliced Output
-Plugins](#list-of-time-sliced-output-plugins)
-
-[Other Plugins](#other-plugins)
-
-[Buffered Output Parameters](#buffered-output-parameters)
-
--   [buffer\_type](#buffer_type)
--   [buffer\_queue\_limit,
-    buffer\_chunk\_limit](#buffer_queue_limit,-buffer_chunk_limit)
--   [flush\_interval](#flush_interval)
--   [flush\_at\_shutdown](#flush_at_shutdown)
--   [retry\_wait, max\_retry\_wait](#retry_wait,-max_retry_wait)
--   [retry\_limit,
-    disable\_retry\_limit](#retry_limit,-disable_retry_limit)
--   [num\_threads](#num_threads)
--   [slow\_flush\_log\_threshold](#slow_flush_log_threshold)
--   [secondary output](#secondary-output)
-
-[Time Sliced Output Parameters](#time-sliced-output-parameters)
-
--   [time\_slice\_format](#time_slice_format)
--   [time\_slice\_wait](#time_slice_wait)
--   [buffer\_type](#buffer_type)
--   [buffer\_queue\_limit,
-    buffer\_chunk\_limit](#buffer_queue_limit,-buffer_chunk_limit)
--   [flush\_interval](#flush_interval)
--   [flush\_at\_shutdown](#flush_at_shutdown)
--   [retry\_wait, max\_retry\_wait](#retry_wait,-max_retry_wait)
--   [retry\_limit,
-    disable\_retry\_limit](#retry_limit,-disable_retry_limit)
--   [num\_threads](#num_threads)
--   [slow\_flush\_log\_threshold](#slow_flush_log_threshold)
 Overview
 --------
 

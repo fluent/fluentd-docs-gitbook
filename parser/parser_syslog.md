@@ -5,24 +5,6 @@ The `syslog` parser plugin parses syslog generated logs. This plugin
 supports two RFC formats, rfc3164 and rfc5424.
 
 
-### Table of Contents
-
-[Parameters](#parameters)
-
--   [time\_format](#time_format)
--   [message\_format](#message_format)
--   [with\_priority](#with_priority)
--   [keep\_time\_key](#keep_time_key)
-
-[Regexp patterns](#regexp-patterns)
-
--   [rfc3164 pattern](#rfc3164-pattern)
--   [rfc5424 pattern](#rfc5424-pattern)
-
-[Example](#example)
-
--   [rfc3164 log](#rfc3164-log)
--   [rfc5424 log](#rfc5424-log)
 Parameters
 ----------
 

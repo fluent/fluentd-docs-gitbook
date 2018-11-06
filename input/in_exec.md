@@ -9,24 +9,6 @@ You can run a program periodically or permanently. To run periodically,
 please use the run\_interval parameter.
 
 
-### Table of Contents
-
-[Example Configuration](#example-configuration)
-
-[Parameters](#parameters)
-
--   [\@type (required)](#@type-(required))
--   [command (required)](#command-(required))
--   [format](#format)
--   [tag (required if tag\_key is not
-    specified)](#tag-(required-if-tag_key-is-not-specified))
--   [tag\_key](#tag_key)
--   [time\_key](#time_key)
--   [time\_format](#time_format)
--   [run\_interval](#run_interval)
-
-[Real World Use Case: using in\_exec to scrape Hacker News Top
-Page](#real-world-use-case:-using-in_exec-to-scrape-hacker-news-top-page)
 Example Configuration
 ---------------------
 

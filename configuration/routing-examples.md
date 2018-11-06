@@ -4,21 +4,6 @@ Routing Examples
 This article shows typical routing examples.
 
 
-### Table of Contents
-
-[Simple Input -\> Filter -\>
-Output](#simple-input--%3E-filter--%3E-output)
-
--   [Two input cases](#two-input-cases)
-
-[Input -\> Filter -\> Output with
-Label](#input--%3E-filter--%3E-output-with-label)
-
-[Re-route event by tag](#re-route-event-by-tag)
-
-[Re-route event by record content](#re-route-event-by-record-content)
-
-[Re-route event to other Label](#re-route-event-to-other-label)
 Simple Input -\> Filter -\> Output
 ----------------------------------
 

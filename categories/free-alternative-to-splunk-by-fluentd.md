@@ -31,25 +31,6 @@ more about Fluentd first.
 [What is Fluentd?](/articles/architecture)
 
 
-### Table of Contents
-
-[Prerequisites](#prerequisites)
-
--   [Java for Elasticsearch](#java-for-elasticsearch)
-
-[Set Up Elasticsearch](#set-up-elasticsearch)
-
-[Set Up Kibana](#set-up-kibana)
-
-[Set Up Fluentd (td-agent)](#set-up-fluentd-(td-agent))
-
-[Set Up rsyslogd](#set-up-rsyslogd)
-
-[Store and Search Event Logs](#store-and-search-event-logs)
-
-[Conclusion](#conclusion)
-
-[Learn More](#learn-more)
 Prerequisites
 -------------
 

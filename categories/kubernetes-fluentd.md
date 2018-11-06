@@ -13,18 +13,6 @@ The following document focus on how to deploy Fluentd in Kubernetes and
 extend the possibilities to have different destinations for your logs.
 
 
-### Table of Contents
-
-[Getting Started](#getting-started)
-
-[Fluentd DaemonSet](#fluentd-daemonset)
-
--   [Get Fluentd DaemonSet sources](#get-fluentd-daemonset-sources)
--   [DaemonSet Content](#daemonset-content)
-
-[Logging to Elasticsearch](#logging-to-elasticsearch)
-
--   [Requirements](#requirements)
 Getting Started
 ---------------
 

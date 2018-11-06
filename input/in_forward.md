@@ -18,34 +18,6 @@ secure connection between nodes, please consider using
 [in\_secure\_forward](in_secure_forward).
 
 
-### Table of Contents
-
-[Example Configuration](#example-configuration)
-
-[Parameters](#parameters)
-
--   [\@type (required)](#@type-(required))
--   [port](#port)
--   [bind](#bind)
--   [linger\_timeout](#linger_timeout)
--   [chunk\_size\_limit](#chunk_size_limit)
--   [chunk\_size\_warn\_limit](#chunk_size_warn_limit)
--   [skip\_invalid\_event (v0.12.20 or
-    later)](#skip_invalid_event-(v0.12.20-or-later))
--   [source\_hostname\_key (v0.12.28 or
-    later)](#source_hostname_key-(v0.12.28-or-later))
-
-[Protocol](#protocol)
-
--   [Communication with v1.0](#communication-with-v1.0)
-
-[FAQ](#faq)
-
--   [Why in\_forward doesn't have tag
-    parameter?](#why-in_forward-doesn%E2%80%99t-have-tag-parameter?)
--   [How to parse incoming events?](#how-to-parse-incoming-events?)
--   [I got MessagePack::UnknownExtTypeError error.
-    Why?](#i-got-messagepack::unknownexttypeerror-error.-why?)
 Example Configuration
 ---------------------
 

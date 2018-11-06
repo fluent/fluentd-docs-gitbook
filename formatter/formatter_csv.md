@@ -8,32 +8,6 @@ The `csv` formatter plugin output an event as CSV.
 ```
 
 
-### Table of Contents
-
-[Parameters](#parameters)
-
--   [fields (Array of String, Required. defaults to
-    "\\t"(TAB))](#fields-(array-of-string,-required.-defaults-to-%E2%80%9C%5Ct%E2%80%9D(tab)))
--   [delimiter (String, Optional. defaults to
-    ",")](#delimiter-(string,-optional.-defaults-to-%E2%80%9C,%E2%80%9D))
--   [force\_quotes (Boolean, Optional, defaults to
-    true)](#force_quotes-(boolean,-optional,-defaults-to-true))
--   [add\_newline (Boolean, Optional, defaults to
-    true)](#add_newline-(boolean,-optional,-defaults-to-true))
--   [include\_time\_key (Boolean, Optional, defaults to
-    false)](#include_time_key-(boolean,-optional,-defaults-to-false))
--   [time\_key (String, Optional, defaults to
-    "time")](#time_key-(string,-optional,-defaults-to-%E2%80%9Ctime%E2%80%9D))
--   [time\_format (String. Optional)](#time_format-(string.-optional))
--   [include\_tag\_key (Boolean. Optional, defaults to
-    false)](#include_tag_key-(boolean.-optional,-defaults-to-false))
--   [tag\_key (String, Optional, defaults to
-    "tag")](#tag_key-(string,-optional,-defaults-to-%E2%80%9Ctag%E2%80%9D))
--   [localtime (Boolean. Optional, defaults to
-    true)](#localtime-(boolean.-optional,-defaults-to-true))
--   [timezone (String. Optional)](#timezone-(string.-optional))
-
-[Example](#example)
 Parameters
 ----------
 

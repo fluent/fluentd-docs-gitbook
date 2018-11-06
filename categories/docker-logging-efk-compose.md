@@ -28,20 +28,6 @@ All of `httpd`'s logs will be ingested into Elasticsearch + Kibana, via
 Fluentd.
 
 
-### Table of Contents
-
--   [Prerequisites: Docker](#prerequisites:-docker)
--   [Step 0: prepare
-    docker-compose.yml](#step-0:-prepare-docker-compose.yml)
--   [Step 1: Prepare Fluentd image with your Config +
-    Plugin](#step-1:-prepare-fluentd-image-with-your-config-+-plugin)
--   [Step 2: Start Containers](#step-2:-start-containers)
--   [Step 3: Generate httpd Access
-    Logs](#step-3:-generate-httpd-access-logs)
--   [Step 4: Confirm Logs from
-    Kibana](#step-4:-confirm-logs-from-kibana)
--   [Conclusion](#conclusion)
--   [Learn More](#learn-more)
 Prerequisites: Docker
 ---------------------
 

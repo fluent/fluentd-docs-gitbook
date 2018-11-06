@@ -15,18 +15,6 @@ alternative to Splunk, see the article ["Free Alternative to Splunk
 Using Fluentd"](free-alternative-to-splunk-by-fluentd).
 
 
-### Table of Contents
-
-[Installing the requisites](#installing-the-requisites)
-
-[Configuration](#configuration)
-
--   [Full configuration example](#full-configuration-example)
--   [How this configuration works](#how-this-configuration-works)
-
-[Test the configuration](#test-the-configuration)
-
-[What's next?](#what%E2%80%99s-next?)
 Installing the requisites
 -------------------------
 
