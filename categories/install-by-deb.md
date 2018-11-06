@@ -1,7 +1,5 @@
 
-Versions \| [v1.0 (td-agent3)](/v1.0/articles/install-by-deb) \|
-***v0.12* (td-agent2) **
-------------------------------------------------------------------------
+
 
 Installing Fluentd Using deb Package
 ====================================
@@ -186,10 +184,6 @@ Please refer to the resources below for further steps.
 -   [Chef Cookbook](https://github.com/treasure-data/chef-td-agent/)
 
 
-Last updated: 2016-07-11 22:54:57 UTC
-------------------------------------------------------------------------
-Versions \| [v1.0 (td-agent3)](/v1.0/articles/install-by-deb) \|
-***v0.12* (td-agent2) **
 ------------------------------------------------------------------------
 
 If this article is incorrect or outdated, or omits critical information,

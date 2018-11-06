@@ -1,7 +1,5 @@
 
-Versions \| [v1.0 (td-agent3)](/v1.0/articles/trouble-shooting) \|
-***v0.12* (td-agent2) **
-------------------------------------------------------------------------
+
 
 Troubleshooting Fluentd
 =======================
@@ -111,10 +109,6 @@ $ sudo LD_PRELOAD=/opt/td-agent/embedded/lib/libjemalloc.so /usr/sbin/td-agent -
 ```
 
 
-Last updated: 2016-09-05 20:13:06 UTC
-------------------------------------------------------------------------
-Versions \| [v1.0 (td-agent3)](/v1.0/articles/trouble-shooting) \|
-***v0.12* (td-agent2) **
 ------------------------------------------------------------------------
 
 If this article is incorrect or outdated, or omits critical information,

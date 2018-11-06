@@ -1,7 +1,5 @@
 
-Versions \| [v1.0 (td-agent3)](/v1.0/articles/install-by-rpm) \|
-***v0.12* (td-agent2) **
-------------------------------------------------------------------------
+
 
 Installing Fluentd Using rpm Package
 ====================================
@@ -130,10 +128,6 @@ Please refer to the resources below for further steps.
 -   [Chef Cookbook](https://github.com/treasure-data/chef-td-agent/)
 
 
-Last updated: 2017-01-04 10:42:53 UTC
-------------------------------------------------------------------------
-Versions \| [v1.0 (td-agent3)](/v1.0/articles/install-by-rpm) \|
-***v0.12* (td-agent2) **
 ------------------------------------------------------------------------
 
 If this article is incorrect or outdated, or omits critical information,

@@ -1,7 +1,5 @@
 
-Versions \|
-***v0.12* (td-agent2) **
-------------------------------------------------------------------------
+
 
 Kubernetes Logging with Fluentd
 ===============================
@@ -156,11 +154,8 @@ it. Using the default values assumes that at least an Elasticsearch Pod
 **elasticsearch-logging** exists in the cluster.
 
 
-Last updated: 2017-02-13 20:29:22 UTC
 ------------------------------------------------------------------------
-Versions \|
-***v0.12* (td-agent2) **
-------------------------------------------------------------------------
+
 
 If this article is incorrect or outdated, or omits critical information,
 please [let us

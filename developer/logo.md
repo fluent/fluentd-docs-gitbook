@@ -1,7 +1,5 @@
 
-Versions \| [v1.0 (td-agent3)](/v1.0/articles/logo) \|
-***v0.12*(td-agent2) **
-------------------------------------------------------------------------
+
 
 Fluentd Logos
 =============
@@ -59,10 +57,6 @@ Links
     files](https://github.com/fluent/fluentd-docs/tree/master/public/logo)
 
 
-Last updated: 2016-06-24 05:11:59 UTC
-------------------------------------------------------------------------
-Versions \| [v1.0 (td-agent3)](/v1.0/articles/logo) \|
-***v0.12*(td-agent2) **
 ------------------------------------------------------------------------
 
 If this article is incorrect or outdated, or omits critical information,

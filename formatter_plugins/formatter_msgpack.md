@@ -1,7 +1,5 @@
 
-Versions \| [v1.0 (td-agent3)](/v1.0/articles/formatter_msgpack) \|
-***v0.12* (td-agent2) **
-------------------------------------------------------------------------
+
 
 msgpack Formatter Plugin
 ========================
@@ -101,10 +99,6 @@ With `include_tag_key true` and `tag_key event_tag`, result is:
 ```
 
 
-Last updated: 2018-11-06 18:17:08 +0000
-------------------------------------------------------------------------
-Versions \| [v1.0 (td-agent3)](/v1.0/articles/formatter_msgpack) \|
-***v0.12* (td-agent2) **
 ------------------------------------------------------------------------
 
 If this article is incorrect or outdated, or omits critical information,

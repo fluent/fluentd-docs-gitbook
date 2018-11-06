@@ -1,7 +1,5 @@
 
-Versions \| [v1.0 (td-agent3)](/v1.0/articles/faq) \|
-***v0.12*(td-agent2) **
-------------------------------------------------------------------------
+
 
 FAQ
 ===
@@ -216,10 +214,6 @@ If you do NOT want to write any Regexp, look at [the Grok
 parser](https://github.com/kiyoto/fluent-plugin-grok-parser).
 
 
-Last updated: 2016-12-12 09:43:19 UTC
-------------------------------------------------------------------------
-Versions \| [v1.0 (td-agent3)](/v1.0/articles/faq) \|
-***v0.12*(td-agent2) **
 ------------------------------------------------------------------------
 
 If this article is incorrect or outdated, or omits critical information,

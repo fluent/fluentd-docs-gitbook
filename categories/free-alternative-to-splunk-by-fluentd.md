@@ -1,8 +1,5 @@
 
-Versions \| [v1.0
-(td-agent3)](/v1.0/articles/free-alternative-to-splunk-by-fluentd) \|
-***v0.12* (td-agent2) **
-------------------------------------------------------------------------
+
 
 Free Alternative to Splunk Using Fluentd
 ========================================
@@ -235,12 +232,7 @@ Learn More
 -   [Downloading Fluentd](http://www.fluentd.org/download)
 
 
-Last updated: 2016-12-07 02:27:29 UTC
-------------------------------------------------------------------------
-Versions \| [v1.0
-(td-agent3)](/v1.0/articles/free-alternative-to-splunk-by-fluentd) \|
-***v0.12* (td-agent2) **
-------------------------------------------------------------------------
+
 
 If this article is incorrect or outdated, or omits critical information,
 please [let us

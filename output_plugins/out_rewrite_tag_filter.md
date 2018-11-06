@@ -1,7 +1,5 @@
 
-Versions \| [v1.0 (td-agent3)](/v1.0/articles/out_rewrite_tag_filter) \|
-***v0.12* (td-agent2) **
-------------------------------------------------------------------------
+
 
 rewrite\_tag\_filter Output Plugin
 ==================================
@@ -462,10 +460,6 @@ tag like below:
 ```
 
 
-Last updated: 2016-12-08 03:25:57 UTC
-------------------------------------------------------------------------
-Versions \| [v1.0 (td-agent3)](/v1.0/articles/out_rewrite_tag_filter) \|
-***v0.12* (td-agent2) **
 ------------------------------------------------------------------------
 
 If this article is incorrect or outdated, or omits critical information,

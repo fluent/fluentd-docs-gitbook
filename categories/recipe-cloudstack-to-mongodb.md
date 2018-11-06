@@ -1,7 +1,5 @@
 
-Versions \|
-***v0.12* (td-agent2) **
-------------------------------------------------------------------------
+
 
 Storing CloudStack Logs into MongoDB
 ====================================
@@ -288,11 +286,8 @@ We leave it to you to learn the MongoDB query syntax and the great
 aggregation framework, have fun.
 
 
-Last updated: 2016-06-13 06:11:23 UTC
 ------------------------------------------------------------------------
-Versions \|
-***v0.12* (td-agent2) **
-------------------------------------------------------------------------
+
 
 If this article is incorrect or outdated, or omits critical information,
 please [let us

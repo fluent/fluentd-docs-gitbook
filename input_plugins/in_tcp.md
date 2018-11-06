@@ -1,7 +1,5 @@
 
-Versions \| [v1.0 (td-agent3)](/v1.0/articles/in_tcp) \|
-***v0.12*(td-agent2) **
-------------------------------------------------------------------------
+
 
 TCP Input Plugin
 ================
@@ -127,10 +125,6 @@ logging for each plugin. The supported log levels are: `fatal`, `error`,
 Please see the [logging article](logging) for further details.
 
 
-Last updated: 2016-10-21 06:29:58 UTC
-------------------------------------------------------------------------
-Versions \| [v1.0 (td-agent3)](/v1.0/articles/in_tcp) \|
-***v0.12*(td-agent2) **
 ------------------------------------------------------------------------
 
 If this article is incorrect or outdated, or omits critical information,

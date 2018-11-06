@@ -1,7 +1,5 @@
 
-Versions \| [v1.0 (td-agent3)](/v1.0/articles/filter-plugin-overview) \|
-***v0.12* (td-agent2) **
-------------------------------------------------------------------------
+
 
 Filter Plugin Overview
 ======================
@@ -78,10 +76,6 @@ List of Filter Plugins
 -   [filter\_stdout](filter_stdout)
 
 
-Last updated: 2016-04-10 18:48:58 UTC
-------------------------------------------------------------------------
-Versions \| [v1.0 (td-agent3)](/v1.0/articles/filter-plugin-overview) \|
-***v0.12* (td-agent2) **
 ------------------------------------------------------------------------
 
 If this article is incorrect or outdated, or omits critical information,

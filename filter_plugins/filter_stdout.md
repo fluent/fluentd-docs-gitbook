@@ -1,7 +1,5 @@
 
-Versions \| [v1.0 (td-agent3)](/v1.0/articles/filter_stdout) \|
-***v0.12* (td-agent2) **
-------------------------------------------------------------------------
+
 
 stdout Filter Plugin
 ====================
@@ -373,10 +371,6 @@ Learn More
 -   [Filter Plugin Overview](filter-plugin-overview)
 
 
-Last updated: 2016-10-21 06:29:58 UTC
-------------------------------------------------------------------------
-Versions \| [v1.0 (td-agent3)](/v1.0/articles/filter_stdout) \|
-***v0.12* (td-agent2) **
 ------------------------------------------------------------------------
 
 If this article is incorrect or outdated, or omits critical information,

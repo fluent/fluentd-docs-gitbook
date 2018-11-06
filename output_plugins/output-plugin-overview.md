@@ -1,7 +1,5 @@
 
-Versions \| [v1.0 (td-agent3)](/v1.0/articles/output-plugin-overview) \|
-***v0.12* (td-agent2) **
-------------------------------------------------------------------------
+
 
 Output Plugin Overview
 ======================
@@ -276,10 +274,6 @@ The default is 1.
 Same as Buffered Output but default value is changed to `40.0` seconds.
 
 
-Last updated: 2015-10-11 06:06:16 UTC
-------------------------------------------------------------------------
-Versions \| [v1.0 (td-agent3)](/v1.0/articles/output-plugin-overview) \|
-***v0.12* (td-agent2) **
 ------------------------------------------------------------------------
 
 If this article is incorrect or outdated, or omits critical information,

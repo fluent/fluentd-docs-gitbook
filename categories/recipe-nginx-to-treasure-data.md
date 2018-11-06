@@ -1,7 +1,5 @@
 
-Versions \|
-***v0.12* (td-agent2) **
-------------------------------------------------------------------------
+
 
 Getting Data From Nginx Into Treasure Data Using Fluentd
 ========================================================
@@ -55,11 +53,8 @@ enterprise version of Fluentd packaged and maintained by [Treasure Data,
 Inc.](//www.treasure-data.com).
 
 
-Last updated: 2016-06-13 06:11:23 UTC
 ------------------------------------------------------------------------
-Versions \|
-***v0.12* (td-agent2) **
-------------------------------------------------------------------------
+
 
 If this article is incorrect or outdated, or omits critical information,
 please [let us

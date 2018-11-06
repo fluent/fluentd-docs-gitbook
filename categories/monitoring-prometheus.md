@@ -1,7 +1,5 @@
 
-Versions \| [v1.0 (td-agent3)](/v1.0/articles/monitoring-prometheus) \|
-***v0.12* (td-agent2) **
-------------------------------------------------------------------------
+
 
 Monitoring Fluentd (Prometheus)
 ===============================
@@ -323,10 +321,6 @@ Further Readings
 -   [Grafana Documentation](http://docs.grafana.org/)
 
 
-Last updated: 2018-11-06 18:13:43 +0000
-------------------------------------------------------------------------
-Versions \| [v1.0 (td-agent3)](/v1.0/articles/monitoring-prometheus) \|
-***v0.12* (td-agent2) **
 ------------------------------------------------------------------------
 
 If this article is incorrect or outdated, or omits critical information,

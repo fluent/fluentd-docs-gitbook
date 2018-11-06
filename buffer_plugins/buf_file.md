@@ -1,7 +1,5 @@
 
-Versions \| [v1.0 (td-agent3)](/v1.0/articles/buf_file) \|
-***v0.12*(td-agent2) **
-------------------------------------------------------------------------
+
 
 file Buffer Plugin
 ==================
@@ -112,10 +110,6 @@ GlusterFS, HDFS and etc. We observed major data loss by using remote
 file system.
 
 
-Last updated: 2016-12-07 10:53:25 UTC
-------------------------------------------------------------------------
-Versions \| [v1.0 (td-agent3)](/v1.0/articles/buf_file) \|
-***v0.12*(td-agent2) **
 ------------------------------------------------------------------------
 
 If this article is incorrect or outdated, or omits critical information,

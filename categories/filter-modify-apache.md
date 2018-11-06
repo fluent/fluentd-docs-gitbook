@@ -1,7 +1,5 @@
 
-Versions \| [v1.0 (td-agent3)](/v1.0/articles/filter-modify-apache) \|
-***v0.12* (td-agent2) **
-------------------------------------------------------------------------
+
 
 Easy Data Stream Manipulation using Fluentd
 ===========================================
@@ -142,10 +140,6 @@ the Fluentd instance is running on (in this example, our server's name
 is "our\_server").
 
 
-Last updated: 2016-07-01 09:50:35 UTC
-------------------------------------------------------------------------
-Versions \| [v1.0 (td-agent3)](/v1.0/articles/filter-modify-apache) \|
-***v0.12* (td-agent2) **
 ------------------------------------------------------------------------
 
 If this article is incorrect or outdated, or omits critical information,

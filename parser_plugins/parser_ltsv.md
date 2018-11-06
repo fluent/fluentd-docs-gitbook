@@ -1,7 +1,5 @@
 
-Versions \| [v1.0 (td-agent3)](/v1.0/articles/parser_ltsv) \|
-***v0.12*(td-agent2) **
-------------------------------------------------------------------------
+
 
 LTSV Parser Plugin
 ==================
@@ -130,10 +128,6 @@ If you set `null_value_pattern '-'` in the configuration, `user` field
 becomes `nil` instead of `"-"`.
 
 
-Last updated: 2018-11-06 18:16:35 +0000
-------------------------------------------------------------------------
-Versions \| [v1.0 (td-agent3)](/v1.0/articles/parser_ltsv) \|
-***v0.12*(td-agent2) **
 ------------------------------------------------------------------------
 
 If this article is incorrect or outdated, or omits critical information,

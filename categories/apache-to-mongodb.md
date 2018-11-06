@@ -1,7 +1,5 @@
 
-Versions \| [v1.0 (td-agent3)](/v1.0/articles/apache-to-mongodb) \|
-***v0.12* (td-agent2) **
-------------------------------------------------------------------------
+
 
 Store Apache Logs into MongoDB
 ==============================
@@ -201,10 +199,6 @@ Learn More
 -   [MongoDB ReplicaSet Output Plugin](out_mongo_replset)
 
 
-Last updated: 2016-02-22 23:29:31 UTC
-------------------------------------------------------------------------
-Versions \| [v1.0 (td-agent3)](/v1.0/articles/apache-to-mongodb) \|
-***v0.12* (td-agent2) **
 ------------------------------------------------------------------------
 
 If this article is incorrect or outdated, or omits critical information,

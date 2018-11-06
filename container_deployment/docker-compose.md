@@ -224,11 +224,8 @@ Learn More
 -   [Downloading Fluentd](http://www.fluentd.org/download)
 
 
-Last updated: 2017-02-10 20:45:52 UTC
 ------------------------------------------------------------------------
-Versions \|
-***v0.12* (td-agent2) **
-------------------------------------------------------------------------
+
 
 If this article is incorrect or outdated, or omits critical information,
 please [let us

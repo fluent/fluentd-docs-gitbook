@@ -1,7 +1,5 @@
 
-Versions \| [v1.0 (td-agent3)](/v1.0/articles/out_s3) \|
-***v0.12*(td-agent2) **
-------------------------------------------------------------------------
+
 
 Amazon S3 Output Plugin
 =======================
@@ -325,10 +323,6 @@ to know about other configurations, please check the link below.
     repository](https://github.com/fluent/fluent-plugin-s3)
 
 
-Last updated: 2016-12-14 15:07:04 UTC
-------------------------------------------------------------------------
-Versions \| [v1.0 (td-agent3)](/v1.0/articles/out_s3) \|
-***v0.12*(td-agent2) **
 ------------------------------------------------------------------------
 
 If this article is incorrect or outdated, or omits critical information,

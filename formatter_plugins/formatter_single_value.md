@@ -1,7 +1,5 @@
 
-Versions \| [v1.0 (td-agent3)](/v1.0/articles/formatter_single_value) \|
-***v0.12* (td-agent2) **
-------------------------------------------------------------------------
+
 
 single\_value Formatter Plugin
 ==============================
@@ -51,10 +49,6 @@ Hello from Fluentd!\n
 ```
 
 
-Last updated: 2018-11-06 18:17:13 +0000
-------------------------------------------------------------------------
-Versions \| [v1.0 (td-agent3)](/v1.0/articles/formatter_single_value) \|
-***v0.12* (td-agent2) **
 ------------------------------------------------------------------------
 
 If this article is incorrect or outdated, or omits critical information,

@@ -1,7 +1,5 @@
 
-Versions \| [v1.0 (td-agent3)](/v1.0/articles/filter_parser) \|
-***v0.12* (td-agent2) **
-------------------------------------------------------------------------
+
 
 parser Filter Plugin
 ====================
@@ -171,10 +169,6 @@ Learn More
 -   [Filter Plugin Overview](filter-plugin-overview)
 
 
-Last updated: 2017-03-16 10:36:00 UTC
-------------------------------------------------------------------------
-Versions \| [v1.0 (td-agent3)](/v1.0/articles/filter_parser) \|
-***v0.12* (td-agent2) **
 ------------------------------------------------------------------------
 
 If this article is incorrect or outdated, or omits critical information,

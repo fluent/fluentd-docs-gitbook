@@ -1,7 +1,5 @@
 
-Versions \| [v1.0 (td-agent3)](/v1.0/articles/input-plugin-overview) \|
-***v0.12* (td-agent2) **
-------------------------------------------------------------------------
+
 
 Input Plugin Overview
 =====================
@@ -45,10 +43,6 @@ Input plugins.
 -   [Fluentd plugins](http://fluentd.org/plugin/)
 
 
-Last updated: 2017-04-17 07:04:27 UTC
-------------------------------------------------------------------------
-Versions \| [v1.0 (td-agent3)](/v1.0/articles/input-plugin-overview) \|
-***v0.12* (td-agent2) **
 ------------------------------------------------------------------------
 
 If this article is incorrect or outdated, or omits critical information,

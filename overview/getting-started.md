@@ -79,10 +79,6 @@ learn more about Fluentd.
 -   [FAQ](faq)
 
 
-Last updated: 2017-03-08 14:51:05 UTC
-------------------------------------------------------------------------
-Versions \| [v1.0 (td-agent3)](/v1.0/articles/quickstart) \|
-***v0.12*(td-agent2) **
 ------------------------------------------------------------------------
 
 If this article is incorrect or outdated, or omits critical information,

@@ -1,7 +1,5 @@
 
-Versions \|
-***v0.12* (td-agent2) **
-------------------------------------------------------------------------
+
 
 Performance Tuning (Multi Process)
 ==================================
@@ -177,11 +175,8 @@ Fluentd v1.0 or later has native multi-process support. We recommend you
 to upgrade to simplify the config file if possible.
 
 
-Last updated: 2018-11-06 18:14:03 +0000
 ------------------------------------------------------------------------
-Versions \|
-***v0.12* (td-agent2) **
-------------------------------------------------------------------------
+
 
 If this article is incorrect or outdated, or omits critical information,
 please [let us

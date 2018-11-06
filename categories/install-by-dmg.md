@@ -1,7 +1,5 @@
 
-Versions \| [v1.0 (td-agent3)](/v1.0/articles/install-by-dmg) \|
-***v0.12* (td-agent2) **
-------------------------------------------------------------------------
+
 
 Installing Fluentd using .dmg Installer (MacOS X)
 =================================================
@@ -113,10 +111,6 @@ Please refer to the resources below for further steps.
 -   [Chef Cookbook](https://github.com/treasure-data/chef-td-agent/)
 
 
-Last updated: 2016-10-21 06:12:48 UTC
-------------------------------------------------------------------------
-Versions \| [v1.0 (td-agent3)](/v1.0/articles/install-by-dmg) \|
-***v0.12* (td-agent2) **
 ------------------------------------------------------------------------
 
 If this article is incorrect or outdated, or omits critical information,

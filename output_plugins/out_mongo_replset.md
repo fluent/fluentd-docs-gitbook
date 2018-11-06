@@ -1,7 +1,5 @@
 
-Versions \| [v1.0 (td-agent3)](/v1.0/articles/out_mongo_replset) \|
-***v0.12* (td-agent2) **
-------------------------------------------------------------------------
+
 
 MongoDB ReplicaSet Output Plugin
 ================================
@@ -267,10 +265,6 @@ Further Readings
     mongo](https://github.com/fluent/fluent-plugin-mongo)
 
 
-Last updated: 2015-12-01 21:20:32 UTC
-------------------------------------------------------------------------
-Versions \| [v1.0 (td-agent3)](/v1.0/articles/out_mongo_replset) \|
-***v0.12* (td-agent2) **
 ------------------------------------------------------------------------
 
 If this article is incorrect or outdated, or omits critical information,

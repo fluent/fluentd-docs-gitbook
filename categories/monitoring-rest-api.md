@@ -1,7 +1,5 @@
 
-Versions \| [v1.0 (td-agent3)](/v1.0/articles/monitoring-rest-api) \|
-***v0.12* (td-agent2) **
-------------------------------------------------------------------------
+
 
 Monitoring Fluentd (REST API)
 =============================
@@ -103,10 +101,6 @@ Please refer this documentation for more details.
     Integration](http://docs.datadoghq.com/integrations/fluentd/)
 
 
-Last updated: 2018-11-06 12:46:50 +0000
-------------------------------------------------------------------------
-Versions \| [v1.0 (td-agent3)](/v1.0/articles/monitoring-rest-api) \|
-***v0.12* (td-agent2) **
 ------------------------------------------------------------------------
 
 If this article is incorrect or outdated, or omits critical information,

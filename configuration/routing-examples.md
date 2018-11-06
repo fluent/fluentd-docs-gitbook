@@ -1,7 +1,5 @@
 
-Versions \| [v1.0 (td-agent3)](/v1.0/articles/routing-examples) \|
-***v0.12* (td-agent2) **
-------------------------------------------------------------------------
+
 
 Routing Examples
 ================
@@ -212,10 +210,6 @@ events to Label. No tag rewrite.
 ```
 
 
-Last updated: 2016-12-08 02:03:30 UTC
-------------------------------------------------------------------------
-Versions \| [v1.0 (td-agent3)](/v1.0/articles/routing-examples) \|
-***v0.12* (td-agent2) **
 ------------------------------------------------------------------------
 
 If this article is incorrect or outdated, or omits critical information,

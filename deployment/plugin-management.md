@@ -1,7 +1,5 @@
 
-Versions \| [v1.0 (td-agent3)](/v1.0/articles/plugin-management) \|
-***v0.12* (td-agent2) **
-------------------------------------------------------------------------
+
 
 Plugin Management
 =================
@@ -174,10 +172,6 @@ re-install the listed gems for the new Ruby version. This allows you to
 avoid the C extension API compatibility problem.
 
 
-Last updated: 2017-04-17 12:58:47 UTC
-------------------------------------------------------------------------
-Versions \| [v1.0 (td-agent3)](/v1.0/articles/plugin-management) \|
-***v0.12* (td-agent2) **
 ------------------------------------------------------------------------
 
 If this article is incorrect or outdated, or omits critical information,

@@ -279,11 +279,8 @@ tools as well.
     Overview](https://kubernetes.io/docs/user-guide/logging/overview/)
 
 
-Last updated: 2017-01-30 13:27:02 UTC
 ------------------------------------------------------------------------
-Versions \|
-***v0.12* (td-agent2) **
-------------------------------------------------------------------------
+
 
 If this article is incorrect or outdated, or omits critical information,
 please [let us

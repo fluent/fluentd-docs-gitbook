@@ -1,7 +1,5 @@
 
-Versions \| [v1.0 (td-agent3)](/v1.0/articles/buffer-plugin-overview) \|
-***v0.12* (td-agent2) **
-------------------------------------------------------------------------
+
 
 Buffer Plugin Overview
 ======================
@@ -205,10 +203,6 @@ List of Buffer Plugins
 -   [buf\_file](buf_file)
 
 
-Last updated: 2016-12-07 08:32:02 UTC
-------------------------------------------------------------------------
-Versions \| [v1.0 (td-agent3)](/v1.0/articles/buffer-plugin-overview) \|
-***v0.12* (td-agent2) **
 ------------------------------------------------------------------------
 
 If this article is incorrect or outdated, or omits critical information,

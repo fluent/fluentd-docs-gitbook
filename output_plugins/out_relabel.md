@@ -1,7 +1,5 @@
 
-Versions \| [v1.0 (td-agent3)](/v1.0/articles/out_relabel) \|
-***v0.12*(td-agent2) **
-------------------------------------------------------------------------
+
 
 relabel Output Plugin
 =====================
@@ -63,10 +61,6 @@ logging for each plugin. The supported log levels are: `fatal`, `error`,
 Please see the [logging article](logging) for further details.
 
 
-Last updated: 2015-12-01 21:20:32 UTC
-------------------------------------------------------------------------
-Versions \| [v1.0 (td-agent3)](/v1.0/articles/out_relabel) \|
-***v0.12*(td-agent2) **
 ------------------------------------------------------------------------
 
 If this article is incorrect or outdated, or omits critical information,

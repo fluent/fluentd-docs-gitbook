@@ -1,7 +1,5 @@
 
-Versions \| [v1.0 (td-agent3)](/v1.0/articles/out_exec_filter) \|
-***v0.12* (td-agent2) **
-------------------------------------------------------------------------
+
 
 exec\_filter Output Plugin
 ==========================
@@ -267,10 +265,6 @@ If you want to use other language, translate above script example into
 your language.
 
 
-Last updated: 2016-04-12 21:53:18 UTC
-------------------------------------------------------------------------
-Versions \| [v1.0 (td-agent3)](/v1.0/articles/out_exec_filter) \|
-***v0.12* (td-agent2) **
 ------------------------------------------------------------------------
 
 If this article is incorrect or outdated, or omits critical information,

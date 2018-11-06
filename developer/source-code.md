@@ -1,7 +1,5 @@
 
-Versions \| [v1.0 (td-agent3)](/v1.0/articles/source-code) \|
-***v0.12*(td-agent2) **
-------------------------------------------------------------------------
+
 
 Source Code
 ===========
@@ -13,10 +11,6 @@ can be found [here](https://github.com/fluent/).
 -   [github.com/fluent/fluentd](http://github.com/fluent/fluentd)
 
 
-Last updated: 2016-06-06 04:47:13 UTC
-------------------------------------------------------------------------
-Versions \| [v1.0 (td-agent3)](/v1.0/articles/source-code) \|
-***v0.12*(td-agent2) **
 ------------------------------------------------------------------------
 
 If this article is incorrect or outdated, or omits critical information,

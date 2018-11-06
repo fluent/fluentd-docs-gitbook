@@ -1,7 +1,5 @@
 
-Versions \| [v1.0 (td-agent3)](/v1.0/articles/in_syslog) \|
-***v0.12*(td-agent2) **
-------------------------------------------------------------------------
+
 
 syslog Input Plugin
 ===================
@@ -201,10 +199,6 @@ with `protocol_type tcp`, add `\n` to your syslog message.\
 See also [rfc6587](https://tools.ietf.org/html/rfc6587#section-3.4.2).
 
 
-Last updated: 2017-03-22 14:37:02 UTC
-------------------------------------------------------------------------
-Versions \| [v1.0 (td-agent3)](/v1.0/articles/in_syslog) \|
-***v0.12*(td-agent2) **
 ------------------------------------------------------------------------
 
 If this article is incorrect or outdated, or omits critical information,

@@ -1,8 +1,5 @@
 
-Versions \| [v1.0
-(td-agent3)](/v1.0/articles/performance-tuning-single-process) \|
-***v0.12* (td-agent2) **
-------------------------------------------------------------------------
+
 
 Performance Tuning (Single Process)
 ===================================
@@ -136,12 +133,7 @@ recommend using the `in_multiprocess` plugin.
     Process)](performance-tuning-multi-process)
 
 
-Last updated: 2018-11-06 18:14:00 +0000
-------------------------------------------------------------------------
-Versions \| [v1.0
-(td-agent3)](/v1.0/articles/performance-tuning-single-process) \|
-***v0.12* (td-agent2) **
-------------------------------------------------------------------------
+
 
 If this article is incorrect or outdated, or omits critical information,
 please [let us

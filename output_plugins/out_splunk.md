@@ -1,7 +1,5 @@
 
-Versions \|
-***v0.12* (td-agent2) **
-------------------------------------------------------------------------
+
 
 Splunk Enterprise and Splunk Cloud output plugin
 ================================================
@@ -12,11 +10,8 @@ Splunk HTTP Event Collector or send data to Splunk Enterprise via TCP.
 Visit https://github.com/fluent/fluent-plugin-splunk for details.
 
 
-Last updated: 2018-11-06 18:15:44 +0000
 ------------------------------------------------------------------------
-Versions \|
-***v0.12* (td-agent2) **
-------------------------------------------------------------------------
+
 
 If this article is incorrect or outdated, or omits critical information,
 please [let us

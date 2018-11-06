@@ -1,7 +1,5 @@
 
-Versions \| [v1.0 (td-agent3)](/v1.0/articles/failure-scenarios) \|
-***v0.12* (td-agent2) **
-------------------------------------------------------------------------
+
 
 Failure Scenarios
 =================
@@ -77,10 +75,6 @@ accepting new logs once they reach their buffer limits. If you're using
 they run out of disk space.
 
 
-Last updated: 2016-06-06 04:47:13 UTC
-------------------------------------------------------------------------
-Versions \| [v1.0 (td-agent3)](/v1.0/articles/failure-scenarios) \|
-***v0.12* (td-agent2) **
 ------------------------------------------------------------------------
 
 If this article is incorrect or outdated, or omits critical information,

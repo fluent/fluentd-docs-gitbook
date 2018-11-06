@@ -1,7 +1,5 @@
 
-Versions \| [v1.0 (td-agent3)](/v1.0/articles/http-to-hdfs) \|
-***v0.12*(td-agent2) **
-------------------------------------------------------------------------
+
 
 Fluentd + HDFS: Instant Big Data Collection
 ===========================================
@@ -192,10 +190,6 @@ Learn More
     WebHDFS](http://www.slideshare.net/tagomoris/fluentd-and-webhdfs)
 
 
-Last updated: 2016-07-01 09:50:35 UTC
-------------------------------------------------------------------------
-Versions \| [v1.0 (td-agent3)](/v1.0/articles/http-to-hdfs) \|
-***v0.12*(td-agent2) **
 ------------------------------------------------------------------------
 
 If this article is incorrect or outdated, or omits critical information,

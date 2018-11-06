@@ -1,7 +1,5 @@
 
-Versions \| [v1.0 (td-agent3)](/v1.0/articles/command-line-option) \|
-***v0.12* (td-agent2) **
-------------------------------------------------------------------------
+
 
 Fluentd command line option
 ===========================
@@ -121,10 +119,6 @@ Send to other machine:
 ```
 
 
-Last updated: 2017-01-25 02:58:15 UTC
-------------------------------------------------------------------------
-Versions \| [v1.0 (td-agent3)](/v1.0/articles/command-line-option) \|
-***v0.12* (td-agent2) **
 ------------------------------------------------------------------------
 
 If this article is incorrect or outdated, or omits critical information,

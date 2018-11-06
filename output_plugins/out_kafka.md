@@ -1,7 +1,5 @@
 
-Versions \|
-***v0.12* (td-agent2) **
-------------------------------------------------------------------------
+
 
 Apache Kafka Output Plugin
 ==========================
@@ -227,11 +225,8 @@ to know about other configurations, please check the link below.
     repository](https://github.com/fluent/fluent-plugin-kafka)
 
 
-Last updated: 2017-01-28 07:34:32 UTC
 ------------------------------------------------------------------------
-Versions \|
-***v0.12* (td-agent2) **
-------------------------------------------------------------------------
+
 
 If this article is incorrect or outdated, or omits critical information,
 please [let us

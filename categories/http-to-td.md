@@ -1,7 +1,5 @@
 
-Versions \| [v1.0 (td-agent3)](/v1.0/articles/http-to-td) \|
-***v0.12*(td-agent2) **
-------------------------------------------------------------------------
+
 
 Cloud Big Data Analytics with Treasure Data
 ===========================================
@@ -196,10 +194,6 @@ Learn More
 -   [Treasure Data: Documentation](http://docs.treasuredata.com/)
 
 
-Last updated: 2015-12-01 21:20:32 UTC
-------------------------------------------------------------------------
-Versions \| [v1.0 (td-agent3)](/v1.0/articles/http-to-td) \|
-***v0.12*(td-agent2) **
 ------------------------------------------------------------------------
 
 If this article is incorrect or outdated, or omits critical information,

@@ -1,8 +1,5 @@
 
-Versions \| [v1.0 (td-agent3)](/v1.0/articles/filter_record_transformer)
-\|
-***v0.12* (td-agent2) **
-------------------------------------------------------------------------
+
 
 record\_transformer Filter Plugin
 =================================
@@ -271,12 +268,7 @@ Learn More
 -   [Filter Plugin Overview](filter-plugin-overview)
 
 
-Last updated: 2017-03-28 08:14:54 UTC
-------------------------------------------------------------------------
-Versions \| [v1.0 (td-agent3)](/v1.0/articles/filter_record_transformer)
-\|
-***v0.12* (td-agent2) **
-------------------------------------------------------------------------
+
 
 If this article is incorrect or outdated, or omits critical information,
 please [let us

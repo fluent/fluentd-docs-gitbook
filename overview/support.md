@@ -1,7 +1,5 @@
 
-Versions \| [v1.0 (td-agent3)](/v1.0/articles/support) \|
-***v0.12*(td-agent2) **
-------------------------------------------------------------------------
+
 
 Support
 =======
@@ -28,10 +26,6 @@ directly, now.
 -   [Slack](http://slack.fluentd.org/)
 
 
-Last updated: 2016-06-06 04:47:13 UTC
-------------------------------------------------------------------------
-Versions \| [v1.0 (td-agent3)](/v1.0/articles/support) \|
-***v0.12*(td-agent2) **
 ------------------------------------------------------------------------
 
 If this article is incorrect or outdated, or omits critical information,

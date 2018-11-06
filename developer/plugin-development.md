@@ -1,7 +1,5 @@
 
-Versions \| [v1.0 (td-agent3)](/v1.0/articles/plugin-development) \|
-***v0.12* (td-agent2) **
-------------------------------------------------------------------------
+
 
 Writing plugins
 ===============
@@ -820,10 +818,6 @@ Further Reading
     Plugin](http://www.slideshare.net/repeatedly/dive-into-fluentd-plugin-v012)
 
 
-Last updated: 2017-03-02 23:21:14 UTC
-------------------------------------------------------------------------
-Versions \| [v1.0 (td-agent3)](/v1.0/articles/plugin-development) \|
-***v0.12* (td-agent2) **
 ------------------------------------------------------------------------
 
 If this article is incorrect or outdated, or omits critical information,

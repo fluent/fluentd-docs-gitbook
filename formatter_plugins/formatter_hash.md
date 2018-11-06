@@ -1,7 +1,5 @@
 
-Versions \| [v1.0 (td-agent3)](/v1.0/articles/formatter_hash) \|
-***v0.12* (td-agent2) **
-------------------------------------------------------------------------
+
 
 hash Formatter Plugin
 =====================
@@ -104,10 +102,6 @@ This incoming event is formatted to:
 ```
 
 
-Last updated: 2018-11-06 18:17:11 +0000
-------------------------------------------------------------------------
-Versions \| [v1.0 (td-agent3)](/v1.0/articles/formatter_hash) \|
-***v0.12* (td-agent2) **
 ------------------------------------------------------------------------
 
 If this article is incorrect or outdated, or omits critical information,

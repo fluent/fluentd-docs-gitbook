@@ -1,7 +1,5 @@
 
-Versions \| [v1.0 (td-agent3)](/v1.0/articles/parser-plugin-overview) \|
-***v0.12* (td-agent2) **
-------------------------------------------------------------------------
+
 
 Parser Plugin Overview
 ======================
@@ -89,10 +87,6 @@ with `format` parameter.
 -   [in\_http](in_http)
 
 
-Last updated: 2016-04-29 16:26:52 UTC
-------------------------------------------------------------------------
-Versions \| [v1.0 (td-agent3)](/v1.0/articles/parser-plugin-overview) \|
-***v0.12* (td-agent2) **
 ------------------------------------------------------------------------
 
 If this article is incorrect or outdated, or omits critical information,

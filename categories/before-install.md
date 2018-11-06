@@ -1,7 +1,5 @@
 
-Versions \| [v1.0 (td-agent3)](/v1.0/articles/before-install) \|
-***v0.12* (td-agent2) **
-------------------------------------------------------------------------
+
 
 Before Installing Fluentd
 =========================
@@ -89,10 +87,6 @@ by [Brendan Gregg](http://www.brendangregg.com/), Senior Performance
 Architect at AWS re:Invent 2017.
 
 
-Last updated: 2017-12-21 06:46:42 UTC
-------------------------------------------------------------------------
-Versions \| [v1.0 (td-agent3)](/v1.0/articles/before-install) \|
-***v0.12* (td-agent2) **
 ------------------------------------------------------------------------
 
 If this article is incorrect or outdated, or omits critical information,

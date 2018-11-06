@@ -1,7 +1,5 @@
 
-Versions \|
-***v0.12* (td-agent2) **
-------------------------------------------------------------------------
+
 
 Secure Forward Input Plugin
 ===========================
@@ -250,11 +248,8 @@ Further Reading
     repository](https://github.com/tagomoris/fluent-plugin-secure-forward)
 
 
-Last updated: 2015-12-01 21:20:32 UTC
 ------------------------------------------------------------------------
-Versions \|
-***v0.12* (td-agent2) **
-------------------------------------------------------------------------
+
 
 If this article is incorrect or outdated, or omits critical information,
 please [let us

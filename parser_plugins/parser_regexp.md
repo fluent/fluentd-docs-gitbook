@@ -1,7 +1,5 @@
 
-Versions \| [v1.0 (td-agent3)](/v1.0/articles/parser_regexp) \|
-***v0.12* (td-agent2) **
-------------------------------------------------------------------------
+
 
 regexp Parser Plugin
 ====================
@@ -140,10 +138,6 @@ plan limitation](https://www.heroku.com/pricing). Retry a few hours
 later or use fluentd-ui instead.
 
 
-Last updated: 2018-11-06 18:16:22 +0000
-------------------------------------------------------------------------
-Versions \| [v1.0 (td-agent3)](/v1.0/articles/parser_regexp) \|
-***v0.12* (td-agent2) **
 ------------------------------------------------------------------------
 
 If this article is incorrect or outdated, or omits critical information,

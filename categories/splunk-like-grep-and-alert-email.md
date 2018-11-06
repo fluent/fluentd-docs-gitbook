@@ -1,8 +1,5 @@
 
-Versions \| [v1.0
-(td-agent3)](/v1.0/articles/splunk-like-grep-and-alert-email) \|
-***v0.12* (td-agent2) **
-------------------------------------------------------------------------
+
 
 Splunk-like Grep-and-Alert-Email System Using Fluentd
 =====================================================
@@ -168,12 +165,7 @@ You can learn more about Fluentd and its plugins by
 -   [signing up for our newsletters](https://www.fluentd.org/newsletter)
 
 
-Last updated: 2015-12-01 21:20:32 UTC
-------------------------------------------------------------------------
-Versions \| [v1.0
-(td-agent3)](/v1.0/articles/splunk-like-grep-and-alert-email) \|
-***v0.12* (td-agent2) **
-------------------------------------------------------------------------
+
 
 If this article is incorrect or outdated, or omits critical information,
 please [let us

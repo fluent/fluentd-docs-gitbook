@@ -1,7 +1,5 @@
 
-Versions \|
-***v0.12* (td-agent2) **
-------------------------------------------------------------------------
+
 
 GeoIP Output Plugin
 ===================
@@ -220,11 +218,8 @@ Further Reading
     repository](https://github.com/y-ken/fluent-plugin-geoip)
 
 
-Last updated: 2016-08-29 20:30:56 UTC
 ------------------------------------------------------------------------
-Versions \|
-***v0.12* (td-agent2) **
-------------------------------------------------------------------------
+
 
 If this article is incorrect or outdated, or omits critical information,
 please [let us

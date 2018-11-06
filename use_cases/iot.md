@@ -134,11 +134,8 @@ Learn More
 -   [Fluentd Get Started](quickstart)
 
 
-Last updated: 2016-06-14 11:55:31 UTC
 ------------------------------------------------------------------------
-Versions \|
-***v0.12* (td-agent2) **
-------------------------------------------------------------------------
+
 
 If this article is incorrect or outdated, or omits critical information,
 please [let us

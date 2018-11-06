@@ -1,7 +1,5 @@
 
-Versions \| [v1.0 (td-agent3)](/v1.0/articles/parser_apache2) \|
-***v0.12* (td-agent2) **
-------------------------------------------------------------------------
+
 
 apache2 Parser Plugin
 =====================
@@ -70,10 +68,6 @@ record:
 ```
 
 
-Last updated: 2018-11-06 18:16:25 +0000
-------------------------------------------------------------------------
-Versions \| [v1.0 (td-agent3)](/v1.0/articles/parser_apache2) \|
-***v0.12* (td-agent2) **
 ------------------------------------------------------------------------
 
 If this article is incorrect or outdated, or omits critical information,

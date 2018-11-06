@@ -1,7 +1,5 @@
 
-Versions \| [v1.0 (td-agent3)](/v1.0/articles/out_forward) \|
-***v0.12*(td-agent2) **
-------------------------------------------------------------------------
+
 
 forward Output Plugin
 =====================
@@ -318,10 +316,6 @@ where VMware will occasionally lose small UDP packets used for
 heartbeat.
 
 
-Last updated: 2015-12-01 21:20:32 UTC
-------------------------------------------------------------------------
-Versions \| [v1.0 (td-agent3)](/v1.0/articles/out_forward) \|
-***v0.12*(td-agent2) **
 ------------------------------------------------------------------------
 
 If this article is incorrect or outdated, or omits critical information,

@@ -1,7 +1,5 @@
 
-Versions \| [v1.0 (td-agent3)](/v1.0/articles/install-by-gem) \|
-***v0.12* (td-agent2) **
-------------------------------------------------------------------------
+
 
 Installing Fluentd Using Ruby Gem
 =================================
@@ -94,10 +92,6 @@ sources.
     -   [Data Collection into HDFS](http-to-hdfs)
 
 
-Last updated: 2017-01-31 02:32:30 UTC
-------------------------------------------------------------------------
-Versions \| [v1.0 (td-agent3)](/v1.0/articles/install-by-gem) \|
-***v0.12* (td-agent2) **
 ------------------------------------------------------------------------
 
 If this article is incorrect or outdated, or omits critical information,

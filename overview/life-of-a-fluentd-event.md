@@ -1,8 +1,5 @@
 
-Versions \| [v1.0 (td-agent3)](/v1.0/articles/life-of-a-fluentd-event)
-\|
-***v0.12* (td-agent2) **
-------------------------------------------------------------------------
+
 
 Life of a Fluentd event
 =======================
@@ -303,12 +300,7 @@ Learn More
     Announcement](http://www.fluentd.org/blog/fluentd-v0.12-is-released)
 
 
-Last updated: 2016-02-01 15:01:24 UTC
-------------------------------------------------------------------------
-Versions \| [v1.0 (td-agent3)](/v1.0/articles/life-of-a-fluentd-event)
-\|
-***v0.12* (td-agent2) **
-------------------------------------------------------------------------
+
 
 If this article is incorrect or outdated, or omits critical information,
 please [let us

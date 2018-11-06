@@ -1,7 +1,5 @@
 
-Versions \|
-***v0.12* (td-agent2) **
-------------------------------------------------------------------------
+
 
 Forwarding Data Over SSL
 ========================
@@ -121,11 +119,8 @@ Resources
     repo](//github.com/fluent/fluent-plugin-secure-forward)
 
 
-Last updated: 2016-07-01 09:50:35 UTC
 ------------------------------------------------------------------------
-Versions \|
-***v0.12* (td-agent2) **
-------------------------------------------------------------------------
+
 
 If this article is incorrect or outdated, or omits critical information,
 please [let us

@@ -1,7 +1,5 @@
 
-Versions \| [v1.0 (td-agent3)](/v1.0/articles/kinesis-stream) \|
-***v0.12* (td-agent2) **
-------------------------------------------------------------------------
+
 
 Collect Log Files into Kinesis Stream in Real-Time
 ==================================================
@@ -235,10 +233,6 @@ Learn More
     by Amazon Web Services)
 
 
-Last updated: 2016-06-28 12:40:54 UTC
-------------------------------------------------------------------------
-Versions \| [v1.0 (td-agent3)](/v1.0/articles/kinesis-stream) \|
-***v0.12* (td-agent2) **
 ------------------------------------------------------------------------
 
 If this article is incorrect or outdated, or omits critical information,
