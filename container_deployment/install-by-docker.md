@@ -103,7 +103,7 @@ related documentations for Fluentd.
     image](https://hub.docker.com/r/fluent/fluentd/)
 -   [Fluentd's official Docker image
     (Source)](https://github.com/fluent/fluentd-docker-image)
--   [Docker Logging Driver and Fluentd](docker-logging)
+-   [Docker Logging Driver and Fluentd](docker-logging.md)
 -   [Docker Logging via EFK (Elasticsearch + Fluentd + Kibana) Stack
     with Docker Compose](docker-logging-efk-compose)
 
@@ -111,14 +111,14 @@ Also, please see the following tutorials to learn how to collect your
 data from various data sources.
 
 -   Basic Configuration
-    -   [Config File](config-file)
+    -   [Config File](config-file.md)
 -   Application Logs
-    -   [Ruby](ruby), [Java](java), [Python](python), [PHP](php),
-        [Perl](perl), [Node.js](nodejs), [Scala](scala)
+    -   [Ruby](ruby), [Java](java), [Python](python.md), [PHP](php.md),
+        [Perl](perl), [Node.js](nodejs.md), [Scala](scala.md)
 -   Examples
     -   [Store Apache Log into Amazon S3](apache-to-s3)
-    -   [Store Apache Log into MongoDB](apache-to-mongodb)
-    -   [Data Collection into HDFS](http-to-hdfs)
+    -   [Store Apache Log into MongoDB](apache-to-mongodb.md)
+    -   [Data Collection into HDFS](http-to-hdfs.md)
 
 
 ------------------------------------------------------------------------

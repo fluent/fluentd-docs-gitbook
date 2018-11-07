@@ -60,10 +60,10 @@ Example Configuration
 </match>
 ```
 
-Please see the [Store Apache Logs into MongoDB](apache-to-mongodb)
+Please see the [Store Apache Logs into MongoDB](apache-to-mongodb.md)
 article for real-world use cases.
 
-Please see the [Config File](config-file) article for the basic
+Please see the [Config File](config-file.md) article for the basic
 structure and syntax of the configuration file.
 
 Parameters
@@ -155,7 +155,7 @@ buffer type, `buffer_path` parameter is required.
 ### buffer\_queue\_limit, buffer\_chunk\_limit
 
 The length of the chunk queue and the size of each chunk, respectively.
-Please see the [Buffer Plugin Overview](buffer-plugin-overview) article
+Please see the [Buffer Plugin Overview](buffer-plugin-overview.md) article
 for the basic buffer structure. The default values are 64 and 8m,
 respectively. The suffixes "k" (KB), "m" (MB), and "g" (GB) can be used
 for buffer\_chunk\_limit.
@@ -214,7 +214,7 @@ The `log_level` option allows the user to set different levels of
 logging for each plugin. The supported log levels are: `fatal`, `error`,
 `warn`, `info`, `debug`, and `trace`.
 
-Please see the [logging article](logging) for further details.
+Please see the [logging article](logging.md) for further details.
 
 Further Reading
 ---------------

@@ -145,7 +145,7 @@ You can rescue unexpected format logs in `@ERROR` label.
 Learn More
 ----------
 
--   [Filter Plugin Overview](filter-plugin-overview)
+-   [Filter Plugin Overview](filter-plugin-overview.md)
 
 
 ------------------------------------------------------------------------

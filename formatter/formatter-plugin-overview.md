@@ -1,10 +1,10 @@
 Text Formatter Overview
 =======================
 
-Fluentd has 6 types of plugins: [Input](input-plugin-overview),
-[Parser](parser-plugin-overview), [Filter](filter-plugin-overview),
-[Output](output-plugin-overview), [Formatter](formatter-plugin-overview)
-and [Buffer](buffer-plugin-overview). This article gives an overview of
+Fluentd has 6 types of plugins: [Input](input-plugin-overview.md),
+[Parser](parser-plugin-overview.md), [Filter](filter-plugin-overview.md),
+[Output](output-plugin-overview), [Formatter](formatter-plugin-overview.md)
+and [Buffer](buffer-plugin-overview.md). This article gives an overview of
 Formatter Plugin.
 
 

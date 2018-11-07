@@ -16,7 +16,7 @@ behavior of Fluentd by (1) selecting input and output plugins and (2)
 specifying the plugin parameters. The file is required for Fluentd to
 operate properly.
 
-See also [Life of a Fluentd Event](life-of-a-fluentd-event) article.
+See also [Life of a Fluentd Event](life-of-a-fluentd-event.md) article.
 
 Config File Location
 --------------------
@@ -49,7 +49,7 @@ For example, `/etc/td-agent/td-agent.conf` is specified via
 
 #### -c option
 
-See [Command Line Option article](command-line-option).
+See [Command Line Option article](command-line-option.md).
 
 Character encoding
 ------------------
@@ -126,7 +126,7 @@ record: {"event":"data"}
 
 You can add new input sources by writing your own plugins. For further
 information regarding Fluentd's input sources, please refer to the
-[Input Plugin Overview](input-plugin-overview) article.
+[Input Plugin Overview](input-plugin-overview.md) article.
 
 (2) "match": Tell fluentd what to do!
 -------------------------------------
@@ -214,7 +214,7 @@ filtered event, `{"event":"data","host_param":"webserver1"}`, goes to
 
 You can also add new filters by writing your own plugins. For further
 information regarding Fluentd's filter destinations, please refer to the
-[Filter Plugin Overview](filter-plugin-overview) article.
+[Filter Plugin Overview](filter-plugin-overview.md) article.
 
 (4) Set system wide configuration: the "system" directive
 ---------------------------------------------------------

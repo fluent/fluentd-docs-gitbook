@@ -97,7 +97,7 @@ the [Tail input plugin](in_tail).
 
 -   GlusterFS Logs
 
-    Use the [GlusterFS input plugin.](collect-glusterfs-logs)
+    Use the [GlusterFS input plugin.](collect-glusterfs-logs.md)
 
 ### Do you not see what you are looking for?
 

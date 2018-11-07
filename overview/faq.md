@@ -82,7 +82,7 @@ export PATH=$PATH:/opt/td-agent/embedded/bin/
 to your `~/.bash_profile`.
 
 If you would like to find out more about plugin management, please take
-a look at the [Plugin Management](/articles/plugin-management) article.
+a look at the [Plugin Management](/articles/plugin-management.md) article.
 
 ### I installed the plugin and it updates fluentd from v0.12 to v1.x. Why?
 
@@ -122,7 +122,7 @@ This means you emit the event but no `<match>` directive for emitted
 event. For example, if you emit the event with `foo.bar` tag, you need
 to define `<match>` for `foo.bar` tag like `<match foo.**>`.
 
-See also: [Life of a Fluentd event](life-of-a-fluentd-event) or [Config
+See also: [Life of a Fluentd event](life-of-a-fluentd-event.md) or [Config
 File](config-file)
 
 ### File buffer doesn't work properly, why?

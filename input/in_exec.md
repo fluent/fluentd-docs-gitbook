@@ -26,7 +26,7 @@ process is required.
   run_interval 10s
 </source>
 ```
-Please see the [Config File](config-file) article for the basic
+Please see the [Config File](config-file.md) article for the basic
 structure and syntax of the configuration file.
 
 Parameters
@@ -49,7 +49,7 @@ The following formats are supported:
 -   tsv (default)
 -   json
 -   msgpack
--   [parser plugin formats](parser-plugin-overview), e.g. ltsv, none.
+-   [parser plugin formats](parser-plugin-overview.md), e.g. ltsv, none.
 
 When using the tsv format, please also specify the comma-separated
 `keys` parameter.
@@ -94,7 +94,7 @@ The `log_level` option allows the user to set different levels of
 logging for each plugin. The supported log levels are: `fatal`, `error`,
 `warn`, `info`, `debug`, and `trace`.
 
-Please see the [logging article](logging) for further details.
+Please see the [logging article](logging.md) for further details.
 
 Real World Use Case: using in\_exec to scrape Hacker News Top Page
 ------------------------------------------------------------------
@@ -139,8 +139,8 @@ you are impatient, ctrl-C to flush the stdout buffer)
 
 Of course, you can use Fluentd's many output plugins to store the data
 into various backend systems like
-[Elasticsearch](free-alternative-to-splunk-by-fluentd),
-[HDFS](http-to-hdfs), [MongoDB](apache-to-mongodb), [AWS](apache-to-s3),
+[Elasticsearch](free-alternative-to-splunk-by-fluentd.md),
+[HDFS](http-to-hdfs.md), [MongoDB](apache-to-mongodb.md), [AWS](apache-to-s3),
 etc.
 
 

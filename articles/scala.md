@@ -20,10 +20,10 @@ Installing Fluentd
 
 Please refer to the following documents to install fluentd.
 
--   [Install Fluentd with rpm Package](install-by-rpm)
--   [Install Fluentd with deb Package](install-by-deb)
--   [Install Fluentd with Ruby Gem](install-by-gem)
--   [Install Fluentd from source](install-from-source)
+-   [Install Fluentd with rpm Package](install-by-rpm.md)
+-   [Install Fluentd with deb Package](install-by-deb.md)
+-   [Install Fluentd with Ruby Gem](install-by-gem.md)
+-   [Install Fluentd from source](install-from-source.md)
 
 Modifying the Config File
 -------------------------
@@ -83,7 +83,7 @@ object Sample {
   def main(args: Array[String]): Unit = {
 
     ...
-    val data = new HashMap[String, String]();
+    val data = new HashMap[String, String](.md);
     data.put("from", "userA");
     data.put("to", "userB");
     LOG.log("follow", data);
@@ -108,13 +108,13 @@ Production Deployments
 
 ### Output Plugins
 
-Various [output plugins](output-plugin-overview) are available for
+Various [output plugins](output-plugin-overview.md) are available for
 writing records to other destinations:
 
 -   Examples
     -   [Store Apache Logs into Amazon S3](apache-to-s3)
-    -   [Store Apache Logs into MongoDB](apache-to-mongodb)
-    -   [Data Collection into HDFS](http-to-hdfs)
+    -   [Store Apache Logs into MongoDB](apache-to-mongodb.md)
+    -   [Data Collection into HDFS](http-to-hdfs.md)
 -   List of Plugin References
     -   [Output to Another Fluentd](out_forward)
     -   [Output to MongoDB](out_mongo) or [MongoDB
@@ -129,14 +129,14 @@ For high-traffic websites (more than 5 application nodes), we recommend
 using a high availability configuration of td-agent. This will improve
 data transfer reliability and query performance.
 
--   [High-Availability Configurations of Fluentd](high-availability)
+-   [High-Availability Configurations of Fluentd](high-availability.md)
 
 ### Monitoring
 
 Monitoring Fluentd itself is also important. The article below describes
 general monitoring methods for td-agent.
 
--   [Monitoring Fluentd](monitoring)
+-   [Monitoring Fluentd](monitoring.md)
 
 
 ------------------------------------------------------------------------

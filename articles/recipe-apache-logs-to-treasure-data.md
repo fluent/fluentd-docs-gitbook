@@ -7,7 +7,7 @@ that with [fluentd](//fluentd.org) in **10 minutes**!
 ![](/images/plugin_icon/apache_logs.png)
 
 
-![](/images/plugin_icon/treasure%20data.png)
+![](/images/plugin_icon/treasure_data.png)
 
 Here is how:
 
@@ -45,7 +45,7 @@ $ fluentd -c fluentd.conf
 ```
 
 Of course, this is just a quick example. If you are thinking of running
-fluentd in production, consider using [td-agent](/articles/td-agent), the
+fluentd in production, consider using [td-agent](/articles/td-agent.md), the
 enterprise version of Fluentd packaged and maintained by [Treasure Data,
 Inc.](//www.treasure-data.com).
 

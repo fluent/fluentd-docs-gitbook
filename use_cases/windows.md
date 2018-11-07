@@ -17,7 +17,7 @@ when you must collect data streams from Windows machines. For example:
 first.
 
 
-[What is Fluentd?](/articles/architecture)
+[What is Fluentd?](/articles/architecture.md)
 
 
 Prerequisites
@@ -35,8 +35,8 @@ Setup
 1.  Get hold of a Linux server. In this example, we assume it is Ubuntu.
 2.  **Make sure it has ports open for TCP. In the following example, we
     assume port 5140 is open.**
-3.  [Install td-agent](/articles/install-by-deb). (See
-    [here](/overview/installation) for various ways to install
+3.  [Install td-agent](/articles/install-by-deb.md). (See
+    [here](/overview/installation.md) for various ways to install
     Fluentd/Treasure Agent)
 4.  Edit td-agent's configuration file located at
     `/etc/td-agent/td-agent.conf` and add the following lines
@@ -175,8 +175,8 @@ write a plugin/extend the syslog plugin so that you can parse the
 Learn More
 ----------
 
--   [Fluentd Architecture](/articles/architecture)
--   [Fluentd Get Started](/articles/quickstart)
+-   [Fluentd Architecture](/articles/architecture.md)
+-   [Fluentd Get Started](/articles/quickstart.md)
 
 
 ------------------------------------------------------------------------

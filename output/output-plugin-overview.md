@@ -1,10 +1,10 @@
 Output Plugin Overview
 ======================
 
-Fluentd has 6 types of plugins: [Input](input-plugin-overview),
-[Parser](parser-plugin-overview), [Filter](filter-plugin-overview),
-[Output](output-plugin-overview), [Formatter](formatter-plugin-overview)
-and [Buffer](buffer-plugin-overview). This article gives an overview of
+Fluentd has 6 types of plugins: [Input](input-plugin-overview.md),
+[Parser](parser-plugin-overview.md), [Filter](filter-plugin-overview.md),
+[Output](output-plugin-overview.md), [Formatter](formatter-plugin-overview.md)
+and [Buffer](buffer-plugin-overview.md). This article gives an overview of
 Output Plugin.
 
 
@@ -25,32 +25,32 @@ Time Sliced.
 ![](http://image.slidesharecdn.com/fluentdmeetup-diveintofluentplugin-120203210125-phpapp02/95/slide-60-728.jpg)
 
 The output plugin's buffer behavior (if any) is defined by a separate
-[Buffer plugin](buffer-plugin-overview). Different buffer plugins can be
+[Buffer plugin](buffer-plugin-overview.md). Different buffer plugins can be
 chosen for each output plugin. Some output plugins are fully customized
 and do not use buffers.
 
 List of Non-Buffered Output Plugins
 -----------------------------------
 
--   [out\_copy](out_copy)
--   [out\_null](out_null)
--   [out\_roundrobin](out_roundrobin)
--   [out\_stdout](out_stdout)
+-   [out\_copy](out_copy.md)
+-   [out\_null](out_null.md)
+-   [out\_roundrobin](out_roundrobin.md)
+-   [out\_stdout](out_stdout.md)
 
 List of Buffered Output Plugins
 -------------------------------
 
--   [out\_exec\_filter](out_exec_filter)
--   [out\_forward](out_forward)
--   [out\_mongo](out_mongo) or [out\_mongo\_replset](out_mongo_replset)
+-   [out\_exec\_filter](out_exec_filter.md)
+-   [out\_forward](out_forward.md)
+-   [out\_mongo](out_mongo.md) or [out\_mongo\_replset](out_mongo_replset.md)
 
 List of Time Sliced Output Plugins
 ----------------------------------
 
--   [out\_exec](out_exec)
--   [out\_file](out_file)
--   [out\_s3](out_s3)
--   [out\_webhdfs](out_webhdfs)
+-   [out\_exec](out_exec.md)
+-   [out\_file](out_file.md)
+-   [out\_s3](out_s3.md)
+-   [out\_webhdfs](out_webhdfs.md)
 
 Other Plugins
 -------------
@@ -76,7 +76,7 @@ buffer type, `buffer_path` parameter is required.
 ### buffer\_queue\_limit, buffer\_chunk\_limit
 
 The length of the chunk queue and the size of each chunk, respectively.
-Please see the [Buffer Plugin Overview](buffer-plugin-overview) article
+Please see the [Buffer Plugin Overview](buffer-plugin-overview.md) article
 for the basic buffer structure. The default values are 64 and 8m,
 respectively. The suffixes "k" (KB), "m" (MB), and "g" (GB) can be used
 for buffer\_chunk\_limit.
@@ -184,7 +184,7 @@ If you use `file` buffer type, `buffer_path` parameter is required.
 ### buffer\_queue\_limit, buffer\_chunk\_limit
 
 The length of the chunk queue and the size of each chunk, respectively.
-Please see the [Buffer Plugin Overview](buffer-plugin-overview) article
+Please see the [Buffer Plugin Overview](buffer-plugin-overview.md) article
 for the basic buffer structure. The default values are 64 and 8m,
 respectively. The suffixes "k" (KB), "m" (MB), and "g" (GB) can be used
 for buffer\_chunk\_limit.

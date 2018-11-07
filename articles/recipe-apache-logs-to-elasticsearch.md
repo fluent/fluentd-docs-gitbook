@@ -46,7 +46,7 @@ $ fluentd -c fluentd.conf
 ```
 
 Of course, this is just a quick example. If you are thinking of running
-fluentd in production, consider using [td-agent](/articles/td-agent), the
+fluentd in production, consider using [td-agent](/articles/td-agent.md), the
 enterprise version of Fluentd packaged and maintained by [Treasure Data,
 Inc.](//www.treasure-data.com).
 

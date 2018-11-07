@@ -12,7 +12,7 @@ Prerequisites
 -------------
 
 1.  An OSX or Linux machine
-2.  Fluentd is installed ([installation guide](//overview/installation))
+2.  Fluentd is installed ([installation guide](/overview/installation.md))
 3.  Riak is installed
 4.  An Apache web server log
 
@@ -114,8 +114,8 @@ There it is! (the response JSON is formatted for readability)
 Learn More
 ----------
 
--   [Fluentd Architecture](architecture)
--   [Fluentd Get Started](quickstart)
+-   [Fluentd Architecture](/articles/architecture.md)
+-   [Fluentd Get Started](/articles/quickstart.md)
 -   [Riak Output Plugin](http://github.com/kuenishi/fluent-plugin-riak)
 
 

@@ -15,7 +15,7 @@ process is required.
   @type null
 </match>
 ```
-Please see the [Config File](config-file) article for the basic
+Please see the [Config File](config-file.md) article for the basic
 structure and syntax of the configuration file.
 
 Parameters
@@ -31,7 +31,7 @@ The `log_level` option allows the user to set different levels of
 logging for each plugin. The supported log levels are: `fatal`, `error`,
 `warn`, `info`, `debug`, and `trace`.
 
-Please see the [logging article](logging) for further details.
+Please see the [logging article](logging.md) for further details.
 
 
 ------------------------------------------------------------------------

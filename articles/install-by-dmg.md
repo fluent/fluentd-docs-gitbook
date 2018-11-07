@@ -83,14 +83,14 @@ following tutorials to learn how to collect your data from various data
 sources.
 
 -   Basic Configuration
-    -   [Config File](config-file)
+    -   [Config File](config-file.md)
 -   Application Logs
-    -   [Ruby](ruby), [Java](java), [Python](python), [PHP](php),
-        [Perl](perl), [Node.js](nodejs), [Scala](scala)
+    -   [Ruby](ruby), [Java](java), [Python](python.md), [PHP](php.md),
+        [Perl](perl), [Node.js](nodejs.md), [Scala](scala.md)
 -   Examples
     -   [Store Apache Log into Amazon S3](apache-to-s3)
-    -   [Store Apache Log into MongoDB](apache-to-mongodb)
-    -   [Data Collection into HDFS](http-to-hdfs)
+    -   [Store Apache Log into MongoDB](apache-to-mongodb.md)
+    -   [Data Collection into HDFS](http-to-hdfs.md)
 
 Please refer to the resources below for further steps.
 

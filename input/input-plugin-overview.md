@@ -1,10 +1,10 @@
 Input Plugin Overview
 =====================
 
-Fluentd has 6 types of plugins: [Input](input-plugin-overview),
-[Parser](parser-plugin-overview), [Filter](filter-plugin-overview),
-[Output](output-plugin-overview), [Formatter](formatter-plugin-overview)
-and [Buffer](buffer-plugin-overview). This article gives an overview of
+Fluentd has 6 types of plugins: [Input](input-plugin-overview.md),
+[Parser](parser-plugin-overview.md), [Filter](filter-plugin-overview.md),
+[Output](output-plugin-overview.md), [Formatter](formatter-plugin-overview.md)
+and [Buffer](buffer-plugin-overview.md). This article gives an overview of
 Input Plugin.
 
 
@@ -19,12 +19,12 @@ data sources.
 List of Input Plugins
 ---------------------
 
--   [in\_forward](in_forward)
--   [in\_unix](in_unix)
--   [in\_http](in_http)
--   [in\_tail](in_tail)
--   [in\_exec](in_exec)
--   [in\_syslog](in_syslog)
+-   [in\_forward](/input/in_forward.md)
+-   [in\_unix](/input/in_unix.md)
+-   [in\_http](/input/in_http.md)
+-   [in\_tail](/input/in_tail.md)
+-   [in\_exec](/input/in_exec.md)
+-   [in\_syslog](/input/in_syslog.md)
 
 Other Input Plugins
 -------------------

@@ -20,7 +20,7 @@ process is required.
   format apache2
 </source>
 ```
-Please see the [Config File](config-file) article for the basic
+Please see the [Config File](config-file.md) article for the basic
 structure and syntax of the configuration file.
 
 ### How it Works
@@ -175,7 +175,7 @@ Check [this issue](https://github.com/fluent/fluentd/issues/1126).
 ### format (required)
 
 The format of the log. `in_tail` uses parser plugin to parse the log.
-See [parser article](parser-plugin-overview) for more detail.
+See [parser article](parser-plugin-overview.md) for more detail.
 
 ### path\_key
 
@@ -232,7 +232,7 @@ The `log_level` option allows the user to set different levels of
 logging for each plugin. The supported log levels are: `fatal`, `error`,
 `warn`, `info`, `debug`, and `trace`.
 
-Please see the [logging article](logging) for further details.
+Please see the [logging article](logging.md) for further details.
 
 FAQ
 ---

@@ -15,7 +15,7 @@ data service as an example, but you can use any cloud service in its
 place.
 
 
-[What is Fluentd?](/articles/architecture)
+[What is Fluentd?](/articles/architecture.md)
 
 
 Install Raspbian
@@ -91,7 +91,7 @@ $ curl -X POST -d 'json={"sensor1":3123.13,"sensor2":321.3}' \
   http://localhost:8888/td.testdb.raspberrypi
 ```
 
-If you\'re using Python, you can use Fluentd\'s [python logger](python)
+If you\'re using Python, you can use Fluentd\'s [python logger](python.md)
 library.
 
 Now, access the databases page to confirm that your data has been
@@ -123,8 +123,8 @@ easily and reliably.
 Learn More
 ----------
 
--   [Fluentd Architecture](architecture)
--   [Fluentd Get Started](quickstart)
+-   [Fluentd Architecture](/articles/architecture.md)
+-   [Fluentd Get Started](/articles/quickstart.md)
 
 
 ------------------------------------------------------------------------

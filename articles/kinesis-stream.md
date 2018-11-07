@@ -48,9 +48,9 @@ configuration. Please install the following software on the same node.
 
 You can install Fluentd via major packaging systems.
 
--   [Debian Package](install-by-deb)
--   [RPM Package](install-by-rpm)
--   [Ruby gem](install-by-gem)
+-   [Debian Package](install-by-deb.md)
+-   [RPM Package](install-by-rpm.md)
+-   [Ruby gem](install-by-gem.md)
 
 Install Kinesis Plugin
 ----------------------
@@ -199,8 +199,8 @@ and robust.
 Learn More
 ----------
 
--   [Fluentd Architecture](architecture)
--   [Fluentd Get Started](quickstart)
+-   [Fluentd Architecture](/articles/architecture.md)
+-   [Fluentd Get Started](/articles/quickstart.md)
 -   [Amazon Kinesis](https://aws.amazon.com/kinesis/)
 -   [Amazon Kinesis Output
     Plugin](https://github.com/awslabs/aws-fluent-plugin-kinesis) (Made

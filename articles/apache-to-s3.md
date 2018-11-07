@@ -44,9 +44,9 @@ The Amazon S3 Output plugin is included in the latest version of
 Fluentd's deb/rpm package. If you want to use Ruby Gems to install the
 plugin, please use `gem install fluent-plugin-s3`.
 
--   [Debian Package](install-by-deb)
--   [RPM Package](install-by-rpm)
--   [Ruby gem](install-by-gem)
+-   [Debian Package](install-by-deb.md)
+-   [RPM Package](install-by-rpm.md)
+-   [Ruby gem](install-by-gem.md)
 
 Configuration
 -------------
@@ -145,8 +145,8 @@ Fluentd + Amazon S3 makes real-time log archiving simple.
 Learn More
 ----------
 
--   [Fluentd Architecture](architecture)
--   [Fluentd Get Started](quickstart)
+-   [Fluentd Architecture](/articles/architecture.md)
+-   [Fluentd Get Started](/articles/quickstart.md)
 -   [Amazon S3 Output plugin](out_s3)
 
 

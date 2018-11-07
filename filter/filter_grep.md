@@ -183,7 +183,7 @@ If `<regexp>` and `<exclude>` are used together, both are applied.
 Learn More
 ----------
 
--   [Filter Plugin Overview](filter-plugin-overview)
+-   [Filter Plugin Overview](filter-plugin-overview.md)
 -   [record\_transformer Filter Plugin](filter_record_transformer)
 
 

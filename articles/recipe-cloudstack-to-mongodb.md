@@ -8,7 +8,7 @@ MongoDB and even elasticsearch. A CloudStack plugin has been written to
 be able to listen to CloudStack events and store these events in a
 chosen storage backend. In this chapter we will show how to store
 CloudStack logs in MongoDB using Fluentd. The
-[documentation](/articles/quickstart) quite straightforward, but here
+[documentation](/articles/quickstart.md) quite straightforward, but here
 are the basic steps.
 
 You will need a working `fluentd` installed on your machine. Pick your

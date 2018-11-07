@@ -46,12 +46,12 @@ The WebHDFS Output plugin is included in the latest version of Fluentd's
 deb/rpm package (v1.1.10 or later). If you want to use Ruby Gems to
 install the plugin, please use `gem install fluent-plugin-webhdfs`.
 
--   [Debian Package](install-by-deb)
--   [RPM Package](install-by-rpm)
+-   [Debian Package](install-by-deb.md)
+-   [RPM Package](install-by-rpm.md)
 -   For CDH, please refer to the [downloads
     page](https://ccp.cloudera.com/display/SUPPORT/CDH+Downloads)
     (CDH3u5 and CDH4 onwards)
--   [Ruby gem](install-by-gem)
+-   [Ruby gem](install-by-gem.md)
 
 Fluentd Configuration
 ---------------------
@@ -160,8 +160,8 @@ major problems for several months now.
 Learn More
 ----------
 
--   [Fluentd Architecture](architecture)
--   [Fluentd Get Started](quickstart)
+-   [Fluentd Architecture](/articles/architecture.md)
+-   [Fluentd Get Started](/articles/quickstart.md)
 -   [WebHDFS Output Plugin](out_webhdfs)
 -   [Slides: Fluentd and
     WebHDFS](http://www.slideshare.net/tagomoris/fluentd-and-webhdfs)

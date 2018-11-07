@@ -240,7 +240,7 @@ Since v0.14, `${key}` short-cut syntax is removed.
 Learn More
 ----------
 
--   [Filter Plugin Overview](filter-plugin-overview)
+-   [Filter Plugin Overview](filter-plugin-overview.md)
 
 
 

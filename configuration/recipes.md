@@ -5,7 +5,7 @@ Recipes
 Articles
 --------
 
--   [Parsing Common Log Formats](/articles/common-log-formats)
+-   [Parsing Common Log Formats](/articles/common-log-formats.md)
 
 
 -   [Recipe Syslog To Treasure
@@ -41,13 +41,13 @@ Articles
     S3](/articles/recipe-http-rest-api-to-s3)
 
 
--   [Recipe JSON To Mongo](/articles/recipe-json-to-mongo)
+-   [Recipe JSON To Mongo](/articles/recipe-json-to-mongo.md)
 
 
--   [Recipe CSV To Mongo](/articles/recipe-csv-to-mongo)
+-   [Recipe CSV To Mongo](/articles/recipe-csv-to-mongo.md)
 
 
--   [Recipe Nginx To Mongo](/articles/recipe-nginx-to-mongo)
+-   [Recipe Nginx To Mongo](/articles/recipe-nginx-to-mongo.md)
 
 
 -   [Recipe Http Rest Api To
@@ -69,7 +69,7 @@ Articles
 -   [Recipe TSV To S3](/articles/recipe-tsv-to-s3)
 
 
--   [Recipe Syslog To Mongo](/articles/recipe-syslog-to-mongo)
+-   [Recipe Syslog To Mongo](/articles/recipe-syslog-to-mongo.md)
 
 
 -   [Recipe Nginx To
@@ -92,7 +92,7 @@ Articles
     Data](/articles/recipe-http-rest-api-to-treasure-data)
 
 
--   [Recipe TSV To Mongo](/articles/recipe-tsv-to-mongo)
+-   [Recipe TSV To Mongo](/articles/recipe-tsv-to-mongo.md)
 
 
 -   [Recipe Apache Logs To

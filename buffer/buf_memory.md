@@ -14,7 +14,7 @@ Example Config
   buffer_type memory
 </match>
 ```
-Please see the [Config File](config-file) article for the basic
+Please see the [Config File](config-file.md) article for the basic
 structure and syntax of the configuration file.
 
 Parameters

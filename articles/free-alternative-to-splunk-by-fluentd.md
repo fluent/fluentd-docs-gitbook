@@ -28,7 +28,7 @@ Mountain Lion. **If you're not familiar with Fluentd**, please learn
 more about Fluentd first.
 
 
-[What is Fluentd?](/articles/architecture)
+[What is Fluentd?](/articles/architecture.md)
 
 
 Prerequisites
@@ -95,9 +95,9 @@ Set Up Fluentd (td-agent)
 In this guide We'll install td-agent, the stable release of Fluentd.
 Please refer to the guides below for detailed installation steps.
 
--   [Debian Package](install-by-deb)
--   [RPM Package](install-by-rpm)
--   [Ruby gem](install-by-gem)
+-   [Debian Package](install-by-deb.md)
+-   [RPM Package](install-by-rpm.md)
+-   [Ruby gem](install-by-gem.md)
 
 Next, we'll install the Elasticsearch plugin for Fluentd:
 fluent-plugin-elasticsearch. Then, install fluent-plugin-elasticsearch
@@ -205,8 +205,8 @@ buffer, etc.) according to your needs.
 Learn More
 ----------
 
--   [Fluentd Architecture](architecture)
--   [Fluentd Get Started](quickstart)
+-   [Fluentd Architecture](/articles/architecture.md)
+-   [Fluentd Get Started](/articles/quickstart.md)
 -   [Downloading Fluentd](http://www.fluentd.org/download)
 
 

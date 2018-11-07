@@ -8,7 +8,7 @@ Overview
 --------
 
 HTTP RPC is one way of managing fluentd instance. Several provided RPCs
-are replacement of [signals](signals). The response body is JSON format.
+are replacement of [signals](signals.md). The response body is JSON format.
 
 On signal unsupported environment, e.g. Windows, you can use RPC instead
 of signals.
