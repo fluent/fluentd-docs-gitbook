@@ -27,7 +27,7 @@ We\'ve observed the drastic performance improvements on Linux, with
 proper kernel parameter settings (e.g. \`net.core.rmem\_max\`
 parameter). If you have high-volume UDP traffic, please make sure to
 follow the instruction described at [Before Installing
-Fluentd](before-install).
+Fluentd](/articles/before-install.md).
 
 Parameters
 ----------

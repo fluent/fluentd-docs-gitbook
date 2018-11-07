@@ -29,7 +29,7 @@ Modifying the Config File
 -------------------------
 
 Next, please configure Fluentd to use the [forward Input
-plugin](in_forward) as its data source.
+plugin](/articles/in_forward.md) as its data source.
 
 ``` {.CodeRay}
 <source>

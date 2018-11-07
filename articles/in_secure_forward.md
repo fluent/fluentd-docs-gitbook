@@ -12,7 +12,7 @@ Installation
 
 `in_secure_forward` is **not** included in either `td-agent` package or
 `fluentd` gem. In order to install it, please refer to the [Plugin
-Management](plugin-management) article.
+Management](/articles/plugin-management.md) article.
 
 Example Configurations
 ----------------------

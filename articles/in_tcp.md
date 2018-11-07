@@ -29,7 +29,7 @@ structure and syntax of the configuration file.
 We\'ve observed the drastic performance improvements on Linux, with
 proper kernel parameter settings. If you have high-volume TCP traffic,
 please make sure to follow the instruction described at [Before
-Installing Fluentd](before-install).
+Installing Fluentd](/articles/before-install.md).
 
 Parameters
 ----------
@@ -98,7 +98,7 @@ then got parsed result like below:
 ```
 
 `in_tcp` uses parser plugin to parse the payload. See [parser
-article](parser-plugin-overview) for more detail.
+article](/articles/parser-plugin-overview.md) for more detail.
 
 #### log\_level option
 

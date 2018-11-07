@@ -10,4 +10,4 @@ Articles
 
 
 -   [Email Alerts like
-    Splunk](/articles/splunk-like-grep-and-alert-email)
+    Splunk](/articles//articles/splunk-like-grep-and-alert-email.md)

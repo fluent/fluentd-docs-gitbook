@@ -27,7 +27,7 @@ fluentd versions, need to install `fluent-plugin-parser`.
 `filter_parser` uses built-in parser plugins and your own customized
 parser plugin, so you can re-use pre-defined format like `apache`,
 `json` and etc. See document page for more details: [Parser Plugin
-Overview](/articles/parser-plugin-overview)
+Overview](/articles//articles/parser-plugin-overview.md)
 
 Parameters
 ----------

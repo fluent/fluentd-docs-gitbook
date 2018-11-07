@@ -12,7 +12,7 @@ Fluentd can fully utilize multiple CPU cores to handle more requests.
 
 Before you have multi-process configuration, please make sure you have
 done [all the optimization you can do with single
-process](performance-tuning-single-process).
+process](/articles/performance-tuning-single-process.md).
 
 
 2-Tier Process Topology

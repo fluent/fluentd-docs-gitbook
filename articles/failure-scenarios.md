@@ -3,7 +3,7 @@ Failure Scenarios
 
 This article lists various Fluentd failure scenarios. We will assume
 that you have configured Fluentd for [High
-Availability](high-availability), so that each app node has its local
+Availability](/articles/high-availability.md), so that each app node has its local
 *forwarders* and all logs are aggregated into multiple *aggregators*.
 
 

@@ -139,7 +139,7 @@ The `**` in `mongo.**` matches zero or more period-delimited tag parts
 The other options specify MongoDB's host, port, db, and collection.
 
 For additional configuration parameters, please see the [MongoDB Output
-plugin](out_mongo) article. If you are using ReplicaSet, please see the
+plugin](/articles/out_mongo.md) article. If you are using ReplicaSet, please see the
 [MongoDB ReplicaSet Output plugin](/articles/out_mongo_replset.md) article.
 
 Test

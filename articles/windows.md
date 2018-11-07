@@ -135,7 +135,7 @@ Setup
 If you are sending JSON logs on Windows to Fluentd, Fluentd can parse
 them as they come in. To do, simply change Fluentd's configuration as
 follows. Note the change from `format none` to `format json`. (See [this
-article](parser-plugin-overview) for more details about the parser
+article](/articles/parser-plugin-overview.md) for more details about the parser
 plugins)
 
 ``` {.CodeRay}

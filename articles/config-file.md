@@ -172,7 +172,7 @@ specifies the output plugin to use.
 Just like input sources, you can add new output destinations by writing
 your own plugins. For further information regarding Fluentd's output
 destinations, please refer to the [Output Plugin
-Overview](output-plugin-overview) article.
+Overview](/articles/output-plugin-overview.md) article.
 
 (3) "filter": Event processing pipeline
 ---------------------------------------

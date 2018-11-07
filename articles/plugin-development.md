@@ -307,7 +307,7 @@ Filter Plugins
 --------------
 
 This section shows how to write custom filters in addition to [the core
-filter plugins](filter-plugin-overview). The plugin files whose names
+filter plugins](/articles/filter-plugin-overview.md). The plugin files whose names
 start with "filter\_" are registered as filter plugins.
 
 Here is the implementation of the most basic filter that passes through

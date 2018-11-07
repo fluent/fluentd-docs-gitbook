@@ -46,7 +46,7 @@ the estimation examples:
 -   in\_tail: The number of watching files
 -   in\_forward: The number of incoming access
 -   buf\_file: The number of buffer chunks. It is configured via [buffer
-    parameters](buffer-plugin-overview)
+    parameters](/articles/buffer-plugin-overview.md)
 -   output: The used file descriptors are less than others. Temporary
     file for upload, connection pooling in the client library, etc
 
