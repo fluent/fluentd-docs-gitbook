@@ -108,7 +108,6 @@ This option enables capped collection. This is always recommended
 because MongoDB is not suited to storing large amounts of historical
 data.
 
-[]{#capped_size}
 
 ### capped\_size
 
@@ -136,7 +135,6 @@ The username to use for authentication.
 
 The password to use for authentication.
 
-[]{#tag_mapped}
 
 ### tag\_mapped
 
@@ -169,7 +167,6 @@ database.
 </match>
 ```
 
-[]{#replica_set}
 
 ### replica\_set
 
@@ -188,7 +185,6 @@ The name of the replica set.
 
 The ReplicaSet read preference (e.g. secondary, etc).
 
-[]{#num_retries}
 
 ### num\_retries
 

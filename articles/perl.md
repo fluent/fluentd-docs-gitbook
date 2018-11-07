@@ -47,7 +47,6 @@ $ sudo /etc/init.d/td-agent restart
 $ sudo systemctl restart td-agent.service
 ```
 
-[]{#using-fluent::logger}
 
 ## Using Fluent::Logger
 

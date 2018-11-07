@@ -14,7 +14,6 @@ flexibility.
 Fluentd's scalability has been proven in the field: its largest user
 currently collects logs from **50,000+ servers**.
 
-[]{#step-1:-installing-fluentd}
 
 ## Step 1: Installing Fluentd
 
@@ -28,7 +27,6 @@ environment.
 -   [Install Fluentd by Ruby Gem](/articles/install-by-gem.md)
 -   [Install Fluentd from source](/articles/install-from-source.md)
 
-[]{#step-2:-use-cases}
 
 ## Step 2: Use Cases
 
@@ -50,7 +48,6 @@ refer to the article(s) that suits your needs.
 -   Happy Users :)
     -   [Users](/articles/users.md)
 
-[]{#step-3:-learn-more}
 
 ## Step 3: Learn More
 

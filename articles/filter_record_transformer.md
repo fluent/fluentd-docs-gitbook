@@ -158,7 +158,6 @@ tag_prefix[1] = debug.my       tag_suffix[1] = my.app
 tag_prefix[2] = debug.my.app   tag_suffix[2] = app
 ```
 
-[]{#enable_ruby}
 
 ### enable\_ruby
 
@@ -187,7 +186,6 @@ foo_${record["key"]} bar_${record["value"]}
 nested_value ${record["payload"]["key"]}
 ```
 
-[]{#auto_typecast}
 
 ### auto\_typecast
 
@@ -217,7 +215,6 @@ foo 1
 Internally, this keeps the original value type only when a single
 placeholder is used.
 
-[]{#renew_record}
 
 ### renew\_record
 
@@ -229,7 +226,6 @@ By default, the record transformer filter mutates the incoming data.
 However, if this parameter is set to true, it modifies a new empty hash
 instead.
 
-[]{#renew_time_key}
 
 ### renew\_time\_key
 
@@ -240,7 +236,6 @@ instead.
 `renew_time_key foo` overwrites the time of events with a value of the
 record field `foo` if exists. The value of `foo` must be a unix time.
 
-[]{#keep_keys}
 
 ### keep\_keys
 
@@ -252,7 +247,6 @@ A list of keys to keep. Only relevant if `renew_record` is set to true.
 
 keep\_keys has been supported since 0.14.0
 
-[]{#remove_keys}
 
 ### remove\_keys
 

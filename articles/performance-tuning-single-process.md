@@ -32,7 +32,6 @@ configuration file makes it difficult to read and maintain, while making
 it also less robust. The configuration file should be as simple as
 possible.
 
-[]{#use-flush_thread_count-parameter}
 
 ## Use flush\_thread\_count parameter
 

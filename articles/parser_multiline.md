@@ -18,7 +18,6 @@ works with \`multiline\` but other input plugins don\'t work with
 
 See [Parse section configurations](/articles/parse-section.md)
 
-[]{#format_firstline}
 
 ### format\_firstline
 

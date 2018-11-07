@@ -32,7 +32,6 @@ section](/articles/extract-section.md).
 
 ## Methods
 
-[]{#extract_tag_from_record(record)}
 
 ### extract\_tag\_from\_record(record)
 
@@ -46,7 +45,6 @@ Code example:
 new_tag = extract_tag_from_record(record)
 ```
 
-[]{#extract_time_from_record(record)}
 
 ### extract\_time\_from\_record(record)
 

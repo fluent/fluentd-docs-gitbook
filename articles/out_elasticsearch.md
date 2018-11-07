@@ -106,7 +106,6 @@ Specify `https` if your Elasticsearch endpoint supports SSL (default:
 The REST API endpoint of Elasticsearch to post write requests (default:
 `nil`)
 
-[]{#index_name-(optional)}
 
 ### index\_name (optional)
 
@@ -136,7 +135,6 @@ needs to specify timekey for time slice of chunk:
 </buffer>
 ```
 
-[]{#logstash_format-(optional)}
 
 ### logstash\_format (optional)
 

@@ -95,7 +95,6 @@ The port to listen to.
 
 The bind address to listen to.
 
-[]{#protocol_type}
 
 ### protocol\_type
 
@@ -106,7 +105,6 @@ The bind address to listen to.
 The transport protocol used to receive logs. "udp" and "tcp" are
 supported.
 
-[]{#message_length_limit}
 
 ### message\_length\_limit
 
@@ -155,7 +153,6 @@ then the format parser receives the following log:
 If the `<parse>/@type` parameter is missing, then the log data is
 assumed to have the canonical syslog format.
 
-[]{#message_format}
 
 ### message\_format
 
@@ -191,7 +188,6 @@ Here is an example of message:
 message per source. `in_syslog` detects message format by using message
 prefix and parse it.
 
-[]{#with_priority}
 
 ### with\_priority
 
@@ -219,7 +215,6 @@ message body.
 If you wish to parse syslog messages of arbitrary formats,
 [in\_tcp](/articles/in_tcp.md) or [in\_udp](/articles/in_udp.md) are recommended.
 
-[]{#source_hostname_key}
 
 ### source\_hostname\_key
 
@@ -230,7 +225,6 @@ If you wish to parse syslog messages of arbitrary formats,
 The field name of the client's hostname. If set the value, the client's
 hostname will be set to its key.
 
-[]{#source_address_key}
 
 ### source\_address\_key
 
@@ -241,7 +235,6 @@ hostname will be set to its key.
 The field name of the client's address. If set the value, the client's
 address will be set to its key.
 
-[]{#priority_key}
 
 ### priority\_key
 
@@ -252,7 +245,6 @@ address will be set to its key.
 The field name of the priority. If set the value, the priority will be
 set to its key.
 
-[]{#facility_key}
 
 ### facility\_key
 

@@ -92,7 +92,6 @@ details.
 
 [Common Parameters](/articles/plugin-common-parameters.md)
 
-[]{#geoip_database}
 
 ### geoip\_database
 
@@ -102,7 +101,6 @@ details.
 
 Path to GeoIP database file.
 
-[]{#geoip2_database}
 
 ### geoip2\_database
 
@@ -112,7 +110,6 @@ Path to GeoIP database file.
 
 Path to GeoIP2 database file.
 
-[]{#geoip_lookup_key}
 
 ### geoip\_lookup\_key
 
@@ -125,7 +122,6 @@ Specify one or more geoip lookup field which has ip address.
 In the case of accessing nested value, delimit keys by dot like
 'host.ip'.
 
-[]{#skip_adding_null_record}
 
 ### skip\_adding\_null\_record
 
@@ -137,7 +133,6 @@ Set to `true` to skip adding field with `[null, null]` array.
 
 This is useful for elasticsearch.
 
-[]{#backend_library}
 
 ### backend\_library
 

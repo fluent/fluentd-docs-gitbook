@@ -179,7 +179,6 @@ The load balancing weight. If the weight of one server is 20 and the
 weight of the other server is 30, events are sent in a 2:3 ratio. The
 default weight is 60.
 
-[]{#require_ack_response}
 
 ### require\_ack\_response
 
@@ -190,7 +189,6 @@ default weight is 60.
 Change the protocol to at-least-once. The plugin waits the ack from
 destination's in\_forward plugin.
 
-[]{#ack_response_timeout}
 
 ### ack\_response\_timeout
 
@@ -203,7 +201,6 @@ value is based on popular `tcp_syn_retries`.
 
 If set `0`, this plugin doesn't wait the ack response.
 
-[]{#send_timeout}
 
 ### send\_timeout
 
@@ -213,7 +210,6 @@ If set `0`, this plugin doesn't wait the ack response.
 
 The timeout time when sending event logs.
 
-[]{#recover_wait}
 
 ### recover\_wait
 
@@ -223,7 +219,6 @@ The timeout time when sending event logs.
 
 The wait time before accepting a server fault recovery.
 
-[]{#heartbeat_type}
 
 ### heartbeat\_type
 
@@ -234,7 +229,6 @@ The wait time before accepting a server fault recovery.
 The transport protocol to use for heartbeats. Set "none" to disable
 heartbeat.
 
-[]{#heartbeat_interval}
 
 ### heartbeat\_interval
 
@@ -244,7 +238,6 @@ heartbeat.
 
 The interval of the heartbeat packer.
 
-[]{#phi_failure_detector}
 
 ### phi\_failure\_detector
 
@@ -254,7 +247,6 @@ The interval of the heartbeat packer.
 
 Use the "Phi accrual failure detector" to detect server failure.
 
-[]{#phi_threshold}
 
 ### phi\_threshold
 
@@ -270,7 +262,6 @@ are using longer \`heartbeat\_interval\`, please use the larger
 destination servers. The default value 16 is tuned for
 \`heartbeat\_interval\` 1s.
 
-[]{#hard_timeout}
 
 ### hard\_timeout
 
@@ -281,7 +272,6 @@ destination servers. The default value 16 is tuned for
 The hard timeout used to detect server failure. The default value is
 equal to the `send_timeout` parameter.
 
-[]{#expire_dns_cache}
 
 ### expire\_dns\_cache
 
@@ -291,7 +281,6 @@ equal to the `send_timeout` parameter.
 
 Set TTL to expire DNS cache in seconds. Set 0 not to use DNS Cache.
 
-[]{#dns_round_robin}
 
 ### dns\_round\_robin
 
@@ -305,7 +294,6 @@ to send data when a hostname has several IP addresses.
 \`heartbeat\_type udp\` is not available with \`dns\_round\_robin
 true\`. Use \`heartbeat\_type tcp\` or \`heartbeat\_type none\`.
 
-[]{#ignore_network_errors_at_startup}
 
 ### ignore\_network\_errors\_at\_startup
 
@@ -315,7 +303,6 @@ true\`. Use \`heartbeat\_type tcp\` or \`heartbeat\_type none\`.
 
 Ignore DNS resolution and errors at startup time.
 
-[]{#tls_version}
 
 ### tls\_version
 
@@ -325,7 +312,6 @@ Ignore DNS resolution and errors at startup time.
 
 The default version of TLS transport.
 
-[]{#tls_ciphers}
 
 ### tls\_ciphers
 
@@ -335,7 +321,6 @@ The default version of TLS transport.
 
 The cipher configuration of TLS transport.
 
-[]{#tls_insecure_mode}
 
 ### tls\_insecure\_mode
 
@@ -345,7 +330,6 @@ The cipher configuration of TLS transport.
 
 Skip all verification of certificates or not.
 
-[]{#tls_allow_self_signed_cert}
 
 ### tls\_allow\_self\_signed\_cert
 
@@ -355,7 +339,6 @@ Skip all verification of certificates or not.
 
 Allow self signed certificates or not.
 
-[]{#tls_verify_hostname}
 
 ### tls\_verify\_hostname
 
@@ -365,7 +348,6 @@ Allow self signed certificates or not.
 
 Verify hostname of servers and certificates or not in TLS transport.
 
-[]{#tls_cert_path}
 
 ### tls\_cert\_path
 

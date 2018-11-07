@@ -34,7 +34,6 @@ automatically.
 
 ## Methods
 
-[]{#event_loop_attach(watcher)}
 
 ### event\_loop\_attach(watcher)
 
@@ -42,7 +41,6 @@ This method attaches watcher to event loop
 
 -   `watcher`: `Coolio::Watcher` instances
 
-[]{#event_loop-used-plugins}
 
 ## event\_loop used plugins
 

@@ -69,7 +69,6 @@ The command (program) to execute.
 
 Tag of the output events.
 
-[]{#run_interval}
 
 ### run\_interval
 
@@ -80,7 +79,6 @@ Tag of the output events.
 The interval time between periodic program runs. If no specify value,
 command script runs only once.
 
-[]{#read_block_size}
 
 ### read\_block\_size
 
@@ -183,7 +181,6 @@ This configuration emits events like below:
 2018-06-29 17:27:35.115878527 +0900 system.loadavg: {"avg1":"0.30","avg5":"0.20","avg15":"0.05"}
 ```
 
-[]{#real-world-example:-scrape-hacker-news-top-page}
 
 ### Real World Example: Scrape Hacker News Top Page
 

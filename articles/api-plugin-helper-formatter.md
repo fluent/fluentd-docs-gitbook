@@ -40,7 +40,6 @@ For more details about formatter plugin, see following articles:
 
 ## Methods
 
-[]{#formatter_create(usage:-%E2%80%9C%E2%80%9D,-type:-nil,-conf:-nil,-default_type:-nil)}
 
 ### formatter\_create(usage: "", type: nil, conf: nil, default\_type: nil)
 

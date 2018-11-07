@@ -12,7 +12,6 @@ parser](/articles/parser_none.md) in input plugin.
 -   [Common Parameters](/articles/plugin-common-parameters.md)
 -   [Format section configurations](/articles/format-section.md)
 
-[]{#add_newline}
 
 ### add\_newline
 
@@ -23,7 +22,6 @@ parser](/articles/parser_none.md) in input plugin.
 Add `\n` to the result. If there is a trailing "\\n" already, set it
 "false"
 
-[]{#message_key}
 
 ### message\_key
 

@@ -11,7 +11,6 @@ field.
 -   [Common Parameters](/articles/plugin-common-parameters.md)
 -   [Format section configurations](/articles/format-section.md)
 
-[]{#add_newline}
 
 ### add\_newline
 

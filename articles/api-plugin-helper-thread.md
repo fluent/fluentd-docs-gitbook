@@ -38,7 +38,6 @@ automatically.
 
 ## Methods
 
-[]{#thread_create(title)}
 
 ### thread\_create(title)
 
@@ -58,7 +57,6 @@ def run
 end
 ```
 
-[]{#thread_current_running?}
 
 ### thread\_current\_running?
 

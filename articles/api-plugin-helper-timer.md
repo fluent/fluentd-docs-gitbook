@@ -34,7 +34,6 @@ plugin's `shutdown`. The plugin shutdowns launched timers automatically.
 
 ## Methods
 
-[]{#timer_execute(title,-interval,-repeat:-true,-&block)}
 
 ### timer\_execute(title, interval, repeat: true, &block)
 

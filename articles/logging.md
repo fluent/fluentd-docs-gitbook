@@ -181,7 +181,6 @@ then Fluentd outputs `fluent.info` logs to stdout like below:
 2014-02-27 00:00:01 +0900 [info]: process finished code = 0
 ```
 
-[]{#case1:-send-fluentd-logs-to-monitoring-service}
 
 ### Case1: Send Fluentd logs to monitoring service
 
@@ -205,7 +204,6 @@ datadog, sentry, irc, etc.
 <label>
 ```
 
-[]{#case2:-use-aggregation/monitoring-server}
 
 ### Case2: Use aggregation/monitoring server
 

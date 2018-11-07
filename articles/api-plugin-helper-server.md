@@ -36,7 +36,6 @@ section](/articles/transport-section.md).
 
 ## Methods
 
-[]{#server_create_connection(title,-port,-proto:-nil,-bind:-%E2%80%980.0.0.0%E2%80%99,-shared:-true,-backlog:-nil,-tls_options:-nil,-**socket_options,-&block)}
 
 ### server\_create\_connection(title, port, proto: nil, bind: '0.0.0.0', shared: true, backlog: nil, tls\_options: nil, \*\*socket\_options, &block)
 
@@ -90,7 +89,6 @@ server_create_connection(:title, @port) do |conn|
 end
 ```
 
-[]{#server_create(title,-port,-proto:-nil,-bind:-%E2%80%980.0.0.0%E2%80%99,-shared:-true,-socket:-nil,-backlog:-nil,-tls_options:-nil,-max_bytes:-nil,-flags:-0,-**socket_options,-&callback)}
 
 ### server\_create(title, port, proto: nil, bind: '0.0.0.0', shared: true, socket: nil, backlog: nil, tls\_options: nil, max\_bytes: nil, flags: 0, \*\*socket\_options, &callback)
 

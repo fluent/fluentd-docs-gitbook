@@ -3,7 +3,6 @@
 This article describes the basic concepts of Fluentd's configuration
 file syntax.
 
-[]{#introduction:-the-life-of-a-fluentd-event}
 
 ## Introduction: The Life of a Fluentd Event
 
@@ -70,7 +69,6 @@ The configuration file consists of the following directives:
 
 Let's actually create a configuration file step by step.
 
-[]{#(1)-%E2%80%9Csource%E2%80%9D:-where-all-the-data-come-from}
 
 ## (1) "source": where all the data come from
 
@@ -129,7 +127,6 @@ You can add new input sources by writing your own plugins. For further
 information regarding Fluentd's input sources, please refer to the
 [Input Plugin Overview](/articles/input-plugin-overview.md) article.
 
-[]{#(2)-%E2%80%9Cmatch%E2%80%9D:-tell-fluentd-what-to-do!}
 
 ## (2) "match": Tell fluentd what to do!
 
@@ -176,7 +173,6 @@ your own plugins. For further information regarding Fluentd's output
 destinations, please refer to the [Output Plugin
 Overview](/articles/output-plugin-overview.md) article.
 
-[]{#(3)-%E2%80%9Cfilter%E2%80%9D:-event-processing-pipeline}
 
 ## (3) "filter": Event processing pipeline
 
@@ -219,7 +215,6 @@ You can also add new filters by writing your own plugins. For further
 information regarding Fluentd's filter destinations, please refer to the
 [Filter Plugin Overview](/articles/filter-plugin-overview.md) article.
 
-[]{#(4)-set-system-wide-configuration:-the-%E2%80%9Csystem%E2%80%9D-directive}
 
 ## (4) Set system wide configuration: the "system" directive
 
@@ -246,7 +241,6 @@ Here is an example:
 </system>
 ```
 
-[]{#process_name}
 
 ### process\_name
 
@@ -269,7 +263,6 @@ foo      45647   0.0  0.1  2481260  23700 s001  S+    7:04AM   0:00.40 superviso
 
 This feature requires ruby 2.1 or later.
 
-[]{#(5)-group-filter-and-output:-the-%E2%80%9Clabel%E2%80%9D-directive}
 
 ## (5) Group filter and output: the "label" directive
 

@@ -371,7 +371,6 @@ buffered output must implement this method.
 
 Return values will be ignored.
 
-[]{##try_write(chunk)}
 
 ### \#try\_write(chunk)
 
@@ -395,7 +394,6 @@ custom format to format buffer chunks must implement this method.
 
 Return value must be a String.
 
-[]{##prefer_buffered_processing}
 
 ### \#prefer\_buffered\_processing
 
@@ -405,7 +403,6 @@ output.
 
 Return value must be `true` or `false`.
 
-[]{##prefer_delayed_commit}
 
 ### \#prefer\_delayed\_commit
 
@@ -415,7 +412,6 @@ output.
 
 Return value must be `true` or `false`.
 
-[]{##extract_placeholders(str,-chunk)}
 
 ### \#extract\_placeholders(str, chunk)
 
@@ -426,7 +422,6 @@ This method extract placeholders in given string, using values in chunk.
 
 Return value is a String.
 
-[]{##commit_write(chunk_id)}
 
 ### \#commit\_write(chunk\_id)
 
@@ -438,7 +433,6 @@ That chunk will be purged after this method call.
 This method has some other optional arguments, but these are for
 internal use.
 
-[]{##rollback_write(chunk_id)}
 
 ### \#rollback\_write(chunk\_id)
 
@@ -449,7 +443,6 @@ timeout without calling this method.
 
 -   `chunk_id`: a String, brought by `chunk.unique_id`
 
-[]{##dump_unique_id_hex(chunk_id)}
 
 ### \#dump\_unique\_id\_hex(chunk\_id)
 
@@ -484,7 +477,6 @@ end
     unix timestamp (seconds from Epoch)
 -   `record`: a Hash with String keys
 
-[]{#chunk.unique_id}
 
 ### chunk.unique\_id
 
@@ -542,7 +534,6 @@ end
 
 -   `io`: a readable IO object
 
-[]{#chunk.write_to(io)}
 
 ### chunk.write\_to(io)
 

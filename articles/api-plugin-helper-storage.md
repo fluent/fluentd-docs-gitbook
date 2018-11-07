@@ -65,7 +65,6 @@ section](/articles/storage-section.md).
 
 ## Methods
 
-[]{#storage_create(usage:-%E2%80%98%E2%80%99,-type:-nil,-conf:-nil,-default_type:-nil)}
 
 ### storage\_create(usage: '', type: nil, conf: nil, default\_type: nil)
 

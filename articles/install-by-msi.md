@@ -19,7 +19,6 @@ differences between Fluentd and td-agent can be found
 For Windows, we're using the OS native .msi Installer to distribute
 td-agent.
 
-[]{#step-1:-install-td-agent}
 
 ## Step 1: Install td-agent
 
@@ -27,7 +26,6 @@ Please download the `.msi` file from here, and install the software.
 
 -   [Download](https://td-agent-package-browser.herokuapp.com/3/windows)
 
-[]{#step-2:-run-td-agent-from-command-prompt}
 
 ## Step 2: Run td-agent from Command Prompt
 
@@ -69,7 +67,6 @@ It's working properly if td-agent process outputs the message
 
 [![](/images/td-agent-windows-prompt.png)](/images/td-agent-windows-prompt.png)
 
-[]{#step-3:-register-td-agent-to-windows-service}
 
 ## Step 3: Register td-agent to Windows service
 
@@ -82,7 +79,6 @@ administrative privilege, and type the two commands below.
 > fluentd --reg-winsvc-fluentdopt '-c C:/opt/td-agent/etc/td-agent/td-agent.conf -o C:/opt/td-agent/td-agent.log'
 ```
 
-[]{#step-4:-run-td-agent-as-windows-service}
 
 ## Step 4: Run td-agent as Windows service
 
@@ -96,7 +92,6 @@ Then the process will be executed as Windows Service.
 The log file will be located at `C:/opt/td-agent/td-agent.log` as we
 specified in Step 3.
 
-[]{#step-5:-install-plugins}
 
 ## Step 5: Install Plugins
 

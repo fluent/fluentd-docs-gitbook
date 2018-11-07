@@ -36,7 +36,6 @@ parts:
 -   Step 2: Prometheus Output Plugin to count Outgoing Records
 -   Step 3: Prometheus Input Plugin to expose metrics via HTTP
 
-[]{#step-1:-counting-incoming-records-by-prometheus-filter-plugin}
 
 ### Step 1: Counting Incoming Records by Prometheus Filter Plugin
 
@@ -67,7 +66,6 @@ starts adding the internal counter as the record comes in.
 </filter>
 ```
 
-[]{#step-2:-counting-outgoing-records-by-prometheus-output-plugin}
 
 ### Step 2: Counting Outgoing Records by Prometheus Output Plugin
 
@@ -104,7 +102,6 @@ goes out.
 </match>
 ```
 
-[]{#step-3:-expose-metrics-by-prometheus-input-plugin-via-http}
 
 ### Step 3: Expose Metrics by Prometheus Input Plugin via HTTP
 
@@ -128,7 +125,6 @@ information via HTTP.
 </source>
 ```
 
-[]{#step-4:-check-the-configuration}
 
 ### Step 4: Check the Configuration
 

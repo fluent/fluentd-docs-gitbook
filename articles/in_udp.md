@@ -78,7 +78,6 @@ The port to listen to. Default Value = 5160
 
 The bind address to listen to.
 
-[]{#source_hostname_key}
 
 ### source\_hostname\_key
 
@@ -105,7 +104,6 @@ then the client's hostname is set to `client_host` field.
 }
 ```
 
-[]{#message_length_limit}
 
 ### message\_length\_limit
 
@@ -115,7 +113,6 @@ then the client's hostname is set to `client_host` field.
 
 The max bytes of message
 
-[]{#remove_newline}
 
 ### remove\_newline
 

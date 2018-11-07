@@ -40,7 +40,6 @@ the socket when it is no longer needed.
 
 ## Methods
 
-[]{#socket_create(proto,-host,-port,-**kwargs,-&block)}
 
 ### socket\_create(proto, host, port, \*\*kwargs, &block)
 
@@ -80,7 +79,6 @@ socket_create(:udp, "example.com", 12341) do |sock|
 end
 ```
 
-[]{#socket_create_tcp(host,-port,-**kwargs,-&block)}
 
 ### socket\_create\_tcp(host, port, \*\*kwargs, &block)
 
@@ -102,7 +100,6 @@ terminates.
     -   `send_timeout`: the timeout time in seconds used to set
         `SO_SNDTIMEO`
 
-[]{#socket_create_udp(host,-port,-**kwargs,-&block)}
 
 ### socket\_create\_udp(host, port, \*\*kwargs, &block)
 
@@ -125,7 +122,6 @@ terminates.
     -   `send_timeout`: the timeout time in seconds used to set
         `SO_SNDTIMEO`
 
-[]{#socket_create_tls(host,-port,-**kwargs,-&block)}
 
 ### socket\_create\_tls(host, port, \*\*kwargs, &block)
 

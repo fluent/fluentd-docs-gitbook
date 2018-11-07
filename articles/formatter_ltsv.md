@@ -21,7 +21,6 @@ field1[label_delimiter]value1[delimiter]field2[label_delimiter]value2\n
 
 Delimiter for fields.
 
-[]{#label_delimiter}
 
 ### label\_delimiter
 
@@ -31,7 +30,6 @@ Delimiter for fields.
 
 Delimiter for key value field.
 
-[]{#add_newline}
 
 ### add\_newline
 

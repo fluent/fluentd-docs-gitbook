@@ -16,7 +16,6 @@ See [Parse section configurations](/articles/parse-section.md)
 
 The delimiter character (or string) of TSV values
 
-[]{#delimiter_pattern}
 
 ### delimiter\_pattern
 
@@ -29,7 +28,6 @@ The delimiter pattern of TSV values. This paramter overwrites
 
 delimiter\_pattern is string type before 1.2.0.
 
-[]{#label_delimiter}
 
 ### label\_delimiter
 
@@ -63,7 +61,6 @@ record:
 If you set `null_value_pattern '-'` in the configuration, `user` field
 becomes `nil` instead of `"-"`.
 
-[]{#example-with-delimiter_pattern}
 
 ## Example with delimiter\_pattern
 

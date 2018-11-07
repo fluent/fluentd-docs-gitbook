@@ -61,7 +61,6 @@ The default account is username="admin" and password="changeme"
 
 ![setting](/images/fluentd-ui/setting.gif)
 
-[]{#in_tail-setting}
 
 ### in\_tail setting
 

@@ -11,7 +11,6 @@ format](/articles/formatter_single_value.md) in output plugin.
 
 See [Parse section configurations](/articles/parse-section.md)
 
-[]{#message_key}
 
 ### message\_key
 

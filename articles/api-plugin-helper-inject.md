@@ -34,7 +34,6 @@ section](/articles/inject-section.md).
 
 ## Methods
 
-[]{#inject_values_to_recort(tag,-time,-record)}
 
 ### inject\_values\_to\_recort(tag, time, record)
 
@@ -54,7 +53,6 @@ def filter(tag, time, record)
 end
 ```
 
-[]{#inject_values_to_event_stream(tag,-es)}
 
 ### inject\_values\_to\_event\_stream(tag, es)
 

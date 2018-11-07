@@ -30,7 +30,6 @@ process is required.
 Please see the [Config File](/articles/config-file.md) article for the basic
 structure and syntax of the configuration file.
 
-[]{#example:-running-fizzbuzz-against-data-stream}
 
 ## Example: Running FizzBuzz against data stream
 
@@ -173,7 +172,6 @@ cmd arg arg /path/to/file
 If \"cmd\" doesn\'t exist in PATH, you need to specify absolute path,
 e.g. \"/path/to/cmd\".
 
-[]{#command_timeout}
 
 ### command\_timeout
 

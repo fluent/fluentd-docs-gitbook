@@ -64,7 +64,6 @@ by default.
 
 The value must be `s3`.
 
-[]{#aws_key_id}
 
 ### aws\_key\_id
 
@@ -75,7 +74,6 @@ The value must be `s3`.
 The AWS access key id. This parameter is required when your agent is not
 running on an EC2 instance with an IAM Instance Profile.
 
-[]{#aws_sec_key}
 
 ### aws\_sec\_key
 
@@ -86,7 +84,6 @@ running on an EC2 instance with an IAM Instance Profile.
 The AWS secret key. This parameter is required when your agent is not
 running on an EC2 instance with an IAM Instance Profile.
 
-[]{#s3_bucket}
 
 ### s3\_bucket
 
@@ -103,7 +100,6 @@ The buffer of the S3 plugin. The default settings is time sliced buffer.
 
 See [buffer article](/articles/buffer-plugin-overview.md) for more detail.
 
-[]{#s3_region}
 
 ### s3\_region
 
@@ -124,7 +120,6 @@ are the region examples.
 The full list can be found [official AWS
 document](http://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region).
 
-[]{#s3_endpoint}
 
 ### s3\_endpoint
 
@@ -171,7 +166,6 @@ See [formatter article](/articles/formatter-plugin-overview.md) for more detail.
 
 Deprecated parameter. Use `<format>` instead.
 
-[]{#time_slice_format}
 
 ### time\_slice\_format
 
@@ -194,7 +188,6 @@ The actual path on S3 will be:
 "{path}{time\_slice\_format}\_{sequential\_index}.gz" (see
 \`s3\_object\_key\_format\`)
 
-[]{#s3_object_key_format}
 
 ### s3\_object\_key\_format
 
@@ -224,7 +217,6 @@ Also, always make sure that %{index} appears in the customized
 \`s3\_object\_key\_format\` (Otherwise, multiple buffer flushes within
 the same time slice throws an error).
 
-[]{#store_as}
 
 ### store\_as
 
@@ -234,7 +226,6 @@ the same time slice throws an error).
 
 The compression type. You can also choose "lzo", "json", or "txt".
 
-[]{#proxy_uri}
 
 ### proxy\_uri
 
@@ -244,7 +235,6 @@ The compression type. You can also choose "lzo", "json", or "txt".
 
 The proxy url. The default is nil.
 
-[]{#ssl_verify_peer}
 
 ### ssl\_verify\_peer
 

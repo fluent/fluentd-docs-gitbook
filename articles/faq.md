@@ -21,7 +21,6 @@ installation. We use v1.0/v1.x on our document.
 
 ## Known Issue
 
-[]{#zlib::dataerror-happens-when-output-plugin-uses-gzip-compression}
 
 ### Zlib::DataError happens when Output plugin uses gzip compression
 
@@ -65,7 +64,6 @@ some_field "#{ENV['FOO_HOME']}"
 
 (Note that it must be double quotes and not single quotes)
 
-[]{#fluentd-raises-an-error-for-host:port.-why?}
 
 ### Fluentd raises an error for host:port. Why?
 

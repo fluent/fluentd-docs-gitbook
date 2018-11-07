@@ -72,7 +72,6 @@ The bind address to listen to.
 If you set this parameter, this plugin emits metrics as records. See
 "Reuse plugins" section.
 
-[]{#emit_interval}
 
 ### emit\_interval
 
@@ -83,7 +82,6 @@ If you set this parameter, this plugin emits metrics as records. See
 The interval time between event emits. This will be used when `tag` is
 configured.
 
-[]{#include_config}
 
 ### include\_config
 
@@ -94,7 +92,6 @@ configured.
 You can set this option to false to remove `config` field from the
 response.
 
-[]{#include_retry}
 
 ### include\_retry
 

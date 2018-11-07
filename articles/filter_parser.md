@@ -45,7 +45,6 @@ This is required sub section. Specify parser type and related parameter.
 
 For more details, see [Parse section configurations](/articles/parse-section.md).
 
-[]{#key_name}
 
 ### key\_name
 
@@ -58,7 +57,6 @@ Specify field name in the record to parse.
 This parameter supports nested field access via [record\_accessor
 syntax](api-plugin-helper-record_accessor#syntax).
 
-[]{#reserve_time}
 
 ### reserve\_time
 
@@ -68,7 +66,6 @@ syntax](api-plugin-helper-record_accessor#syntax).
 
 Keep original event time in parsed result.
 
-[]{#reserve_data}
 
 ### reserve\_data
 
@@ -103,7 +100,6 @@ Without `reserve_data`, result is below
 # output data: {"user":1,"num":2}
 ```
 
-[]{#remove_key_name_field}
 
 ### remove\_key\_name\_field
 
@@ -132,7 +128,6 @@ With above configuration, result is below:
 # output data: {"key":"value","user":1,"num":2}
 ```
 
-[]{#replace_invalid_sequence}
 
 ### replace\_invalid\_sequence
 
@@ -143,7 +138,6 @@ With above configuration, result is below:
 If `true`, invalid string is replaced with safe characters and re-parse
 it.
 
-[]{#inject_key_prefix}
 
 ### inject\_key\_prefix
 
@@ -172,7 +166,6 @@ With above configuration, result is below:
 # output data: {"log":"{\"user\":1,\"num\":2}","data.user":1, "data.num":2}
 ```
 
-[]{#hash_value_field}
 
 ### hash\_value\_field
 
@@ -200,7 +193,6 @@ With above configuration, result is below:
 # output data: {"parsed":{"user":1,"num":2}}
 ```
 
-[]{#emit_invalid_record_to_error}
 
 ### emit\_invalid\_record\_to\_error
 

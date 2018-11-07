@@ -60,7 +60,6 @@ The port to listen to.
 
 The bind address to listen to.
 
-[]{#linger_timeout}
 
 ### linger\_timeout
 
@@ -70,7 +69,6 @@ The bind address to listen to.
 
 The timeout time used to set linger option.
 
-[]{#resolve_hostname}
 
 ### resolve\_hostname
 
@@ -80,7 +78,6 @@ The timeout time used to set linger option.
 
 Try to resolve hostname from IP addresses or not.
 
-[]{#deny_keepalive}
 
 ### deny\_keepalive
 
@@ -91,7 +88,6 @@ Try to resolve hostname from IP addresses or not.
 Connections will be disconnected right after receiving first message if
 this value is true.
 
-[]{#chunk_size_limit}
 
 ### chunk\_size\_limit
 
@@ -102,7 +98,6 @@ this value is true.
 The size limit of the the received chunk. If the chunk size is larger
 than this value, then the received chunk is dropped.
 
-[]{#chunk_size_warn_limit}
 
 ### chunk\_size\_warn\_limit
 
@@ -113,7 +108,6 @@ than this value, then the received chunk is dropped.
 The warning size limit of the received chunk. If the chunk size is
 larger than this value, a warning message will be sent.
 
-[]{#skip_invalid_event}
 
 ### skip\_invalid\_event
 
@@ -125,7 +119,6 @@ Skip an event if incoming event is invalid.
 
 This option is useful at forwarder, not aggragator.
 
-[]{#source_address_key}
 
 ### source\_address\_key
 
@@ -136,7 +129,6 @@ This option is useful at forwarder, not aggragator.
 The field name of the client's source address. If set the value, the
 client's address will be set to its key.
 
-[]{#source_hostname_key}
 
 ### source\_hostname\_key
 
@@ -458,7 +450,6 @@ port. Incoming data will be routed to 3 workers automatically.
 
 ## FAQ
 
-[]{#why-in_forward-doesn%E2%80%99t-have-tag-parameter?}
 
 ### Why in\_forward doesn't have tag parameter?
 

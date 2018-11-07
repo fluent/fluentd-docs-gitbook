@@ -108,7 +108,6 @@ The MongoDB port.
 
 The database name.
 
-[]{#collection-(required,-if-not-tag_mapped)}
 
 ### collection (required, if not tag\_mapped)
 
@@ -155,7 +154,6 @@ The username to use for authentication.
 
 The password to use for authentication.
 
-[]{#time_key}
 
 ### time\_key
 
@@ -165,7 +163,6 @@ The password to use for authentication.
 
 The key name of timestamp. (default is "time")
 
-[]{#tag_mapped}
 
 ### tag\_mapped
 

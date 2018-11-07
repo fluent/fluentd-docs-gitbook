@@ -21,14 +21,12 @@ This installation guide is for td-agent v3, the new stable version.
 td-agent v3 uses fluentd v1.0 in the core. See [this
 page](/articles/td-agent-v2-vs-v3.md) for the comparison between v2 and v3.
 
-[]{#step-0:-before-installation}
 
 ## Step 0: Before Installation
 
 Please follow the [Preinstallation Guide](/articles/before-install.md) to configure
 your OS properly. This will prevent many unnecessary problems.
 
-[]{#step-1:-install-from-rpm-repository}
 
 ## Step 1: Install from rpm Repository
 
@@ -80,7 +78,6 @@ failure. If your environment\'s \$releasever is non-\"year.month\"
 format, change it to \"year.month\" format or setup TD repository
 manually.
 
-[]{#step-2:-launch-daemon}
 
 ## Step 2: Launch Daemon
 
@@ -137,7 +134,6 @@ $ sudo /etc/init.d/td-agent status
 Please make sure **your configuration file** is located at
 `/etc/td-agent/td-agent.conf`.
 
-[]{#step-3:-post-sample-logs-via-http}
 
 ## Step 3: Post Sample Logs via HTTP
 

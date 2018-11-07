@@ -76,7 +76,6 @@ The command (program) to execute. The `out_exec_filter` plugin passes
 the incoming event to the program input and receives the filtered event
 from the program output.
 
-[]{#num_children}
 
 ### num\_children
 
@@ -89,7 +88,6 @@ The number of spawned process for `command`.
 If the number is larger than 2, fluentd uses spawned processes by round
 robin fashion.
 
-[]{#child_respawn}
 
 ### child\_respawn
 
@@ -111,7 +109,6 @@ If you specify `inf` or `-1`, try to respawn forever.
 
 The tag of the event.
 
-[]{#read_block_size}
 
 ### read\_block\_size
 
@@ -121,7 +118,6 @@ The tag of the event.
 
 The default block size to read if parser requires partial read.
 
-[]{#num_children}
 
 ### num\_children
 
@@ -131,7 +127,6 @@ The default block size to read if parser requires partial read.
 
 The number of spawned process for command.
 
-[]{#suppress_error_log_interval}
 
 ### suppress\_error\_log\_interval
 
@@ -143,7 +138,6 @@ Suppress error logs during this interval.
 
 Output logs for all of messages to emit by default.
 
-[]{#in_format}
 
 ### in\_format
 
@@ -151,7 +145,6 @@ Output logs for all of messages to emit by default.
 
 The format used to map the incoming event to the program input.
 
-[]{#out_format}
 
 ### out\_format
 

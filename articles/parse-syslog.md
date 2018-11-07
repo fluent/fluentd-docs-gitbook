@@ -40,7 +40,6 @@ listen.
 
 In this section, we will evolve our Fluentd configuration step-by-step.
 
-[]{#step-1:-listening-to-syslog-messages}
 
 ### Step 1: Listening to syslog messages
 
@@ -75,7 +74,6 @@ Let's confirm data is coming in.
 $ less /var/log/td-agent/td-agent.log
 ```
 
-[]{#step-2:-extract-syslog-messages-from-sudo}
 
 ### Step 2: Extract syslog messages from sudo
 
@@ -121,7 +119,6 @@ events that come from `sudo` and contain command data.
 </match>
 ```
 
-[]{#step-3:-extract-information-from-messages}
 
 ### Step 3: Extract information from messages
 

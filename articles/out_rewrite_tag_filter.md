@@ -132,7 +132,6 @@ for further details.
 
 This is obsoleted since 2.0.0. Use \<rule\> section.
 
-[]{#capitalize_regex_backreference}
 
 ### capitalize\_regex\_backreference
 
@@ -143,7 +142,6 @@ This is obsoleted since 2.0.0. Use \<rule\> section.
 Capitalize letter for every matched regex backreference. (ex: maps -\>
 Maps)
 
-[]{#hostname_command}
 
 ### hostname\_command
 

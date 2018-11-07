@@ -55,7 +55,6 @@ plugin behaviour.
 
 ## Methods
 
-[]{#record_accessor_create(param)}
 
 ### record\_accessor\_create(param)
 
@@ -74,7 +73,6 @@ After create object, call `#call` method with record object.
 accessor.call(record) # access record field.
 ```
 
-[]{#record_accessor-used-plugins}
 
 ## record\_accessor used plugins
 

@@ -37,7 +37,6 @@ See [Output Plugin Overview](/articles/output-plugin-overview.md) for more detai
 
 The value must be `null`.
 
-[]{#never_flush}
 
 ### never\_flush
 

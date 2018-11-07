@@ -32,7 +32,6 @@ Delimiter for values.
 
 Use `\t` or `TAB` to specify tab character.
 
-[]{#force_quotes}
 
 ### force\_quotes
 
@@ -42,7 +41,6 @@ Use `\t` or `TAB` to specify tab character.
 
 If false, value won't be framed by quotes.
 
-[]{#add_newline}
 
 ### add\_newline
 

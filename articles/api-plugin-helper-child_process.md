@@ -34,7 +34,6 @@ child process automatically.
 
 ## Methods
 
-[]{#child_process_execute(title,-sub_process_name,-arguments:-nil,-subprocess_name:-nil,-interval:-nil,-immediate:-false,-parallel:-false,-mode:-%5B:read,-:write%5D,-stderr:-:discard,-env:-,-unsetenv:-false,-chdir:-nil,-internal_encoding:-%E2%80%98utf-8%E2%80%99,-external_encoding:-%E2%80%98ascii-8bit%E2%80%99,-scrub:-true,-replace_string:-nil,-wait_timeout:-nil,-on_exit_callback:-nil,-&block)}
 
 ### child\_process\_execute(title, sub\_process\_name, arguments: nil, subprocess\_name: nil, interval: nil, immediate: false, parallel: false, mode: \[:read, :write\], stderr: :discard, env: {}, unsetenv: false, chdir: nil, internal\_encoding: 'utf-8', external\_encoding: 'ascii-8bit', scrub: true, replace\_string: nil, wait\_timeout: nil, on\_exit\_callback: nil, &block)
 
@@ -75,7 +74,6 @@ def run(io)
 end
 ```
 
-[]{#child_process-used-plugins}
 
 ## child\_process used plugins
 

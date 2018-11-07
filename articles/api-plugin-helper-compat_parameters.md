@@ -29,7 +29,6 @@ end
 
 ## Methods
 
-[]{#compat_parameters_convert(conf,-*types,-**kwargs)}
 
 ### compat\_parameters\_convert(conf, \*types, \*\*kwargs)
 
@@ -261,7 +260,6 @@ For more details, see [Formatter Plugin
 Overview](/articles/formatter-plugin-overview.md) and [Writing Formatter
 Plugins](/articles/api-plugin-formatter.md).
 
-[]{#compat_parameters-used-plugins}
 
 ## compat\_parameters used plugins
 

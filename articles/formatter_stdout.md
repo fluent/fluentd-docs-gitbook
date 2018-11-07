@@ -15,7 +15,6 @@ Filter Plugin](/articles/filter_stdout.md).
 -   [Common Parameters](/articles/plugin-common-parameters.md)
 -   [Format section configurations](/articles/format-section.md)
 
-[]{#output_type-(string)-(optional)}
 
 ### output\_type (string) (optional)
 

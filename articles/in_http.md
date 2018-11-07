@@ -85,7 +85,6 @@ The port to listen to.
 
 The bind address to listen to.
 
-[]{#body_size_limit}
 
 ### body\_size\_limit
 
@@ -95,7 +94,6 @@ The bind address to listen to.
 
 The size limit of the POSTed element.
 
-[]{#keepalive_timeout}
 
 ### keepalive\_timeout
 
@@ -105,7 +103,6 @@ The size limit of the POSTed element.
 
 The timeout limit for keeping the connection alive.
 
-[]{#add_http_headers}
 
 ### add\_http\_headers
 
@@ -115,7 +112,6 @@ The timeout limit for keeping the connection alive.
 
 Add `HTTP_` prefix headers to the record.
 
-[]{#add_remote_addr}
 
 ### add\_remote\_addr
 
@@ -136,7 +132,6 @@ X-Forwarded-For: host3
 
 If send above multiple headers, `REMOTE_ADDR` value is `host1`.
 
-[]{#cors_allow_origins}
 
 ### cors\_allow\_origins
 
@@ -159,7 +154,6 @@ the following example).
 </source>
 ```
 
-[]{#respond_with_empty_img}
 
 ### respond\_with\_empty\_img
 
@@ -307,7 +301,6 @@ port. Incoming data will be routed to 3 workers automatically.
 
 ## Troubleshooting
 
-[]{#why-in_http-removes-%E2%80%98+%E2%80%99-from-my-log?}
 
 ### Why in\_http removes '+' from my log?
 

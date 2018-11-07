@@ -8,7 +8,6 @@ supports two RFC formats, rfc3164 and rfc5424.
 
 See [Parse section configurations](/articles/parse-section.md)
 
-[]{#time_format}
 
 ### time\_format
 
@@ -19,7 +18,6 @@ See [Parse section configurations](/articles/parse-section.md)
 Specify time format for event time. Default is "%b %d %H:%M:%S" for
 rfc3164 protocol.
 
-[]{#rfc5424_time_format}
 
 ### rfc5424\_time\_format
 
@@ -29,7 +27,6 @@ rfc3164 protocol.
 
 Specify time format for event time for rfc5424 protocol.
 
-[]{#message_format}
 
 ### message\_format
 
@@ -47,7 +44,6 @@ message. `syslog` parser detects message format by using message prefix.
 This parameter is used inside `in_syslog` plugin because the file logs
 via syslog don't have `<9>` like priority prefix.
 
-[]{#with_priority}
 
 ### with\_priority
 

@@ -19,7 +19,6 @@ differences between Fluentd and td-agent can be found
 For MacOS X, we're using the OS native .dmg Installer to distribute
 td-agent.
 
-[]{#step1:-install-td-agent}
 
 ## Step1: Install td-agent
 
@@ -27,7 +26,6 @@ Please download the `.dmg` file from here, and install the software.
 
 -   [Download](https://td-agent-package-browser.herokuapp.com/3/macosx)
 
-[]{#step2:-launch-td-agent}
 
 ## Step2: Launch td-agent
 
@@ -50,7 +48,6 @@ stop the agent, please execute the command below.
 $ sudo launchctl unload /Library/LaunchDaemons/td-agent.plist
 ```
 
-[]{#step3:-post-sample-logs-via-http}
 
 ## Step3: Post Sample Logs via HTTP
 

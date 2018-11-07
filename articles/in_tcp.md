@@ -92,7 +92,6 @@ The port to listen to.
 
 The bind address to listen to.
 
-[]{#source_hostname_key}
 
 ### source\_hostname\_key
 

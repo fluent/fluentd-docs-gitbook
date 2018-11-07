@@ -18,7 +18,6 @@
 -   skip\_accessor: If true, skip adding accessor to the plugin. Only
     for internal use.
 
-[]{#:string}
 
 ## :string
 
@@ -44,7 +43,6 @@ name John Titor
 passowrd very-secret-password
 ```
 
-[]{#:regexp}
 
 ## :regexp
 
@@ -76,7 +74,6 @@ pattern /^name_/
 pattern ^name_    # Also support pattern without slashes
 ```
 
-[]{#:integer}
 
 ## :integer
 
@@ -103,7 +100,6 @@ Configuration Example:
 num_children 10
 ```
 
-[]{#:float}
 
 ## :float
 
@@ -130,7 +126,6 @@ Configuration Example:
 interval 1.5
 ```
 
-[]{#:size}
 
 ## :size
 
@@ -164,7 +159,6 @@ Configuration Example:
 limit 10m
 ```
 
-[]{#:time}
 
 ## :time
 
@@ -201,7 +195,6 @@ Configuration Example:
 interval 10m
 ```
 
-[]{#:bool}
 
 ## :bool
 
@@ -227,7 +220,6 @@ Configuration Example:
 deep_copy true
 ```
 
-[]{#:enum}
 
 ## :enum
 
@@ -260,7 +252,6 @@ Configuration Example:
 protocol_type tcp
 ```
 
-[]{#:array}
 
 ## :array
 
@@ -295,7 +286,6 @@ These configuration will convert to:
 ["user1", "user2", "user3"]
 ```
 
-[]{#:hash}
 
 ## :hash
 

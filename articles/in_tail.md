@@ -105,7 +105,6 @@ You should not use \'\*\' with log rotation because it may cause the log
 duplication. In such case, you should separate in\_tail plugin
 configuration.
 
-[]{#exclude_path}
 
 ### exclude\_path
 
@@ -124,7 +123,6 @@ exclude_path ["/path/to/*.gz", "/path/to/*.zip"]
 \`exclude\_path\` takes its input as an array, unlike \`path\` which
 takes it as a string.
 
-[]{#refresh_interval}
 
 ### refresh\_interval
 
@@ -135,7 +133,6 @@ takes it as a string.
 The interval of refreshing the list of watch file. This is used when
 path includes `*`.
 
-[]{#limit_recently_modified}
 
 ### limit\_recently\_modified
 
@@ -146,7 +143,6 @@ path includes `*`.
 Limit the watching files that the modification time is within the
 specified time range when use `*` in `path` parameter.
 
-[]{#skip_refresh_on_startup}
 
 ### skip\_refresh\_on\_startup
 
@@ -157,7 +153,6 @@ specified time range when use `*` in `path` parameter.
 Skip the refresh of watching list on startup. This reduces the start up
 time when use `*` in `path`.
 
-[]{#read_from_head}
 
 ### read\_from\_head
 
@@ -175,7 +170,6 @@ When this is true, in\_tail tries to read a file during start up phase.
 If target file is large, it takes long time and starting other plugins
 isn\'t executed until reading file is finished.
 
-[]{#encoding,-from_encoding}
 
 ### encoding, from\_encoding
 
@@ -201,7 +195,6 @@ You can get supported encoding list by typing following command:
 $ ruby -e 'p Encoding.name_list.sort'
 ```
 
-[]{#read_lines_limit}
 
 ### read\_lines\_limit
 
@@ -214,7 +207,6 @@ The number of reading lines at each IO.
 If you see "Size of the emitted data exceeds buffer\_chunk\_limit." log
 with in\_tail, set smaller value.
 
-[]{#multiline_flush_interval}
 
 ### multiline\_flush\_interval
 
@@ -228,7 +220,6 @@ If you set `multiline_flush_interval 5s`, in\_tail flushes buffered
 event after 5 seconds from last emit. This option is useful when you use
 `format_firstline` option. Since v0.12.20 or later.
 
-[]{#pos_file-(highly-recommended)}
 
 ### pos\_file (highly recommended)
 
@@ -283,7 +274,6 @@ If `@type` contains `multiline`, in\_tail works as multiline mode.
 
 Deprecated parameter. Use `<parse>` instead.
 
-[]{#path_key}
 
 ### path\_key
 
@@ -301,7 +291,6 @@ path_key tailed_path
 With this config, generated events are like
 `{"tailed_path":"/path/to/access.log","k1":"v1",...,"kN":"vN"}`.
 
-[]{#rotate_wait}
 
 ### rotate\_wait
 
@@ -321,7 +310,6 @@ from getting lost. By default, this time interval is 5 seconds.
 The rotate\_wait parameter accepts a single integer representing the
 number of seconds you want this time interval to be.
 
-[]{#enable_watch_timer}
 
 ### enable\_watch\_timer
 
@@ -345,7 +333,6 @@ properly without the additional watch timer. At some point in the
 future, depending on feedback and testing, the additional watch timer
 may be disabled by default.
 
-[]{#enable_stat_watcher}
 
 ### enable\_stat\_watcher
 
@@ -359,7 +346,6 @@ tailing.
 
 This option is mainly for avoiding stuck issue with inotify.
 
-[]{#open_on_every_update}
 
 ### open\_on\_every\_update
 
@@ -370,7 +356,6 @@ This option is mainly for avoiding stuck issue with inotify.
 Open and close the file on every update instead of leaving it open until
 it gets rotated.
 
-[]{#emit_unmatched_lines}
 
 ### emit\_unmatched\_lines
 
@@ -384,7 +369,6 @@ logs.
 Emitted record is `{"unmatched_line" : incoming line}`, e.g.
 `{"unmatched_line" : "Non JSON format!"}`.
 
-[]{#ignore_repeated_permission_error}
 
 ### ignore\_repeated\_permission\_error
 
@@ -423,7 +407,6 @@ you will see following message in fluentd log.
 
 See also `emit_unmatched_lines` parameter.
 
-[]{#in_tail-doesn%E2%80%99t-start-to-read-log-file,-why?}
 
 ### in\_tail doesn't start to read log file, why?
 
@@ -431,7 +414,6 @@ See also `emit_unmatched_lines` parameter.
 reads only newer logs. If you want to read existing lines for batch use
 case, set `read_from_head true`.
 
-[]{#in_tail-shows-%E2%80%98/path/to/file-unreadable%E2%80%99-log-message.-why?}
 
 ### in\_tail shows '/path/to/file unreadable' log message. Why?
 
@@ -450,7 +432,6 @@ tail.
 This parameter doesn't fit typical application log cases, so check your
 `logrotate` setting which doesn't include `nocreate` parameter.
 
-[]{#what-happens-when-in_tail-receives-bufferoverflowerror?}
 
 ### What happens when in\_tail receives BufferOverflowError?
 
@@ -458,7 +439,6 @@ in\_tail stops reading new lines and pos file update until
 BufferOverflowError is resolved. After resolved BufferOverflowError,
 restart emitting new lines and pos file update.
 
-[]{#in_tail-is-sometimes-stopped-when-monitor-lots-of-files.-how-to-avoid-it?}
 
 ### in\_tail is sometimes stopped when monitor lots of files. How to avoid it?
 

@@ -85,7 +85,6 @@ details about the respective plugins.)
 
 The value must be `copy`.
 
-[]{#deep_copy}
 
 ### deep\_copy
 

@@ -21,7 +21,6 @@ as enabling RPC, multiple workers, to obtain dump.
 
 Specify number of workers.
 
-[]{#root_dir}
 
 ### root\_dir
 
@@ -31,7 +30,6 @@ Specify number of workers.
 
 Specify root directory.
 
-[]{#log_level}
 
 ### log\_level
 
@@ -42,7 +40,6 @@ Specify root directory.
 Specify log\_level. Users can choose `trace`, `debug`, `info`, `warn`,
 `error`, and `fatal` level.
 
-[]{#suppress_repeated_stacktrace}
 
 ### suppress\_repeated\_stacktrace
 
@@ -52,7 +49,6 @@ Specify log\_level. Users can choose `trace`, `debug`, `info`, `warn`,
 
 Suppress repeated stacktrace.
 
-[]{#emit_error_log_interval}
 
 ### emit\_error\_log\_interval
 
@@ -62,7 +58,6 @@ Suppress repeated stacktrace.
 
 Specify time value of emitting error log interval.
 
-[]{#suppress_config_dump}
 
 ### suppress\_config\_dump
 
@@ -72,7 +67,6 @@ Specify time value of emitting error log interval.
 
 Suppress config dump.
 
-[]{#log_event_verbose}
 
 ### log\_event\_verbose
 
@@ -82,7 +76,6 @@ Suppress config dump.
 
 Log event verbose.
 
-[]{#without_source}
 
 ### without\_source
 
@@ -92,7 +85,6 @@ Log event verbose.
 
 Invoke a fluentd without input plugins.
 
-[]{#rpc_endpoint}
 
 ### rpc\_endpoint
 
@@ -103,7 +95,6 @@ Invoke a fluentd without input plugins.
 Specify RPC endpoint. In more detail, please refer to [RPC
 document](/articles/rpc.md).
 
-[]{#enable_get_dump}
 
 ### enable\_get\_dump
 
@@ -113,7 +104,6 @@ document](/articles/rpc.md).
 
 Enabling to get dump.
 
-[]{#process_name}
 
 ### process\_name
 
@@ -123,7 +113,6 @@ Enabling to get dump.
 
 Specify process name.
 
-[]{#file_permission}
 
 ### file\_permission
 
@@ -133,7 +122,6 @@ Specify process name.
 
 Specify file permission with octal.
 
-[]{#dir_permission}
 
 ### dir\_permission
 
@@ -163,7 +151,6 @@ Specify logging format. Users can choose `text` and `json` format.
 
 Specify time format.
 
-[]{#fluent::systemconfig::mixin-methods}
 
 ### Fluent::SystemConfig::Mixin methods
 
@@ -273,7 +260,6 @@ Sets the byte size to rotate log files.
 
 Enable log events during process startup/shutdown.
 
-[]{#-i-config_string,---inline-config-config_string}
 
 ### -i CONFIG\_STRING, \--inline-config CONFIG\_STRING
 
@@ -324,7 +310,6 @@ Suppress config dumping when fluentd starts.
 
 Gemfile path.
 
-[]{#-g,---gem-path-gem_install_path}
 
 ### -G, \--gem-path GEM\_INSTALL\_PATH
 

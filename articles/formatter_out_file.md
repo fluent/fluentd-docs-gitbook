@@ -24,7 +24,6 @@ This format is a default format of `out_file` plugin.
 
 Delimiter for each field. "SPACE"(' ') and "COMMA"(',') are supported.
 
-[]{#output_tag}
 
 ### output\_tag
 
@@ -34,7 +33,6 @@ Delimiter for each field. "SPACE"(' ') and "COMMA"(',') are supported.
 
 Output tag field if true,
 
-[]{#output_time}
 
 ### output\_time
 
@@ -44,7 +42,6 @@ Output tag field if true,
 
 Output time field if true,
 
-[]{#time_type}
 
 ### time\_type
 
@@ -54,7 +51,6 @@ Output time field if true,
 
 Overwrite default value in this plugin.
 
-[]{#time_format}
 
 ### time\_format
 

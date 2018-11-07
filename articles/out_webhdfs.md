@@ -117,7 +117,6 @@ Although it is possible to contain time placeholder with `path`
 configuration, it is recommended to specify the format using `<format>`
 section.
 
-[]{#output-parameters-(and-overwritten-values-by-out_webhdfs)}
 
 ## Output Parameters (and overwritten values by out\_webhdfs)
 
@@ -134,7 +133,6 @@ placeholders), which creates one file per day.
 This parameter is specified by `path` configuration. For exmaple, when
 path contain `%H`, the value is `3600` and create one file per hourly.
 
-[]{#timekey_wait}
 
 ### timekey\_wait
 
@@ -150,7 +148,6 @@ uploaded together with all the other logs from 1:00 to 1:59 in one
 transaction, avoiding extra overhead. Larger values can be set as
 needed.
 
-[]{#queue_limit_length,-chunk_limit_size}
 
 ### queue\_limit\_length, chunk\_limit\_size
 
@@ -160,7 +157,6 @@ for the basic buffer structure. The default values are 64 and 8m,
 respectively. The suffixes "k" (KB), "m" (MB), and "g" (GB) can be used
 for chunk\_limit\_size.
 
-[]{#flush_interval}
 
 ### flush\_interval
 
@@ -168,7 +164,6 @@ The interval between data flushes. The default is unspecified, and
 buffer chunks will be flushed at the end of time slices. The suffixes
 "s" (seconds), "m" (minutes), and "h" (hours) can be used.
 
-[]{#flush_at_shutdown}
 
 ### flush\_at\_shutdown
 
@@ -176,7 +171,6 @@ The boolean value to specify whether to flush buffer chunks at shutdown
 time, or not. The default is true. Specify true if you use `memory`
 buffer type.
 
-[]{#retry_wait,-retry_max_interval}
 
 ### retry\_wait, retry\_max\_interval
 
@@ -189,7 +183,6 @@ Since td-agent will retry 17 times before giving up by default (see the
 to approximately 131072 seconds (roughly 36 hours) in the default
 configurations.
 
-[]{#retry_max_times,-retry_forever}
 
 ### retry\_max\_times, retry\_forever
 
@@ -200,7 +193,6 @@ are 17 and false (not disabled). If the limit is reached, buffered data
 is discarded and the retry interval is reset to its initial value
 (`retry_wait`).
 
-[]{#flush_thread_count}
 
 ### flush\_thread\_count
 

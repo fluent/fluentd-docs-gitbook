@@ -16,13 +16,11 @@ Specify path name to save key-value pair. Default is `nil`.
 
 Specify file access mode. Default is `0644`.
 
-[]{#dir_mode}
 
 ### dir\_mode
 
 Specify directory access mode. Default is `0755`.
 
-[]{#pretty_print}
 
 ### pretty\_print
 

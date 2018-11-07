@@ -65,7 +65,6 @@ The number of events in event stream of each emits.
 
 It configures how many events to generate per second.
 
-[]{#auto_increment_key}
 
 ### auto\_increment\_key
 

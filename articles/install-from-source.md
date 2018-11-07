@@ -3,13 +3,11 @@
 This article explains how to install Fluentd from source code (git
 repository). This is useful for developers.
 
-[]{#step-1:-install-ruby-interpreter}
 
 ## Step-1: Install Ruby interpreter
 
 Please install Ruby \>= 2.1 and bundler on your local environment.
 
-[]{#step-2:-fetch-source-code}
 
 ## Step-2: Fetch Source Code
 
@@ -23,7 +21,6 @@ $ cd fluentd
 
 "master" branch is now for v1 development.
 
-[]{#step-3:-build-and-install}
 
 ## Step-3: Build and Install
 
@@ -40,7 +37,6 @@ fluentd xxx built to pkg/fluentd-xxx.gem.
 $ gem install pkg/fluentd-xxx.gem
 ```
 
-[]{#step-4:-run}
 
 ## Step-4: Run
 

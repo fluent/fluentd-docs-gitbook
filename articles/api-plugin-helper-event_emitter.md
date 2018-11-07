@@ -50,7 +50,6 @@ rescue => error
 end
 ```
 
-[]{#event_emitter-used-plugins}
 
 ## event\_emitter used plugins
 

@@ -49,7 +49,6 @@ For more details about parser plugin, see following articles:
 
 ## Methods
 
-[]{#parser_create(usage:-%E2%80%9C%E2%80%9D,-type:-nil,-conf:-nil,-default_type:-nil)}
 
 ### parser\_create(usage: "", type: nil, conf: nil, default\_type: nil)
 

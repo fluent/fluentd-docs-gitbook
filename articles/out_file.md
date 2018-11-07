@@ -134,7 +134,6 @@ Deprecated parameter. Use `<format>` instead.
 
 Deprecated parameter. Use `timekey_use_utc` in `<buffer>` instead.
 
-[]{#add_path_suffix}
 
 ### add\_path\_suffix
 
@@ -144,7 +143,6 @@ Deprecated parameter. Use `timekey_use_utc` in `<buffer>` instead.
 
 Add path suffix or not. See also `path_suffix` parameter.
 
-[]{#path_suffix}
 
 ### path\_suffix
 
@@ -166,7 +164,6 @@ default.
 Execute compression again even when buffer chunk is already compressed.
 Default is `false`
 
-[]{#symlink_path}
 
 ### symlink\_path
 

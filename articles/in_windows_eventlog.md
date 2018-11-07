@@ -84,7 +84,6 @@ channels ["application", "system", "security"]
 
 Default is `["application"]`.
 
-[]{#read_interval}
 
 ### read\_interval
 
