@@ -39,7 +39,7 @@ configuration. Please install the following software on the same node.
 -   [Fluentd](http://fluentd.org/)
 -   [WebHDFS Output
     Plugin](https://github.com/fluent/fluent-plugin-webhdfs/)
-    ([out\_webhdfs](out_webhdfs))
+    ([out\_webhdfs](/articles/out_webhdfs.md))
 -   HDFS (Apache 1.0.0, CDH3u5 or CDH4 onwards)
 
 The WebHDFS Output plugin is included in the latest version of Fluentd's
@@ -162,7 +162,7 @@ Learn More
 
 -   [Fluentd Architecture](/articles/architecture.md)
 -   [Fluentd Get Started](/articles/quickstart.md)
--   [WebHDFS Output Plugin](out_webhdfs)
+-   [WebHDFS Output Plugin](/articles/out_webhdfs.md)
 -   [Slides: Fluentd and
     WebHDFS](http://www.slideshare.net/tagomoris/fluentd-and-webhdfs)
 

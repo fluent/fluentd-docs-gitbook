@@ -76,7 +76,7 @@ $ php test.php
 ```
 
 The logs should be output to `/var/log/td-agent/td-agent.log` or stdout
-of the Fluentd process via the [stdout Output plugin](out_stdout).
+of the Fluentd process via the [stdout Output plugin](/articles/out_stdout.md).
 
 Production Deployments
 ----------------------
@@ -87,15 +87,14 @@ Various [output plugins](output-plugin-overview.md) are available for
 writing records to other destinations:
 
 -   Examples
-    -   [Store Apache Logs into Amazon S3](apache-to-s3)
+    -   [Store Apache Logs into Amazon S3](/articles/apache-to-s3.md)
     -   [Store Apache Logs into MongoDB](apache-to-mongodb.md)
     -   [Data Collection into HDFS](http-to-hdfs.md)
 -   List of Plugin References
-    -   [Output to Another Fluentd](out_forward)
-    -   [Output to MongoDB](out_mongo) or [MongoDB
-        ReplicaSet](out_mongo_replset)
-    -   [Output to Hadoop](out_webhdfs)
-    -   [Output to File](out_file)
+    -   [Output to Another Fluentd](/articles/out_forward.md)
+    -   [Output to MongoDB](/articles/out_mongo.md) or [MongoDB ReplicaSet](/articles/out_mongo_replset.md)
+    -   [Output to Hadoop](/articles/out_webhdfs.md)
+    -   [Output to File](/articles/out_file.md)
     -   [etc...](http://fluentd.org/plugin/)
 
 ### High-Availability Configurations of Fluentd

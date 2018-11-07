@@ -2,7 +2,7 @@ Store Apache Logs into MongoDB
 ==============================
 
 This article explains how to use [Fluentd](http://fluentd.org/)'s
-MongoDB Output plugin ([out\_mongo](out_mongo)) to aggregate
+MongoDB Output plugin ([out\_mongo](/articles/out_mongo.md)) to aggregate
 semi-structured logs in real-time.
 
 
@@ -45,7 +45,7 @@ For simplicity, this article will describe how to set up an one-node
 configuration. Please install the following software on the same node.
 
 -   [Fluentd](http://fluentd.org/)
--   [MongoDB Output Plugin](out_mongo)
+-   [MongoDB Output Plugin](/articles/out_mongo.md)
 -   [MongoDB](http://www.mongodb.org/)
 -   Apache (with the Combined Log Format)
 
@@ -85,7 +85,7 @@ configuration file should look like this:
 ```
 Please make sure that your Apache outputs are in the default
 \'combined\' format. \`format apache2\` cannot parse custom log formats.
-Please see the [in\_tail](in_tail) article for more information.
+Please see the [in\_tail](/articles/in_tail.md) article for more information.
 
 Let's go through the configuration line by line.
 
@@ -140,7 +140,7 @@ The other options specify MongoDB's host, port, db, and collection.
 
 For additional configuration parameters, please see the [MongoDB Output
 plugin](out_mongo) article. If you are using ReplicaSet, please see the
-[MongoDB ReplicaSet Output plugin](out_mongo_replset) article.
+[MongoDB ReplicaSet Output plugin](/articles/out_mongo_replset.md) article.
 
 Test
 ----
@@ -174,8 +174,8 @@ Learn More
 
 -   [Fluentd Architecture](/articles/architecture.md)
 -   [Fluentd Get Started](/articles/quickstart.md)
--   [MongoDB Output Plugin](out_mongo)
--   [MongoDB ReplicaSet Output Plugin](out_mongo_replset)
+-   [MongoDB Output Plugin](/articles/out_mongo.md)
+-   [MongoDB ReplicaSet Output Plugin](/articles/out_mongo_replset.md)
 
 
 ------------------------------------------------------------------------

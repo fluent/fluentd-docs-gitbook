@@ -108,7 +108,7 @@ RUN ["gem", "install", "fluent-plugin-elasticsearch", "--no-rdoc", "--no-ri", "-
 ```
 
 Then, please prepare Fluentd's configuration file
-`fluentd/conf/fluent.conf`. [in\_forward](in_forward) plugin is used for
+`fluentd/conf/fluent.conf`. [in\_forward](/articles/in_forward.md) plugin is used for
 receive logs from Docker logging driver, and out\_elasticsearch is for
 forwarding logs to Elasticsearch.
 

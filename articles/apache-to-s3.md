@@ -2,7 +2,7 @@ Store Apache Logs into Amazon S3
 ================================
 
 This article explains how to use [Fluentd](http://fluentd.org/)'s Amazon
-S3 Output plugin ([out\_s3](out_s3)) to aggregate semi-structured logs
+S3 Output plugin ([out\_s3](/articles/out_s3.md)) to aggregate semi-structured logs
 in real-time.
 
 
@@ -36,7 +36,7 @@ For simplicity, this article will describe how to set up an one-node
 configuration. Please install the following software on the same node.
 
 -   [Fluentd](http://fluentd.org/)
--   [Amazon S3 Output Plugin](out_s3)
+-   [Amazon S3 Output Plugin](/articles/out_s3.md)
 -   Your Amazon Web Services Account
 -   Apache (with the Combined Log Format)
 
@@ -72,7 +72,7 @@ configuration file should look like this:
 ```
 Please make sure that your Apache outputs are in the default
 \'combined\' format. \`format apache2\` cannot parse custom log formats.
-Please see the [in\_tail](in_tail) article for more information.
+Please see the [in\_tail](/articles/in_tail.md) article for more information.
 
 Let's go through the configuration line by line.
 
@@ -147,7 +147,7 @@ Learn More
 
 -   [Fluentd Architecture](/articles/architecture.md)
 -   [Fluentd Get Started](/articles/quickstart.md)
--   [Amazon S3 Output plugin](out_s3)
+-   [Amazon S3 Output plugin](/articles/out_s3.md)
 
 
 ------------------------------------------------------------------------

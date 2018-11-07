@@ -10,7 +10,7 @@ Scenario: Filtering Data by the Value of a Field
 ------------------------------------------------
 
 Let's suppose our Fluentd instances are collecting data from Apache web
-server logs via [in\_tail](in_tail). Our goal is to filter out all the
+server logs via [in\_tail](/articles/in_tail.md). Our goal is to filter out all the
 200 requests.
 
 Solution: Use fluent-plugin-grep

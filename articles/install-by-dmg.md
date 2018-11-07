@@ -85,10 +85,10 @@ sources.
 -   Basic Configuration
     -   [Config File](config-file.md)
 -   Application Logs
-    -   [Ruby](ruby), [Java](java), [Python](python.md), [PHP](php.md),
-        [Perl](perl), [Node.js](nodejs.md), [Scala](scala.md)
+    -   [Ruby](ruby.md), [Java](java.md), [Python](python.md), [PHP](php.md),
+        [Perl](perl.md), [Node.js](nodejs.md), [Scala](scala.md)
 -   Examples
-    -   [Store Apache Log into Amazon S3](apache-to-s3)
+    -   [Store Apache Log into Amazon S3](/articles/apache-to-s3.md)
     -   [Store Apache Log into MongoDB](apache-to-mongodb.md)
     -   [Data Collection into HDFS](http-to-hdfs.md)
 

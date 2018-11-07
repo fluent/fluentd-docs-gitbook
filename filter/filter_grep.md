@@ -184,7 +184,7 @@ Learn More
 ----------
 
 -   [Filter Plugin Overview](filter-plugin-overview.md)
--   [record\_transformer Filter Plugin](filter_record_transformer)
+-   [record\_transformer Filter Plugin](/articles/filter_record_transformer.md)
 
 
 ------------------------------------------------------------------------

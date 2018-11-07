@@ -230,7 +230,7 @@ For this format, the following common parameters are also supported.
 #### single\_value
 
 Output the value of a single field instead of the whole record. Often
-used in conjunction with [in\_tail](in_tail)'s `format none`.
+used in conjunction with [in\_tail](/articles/in_tail.md)'s `format none`.
 
 ``` {.CodeRay}
 value1\n

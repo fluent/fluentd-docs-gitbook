@@ -15,7 +15,7 @@ together, as it allows to define which *Inputs* or listeners
 [Fluentd](http://fluentd.org) will have and set up common matching rules
 to route the *Event* data to a specific *Output*.
 
-We will use the [in\_http](in_http) and the [out\_stdout](out_stdout)
+We will use the [in\_http](/articles/in_http.md) and the [out\_stdout](/articles/out_stdout.md)
 plugins as examples to describe the events cycle. The following is a
 basic definition on the configuration file to specify an *http* input,
 for short: we will be listening for **HTTP Requests**:

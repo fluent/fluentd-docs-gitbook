@@ -47,7 +47,7 @@ The `path` parameter is used as `buffer_path` in this plugin.
 Initially, you may see a file which looks like
 \"/path/to/file.20140101.log.b4eea2c8166b147a0\". This is an
 intermediate buffer file (\"b4eea2c8166b147a0\" identifies the buffer).
-Once the content of the buffer has been completely [flushed](buf_file),
+Once the content of the buffer has been completely [flushed](/articles/buf_file.md),
 you will see the output file without the trailing identifier.
 
 ### append
@@ -133,8 +133,8 @@ needed.
 
 ### buffer\_type
 
-The buffer type is `file` by default ([buf\_file](buf_file)). The
-`memory` ([buf\_memory](buf_memory)) buffer type can be chosen as well.
+The buffer type is `file` by default ([buf\_file](/articles/buf_file.md)). The
+`memory` ([buf\_memory](/articles/buf_memory.md)) buffer type can be chosen as well.
 If you use `file` buffer type, `buffer_path` parameter is required.
 
 ### buffer\_queue\_limit, buffer\_chunk\_limit

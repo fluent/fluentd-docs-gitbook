@@ -15,7 +15,7 @@ to its local Fluentd instance when using logger libraries of various
 languages. Depending on the maturity of each logger library, some clever
 mechanisms have been implemented to prevent data loss.
 
-#### 1) Memory Buffering (available for [Ruby](ruby), [Java](java), [Python](python.md), [Perl](perl.md))
+#### 1) Memory Buffering (available for [Ruby](ruby.md), [Java](java.md), [Python](python.md), [Perl](perl.md))
 
 If the destination Fluentd instance dies, certain logger implementations
 will use extra memory to hold incoming logs. When Fluentd comes back,
@@ -37,14 +37,14 @@ your buffer configuration.
 
 #### buf\_memory
 
-If you're using [buf\_memory](buf_memory), the buffered data is
+If you're using [buf\_memory](/articles/buf_memory.md), the buffered data is
 completely lost. This is a tradeoff for higher performance. Lowering the
 flush\_interval will reduce the probability of losing data, but will
 increase the number of transfers between forwarders and aggregators.
 
 #### buf\_file
 
-If you're using [buf\_file](buf_file), the buffered data is stored on
+If you're using [buf\_file](/articles/buf_file.md), the buffered data is stored on
 the disk. After Fluentd recovers, it will try to send the buffered data
 to the destination again.
 
@@ -59,9 +59,9 @@ If the storage destination (e.g. Amazon S3, MongoDB, HDFS, etc.) goes
 down, Fluentd will keep trying to resend the buffered data. The retry
 logic depends on the plugin implementation.
 
-If you're using [buf\_memory](buf_memory), aggregators will stop
+If you're using [buf\_memory](/articles/buf_memory.md), aggregators will stop
 accepting new logs once they reach their buffer limits. If you're using
-[buf\_file](buf_file), aggregators will continue accepting logs until
+[buf\_file](/articles/buf_file.md), aggregators will continue accepting logs until
 they run out of disk space.
 
 

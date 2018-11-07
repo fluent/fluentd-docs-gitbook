@@ -140,7 +140,7 @@ you are impatient, ctrl-C to flush the stdout buffer)
 Of course, you can use Fluentd's many output plugins to store the data
 into various backend systems like
 [Elasticsearch](free-alternative-to-splunk-by-fluentd.md),
-[HDFS](http-to-hdfs.md), [MongoDB](apache-to-mongodb.md), [AWS](apache-to-s3),
+[HDFS](http-to-hdfs.md), [MongoDB](apache-to-mongodb.md), [AWS](apache-to-s3.md),
 etc.
 
 

@@ -127,8 +127,8 @@ needed.
 
 ### buffer\_type
 
-The buffer type is `memory` by default ([buf\_memory](buf_memory)). The
-`file` ([buf\_file](buf_file)) buffer type can be chosen as well. If you
+The buffer type is `memory` by default ([buf\_memory](/articles/buf_memory.md)). The
+`file` ([buf\_file](/articles/buf_file.md)) buffer type can be chosen as well. If you
 use `file` buffer type, `buffer_path` parameter is required.
 
 ### buffer\_queue\_limit, buffer\_chunk\_limit

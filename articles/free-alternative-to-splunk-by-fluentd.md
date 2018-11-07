@@ -175,7 +175,7 @@ $ logger -t test foobar
 ```
 
 When debugging your td-agent configuration, using
-[filter\_stdout](filter_stdout) will be useful. All the logs including
+[filter\_stdout](/articles/filter_stdout.md) will be useful. All the logs including
 errors can be found at `/etc/td-agent/td-agent.log`.
 
 ``` {.CodeRay}

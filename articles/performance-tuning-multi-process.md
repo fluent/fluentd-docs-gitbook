@@ -2,7 +2,7 @@ Performance Tuning (Multi Process)
 ==================================
 
 This article desdrivbes how to optimize Fluentd's performance with
-[in\_multiprocess](in_multiprocess) plugin. With high traffic, Fluentd
+[in\_multiprocess](/articles/in_multiprocess.md) plugin. With high traffic, Fluentd
 tends to be more CPU bound.
 
 However with Ruby MRI's GVL ([Global VM
@@ -26,9 +26,9 @@ process topology within the same server.
 ### 1st Tier: Input Processes
 
 These processes will be in charge for input (typicall either
-[in\_tail](in_tail) or other input plugins) and its parsing. The input
+[in\_tail](/articles/in_tail.md) or other input plugins) and its parsing. The input
 processes will transfer all the records to 2nd tier output processes, by
-[out\_forward](out_forward).
+[out\_forward](/articles/out_forward.md).
 
 In the config, it will be recommended to use shorter `flush_interval`
 (e.g. 1s) with smaller `buffer_chunk_size` (e.g. 1MB) to immediately
@@ -38,7 +38,7 @@ forward incoming data to 2nd tier output processes.
 
 These process will be in charge for filter and output to your favorite
 destinations. The output processes accept incoming data from input
-processes, by [in\_forward](in_forward).
+processes, by [in\_forward](/articles/in_forward.md).
 
 The output processes are shared across all input processes, by
 out\_forward's load balancing mechanism. In this way, you can simply add
@@ -65,7 +65,7 @@ load across the processes automatically.
 
 If any of the process goes down, the supervisor process will
 automatically relaunch the process. Also we recommend to use
-[buf\_file](buf_file) for both input and output processes, to simply
+[buf\_file](/articles/buf_file.md) for both input and output processes, to simply
 prevent losing the data.
 
 For example, even if one of the output processes die, the data gets

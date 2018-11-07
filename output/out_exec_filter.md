@@ -117,8 +117,8 @@ with these parameters.
 
 ### buffer\_type
 
-The buffer type is `memory` by default ([buf\_memory](buf_memory)) for
-the ease of testing, however `file` ([buf\_file](buf_file)) buffer type
+The buffer type is `memory` by default ([buf\_memory](/articles/buf_memory.md)) for
+the ease of testing, however `file` ([buf\_file](/articles/buf_file.md)) buffer type
 is always recommended for the production deployments. If you use `file`
 buffer type, `buffer_path` parameter is required.
 

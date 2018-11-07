@@ -117,8 +117,8 @@ with these parameters.
 
 ### buffer\_type
 
-The buffer type is `memory` by default ([buf\_memory](buf_memory)). The
-`file` ([buf\_file](buf_file)) buffer type can be chosen as well. Unlike
+The buffer type is `memory` by default ([buf\_memory](/articles/buf_memory.md)). The
+`file` ([buf\_file](/articles/buf_file.md)) buffer type can be chosen as well. Unlike
 many other output plugins, the `buffer_path` parameter MUST be specified
 when using `buffer_type file`.
 

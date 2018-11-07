@@ -12,8 +12,8 @@ Overview
 --------
 
 Sometimes, the `format` parameter for input plugins (ex:
-[in\_tail](in_tail), [in\_syslog](in_syslog), [in\_tcp](in_tcp) and
-[in\_udp](in_udp)) cannot parse the user's custom data format (for
+[in\_tail](/articles/in_tail.md), [in\_syslog](/articles/in_syslog.md), [in\_tcp](/articles/in_tcp.md) and
+[in\_udp](/articles/in_udp.md)) cannot parse the user's custom data format (for
 example, a context-dependent grammar that can't be parsed with a regular
 expression). To address such cases. Fluentd has a pluggable system that
 enables the user to create their own parser formats.
@@ -41,17 +41,17 @@ Here is a simple example to read Nginx access logs using `in_tail` and
 List of Built-in Parsers
 ------------------------
 
--   [regexp](parser_regexp)
--   [apache2](parser_apache2)
--   [apache\_error](parser_apache_error)
--   [nginx](parser_nginx)
--   [syslog](parser_syslog)
--   [csv](parser_csv)
--   [tsv](parser_tsv)
--   [ltsv](parser_ltsv)
--   [json](parser_json)
--   [multiline](parser_multiline)
--   [none](parser_none)
+-   [regexp](/articles/parser_regexp.md)
+-   [apache2](/articles/parser_apache2.md)
+-   [apache\_error](/articles/parser_apache_error.md)
+-   [nginx](/articles/parser_nginx.md)
+-   [syslog](/articles/parser_syslog.md)
+-   [csv](/articles/parser_csv.md)
+-   [tsv](/articles/parser_tsv.md)
+-   [ltsv](/articles/parser_ltsv.md)
+-   [json](/articles/parser_json.md)
+-   [multiline](/articles/parser_multiline.md)
+-   [none](/articles/parser_none.md)
 
 ### 3rd party Parsers
 
@@ -65,11 +65,11 @@ List of Core Input Plugins with Parser support
 
 with `format` parameter.
 
--   [in\_tail](in_tail)
--   [in\_tcp](in_tcp)
--   [in\_udp](in_udp)
--   [in\_syslog](in_syslog)
--   [in\_http](in_http)
+-   [in\_tail](/articles/in_tail.md)
+-   [in\_tcp](/articles/in_tcp.md)
+-   [in\_udp](/articles/in_udp.md)
+-   [in\_syslog](/articles/in_syslog.md)
+-   [in\_http](/articles/in_http.md)
 
 
 ------------------------------------------------------------------------

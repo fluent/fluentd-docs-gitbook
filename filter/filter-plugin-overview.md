@@ -63,9 +63,9 @@ section](plugin-development#filter-plugins) for more information.
 List of Filter Plugins
 ----------------------
 
--   [grep](filter_grep)
--   [record-transformer](filter_record_transformer)
--   [filter\_stdout](filter_stdout)
+-   [grep](/articles/filter_grep.md)
+-   [record-transformer](/articles/filter_record_transformer.md)
+-   [filter\_stdout](/articles/filter_stdout.md)
 
 
 ------------------------------------------------------------------------

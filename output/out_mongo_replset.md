@@ -5,7 +5,7 @@ The `out_mongo_replset` Buffered Output plugin writes records into
 [MongoDB](http://mongodb.org/), the emerging document-oriented database
 system.
 This plugin is for users using ReplicaSet. If you are not using
-ReplicaSet, please see the [out\_mongo](out_mongo) article instead.
+ReplicaSet, please see the [out\_mongo](/articles/out_mongo.md) article instead.
 
 
 Why Fluentd with MongoDB?
@@ -146,8 +146,8 @@ with these parameters.
 
 ### buffer\_type
 
-The buffer type is `memory` by default ([buf\_memory](buf_memory)) for
-the ease of testing, however `file` ([buf\_file](buf_file)) buffer type
+The buffer type is `memory` by default ([buf\_memory](/articles/buf_memory.md)) for
+the ease of testing, however `file` ([buf\_file](/articles/buf_file.md)) buffer type
 is always recommended for the production deployments. If you use `file`
 buffer type, `buffer_path` parameter is required.
 

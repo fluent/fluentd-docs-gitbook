@@ -439,7 +439,7 @@ defined after tight match patterns.
 
 Of course, if you use two same patterns, second `match` is never
 matched. If you want to send events to multiple outputs, consider
-[out\_copy](out_copy) plugin.
+[out\_copy](/articles/out_copy.md) plugin.
 
 The common pitfall is when you put a `<filter>` block after `<match>`.
 It will never work as supposed, since events never go through the filter
@@ -463,7 +463,7 @@ Supported Data Types for Values
 -------------------------------
 
 Each Fluentd plugin has a set of parameters. For example,
-[in\_tail](in_tail) has parameters such as `rotate_wait` and `pos_file`.
+[in\_tail](/articles/in_tail.md) has parameters such as `rotate_wait` and `pos_file`.
 Each parameter has a specific type associated with it. They are defined
 as follows:
 

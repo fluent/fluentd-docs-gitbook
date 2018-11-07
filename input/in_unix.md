@@ -3,7 +3,7 @@ Unix Domain Socket Input Plugin
 
 The `in_unix` Input plugin enables Fluentd to retrieve records from the
 Unix Domain Socket. The wire protocol is the same as
-[in\_forward](in_forward), but the transport layer is different.
+[in\_forward](/articles/in_forward.md), but the transport layer is different.
 
 
 Example Configuration

@@ -2,7 +2,7 @@ Secure Forward Output Plugin
 ============================
 
 The `out_secure_forward` output plugin sends messages via **SSL with
-authentication** (cf. [in\_secure\_forward](in_secure_forward)).
+authentication** (cf. [in\_secure\_forward](/articles/in_secure_forward.md)).
 This document doesn\'t describe all parameters. If you want to know full
 features, check the Further Reading section.
 
@@ -414,8 +414,8 @@ with these parameters.
 
 ### buffer\_type
 
-The buffer type is `memory` by default ([buf\_memory](buf_memory)) for
-the ease of testing, however `file` ([buf\_file](buf_file)) buffer type
+The buffer type is `memory` by default ([buf\_memory](/articles/buf_memory.md)) for
+the ease of testing, however `file` ([buf\_file](/articles/buf_file.md)) buffer type
 is always recommended for the production deployments. If you use `file`
 buffer type, `buffer_path` parameter is required.
 

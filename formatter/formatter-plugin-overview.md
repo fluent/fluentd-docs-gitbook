@@ -3,7 +3,7 @@ Text Formatter Overview
 
 Fluentd has 6 types of plugins: [Input](input-plugin-overview.md),
 [Parser](parser-plugin-overview.md), [Filter](filter-plugin-overview.md),
-[Output](output-plugin-overview), [Formatter](formatter-plugin-overview.md)
+[Output](output-plugin-overview.md), [Formatter](formatter-plugin-overview.md)
 and [Buffer](buffer-plugin-overview.md). This article gives an overview of
 Formatter Plugin.
 
@@ -21,7 +21,7 @@ How To Use
 For an output plugin that supports Text Formatter, the `format`
 parameter can be used to change the output format.
 
-For example, by default, [out\_file](out_file) plugin outputs data as
+For example, by default, [out\_file](/articles/out_file.md) plugin outputs data as
 
 ``` {.CodeRay}
 2014-08-25 00:00:00 +0000<TAB>foo.bar<TAB>{"k1":"v1", "k2":"v2"}
@@ -52,19 +52,19 @@ how to develop a custom formatter.
 List of Built-in Formatters
 ---------------------------
 
--   [out\_file](formatter_out_file)
--   [json](formatter_json)
--   [ltsv](formatter_ltsv)
--   [csv](formatter_csv)
--   [msgpack](formatter_msgpack)
--   [hash](formatter_hash)
--   [single\_value](formatter_single_value)
+-   [out\_file](/articles/formatter_out_file.md)
+-   [json](/articles/formatter_json.md)
+-   [ltsv](/articles/formatter_ltsv.md)
+-   [csv](/articles/formatter_csv.md)
+-   [msgpack](/articles/formatter_msgpack.md)
+-   [hash](/articles/formatter_hash.md)
+-   [single\_value](/articles/formatter_single_value.md)
 
 List of Output Plugins with Text Formatter Support
 --------------------------------------------------
 
--   [out\_file](out_file)
--   [out\_s3](out_s3)
+-   [out\_file](/articles/out_file.md)
+-   [out\_s3](/articles/out_s3.md)
 
 
 

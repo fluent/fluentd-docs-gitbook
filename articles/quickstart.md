@@ -44,13 +44,13 @@ refer to the article(s) that suits your needs.
     -   [Data Analytics with Treasure Data](http-to-td.md)
     -   [Data Collection to MongoDB](apache-to-mongodb.md)
     -   [Data Collection to HDFS](http-to-hdfs.md)
-    -   [Data Archiving to Amazon S3](apache-to-s3)
+    -   [Data Archiving to Amazon S3](/articles/apache-to-s3.md)
     -   [Windows Event Collection](windows.md)
 -   Basic Configuration
     -   [Config File](config-file.md)
 -   Application Logs
-    -   [Ruby](ruby), [Java](java), [Python](python.md), [PHP](php.md),
-        [Perl](perl), [Node.js](nodejs.md), [Scala](scala.md)
+    -   [Ruby](ruby.md), [Java](java.md), [Python](python.md), [PHP](php.md),
+        [Perl](perl.md), [Node.js](nodejs.md), [Scala](scala.md)
 -   Happy Users :)
     -   [Users](users.md)
 

@@ -71,8 +71,8 @@ Per Plugin Log
 The `log_level` option sets different levels of logging for each plugin.
 It can be set in each plugin's configuration file.
 
-For example, in order to debug [in\_tail](in_tail) but suppress all but
-fatal log messages for [in\_http](in_http), their respective `log_level`
+For example, in order to debug [in\_tail](/articles/in_tail.md) but suppress all but
+fatal log messages for [in\_http](/articles/in_http.md), their respective `log_level`
 options should be set as follows:
 
 ``` {.CodeRay}
@@ -187,7 +187,7 @@ datadog, sentry, irc, etc.
 
 ### Case2: Use aggregation/monitoring server
 
-You can use [out\_forward](out_forward) to send Fluentd logs to a
+You can use [out\_forward](/articles/out_forward.md) to send Fluentd logs to a
 monitoring server. The monitoring server can then filter and send the
 logs to your notification system: chat, irc, etc.
 

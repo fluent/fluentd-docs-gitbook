@@ -181,8 +181,8 @@ be ignored and fluentd would issue a warning.
 List of Buffer Plugins
 ----------------------
 
--   [buf\_memory](buf_memory)
--   [buf\_file](buf_file)
+-   [buf\_memory](/articles/buf_memory.md)
+-   [buf\_file](/articles/buf_file.md)
 
 
 ------------------------------------------------------------------------

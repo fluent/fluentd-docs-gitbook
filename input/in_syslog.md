@@ -132,7 +132,7 @@ tag like "\<3\>". This option exists since some syslog daemons output
 logs without the priority tag preceding the message body.
 
 If you wish to parse syslog messages of arbitrary formats,
-[in\_tcp](in_tcp) or [in\_udp](in_udp) are recommended.
+[in\_tcp](/articles/in_tcp.md) or [in\_udp](/articles/in_udp.md) are recommended.
 
 ### include\_source\_host
 

@@ -15,7 +15,7 @@ transfer, we assume this plugin is only used within private networks.
 If you open up the port of this plugin to the internet, the attacker can
 easily crash Fluentd by using the specific packet. If you require a
 secure connection between nodes, please consider using
-[in\_secure\_forward](in_secure_forward).
+[in\_secure\_forward](/articles/in_secure_forward.md).
 
 
 Example Configuration
