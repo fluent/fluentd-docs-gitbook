@@ -114,7 +114,7 @@ There it is! (the response JSON is formatted for readability)
 Learn More
 ----------
 
--   [Fluentd Architecture](/articles/architecture.md)
+-   [Fluentd Architecture](///www.fluentd.org/architecture)
 -   [Fluentd Get Started](/articles/quickstart.md)
 -   [Riak Output Plugin](http://github.com/kuenishi/fluent-plugin-riak)
 

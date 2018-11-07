@@ -145,7 +145,7 @@ Fluentd + Amazon S3 makes real-time log archiving simple.
 Learn More
 ----------
 
--   [Fluentd Architecture](/articles/architecture.md)
+-   [Fluentd Architecture](///www.fluentd.org/architecture)
 -   [Fluentd Get Started](/articles/quickstart.md)
 -   [Amazon S3 Output plugin](/articles/out_s3.md)
 

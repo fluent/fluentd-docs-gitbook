@@ -160,7 +160,7 @@ major problems for several months now.
 Learn More
 ----------
 
--   [Fluentd Architecture](/articles/architecture.md)
+-   [Fluentd Architecture](///www.fluentd.org/architecture)
 -   [Fluentd Get Started](/articles/quickstart.md)
 -   [WebHDFS Output Plugin](/articles/out_webhdfs.md)
 -   [Slides: Fluentd and

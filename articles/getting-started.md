@@ -61,7 +61,7 @@ Step3: Learn More
 The articles shown below will provide detailed information for you to
 learn more about Fluentd.
 
--   [Architecture Overview](/articles/architecture.md)
+-   [Architecture Overview](///www.fluentd.org/architecture)
 -   [Life of a Fluentd Event](/articles/life-of-a-fluentd-event.md)
 -   Plugin Overview
     -   [Input Plugins](/articles/input-plugin-overview.md)

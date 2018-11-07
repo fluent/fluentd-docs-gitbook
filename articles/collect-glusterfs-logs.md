@@ -14,7 +14,7 @@ generates its own logs, and it's sometimes convenient to have these logs
 collected in a central location for analysis (e.g., When one GlusterFS
 node went down, what was happening on other nodes?).
 
-[Fluentd](/articles/architecture.md) is an open source data collector for high-volume
+[Fluentd](///www.fluentd.org/architecture) is an open source data collector for high-volume
 data streams. It's a great fit for monitoring GlusterFS clusters
 because:
 
@@ -175,7 +175,7 @@ Thanks Daisuke!
 Learn More
 ----------
 
--   [Fluentd Architecture](/articles/architecture.md)
+-   [Fluentd Architecture](///www.fluentd.org/architecture)
 -   [Fluentd Get Started](/articles/quickstart.md)
 -   [GlusterFS Input
     Plugin](https://github.com/keithseahus/fluent-plugin-glusterfs)

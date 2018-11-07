@@ -15,7 +15,7 @@ data service as an example, but you can use any cloud service in its
 place.
 
 
-[What is Fluentd?](/articles/architecture.md)
+[What is Fluentd?](///www.fluentd.org/architecture)
 
 
 Install Raspbian
@@ -123,7 +123,7 @@ easily and reliably.
 Learn More
 ----------
 
--   [Fluentd Architecture](/articles/architecture.md)
+-   [Fluentd Architecture](///www.fluentd.org/architecture)
 -   [Fluentd Get Started](/articles/quickstart.md)
 
 
