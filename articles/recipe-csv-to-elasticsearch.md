@@ -1,5 +1,4 @@
-Getting Data From Csv Into Elasticsearch Using Fluentd
-======================================================
+# Getting Data From Csv Into Elasticsearch Using Fluentd
 
 Looking to get data out of csv into elasticsearch? You can do that with
 [fluentd](//fluentd.org) in **10 minutes**!

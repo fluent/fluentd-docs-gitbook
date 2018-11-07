@@ -1,5 +1,4 @@
-memory Buffer Plugin
-====================
+# memory Buffer Plugin
 
 The `memory` buffer plugin provides a fast buffer implementation. It
 uses memory to store buffer chunks. When Fluentd is shut down, buffered

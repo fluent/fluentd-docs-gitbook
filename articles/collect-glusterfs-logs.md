@@ -1,5 +1,4 @@
-Collecting GlusterFS Logs with Fluentd
-======================================
+# Collecting GlusterFS Logs with Fluentd
 
 This article shows how to use Fluentd to collect GlusterFS logs for
 analysis (search, analytics, troubleshooting, etc.)

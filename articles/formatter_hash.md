@@ -1,5 +1,4 @@
-hash Formatter Plugin
-=====================
+# hash Formatter Plugin
 
 The `hash` formatter plugin converts an event to ruby hash.
 

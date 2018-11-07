@@ -1,5 +1,4 @@
-Store Apache Logs into Amazon S3
-================================
+# Store Apache Logs into Amazon S3
 
 This article explains how to use [Fluentd](http://fluentd.org/)'s Amazon
 S3 Output plugin ([out\_s3](/articles/out_s3.md)) to aggregate semi-structured logs

@@ -1,5 +1,4 @@
-Amazon S3 Output Plugin
-=======================
+# Amazon S3 Output Plugin
 
 The `out_s3` TimeSliced Output plugin writes records into the Amazon S3
 cloud object storage service. By default, it creates files on an hourly

@@ -1,5 +1,4 @@
-Installing Fluentd with Docker
-==============================
+# Installing Fluentd with Docker
 
 This article explains how to use [Fluentd's official Docker
 image](https://hub.docker.com/r/fluent/fluentd/), maintained by

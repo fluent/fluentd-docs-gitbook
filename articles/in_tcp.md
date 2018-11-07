@@ -1,5 +1,4 @@
-TCP Input Plugin
-================
+# TCP Input Plugin
 
 The `in_tcp` Input plugin enables Fluentd to accept TCP payload.
 

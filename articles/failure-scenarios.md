@@ -1,5 +1,4 @@
-Failure Scenarios
-=================
+# Failure Scenarios
 
 This article lists various Fluentd failure scenarios. We will assume
 that you have configured Fluentd for [High

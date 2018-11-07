@@ -1,5 +1,4 @@
-Installing Fluentd from Source
-==============================
+# Installing Fluentd from Source
 
 This article explains how to install Fluentd from source code (git
 repository). This is useful for developers.

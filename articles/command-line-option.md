@@ -1,5 +1,4 @@
-Fluentd command line option
-===========================
+# Fluentd command line option
 
 This article describes built-in commands and its options
 

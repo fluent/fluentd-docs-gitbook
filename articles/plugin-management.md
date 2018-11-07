@@ -1,5 +1,4 @@
-Plugin Management
-=================
+# Plugin Management
 
 This article explains how to manage Fluentd plugins, including adding
 3rd party plugins.

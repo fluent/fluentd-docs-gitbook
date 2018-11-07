@@ -1,5 +1,4 @@
-record\_transformer Filter Plugin
-=================================
+# record\_transformer Filter Plugin
 
 The `filter_record_transformer` filter plugin mutates/transforms
 incoming event streams in a versatile manner. If there is a need to

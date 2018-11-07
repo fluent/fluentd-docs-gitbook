@@ -1,5 +1,4 @@
-Installing Fluentd Using Chef
-=============================
+# Installing Fluentd Using Chef
 
 This article explains how to install Fluentd using Chef.
 

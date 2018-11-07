@@ -1,5 +1,4 @@
-Monitoring Fluentd
-==================
+# Monitoring Fluentd
 
 This article desribes how to monitor Fluentd.
 

@@ -1,5 +1,4 @@
-Docker Logging Driver and Fluentd
-=================================
+# Docker Logging Driver and Fluentd
 
 The following article describes how to implement an unified logging
 system for your [Docker](http://www.docker.com) containers. Any

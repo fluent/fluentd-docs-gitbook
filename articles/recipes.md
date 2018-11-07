@@ -1,5 +1,4 @@
-Recipes
-=======
+# Recipes
 
 
 Articles

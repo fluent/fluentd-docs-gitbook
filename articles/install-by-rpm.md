@@ -1,5 +1,4 @@
-Installing Fluentd Using rpm Package
-====================================
+# Installing Fluentd Using rpm Package
 
 This article explains how to install the td-agent rpm package, the
 stable Fluentd distribution package maintained by [Treasure Data,

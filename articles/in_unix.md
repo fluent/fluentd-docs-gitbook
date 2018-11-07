@@ -1,5 +1,4 @@
-Unix Domain Socket Input Plugin
-===============================
+# Unix Domain Socket Input Plugin
 
 The `in_unix` Input plugin enables Fluentd to retrieve records from the
 Unix Domain Socket. The wire protocol is the same as

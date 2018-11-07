@@ -1,5 +1,4 @@
-Fluentd's Signal Handling
-=========================
+# Fluentd's Signal Handling
 
 This article explains how `Fluentd` handles UNIX signals.
 

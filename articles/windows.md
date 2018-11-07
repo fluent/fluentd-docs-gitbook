@@ -1,5 +1,4 @@
-Collecting Log Data from Windows
-================================
+# Collecting Log Data from Windows
 
 In this article, we explain how to get started with collecting data from
 Windows machines (This setup has been tested on a 64-bit Windows 8

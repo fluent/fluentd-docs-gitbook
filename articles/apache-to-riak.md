@@ -1,5 +1,4 @@
-Store Apache Logs into Riak
-===========================
+# Store Apache Logs into Riak
 
 This article explains how to use Fluentd's Riak Output plugin
 ([out\_riak](https://github.com/kuenishi/fluent-plugin-riak)) to

@@ -1,5 +1,4 @@
-Installing Fluentd Using Ruby Gem
-=================================
+# Installing Fluentd Using Ruby Gem
 
 This article explains how to install Fluentd using Ruby gem.
 

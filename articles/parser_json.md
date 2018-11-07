@@ -1,5 +1,4 @@
-json Parser Plugin
-==================
+# json Parser Plugin
 
 The `json` parser plugin parses JSON logs. One JSON map per line.
 

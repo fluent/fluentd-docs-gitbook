@@ -1,5 +1,4 @@
-rewrite\_tag\_filter Output Plugin
-==================================
+# rewrite\_tag\_filter Output Plugin
 
 The `out_rewrite_tag_filter` Output plugin has designed to rewrite tag
 like mod\_rewrite. Re-emit a record with rewrited tag when a value

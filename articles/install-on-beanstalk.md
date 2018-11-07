@@ -1,5 +1,4 @@
-Installing Fluentd (td-agent) on Elastic Beanstalk
-==================================================
+# Installing Fluentd (td-agent) on Elastic Beanstalk
 
 A boilerplate application to install td-agent on your AWS Elastic
 Beanstalk application is provided in [this

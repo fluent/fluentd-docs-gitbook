@@ -1,5 +1,4 @@
-Docker Logging via EFK (Elasticsearch + Fluentd + Kibana) Stack with Docker Compose
-===================================================================================
+# Docker Logging via EFK (Elasticsearch + Fluentd + Kibana) Stack with Docker Compose
 
 This article explains how to collect [Docker](https://www.docker.com/)
 logs to EFK (Elasticsearch + Fluentd + Kibana) stack. The example uses

@@ -1,5 +1,4 @@
-Getting Data From Tsv Into Elasticsearch Using Fluentd
-======================================================
+# Getting Data From Tsv Into Elasticsearch Using Fluentd
 
 Looking to get data out of tsv into elasticsearch? You can do that with
 [fluentd](//fluentd.org) in **10 minutes**!

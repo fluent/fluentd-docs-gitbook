@@ -1,5 +1,4 @@
-Install Fluentd (td-agent) on Heroku
-====================================
+# Install Fluentd (td-agent) on Heroku
 
 This article describes how to install Fluentd (td-agent) on
 [Heroku](http://www.heroku.com/).

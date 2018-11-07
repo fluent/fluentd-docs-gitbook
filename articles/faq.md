@@ -1,5 +1,4 @@
-FAQ
-===
+# FAQ
 
 
 What version of Ruby does fluentd support?

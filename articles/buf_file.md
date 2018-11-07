@@ -1,5 +1,4 @@
-file Buffer Plugin
-==================
+# file Buffer Plugin
 
 The `file` buffer plugin provides a persistent buffer implementation. It
 uses files to store buffer chunks on disk.

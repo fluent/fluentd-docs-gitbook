@@ -1,5 +1,4 @@
-Fluentd's HTTP RPC
-==================
+# Fluentd's HTTP RPC
 
 This article explains how `Fluentd` handles HTTP RPC.
 

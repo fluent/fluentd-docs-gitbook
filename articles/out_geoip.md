@@ -1,5 +1,4 @@
-GeoIP Output Plugin
-===================
+# GeoIP Output Plugin
 
 The `out_geoip` Buffered Output plugin adds geographic location
 information to logs using the Maxmind GeoIP databases.

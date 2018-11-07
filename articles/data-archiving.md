@@ -1,5 +1,4 @@
-Connecting to Data Storages
-===========================
+# Connecting to Data Storages
 
 
 Articles

@@ -1,5 +1,4 @@
-Fluentd Logos
-=============
+# Fluentd Logos
 
 Feel free to use these logos on your slides, blog posts, etc.!
 

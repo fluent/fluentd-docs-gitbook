@@ -1,5 +1,4 @@
-Secure Forward Output Plugin
-============================
+# Secure Forward Output Plugin
 
 The `out_secure_forward` output plugin sends messages via **SSL with
 authentication** (cf. [in\_secure\_forward](/articles/in_secure_forward.md)).

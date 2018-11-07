@@ -1,5 +1,4 @@
-Centralize Logs from Python Applications
-========================================
+# Centralize Logs from Python Applications
 
 The
 '[fluent-logger-python](http://github.com/fluent/fluent-logger-python)',

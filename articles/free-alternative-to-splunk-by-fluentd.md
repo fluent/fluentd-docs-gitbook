@@ -1,5 +1,4 @@
-Free Alternative to Splunk Using Fluentd
-========================================
+# Free Alternative to Splunk Using Fluentd
 
 [Splunk](http://www.splunk.com/) is a great tool for searching logs, but
 its high cost makes it prohibitive for many teams. In this article, we

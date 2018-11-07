@@ -1,5 +1,4 @@
-exec Output Plugin
-==================
+# exec Output Plugin
 
 The `out_exec` TimeSliced Output plugin passes events to an external
 program. The program receives the path to a file containing the incoming

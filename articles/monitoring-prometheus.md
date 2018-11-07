@@ -1,5 +1,4 @@
-Monitoring Fluentd (Prometheus)
-===============================
+# Monitoring Fluentd (Prometheus)
 
 This article describes how to monitor Fluentd via
 [Prometheus](https://prometheus.io/).

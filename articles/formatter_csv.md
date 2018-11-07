@@ -1,5 +1,4 @@
-csv Formatter Plugin
-====================
+# csv Formatter Plugin
 
 The `csv` formatter plugin output an event as CSV.
 

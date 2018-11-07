@@ -1,5 +1,4 @@
-Centralize Logs from Java Applications
-======================================
+# Centralize Logs from Java Applications
 
 The '[fluent-logger-java](http://github.com/fluent/fluent-logger-java)'
 library is used to post records from Java applications to Fluentd.

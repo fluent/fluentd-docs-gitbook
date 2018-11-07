@@ -1,5 +1,4 @@
-Kubernetes Logging with Fluentd
-===============================
+# Kubernetes Logging with Fluentd
 
 ![](/images/fluentd_kubernetes.png)
 

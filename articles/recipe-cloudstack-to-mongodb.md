@@ -1,5 +1,4 @@
-Storing CloudStack Logs into MongoDB
-====================================
+# Storing CloudStack Logs into MongoDB
 
 [Fluentd](http://fluentd.org) is an open source software to collect
 events and logs in JSON format. It has hundred of plugins that allows

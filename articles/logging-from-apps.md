@@ -1,5 +1,4 @@
-Centralized App Logging
-=======================
+# Centralized App Logging
 
 
 Articles

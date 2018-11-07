@@ -1,5 +1,4 @@
-Fluentd and Norikra: Complex Event Processing
-=============================================
+# Fluentd and Norikra: Complex Event Processing
 
 This article explains how to use [Fluentd](http://fluentd.org/) and
 [Norikra](http://norikra.github.io) to create a SQL-based real-time

@@ -1,5 +1,4 @@
-ChangeLog
-=========
+# ChangeLog
 
 
 Fluentd ChangeLog

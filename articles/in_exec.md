@@ -1,5 +1,4 @@
-exec Input Plugin
-=================
+# exec Input Plugin
 
 The `in_exec` Input plugin executes external programs to receive or pull
 event logs. It will then read TSV (tab separated values), JSON or

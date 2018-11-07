@@ -1,5 +1,4 @@
-roundrobin Output Plugin
-========================
+# roundrobin Output Plugin
 
 The `roundrobin` Output plugin distributes events to multiple outputs
 using a round-robin algorithm.

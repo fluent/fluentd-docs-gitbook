@@ -1,5 +1,4 @@
-nginx Parser Plugin
-===================
+# nginx Parser Plugin
 
 The `nginx` parser plugin parses default nginx logs.
 

@@ -1,5 +1,4 @@
-msgpack Formatter Plugin
-========================
+# msgpack Formatter Plugin
 
 The `msgpack` formatter plugin converts an event to msgpack binary.
 

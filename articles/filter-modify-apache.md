@@ -1,5 +1,4 @@
-Easy Data Stream Manipulation using Fluentd
-===========================================
+# Easy Data Stream Manipulation using Fluentd
 
 In this article, we introduce several common data manipulation
 challenges faced by our users (such as filtering and modifying data) and

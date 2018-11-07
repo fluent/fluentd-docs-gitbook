@@ -1,5 +1,4 @@
-Getting Data From Nginx Into S3 Using Fluentd
-=============================================
+# Getting Data From Nginx Into S3 Using Fluentd
 
 Looking to get data out of nginx into s3? You can do that with
 [fluentd](//fluentd.org) in **10 minutes**!

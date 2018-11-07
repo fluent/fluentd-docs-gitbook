@@ -1,5 +1,4 @@
-CSV Parser Plugin
-=================
+# CSV Parser Plugin
 
 The `csv` parser plugin parses CSV format.
 

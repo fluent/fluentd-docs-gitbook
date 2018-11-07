@@ -1,5 +1,4 @@
-Centralize Logs from Ruby Applications
-======================================
+# Centralize Logs from Ruby Applications
 
 The '[fluent-logger-ruby](http://github.com/fluent/fluent-logger-ruby)'
 library is used to post records from Ruby applications to Fluentd.

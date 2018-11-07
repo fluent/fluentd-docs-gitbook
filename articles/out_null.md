@@ -1,5 +1,4 @@
-null Output Plugin
-==================
+# null Output Plugin
 
 The `null` output plugin just throws away events.
 

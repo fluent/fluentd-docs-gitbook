@@ -1,5 +1,4 @@
-Store Apache Logs into MongoDB
-==============================
+# Store Apache Logs into MongoDB
 
 This article explains how to use [Fluentd](http://fluentd.org/)'s
 MongoDB Output plugin ([out\_mongo](/articles/out_mongo.md)) to aggregate

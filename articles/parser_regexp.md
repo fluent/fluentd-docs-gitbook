@@ -1,5 +1,4 @@
-regexp Parser Plugin
-====================
+# regexp Parser Plugin
 
 The `regexp` parser plugin parses logs by given regexp pattern. If the
 parameter value starts and ends with "/", it is considered to be a

@@ -1,5 +1,4 @@
-multiline Parser Plugin
-=======================
+# multiline Parser Plugin
 
 The `multiline` parser plugin parses multiline logs. This plugin is
 multiline version of `regexp` parser.

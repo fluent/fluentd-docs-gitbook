@@ -1,5 +1,4 @@
-Apache Kafka Output Plugin
-==========================
+# Apache Kafka Output Plugin
 
 The `out_kafka` Output plugin writes records into [Apache
 Kafka](https://kafka.apache.org/).

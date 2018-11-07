@@ -1,5 +1,4 @@
-relabel Output Plugin
-=====================
+# relabel Output Plugin
 
 The `relabel` output plugin re-labels events.
 

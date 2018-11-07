@@ -1,5 +1,4 @@
-Text Formatter Overview
-=======================
+# Text Formatter Overview
 
 Fluentd has 6 types of plugins: [Input](/articles/input-plugin-overview.md),
 [Parser](/articles/parser-plugin-overview.md), [Filter](/articles/filter-plugin-overview.md),

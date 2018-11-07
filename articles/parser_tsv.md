@@ -1,5 +1,4 @@
-TSV Parser Plugin
-=================
+# TSV Parser Plugin
 
 The `tsv` parser plugin parses TSV format.
 

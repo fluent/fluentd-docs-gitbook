@@ -1,5 +1,4 @@
-Configuration File Syntax
-=========================
+# Configuration File Syntax
 
 This article describes the basic concepts of Fluentd's configuration
 file syntax.

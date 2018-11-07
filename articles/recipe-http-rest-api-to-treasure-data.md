@@ -1,5 +1,4 @@
-Getting Data From Http Rest Api Into Treasure Data Using Fluentd
-================================================================
+# Getting Data From Http Rest Api Into Treasure Data Using Fluentd
 
 Looking to get data out of http rest api into treasure data? You can do
 that with [fluentd](//fluentd.org) in **10 minutes**!

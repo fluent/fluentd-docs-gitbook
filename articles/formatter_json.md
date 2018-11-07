@@ -1,5 +1,4 @@
-json Formatter Plugin
-=====================
+# json Formatter Plugin
 
 The `json` formatter plugin converts an event to json.
 

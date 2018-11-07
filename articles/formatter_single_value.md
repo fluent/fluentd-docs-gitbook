@@ -1,5 +1,4 @@
-single\_value Formatter Plugin
-==============================
+# single\_value Formatter Plugin
 
 The `single_value` formatter plugin output the value of a single field
 instead of the whole record.

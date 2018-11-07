@@ -1,5 +1,4 @@
-Splunk-like Grep-and-Alert-Email System Using Fluentd
-=====================================================
+# Splunk-like Grep-and-Alert-Email System Using Fluentd
 
 [Splunk](http://www.splunk.com/) is a great tool for searching logs. One
 of its key features is the ability to "grep" logs and send alert emails

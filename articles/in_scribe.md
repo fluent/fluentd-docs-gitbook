@@ -1,5 +1,4 @@
-scribe Input Plugin
-===================
+# scribe Input Plugin
 
 The `in_scribe` Input plugin enables Fluentd to retrieve records through
 the Scribe protocol. [Scribe](https://github.com/facebook/scribe) is

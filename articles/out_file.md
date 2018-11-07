@@ -1,5 +1,4 @@
-file Output Plugin
-==================
+# file Output Plugin
 
 The `out_file` TimeSliced Output plugin writes events to files. By
 default, it creates files on a daily basis (around 00:10). This means

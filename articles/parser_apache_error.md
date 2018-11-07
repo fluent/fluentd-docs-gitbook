@@ -1,5 +1,4 @@
-apache\_error Parser Plugin
-===========================
+# apache\_error Parser Plugin
 
 The `apache_error` parser plugin parses apache error logs.
 

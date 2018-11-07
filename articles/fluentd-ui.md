@@ -1,5 +1,4 @@
-Fluentd UI
-==========
+# Fluentd UI
 
 [fluentd-ui](https://github.com/fluent/fluentd-ui) is a browser-based
 [fluentd](http://fluentd.org/) and

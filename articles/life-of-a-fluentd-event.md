@@ -1,5 +1,4 @@
-Life of a Fluentd event
-=======================
+# Life of a Fluentd event
 
 The following article describe a global overview of how events are
 processed by [Fluentd](http://fluentd.org) using examples. It covers the

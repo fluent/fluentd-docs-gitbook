@@ -1,5 +1,4 @@
-Logging of Fluentd
-==================
+# Logging of Fluentd
 
 This article describes Fluentd's logging mechanism.
 

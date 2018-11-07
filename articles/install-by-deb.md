@@ -1,5 +1,4 @@
-Installing Fluentd Using deb Package
-====================================
+# Installing Fluentd Using deb Package
 
 This article explains how to install the td-agent deb package, the
 stable Fluentd distribution package maintained by [Treasure Data,

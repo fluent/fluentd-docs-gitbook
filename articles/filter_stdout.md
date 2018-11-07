@@ -1,5 +1,4 @@
-stdout Filter Plugin
-====================
+# stdout Filter Plugin
 
 The `filter_stdout` filter plugin prints events to stdout (or logs if
 launched with daemon mode). This filter plugin is useful for debugging

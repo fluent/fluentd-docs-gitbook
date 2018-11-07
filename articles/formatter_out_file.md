@@ -1,5 +1,4 @@
-out\_file Formatter Plugin
-==========================
+# out\_file Formatter Plugin
 
 The `out_file` formatter plugin outputs time, tag and json record
 separated by a delimiter.

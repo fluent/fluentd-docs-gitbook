@@ -1,5 +1,4 @@
-Writing plugins
-===============
+# Writing plugins
 
 
 Installing custom plugins

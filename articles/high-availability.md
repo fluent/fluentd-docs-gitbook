@@ -1,5 +1,4 @@
-Fluentd High Availability Configuration
-=======================================
+# Fluentd High Availability Configuration
 
 For high-traffic websites, we recommend using a high availability
 configuration of `Fluentd`.

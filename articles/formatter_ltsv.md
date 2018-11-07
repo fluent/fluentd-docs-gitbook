@@ -1,5 +1,4 @@
-ltsv Formatter Plugin
-=====================
+# ltsv Formatter Plugin
 
 The `ltsv` formatter plugin output an event as [LTSV](http://ltsv.org).
 

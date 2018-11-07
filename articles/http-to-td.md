@@ -1,5 +1,4 @@
-Cloud Big Data Analytics with Treasure Data
-===========================================
+# Cloud Big Data Analytics with Treasure Data
 
 This article explains how to use [Treasure
 Data](www.fluentd.org/treasuredata) with [Fluentd](http://fluentd.org/)

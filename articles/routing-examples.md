@@ -1,5 +1,4 @@
-Routing Examples
-================
+# Routing Examples
 
 This article shows typical routing examples.
 

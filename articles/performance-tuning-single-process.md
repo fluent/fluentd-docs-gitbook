@@ -1,5 +1,4 @@
-Performance Tuning (Single Process)
-===================================
+# Performance Tuning (Single Process)
 
 This article describes how to optimize Fluentd's performance within
 single process. If your traffic is up to 5,000 messages/sec, the

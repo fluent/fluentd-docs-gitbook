@@ -1,5 +1,4 @@
-copy Output Plugin
-==================
+# copy Output Plugin
 
 The `copy` output plugin copies events to multiple outputs.
 

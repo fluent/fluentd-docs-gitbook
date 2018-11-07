@@ -1,5 +1,4 @@
-Other Output Plugins
-====================
+# Other Output Plugins
 
 Please refer to this list of available plugins to find out about other
 Output plugins.

@@ -1,5 +1,4 @@
-Fluentd + HDFS: Instant Big Data Collection
-===========================================
+# Fluentd + HDFS: Instant Big Data Collection
 
 This article explains how to use [Fluentd](http://fluentd.org/)'s
 [WebHDFS Output plugin](http://github.com/fluent/fluent-plugin-webhdfs/)

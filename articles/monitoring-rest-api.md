@@ -1,5 +1,4 @@
-Monitoring Fluentd (REST API)
-=============================
+# Monitoring Fluentd (REST API)
 
 This article describes how to get the internal Fluentd metrics via REST
 API.

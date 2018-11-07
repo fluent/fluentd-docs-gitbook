@@ -1,5 +1,4 @@
-Before Installing Fluentd
-=========================
+# Before Installing Fluentd
 
 You MUST set up your environment according to the steps below before
 installing Fluentd. Failing to do so will be the cause of many

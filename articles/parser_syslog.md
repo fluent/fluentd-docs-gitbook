@@ -1,5 +1,4 @@
-syslog Parser Plugin
-====================
+# syslog Parser Plugin
 
 The `syslog` parser plugin parses syslog generated logs. This plugin
 supports two RFC formats, rfc3164 and rfc5424.

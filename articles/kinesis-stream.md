@@ -1,5 +1,4 @@
-Collect Log Files into Kinesis Stream in Real-Time
-==================================================
+# Collect Log Files into Kinesis Stream in Real-Time
 
 This article explains how to use [Fluentd](http://fluentd.org/)'s
 [Amazon Kinesis](https://aws.amazon.com/kinesis/) Output plugin

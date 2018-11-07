@@ -1,5 +1,4 @@
-grep Filter Plugin
-==================
+# grep Filter Plugin
 
 The `filter_grep` filter plugin "greps" events by the values of
 specified fields.

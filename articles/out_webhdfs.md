@@ -1,5 +1,4 @@
-HDFS (WebHDFS) Output Plugin
-============================
+# HDFS (WebHDFS) Output Plugin
 
 The `out_webhdfs` TimeSliced Output plugin writes records into HDFS
 (Hadoop Distributed File System). By default, it creates files on an

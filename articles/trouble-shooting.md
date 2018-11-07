@@ -1,5 +1,4 @@
-Troubleshooting Fluentd
-=======================
+# Troubleshooting Fluentd
 
 
 Look at Logs

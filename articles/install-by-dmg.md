@@ -1,5 +1,4 @@
-Installing Fluentd using .dmg Installer (MacOS X)
-=================================================
+# Installing Fluentd using .dmg Installer (MacOS X)
 
 This article explains how to install td-agent, the stable Fluentd
 distribution package maintained by [Treasure Data,

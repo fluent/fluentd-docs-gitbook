@@ -1,5 +1,4 @@
-LTSV Parser Plugin
-==================
+# LTSV Parser Plugin
 
 The `ltsv` parser plugin parses [LTSV](http://ltsv.org/) format.
 
