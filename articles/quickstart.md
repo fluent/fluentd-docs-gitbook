@@ -1,22 +1,23 @@
-Quickstart Guide
-================
+# Quickstart Guide
 
 Let's get started with **Fluentd**! **Fluentd** is a fully free and
 fully open-source log collector that instantly enables you to have a
-'**Log Everything**' architecture with [600+ types of
+'**Log Everything**' architecture with [125+ types of
 systems](http://fluentd.org/plugin/).
 
-![](/images/fluentd-architecture.png)
+![](/images/fluentd-architecture.png){width="450px"}\
+\
+
 Fluentd treats logs as JSON, a popular machine-readable format. It is
 written primarily in C with a thin-Ruby wrapper that gives users
 flexibility.
 
 Fluentd's scalability has been proven in the field: its largest user
-currently collects logs from **500,000+ servers**.
+currently collects logs from **50,000+ servers**.
 
+[]{#step-1:-installing-fluentd}
 
-Step1: Installing Fluentd
--------------------------
+## Step 1: Installing Fluentd
 
 Please follow the installation/quickstart guides below that matches your
 environment.
@@ -24,16 +25,14 @@ environment.
 -   [Install Fluentd by RPM package](/articles/install-by-rpm.md) (Redhat Linux)
 -   [Install Fluentd by Deb package](/articles/install-by-deb.md) (Ubuntu/Debian
     Linux)
--   [Install Fluentd by DMG package](/articles/install-by-dmg.md) (Mac OS X)
+-   [Install Fluentd by MSI package](/articles/install-by-msi.md) (Windows msi)
 -   [Install Fluentd by Ruby Gem](/articles/install-by-gem.md)
--   [Install Fluentd by Chef](/articles/install-by-chef.md)
 -   [Install Fluentd from source](/articles/install-from-source.md)
-Fluentd v0.12 doesn\'t support Windows environment. Please see
-[Collecting Log Data from Windows](/articles/windows.md) for details. Fluentd v1.x
-supports Windows.
 
-Step2: Use Cases
-----------------
+[]{#step-2:-use-cases}
+
+Step 2: Use Cases
+-----------------
 
 The articles shown below cover the typical use cases of Fluentd. Please
 refer to the article(s) that suits your needs.
@@ -45,7 +44,6 @@ refer to the article(s) that suits your needs.
     -   [Data Collection to MongoDB](/articles/apache-to-mongodb.md)
     -   [Data Collection to HDFS](/articles/http-to-hdfs.md)
     -   [Data Archiving to Amazon S3](/articles/apache-to-s3.md)
-    -   [Windows Event Collection](/articles/windows.md)
 -   Basic Configuration
     -   [Config File](/articles/config-file.md)
 -   Application Logs
@@ -54,13 +52,15 @@ refer to the article(s) that suits your needs.
 -   Happy Users :)
     -   [Users](/articles/users.md)
 
-Step3: Learn More
------------------
+[]{#step-3:-learn-more}
+
+Step 3: Learn More
+------------------
 
 The articles shown below will provide detailed information for you to
 learn more about Fluentd.
 
--   [Architecture Overview](///www.fluentd.org/architecture)
+-   [Architecture Overview](//www.fluentd.org/architecture)
 -   [Life of a Fluentd Event](/articles/life-of-a-fluentd-event.md)
 -   Plugin Overview
     -   [Input Plugins](/articles/input-plugin-overview.md)

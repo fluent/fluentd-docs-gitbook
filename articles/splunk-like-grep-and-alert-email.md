@@ -1,5 +1,4 @@
-Splunk-like Grep-and-Alert-Email System Using Fluentd
-=====================================================
+# Splunk-like Grep-and-Alert-Email System Using Fluentd
 
 [Splunk](http://www.splunk.com/) is a great tool for searching logs. One
 of its key features is the ability to "grep" logs and send alert emails
@@ -15,8 +14,7 @@ alternative to Splunk, see the article ["Free Alternative to Splunk
 Using Fluentd"](free-alternative-to-splunk-by-fluentd).
 
 
-Installing the requisites
--------------------------
+## Installing the requisites
 
 [Install](/articles/installation.md) Fluentd if you haven't yet.
 
@@ -35,8 +33,10 @@ $ sudo /usr/sbin/td-agent-gem install fluent-plugin-mail
 Note: If you installed Fluentd using ruby gems, use `gem` command
 instead of `td-agent-gem`.
 
+
 Configuration
 -------------
+
 
 ### Full configuration example
 
@@ -47,7 +47,9 @@ content and edit it to suit your needs.
 <source>
   @type tail
   path /var/log/apache2/access.log  # Set the location of your log file
-  format apache2
+  <parse>
+    @type apache2
+  </parse>
   tag apache.access
 </source>
 
@@ -92,6 +94,7 @@ Before proceeding, please confirm:
 -   The access log file has a proper file permission. You need to make
     the file readable to the td-agent/Fluentd daemon.
 
+
 ### How this configuration works
 
 The configuration above consists of three main parts:
@@ -111,13 +114,17 @@ The configuration above consists of three main parts:
 In this way, fluentd now works as an email alerting system that monitors
 the web service for you.
 
+
 Test the configuration
 ----------------------
 
 After saving the configuration, restart the td-agent process:
 
 ``` {.CodeRay}
+# for init.d users
 $ sudo /etc/init.d/td-agent restart
+# for systemd users
+$ sudo systemctl restart td-agent
 ```
 
 If you installed the standalone version of Fluentd, launch the fluentd
@@ -133,6 +140,7 @@ manually will produce the same result.
 
 Now you will receive an alert email titled "HTTP SERVER ERROR".
 
+
 What's next?
 ------------
 
@@ -144,13 +152,12 @@ syslogs, or any single- or multi-lined logs.
 You can learn more about Fluentd and its plugins by
 
 -   exploring other [plugins](http://fluentd.org/plugin/)
--   browsing [recipes](/articles/recipes.md)
 -   asking questions on the [mailing
     list](https://groups.google.com/forum/#!forum/fluentd)
 -   [signing up for our newsletters](https://www.fluentd.org/newsletter)
 
 
-
+------------------------------------------------------------------------
 
 If this article is incorrect or outdated, or omits critical information,
 please [let us know](https://github.com/fluent/fluentd-docs/issues?state=open).

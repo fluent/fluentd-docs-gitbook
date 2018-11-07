@@ -1,23 +1,17 @@
-Fluentd's HTTP RPC
-==================
+# HTTP RPC
 
-This article explains how `Fluentd` handles HTTP RPC.
+HTTP RPC enables you to manage your Fluentd instance through HTTP
+endpoints. You can use this feature as a replacement of [Unix
+signals](/articles/signals.md).
+
+It's especially useful for environments where signals are not supported
+well (e.g. Windows).
 
 
-Overview
---------
+## Configuration
 
-HTTP RPC is one way of managing fluentd instance. Several provided RPCs
-are replacement of [signals](/articles/signals.md). The response body is JSON format.
-
-On signal unsupported environment, e.g. Windows, you can use RPC instead
-of signals.
-
-Configuration
--------------
-
-RPC is off by default. If you want to enable RPC, set `rpc_endpoint` in
-`<system>` section.
+HTTP RPC is not enabled by default. To use this feature, set the
+`rpc_endpoint` option as follows.
 
 ``` {.CodeRay}
 <system>
@@ -25,34 +19,49 @@ RPC is off by default. If you want to enable RPC, set `rpc_endpoint` in
 </system>
 ```
 
-After that, you can access to RPC like below.
+Now you can manage your Fluentd instance using a HTTP client:
 
 ``` {.CodeRay}
 $ curl http://127.0.0.1:24444/api/plugins.flushBuffers
 {"ok":true}
 ```
 
-RPCs
-----
+As shown in the above example, each endpoint returns a JSON object as
+its response.
+
+
+HTTP endpoints
+--------------
+
 
 ### /api/processes.interruptWorkers
 
 Replacement of signal's [SIGINT](signals#sigint-or-sigterm). Stop the
 daemon.
 
+
 ### /api/processes.killWorkers
 
 Replacement of signal's [SIGTERM](signals#sigint-or-sigterm). Stop the
 daemon.
 
+
+### /api/processes.flushBuffersAndKillWorkers
+
+This is essentially a combination of [SIGUSR1](signals#sigusr1) and
+[SIGTERM](signals#sigint-or-sigterm). Flush the buffer then stop the
+daemon.
+
+
 ### /api/plugins.flushBuffers
 
-Replacement of signal's [SIGUSR1](signals#sigusr1). Flushes buffered
+Replacement of signal's [SIGUSR1](signals#sigusr1). Flush the buffered
 messages.
+
 
 ### /api/config.reload
 
-Replacement of signal's [SIGHUP](signals#sighup). reload configuration.
+Replacement of signal's [SIGHUP](signals#sighup). Reload configuration.
 
 
 ------------------------------------------------------------------------

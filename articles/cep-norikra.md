@@ -1,13 +1,11 @@
-Fluentd and Norikra: Complex Event Processing
-=============================================
+# Fluentd and Norikra: Complex Event Processing
 
 This article explains how to use [Fluentd](http://fluentd.org/) and
 [Norikra](http://norikra.github.io) to create a SQL-based real-time
 complex event processing platform.
 
 
-Background
-----------
+## Background
 
 [Fluentd](http://fluentd.org/) is an advanced open-source log collector
 originally developed at [Treasure Data,
@@ -38,12 +36,14 @@ and the [Fluentd norikra
 plugin](https://github.com/norikra/fluent-plugin-norikra) to create a
 robust stream data processing platform.
 
+
 Architecture
 ------------
 
 The figure below shows the high-level architecture.
 
 ![](/images/fluentd-norikra-overview.png)
+
 
 Installation
 ------------
@@ -56,6 +56,7 @@ configuration. Please install the following on the same node:
     Plugin](https://github.com/norikra/fluent-plugin-norikra/)
 -   [Norikra](http://norikra.github.io/)
 
+
 ### Installing Fluentd and fluentd-plugin-norikra
 
 Fluentd can be installed through rubygems or via deb/rpm packages.
@@ -67,6 +68,7 @@ Fluentd can be installed through rubygems or via deb/rpm packages.
 fluent-plugin-norikra can be installed with the
 `gem install fluent-plugin-norikra` (or fluent-gem) command.
 
+
 ### Installing Norikra
 
 Norikra requires JRuby. You can download the JRuby binary directly from
@@ -75,6 +77,7 @@ of `JRUBY_INSTALL_DIRECTORY/bin`.
 
 Once JRuby has been installed, simply entering `jgem install norikra`
 will install Norikra.
+
 
 ### Verify Installation
 
@@ -92,12 +95,14 @@ command will launch the Norikra server in your console.
 You can also check the current Norikra's status via the WebUI
 (http://localhost:26578/).
 
+
 Fluentd Configuration
 ---------------------
 
 We'll now configure Fluentd. If you used the deb/rpm package, Fluentd's
 config file is located at /etc/td-agent/td-agent.conf. Otherwise, it is
 located at /etc/fluentd/fluentd.conf.
+
 
 ### HTTP Input
 
@@ -111,6 +116,7 @@ HTTP. The Fluentd configuration file should look like this:
 </source>
 ```
 
+
 ### Norikra Output
 
 The output destination will be Norikra. The output configuration should
@@ -118,7 +124,7 @@ look like this:
 
 ``` {.CodeRay}
 <match data.*>
-  @type    norikra
+  @type norikra
   norikra localhost:26571
   target_map_tag    true
   remove_tag_prefix data
@@ -146,6 +152,7 @@ the Norikra server. We can also specify these sets per target with
 `<target NAME>...</target>`. For information on the additional options
 available, please refer to the [fluent-plugin-norikra
 documentation](https://github.com/norikra/fluent-plugin-norikra).
+
 
 Test
 ----
@@ -181,6 +188,7 @@ action  string  false
 user    integer false
 2 fields found.
 ```
+
 
 ### Registering Queries and Fetching Outputs
 
@@ -248,12 +256,14 @@ first 10 seconds, and counts events per `action` for events with
 that no events arrived (This is teardown records, and reported only
 once).
 
+
 Conclusion
 ----------
 
 We can create a stream data processing platform without any schema
 definitions, using Fluentd and Norikra. This platform enables an agile
 stream processing environment that can handle real workloads.
+
 
 Learn More
 ----------

@@ -1,43 +1,56 @@
-Fluentd Logos
-=============
+# Fluentd Logos
 
 Feel free to use these logos on your slides, blog posts, etc.!
 
 
-Square
-------
+## Square
 
+<div>
 
+[![](https://raw.githubusercontent.com/fluent/fluentd-docs/master/public/logo/Fluentd_square.png){width="200px"}](https://raw.githubusercontent.com/fluent/fluentd-docs/master/public/logo/Fluentd_square.png)
 
-[![](https://raw.githubusercontent.com/fluent/fluentd-docs/master/public/logo/Fluentd_square.png)](https://raw.githubusercontent.com/fluent/fluentd-docs/master/public/logo/Fluentd_square.png)
+</div>
 
-
-
+<div>
 
 [\[PNG\]](https://raw.githubusercontent.com/fluent/fluentd-docs/master/public/logo/Fluentd_square.png)
 [\[SVG\]](https://raw.githubusercontent.com/fluent/fluentd-docs/master/public/logo/Fluentd_square.svg)
+
+</div>
 
 
 Horizontal
 ----------
 
-[![](https://raw.githubusercontent.com/fluent/fluentd-docs/master/public/logo/Fluentd_horizontal.png)](https://raw.githubusercontent.com/fluent/fluentd-docs/master/public/logo/Fluentd_horizontal.png)
+<div>
 
+[![](https://raw.githubusercontent.com/fluent/fluentd-docs/master/public/logo/Fluentd_horizontal.png){width="400px"}](https://raw.githubusercontent.com/fluent/fluentd-docs/master/public/logo/Fluentd_horizontal.png)
+
+</div>
+
+<div>
 
 [\[PNG\]](https://raw.githubusercontent.com/fluent/fluentd-docs/master/public/logo/Fluentd_horizontal.png)
 [\[SVG\]](https://raw.githubusercontent.com/fluent/fluentd-docs/master/public/logo/Fluentd_horizontal.svg)
+
+</div>
 
 
 Icon
 ----
 
-[![](https://raw.githubusercontent.com/fluent/fluentd-docs/master/public/logo/Fluentd_icon.png)](https://raw.githubusercontent.com/fluent/fluentd-docs/master/public/logo/Fluentd_icon.png)
+<div>
 
+[![](https://raw.githubusercontent.com/fluent/fluentd-docs/master/public/logo/Fluentd_icon.png){width="200px"}](https://raw.githubusercontent.com/fluent/fluentd-docs/master/public/logo/Fluentd_icon.png)
 
+</div>
+
+<div>
 
 [\[PNG\]](https://raw.githubusercontent.com/fluent/fluentd-docs/master/public/logo/Fluentd_icon.png)
 [\[SVG\]](https://raw.githubusercontent.com/fluent/fluentd-docs/master/public/logo/Fluentd_icon.svg)
 
+</div>
 
 
 Links

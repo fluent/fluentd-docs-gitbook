@@ -1,25 +1,25 @@
-Amazon S3 Output Plugin
-=======================
+# Amazon S3 Output Plugin
 
-The `out_s3` TimeSliced Output plugin writes records into the Amazon S3
-cloud object storage service. By default, it creates files on an hourly
-basis. This means that when you first import records using the plugin,
-no file is created immediately. The file will be created when the
-`time_slice_format` condition has been met. To change the output
-frequency, please modify the `time_slice_format` value.
+The `out_s3` Output plugin writes records into the Amazon S3 cloud
+object storage service. By default, it creates files on an hourly basis.
+This means that when you first import records using the plugin, no file
+is created immediately.
+
+The file will be created when the `timekey` condition has been met. To
+change the output frequency, please modify the `timekey` value in buffer
+section. In more detail, please refer to [the time chunk keys in
+bufferdocument](https://docs.fluentd.org/articles/buffer-section#time).
+
 This document doesn\'t describe all parameters. If you want to know full
 features, check the Further Reading section.
 
 
-Installation
-------------
+## Installation
 
 `out_s3` is included in td-agent by default. Fluentd gem users will need
-to install the fluent-plugin-s3 gem using the following command.
+to install the fluent-plugin-s3 gem. In order to install it, please
+refer to the [Plugin Management](/articles/plugin-management.md) article.
 
-``` {.CodeRay}
-$ fluent-gem install fluent-plugin-s3
-```
 
 Example Configuration
 ---------------------
@@ -33,13 +33,16 @@ Example Configuration
   s3_bucket YOUR_S3_BUCKET_NAME
   s3_region ap-northeast-1
   path logs/
-  buffer_path /var/log/fluent/s3
-
-  time_slice_format %Y%m%d%H
-  time_slice_wait 10m
-  utc
-
-  buffer_chunk_limit 256m
+  # if you want to use ${tag} or %Y/%m/%d/ like syntax in path / s3_object_key_format,
+  # need to specify tag for ${tag} and time for %Y/%m/%d in <buffer> argument.
+  <buffer tag,time>
+    @type file
+    path /var/log/fluent/s3
+    timekey 3600 # 1 hour partition
+    timekey_wait 10m
+    timekey_use_utc true # use utc
+    chunk_limit_size 256m
+  </buffer>
 </match>
 ```
 
@@ -49,36 +52,66 @@ for real-world use cases.
 Please see the [Config File](/articles/config-file.md) article for the basic
 structure and syntax of the configuration file.
 
-Please make sure that you have **enough space in the buffer\_path
-directory**. Running out of disk space is a problem frequently reported
-by users.
+For \<buffer\> section, please check [Buffer section
+cofiguration](/articles/buffer-section.md). This plugin uses [file buffer](/articles/buf_file.md)
+by default.
+
 
 Parameters
 ----------
+
+[]{#@type-(required)}
 
 ### \@type (required)
 
 The value must be `s3`.
 
-### aws\_key\_id (required/optional)
+[]{#aws_key_id}
+
+### aws\_key\_id
+
+    type         default        version
+  -------- ------------------- ---------
+   string   required/optional    1.0.0
 
 The AWS access key id. This parameter is required when your agent is not
 running on an EC2 instance with an IAM Instance Profile.
 
-### aws\_sec\_key (required/optional)
+[]{#aws_sec_key}
+
+### aws\_sec\_key
+
+    type         default        version
+  -------- ------------------- ---------
+   string   required/optional    1.0.0
 
 The AWS secret key. This parameter is required when your agent is not
 running on an EC2 instance with an IAM Instance Profile.
 
-### s3\_bucket (required)
+[]{#s3_bucket}
+
+### s3\_bucket
+
+    type    default    version
+  -------- ---------- ---------
+   string   required    1.0.0
 
 The Amazon S3 bucket name.
 
-### buffer\_path (required)
 
-The path prefix of the log buffer files.
+### buffer
+
+The buffer of the S3 plugin. The default settings is time sliced buffer.
+
+See [buffer article](/articles/buffer-plugin-overview.md) for more detail.
+
+[]{#s3_region}
 
 ### s3\_region
+
+    type                  default                 version
+  -------- ------------------------------------- ---------
+   string   ENV\["AWS\_REGION"\] or "us-east-1"    1.0.0
 
 The Amazon S3 region name. Please select the appropriate region name and
 confirm that your bucket has been created in the correct region. Here
@@ -93,7 +126,13 @@ are the region examples.
 The full list can be found [official AWS
 document](http://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region).
 
+[]{#s3_endpoint}
+
 ### s3\_endpoint
+
+    type    default   version
+  -------- --------- ---------
+   string     nil      1.0.0
 
 This option is deprecated because latest aws-sdk ignores this option.
 Please use `s3_region` instead.
@@ -113,17 +152,43 @@ correct region.
 The most recent versions of the endpoints can be found
 [here](http://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region).
 
-### format
+[]{#<format>-directive}
 
-The format of the S3 object. The default is `out_file`.
+### \<format\> directive
+
+The format of the object content. The default is `out_file`.
+
+Here is json example:
+
+``` {.CodeRay}
+<format>
+  @type json
+</format>
+```
 
 See [formatter article](/articles/formatter-plugin-overview.md) for more detail.
 
-### time\_format
 
-The format of the time written in files. The default format is ISO-8601.
+### format
+
+Deprecated parameter. Use `<format>` instead.
+
+[]{#time_slice_format}
+
+### time\_slice\_format
+
+    type    default    version
+  -------- ---------- ---------
+   string   ISO-8601    1.0.0
+
+The format of the time written in files.
+
 
 ### path
+
+    type    default   version
+  -------- --------- ---------
+   string     ""       1.0.0
 
 The path prefix of the files on S3. The default is "" (no prefix).
 
@@ -131,11 +196,16 @@ The actual path on S3 will be:
 "{path}{time\_slice\_format}\_{sequential\_index}.gz" (see
 \`s3\_object\_key\_format\`)
 
+[]{#s3_object_key_format}
+
 ### s3\_object\_key\_format
 
-The actual S3 path. The default value is
-%{path}%{time\_slice}\_%{index}.%{file\_extension}, which is
-interpolated to the actual path (ex: Ruby's variable interpolation).
+    type                          default                          version
+  -------- ------------------------------------------------------ ---------
+   string   "%{path}%{time\_slice}\_%{index}.%{file\_extension}"    1.0.0
+
+The actual S3 path. This is interpolated to the actual path (ex: Ruby's
+variable interpolation).
 
 -   path: the value of the `path` parameter above
 -   time\_slice: the time string as formatted by `time_slice_format`
@@ -156,118 +226,45 @@ Also, always make sure that %{index} appears in the customized
 \`s3\_object\_key\_format\` (Otherwise, multiple buffer flushes within
 the same time slice throws an error).
 
-### utc
-
-Uses UTC for path formatting. The default format is localtime.
+[]{#store_as}
 
 ### store\_as
 
-The compression type. The default is "gzip", but you can also choose
-"lzo", "json", or "txt".
+    type    default   version
+  -------- --------- ---------
+   string   "gzip"     1.0.0
+
+The compression type. You can also choose "lzo", "json", or "txt".
+
+[]{#proxy_uri}
 
 ### proxy\_uri
 
+    type    default   version
+  -------- --------- ---------
+   string     nil      1.0.0
+
 The proxy url. The default is nil.
+
+[]{#ssl_verify_peer}
 
 ### ssl\_verify\_peer
 
-Verify SSL certificate of the endpoint. The default is true. Set false
-when you want to ignore the endpoint SSL certificate.
+   type   default   version
+  ------ --------- ---------
+   bool    true      1.0.0
 
-Time Sliced Output Parameters
------------------------------
+Verify SSL certificate of the endpoint. Set false when you want to
+ignore the endpoint SSL certificate.
 
-For advanced usage, you can tune Fluentd's internal buffering mechanism
-with these parameters.
+#### \@log\_level option
 
-### time\_slice\_format
-
-The time format used as part of the file name. The following characters
-are replaced with actual values when the file is created:
-
--   \%Y: year including the century (at least 4 digits)
--   \%m: month of the year (01..12)
--   \%d: Day of the month (01..31)
--   \%H: Hour of the day, 24-hour clock (00..23)
--   \%M: Minute of the hour (00..59)
--   \%S: Second of the minute (00..60)
-
-The default format is `%Y%m%d%H`, which creates one file per hour.
-
-### time\_slice\_wait
-
-The amount of time Fluentd will wait for old logs to arrive. This is
-used to account for delays in logs arriving to your Fluentd node. The
-default wait time is 10 minutes ('10m'), where Fluentd will wait until
-10 minutes past the hour for any logs that occurred within the past
-hour.
-
-For example, when splitting files on an hourly basis, a log recorded at
-1:59 but arriving at the Fluentd node between 2:00 and 2:10 will be
-uploaded together with all the other logs from 1:00 to 1:59 in one
-transaction, avoiding extra overhead. Larger values can be set as
-needed.
-
-### buffer\_type
-
-The buffer type is `file` by default ([buf\_file](/articles/buf_file.md)). The
-`memory` ([buf\_memory](/articles/buf_memory.md)) buffer type can be chosen as well.
-If you use `file` buffer type, `buffer_path` parameter is required.
-
-### buffer\_queue\_limit, buffer\_chunk\_limit
-
-The length of the chunk queue and the size of each chunk, respectively.
-Please see the [Buffer Plugin Overview](/articles/buffer-plugin-overview.md) article
-for the basic buffer structure. The default values are 64 and 8m,
-respectively. The suffixes "k" (KB), "m" (MB), and "g" (GB) can be used
-for buffer\_chunk\_limit.
-
-### flush\_interval
-
-The interval between data flushes. The default is 60s. The suffixes "s"
-(seconds), "m" (minutes), and "h" (hours) can be used.
-
-### flush\_at\_shutdown
-
-If set to true, Fluentd waits for the buffer to flush at shutdown. By
-default, it is set to true for Memory Buffer and false for File Buffer.
-
-### retry\_wait, max\_retry\_wait
-
-The initial and maximum intervals between write retries. The default
-values are 1.0 and unset (no limit). The interval doubles (with +/-12.5%
-randomness) every retry until `max_retry_wait` is reached.
-
-Since td-agent will retry 17 times before giving up by default (see the
-`retry_limit` parameter for details), the sleep interval can be up to
-approximately 131072 seconds (roughly 36 hours) in the default
-configurations.
-
-### retry\_limit, disable\_retry\_limit
-
-The limit on the number of retries before buffered data is discarded,
-and an option to disable that limit (if true, the value of `retry_limit`
-is ignored and there is no limit). The default values are 17 and false
-(not disabled). If the limit is reached, buffered data is discarded and
-the retry interval is reset to its initial value (`retry_wait`).
-
-### num\_threads
-
-The number of threads to flush the buffer. This option can be used to
-parallelize writes into the output(s) designated by the output plugin.
-The default is 1.
-
-### slow\_flush\_log\_threshold
-
-Same as Buffered Output but default value is changed to `40.0` seconds.
-
-#### log\_level option
-
-The `log_level` option allows the user to set different levels of
+The `@log_level` option allows the user to set different levels of
 logging for each plugin. The supported log levels are: `fatal`, `error`,
 `warn`, `info`, `debug`, and `trace`.
 
 Please see the [logging article](/articles/logging.md) for further details.
+
 
 Further Reading
 ---------------

@@ -1,5 +1,4 @@
-out\_file Formatter Plugin
-==========================
+# out\_file Formatter Plugin
 
 The `out_file` formatter plugin outputs time, tag and json record
 separated by a delimiter.
@@ -11,63 +10,60 @@ time[delimiter]tag[delimiter]record\n
 This format is a default format of `out_file` plugin.
 
 
-Parameters
-----------
+## Parameters
 
-### delimiter (String, Optional, default to "\\t"(TAB))
+-   [Common Parameters](/articles/plugin-common-parameters.md)
+-   [Format section configurations](/articles/format-section.md)
+
+
+### delimiter
+
+    type     default     version
+  -------- ------------ ---------
+   string   "\\t"(TAB)   0.14.0
 
 Delimiter for each field. "SPACE"(' ') and "COMMA"(',') are supported.
 
-### output\_tag (Boolean, Optional, defaults to true)
+[]{#output_tag}
+
+### output\_tag
+
+   type   default   version
+  ------ --------- ---------
+   bool    true     0.14.0
 
 Output tag field if true,
 
-### output\_time (Boolean, Optional, defaults to true)
+[]{#output_time}
+
+### output\_time
+
+   type   default   version
+  ------ --------- ---------
+   bool    true     0.14.0
 
 Output time field if true,
 
-### include\_time\_key (Boolean, Optional, defaults to false)
+[]{#time_type}
 
-If true, the time field (as specified by the `time_key` parameter) is
-kept in the record.
+### time\_type
 
-### time\_key (String, Optional, defaults to "time")
+   type   default   version
+  ------ --------- ---------
+   enum   string    0.14.7
 
-The field name for the time key.
+Overwrite default value in this plugin.
 
-### time\_format (String. Optional)
+[]{#time_format}
 
-By default, the output format is iso8601 (e.g. "2008-02-01T21:41:49").
-One can specify their own format with this parameter.
+### time\_format
 
-### include\_tag\_key (Boolean. Optional, defaults to false)
+    type      default      version
+  -------- -------------- ---------
+   string   nil(iso8601)   0.14.7
 
-If true, the tag field (as specified by the `tag_key` parameter) is kept
-in the record.
+Overwrite default value in this plugin.
 
-### tag\_key (String, Optional, defaults to "tag")
-
-The field name for the tag key.
-
-### localtime (Boolean. Optional, defaults to true)
-
-If true, use local time. Otherwise, UTC is used. This parameter is
-overwritten by the `utc` parameter.
-
-### timezone (String. Optional)
-
-By setting this parameter, one can parse the time value in the specified
-timezone. The following formats are accepted:
-
-1.  \[+-\]HH:MM (e.g. "+09:00")
-2.  \[+-\]HHMM (e.g. "+0900")
-3.  \[+-\]HH (e.g. "+09")
-4.  Region/Zone (e.g. "Asia/Tokyo")
-5.  Region/Zone/Zone (e.g. "America/Argentina/Buenos\_Aires")
-
-The timezone set in this parameter takes precedence over
-`localtime`\*\*, e.g., if `localtime` is set to `true` but `timezone` is
-set to `+0000`, UTC would be used.
 
 Example
 -------

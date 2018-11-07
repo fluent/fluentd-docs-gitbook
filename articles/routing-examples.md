@@ -1,11 +1,9 @@
-Routing Examples
-================
+# Routing Examples
 
 This article shows typical routing examples.
 
 
-Simple Input -\> Filter -\> Output
-----------------------------------
+## Simple Input -\> Filter -\> Output
 
 ``` {.CodeRay}
 <source>
@@ -24,6 +22,7 @@ Simple Input -\> Filter -\> Output
   # ...
 </match>
 ```
+
 
 ### Two input cases
 
@@ -52,6 +51,7 @@ Simple Input -\> Filter -\> Output
 ```
 
 If you want to separate data pipeline for each sources, use Label.
+
 
 Input -\> Filter -\> Output with Label
 --------------------------------------
@@ -89,6 +89,7 @@ Label reduces complex tag handling by separating data pipeline.
 </label>
 ```
 
+
 Re-route event by tag
 ---------------------
 
@@ -124,6 +125,7 @@ Label.
 </label>
 ```
 
+
 Re-route event by record content
 --------------------------------
 
@@ -155,6 +157,7 @@ Use
 ```
 
 See also [out\_rewrite\_tag\_filter](/articles/out_rewrite_tag_filter.md) article.
+
 
 Re-route event to other Label
 -----------------------------

@@ -1,70 +1,132 @@
-http Input Plugin
-=================
+# HTTP Input Plugin
 
-The `in_http` Input plugin enables Fluentd to retrieve records from HTTP
-POST. The URL path becomes the `tag` of the Fluentd event log and the
-POSTed body element becomes the record itself.
+The `in_http` Input plugin allows you to send events through HTTP
+requests. Using this plugin, you can trivially launch a REST endpoint to
+gather data.
 
 
-Example Configuration
----------------------
+## Configuration
 
-`in_http` is included in Fluentd's core. No additional installation
-process is required.
+The following snippet shows an example configuration.
 
 ``` {.CodeRay}
 <source>
   @type http
-  port 8888
+  port 9880
   bind 0.0.0.0
   body_size_limit 32m
   keepalive_timeout 10s
 </source>
 ```
-Please see the [Config File](/articles/config-file.md) article for the basic
-structure and syntax of the configuration file.
 
-### Example Usage
+For the full list of the configurable options, see [the "Parameters"
+section](#parameters).
 
-The example below posts a record using the `curl` command.
+
+Basic Usage
+-----------
+
+Here is a simple example to post a record using `curl`.
 
 ``` {.CodeRay}
-$ curl -X POST -d 'json={"action":"login","user":2}'
-  http://localhost:8888/test.tag.here;
+# Post a record with the tag "app.log"
+$ curl -X POST -d 'json={"foo":"bar"}' http://localhost:9880/app.log
 ```
+
+By default, timestamps are assigned to each record on arrival. You can
+override the timestamp using the `time` parameter.
+
+``` {.CodeRay}
+# Overwrite the timestamp to 2018-02-16 04:40:37.3137116
+$ curl -X POST -d 'json={"foo":"bar"}' \
+  http://localhost:9880/test.tag?time=1518756037.3137116
+```
+
+Here is another example in JavaScript.
+
+``` {.CodeRay}
+// Post a record using XMLHttpRequest
+var form = new FormData();
+form.set('json', JSON.stringify({"foo": "bar"}));
+
+var req = new XMLHttpRequest();
+req.open('POST', 'http://localhost:9880/debug.log');
+req.send(form);
+```
+
+For more advanced usage, please read [the "Tips & Tricks"
+section](#tips-&-tricks).
+
 
 Parameters
 ----------
+
+[Common Parameters](/articles/plugin-common-parameters.md)
+
+[]{#@type-(required)}
 
 ### \@type (required)
 
 The value must be `http`.
 
+
 ### port
 
-The port to listen to. Default Value = 9880
+    type     default   version
+  --------- --------- ---------
+   integer    9880     0.14.0
+
+The port to listen to.
+
 
 ### bind
 
-The bind address to listen to. Default Value = 0.0.0.0 (all addresses)
+    type            default           version
+  -------- ------------------------- ---------
+   string   0.0.0.0 (all addresses)   0.14.0
+
+The bind address to listen to.
+
+[]{#body_size_limit}
 
 ### body\_size\_limit
 
-The size limit of the POSTed element. Default Value = 32MB
+   type   default   version
+  ------ --------- ---------
+   size    32MB     0.14.0
+
+The size limit of the POSTed element.
+
+[]{#keepalive_timeout}
 
 ### keepalive\_timeout
 
-The timeout limit for keeping the connection alive. Default Value = 10
-seconds
+   type     default      version
+  ------ -------------- ---------
+   size   10 (seconds)   0.14.0
+
+The timeout limit for keeping the connection alive.
+
+[]{#add_http_headers}
 
 ### add\_http\_headers
 
-Add `HTTP_` prefix headers to the record. The default is `false`
+   type   default   version
+  ------ --------- ---------
+   bool    false    0.14.0
+
+Add `HTTP_` prefix headers to the record.
+
+[]{#add_remote_addr}
 
 ### add\_remote\_addr
 
+   type   default   version
+  ------ --------- ---------
+   bool    false    0.14.0
+
 Add `REMOTE_ADDR` field to the record. The value of `REMOTE_ADDR` is the
-client's address. The default is `false`
+client's address.
 
 If your system set multiple `X-Forwarded-For` headers in the request,
 `in_http` uses first one. For example:
@@ -76,89 +138,181 @@ X-Forwarded-For: host3
 
 If send above multiple headers, `REMOTE_ADDR` value is `host1`.
 
+[]{#cors_allow_origins}
+
 ### cors\_allow\_origins
 
-White list domains for CORS. Default is no check.
+   type       default      version
+  ------- --------------- ---------
+   array   nil(disabled)   0.14.0
+
+White list domains for CORS.
 
 If you set `["domain1", "domain2"]` to `cors_allow_origins`, `in_http`
-returns `403` to access from othe domains.
-
-### format
-
-The format of the HTTP body. The default is `default`.
-
--   default
-
-Accept records using `json=` / `msgpack=` style.
-
--   regexp
-
-Specify body format by regular expression.
+returns `403` to access from other domains. Since Fluentd v1.2.6, you
+can use a wildcard character `*` to allow requests from any origins (see
+the following example).
 
 ``` {.CodeRay}
-format /^(?<field1>\d+):(?<field2>\w+)$/
+<source>
+  @type http
+  port 9880
+  cors_allow_origins ["*"]
+</source>
 ```
 
-If you execute following command:
+[]{#respond_with_empty_img}
+
+### respond\_with\_empty\_img
+
+   type   default   version
+  ------ --------- ---------
+   bool    false    0.12.0
+
+Respond with an empty gif image of 1x1 pixel (rather than an emtpy
+string).
+
+
+### format (deprecated)
+
+Deprecated parameter. Use the `<parse>` directive [as explained
+below](#handle-various-formats-using-parser-plugins) instead.
+
+
+Tips & Tricks
+-------------
+
+
+### How to send data in MessagePack format
+
+You can post data in MessagePack format by adding the `msgpack=` prefix.
 
 ``` {.CodeRay}
-$ curl -X POST -d '123456:awesome' "http://localhost:8888/test.tag.here"
+# Send data in msgpack format
+$ msgpack=`echo -e "\x81\xa3foo\xa3bar"`
+$ curl -X POST -d "msgpack=$msgpack" http://localhost:9880/app.log
 ```
 
-then got parsed result like below:
+
+### How to use HTTP Content-Type header
+
+`in_http` plugin recognizes HTTP 'Content-Type' header in the incoming
+requests. For example, you can send a JSON payload without the `json=`
+prefix.
 
 ``` {.CodeRay}
-{"field1":"123456","field2":"awesome}
+$ curl -X POST -d '{"foo":"bar"}' -H 'Content-Type: application/json' \
+  http://localhost:9880/app.log
 ```
 
-`json`, `ltsv`, `tsv`, `csv` and `none` are also supported. Check
-[parser plugin overview](/articles/parser-plugin-overview.md) for more details.
+To use MessagePack, set the content type to `application/msgpack`.
 
-#### log\_level option
+``` {.CodeRay}
+$ msgpack=`echo -e "\x81\xa3foo\xa3bar"`
+$ curl -X POST -d "$msgpack" -H 'Content-Type: application/msgpack' \
+  http://localhost:9880/app.log
+```
 
-The `log_level` option allows the user to set different levels of
-logging for each plugin. The supported log levels are: `fatal`, `error`,
-`warn`, `info`, `debug`, and `trace`.
 
-Please see the [logging article](/articles/logging.md) for further details.
+### Handle other formats using parser plugins
 
-Additional Features
+You can handle various input formats by using the `<parser>` directive.
+For example, add the following settings to the configuration file:
+
+``` {.CodeRay}
+<source>
+  @type http
+  port 9880
+  <parse>
+    @type regexp
+    expression /^(?<field1>\d+):(?<field2>\w+)$/
+  </parse>
+</source>
+```
+
+Now you can post custom-format records as below:
+
+``` {.CodeRay}
+# This will be parsed into {"field1":"123456","field2":"awesome"}
+$ curl -X POST -d '123456:awesome' http://localhost:9880/app.log
+```
+
+Many other formats (e.g. csv/syslog/nginx) are also supported as well.
+You can find the full list of supported formats in ["Parser Plugin
+Overview"](parser-plugin-overview).
+
+Note that parser plugins do not support [the batch
+mode](#handle-large-data-with-batch-mode). So if you want to use bulk
+insertion for handling a large data set, please consider to keep using
+the default JSON (or MessagePack) format.
+
+
+Enhance Performance
 -------------------
 
-### time query parameter
 
-If you want to pass the event time from your application, please use the
-`time` query parameter.
+### Handle large data with batch mode
 
-``` {.CodeRay}
-$ curl -X POST -d 'json={"action":"login","user":2}'
-  "http://localhost:8888/test.tag.here?time=1392021185"
-```
-
-### Batch mode
-
-If you use `default` format, then you can send array type of json /
-msgpack to in\_http.
+You can post multiple records with a single request by packing data into
+a JSON/MessagePack array.
 
 ``` {.CodeRay}
-$ curl -X POST -d 'json=[{"action":"login","user":2,"time":1392021185},{"action":"logout","user":2,"time":1392027356}]'
-  http://localhost:8888/test.tag.here;
+# Send multiple events as a JSON array
+$ curl -X POST -d "json=[{"foo":"bar"},{"abc":"def"},{"xyz":"123"}]" \
+  http://localhost:9880/app.log
 ```
 
-This improves the input performance by reducing HTTP access. Non
-`default` format doesn't support batch mode yet. Here is a simple
-bechmark result on MacBook Pro with ruby 2.3:
+This significantly improves the throughput since it reduces the number
+of HTTP requests. Here is a simple bechmark result on MacBook Pro with
+ruby 2.3:
 
-  ----------------- ----------------- -------------------------
   json              msgpack           msgpack array(10 items)
-  2100 events/sec   2400 events/sec   10000 events/sec
   ----------------- ----------------- -------------------------
+  2100 events/sec   2400 events/sec   10000 events/sec
 
 Tested configuration and ruby script is
 [here](https://gist.github.com/repeatedly/672ac73abf7cbcb629aaec791838cf6d).
 
-FAQ
----
+
+### Use compression to reduce bandwidth overhead
+
+Since v1.2.3, Fluentd can handle gzip-compressed payloads. To enable
+this feature, you need to add the 'Content-Encoding' header to your
+requests.
+
+``` {.CodeRay}
+# Send gzip-compressed payload
+$ echo 'json={"foo":"bar"}' | gzip > json.gz
+$ curl --data-binary @json.gz -H "Content-Encoding: gzip" \
+  http://localhost:9880/app.log
+```
+
+You do not need any configuration to enable this feature.
+
+
+### Multi-process environment
+
+If you use this plugin under multi-process environment, port will be
+shared.
+
+``` {.CodeRay}
+<system>
+  workers 3
+</system>
+<source>
+  @type http
+  port 9880
+</source>
+```
+
+With this configuration, 3 workers share 9880 port. No need additional
+port. Incoming data will be routed to 3 workers automatically.
+
+
+Troubleshooting
+---------------
+
+[]{#why-in_http-removes-%E2%80%98+%E2%80%99-from-my-log?}
 
 ### Why in\_http removes '+' from my log?
 
@@ -170,18 +324,24 @@ properly or use multipart request. Here is ruby example:
 URI.encode_www_form({json: {"message" => "foo+bar"}.to_json})
 
 # NG
-"json=#{{"message" => "foo+bar"}.to_json}"
+"json=#{"message" => "foo+bar"}.to_json}"
 ```
 
 curl command example:
 
 ``` {.CodeRay}
 # OK
-curl -X POST -H 'Content-Type: multipart/form-data' -F 'json={"message":"foo+bar"}' http://localhost:8888/test.tag.here
+curl -X POST -H 'Content-Type: multipart/form-data' -F 'json={"message":"foo+bar"}' http://localhost:9880/app.log
 
 # NG
-curl -X POST -F 'json={"message":"foo+bar"}' http://localhost:8888/test.tag.here
+curl -X POST -F 'json={"message":"foo+bar"}' http://localhost:9880/app.log
 ```
+
+
+Learn More
+----------
+
+-   [Input Plugin Overview](/articles/input-plugin-overview.md)
 
 
 ------------------------------------------------------------------------

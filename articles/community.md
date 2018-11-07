@@ -1,5 +1,4 @@
-Community
-=========
+# Community
 
 Fluentd has a thriving developer and user community. Here are some ways
 to come join the conversation!

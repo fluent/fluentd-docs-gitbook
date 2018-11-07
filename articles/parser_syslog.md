@@ -1,19 +1,41 @@
-syslog Parser Plugin
-====================
+# syslog Parser Plugin
 
 The `syslog` parser plugin parses syslog generated logs. This plugin
 supports two RFC formats, rfc3164 and rfc5424.
 
 
-Parameters
-----------
+## Parameters
+
+See [Parse section configurations](/articles/parse-section.md)
+
+[]{#time_format}
 
 ### time\_format
+
+    type        default       version
+  -------- ----------------- ---------
+   string   \%b %d %H:%M:%S   0.14.10
 
 Specify time format for event time. Default is "%b %d %H:%M:%S" for
 rfc3164 protocol.
 
+[]{#rfc5424_time_format}
+
+### rfc5424\_time\_format
+
+    type            default           version
+  -------- ------------------------- ---------
+   string   \%Y-%m-%dT%H:%M:%S.%L%z   0.14.14
+
+Specify time format for event time for rfc5424 protocol.
+
+[]{#message_format}
+
 ### message\_format
+
+    type    default   version
+  -------- --------- ---------
+   string   rfc3164   0.14.14
 
 Specify protocol format. Supported values are `rfc3164`, `rfc5424` and
 `auto`. Default is `rfc3164`. If your syslog uses `rfc5424`, use
@@ -25,23 +47,26 @@ message. `syslog` parser detects message format by using message prefix.
 This parameter is used inside `in_syslog` plugin because the file logs
 via syslog don't have `<9>` like priority prefix.
 
+[]{#with_priority}
+
 ### with\_priority
+
+   type   default   version
+  ------ --------- ---------
+   bool    false    0.14.0
 
 If the incoming logs have priority prefix, e.g. \<9\>, set `true`.
 Default is `false`.
 
-### keep\_time\_key
-
-If you want to keep time field in the record, set `true`. Default is
-`false`.
 
 Regexp patterns
 ---------------
 
+
 ### rfc3164 pattern
 
 ``` {.CodeRay}
-format /^\<(?<pri>[0-9]+)\>(?<time>[^ ]* {1,2}[^ ]* [^ ]*) (?<host>[^ ]*) (?<ident>[a-zA-Z0-9_\/\.\-]*)(?:\[(?<pid>[0-9]+)\])?(?:[^\:]*\:)? *(?<message>.*)$/
+expression /^\<(?<pri>[0-9]+)\>(?<time>[^ ]* {1,2}[^ ]* [^ ]*) (?<host>[^ ]*) (?<ident>[a-zA-Z0-9_\/\.\-]*)(?:\[(?<pid>[0-9]+)\])?(?:[^\:]*\:)? *(?<message>.*)$/
 time_format "%b %d %H:%M:%S"
 ```
 
@@ -53,10 +78,11 @@ record. `time` is used for the event time.
 If `with_priority` is `false`, `^\<(?<pri>[0-9]+)\>` is removed from the
 pattern.
 
+
 ### rfc5424 pattern
 
 ``` {.CodeRay}
-format /\A^\<(?<pri>[0-9]{1,3})\>[1-9]\d{0,2} (?<time>[^ ]+) (?<host>[^ ]+) (?<ident>[^ ]+) (?<pid>[-0-9]+) (?<msgid>[^ ]+) (?<extradata>(\[(.*)\]|[^ ])) (?<message>.+)$\z/
+expression /\A^\<(?<pri>[0-9]{1,3})\>[1-9]\d{0,2} (?<time>[^ ]+) (?<host>[^ ]+) (?<ident>[^ ]+) (?<pid>[-0-9]+) (?<msgid>[^ ]+) (?<extradata>(\[(.*)\]|[^ ])) (?<message>.+)$\z/
 time_format "%Y-%m-%dT%H:%M:%S.%L%z"
 ```
 
@@ -65,8 +91,10 @@ included in the event record. `time` is used for the event time.
 
 `pri` value is converted into integer type.
 
+
 Example
 -------
+
 
 ### rfc3164 log
 
@@ -89,6 +117,7 @@ record:
   "message": "[error] Syslog test"
 }
 ```
+
 
 ### rfc5424 log
 

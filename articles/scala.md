@@ -1,19 +1,19 @@
-Centralize Logs from Scala Applications
-=======================================
+# Centralize Logs from Scala Applications
 
-The '[fluent-logger-scala](http://github.com/oza/fluent-logger-scala)'
+The
+'[fluent-logger-scala](https://github.com/fluent/fluent-logger-scala)'
 library is used to post records from Scala applications to Fluentd.
 
 This article explains how to use the fluent-logger-scala library.
 
 
-Prerequisites
--------------
+## Prerequisites
 
 -   Basic knowledge of Scala and sbt
 -   Basic knowledge of Fluentd
--   Scala 2.9.0 or 2.9.1
+-   Scala 2.11.0 or later
 -   sbt 0.12.0 or later
+
 
 Installing Fluentd
 ------------------
@@ -24,6 +24,7 @@ Please refer to the following documents to install fluentd.
 -   [Install Fluentd with deb Package](/articles/install-by-deb.md)
 -   [Install Fluentd with Ruby Gem](/articles/install-by-gem.md)
 -   [Install Fluentd from source](/articles/install-from-source.md)
+
 
 Modifying the Config File
 -------------------------
@@ -46,19 +47,22 @@ Please restart your agent once these lines are in place.
 ``` {.CodeRay}
 # for rpm/deb only
 $ sudo /etc/init.d/td-agent restart
+# or systemd
+$ sudo systemctl restart td-agent.service
 ```
+
 
 Using fluent-logger-scala
 -------------------------
 
 First, please add the following lines to build.sbt. The logger's
-revision information can be found in the
-[ChangeLog](https://github.com/oza/fluent-logger-scala/blob/master/ChangeLog).
+revision information can be found in [the release
+notes](https://github.com/fluent/fluent-logger-scala/blob/develop/RELEASE_NOTES.md).
 
 ``` {.CodeRay}
 resolvers += "Apache Maven Central Repository" at "http://repo.maven.apache.org/maven2/"
 
-libraryDependencies += "org.fluentd" %% "fluent-logger-scala" % "0.3.0"
+libraryDependencies += "org.fluentd" %% "fluent-logger-scala" % "(version)"
 ```
 
 or
@@ -66,12 +70,12 @@ or
 ``` {.CodeRay}
 resolvers += "Sonatype Repository" at "http://oss.sonatype.org/content/repositories/releases"
 
-libraryDependencies += "org.fluentd" %% "fluent-logger-scala" % "0.3.0"
+libraryDependencies += "org.fluentd" %% "fluent-logger-scala" % "(version)"
 ```
 
 Next, please insert the following lines into your application. Further
 information regarding the API can be found
-[here](https://github.com/oza/fluent-logger-scala).
+[here](https://github.com/fluent/fluent-logger-scala).
 
 ``` {.CodeRay}
 import org.fluentd.logger.scala.FluentLoggerFactory
@@ -83,7 +87,7 @@ object Sample {
   def main(args: Array[String]): Unit = {
 
     ...
-    val data = new HashMap[String, String](.md);
+    val data = new HashMap[String, String]();
     data.put("from", "userA");
     data.put("to", "userB");
     LOG.log("follow", data);
@@ -103,8 +107,10 @@ $ sbt
 The logs should be output to `/var/log/td-agent/td-agent.log` or stdout
 of the Fluentd process via the [stdout Output plugin](/articles/out_stdout.md).
 
+
 Production Deployments
 ----------------------
+
 
 ### Output Plugins
 
@@ -117,10 +123,12 @@ writing records to other destinations:
     -   [Data Collection into HDFS](/articles/http-to-hdfs.md)
 -   List of Plugin References
     -   [Output to Another Fluentd](/articles/out_forward.md)
-    -   [Output to MongoDB](/articles/out_mongo.md) or [MongoDB ReplicaSet](/articles/out_mongo_replset.md)
+    -   [Output to MongoDB](/articles/out_mongo.md) or [MongoDB
+        ReplicaSet](/articles/out_mongo_replset.md)
     -   [Output to Hadoop](/articles/out_webhdfs.md)
     -   [Output to File](/articles/out_file.md)
     -   [etc...](http://fluentd.org/plugin/)
+
 
 ### High-Availability Configurations of Fluentd
 
@@ -129,6 +137,7 @@ using a high availability configuration of td-agent. This will improve
 data transfer reliability and query performance.
 
 -   [High-Availability Configurations of Fluentd](/articles/high-availability.md)
+
 
 ### Monitoring
 

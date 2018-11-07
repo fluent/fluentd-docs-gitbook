@@ -1,5 +1,4 @@
-Mailing List
-============
+# Mailing List
 
 Please join the [Fluentd Google
 Group](https://groups.google.com/forum/?fromgroups#!forum/fluentd) to

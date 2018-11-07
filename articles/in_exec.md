@@ -1,5 +1,4 @@
-exec Input Plugin
-=================
+# exec Input Plugin
 
 The `in_exec` Input plugin executes external programs to receive or pull
 event logs. It will then read TSV (tab separated values), JSON or
@@ -9,8 +8,7 @@ You can run a program periodically or permanently. To run periodically,
 please use the run\_interval parameter.
 
 
-Example Configuration
----------------------
+## Example Configuration
 
 `in_exec` is included in Fluentd's core. No additional installation
 process is required.
@@ -19,85 +17,178 @@ process is required.
 <source>
   @type exec
   command cmd arg arg
-  keys k1,k2,k3
-  tag_key k1
-  time_key k2
-  time_format %Y-%m-%d %H:%M:%S
+  <parse>
+    keys k1,k2,k3
+  </parse>
+  <extract>
+    tag_key k1
+    time_key k2
+    time_format %Y-%m-%d %H:%M:%S
+  </extract>
   run_interval 10s
 </source>
 ```
+
 Please see the [Config File](/articles/config-file.md) article for the basic
 structure and syntax of the configuration file.
+
+
+Plugin helpers
+--------------
+
+-   [compat\_parameters](/articles/api-plugin-helper-compat_parameters.md)
+-   [extract](/articles/api-plugin-helper-extract.md)
+-   [parser](/articles/api-plugin-helper-parser.md)
+-   [child\_process](/articles/api-plugin-helper-child_process.md)
+
 
 Parameters
 ----------
 
-### \@type (required)
+[Common Parameters](/articles/plugin-common-parameters.md)
+
+[]{#@type}
+
+### \@type
 
 The value must be `exec`.
 
-### command (required)
+
+### command
+
+    type         default         version
+  -------- -------------------- ---------
+   string   required parameter   0.14.0
 
 The command (program) to execute.
 
-### format
 
-The format used to map the program output to the incoming event.
+### tag
 
-The following formats are supported:
+    type                       default                      version
+  -------- ----------------------------------------------- ---------
+   string   required if extract/tag\_key is not specified   0.14.0
 
--   tsv (default)
--   json
--   msgpack
--   [parser plugin formats](/articles/parser-plugin-overview.md), e.g. ltsv, none.
+Tag of the output events.
 
-When using the tsv format, please also specify the comma-separated
-`keys` parameter.
-
-``` {.CodeRay}
-keys k1,k2,k3
-```
-
-When using the json format, this plugin uses the Yajl library to parse
-the program output. Yajl buffers data internally so the output isn\'t
-always instantaneous.
-
-### tag (required if tag\_key is not specified)
-
-tag of the output events.
-
-### tag\_key
-
-The key to use as the event tag instead of the value in the event
-record. If this parameter is not specified, the `tag` parameter will be
-used instead.
-
-### time\_key
-
-The key to use as the event time instead of the value in the event
-record. If this parameter is not specified, the current time will be
-used instead.
-
-### time\_format
-
-The format of the event time used for the time\_key parameter. The
-default is UNIX time (integer).
+[]{#run_interval}
 
 ### run\_interval
+
+   type   default   version
+  ------ --------- ---------
+   time     nil     0.14.0
 
 The interval time between periodic program runs. If no specify value,
 command script runs only once.
 
-#### log\_level option
+[]{#read_block_size}
 
-The `log_level` option allows the user to set different levels of
-logging for each plugin. The supported log levels are: `fatal`, `error`,
-`warn`, `info`, `debug`, and `trace`.
+### read\_block\_size
 
-Please see the [logging article](/articles/logging.md) for further details.
+   type   default   version
+  ------ --------- ---------
+   size    10240    0.14.9
 
-Real World Use Case: using in\_exec to scrape Hacker News Top Page
-------------------------------------------------------------------
+The default block size to read if parser requires partial read.
+
+[]{#<parse>-section}
+
+### \<parse\> section
+
+   required   multi   version
+  ---------- ------- ---------
+    false     false   0.14.9
+
+For more details about parse section, see followings
+
+-   [Parser plugin overview](/articles/parser-plugin-overview.md)
+-   [Parse section configuration](/articles/parse-section.md)
+
+#### \@type
+
+    type    default   version
+  -------- --------- ---------
+   string     tsv     0.14.9
+
+Overwrite default value in this plugin.
+
+#### time\_type
+
+    type    default   version
+  -------- --------- ---------
+   string    float    0.14.9
+
+Overwrite default value in this plugin.
+
+#### time\_key
+
+    type    default   version
+  -------- --------- ---------
+   string     nil     0.14.9
+
+Overwrite default value in this plugin.
+
+#### estimate\_current\_event
+
+   type   default   version
+  ------ --------- ---------
+   bool    false    0.14.9
+
+Overwrite default value in this plugin.
+
+[]{#<extract>-section}
+
+### \<extract\> section
+
+   required   multi   version
+  ---------- ------- ---------
+    false     false   0.14.9
+
+See [Extract section configurations](/articles/extract-section.md)
+
+#### time\_type
+
+    type    default   version
+  -------- --------- ---------
+   string    float    0.14.9
+
+Overwrite default value in this plugin.
+
+
+Use Cases
+---------
+
+
+### Monitor Load Averages
+
+Here is a simple example to fetch load average stats on Linux systems.
+This configuration instructs Fluentd to read `/proc/loadavg` once per
+minute and emit the file content as events.
+
+``` {.CodeRay}
+<source>
+  @type exec
+  tag system.loadavg
+  command cat /proc/loadavg | cut -d ' ' -f 1,2,3
+  run_interval 1m
+  <parse>
+    @type tsv
+    keys avg1,avg5,avg15
+    delimiter " "
+  </parse>
+</source>
+```
+
+This configuration emits events like below:
+
+``` {.CodeRay}
+2018-06-29 17:27:35.115878527 +0900 system.loadavg: {"avg1":"0.30","avg5":"0.20","avg15":"0.05"}
+```
+
+[]{#real-world-example:-scrape-hacker-news-top-page}
+
+### Real World Example: Scrape Hacker News Top Page
 
 If you already have a script that runs periodically (say, via `cron`)
 that you wish to store the output to multiple backend systems (HDFS,
@@ -117,7 +208,9 @@ minutes with the following configuration
 ``` {.CodeRay}
 <source>
   @type exec
-  format json
+  <parse>
+    @type json
+  </parse>
   tag hackernews
   command ruby /path/to/hn.rb
   run_interval 5m # don't hit HN too frequently!
@@ -131,10 +224,11 @@ And if you run Fluentd with it, you will see the following output (if
 you are impatient, ctrl-C to flush the stdout buffer)
 
 ``` {.CodeRay}
-2014-05-26 21:51:35 +0000 hackernews: {"time":1401141095,"rank":1,"title":"Rap Genius Co-Founder Moghadam Fired","points":128,"user_name":"obilgic","duration":"2 hours ago  ","num_comments":108}
-2014-05-26 21:51:35 +0000 hackernews: {"time":1401141095,"rank":2,"title":"Whitewood Under Siege: Wooden Shipping Pallets","points":128,"user_name":"drjohnson","duration":"3 hours ago  ","num_comments":20}
-2014-05-26 21:51:35 +0000 hackernews: {"time":1401141095,"rank":3,"title":"Organic Cat Litter Chief Suspect In Nuclear Waste Accident","points":55,"user_name":"timr","duration":"2 hours ago  ","num_comments":12}
-2014-05-26 21:51:35 +0000 hackernews: {"time":1401141095,"rank":4,"title":"Do We Really Know What Makes Us Healthy? (2007)","points":27,"user_name":"gwern","duration":"1 hour ago  ","num_comments":9}
+2017-12-08 14:19:33.160567411 +0900 hackernews: {"time":1512710373,"rank":1,"title":"Japan eyes startup visa program","points":160,"user_name":"benguild","duration":"4 hours ago  ","num_comments":0,"unique_id":"item?id=15875627","hiring_notice":false}
+2017-12-08 14:19:33.160735378 +0900 hackernews: {"time":1512710373,"rank":2,"title":"Bookbinding: A Tutorial","points":46,"user_name":"jstrieb","duration":"2 hours ago  ","num_comments":0,"unique_id":"item?id=15876260","hiring_notice":false}
+2017-12-08 14:19:33.160769125 +0900 hackernews: {"time":1512710373,"rank":3,"title":"My Quadriplegic Husband and Me","points":92,"user_name":"mooreds","duration":"4 hours ago  ","num_comments":0,"unique_id":"item?id=15875772","hiring_notice":false}
+2017-12-08 14:19:33.160799115 +0900 hackernews: {"time":1512710373,"rank":4,"title":"Wall Street banks hit pause button on Bitcoin","points":16,"user_name":"tadasv","duration":"1 hour ago  ","num_comments":0,"unique_id":"item?id=15876497","hiring_notice":false}
+2017-12-08 14:19:33.160824386 +0900 hackernews: {"time":1512710373,"rank":5,"title":"A Spectator Who Threw a Wrench in the Waymo/Uber Lawsuit","points":107,"user_name":"kynthelig","duration":"4 hours ago  ","num_comments":0,"unique_id":"item?id=15875685","hiring_notice":false}
 ```
 
 Of course, you can use Fluentd's many output plugins to store the data

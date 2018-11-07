@@ -1,5 +1,4 @@
-Monitoring Fluentd (Prometheus)
-===============================
+# Monitoring Fluentd (Prometheus)
 
 This article describes how to monitor Fluentd via
 [Prometheus](https://prometheus.io/).
@@ -9,20 +8,24 @@ Computing Foundation)](https://www.cncf.io/), Fluentd project is
 recommending to use Prometheus by default to monitor Fluentd.
 
 
-Installation
-------------
+## Installation
 
 First of all, please install `fluent-plugin-prometheus` gem.
 
 ``` {.CodeRay}
-$ fluent-gem install fluent-plugin-prometheus --version=0.4.0
+$ fluent-gem install fluent-plugin-prometheus --version='~>1.0.0'
 ```
 
 If you are using td-agent, use `td-agent-gem` for installation.
 
 ``` {.CodeRay}
-$ sudo td-agent-gem install fluent-plugin-prometheus --version=0.4.0
+$ sudo td-agent-gem install fluent-plugin-prometheus --version='~>1.0.0'
 ```
+
+[This GitHub
+repository](https://github.com/kzk/fluentd-prometheus-config-example)
+contains the fully working configuration for this article.
+
 
 Example Fluentd Configuration
 -----------------------------
@@ -31,8 +34,10 @@ To expose the Fluentd metrics to Prometheus, we need to configure 3
 parts:
 
 -   Step 1: Prometheus Filter Plugin to count Incoming Records
--   Step 2: Prometheus Output Plugih to count Outgoing Records
+-   Step 2: Prometheus Output Plugin to count Outgoing Records
 -   Step 3: Prometheus Input Plugin to expose metrics via HTTP
+
+[]{#step-1:-counting-incoming-records-by-prometheus-filter-plugin}
 
 ### Step 1: Counting Incoming Records by Prometheus Filter Plugin
 
@@ -62,6 +67,8 @@ starts adding the internal counter as the record comes in.
   </metric>
 </filter>
 ```
+
+[]{#step-2:-counting-outgoing-records-by-prometheus-output-plugin}
 
 ### Step 2: Counting Outgoing Records by Prometheus Output Plugin
 
@@ -98,6 +105,8 @@ goes out.
 </match>
 ```
 
+[]{#step-3:-expose-metrics-by-prometheus-input-plugin-via-http}
+
 ### Step 3: Expose Metrics by Prometheus Input Plugin via HTTP
 
 Finally, please use `prometheus` input plugin to expose internal counter
@@ -120,6 +129,8 @@ information via HTTP.
 </source>
 ```
 
+[]{#step-4:-check-the-configuration}
+
 ### Step 4: Check the Configuration
 
 After you have done 3 changes, please restart fluentd.
@@ -128,7 +139,7 @@ After you have done 3 changes, please restart fluentd.
 # For stand-alone Fluentd installations
 $ fluentd -c fluentd.conf
 # For td-agent users
-$ sudo /etc/init.d/td-agent restart
+$ sudo systemctl restart td-agent
 ```
 
 Let's send some records.
@@ -160,6 +171,7 @@ fluentd_output_status_buffer_queue_length{hostname="KZK.local",plugin_id="object
 ....
 ```
 
+
 Example Prometheus Configuration
 --------------------------------
 
@@ -185,8 +197,10 @@ $ ./prometheus --config.file="prometheus.yml"
 
 Now please open your browser and access to `http://localhost:9090/`.
 
+
 How to use Prometheus to monitor Fluentd
 ----------------------------------------
+
 
 ### List of Fluentd nodes
 
@@ -195,12 +209,13 @@ list of Fluentd nodes and its status.
 
 ![](/images/prometheus-targets.png)
 
+
 ### List of Fluentd metrics
 
 Then, visit `http://localhost:9090/graph` to explore Fluentd internal
 metrics. There, you'll see 8 metrics in the metric list:
 
-![](/images/prometheus-metrics.png)
+![](/images/prometheus-metrics.png){width="100%"}
 
 -   fluentd\_input\_status\_num\_records\_total
 -   fluentd\_output\_status\_buffer\_queue\_length
@@ -214,7 +229,8 @@ metrics. There, you'll see 8 metrics in the metric list:
 Please pick `fluentd_input_status_num_records_total`, and you'll see the
 total incoming records per tag.
 
-![](/images/prometheus-graph.png)
+![](/images/prometheus-graph.png){width="100%"}
+
 
 ### Example Prometheus Queries
 
@@ -247,6 +263,7 @@ sum(rate(fluentd_output_status_num_records_total[1m])) by (tag)
 rate(fluentd_output_status_emit_count[1m])
 ```
 
+
 ### Metrics to Monitor
 
 In addition to the traffic metrics introduced above, it is important to
@@ -270,6 +287,7 @@ max_over_time(fluentd_output_status_retry_wait[1m])
 rate(fluentd_output_status_retry_count[1m])
 ```
 
+
 Grafana for Advanced Visualization / Alerting
 ---------------------------------------------
 
@@ -281,6 +299,7 @@ Prometheus.
     Prometheus](https://prometheus.io/docs/visualization/grafana/)
 
 ![](/images/prometheus-grafana.png)
+
 
 Further Readings
 ----------------

@@ -1,89 +1,71 @@
-regexp Parser Plugin
-====================
+# regexp Parser Plugin
 
-The `regexp` parser plugin parses logs by given regexp pattern. If the
-parameter value starts and ends with "/", it is considered to be a
-regexp. The regexp must have at least one named capture
-(?\<NAME\>PATTERN). If the regexp has a capture named `time`, this is
-configurable, it is used as the time of the event. You can specify the
-time format using the time\_format parameter.
+The `regexp` parser plugin parses logs by given regexp pattern. The
+regexp must have at least one named capture (?\<NAME\>PATTERN). If the
+regexp has a capture named `time`, this is configurable via `time_key`
+parameter, it is used as the time of the event. You can specify the time
+format using the time\_format parameter.
 
 ``` {.CodeRay}
-format /.../ # regexp parser is used
-format json  # json parser is used
+<parse>
+  @type regexp
+  expression /.../
+</parse>
 ```
 
 
-Parameters
-----------
+## Parameters
 
-### time\_key
+See [Parse section configurations](/articles/parse-section.md) for common parameters.
 
-Specify the field for event time. Default is `time`.
 
-### time\_format
+### expression
 
-Specify time format for `time_key`.
+    type         default         version
+  -------- -------------------- ---------
+   regexp   required parameter    1.2.0
 
-See
-[Time\#strptime](http://ruby-doc.org/stdlib-2.4.1/libdoc/time/rdoc/Time.html#method-c-strptime)
-for additional format information.
+Regular expression for matching logs.
 
-### keep\_time\_key
+expression is string type before 1.2.0.
 
-If you want to keep time field in the record, set `true`. Default is
-`false`.
 
-### types
+### ignorecase
 
-Although every parsed field has type `string` by default, you can
-specify other types. This is useful when filtering particular fields
-numerically or storing data with sensible type information.
+   type   default   version
+  ------ --------- ---------
+   bool    false    0.14.2
 
-The syntax is
+Ignore case in matching. Use `i` option with expression.
 
-``` {.CodeRay}
-types <field_name_1>:<type_name_1>,<field_name_2>:<type_name_2>,...
-```
+Deprecated since 1.2.0. Use `expression /pattern/i` instead.
 
-e.g.,
 
-``` {.CodeRay}
-types user_id:integer,paid:bool,paid_usd_amount:float
-```
+### multiline
 
-As demonstrated above, "," is used to delimit field-type pairs while ":"
-is used to separate a field name with its intended type.
+   type   default   version
+  ------ --------- ---------
+   bool    false    0.14.2
 
-Unspecified fields are parsed at the default string type.
+Build regular expression as a multline mode. `.` matches newline. See
+[Ruby's Regexp
+document](https://ruby-doc.org/core-2.4.1/Regexp.html#class-Regexp-label-Options)
+Use `m` option with expression.
 
-The list of supported types are shown below:
+Deprecated since 1.2.0. Use `expression /pattern/m` instead.
 
--   string
--   bool
--   integer ("int" would NOT work!)
--   float
--   time
--   array
-
-For the `time` and `array` types, there is an optional third field after
-the type name. For the "time" type, you can specify a time format like
-you would in `time_format`.
-
-For the "array" type, the third field specifies the delimiter (the
-default is ","). For example, if a field called "item\_ids" contains the
-value "3,4,5", `types item_ids:array` parses it as \["3", "4", "5"\].
-Alternatively, if the value is "Adam\|Alice\|Bob",
-`types item_ids:array:|` parses it as \["Adam", "Alice", "Bob"\].
 
 Example
 -------
 
 ``` {.CodeRay}
-format /^\[(?<logtime>[^\]]*)\] (?<name>[^ ]*) (?<title>[^ ]*) (?<id>\d*)$/
-time_key logtime
-time_format %Y-%m-%d %H:%M:%S %z
-types id:integer
+<parse>
+  @type regexp
+  expression /^\[(?<logtime>[^\]]*)\] (?<name>[^ ]*) (?<title>[^ ]*) (?<id>\d*)$/
+  time_key logtime
+  time_format %Y-%m-%d %H:%M:%S %z
+  types id:integer
+</parse>
 ```
 
 With this config:
@@ -106,8 +88,10 @@ record:
 }
 ```
 
+
 FAQ
 ---
+
 
 ### How to debug my regexp pattern?
 

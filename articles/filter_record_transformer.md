@@ -1,13 +1,11 @@
-record\_transformer Filter Plugin
-=================================
+# record\_transformer Filter Plugin
 
 The `filter_record_transformer` filter plugin mutates/transforms
 incoming event streams in a versatile manner. If there is a need to
 add/delete/modify events, this plugin is the first filter to try.
 
 
-Example Configurations
-----------------------
+## Example Configurations
 
 `filter_record_transformer` is included in Fluentd's core. No
 installation required.
@@ -106,8 +104,19 @@ So, if an event with the tag "web.auth" and record
 `{"user_id":1, "status":"ok"}` comes in, it transforms it into
 `{"user_id":1, "status":"ok", "service_name":"auth"}`.
 
+
 Parameters
 ----------
+
+[Common Parameters](/articles/plugin-common-parameters.md)
+
+[]{#@type}
+
+### \@type
+
+The value must be `record_transformer`.
+
+[]{#<record>-directive}
 
 ### \<record\> directive
 
@@ -150,7 +159,13 @@ tag_prefix[1] = debug.my       tag_suffix[1] = my.app
 tag_prefix[2] = debug.my.app   tag_suffix[2] = app
 ```
 
-### enable\_ruby (optional)
+[]{#enable_ruby}
+
+### enable\_ruby
+
+   type   default   version
+  ------ --------- ---------
+   bool    false    0.14.0
 
 When set to true, the full Ruby syntax is enabled in the `${...}`
 expression. The default value is false.
@@ -170,9 +185,16 @@ formatted_time ${time.strftime('%Y-%m-%dT%H:%M:%S%z')}
 escaped_tag ${tag.gsub('.', '-')}
 last_tag ${tag_parts.last}
 foo_${record["key"]} bar_${record["value"]}
+nested_value ${record["payload"]["key"]}
 ```
 
-### auto\_typecast (optional)
+[]{#auto_typecast}
+
+### auto\_typecast
+
+   type   default   version
+  ------ --------- ---------
+   bool    false    0.14.0
 
 Automatically cast the field types. Default is false.
 
@@ -196,24 +218,54 @@ foo 1
 Internally, this keeps the original value type only when a single
 placeholder is used.
 
-### renew\_record (optional)
+[]{#renew_record}
+
+### renew\_record
+
+   type   default   version
+  ------ --------- ---------
+   bool    false    0.14.0
 
 By default, the record transformer filter mutates the incoming data.
 However, if this parameter is set to true, it modifies a new empty hash
 instead.
 
-### renew\_time\_key (optional, string type)
+[]{#renew_time_key}
+
+### renew\_time\_key
+
+    type    default   version
+  -------- --------- ---------
+   string     nil     0.14.0
 
 `renew_time_key foo` overwrites the time of events with a value of the
 record field `foo` if exists. The value of `foo` must be a unix time.
 
-### keep\_keys (optional, array type)
+[]{#keep_keys}
+
+### keep\_keys
+
+   type    default   version
+  ------- --------- ---------
+   array     nil     0.14.0
 
 A list of keys to keep. Only relevant if `renew_record` is set to true.
 
-### remove\_keys (optional, array type)
+keep\_keys has been supported since 0.14.0
+
+[]{#remove_keys}
+
+### remove\_keys
+
+   type    default   version
+  ------- --------- ---------
+   array     nil     0.14.0
 
 A list of keys to delete.
+
+This parameter supports nested field via [record\_accessor
+syntax](api-plugin-helper-record_accessor#syntax) since v1.1.0.
+
 
 Need more performance?
 ----------------------
@@ -225,17 +277,23 @@ is light-weight and faster version of `filter_record_transformer`.
 you need better performace for mutating records, consider
 `filter_record_modifier` instead.
 
+
 FAQ
 ---
 
 ### What are the differences between `${record["key"]}` and `${key}`?
 
-`${key}` is short-cut for `${record["key"]}`. This is error prone
-because `${tag}` is unclear for event tag or `record["tag"]`. So the
-`${key}` syntax is now deprecated for avoiding this problem. Don't use
-`${key}` short-cut syntax on the production.
+`${key}` was short-cut for `${record["key"]}`. This is error prone
+because `${tag}` is unclear, event tag or `record["tag"]`. So the
+`${key}` syntax was removed since v0.14. v0.12 still supports `${key}`
+but it is not recommended.
 
-Since v0.14, `${key}` short-cut syntax is removed.
+### I got `unknown placeholder ${record['msg']} found` error, why?
+
+Without `enable_ruby`, `${}` placeholder supports only double quoted
+string for record field access. So use `${record["key"]}` instead of
+`${record['key']}`.
+
 
 Learn More
 ----------
@@ -243,7 +301,7 @@ Learn More
 -   [Filter Plugin Overview](/articles/filter-plugin-overview.md)
 
 
-
+------------------------------------------------------------------------
 
 If this article is incorrect or outdated, or omits critical information,
 please [let us know](https://github.com/fluent/fluentd-docs/issues?state=open).

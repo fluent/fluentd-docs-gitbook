@@ -1,182 +1,203 @@
-Buffer Plugin Overview
-======================
+# Buffer Plugin Overview
 
-Fluentd has 6 types of plugins: [Input](/articles/input-plugin-overview.md),
+Fluentd has 7 types of plugins: [Input](/articles/input-plugin-overview.md),
 [Parser](/articles/parser-plugin-overview.md), [Filter](/articles/filter-plugin-overview.md),
-[Output](/articles/output-plugin-overview.md), [Formatter](/articles/formatter-plugin-overview.md)
-and [Buffer](/articles/buffer-plugin-overview.md). This article will provide a
-high-level overview of Buffer plugins.
+[Output](/articles/output-plugin-overview.md),
+[Formatter](/articles/formatter-plugin-overview.md),
+[Storage](/articles/storage-plugin-overview.md) and [Buffer](/articles/buffer-plugin-overview.md).
+This article gives an overview of Buffer Plugin.
 
 
-Buffer Plugin Overview
-----------------------
+## Overview
 
 Buffer plugins are used by output plugins. For example, `out_s3` uses
-`buf_file` plugin by default to store incoming stream temporally before
+`buf_file` by default to store incoming stream temporally before
 transmitting to S3.
 
 Buffer plugins are, as you can tell by the name, *pluggable*. So you can
 choose a suitable backend based on your system requirements.
 
-Buffer Structure
+
+How Buffer Works
 ----------------
 
 A buffer is essentially a set of "chunks". A chunk is a collection of
-records concatenated into a single blob. Chunks are periodically flushed
-to the output queue and then sent to the specified destination. Here is
-the diagram of how it works:
+events concatenated into a single blob. Each chunk is managed one by one
+in the form of files ([buf\_file](/articles/buf_file.md)) or continuous memory blocks
+([buf\_memory](/articles/buf_memory.md)).
 
 
+### The Lifecycle of Chunks
 
-[![](/images/buffer-internal-and-parameters.png)](/images/buffer-internal-and-parameters.png)
+You can think of a chunk as a cargo box. A buffer plugin uses a chunk as
+a lightweight container, and fills it with events incoming from input
+sources. If a chunk becomes full, then it gets "shipped" to the
+destination.
+
+Internally, a buffer plugin has two separated places to store its
+chunks: *"stage"* where chunks get filled with events, and *"queue"*
+where chunks wait before the transportation. Every newly-created chunk
+starts from *stage*, then proceeds to *queue* in time (and subsequently
+gets transferred to the destination).
+
+<div>
+
+[![](/images/fluentd-v0.14-plugin-api-overview.png)](/images/fluentd-v0.14-plugin-api-overview.png)
+
+</div>
 
 
+Control Retry Behaviour
+-----------------------
 
-### Common Parameters
+A chunk can fail to be written out to the destination for a number of
+reasons. The network can go down, or the traffic volumes can exceed the
+capacity of the destination node. To handle such common failures
+gracefully, buffer plugins are equipped with a built-in retry mechanism.
 
-Buffer plugins allow fine-grained controls over the buffering behaviours
-through config options.
 
-#### `buffer_type`
+### How Exponential Backoff Works
 
--   This option specifies which plugin to use as the backend.
--   In default installations, supported values are `file` and `memory`.
+By default, Fluentd increases the wait interval exponentially for each
+retry attempt. For example, assuming that the initial wait interval is
+set to 1 second and the exponential factor is 2, each attempt occurs at
+the following time points:
 
-#### `buffer_chunk_limit`
+``` {.CodeRay}
+1 2   4       8               16
+x-x---x-------x---------------x-------------------------
+│ │   │       │               └─  4th retry (wait = 8s)
+│ │   │       └─────────────────  3th retry (wait = 4s)
+│ │   └─────────────────────────  2th retry (wait = 2s)
+│ └─────────────────────────────  1th retry (wait = 1s)
+└───────────────────────────────  FAIL
+```
 
--   The maximum size of a chunk allowed (default: 8MB)
--   If a chunk grows more than the limit, it gets flushed to the output
-    queue automatically.
+Note that, in practice, Fluentd tweaks this algorithm in a few aspects:
 
-#### `buffer_queue_limit`
+-   Wait intervals are **randomized** by default. That is, Fluentd
+    diversifies the wait interval by multiplying by a randomly-chosen
+    number between 0.875 and 1.125. You can turn off this behaviour by
+    setting `retry_randomize` to false.
+-   Wait intervals *can* be **capped** to a certain limit. For example,
+    if you set `retry_max_interval` to 5 seconds in the example above,
+    the 4th retry will wait for 5 seconds, instead of 8 seconds.
 
--   The maximum length of the output queue (default: 256)
--   If the limit gets exceeded, Fluentd will invoke an error handling
-    mechanism (See "Handling queue overflow" below for details).
+If you want to disable the exponential backoff, set the `retry_type`
+option to "periodic".
 
-#### `flush_interval`
 
--   The interval in seconds to wait before invoking the next buffer
-    flush (default: 60)
+### Handling Successive Failures
 
-### Handling queue overflow
+Fluentd will abort the attempt to transfer the failing chunks on the
+following conditions:
 
-The `buffer_queue_full_action` option controls the behaviour when the
-queue becomes full. For now, three modes are supported:
+1.  The number of retries exceeds `retry_max_times` (default: none)
+2.  The seconds elapsed since the first retry exceeds `retry_timeout`
+    (default: 72h)
 
-1.  *exception* (default)
-    -   This mode raises a `BufferQueueLimitError` exception to the
-        input plugin.
-    -   This mode is suitable for data streaming.
-    -   It's up to the input plugin to decide how to handle raised
-        exceptions.
-2.  *block*
-    -   This mode blocks the thread until the free space is vacated.
-    -   This mode is good for batch-like use-case.
-    -   DO NOT use this option casually just for avoiding
-        `BufferQueueLimitError` exceptions (see the deployment tips
-        below).
-3.  *drop\_oldest\_chunk*
-    -   This mode drops the oldest chunks.
-    -   This mode might be useful for monitoring systems, since newer
-        events are much more important than the older ones in this
-        context.
+In these events, **all chunks in the queue are discarded.** If you want
+to avoid this, you can enable `retry_forever` to make Fluentd retry
+indefinitely.
 
-#### Deployment tips
 
-If your Fluentd daemon experiences overflows frequently, it means that
-your destination is insufficient for your traffic. There are several
-measures you can take:
+### Handling Unrecoverable Errors
 
-1.  Upgrade the destination node to provide enough data-processing
-    capacity.
-2.  Use an `@ERROR` label to route overflowed events to another backup
-    destination.
-3.  Use a `<secondary>` tag to route overflowed events to another backup
-    destination.
+Not all errors are recoverable in nature. For example, if the content of
+a chunk file gets corrupted, you obviously cannot fix anything just by
+redoing the write operation. Rather, a blind retry attempt will just
+make the situation worse.
 
-### Handling write failures
+Since v1.2.0, Fluentd can detect these non-recoverable failures. If
+these kinds of fatal errors occur, Fluentd will abort the chunk
+immediately and move it into `secondary` or the backup directory. The
+exact location of the backup directory is determined by the parameter
+`root_dir` in `<system>`:
 
-The chunks in the output queue are written out to the destination one by
-one. However, the problem is that there might occur an error while
-writing out a chunk. For such cases, buffer plugins are equipped with a
-"retry" mechanism that handles write failures gracefully.
+``` {.CodeRay}
+${root_dir}/backup/worker${worker_id}/${plugin_id}/{chunk_id}.log
+```
 
-Here is how it works. If Fluentd fails to write out a chunk, the chunk
-will not be purged from the queue, and then, after a certain interval,
-Fluentd will retry to write the chunk again. The intervals between retry
-attempts are determined by the exponential backoff algorithm, and we can
-control the behaviour finely through the following options:
+If you don't need to back up chunks, you can enable
+`disable_chunk_backup` (available since v1.2.6) in the `<buffer>`
+section.
 
-#### `retry_limit`
+The following is the current list of exceptions considered
+"unrecoverable":
 
--   The maximum number of retries for sending a chunk (default: 17)
--   If `retry_limit` is exceeded, Fluentd will discard the given chunk.
+  Exception                      The typical cause of this error
+  ------------------------------ ------------------------------------------------------------------------------------------------------------------
+  `Fluent::UnrecoverableError`   Output plugin can use this exception to suppress further retry attempts for plugin specific unrecoverable error.
+  `TypeError`                    Occurs when an event has unexpected type in its target field.
+  `ArgumentError`                Occurs when the plugin uses the library wrongly.
+  `NoMethodError`                Occurs when events and configuration are mismatched.
 
-#### `disable_retry_limit`
+Here are the patterns when unrecoverable error happens:
 
--   If set true, it disables `retry_limit` and make Fluentd retry
-    indefinitely (default: false).
+-   If the plugin doesn't have `secondary`, the chunk is moved to backup
+    directory.
+-   If the plugin has `secondary` which is different type from primary,
+    the chunk is moved to `secondary`.
+-   If the unrecoverable error happens inside `secondary`, the chunk is
+    moved to backup directory.
 
-#### `retry_wait`
 
--   The number of seconds the first retry will wait (default: 1.0)
--   This is the seed value used by the exponential backoff algorithm;
-    The wait interval will be doubled on each retry.
+### Configuration Example
 
-#### `max_retry_wait`
+Below is a full configuration example which covers all the parameters
+controlling retry bahaviours.
 
--   The maximum interval seconds to wait between retries (default:
-    unset)
--   If the wait interval reaches this limit, the exponentiation stops.
+``` {.CodeRay}
+<system>
+  root_dir /var/log/fluentd         # For handling unrecoverable chunks
+</system>
 
-Slicing Data by Time
---------------------
+<buffer>
+  retry_wait 1                      # The wait interval for the first retry.
+  retry_exponential_backoff_base 2  # Inclease the wait time by a factor of N.
+  retry_type exponential_backoff    # Set 'periodic' for constant intervals.
+  # retry_max_interval 1h           # Cap the wait interval. (see above)
+  retry_randomize true              # Apply randomization. (see above)
+  retry_timeout 72h                 # Maximum duration before giving up.
+  # retry_max_times 17              # Maximum retry count before giving up.
+  retry_forever false               # Set 'true' for infinite retry loops.
+  retry_secondary_threshold 0.8     # See the "Secondary Output" section in
+</buffer>                           # 'Output Plugins' > 'Overview'.
+```
 
-Buffer plugins support a special mode that groups the incoming data by
-time frames. For example, you can group the incoming access logs by date
-and save them to separate files. Under this mode, a buffer plugin will
-behave quite differently in a few key aspects:
+Normally, you don't need to specify every option as in this example,
+because these options are, in fact, optional. As for the detail of each
+option, please read [this article](buffer-section#retries-parameters).
 
-1.  It supports the additional `time_slice_*` options (See Q1/Q2 below
-    for details)
-2.  Chunks will be flushed "lazily" based on the settings of the
-    `time_slice_format` option. See Q2 for the relationship of this
-    option and `flush_interval`.
-3.  The default value of `buffer_chunk_limit` becomes 256mb.
 
-Normally, the output plugin determines in which mode the buffer plugin
-operates. For example, `out_s3` and `out_file` will enable the
-time-slicing mode. For the list of output plugins which enable the
-time-slicing mode, see [this
-page](output-plugin-overview#list-of-time-sliced-output-plugins).
+Parameters
+----------
 
-### FAQ
+-   [Common Parameters](/articles/plugin-common-parameters.md)
+-   [Buffer section configurations](/articles/buffer-section.md)
 
-#### Q1. How do we specify the granularity of time chunks?
 
-This is done through the `time_slice_format` option, which is set to
-"%Y%m%d" (daily) by default. If you want your chunks to be hourly,
-"%Y%m%d%H" will do the job.
+FAQ
+---
 
-#### Q2. What if new logs come after the time corresponding the current chunk?
 
-For example, what happens to an event, timestamped at 2013-01-01
-02:59:45 UTC, comes in at 2013-01-01 03:00:15 UTC? Would it make into
-the 2013-01-01 02:00:00-02:59:59 chunk?
+### Buffer's chunk size and output's payload size are sometimes different, why?
 
-This issue is addressed by setting the `time_slice_wait` parameter.
-`time_slice_wait` sets, in seconds, how long fluentd waits to accept
-"late" events into the chunk *past the max time corresponding to that
-chunk*. The default value is 600, which means it waits for 10 minutes
-before moving on. So, in the current example, as long as the events come
-in before 2013-01-01 03:10:00, it will make it in to the 2013-01-01
-02:00:00-02:59:59 chunk.
+Because the format of buffer chunk is different from output's payload.
+Let's use elasticsearch output plugin, `out_elasticsearch`, for the
+detailed explanation.
 
-Alternatively, you can also flush the chunks regularly using
-`flush_interval`. Note that `flush_interval` and `time_slice_wait` are
-mutually exclusive. If you set `flush_interval`, `time_slice_wait` will
-be ignored and fluentd would issue a warning.
+`out_elasticsearch` uses MessagePack for buffer's serialization(NOTE
+that this depends on plugin). On the other hand, [Elasticsearch's bulk
+API](https://www.elastic.co/guide/en/elasticsearch/reference/current/docs-bulk.html)
+requires json based payload. It means one MessagePack-ed record is
+converted into 2 json lines. So the payload size is larger than buffer's
+chunk size.
+
+This sometimes causes the problem when output destination has the
+payload size limitation. If you have a problem with payload size issue,
+check chunk size configuration and API spec.
+
 
 List of Buffer Plugins
 ----------------------

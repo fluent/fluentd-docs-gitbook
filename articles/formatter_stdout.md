@@ -1,0 +1,60 @@
+# stdout Formatter Plugin
+
+The `stdout` formatter plugin converts an event to stdout format.
+
+This plugin is only for [stdout Output Plugin](/articles/out_stdout.md) and [stdout
+Filter Plugin](/articles/filter_stdout.md).
+
+``` {.CodeRay}
+2015-05-02 12:12:17 +0900 tag: {"field1":"value1","field2":"value2"}
+```
+
+
+## Parameters
+
+-   [Common Parameters](/articles/plugin-common-parameters.md)
+-   [Format section configurations](/articles/format-section.md)
+
+[]{#output_type-(string)-(optional)}
+
+### output\_type (string) (optional)
+
+    type    default   version
+  -------- --------- ---------
+   string    json     0.14.0
+
+Set sub-formatter type. Any formatter plugins can be specified.
+
+
+Example
+-------
+
+``` {.CodeRay}
+<format>
+  @type stdout
+  output_type json
+</format>
+```
+
+with this configuration:
+
+``` {.CodeRay}
+tag:    app.event
+time:   1511156652
+record: {"host":"192.168.0.1","size":777,"method":"PUT"}
+```
+
+This incoming event is formatted to:
+
+``` {.CodeRay}
+2017-11-20 14:44:12 +0900 app.event: {"host":"192.168.0.1","size":777,"method":"PUT"}
+```
+
+
+------------------------------------------------------------------------
+
+If this article is incorrect or outdated, or omits critical information,
+please [let us know](https://github.com/fluent/fluentd-docs/issues?state=open).
+[Fluentd](http://www.fluentd.org/) is a open source project under [Cloud
+Native Computing Foundation (CNCF)](https://cncf.io/). All components
+are available under the Apache 2 License.

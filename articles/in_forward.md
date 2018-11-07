@@ -1,5 +1,4 @@
-forward Input Plugin
-====================
+# forward Input Plugin
 
 The `in_forward` Input plugin listens to a TCP socket to receive the
 event stream. It also listens to an UDP socket to receive heartbeat
@@ -8,18 +7,9 @@ messages.
 This plugin is mainly used to receive event logs from other Fluentd
 instances, the fluent-cat command, or client libraries. This is by far
 the most efficient way to retrieve the records.
-Do **NOT** use this plugin for inter-DC or public internet data transfer
-without secure connections. To provide the reliable / low-latency
-transfer, we assume this plugin is only used within private networks.
-
-If you open up the port of this plugin to the internet, the attacker can
-easily crash Fluentd by using the specific packet. If you require a
-secure connection between nodes, please consider using
-[in\_secure\_forward](/articles/in_secure_forward.md).
 
 
-Example Configuration
----------------------
+## Example Configuration
 
 `in_forward` is included in Fluentd's core. No additional installation
 process is required.
@@ -32,62 +22,267 @@ process is required.
 </source>
 ```
 
-Please see the [Config File](/articles/config-file.md) article for the basic
+Please see the [Config FIle](/articles/config-file.md) article for the basic
 structure and syntax of the configuration file.
+
+
+Plugin helpers
+--------------
+
+-   [server](/articles/api-plugin-helper-server.md)
+
 
 Parameters
 ----------
 
-### \@type (required)
+-   [Common Parameters](/articles/plugin-common-parameters.md)
+-   [Transport section](/articles/transport-section.md)
+
+[]{#@type}
+
+### \@type
 
 The value must be `forward`.
 
+
 ### port
 
-The port to listen to. Default Value = 24224
+    type     default   version
+  --------- --------- ---------
+   integer    24224    0.14.0
+
+The port to listen to.
+
 
 ### bind
 
-The bind address to listen to. Default Value = 0.0.0.0 (all addresses)
+    type            default           version
+  -------- ------------------------- ---------
+   string   0.0.0.0 (all addresses)   0.14.0
+
+The bind address to listen to.
+
+[]{#linger_timeout}
 
 ### linger\_timeout
 
-The timeout time used to set linger option. The default is 0
+    type     default   version
+  --------- --------- ---------
+   integer      0      0.14.0
+
+The timeout time used to set linger option.
+
+[]{#resolve_hostname}
+
+### resolve\_hostname
+
+   type   default   version
+  ------ --------- ---------
+   bool    false    0.14.10
+
+Try to resolve hostname from IP addresses or not.
+
+[]{#deny_keepalive}
+
+### deny\_keepalive
+
+   type   default   version
+  ------ --------- ---------
+   bool    false    0.14.5
+
+Connections will be disconnected right after receiving first message if
+this value is true.
+
+[]{#chunk_size_limit}
 
 ### chunk\_size\_limit
 
+   type      default       version
+  ------ ---------------- ---------
+   size   nil (no limit)   0.14.0
+
 The size limit of the the received chunk. If the chunk size is larger
-than this value, then the received chunk is dropped. The default is nil
-(no limit).
+than this value, then the received chunk is dropped.
+
+[]{#chunk_size_warn_limit}
 
 ### chunk\_size\_warn\_limit
 
+   type       default        version
+  ------ ------------------ ---------
+   size   nil (no warning)   0.14.0
+
 The warning size limit of the received chunk. If the chunk size is
-larger than this value, a warning message will be sent. The default is
-nil (no warning).
+larger than this value, a warning message will be sent.
 
-### skip\_invalid\_event (v0.12.20 or later)
+[]{#skip_invalid_event}
 
-Skip an event if incoming event is invalid. The default is false.
+### skip\_invalid\_event
 
-This option is useful at forwarder, not aggragator. v0.12.20 or later.
+   type   default   version
+  ------ --------- ---------
+   bool    false    0.14.0
 
-### source\_hostname\_key (v0.12.28 or later)
+Skip an event if incoming event is invalid.
+
+This option is useful at forwarder, not aggragator.
+
+[]{#source_address_key}
+
+### source\_address\_key
+
+    type            default           version
+  -------- ------------------------- ---------
+   string   nil (no adding address)   0.14.11
+
+The field name of the client's source address. If set the value, the
+client's address will be set to its key.
+
+[]{#source_hostname_key}
+
+### source\_hostname\_key
+
+    type            default            version
+  -------- -------------------------- ---------
+   string   nil (no adding hostname)   0.14.4
 
 The field name of the client's hostname. If set the value, the client's
-hostname will be set to its key. The default is nil (no adding
-hostname).
+hostname will be set to its key.
 
 This iterates incoming events. So if you sends larger chunks to
 `in_forward`, it needs additional processing time.
 
-#### log\_level option
+[]{#<transport>-section}
 
-The `log_level` option allows the user to set different levels of
-logging for each plugin. The supported log levels are: `fatal`, `error`,
-`warn`, `info`, `debug`, and `trace`.
+### \<transport\> section
 
-Please see the [logging article](/articles/logging.md) for further details.
+This section is for using SSL transport.
+
+``` {.CodeRay}
+<transport tls>
+  cert_path /path/to/fluentd.crt
+  # other parameters
+</transport>
+```
+
+See "How to Enable TLS Encryption" section for how to use and see
+["Configuration example" in "Server Plugin Helper"
+article](/articles/api-plugin-helper-server#configuration-example) for
+supported parameters
+
+Without `<transport tls>`, in\_forward uses raw TCP.
+
+[]{#<security>-section}
+
+### \<security\> section
+
+   required   multi   version
+  ---------- ------- ---------
+    false     false   0.14.5
+
+This section contains parameters related to authentication.
+
+#### self\_hostname
+
+    type         default         version
+  -------- -------------------- ---------
+   string   required parameter   0.14.5
+
+The hostname.
+
+#### shared\_key
+
+    type         default         version
+  -------- -------------------- ---------
+   string   required parameter   0.14.5
+
+Shared key for authentication.
+
+#### user\_auth
+
+   type   default   version
+  ------ --------- ---------
+   bool    false    0.14.5
+
+If true, use user based authentication.
+
+#### allow\_anonymous\_source
+
+   type   default   version
+  ------ --------- ---------
+   bool    true     0.14.5
+
+Allow anonymous source. `<client>` sections are required if disabled.
+
+#### \<user\> section
+
+   required   multi   version
+  ---------- ------- ---------
+    false     true    0.14.5
+
+This section contains user based authentication.
+
+##### username
+
+    type         default         version
+  -------- -------------------- ---------
+   string   required parameter   0.14.5
+
+The username for authentication.
+
+##### password
+
+    type         default         version
+  -------- -------------------- ---------
+   string   required parameter   0.14.5
+
+The password for authentication.
+
+#### \<client\> section
+
+   required   multi   version
+  ---------- ------- ---------
+    false     true    0.14.5
+
+This section contains that client IP/Network authentication and shared
+key per host.
+
+##### host
+
+    type    default   version
+  -------- --------- ---------
+   string     nil     0.14.5
+
+The IP address or host name of the client.
+
+This is exclusive with `network`.
+
+##### network
+
+    type    default   version
+  -------- --------- ---------
+   string     nil     0.14.5
+
+Network address specification.
+
+This is exclusive with `host`.
+
+##### shared\_key
+
+    type    default   version
+  -------- --------- ---------
+   string     nil     0.14.5
+
+Shared key per client.
+
+##### users
+
+   type    default   version
+  ------- --------- ---------
+   array    `[]`     0.14.5
+
+Array of username.
+
 
 Protocol
 --------
@@ -96,9 +291,9 @@ This plugin accepts both JSON or [MessagePack](http://msgpack.org/)
 messages and automatically detects which is used. Internally, Fluent
 uses MessagePack as it is more efficient than JSON.
 
-The time value is a platform specific integer and is based on the output
-of Ruby's `Time.now.to_i` function. On Linux, BSD and MAC systems, this
-is the number of seconds since 1970.
+The time value is a EventTime or a platform specific integer and is
+based on the output of Ruby's `Time.now.to_i` function. On Linux, BSD
+and MAC systems, this is the number of seconds since 1970.
 
 Multiple messages may be sent in the same connection.
 
@@ -116,19 +311,165 @@ example:
   ["myapp.access", [[1308466941, {"a":1}], [1308466942, {"b":2}]]]
 ```
 
-### Communication with v1.0
+For more details, see [Fluentd Forward Protocol Specification
+(v1)](https://github.com/fluent/fluentd/wiki/Forward-Protocol-Specification-v1).
 
-v0.12 `in_forward` can't accept data from v1.0 `out_forward` because
-time format is different. If you want to forward data from v1.0 to
-v0.12, set `time_as_integer` in v1.0 `out_forward`.
+
+Tips & Tricks
+-------------
+
+
+### How to Enable TLS Encryption
+
+Since v0.14.12, Fluentd includes a built-in TLS support. Here we present
+a quick tutorial for setting up TLS encryption:
+
+First, generate a self-signed certificate using the following command:
+
+``` {.CodeRay}
+$ openssl req -new -x509 -sha256 -days 1095 -newkey rsa:2048 \
+              -keyout fluentd.key -out fluentd.crt
+# Note that during the generation, you will be asked for:
+#  - a password (to encrypt the private key), and
+#  - subject information (to be included in the certificate)
+```
+
+Move the generated certificate and private key to a safer place. For
+example:
+
+``` {.CodeRay}
+# Move files into /etc/td-agent
+$ sudo mkdir -p /etc/td-agent/certs
+$ sudo mv fluentd.key fluentd.crt /etc/td-agent/certs
+
+# Set strict permissions
+$ sudo chown td-agent:td-agent -R /etc/td-agent/certs
+$ sudo chmod 700 /etc/td-agent/certs/
+$ sudo chmod 400 /etc/td-agent/certs/fluentd.key
+```
+
+Then add the following settings to `td-agent.conf`, and then restart the
+service:
+
+``` {.CodeRay}
+<source>
+  @type forward
+  <transport tls>
+    cert_path /etc/td-agent/certs/fluentd.crt
+    private_key_path /etc/td-agent/certs/fluentd.key
+    private_key_passphrase YOUR_PASSPHRASE
+  </transport>
+</source>
+<match debug.**>
+  @type stdout
+</match>
+```
+
+To test your encryption settings, execute the following command in your
+terminal. If the encryption is working properly, you should see a line
+containing `{"foo":"bar"}` in the log file:
+
+``` {.CodeRay}
+$ echo -e '\x93\xa9debug.tls\xceZr\xbc1\x81\xa3foo\xa3bar' | \
+  openssl s_client -connect localhost:24224
+```
+
+If you can confirm TLS encryption has been set up correctly, please
+proceed to [the configuration of the out\_forward
+server](out_forward#how-to-connect-to-a-tls/ssl-enabled-server).
+
+
+### How to Enable TLS Mutual Authentication
+
+Since v1.1.1, Fluentd supports [TLS mutual
+authentication](https://en.wikipedia.org/wiki/Mutual_authentication)
+(a.k.a. client certificate auth). If you want to use this feature,
+please set the `client_cert_auth` and `ca_path` options as follows.
+
+``` {.CodeRay}
+<source>
+  @type forward
+  <transport tls>
+    ...
+    client_cert_auth true
+    ca_path /path/to/ca/cert
+  </transport>
+</source>
+```
+
+When this feature is enabled, Fluentd will check all incoming requests
+for a client certificate signed by the trusted CA. Requests that don't
+supply a valid client certificate will fail.
+
+To check if mutual authentication is working properly, issue the
+following command:
+
+``` {.CodeRay}
+$ openssl s_client -connect localhost:24224 \
+  -key path/to/client.key \
+  -cert path/to/client.crt \
+  -CAfile path/to/ca.crt
+```
+
+If the connection gets established successfully, your setup is working
+fine.
+
+
+### How to Enable Password Authentication
+
+Fluentd is equipped with a password-based authentication mechanism,
+which allows you to verify the identity of each client using a shared
+secret key.
+
+To enable this feature, you need to add a `<security>` section to your
+configuration file as below.
+
+``` {.CodeRay}
+<source>
+  @type forward
+  <security>
+    self_hostname YOUR_SERVER_NAME
+    shared_key PASSWORD
+  </security>
+</source>
+```
+
+Once you've done the setup, you have to configure your clients
+accordingly. For example, if you have an `out_forward` instance running
+on another server, please [configure it following the
+instruction](out_forward#how-to-enable-password-authentication).
+
+
+### Multi-process environment
+
+If you use this plugin under multi-process environment, port will be
+shared.
+
+``` {.CodeRay}
+<system>
+  workers 3
+</system>
+
+<source>
+  @type forward
+  port 24224
+</source>
+```
+
+With this configuration, 3 workers share 24224 port. No need additional
+port. Incoming data will be routed to 3 workers automatically.
+
 
 FAQ
 ---
+
+[]{#why-in_forward-doesn%E2%80%99t-have-tag-parameter?}
 
 ### Why in\_forward doesn't have tag parameter?
 
 `in_forward` uses `tag` of incoming events so no fixed `tag` parameter.
 See above "Protocol" section.
+
 
 ### How to parse incoming events?
 
@@ -139,13 +480,6 @@ filter](https://github.com/tagomoris/fluent-plugin-parser) in your
 pipeline.\
 See Docker logging driver usecase: [Docker
 Logging](http://www.fluentd.org/guides/recipes/docker-logging)
-
-### I got MessagePack::UnknownExtTypeError error. Why?
-
-This error happens when forwarder's fluentd is v0.14/v1.0 and receiver's
-fluentd is 0.12. To avoid this problem, set `time_as_integer` to
-`out_forward` setting in v0.14/v1.0 fluentd. See "Communication with
-v1.0".
 
 
 ------------------------------------------------------------------------

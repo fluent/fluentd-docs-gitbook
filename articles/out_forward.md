@@ -1,5 +1,4 @@
-forward Output Plugin
-=====================
+# forward Output Plugin
 
 The `out_forward` Buffered Output plugin forwards events to other
 fluentd nodes. This plugin supports load-balancing and automatic
@@ -13,15 +12,9 @@ available automatically after a few seconds.
 
 The `out_forward` plugin supports at-most-once and at-least-once
 semantics. The default is at-most-once.
-Do **NOT** use this plugin for inter-DC or public internet data transfer
-without secure connections. All the data is not encrypted, and this
-plugin is not designed for high-latency network environment. If you
-require a secure connection between nodes, please consider using
-[in\_secure\_forward](/articles/in_secure_forward.md).
 
 
-Example Configuration
----------------------
+## Example Configuration
 
 `out_forward` is included in Fluentd's core. No additional installation
 process is required.
@@ -57,86 +50,102 @@ process is required.
 Please see the [Config File](/articles/config-file.md) article for the basic
 structure and syntax of the configuration file.
 
+
+Supported modes
+---------------
+
+-   Synchronous
+-   Asynchronous
+
+See [Output Plugin Overview](/articles/output-plugin-overview.md) for more details.
+
+
+Plugin helpers
+--------------
+
+-   [socket](/articles/api-plugin-helper-socket.md)
+-   [server](/articles/api-plugin-helper-server.md)
+-   [timer](/articles/api-plugin-helper-timer.md)
+-   [thread](/articles/api-plugin-helper-thread.md)
+-   [compat\_parameters](/articles/api-plugin-helper-compat_parameters.md)
+
+
 Parameters
 ----------
 
-### \@type (required)
+[Common Parameters](/articles/plugin-common-parameters.md)
+
+[]{#@type}
+
+### \@type
 
 The value must be `forward`.
 
+[]{#<server>-(at-least-one-is-required)}
+
 ### \<server\> (at least one is required)
+
+   required   multi   version
+  ---------- ------- ---------
+     true     true    0.14.5
 
 The destination servers. Each server must have following information.
 
--   *name*: The name of the server. This parameter is used in error
-    messages.
--   *host* (required): The IP address or host name of the server.
--   *port*: The port number of the host. The default is `24224`. Note
-    that both TCP packets (event stream) and UDP packets (heartbeat
-    message) are sent to this port.
--   *weight*: The load balancing weight. If the weight of one server is
-    20 and the weight of the other server is 30, events are sent in a
-    2:3 ratio. The default weight is 60.
--   *standby*: Set the destination to standby node. The default is
-    `false`. standby servers will be selected when all non-standby
-    servers went down.
+#### host
 
-### require\_ack\_response
+    type         default         version
+  -------- -------------------- ---------
+   string   required parameter   0.14.5
 
-Change the protocol to at-least-once. The plugin waits the ack from
-destination's in\_forward plugin.
+The IP address or host name of the server.
 
-### ack\_response\_timeout
+#### name
 
-This option is used when `require_ack_response` is `true`. The default
-is 190. This default value is based on popular tcp\_syn\_retries.
+    type    default   version
+  -------- --------- ---------
+   string     nil     0.14.5
 
-If set `0`, this plugin doesn't wait the ack response.
+The name of the server. Used for logging and certificate verification in
+TLS transport (when host is address).
 
-### \<secondary\> (optional)
+#### port
 
-The backup destination that is used when all servers are unavailable.
+    type     default   version
+  --------- --------- ---------
+   integer    24224    0.14.5
 
-### send\_timeout
+The port number of the host. Note that both TCP packets (event stream)
+and UDP packets (heartbeat message) are sent to this port.
 
-The timeout time when sending event logs. The default is 60 seconds.
+#### shared\_key
 
-### recover\_wait
+    type    default   version
+  -------- --------- ---------
+   string     nil     0.14.5
 
-The wait time before accepting a server fault recovery. The default is
-10 seconds.
+The shared key per server.
 
-### heartbeat\_type
+#### username
 
-The transport protocol to use for heartbeats. The default is "udp", but
-you can select "tcp" as well. Set "none" to disable heartbeat.
+    type         default        version
+  -------- ------------------- ---------
+   string   "" (empty string)   0.14.5
 
-### heartbeat\_interval
+The username for authentication.
 
-The interval of the heartbeat packer. The default is 1 second.
+#### password
 
-### phi\_failure\_detector
+    type         default        version
+  -------- ------------------- ---------
+   string   "" (empty string)   0.14.5
 
-Use the "Phi accrual failure detector" to detect server failure. The
-default value is `true`.
+The password for authentication.
 
-### phi\_threshold
+#### standby
 
-The threshold parameter used to detect server faults. The default value
-is 16.
-
-\`phi\_threshold\` is deeply related to \`heartbeat\_interval\`. If you
-are using longer \`heartbeat\_interval\`, please use the larger
-\`phi\_threshold\`. Otherwise you will see frequent detachments of
-destination servers. The default value 16 is tuned for
-\`heartbeat\_interval\` 1s.
-
-### hard\_timeout
-
-The hard timeout used to detect server failure. The default value is
-equal to the send\_timeout parameter.
-
-### standby
+   type   default   version
+  ------ --------- ---------
+   bool    false    0.14.5
 
 Marks a node as the standby node for an Active-Standby model between
 Fluentd nodes. When an active node goes down, the standby node is
@@ -163,98 +172,374 @@ promoted to an active node. The standby node is not used by the
 </match>
 ```
 
+#### weight
+
+    type     default   version
+  --------- --------- ---------
+   integer     60      0.14.5
+
+The load balancing weight. If the weight of one server is 20 and the
+weight of the other server is 30, events are sent in a 2:3 ratio. The
+default weight is 60.
+
+[]{#require_ack_response}
+
+### require\_ack\_response
+
+   type   default   version
+  ------ --------- ---------
+   bool    false    0.14.0
+
+Change the protocol to at-least-once. The plugin waits the ack from
+destination's in\_forward plugin.
+
+[]{#ack_response_timeout}
+
+### ack\_response\_timeout
+
+   type   default   version
+  ------ --------- ---------
+   time     190     0.14.0
+
+This option is used when `require_ack_response` is `true`. This default
+value is based on popular `tcp_syn_retries`.
+
+If set `0`, this plugin doesn't wait the ack response.
+
+[]{#send_timeout}
+
+### send\_timeout
+
+   type   default   version
+  ------ --------- ---------
+   time     60      0.14.0
+
+The timeout time when sending event logs.
+
+[]{#recover_wait}
+
+### recover\_wait
+
+   type   default   version
+  ------ --------- ---------
+   time     10      0.14.0
+
+The wait time before accepting a server fault recovery.
+
+[]{#heartbeat_type}
+
+### heartbeat\_type
+
+   type    default            available           version
+  ------ ----------- --------------------------- ---------
+   enum   transport   transport, tcp, udp, none   0.14.12
+
+The transport protocol to use for heartbeats. Set "none" to disable
+heartbeat.
+
+[]{#heartbeat_interval}
+
+### heartbeat\_interval
+
+   type   default   version
+  ------ --------- ---------
+   time      1      0.14.0
+
+The interval of the heartbeat packer.
+
+[]{#phi_failure_detector}
+
+### phi\_failure\_detector
+
+   type   default   version
+  ------ --------- ---------
+   bool    true     0.14.0
+
+Use the "Phi accrual failure detector" to detect server failure.
+
+[]{#phi_threshold}
+
+### phi\_threshold
+
+    type     default   version
+  --------- --------- ---------
+   integer     16      0.14.0
+
+The threshold parameter used to detect server faults.
+
+\`phi\_threshold\` is deeply related to \`heartbeat\_interval\`. If you
+are using longer \`heartbeat\_interval\`, please use the larger
+\`phi\_threshold\`. Otherwise you will see frequent detachments of
+destination servers. The default value 16 is tuned for
+\`heartbeat\_interval\` 1s.
+
+[]{#hard_timeout}
+
+### hard\_timeout
+
+   type   default   version
+  ------ --------- ---------
+   time     60      0.14.0
+
+The hard timeout used to detect server failure. The default value is
+equal to the `send_timeout` parameter.
+
+[]{#expire_dns_cache}
+
 ### expire\_dns\_cache
 
-Set TTL to expire DNS cache in seconds. Set 0 not to use DNS Cache. The
-default is nil (which means the persistent cache).
+   type          default           version
+  ------ ------------------------ ---------
+   time   nil (persistent cache)   0.14.0
+
+Set TTL to expire DNS cache in seconds. Set 0 not to use DNS Cache.
+
+[]{#dns_round_robin}
 
 ### dns\_round\_robin
 
+   type   default   version
+  ------ --------- ---------
+   bool    false    0.14.0
+
 Enable client-side DNS round robin. Uniform randomly pick an IP address
-to send data when a hostname has serveral IP addresses.
+to send data when a hostname has several IP addresses.
 
 \`heartbeat\_type udp\` is not available with \`dns\_round\_robin
 true\`. Use \`heartbeat\_type tcp\` or \`heartbeat\_type none\`.
 
-Buffered Output Parameters
---------------------------
+[]{#ignore_network_errors_at_startup}
 
-For advanced usage, you can tune Fluentd's internal buffering mechanism
-with these parameters.
+### ignore\_network\_errors\_at\_startup
 
-### buffer\_type
+   type   default   version
+  ------ --------- ---------
+   bool    false    0.14.12
 
-The buffer type is `memory` by default ([buf\_memory](/articles/buf_memory.md)) for
-the ease of testing, however `file` ([buf\_file](/articles/buf_file.md)) buffer type
-is always recommended for the production deployments. If you use `file`
-buffer type, `buffer_path` parameter is required.
+Ignore DNS resolution and errors at startup time.
 
-### buffer\_queue\_limit, buffer\_chunk\_limit
+[]{#tls_version}
 
-The length of the chunk queue and the size of each chunk, respectively.
-Please see the [Buffer Plugin Overview](/articles/buffer-plugin-overview.md) article
-for the basic buffer structure. The default values are 64 and 8m,
-respectively. The suffixes "k" (KB), "m" (MB), and "g" (GB) can be used
-for buffer\_chunk\_limit.
+### tls\_version
 
-### flush\_interval
+   type   default        available        version
+  ------ ---------- -------------------- ---------
+   enum   TLSv1\_2   TLSv1\_1, TLSv1\_2   0.14.12
 
-The interval between data flushes. The default is 60s. The suffixes "s"
-(seconds), "m" (minutes), and "h" (hours) can be used.
+The default version of TLS transport.
 
-### flush\_at\_shutdown
+[]{#tls_ciphers}
 
-If set to true, Fluentd waits for the buffer to flush at shutdown. By
-default, it is set to true for Memory Buffer and false for File Buffer.
+### tls\_ciphers
 
-### retry\_wait, max\_retry\_wait
+    type                          default                         version
+  -------- ----------------------------------------------------- ---------
+   string   ALL:!aNULL:!eNULL:!SSLv2 (OpenSSL \> 1.0.0 default)   0.14.12
 
-The initial and maximum intervals between write retries. The default
-values are 1.0 seconds and unset (no limit). The interval doubles (with
-+/-12.5% randomness) every retry until `max_retry_wait` is reached.
+The cipher configuration of TLS transport.
 
-Since td-agent will retry 17 times before giving up by default (see the
-`retry_limit` parameter for details), the sleep interval can be up to
-approximately 131072 seconds (roughly 36 hours) in the default
-configurations.
+[]{#tls_insecure_mode}
 
-### retry\_limit, disable\_retry\_limit
+### tls\_insecure\_mode
 
-The limit on the number of retries before buffered data is discarded,
-and an option to disable that limit (if true, the value of `retry_limit`
-is ignored and there is no limit). The default values are 17 and false
-(not disabled). If the limit is reached, buffered data is discarded and
-the retry interval is reset to its initial value (`retry_wait`).
+   type   default   version
+  ------ --------- ---------
+   bool    false    0.14.12
 
-### num\_threads
+Skip all verification of certificates or not.
 
-The number of threads to flush the buffer. This option can be used to
-parallelize writes into the output(s) designated by the output plugin.
-Increasing the number of threads improves the flush throughput to hide
-write / network latency. The default is 1.
+[]{#tls_allow_self_signed_cert}
 
-### slow\_flush\_log\_threshold
+### tls\_allow\_self\_signed\_cert
 
-The threshold for checking chunk flush performance. The default value is
-`20.0` seconds. Note that parameter type is `float`, not `time`.
+   type   default   version
+  ------ --------- ---------
+   bool    false    0.14.12
 
-If chunk flush takes longer time than this threshold, fluentd logs
-warning message like below:
+Allow self signed certificates or not.
+
+[]{#tls_verify_hostname}
+
+### tls\_verify\_hostname
+
+   type   default   version
+  ------ --------- ---------
+   bool    true     0.14.12
+
+Verify hostname of servers and certificates or not in TLS transport.
+
+[]{#tls_cert_path}
+
+### tls\_cert\_path
+
+        type         default   version
+  ----------------- --------- ---------
+   array of string    false    0.14.12
+
+The additional CA certificate path for TLS.
+
+[]{#<security>-section}
+
+### \<security\> section
+
+   required   multi   version
+  ---------- ------- ---------
+    false     false   0.14.5
+
+This section contains parameters related to authentication.
+
+#### self\_hostname
+
+    type         default         version
+  -------- -------------------- ---------
+   string   required parameter   0.14.5
+
+The hostname.
+
+#### shared\_key
+
+    type         default         version
+  -------- -------------------- ---------
+   string   required parameter   0.14.5
+
+Shared key for authentication.
+
+[]{#<secondary>}
+
+### \<secondary\>
+
+   required   multi   version
+  ---------- ------- ---------
+    false     false   0.14.0
+
+The backup destination that is used when all servers are unavailable.
+
+For more details, see [Secondary
+Output](output-plugin-overview#secondary-output).
+
+
+Tips & Tricks
+-------------
+
+
+### How to connect to a TLS/SSL enabled server
+
+If you've [set up TLS/SSL encryption in the receiving
+server](in_forward#how-to-enable-tls/ssl-encryption), you need to tell
+the output forwarder to use encryption by setting the `transport`
+parameter:
 
 ``` {.CodeRay}
-2016-12-19 12:00:00 +0000 [warn]: buffer flush took longer time than slow_flush_log_threshold: elapsed_time = 15.0031226690043695 slow_flush_log_threshold=10.0 plugin_id="foo"
+<match debug.**>
+  @type forward
+  transport tls
+  <server>
+    host 192.168.1.2
+    port 24224
+  </server>
+</match>
 ```
 
-#### log\_level option
+If you're using a self-singed certificate, copy the certificate file to
+the forwarding server, then add the following settings:
 
-The `log_level` option allows the user to set different levels of
-logging for each plugin. The supported log levels are: `fatal`, `error`,
-`warn`, `info`, `debug`, and `trace`.
+``` {.CodeRay}
+<match debug.**>
+  @type forward
+  transport tls
+  tls_cert_path /path/to/fluentd.crt # Set the path to the certificate file.
+  tls_verify_hostname true           # Set false to ignore cert hostname.
+  <server>
+    host 192.168.1.2
+    port 24224
+  </server>
+</match>
+```
 
-Please see the [logging article](/articles/logging.md) for further details.
+After updating the settings, please confirm that the forwarded data is
+being received by the destination node properly.
+
+
+### How to Enable Password Authentication
+
+If you want to connect to [a server that requires password
+authentication](in_forward#how-to-enable-password-authentication), you
+need to set your credentials in the configuration file.
+
+``` {.CodeRay}
+<match debug.**>
+  @type forward
+  <server>
+    host 192.168.1.2
+    port 24224
+  </server>
+  <security>
+    self_hostname HOSTNAME
+    shared_key secret
+  </security>
+</match>
+```
+
+Note that, as to the option `self_hostname`, you need to set the name of
+the server on which your `out_forward` instance is running. In the
+current implementation, it is considered invalid if your `in_forward`
+and `out_forward` shares the same hostname.
+
+
+### How to enable gzip compression
+
+Since v0.14.7, Fluentd supports transparent data compression. You can
+use this feature to reduce the transferred payload size.
+
+To enable this feature, set the `compress` option as follows:
+
+``` {.CodeRay}
+<match debug.**>
+  @type forward
+  compress gzip
+  <server>
+    host 192.168.1.2
+    port 24224
+  </server>
+</match>
+```
+
+You don't need any configuration in the receiving server. Data
+compression is auto-detected and handled transparently by the
+destination node.
+
+
+### What is a Phi accrual failure detector?
+
+Fluentd implements an adaptive failure detection mechanism called "Phi
+accrual failure detector". Here is how it works:
+
+1.  Each `in_forward` node sends heartbeat packets to its `out_foward`
+    server at a regular interval.
+2.  The `out_forward` server records the arrival time of heartbeat
+    packets sent by each node.
+3.  If the server does not receive a heartbeat from one of its nodes for
+    "a long time", it assumes the node is down.
+
+But how long should the server wait before detaching a node? The phi
+accrual failure detector answers this question by computing the
+probability of a node being down based on the assumption that heartbeat
+intervals follow normal distribution. Internally it represent the
+confidence of a node being down by a continuous function *φ(t)* which
+grows as the time from the last packet increases.
+
+For example, suppose that the historical average interval is 1 seconds
+and the standard deviation is 1, it's not likely that the node is still
+being active when its heartbeat does not arrive for the last 10 seconds.
+
+For details, please read the original paper: [Hayashibara, Naohiro, et
+al. "The φ accrual failure detector." IEEE,
+2004.](https://scholar.google.com/scholar?cluster=12946656837229314866)
+
 
 Troubleshooting
 ---------------
+
 
 ### "no nodes are available"
 

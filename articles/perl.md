@@ -1,5 +1,4 @@
-Centralize Logs from Perl Applications
-======================================
+# Centralize Logs from Perl Applications
 
 The '[Fluent::Logger](http://github.com/fluent/fluent-logger-perl)'
 library is used to post records from Perl applications to Fluentd.
@@ -7,12 +6,12 @@ library is used to post records from Perl applications to Fluentd.
 This article explains how to use the Fluent::Logger library.
 
 
-Prerequisites
--------------
+## Prerequisites
 
 -   Basic knowledge of Perl
 -   Basic knowledge of Fluentd
 -   Perl 5.10 or higher
+
 
 Installing Fluentd
 ------------------
@@ -23,6 +22,7 @@ Please refer to the following documents to install fluentd.
 -   [Install Fluentd with deb Package](/articles/install-by-deb.md)
 -   [Install Fluentd with Ruby Gem](/articles/install-by-gem.md)
 -   [Install Fluentd from source](/articles/install-from-source.md)
+
 
 Modifying the Config File
 -------------------------
@@ -45,7 +45,11 @@ Please restart your agent once these lines are in place.
 ``` {.CodeRay}
 # for rpm/deb only
 $ sudo /etc/init.d/td-agent restart
+# or systemd
+$ sudo systemctl restart td-agent.service
 ```
+
+[]{#using-fluent::logger}
 
 Using Fluent::Logger
 --------------------
@@ -81,8 +85,10 @@ $ perl test.pl
 The logs should be output to `/var/log/td-agent/td-agent.log` or stdout
 of the Fluentd process via the [stdout Output plugin](/articles/out_stdout.md).
 
+
 Production Deployments
 ----------------------
+
 
 ### Output Plugins
 
@@ -95,10 +101,12 @@ writing records to other destinations:
     -   [Data Collection into HDFS](/articles/http-to-hdfs.md)
 -   List of Plugin References
     -   [Output to Another Fluentd](/articles/out_forward.md)
-    -   [Output to MongoDB](/articles/out_mongo.md) or [MongoDB ReplicaSet](/articles/out_mongo_replset.md)
+    -   [Output to MongoDB](/articles/out_mongo.md) or [MongoDB
+        ReplicaSet](/articles/out_mongo_replset.md)
     -   [Output to Hadoop](/articles/out_webhdfs.md)
     -   [Output to File](/articles/out_file.md)
     -   [etc...](http://fluentd.org/plugin/)
+
 
 ### High-Availability Configurations of Fluentd
 
@@ -107,6 +115,7 @@ using a high availability configuration of td-agent. This will improve
 data transfer reliability and query performance.
 
 -   [High-Availability Configurations of Fluentd](/articles/high-availability.md)
+
 
 ### Monitoring
 

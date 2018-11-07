@@ -1,12 +1,11 @@
-ChangeLog
-=========
+# ChangeLog
 
 
-Fluentd ChangeLog
------------------
+## Fluentd ChangeLog
 
 Fluentd's ChangeLog can be found
 [here](https://github.com/fluent/fluentd/blob/master/CHANGELOG.md).
+
 
 td-agent ChangeLog
 ------------------

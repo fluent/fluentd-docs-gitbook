@@ -1,55 +1,93 @@
-parser Filter Plugin
-====================
+# parser Filter Plugin
 
 The `filter_parser` filter plugin "parses" string field in event records
 and mutates its event record with parsed result.
 
 
-Example Configurations
-----------------------
+## Example Configurations
 
-`filter_parser` is included in Fluentd's core since v0.12.29. No
-installation required. If you want to use `filter_parser` with lower
-fluentd versions, need to install `fluent-plugin-parser`.
-
-`filter_parser` has just same with `in_tail` about `format` and
-`time_format`:
+`filter_parser` is included in Fluentd's core. No installation required.
 
 ``` {.CodeRay}
 <filter foo.bar>
   @type parser
-  format /^(?<host>[^ ]*) [^ ]* (?<user>[^ ]*) \[(?<time>[^\]]*)\] "(?<method>\S+)(?: +(?<path>[^ ]*) +\S*)?" (?<code>[^ ]*) (?<size>[^ ]*)$/
-  time_format %d/%b/%Y:%H:%M:%S %z
   key_name message
+  <parse>
+    @type regexp
+    expression /^(?<host>[^ ]*) [^ ]* (?<user>[^ ]*) \[(?<time>[^\]]*)\] "(?<method>\S+)(?: +(?<path>[^ ]*) +\S*)?" (?<code>[^ ]*) (?<size>[^ ]*)$/
+    time_format %d/%b/%Y:%H:%M:%S %z
+  </parse>
 </filter>
 ```
 
 `filter_parser` uses built-in parser plugins and your own customized
 parser plugin, so you can re-use pre-defined format like `apache`,
 `json` and etc. See document page for more details: [Parser Plugin
-Overview](/articles//articles/parser-plugin-overview.md)
+Overview](/articles/parser-plugin-overview.md)
+
+
+Plugin helpers
+--------------
+
+-   [parser](/articles/api-plugin-helper-parser.md)
+-   [record\_accessor](/articles/api-plugin-helper-record_accessor.md)
+-   [compat\_parameters](/articles/api-plugin-helper-compat_parameters.md)
+
 
 Parameters
 ----------
 
-### format
+[Common Parameters](/articles/plugin-common-parameters.md)
 
-This is required parameter. Specify parser format or regexp pattern.
+[]{#<parse>-section}
+
+### \<parse\> section
+
+This is required sub section. Specify parser type and related parameter.
+
+For more details, see [Parse section configurations](/articles/parse-section.md).
+
+[]{#key_name}
 
 ### key\_name
 
-This is required parameter. Specify field name in the record to parse.
+    type         default         version
+  -------- -------------------- ---------
+   string   required parameter   0.14.9
+
+Specify field name in the record to parse.
+
+This parameter supports nested field access via [record\_accessor
+syntax](api-plugin-helper-record_accessor#syntax).
+
+[]{#reserve_time}
+
+### reserve\_time
+
+   type   default   version
+  ------ --------- ---------
+   bool    false    0.14.9
+
+Keep original event time in parsed result.
+
+[]{#reserve_data}
 
 ### reserve\_data
 
-Keep original key-value pair in parsed result. Default is `false`.
+   type   default   version
+  ------ --------- ---------
+   bool    false    0.14.9
+
+Keep original key-value pair in parsed result.
 
 ``` {.CodeRay}
 <filter foo.bar>
   @type parser
-  format json
   key_name log
   reserve_data true
+  <parse>
+    @type json
+  </parse>
 </filter>
 ```
 
@@ -67,36 +105,65 @@ Without `reserve_data`, result is below
 # output data: {"user":1,"num":2}
 ```
 
-### suppress\_parse\_error\_log
+[]{#remove_key_name_field}
 
-If `true`, a plugin suppresses `pattern not match` warning log. Default
-is `false`.
+### remove\_key\_name\_field
 
-This parameter is useful for parsing mixed logs and you want to ignore
-non target lines.
+   type   default   version
+  ------ --------- ---------
+   bool    false     1.2.2
 
-### ignore\_key\_not\_exist
-
-Ignore "key not exist" log. Default is `false`.
-
-Useful case is same with `suppress_parse_error_log`.
-
-### replace\_invalid\_sequence
-
-If `true`, invalid string is replaced with safe characters and re-parse
-it. Default is `false`.
-
-### inject\_key\_prefix
-
-Store parsed values with specified key name prefix. Default is `nil`.
+Remove `key_name` field when parsing is succeeded.
 
 ``` {.CodeRay}
 <filter foo.bar>
   @type parser
-  format json
+  key_name log
+  reserve_data true
+  remove_key_name_field true
+  <parse>
+    @type json
+  </parse>
+</filter>
+```
+
+With above configuration, result is below:
+
+``` {.CodeRay}
+# input data:  {"key":"value","log":"{\"user\":1,\"num\":2}"}
+# output data: {"key":"value","user":1,"num":2}
+```
+
+[]{#replace_invalid_sequence}
+
+### replace\_invalid\_sequence
+
+   type   default   version
+  ------ --------- ---------
+   bool    false    0.14.9
+
+If `true`, invalid string is replaced with safe characters and re-parse
+it.
+
+[]{#inject_key_prefix}
+
+### inject\_key\_prefix
+
+    type    default   version
+  -------- --------- ---------
+   string    false    0.14.9
+
+Store parsed values with specified key name prefix.
+
+``` {.CodeRay}
+<filter foo.bar>
+  @type parser
   key_name log
   reserve_data true
   inject_key_prefix data.
+  <parse>
+    @type json
+  </parse>
 </filter>
 ```
 
@@ -107,16 +174,24 @@ With above configuration, result is below:
 # output data: {"log":"{\"user\":1,\"num\":2}","data.user":1, "data.num":2}
 ```
 
+[]{#hash_value_field}
+
 ### hash\_value\_field
 
-Store parsed values as a hash value in a field. Default is `nil`.
+    type    default   version
+  -------- --------- ---------
+   string    false    0.14.9
+
+Store parsed values as a hash value in a field.
 
 ``` {.CodeRay}
 <filter foo.bar>
   @type parser
-  format json
   key_name log
   hash_value_field parsed
+  <parse>
+    @type json
+  </parse>
 </filter>
 ```
 
@@ -127,20 +202,25 @@ With above configuration, result is below:
 # output data: {"parsed":{"user":1,"num":2}}
 ```
 
-### time\_parse
-
-If false, time parsing is disabled in the parser. Default is true.
+[]{#emit_invalid_record_to_error}
 
 ### emit\_invalid\_record\_to\_error
 
-Emit invalid record to `@ERROR` label. Default is `false`. Invalid cases
-are
+   type   default   version
+  ------ --------- ---------
+   bool    true     0.14.0
+
+Emit invalid record to `@ERROR` label. Invalid cases are
 
 -   key not exist
 -   format is not matched
 -   unexpected error
 
 You can rescue unexpected format logs in `@ERROR` label.
+
+In v1.0, `emit_invalid_record_to_error` is `true` by default unlike
+v0.12.
+
 
 Learn More
 ----------

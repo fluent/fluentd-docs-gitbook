@@ -1,22 +1,20 @@
-Before Installing Fluentd
-=========================
+# Before Installing Fluentd
 
 You MUST set up your environment according to the steps below before
 installing Fluentd. Failing to do so will be the cause of many
 unnecessary problems.
 
 
-Set Up NTP
-----------
+## Set Up NTP
 
 It's HIGHLY recommended that you set up NTP daemon (e.g.
 *[chrony](https://chrony.tuxfamily.org/)*, *ntpd*, etc) on the node to
-have accurate current timestamp. This is crucial for the
+have accurate current timestamp. This is crucial for any
 production-grade logging services.
-For AWS (Amazon Web Services) users we recommend to use Amazon Time Sync
-Service, AWS hosted NTP server. Please check [AWS EC2: Setting the Time
-for Your Linux
-Instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/set-time.html).
+
+For Amazon Web Services users we recommend using [AWS hosted NTP
+server](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/set-time.html).
+
 
 Increase Max \# of File Descriptors
 -----------------------------------
@@ -39,16 +37,10 @@ root hard nofile 65536
 * hard nofile 65536
 ```
 
-This `65536` is safer value for large deployment. The required number of
-file descriptors depends on your fluentd plugins and setting. Here are
-the estimation examples:
+If you are running fluentd under systemd, the option `LimitNOFILE=65536`
+can also be used (and if you are using the td-agent package this value
+is setup by default).
 
--   in\_tail: The number of watching files
--   in\_forward: The number of incoming access
--   buf\_file: The number of buffer chunks. It is configured via [buffer
-    parameters](/articles/buffer-plugin-overview.md)
--   output: The used file descriptors are less than others. Temporary
-    file for upload, connection pooling in the client library, etc
 
 Optimize Network Kernel Parameters
 ----------------------------------

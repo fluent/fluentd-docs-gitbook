@@ -1,5 +1,4 @@
-Logging of Fluentd
-==================
+# Logging of Fluentd
 
 This article describes Fluentd's logging mechanism.
 
@@ -7,8 +6,7 @@ Fluentd has two log layers: global and per plugin. Different log levels
 can be set for global logging and plugin level logging.
 
 
-Log Level
----------
+## Log Level
 
 Shown below is the list of supported values, in increasing order of
 verbosity:
@@ -23,11 +21,13 @@ verbosity:
 The default log level is `info`, and Fluentd outputs `info`, `warn`,
 `error` and `fatal` logs by default.
 
+
 Global Logs
 -----------
 
 Global logging is used by Fluentd core and plugins that don't set their
 own log levels. The global log level can be adjusted up or down.
+
 
 ### By Command Line Option
 
@@ -53,6 +53,7 @@ $ fluentd -q  ... # warn level
 $ fluentd -qq ... # error level
 ```
 
+
 ### By Config File
 
 You can also change the logging level with `<system>` section in the
@@ -65,15 +66,16 @@ config file like below.
 </system>
 ```
 
+
 Per Plugin Log
 --------------
 
-The `log_level` option sets different levels of logging for each plugin.
-It can be set in each plugin's configuration file.
+The `@log_level` option sets different levels of logging for each
+plugin. It can be set in each plugin's configuration file.
 
 For example, in order to debug [in\_tail](/articles/in_tail.md) but suppress all but
-fatal log messages for [in\_http](/articles/in_http.md), their respective `log_level`
-options should be set as follows:
+fatal log messages for [in\_http](/articles/in_http.md), their respective
+`@log_level` options should be set as follows:
 
 ``` {.CodeRay}
 <source>
@@ -88,44 +90,37 @@ options should be set as follows:
 </source>
 ```
 
-If you don't specify the `log_level` parameter, the plugin will use the
+If you don't specify the `@log_level` parameter, the plugin will use the
 global log level.
-Some plugins haven\'t supported per-plugin logging yet. The [logging
-section of the Plugin Development article](plugin-development#logging)
-explains how to update such plugins to support the new log level system.
 
-Suppress repeated stacktrace
-----------------------------
 
-Fluentd can suppress same stacktrace with
-`--suppress-repeated-stacktrace`. For example, if you pass
-`--suppress-repeated-stacktrace` to fluentd:
+Log format
+----------
+
+`text` and `json` are supported. The default is `text`. The format can
+be changed via `<log>` directive in `<system>`.
 
 ``` {.CodeRay}
-2013-12-04 15:05:53 +0900 [warn]: fluent/engine.rb:154:rescue in emit_stream: emit transaction failed  error_class = RuntimeError error = #<RuntimeError: syslog>
-  2013-12-04 15:05:53 +0900 [warn]: fluent/engine.rb:140:emit_stream: /Users/repeatedly/devel/fluent/fluentd/lib/fluent/plugin/out_stdout.rb:43:in `emit'
-  [snip]
-  2013-12-04 15:05:53 +0900 [warn]: fluent/engine.rb:140:emit_stream: /Users/repeatedly/devel/fluent/fluentd/lib/fluent/plugin/in_object_space.rb:63:in `run'
-2013-12-04 15:05:53 +0900 [error]: plugin/in_object_space.rb:113:rescue in on_timer: object space failed to emit error = "foo.bar" error_class = "RuntimeError" tag = "foo" record = "{ ...}"
-2013-12-04 15:05:55 +0900 [warn]: fluent/engine.rb:154:rescue in emit_stream: emit transaction failed  error_class = RuntimeError error = #<RuntimeError: syslog>
-  2013-12-04 15:05:53 +0900 [warn]: fluent/engine.rb:140:emit_stream: /Users/repeatedly/devel/fluent/fluentd/lib/fluent/plugin/o/2.0.0/gems/cool.io-1.1.1/lib/cool.io/loop.rb:96:in `run'
-  [snip]
+<system>
+  <log>
+    format json
+    time_format %Y-%m-%d
+  </log>
+</system>
 ```
 
-logs are changed to:
+With this setting:
 
 ``` {.CodeRay}
-2013-12-04 15:05:53 +0900 [warn]: fluent/engine.rb:154:rescue in emit_stream: emit transaction failed  error_class = RuntimeError error = #<RuntimeError: syslog>
-  2013-12-04 15:05:53 +0900 [warn]: fluent/engine.rb:140:emit_stream: /Users/repeatedly/devel/fluent/fluentd/lib/fluent/plugin/o/2.0.0/gems/cool.io-1.1.1/lib/cool.io/loop.rb:96:in `run'
-  [snip]
-  2013-12-04 15:05:53 +0900 [warn]: fluent/engine.rb:140:emit_stream: /Users/repeatedly/devel/fluent/fluentd/lib/fluent/plugin/in_object_space.rb:63:in `run'
-2013-12-04 15:05:53 +0900 [error]: plugin/in_object_space.rb:113:rescue in on_timer: object space failed to emit error = "foo.bar" error_class = "RuntimeError" tag = "foo" record = "{ ...}"
-2013-12-04 15:05:55 +0900 [warn]: fluent/engine.rb:154:rescue in emit_stream: emit transaction failed  error_class = RuntimeError error = #<RuntimeError: syslog>
-  2013-12-04 15:05:55 +0900 [warn]: plugin/in_object_space.rb:111:on_timer: suppressed same stacktrace
+2017-07-27 06:44:54 +0900 [info]: #0 fluentd worker is now running worker=0
 ```
 
-Same stacktrace is replaced with `suppressed same stacktrace` message
-until other stacktrace is received.
+This `text` log line is changed to:
+
+``` {.CodeRay}
+{"time":"2017-07-27","level":"info","message":"fluentd worker is now running worker=0","worker_id":0}
+```
+
 
 Output to log file
 ------------------
@@ -137,33 +132,61 @@ instead, please specify the `-o` option.
 $ fluentd -o /path/to/log_file
 ```
 
-Fluentd doesn\'t support log rotation yet.
+
+### Log rotation setting
+
+Fluentd doesn't rotate logs by default. You can configure this behaviour
+via command line options:
+
+#### --log-rotate-age AGE
+
+AGE is integer or string:
+
+-   integer: Generations to keep rotated log files.
+-   string: frequency of rotation. `daily`, `weekly` and `monthly` are
+    supported
+
+#### --log-rotate-size BYTES
+
+The byte size to rotate log files. This is applied when
+`--log-rotate-age` is specified with integer.
+
+Here is an example:
+
+``` {.CodeRay}
+$ fluentd -c fluent.conf --log-rotate-age 5 --log-rotate-size 104857600
+```
+
 
 Capture Fluentd logs
 --------------------
 
 Fluentd marks its own logs with the `fluent` tag. You can process
-Fluentd logs by using `<match fluent.**>` or `<match **>`(Of course,
-`**` captures other logs). If you define `<match fluent.**>` in your
-configuration, then Fluentd will send its own logs to this match
-destination. This is useful for monitoring Fluentd logs.
+Fluentd logs by using `<match fluent.**>`(Of course, `**` captures other
+logs) in `<label @FLUENT_LOG>`. If you define `<label @FLUENT_LOG>` in
+your configuration, then Fluentd will send its own logs to this label.
+This is useful for monitoring Fluentd logs.
 
-For example, if you have the following `<match fluent.**>`:
+For example, if you have the following configuration:
 
 ``` {.CodeRay}
 # omit other source / match
-<match fluent.**>
-  @type stdout
-</match>
+<label @FLUENT_LOG>
+  <match fluent.*>
+    @type stdout
+  </match>
+</label>
 ```
 
 then Fluentd outputs `fluent.info` logs to stdout like below:
 
 ``` {.CodeRay}
 2014-02-27 00:00:00 +0900 [info]: shutting down fluentd
-2014-02-27 00:00:01 +0900 fluent.info: {"message":"shutting down fluentd"} # by <match fluent.**>
+2014-02-27 00:00:01 +0900 fluent.info: {"message":"shutting down fluentd"} # by <match fluent.*>
 2014-02-27 00:00:01 +0900 [info]: process finished code = 0
 ```
+
+[]{#case1:-send-fluentd-logs-to-monitoring-service}
 
 ### Case1: Send Fluentd logs to monitoring service
 
@@ -172,18 +195,22 @@ datadog, sentry, irc, etc.
 
 ``` {.CodeRay}
 # Add hostname for identifying the server
-<filter fluent.**>
-  @type record_transformer
-  <record>
-    host "#{Socket.gethostname}"
-  </record>
-</filter>
+<label @FLUENT_LOG>
+  <filter fluent.*>
+    @type record_transformer
+    <record>
+      host "#{Socket.gethostname}"
+    </record>
+  </filter>
 
-<match fluent.**>
-  @type monitoring_plugin
-  # parameters...
-</match>
+  <match fluent.*>
+    @type monitoring_plugin
+    # parameters...
+  </match>
+<label>
 ```
+
+[]{#case2:-use-aggregation/monitoring-server}
 
 ### Case2: Use aggregation/monitoring server
 
@@ -195,20 +222,23 @@ Leaf server example:
 
 ``` {.CodeRay}
 # Add hostname for identifying the server and tag to filter by log level
-<filter fluent.**>
-  @type record_transformer
-  <record>
-    host "#{Socket.gethostname}"
-    original_tag ${tag}
-  </record>
-</filter>
+<label @FLUENT_LOG>
+  # If you want to capture only error events, use 'fluent.error' instead.
+  <filter fluent.*>
+    @type record_transformer
+    <record>
+      host "#{Socket.gethostname}"
+      original_tag ${tag}
+    </record>
+  </filter>
 
-<match fluent.**>
-  @type forward
-  <server>
-    # Monitoring server parameters
-  </server>
-</match>
+  <match fluent.*>
+    @type forward
+    <server>
+      # Monitoring server parameters
+    </server>
+  </match>
+<label>
 ```
 
 Monitoring server example:
@@ -216,33 +246,42 @@ Monitoring server example:
 ``` {.CodeRay}
 <source>
   @type forward
-  label @FLUENTD_INTERNAL_LOG
 </source>
 
-<label @FLUENTD_INTERNAL_LOG>
-  # Ignore trace, debug and info log
-  <filter fluent.**>
-    @type grep
-    regexp1 original_tag fluent.(warn|error|fatal)
-  </filter>
+# Ignore trace, debug and info log. Of course, you can use strict matching like `<filter fluent.{warn,error,fatal}>` without grep filter.
+<filter fluent.*>
+  @type grep
+  <regexp>
+    key original_tag
+    pattern fluent.(warn|error|fatal)
+  </regexp>
+</filter>
 
-  <match fluent.**>
-    # your notification setup. This example uses irc plugin
-    @type irc
-    host irc.domain
-    channel notify
-    message notice: %s [%s] @%s %s
-    out_keys original_tag,time,host,message
-  </match>
+<match fluent.*>
+  # your notification setup. This example uses irc plugin
+  @type irc
+  host irc.domain
+  channel notify
+  message notice: %s [%s] @%s %s
+  out_keys original_tag,time,host,message
+</match>
+
+# Unlike v0.12, if `<label @FLUENT_LOG>` is defiend, `<match fluent.*>` in root is not used for log capturing.
+<label @FLUENT_LOG>
+  # Monitoring server's internal log
 </label>
 ```
 
-If an error occurs, you will get a notification message in your irc
+If an error occurs, you will get a notification message in your Slack
 `notify` channel.
 
 ``` {.CodeRay}
 01:01  fluentd: [11:10:24] notice: fluent.warn [2014/02/27 01:00:00] @leaf.server.domain detached forwarding server 'server.name'
 ```
+
+You can still use [v0.12
+way](/v0.12/articles/logging#capture-fluentd-logs) without
+`<label @FLUENT_LOG>`.
 
 
 ------------------------------------------------------------------------

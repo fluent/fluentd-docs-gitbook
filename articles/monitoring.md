@@ -1,11 +1,9 @@
-Monitoring Fluentd
-==================
+# Monitoring Fluentd
 
 This article desribes how to monitor Fluentd.
 
 
-Fluentd Metrics Monitoring
---------------------------
+## Fluentd Metrics Monitoring
 
 Fluentd can expose internal metrics via REST API, and works with
 monitoring tools such as [Prometheus](https://prometheus.io/),
@@ -13,10 +11,11 @@ monitoring tools such as [Prometheus](https://prometheus.io/),
 Prometheus, since we will be collaborating more in the future under the
 [CNCF (Cloud Native Computing Foundation)](https://www.cncf.io/).
 
--   [Monitoring Fluentd (Prometheus)](monitoring-prometheus.md)
+-   [Monitoring Fluentd (Prometheus)](monitoring-prometheus)
 -   [Monitoring Fluentd
     (Datadog)](https://docs.datadoghq.com/integrations/fluentd/)
--   [Monitoring Fluentd (REST API)](monitoring-rest-api.md)
+-   [Monitoring Fluentd (REST API)](monitoring-rest-api)
+
 
 Process Monitoring
 ------------------
@@ -40,6 +39,7 @@ $ ps w -C ruby -C td-agent --no-heading
 32345 ?        Sl     0:01 /opt/td-agent/embedded/bin/ruby /usr/sbin/td-agent --daemon /var/run/td-agent/td-agent.pid --log /var/log/td-agent/td-agent.log
 ```
 
+
 Port Monitoring
 ---------------
 
@@ -49,6 +49,7 @@ settings are shown below:
 
 -   TCP 0.0.0.0 9880 (HTTP by default)
 -   TCP 0.0.0.0 24224 (Forward by default)
+
 
 Debug Port
 ----------

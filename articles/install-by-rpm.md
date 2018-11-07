@@ -1,28 +1,27 @@
-Installing Fluentd Using rpm Package
-====================================
+# Installing Fluentd Using rpm Package
 
-This article explains how to install the td-agent rpm package, the
-stable Fluentd distribution package maintained by [Treasure Data,
+This article explains how to install the
+[td-agent](https://docs.treasuredata.com/articles/td-agent) rpm package,
+the stable Fluentd distribution package maintained by [Treasure Data,
 Inc](http://www.treasuredata.com/).
 
 
-What is td-agent?
------------------
+## What is td-agent?
 
 Fluentd is written in Ruby for flexibility, with performance sensitive
-parts written in C. However, casual users may have difficulty installing
+parts written in C. However, some users may have difficulty installing
 and operating a Ruby daemon.
 
 That's why [Treasure Data, Inc](http://www.treasuredata.com/) is
-providing **the stable community distribution of Fluentd**, called
-`td-agent`. The differences between Fluentd and td-agent can be found
+providing **the stable distribution of Fluentd**, called `td-agent`. The
+differences between Fluentd and td-agent can be found
 [here](//www.fluentd.org/faqs).
 
-Currently, td-agent 2 rpm has two versions, td-agent 2.5 / td-agent 2.3.
-The different point is bundled ruby version. td-agent 2.5 or later uses
-ruby 2.5 and td-agent 2.3 or earlier uses ruby 2.1. ruby 2.1 is EOL so
-we recommend to use td-agent 2.5 for new deployment. td-agent 2.5 and
-td-agent 2.3 use fluentd v0.12 serise so the behaviour is same.
+This installation guide is for td-agent v3, the new stable version.
+td-agent v3 uses fluentd v1.0 in the core. See [this
+page](/articles/td-agent-v2-vs-v3.md) for the comparison between v2 and v3.
+
+[]{#step-0:-before-installation}
 
 Step 0: Before Installation
 ---------------------------
@@ -30,33 +29,94 @@ Step 0: Before Installation
 Please follow the [Preinstallation Guide](/articles/before-install.md) to configure
 your OS properly. This will prevent many unnecessary problems.
 
+[]{#step-1:-install-from-rpm-repository}
+
 Step 1: Install from rpm Repository
 -----------------------------------
 
-CentOS and RHEL 5, 6, 7 and Amazon Linux are currently supported.
+It's HIGHLY recommended that you set up **ntpd** on the node to prevent
+invalid timestamps in your logs. Please check the [Preinstallation
+Guide](/articles/before-install.md).
+
+
+### Redhat / CentOS
+
+CentOS and RHEL 6, 7 64bit are currently supported.
 
 Executing
-[install-redhat-td-agent2.sh](https://toolbelt.treasuredata.com/sh/install-redhat-td-agent2.sh)
+[install-redhat-td-agent3.sh](https://toolbelt.treasuredata.com/sh/install-redhat-td-agent3.sh)
 will automatically install td-agent on your machine. This shell script
 registers a new rpm repository at `/etc/yum.repos.d/td.repo` and
 installs the `td-agent` rpm package.
 
 ``` {.CodeRay}
-# td-agent 2.5 or later. Only CentOS/RHEL 6 and 7 for now.
-$ curl -L https://toolbelt.treasuredata.com/sh/install-redhat-td-agent2.5.sh | sh
-# td-agent 2.3 or earlier
-$ curl -L https://toolbelt.treasuredata.com/sh/install-redhat-td-agent2.sh | sh
+$ curl -L https://toolbelt.treasuredata.com/sh/install-redhat-td-agent3.sh | sh
 ```
 
-It's HIGHLY recommended that you set up **ntpd** on the node to prevent
-invalid timestamps in your logs. Please check the [Preinstallation
-Guide](/articles/before-install.md).
-td-agent supports recent 2 Amazon Linux versions. It means if the latest
-version is 2016.09, we provides new packages for 2016.03 and 2016.09. No
-new packages for 2015.09 or earlier.
+We use \$releasever for repository path in the script and \$releasever
+should be only major version like \"7\". If your environment uses other
+format like \"7.2\", change it to only major version or setup TD
+repository manually.
 
-Step2: Launch Daemon
---------------------
+
+### Amazon Linux
+
+Mainly for Amazon Linux 2. Recent two 64bit versions are supported for
+amazon linux 1. This means if latest version is `2018.03`, rpm is
+provided for `2018.03` and `2017.09`.
+
+``` {.CodeRay}
+# Amazon Linux 2
+$ curl -L https://toolbelt.treasuredata.com/sh/install-amazon2-td-agent3.sh | sh
+# Amazon Linux 1
+$ curl -L https://toolbelt.treasuredata.com/sh/install-amazon1-td-agent3.sh | sh
+```
+
+Newer td-agent 3 no longer support Amazon Linux 1. If you want to use
+latest td-agent 3, please upgrade your Amazon Linux 1 to Amazon Linux 2.
+
+We use \$releasever for repository path in the script and \$releasever
+should be \"year.month\" format like \"2017.09\". On AWS, some services
+modify \$releasever to own format and it will cause installation
+failure. If your environment\'s \$releasever is non-\"year.month\"
+format, change it to \"year.month\" format or setup TD repository
+manually.
+
+[]{#step-2:-launch-daemon}
+
+Step 2: Launch Daemon
+---------------------
+
+td-agent provides 2 scripts:
+
+
+### systemd
+
+The `/usr/lib/systemd/system/td-agent` script is provided to start,
+stop, or restart the agent.
+
+``` {.CodeRay}
+$ sudo systemctl start td-agent.service
+$ sudo systemctl status td-agent.service
+● td-agent.service - td-agent: Fluentd based data collector for Treasure Data
+   Loaded: loaded (/lib/systemd/system/td-agent.service; disabled; vendor preset: enabled)
+   Active: active (running) since Thu 2017-12-07 15:12:27 PST; 6min ago
+     Docs: https://docs.treasuredata.com/articles/td-agent
+  Process: 53192 ExecStart = /opt/td-agent/embedded/bin/fluentd --log /var/log/td-agent/td-agent.log --daemon /var/run/td-agent/td-agent.pid (code = exited, statu
+ Main PID: 53198 (fluentd)
+   CGroup: /system.slice/td-agent.service
+           ├─53198 /opt/td-agent/embedded/bin/ruby /opt/td-agent/embedded/bin/fluentd --log /var/log/td-agent/td-agent.log --daemon /var/run/td-agent/td-agent
+           └─53203 /opt/td-agent/embedded/bin/ruby -Eascii-8bit:ascii-8bit /opt/td-agent/embedded/bin/fluentd --log /var/log/td-agent/td-agent.log --daemon /v
+
+Dec 07 15:12:27 ubuntu systemd[1]: Starting td-agent: Fluentd based data collector for Treasure Data...
+Dec 07 15:12:27 ubuntu systemd[1]: Started td-agent: Fluentd based data collector for Treasure Data.
+```
+
+If you want to customize systemd behaviour, put your `td-agent.service`
+into `/etc/systemd/system`
+
+
+### init.d
 
 The `/etc/init.d/td-agent` script is provided to start, stop, or restart
 the agent.
@@ -80,8 +140,10 @@ $ sudo /etc/init.d/td-agent status
 Please make sure **your configuration file** is located at
 `/etc/td-agent/td-agent.conf`.
 
-Step3: Post Sample Logs via HTTP
---------------------------------
+[]{#step-3:-post-sample-logs-via-http}
+
+Step 3: Post Sample Logs via HTTP
+---------------------------------
 
 By default, `/etc/td-agent/td-agent.conf` is configured to take logs
 from HTTP and route them to stdout (`/var/log/td-agent/td-agent.log`).
@@ -90,6 +152,7 @@ You can post sample log records using the curl command.
 ``` {.CodeRay}
 $ curl -X POST -d 'json={"json":"message"}' http://localhost:8888/debug.test
 ```
+
 
 Next Steps
 ----------

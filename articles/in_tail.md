@@ -1,12 +1,10 @@
-tail Input Plugin
-=================
+# tail Input Plugin
 
 The `in_tail` Input plugin allows Fluentd to read events from the tail
 of text files. Its behavior is similar to the `tail -F` command.
 
 
-Example Configuration
----------------------
+## Example Configuration
 
 `in_tail` is included in Fluentd's core. No additional installation
 process is required.
@@ -17,11 +15,16 @@ process is required.
   path /var/log/httpd-access.log
   pos_file /var/log/td-agent/httpd-access.log.pos
   tag apache.access
-  format apache2
+  <parse>
+    @type apache2
+  </parse>
 </source>
 ```
+
 Please see the [Config File](/articles/config-file.md) article for the basic
-structure and syntax of the configuration file.
+structure and syntax of the configuration file. For \<parse\> section,
+please check [Parse section cofiguration](/articles/parse-section.md).
+
 
 ### How it Works
 
@@ -33,14 +36,33 @@ structure and syntax of the configuration file.
     td-agent read before the restart. This position is recorded in the
     position file specified by the pos\_file parameter.
 
+
+Plugin helpers
+--------------
+
+-   [timer](/articles/api-plugin-helper-timer.md)
+-   [event\_loop](/articles/api-plugin-helper-event_loop.md)
+-   [parser](/articles/api-plugin-helper-parser.md)
+-   [compat\_parameters](/articles/api-plugin-helper-compat_parameters.md)
+
+
 Parameters
 ----------
+
+[Common Parameters](/articles/plugin-common-parameters.md)
+
+[]{#@type-(required)}
 
 ### \@type (required)
 
 The value must be `tail`.
 
-### tag (required)
+
+### tag
+
+    type         default         version
+  -------- -------------------- ---------
+   string   required parameter   0.14.0
 
 The tag of the event.
 
@@ -55,7 +77,12 @@ tag foo.*
 
 in\_tail emits the parsed events with the 'foo.path.to.file' tag.
 
-### path (required)
+
+### path
+
+    type         default         version
+  -------- -------------------- ---------
+   string   required parameter   0.14.0
 
 The paths to read. Multiple paths can be specified, separated by ','.
 
@@ -67,6 +94,12 @@ list of watch file.
 path /path/to/%Y/%m/%d/*
 ```
 
+For multiple paths:
+
+``` {.CodeRay}
+path /path/to/a/*,/path/to/b/c.log
+```
+
 If the date is 20140401, Fluentd starts to watch the files in
 /path/to/2014/04/01 directory. See also `read_from_head` parameter.
 
@@ -74,7 +107,13 @@ You should not use \'\*\' with log rotation because it may cause the log
 duplication. In such case, you should separate in\_tail plugin
 configuration.
 
+[]{#exclude_path}
+
 ### exclude\_path
+
+   type      default      version
+  ------- -------------- ---------
+   array   \[\] (empty)   0.14.0
 
 The paths to exclude the files from watcher list. For example, if you
 want to remove compressed files, you can use following pattern.
@@ -84,29 +123,51 @@ path /path/to/*
 exclude_path ["/path/to/*.gz", "/path/to/*.zip"]
 ```
 
+\`exclude\_path\` takes its input as an array, unlike \`path\` which
+takes it as a string.
+
+[]{#refresh_interval}
+
 ### refresh\_interval
 
-The interval of refreshing the list of watch file. Default is 60
-seconds.
+   type     default      version
+  ------ -------------- ---------
+   time   60 (seconds)   0.14.0
+
+The interval of refreshing the list of watch file. This is used when
+path includes `*`.
+
+[]{#limit_recently_modified}
 
 ### limit\_recently\_modified
 
-This parameter is available since v0.12.33.
+   type      default       version
+  ------ ---------------- ---------
+   time   nil (disabled)   0.14.13
 
 Limit the watching files that the modification time is within the
 specified time range when use `*` in `path` parameter.
 
+[]{#skip_refresh_on_startup}
+
 ### skip\_refresh\_on\_startup
 
-This parameter is available since v0.12.33.
+   type   default   version
+  ------ --------- ---------
+   bool    false    0.14.13
 
 Skip the refresh of watching list on startup. This reduces the start up
 time when use `*` in `path`.
 
+[]{#read_from_head}
+
 ### read\_from\_head
 
-Start to read the logs from the head of file, not bottom. The default is
-`false`.
+   type   default   version
+  ------ --------- ---------
+   bool    false    0.14.0
+
+Start to read the logs from the head of file, not bottom.
 
 If you want to tail all contents with `*` or strftime dynamic path, set
 this parameter to `true`. Instead, you should guarantee that log
@@ -116,9 +177,15 @@ When this is true, in\_tail tries to read a file during start up phase.
 If target file is large, it takes long time and starting other plugins
 isn\'t executed until reading file is finished.
 
+[]{#encoding,-from_encoding}
+
 ### encoding, from\_encoding
 
-Specify the encoding of reading lines. The default is ASCII-8BIT.
+    type                   default                  version
+  -------- --------------------------------------- ---------
+   string   nil (string encoding is `ASCII-8BIT`)   0.14.0
+
+Specify the encoding of reading lines.
 
 By default, in\_tail emits string value as ASCII-8BIT encoding. These
 options change it.
@@ -136,23 +203,40 @@ You can get supported encoding list by typing following command:
 $ ruby -e 'p Encoding.name_list.sort'
 ```
 
+[]{#read_lines_limit}
+
 ### read\_lines\_limit
 
-The number of reading lines at each IO. Default is 1000 lines.
+    type     default   version
+  --------- --------- ---------
+   integer    1000     0.14.0
+
+The number of reading lines at each IO.
 
 If you see "Size of the emitted data exceeds buffer\_chunk\_limit." log
 with in\_tail, set smaller value.
 
+[]{#multiline_flush_interval}
+
 ### multiline\_flush\_interval
 
-The interval of flushing the buffer for multiline format. The default is
-disabled.
+   type      default       version
+  ------ ---------------- ---------
+   time   nil (disabled)   0.14.0
+
+The interval of flushing the buffer for multiline format.
 
 If you set `multiline_flush_interval 5s`, in\_tail flushes buffered
 event after 5 seconds from last emit. This option is useful when you use
 `format_firstline` option. Since v0.12.20 or later.
 
+[]{#pos_file-(highly-recommended)}
+
 ### pos\_file (highly recommended)
+
+    type    default   version
+  -------- --------- ---------
+   string     nil     0.14.0
 
 This parameter is highly recommended. Fluentd will record the position
 it last read into this file.
@@ -172,12 +256,42 @@ the content of pos\_file is growing until restart when you tails lots of
 files with dynamic path setting. I will fix this problem in the future.
 Check [this issue](https://github.com/fluent/fluentd/issues/1126).
 
-### format (required)
+[]{#<parse>-directive-(required)}
+
+### \<parse\> directive (required)
 
 The format of the log. `in_tail` uses parser plugin to parse the log.
 See [parser article](/articles/parser-plugin-overview.md) for more detail.
 
+Here are several examples:
+
+``` {.CodeRay}
+# json
+<parse>
+  @type json
+</parse>
+
+# regexp
+<parse>
+  @type regexp
+  expression ^(?<name>[^ ]*) (?<user>[^ ]*) (?<age>\d*)$
+</parse>
+```
+
+If `@type` contains `multiline`, in\_tail works as multiline mode.
+
+
+### format
+
+Deprecated parameter. Use `<parse>` instead.
+
+[]{#path_key}
+
 ### path\_key
+
+    type        default       version
+  -------- ----------------- ---------
+   string   nil (no assign)   0.14.0
 
 Add watching file path to `path_key` field.
 
@@ -189,7 +303,13 @@ path_key tailed_path
 With this config, generated events are like
 `{"tailed_path":"/path/to/access.log","k1":"v1",...,"kN":"vN"}`.
 
+[]{#rotate_wait}
+
 ### rotate\_wait
+
+   type     default     version
+  ------ ------------- ---------
+   time   5 (seconds)   0.14.0
 
 in\_tail actually does a bit more than `tail -F` itself. When rotating a
 file, some data may still need to be written to the old file as opposed
@@ -203,7 +323,13 @@ from getting lost. By default, this time interval is 5 seconds.
 The rotate\_wait parameter accepts a single integer representing the
 number of seconds you want this time interval to be.
 
+[]{#enable_watch_timer}
+
 ### enable\_watch\_timer
+
+   type   default   version
+  ------ --------- ---------
+   bool    true     0.14.0
 
 Enable the additional watch timer. Setting this parameter to `false`
 will significantly reduce CPU and I/O consumption when tailing a large
@@ -221,27 +347,103 @@ properly without the additional watch timer. At some point in the
 future, depending on feedback and testing, the additional watch timer
 may be disabled by default.
 
+[]{#enable_stat_watcher}
+
+### enable\_stat\_watcher
+
+   type   default   version
+  ------ --------- ---------
+   bool    true      1.0.1
+
+Enable the additional inotify based watcher. Setting this parameter to
+`false` will disable inotify events and use only timer watcher for file
+tailing.
+
+This option is mainly for avoiding stuck issue with inotify.
+
+[]{#open_on_every_update}
+
+### open\_on\_every\_update
+
+   type   default   version
+  ------ --------- ---------
+   bool    false    0.14.12
+
+Open and close the file on every update instead of leaving it open until
+it gets rotated.
+
+[]{#emit_unmatched_lines}
+
+### emit\_unmatched\_lines
+
+   type   default   version
+  ------ --------- ---------
+   bool    false    0.14.12
+
+Emit unmatched lines when `<parse>` format is not matched for incoming
+logs.
+
+Emitted record is `{"unmatched_line" : incoming line}`, e.g.
+`{"unmatched_line" : "Non JSON format!"}`.
+
+[]{#ignore_repeated_permission_error}
+
 ### ignore\_repeated\_permission\_error
+
+   type   default   version
+  ------ --------- ---------
+   bool    false    0.14.0
 
 If you hard to exclude non-permision files from watching list, set this
 parameter to `true`. It suppress repeated permission error logs.
 
-#### log\_level option
+#### \@log\_level option
 
-The `log_level` option allows the user to set different levels of
+The `@log_level` option allows the user to set different levels of
 logging for each plugin. The supported log levels are: `fatal`, `error`,
 `warn`, `info`, `debug`, and `trace`.
 
 Please see the [logging article](/articles/logging.md) for further details.
 
+
+Learn More
+----------
+
+-   [Input Plugin Overview](/articles/input-plugin-overview.md)
+
+
 FAQ
 ---
+
+### What happens when `<parse>` type is not matched for logs.
+
+`in_tail` prints warning message. For example, if you specify
+`@type json` in `<parse>` and your log line is `123,456,str,true`, then
+you will see following message in fluentd log.
+
+``` {.CodeRay}
+2018-04-19 02:23:44 +0900 [warn]: #0 pattern not match: "123,456,str,true"
+```
+
+See also `emit_unmatched_lines` parameter.
+
+[]{#in_tail-doesn%E2%80%99t-start-to-read-log-file,-why?}
 
 ### in\_tail doesn't start to read log file, why?
 
 `in_tail` follows `tail -F` command behaviour by default, so `in_tail`
 reads only newer logs. If you want to read existing lines for batch use
 case, set `read_from_head true`.
+
+[]{#in_tail-shows-%E2%80%98/path/to/file-unreadable%E2%80%99-log-message.-why?}
+
+### in\_tail shows '/path/to/file unreadable' log message. Why?
+
+If you see "/path/to/file unreadable. It is excluded and would be
+examined next time." message in the log, it means fluentd doesn't have
+read permission for `/path/to/file`. Check your fluentd and target files
+permission.
+
 
 ### logrotate setting
 
@@ -252,11 +454,21 @@ tail.
 This parameter doesn't fit typical application log cases, so check your
 `logrotate` setting which doesn't include `nocreate` parameter.
 
-### What happens when in\_tail receives BufferQueueLimitError?
+[]{#what-happens-when-in_tail-receives-bufferoverflowerror?}
+
+### What happens when in\_tail receives BufferOverflowError?
 
 in\_tail stops reading new lines and pos file update until
-BufferQueueLimitError is resolved. After resolved BufferQueueLimitError,
+BufferOverflowError is resolved. After resolved BufferOverflowError,
 restart emitting new lines and pos file update.
+
+[]{#in_tail-is-sometimes-stopped-when-monitor-lots-of-files.-how-to-avoid-it?}
+
+### in\_tail is sometimes stopped when monitor lots of files. How to avoid it?
+
+Try to set `enable_stat_watcher false` in `in_tail` setting. We got
+several reports in\_tail is stopped when use `*` included `path`, and
+the problem is resolved by disabling inotify events.
 
 
 ------------------------------------------------------------------------

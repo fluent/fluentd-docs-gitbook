@@ -1,5 +1,4 @@
-Fluentd UI
-==========
+# Fluentd UI
 
 [fluentd-ui](https://github.com/fluent/fluentd-ui) is a browser-based
 [fluentd](http://fluentd.org/) and
@@ -12,9 +11,11 @@ supports following operations.
     path, etc
 -   View Fluentd log with simple error viewer
 
+fluentd-ui dosen\'t work with fluentd v1 and td-agent 3 doesn\'t include
+it. This content is for v0.12 for now.
 
-Getting Started
----------------
+
+## Getting Started
 
 If you've installed td-agent, you can start it by `td-agent-ui start` as
 below:
@@ -45,22 +46,28 @@ The default account is username="admin" and password="changeme"
 
 ![fluentd-ui](/images/fluentd-ui/fluentd-ui.gif)
 
+
 Screenshots
 -----------
 
 (v0.3.9)
 
+
 ### Dashboard
 
 ![dashboard](/images/fluentd-ui/dashboard.gif)
+
 
 ### Setting
 
 ![setting](/images/fluentd-ui/setting.gif)
 
+[]{#in_tail-setting}
+
 ### in\_tail setting
 
 ![in\_tail](/images/fluentd-ui/in_tail.gif)
+
 
 ### Plugin
 

@@ -1,14 +1,13 @@
-Support
-=======
+# Support
 
 
-Mailing List (Google Groups)
-----------------------------
+## Mailing List (Google Groups)
 
 Got a question? Have some cool Fluentd-related projects? The mailing
 list is the place to be.
 
 -   [Mailing List](https://groups.google.com/forum/#!forum/fluentd)
+
 
 Slack
 -----

@@ -1,5 +1,4 @@
-exec\_filter Output Plugin
-==========================
+# exec\_filter Output Plugin
 
 The `out_exec_filter` Buffered Output plugin (1) executes an external
 program using an event as input and (2) reads a new event from the
@@ -7,8 +6,7 @@ program output. It passes tab-separated values (TSV) to stdin and reads
 TSV from stdout by default.
 
 
-Example Configuration
----------------------
+## Example Configuration
 
 `out_exec_filter` is included in Fluentd's core. No additional
 installation process is required.
@@ -17,174 +15,259 @@ installation process is required.
 <match pattern>
   @type exec_filter
   command cmd arg arg
-  in_keys k1,k2,k3
-  out_keys k1,k2,k3,k4
-  tag_key k1
-  time_key k2
-  time_format %Y-%m-%d %H:%M:%S
+  <format>
+    @type tsv
+    keys k1,k2,k3
+  </format>
+  <parse>
+    @type tsv
+    keys k1,k2,k3,k4
+  </parse>
+  <inject>
+    tag_key k1
+    time_key k2
+    time_format %Y-%m-%d %H:%M:%S
+  </inject>
 </match>
 ```
+
 Please see the [Config File](/articles/config-file.md) article for the basic
 structure and syntax of the configuration file.
+
+When using the json format in \<parse\> section, this plugin uses the
+Yajl library to parse the program output. Yajl buffers data internally
+so the output isn\'t always instantaneous.
+
+
+Supported modes
+---------------
+
+-   Synchronous
+
+-   See also: [Output Plugin Overview](/articles/output-plugin-overview.md)
+
+
+Plugin helpers
+--------------
+
+-   [compat\_parameters](/articles/api-plugin-helper-compat_parameters.md)
+-   [inject](/articles/api-plugin-helper-inject.md)
+-   [formatter](/articles/api-plugin-helper-formatter.md)
+-   [parser](/articles/api-plugin-helper-parser.md)
+-   [extract](/articles/api-plugin-helper-extract.md)
+-   [child\_process](/articles/api-plugin-helper-child_process.md)
+-   [event\_emitter](/articles/api-plugin-helper-event_emitter.md)
+
 
 Parameters
 ----------
 
-### \@type (required)
+[]{#@type}
+
+### \@type
 
 The value must be `exec_filter`.
 
-### command (required)
+
+### command
+
+    type         default         version
+  -------- -------------------- ---------
+   string   required parameter   0.14.0
 
 The command (program) to execute. The `out_exec_filter` plugin passes
 the incoming event to the program input and receives the filtered event
 from the program output.
 
+[]{#num_children}
+
 ### num\_children
 
-The number of spawned process for `command`. Default is 1.
+    type     default   version
+  --------- --------- ---------
+   integer      1      0.14.0
+
+The number of spawned process for `command`.
 
 If the number is larger than 2, fluentd uses spawned processes by round
 robin fashion.
 
+[]{#child_respawn}
+
 ### child\_respawn
+
+    type    default   version
+  -------- --------- ---------
+   string     nil     0.14.0
 
 Respawn command when command exit. Default is disabled.
 
 If you specify a positive number, try to respawn until specified times.
 If you specify `inf` or `-1`, try to respawn forever.
 
+
+### tag
+
+    type    default   version
+  -------- --------- ---------
+   string     nil     0.14.0
+
+The tag of the event.
+
+[]{#read_block_size}
+
+### read\_block\_size
+
+   type   default   version
+  ------ --------- ---------
+   size    10240    0.14.9
+
+The default block size to read if parser requires partial read.
+
+[]{#num_children}
+
+### num\_children
+
+    type     default   version
+  --------- --------- ---------
+   integer      1      0.14.0
+
+The number of spawned process for command.
+
+[]{#suppress_error_log_interval}
+
+### suppress\_error\_log\_interval
+
+   type   default   version
+  ------ --------- ---------
+   time      0      0.14.0
+
+Suppress error logs during this interval.
+
+Output logs for all of messages to emit by default.
+
+[]{#in_format}
+
 ### in\_format
+
+**This parameter is deprecated.** Use `<format>` section.
 
 The format used to map the incoming event to the program input.
 
-The following formats are supported:
-
--   tsv (default)
-
-When using the tsv format, please also specify the comma-separated
-`in_keys` parameter.
-
-``` {.CodeRay}
-in_keys k1,k2,k3
-```
-
--   json
--   msgpack
+[]{#out_format}
 
 ### out\_format
 
+**This parameter is deprecated.** Use `<format>` section.
+
 The format used to process the program output.
 
-The following formats are supported:
+[]{#<format>-section}
 
--   tsv (default)
+### \<format\> section
 
-When using the tsv format, please also specify the comma-separated
-`out_keys` parameter.
+The format used to map the incoming events to the program input.
 
-``` {.CodeRay}
-out_keys k1,k2,k3,k4
-```
+See [Format section configurations](/articles/format-section.md) for more details.
 
--   json
--   msgpack
+#### \@type
 
-When using the json format, this plugin uses the Yajl library to parse
-the program output. Yajl buffers data internally so the output isn\'t
-always instantaneous.
+    type    default   version
+  -------- --------- ---------
+   string     tsv     0.14.9
 
-### tag\_key
+Overwrite default value in this plugin.
 
-The name of the key to use as the event tag. This replaces the value in
-the event record.
+[]{#<parse>-section}
 
-### time\_key
+### \<parse\> section
 
-The name of the key to use as the event time. This replaces the the
-value in the event record.
+The format used to process the program output.
 
-### time\_format
+See [Parse section configurations](/articles/parse-section.md) for more details.
 
-The format for event time used when the `time_key` parameter is
-specified. The default is UNIX time (integer).
+#### \@type
 
-Buffered Output Parameters
---------------------------
+    type    default   version
+  -------- --------- ---------
+   string     tsv     0.14.9
 
-For advanced usage, you can tune Fluentd's internal buffering mechanism
-with these parameters.
+Overwrite default value in this plugin.
 
-### buffer\_type
+#### time\_key
 
-The buffer type is `memory` by default ([buf\_memory](/articles/buf_memory.md)) for
-the ease of testing, however `file` ([buf\_file](/articles/buf_file.md)) buffer type
-is always recommended for the production deployments. If you use `file`
-buffer type, `buffer_path` parameter is required.
+    type    default   version
+  -------- --------- ---------
+   string     nil     0.14.9
 
-### buffer\_queue\_limit, buffer\_chunk\_limit
+Overwrite default value in this plugin.
 
-The length of the chunk queue and the size of each chunk, respectively.
-Please see the [Buffer Plugin Overview](/articles/buffer-plugin-overview.md) article
-for the basic buffer structure. The default values are 64 and 8m,
-respectively. The suffixes "k" (KB), "m" (MB), and "g" (GB) can be used
-for buffer\_chunk\_limit.
+#### time\_format
 
-### flush\_interval
+    type    default   version
+  -------- --------- ---------
+   string     nil     0.14.9
 
-The interval between data flushes. The default is 60s. The suffixes "s"
-(seconds), "m" (minutes), and "h" (hours) can be used.
+Overwrite default value in this plugin.
 
-### flush\_at\_shutdown
+#### localtime
 
-If set to true, Fluentd waits for the buffer to flush at shutdown. By
-default, it is set to true for Memory Buffer and false for File Buffer.
+   type   default   version
+  ------ --------- ---------
+   bool    false    0.14.9
 
-### retry\_wait, max\_retry\_wait
+Overwrite default value in this plugin.
 
-The initial and maximum intervals between write retries. The default
-values are 1.0 seconds and unset (no limit). The interval doubles (with
-+/-12.5% randomness) every retry until `max_retry_wait` is reached.
+[]{#<inject>-section}
 
-Since td-agent will retry 17 times before giving up by default (see the
-`retry_limit` parameter for details), the sleep interval can be up to
-approximately 131072 seconds (roughly 36 hours) in the default
-configurations.
+### \<inject\> section
 
-### retry\_limit, disable\_retry\_limit
+See [Inject section configurations](/articles/inject-section.md) for more details.
 
-The limit on the number of retries before buffered data is discarded,
-and an option to disable that limit (if true, the value of `retry_limit`
-is ignored and there is no limit). The default values are 17 and false
-(not disabled). If the limit is reached, buffered data is discarded and
-the retry interval is reset to its initial value (`retry_wait`).
+#### time\_type
 
-### num\_threads
+   type   default   version
+  ------ --------- ---------
+   enum    float    0.14.9
 
-The number of threads to flush the buffer. This option can be used to
-parallelize writes into the output(s) designated by the output plugin.
-Increasing the number of threads improves the flush throughput to hide
-write / network latency. The default is 1.
+Overwrite default value in this plugin.
 
-### slow\_flush\_log\_threshold
+[]{#<extract>-section}
 
-The threshold for checking chunk flush performance. The default value is
-`20.0` seconds. Note that parameter type is `float`, not `time`.
+### \<extract\> section
 
-If chunk flush takes longer time than this threshold, fluentd logs
-warning message like below:
+See [Extract section configurations](/articles/extract-section.md) for more details.
 
-``` {.CodeRay}
-2016-12-19 12:00:00 +0000 [warn]: buffer flush took longer time than slow_flush_log_threshold: elapsed_time = 15.0031226690043695 slow_flush_log_threshold=10.0 plugin_id="foo"
-```
+#### time\_type
 
-#### log\_level option
+   type   default   version
+  ------ --------- ---------
+   enum    float    0.14.9
 
-The `log_level` option allows the user to set different levels of
-logging for each plugin. The supported log levels are: `fatal`, `error`,
-`warn`, `info`, `debug`, and `trace`.
+Overwrite default value in this plugin.
 
-Please see the [logging article](/articles/logging.md) for further details.
+[]{#<buffer>-section}
+
+### \<buffer\> section
+
+See [Buffer section configurations](/articles/buffer-section.md) for more details.
+
+#### flush\_mode
+
+   type   default    version
+  ------ ---------- ---------
+   enum   interval   0.14.9
+
+Overwrite default value in this plugin.
+
+#### flush\_interval
+
+    type     default   version
+  --------- --------- ---------
+   integer      1      0.14.9
+
+Overwrite default value in this plugin.
+
 
 Script example
 --------------
@@ -221,10 +304,16 @@ Corresponding configuration is below:
 <match test.**>
   @type exec_filter
   command ruby /path/to/ruby_script.rb
-  in_format json
-  out_format msgpack
-  flush_interval 10s
   tag filtered.exec
+  <format>
+    @type json
+  </format>
+  <parse>
+    @type msgpack
+  </parse>
+  <buffer>
+    flush_interval 10s
+  </buffer>
 </match>
 ```
 

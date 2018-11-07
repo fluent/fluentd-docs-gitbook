@@ -1,45 +1,56 @@
-rewrite\_tag\_filter Output Plugin
-==================================
+# rewrite\_tag\_filter Output Plugin
 
-The `out_rewrite_tag_filter` Output plugin has designed to rewrite tag
-like mod\_rewrite. Re-emit a record with rewrited tag when a value
-matches/unmatches with the regular expression. Also you can change a tag
-from apache log by domain, status-code(ex. 500 error), user-agent,
-request-uri, regex-backreference and so on with regular expression.
+The `out_rewrite_tag_filter` Output plugin provides a rule-based
+mechanism for rewriting tags.
 
 
-How it works
-------------
+## How it works
 
-It is a sample to arrange the tags by the regexp matched value of
-'message'.
+The plugin is configured by defining a list of rules containing
+conditional statements and information on how to rewrite matching tags.
+
+When a message is handled by the plugin, the rules are tested one by one
+in order. If a matching rule is found, the message tag will be rewritten
+according to the definition in the rule and the message will be emitted
+again with the new tag.
+
+
+### Example
+
+This in an example on how to use this plugin to re-write tags. In the
+example, records tagged with 'app.component' will have their tag
+prefixed with the value of the key 'message':
 
 ``` {.CodeRay}
 # Configuration
-<match app.message>
+<match app.component>
   @type rewrite_tag_filter
   <rule>
     key message
-    pattern ^\[(\w+)\] $1.${tag}
+    pattern /^\[(\w+)\]/
     tag $1.${tag}
   </rule>
 </match>
-
-:::text
-+----------------------------------------+        +----------------------------------------------+
-| original record                        |        | rewrited tag record                          |
-|----------------------------------------|        |----------------------------------------------|
-| app.message {"message":"[info]: ..."}  | +----> | info.app.message {"message":"[info]: ..."}   |
-| app.message {"message":"[warn]: ..."}  | +----> | warn.app.message {"message":"[warn]: ..."}   |
-| app.message {"message":"[crit]: ..."}  | +----> | crit.app.message {"message":"[crit]: ..."}   |
-| app.message {"message":"[alert]: ..."} | +----> | alert.app.message {"message":"[alert]: ..."} |
-+----------------------------------------+        +----------------------------------------------+
 ```
 
-Install
--------
+Sample data:
 
-`out_rewrite_tag_filter` is included in td-agent by default (v1.1.18 or
+``` {.CodeRay}
++------------------------------------------+        +------------------------------------------------+
+| original record                          |        | rewritten tag record                           |
+|------------------------------------------|        |------------------------------------------------|
+| app.component {"message":"[info]: ..."}  | +----> | info.app.component {"message":"[info]: ..."}   |
+| app.component {"message":"[warn]: ..."}  | +----> | warn.app.component {"message":"[warn]: ..."}   |
+| app.component {"message":"[crit]: ..."}  | +----> | crit.app.component {"message":"[crit]: ..."}   |
+| app.component {"message":"[alert]: ..."} | +----> | alert.app.component {"message":"[alert]: ..."} |
++------------------------------------------+        +------------------------------------------------+
+```
+
+
+Installation
+------------
+
+`out_rewrite_tag_filter` is included in td-agent by default (v3.0.1 or
 later). Fluentd gem users will have to install the
 fluent-plugin-rewrite-tag-filter gem using the following command.
 
@@ -47,11 +58,20 @@ fluent-plugin-rewrite-tag-filter gem using the following command.
 $ fluent-gem install fluent-plugin-rewrite-tag-filter
 ```
 
-Example Configuration
+For more details, see [Plugin Management](/articles/plugin-management.md).
+
+
+Configuration example
 ---------------------
 
 Configuration design is dropping some pattern record first, then re-emit
-other matched record as new tag name.
+other matched record as new tag name. The example configuration shown
+below gives an example on how the plugin can be used to define a number
+of rules that examines values from different keys and sets the tag
+depending on the regular expression configured in each rule.
+
+The tag value is later used to decide whether the log event shall be
+dropped or not.
 
 ``` {.CodeRay}
 <match apache.access>
@@ -59,40 +79,40 @@ other matched record as new tag name.
   capitalize_regex_backreference yes
   <rule>
     key     path
-    pattern \.(gif|jpe?g|png|pdf|zip)$
+    pattern /\.(gif|jpe?g|png|pdf|zip)$/
     tag     clear
   </rule>
   <rule>
     key     status
-    pattern ^200$
+    pattern /^200$/
     tag     clear
     invert  true
   </rule>
   <rule>
     key     domain
-    pattern ^.+\.com$
+    pattern /^.+\.com$/
     tag     clear
     invert  true
   </rule>
   <rule>
     key     domain
-    pattern ^maps\.example\.com$
+    pattern /^maps\.example\.com$/
     tag     site.ExampleMaps
   </rule>
   <rule>
     key     domain
-    pattern ^news\.example\.com$
+    pattern /^news\.example\.com$/
     tag     site.ExampleNews
   </rule>
   # it is also supported regexp back reference.
   <rule>
     key     domain
-    pattern ^(mail)\.(example)\.com$
+    pattern /^(mail)\.(example)\.com$/
     tag     site.$2$1
   </rule>
   <rule>
     key     domain
-    pattern .+
+    pattern /.+/
     tag     site.unmatched
   </rule>
 </match>
@@ -101,67 +121,98 @@ other matched record as new tag name.
   @type null
 </match>
 ```
+
 Please see the
 [README.md](https://github.com/fluent/fluent-plugin-rewrite-tag-filter)
 for further details.
 
+
 Parameters
 ----------
 
-### rewriteruleN (required at least one)
 
-This is deprecated since 1.6.0. Use \<rule\> section.
+### rewriteruleN
 
-`rewriterule<num> <key> <regex_pattern> <new_tag>`
+This is obsoleted since 2.0.0. Use \<rule\> section.
 
-It works with the order \<num\> ascending, regexp matching
-\<regex\_pattern\> for the values of \<key\> from each record, re-emit
-with \<new\_tag\>.
+[]{#capitalize_regex_backreference}
 
 ### capitalize\_regex\_backreference
+
+   type   default   version
+  ------ --------- ---------
+   bool    false     2.0.0
 
 Capitalize letter for every matched regex backreference. (ex: maps -\>
 Maps)
 
+[]{#hostname_command}
+
 ### hostname\_command
+
+    type    default    version
+  -------- ---------- ---------
+   string   hostname    2.0.0
 
 Override hostname command for placeholder. (default setting is long
 hostname)
 
-#### log\_level option
+[]{#<rule>-section}
 
-The `log_level` option allows the user to set different levels of
-logging for each plugin. The supported log levels are: `fatal`, `error`,
-`warn`, `info`, `debug`, and `trace`.
-
-Please see the [logging article](/articles/logging.md) for further details.
-
-### \<rule\> section (optional) (multiple)
-
--   **key** (string) (required): The field name to which the regular
-    expression is applied
--   **pattern** (regexp) (required): The regular expression
--   **tag** (string) (required): New tag
--   **invert** (bool) (optional): If true, rewrite tag when unmatch
-    pattern
-    -   Default value: `false`
+### \<rule\> section
 
 It works with the order of appearance, regexp matching `rule/pattern`
 for the values of `rule/key` from each record, re-emit with `rule/tag`.
 
+#### key
+
+    type         default         version
+  -------- -------------------- ---------
+   string   required parameter    2.0.0
+
+The field name to which the regular expression is applied
+
+#### pattern
+
+    type         default         version
+  -------- -------------------- ---------
+   regexp   required parameter    2.1.0
+
+The regular expression which is applied on the field value
+
+The type of pattern is string before 2.1.0.
+
+#### tag
+
+    type         default         version
+  -------- -------------------- ---------
+   string   required parameter    2.0.0
+
+New tag
+
+#### invert\*\* (bool) (optional):
+
+   type   default   version
+  ------ --------- ---------
+   bool    false     2.0.0
+
+If true, rewrite tag when unmatch pattern
+
+
 Placeholders
 ------------
 
-It is supported these placeholder for new\_tag (rewrited tag). See more
-details at
-[README.md](https://github.com/fluent/fluent-plugin-rewrite-tag-filter#tag-placeholder)
+The following variable can be used when specifying the name of the
+rewritten tag. See more details at
+[README.md](https://github.com/fluent/fluent-plugin-rewrite-tag-filter#tag-placeholder).
 
 -   \${tag}
 -   \_\_TAG\_\_
--   {\$tag\_parts\[n\]}
+-   \${tag\_parts\[n\]}
 -   \_\_TAG\_PARTS\[n\]\_\_
 -   \${hostname}
 -   \_\_HOSTNAME\_\_
+
 
 Use cases
 ---------
@@ -185,8 +236,10 @@ fluent-plugin-rewrite-tag-filter \* fluent-plugin-mongo
 <source>
   @type tail
   path /var/log/httpd/access_log
-  format apache2
-  time_format %d/%b/%Y:%H:%M:%S %z
+  <parse>
+    @type apache2
+    time_format %d/%b/%Y:%H:%M:%S %z
+  </parse>
   tag apache.access
   pos_file /var/log/td-agent/apache_access.pos
 </source>
@@ -215,13 +268,13 @@ fluent-plugin-rewrite-tag-filter \* fluent-plugin-mongo
   @type rewrite_tag_filter
   <rule>
     key     status
-    pattern ^(?!404)$
+    pattern /^(?!404)$/
     tag     clear
   </rule>
   <rule>
-    key      path
-    pattern .+
-    tag      mongo.apache.access.error404
+    key     path
+    pattern /.+/
+    tag     mongo.apache.access.error404
   </rule>
 </match>
 
@@ -260,8 +313,10 @@ fluent-plugin-irc
 <source>
   @type tail
   path /var/log/httpd/access_log
-  format apache2
-  time_format %d/%b/%Y:%H:%M:%S %z
+  <parse>
+    @type apache2
+    time_format %d/%b/%Y:%H:%M:%S %z
+  </parse>
   tag apache.access
   pos_file /var/log/td-agent/apache_access.pos
 </source>
@@ -293,12 +348,12 @@ fluent-plugin-irc
     # drop static image record and redirect as 'count.apache.access'
     <rule>
       key     path
-      pattern ^/(img|css|js|static|assets)/
+      pattern /^\/(img|css|js|static|assets)\//
       tag     clear
     </rule>
     <rule>
       key     path
-      pattern .+
+      pattern /.+/
       tag     count.apache.access
     </rule>
   </store>
@@ -306,7 +361,7 @@ fluent-plugin-irc
     @type rewrite_tag_filter
     <rule>
       key     code
-      pattern ^5\d\d$
+      pattern /^5\d\d$/
       tag     mongo.apache.access.error5xx
     </rule>
   </store>
@@ -388,8 +443,10 @@ fluent-plugin-irc
 </match>
 ```
 
+
 FAQ
 ---
+
 
 ### With rewrite-tag-filter, logs are not forwarded. Why?
 
@@ -400,7 +457,7 @@ If you have following configuration, it doesn't work:
   @type rewrite_tag_filter
   <rule>
     key     level
-    pattern (.+)
+    pattern /(.+)/
     tag     app.$1
   </rule>
 <match>
@@ -420,7 +477,7 @@ tag like below:
   @type rewrite_tag_filter
   <rule>
     key     level
-    pattern (.+)
+    pattern /(.+)/
     tag     level.app.$1
   </rule>
 <match>

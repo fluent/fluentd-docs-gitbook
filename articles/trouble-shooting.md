@@ -1,13 +1,12 @@
-Troubleshooting Fluentd
-=======================
+# Troubleshooting Fluentd
 
 
-Look at Logs
-------------
+## Look at Logs
 
 If things aren't happening as expected, please first look at your logs.
 For td-agent (rpm/deb), the logs are located at
 `/var/log/td-agent/td-agent.log`.
+
 
 Turn on Verbose Logging
 -----------------------
@@ -15,24 +14,39 @@ Turn on Verbose Logging
 You can get more information about the logs if verbose logging is turned
 on. Please follow the steps below.
 
-### rpm/deb
+### Use directive in configuration file
 
-1.  Open the service setting file for td-agent (see below for its file
-    path).
-2.  Add `-vv` to TD\_AGENT\_OPTIONS.
-3.  Restart td-agent.
+Set `log_level trace`. See also [logging
+article](logging#by-config-file).
+
+
+### td-agent systemd with user's unit file
+
+Put your unit file into `/etc/systemd/system/td-agent`. This overwrites
+existing behaviour of `/usr/lib/systemd/system/td-agent`.
+
+``` {.CodeRay}
+[Service]
+ExecStart=...existing options... -vv
+```
+
+
+### td-agent init.d with environment variable
+
+1.  edit `/etc/init.d/td-agent`
+2.  add `-vv` to TD\_AGENT\_OPTIONS
+3.  restart td-agent
 
     ``` {.CodeRay}
-    # Add the following settings to:
-    # - /etc/sysconfig/td-agent (CentOS/RedHat)
-    # - /etc/default/td-agent (Debian/Ubuntu)
-    TD_AGENT_OPTIONS="-vv"
+    # at /etc/init.d/td-agent
+    ...
+    TD_AGENT_OPTIONS="... -vv"
+    ...
     ```
 
-Note: The environment variable TD\_AGENT\_OPTIONS has been introduced in
-td-agent v2.2.1. If you are using an older version of td-agent, you need
-to edit `/etc/init.d/td-agent` and insert `-vv` options to
-TD\_AGENT\_ARGS or DAEMON\_ARGS manually.
+This approach doesn\'t work on systemd environment because systemd hooks
+init.d\'s start routine and ignore options.
+
 
 ### gem
 
@@ -42,6 +56,7 @@ Please add `-vv` to your command line.
 $ fluentd .. -vv
 ```
 
+
 Dump fluentd internal information
 ---------------------------------
 
@@ -49,6 +64,7 @@ Fluentd uses [sigdump](https://github.com/frsyuki/sigdump) for dumping
 fluentd internal information to local file, e.g. thread dump, object
 allocation and etc. If you have a problem with fluentd like process
 hang, please send `SIGCONT` to fluentd parent and child processes.
+
 
 High CPU usage issue
 --------------------
@@ -67,6 +83,7 @@ Examples](http://www.brendangregg.com/perf.html) page.\
 If you want to know which call causes the problem,
 [pid2line.rb](https://gist.github.com/nurse/0619b6af90df140508c2) is
 useful.
+
 
 Check uncaught logs
 -------------------

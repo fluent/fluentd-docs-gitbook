@@ -1,5 +1,4 @@
-Failure Scenarios
-=================
+# Failure Scenarios
 
 This article lists various Fluentd failure scenarios. We will assume
 that you have configured Fluentd for [High
@@ -7,8 +6,7 @@ Availability](/articles/high-availability.md), so that each app node has its loc
 *forwarders* and all logs are aggregated into multiple *aggregators*.
 
 
-Apps Cannot Post Records to Forwarder
--------------------------------------
+## Apps Cannot Post Records to Forwarder
 
 In the failure scenario, the application sometimes fails to post records
 to its local Fluentd instance when using logger libraries of various
@@ -28,6 +26,7 @@ logs.
 
 When trying to resend logs to the local forwarder, some implementations
 will use exponential backoff to prevent excessive re-connect requests.
+
 
 Forwarder or Aggregator Fluentd Goes Down
 -----------------------------------------
@@ -51,6 +50,7 @@ to the destination again.
 Please note that the data will be lost if the buffer file is broken due
 to I/O errors. The data will also be lost if the disk is full, since
 there is nowhere to store the data on disk.
+
 
 Storage Destination Goes Down
 -----------------------------

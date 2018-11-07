@@ -1,32 +1,34 @@
-Installing Fluentd using .dmg Installer (MacOS X)
-=================================================
+# Installing Fluentd using .dmg Installer (MacOS X)
 
 This article explains how to install td-agent, the stable Fluentd
 distribution package maintained by [Treasure Data,
-Inc](http://www.treasuredata.com/), on MacOS X.
+Inc](https://www.treasuredata.com/), on MacOS X.
 
 
-What is td-agent?
------------------
+## What is td-agent?
 
 Fluentd is written in Ruby for flexibility, with performance sensitive
 parts written in C. However, casual users may have difficulty installing
 and operating a Ruby daemon.
 
-That's why [Treasure Data, Inc](http://www.treasuredata.com/) is
+That's why [Treasure Data, Inc](https://www.treasuredata.com/) is
 providing **the stable distribution of Fluentd**, called `td-agent`. The
 differences between Fluentd and td-agent can be found
-[here](http://www.fluentd.org/faqs).
+[here](https://www.fluentd.org/faqs).
 
 For MacOS X, we're using the OS native .dmg Installer to distribute
 td-agent.
+
+[]{#step1:-install-td-agent}
 
 Step1: Install td-agent
 -----------------------
 
 Please download the `.dmg` file from here, and install the software.
 
--   [Download](https://td-agent-package-browser.herokuapp.com/2/macosx)
+-   [Download](https://td-agent-package-browser.herokuapp.com/3/macosx)
+
+[]{#step2:-launch-td-agent}
 
 Step2: Launch td-agent
 ----------------------
@@ -38,8 +40,8 @@ daemon started correctly from the log
 ``` {.CodeRay}
 $ sudo launchctl load /Library/LaunchDaemons/td-agent.plist
 $ less /var/log/td-agent/td-agent.log
-2013-04-19 16:55:03 -0700 [info]: starting fluentd-0.10.33
-2013-04-19 16:55:03 -0700 [info]: reading config file path="/etc/td-agent/td-agent.conf"
+2018-01-01 16:55:03 -0700 [info]: starting fluentd-1.0.2
+2018-01-01 16:55:03 -0700 [info]: reading config file path="/etc/td-agent/td-agent.conf"
 ```
 
 **Your configuration file** is located at `/etc/td-agent/td-agent.conf`.
@@ -49,6 +51,8 @@ stop the agent, please execute the command below.
 ``` {.CodeRay}
 $ sudo launchctl unload /Library/LaunchDaemons/td-agent.plist
 ```
+
+[]{#step3:-post-sample-logs-via-http}
 
 Step3: Post Sample Logs via HTTP
 --------------------------------
@@ -60,8 +64,9 @@ You can post sample log records using the curl command.
 ``` {.CodeRay}
 $ curl -X POST -d 'json={"json":"message"}' http://localhost:8888/debug.test
 $ tail -n 1 /var/log/td-agent/td-agent.log
-2013-04-19 16:51:47 -0700 debug.test: {"json":"message"}
+2018-01-01 17:51:47 -0700 debug.test: {"json":"message"}
 ```
+
 
 Uninstall td-agent
 ------------------
@@ -74,6 +79,7 @@ directories.
 -   /etc/td-agent
 -   /opt/td-agent
 -   /var/log/td-agent
+
 
 Next Steps
 ----------

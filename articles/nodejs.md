@@ -1,5 +1,4 @@
-Centralize Logs from Node.js Applications
-=========================================
+# Centralize Logs from Node.js Applications
 
 The '[fluent-logger-node](https://github.com/fluent/fluent-logger-node)'
 library is used to post records from Node.js applications to Fluentd.
@@ -7,12 +6,12 @@ library is used to post records from Node.js applications to Fluentd.
 This article explains how to use the fluent-logger-node library.
 
 
-Prerequisites
--------------
+## Prerequisites
 
 -   Basic knowledge of Node.js and NPM
 -   Basic knowledge of Fluentd
--   Node.js 0.6 or higher
+-   Node.js 6.0 or higher
+
 
 Installing Fluentd
 ------------------
@@ -23,6 +22,7 @@ Please refer to the following documents to install fluentd.
 -   [Install Fluentd with deb Package](/articles/install-by-deb.md)
 -   [Install Fluentd with Ruby Gem](/articles/install-by-gem.md)
 -   [Install Fluentd from source](/articles/install-from-source.md)
+
 
 Modifying the Config File
 -------------------------
@@ -43,17 +43,22 @@ plugin](/articles/in_forward.md) as its data source.
 Please restart your agent once these lines are in place.
 
 ``` {.CodeRay}
-# for rpm/deb only
+# for systemd
+$ sudo systemctl restart td-agent.service
+# for init.d
 $ sudo /etc/init.d/td-agent restart
 ```
 
+
 Using fluent-logger-node
 ------------------------
+
 
 ### Obtaining the Most Recent Version
 
 The most recent version of fluent-logger-node can be found
 [here](https://www.npmjs.com/package/fluent-logger).
+
 
 ### A Sample Application
 
@@ -67,8 +72,8 @@ is shown below.
   "name": "node-example",
   "version": "0.0.1",
   "dependencies": {
-    "express": "^4.15.3",
-    "fluent-logger": "^2.4.0"
+    "express": "^4.16.0",
+    "fluent-logger": "^3.2.0"
   }
 }
 ```
@@ -84,9 +89,9 @@ $ npm install
 This is the simplest web app.
 
 ``` {.CodeRay}
-var express = require('express');
-var logger = require('fluent-logger');
-var app = express();
+const express = require('express');
+const logger = require('fluent-logger');
+const app = express();
 
 // The 2nd argument can be omitted. Here is a default value for options.
 logger.configure('fluentd.test', {
@@ -100,7 +105,7 @@ app.get('/', function(request, response) {
   logger.emit('follow', {from: 'userA', to: 'userB'});
   response.send('Hello World!');
 });
-var port = process.env.PORT || 3000;
+const port = process.env.PORT || 3000;
 app.listen(port, function() {
   console.log("Listening on " + port);
 });
@@ -116,8 +121,10 @@ $ node index.js
 The logs should be output to `/var/log/td-agent/td-agent.log` or stdout
 of the Fluentd process via the [stdout Output plugin](/articles/out_stdout.md).
 
+
 Production Deployments
 ----------------------
+
 
 ### Output Plugins
 
@@ -130,10 +137,12 @@ writing records to other destinations:
     -   [Data Collection into HDFS](/articles/http-to-hdfs.md)
 -   List of Plugin References
     -   [Output to Another Fluentd](/articles/out_forward.md)
-    -   [Output to MongoDB](/articles/out_mongo.md) or [MongoDB ReplicaSet](/articles/out_mongo_replset.md)
+    -   [Output to MongoDB](/articles/out_mongo.md) or [MongoDB
+        ReplicaSet](/articles/out_mongo_replset.md)
     -   [Output to Hadoop](/articles/out_webhdfs.md)
     -   [Output to File](/articles/out_file.md)
     -   [etc...](http://fluentd.org/plugin/)
+
 
 ### High-Availability Configurations of Fluentd
 
@@ -142,6 +151,7 @@ using a high availability configuration of td-agent. This will improve
 data transfer reliability and query performance.
 
 -   [High-Availability Configurations of Fluentd](/articles/high-availability.md)
+
 
 ### Monitoring
 

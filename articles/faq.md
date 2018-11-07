@@ -1,47 +1,42 @@
-FAQ
-===
+# FAQ
 
 
-What version of Ruby does fluentd support?
-------------------------------------------
+## What version of Ruby does fluentd support?
 
-Fluentd v0.12 works on 1.9.3 or later. Since v1.x, 2.1 or later.
+Fluentd v1.0 works on Ruby 2.1 or later. See [v0.12
+document](/v0.12//articles/faq#what-version-of-ruby-does-fluentd-support)
+for earlier versions.
+
+
+### When will td-agent be released with Fluentd v1.0?
+
+Use td-agent 3. It includes v1.0.
+
+
+What is the differences between v1.0 or v0.14?
+----------------------------------------------
+
+No differences. v1.0 is built on top of v0.14. Use v1.0 for newer
+installation. We use v1.0/v1.x on our document.
+
 
 Known Issue
 -----------
 
-### I use Fluentd with Ruby 2.0 but Fluentd seems deadlocked. Why?
+[]{#zlib::dataerror-happens-when-output-plugin-uses-gzip-compression}
 
-The rubygems of Ruby 2.0-p353 has a deadlock problem
-([\#9224](https://bugs.ruby-lang.org/issues/9224)). If you use Ruby
-2.0-p353, upgrading Ruby to latest patch level or Ruby 2.1 resolve this
-problem.
+### Zlib::DataError happens when Output plugin uses gzip compression
 
-Please make sure that you are using either RHEL 7.1 and
-ruby-2.0.0.598-25.el7\_1 package or alternatively you can choose more
-recent Ruby provided by Red Hat Software Collections
-(https://access.redhat.com/documentation/en/red-hat-software-collections/)
+This is caused by thread handling mismatch between output thread and
+gzip library. Output's retry mechanizm automatically recovers this
+error.
 
-Unfortunately, Ruby 2.0 package of Ubuntu 14.04 use Ruby 2.0-p353. So
-don't use Fluentd with Ruby 2.0 package on this environment. You can
-install specified Ruby version using
-[rbenv](https://github.com/sstephenson/rbenv).
+We will fix this problem in fluentd v1.3
 
-Using td-agent is another way to avoid this problem because td-agent
-includes own Ruby.
 
 Operations
 ----------
 
-### I have millisecond timestamp log but fluentd drops subsecond. Why?
-
-In v0.12 or earlier, fluentd's event time is second unit. It means
-fluentd converts millisecond/nanosecond timestamp into second timestamp.
-
-Since v1.x, event tims has nanosecond resolution, so fluentd can handle
-millisecond/nanosecond timestamp properly.
-
-Visit [v1.x document](https://docs.fluentd.org/v1.0/articles/quickstart)
 
 ### I have a weird timestamp value, what happened?
 
@@ -49,50 +44,19 @@ The timestamps of Fluentd and its logger libraries depend on your
 system's clock. It's highly recommended that you set up NTP on your
 nodes so that your clocks remain synced with the correct clocks.
 
+
 ### I installed td-agent and want to add custom plugins. How do I do it?
 
-td-agent has own Ruby so you should install gems into td-agent's Ruby,
-not system Ruby.
+Use td-agent bundled gem. See [this
+section](/articles/plugin-management#if-using-td-agent,-use-/usr/sbin/td-agent-gem)
+for more information.
 
-#### td-agent:
-
-Please use `td-agent-gem` as shown below.
-
-``` {.CodeRay}
-$ /usr/sbin/td-agent-gem install <plugin name>
-```
-
-For example, issue the following command if you are adding
-`fluent-plugin-twitter`.
-
-``` {.CodeRay}
-$ /usr/sbin/td-agent-gem install fluent-plugin-twitter
-```
-
-Now you might be wondering, "Why do I need to specify the full path?"
-The reason is that td-agent does not modify any host environment
-variable, including `PATH`. If you want to make all td-agent/fluentd
-related programs available without writing "/usr/lib/..." every time,
-you can add
-
-``` {.CodeRay}
-export PATH=$PATH:/opt/td-agent/embedded/bin/
-```
-
-to your `~/.bash_profile`.
-
-If you would like to find out more about plugin management, please take
-a look at the [Plugin Management](/articles/plugin-management.md) article.
-
-### I installed the plugin and it updates fluentd from v0.12 to v1.x. Why?
-
-You installed v1.0 based plugin. See [Plugin
-Management](/articles/plugin-management#plugin-version-management).
 
 ### How can I match (send) an event to multiple outputs?
 
 You can use the `copy` [output plugin](/articles/out_copy.md) to send the
 same event to multiple output destinations.
+
 
 ### How can I use environment variables to configure parameters dynamically?
 
@@ -102,7 +66,9 @@ Use `"#{ENV['YOUR_ENV_VARIABLE']}"`. For example,
 some_field "#{ENV['FOO_HOME']}"
 ```
 
-Note that it must be double quotes and not single quotes
+(Note that it must be double quotes and not single quotes)
+
+[]{#fluentd-raises-an-error-for-host:port.-why?}
 
 ### Fluentd raises an error for host:port. Why?
 
@@ -116,6 +82,7 @@ There are several reasons:
 
 If you get other errors, google it.
 
+
 ### I got "no patterns matched" in the log, why?
 
 This means you emit the event but no `<match>` directive for emitted
@@ -125,10 +92,12 @@ to define `<match>` for `foo.bar` tag like `<match foo.**>`.
 See also: [Life of a Fluentd event](/articles/life-of-a-fluentd-event.md) or [Config
 File](/articles/config-file.md)
 
+
 ### File buffer doesn't work properly, why?
 
 `file` buffer has limitations. Check [`buf_file`
 article](buf_file#limitation).
+
 
 ### I got enconding error inside plugin. How to fix it?
 
@@ -150,13 +119,27 @@ There are several approaches to avoid this problem.
 -   Use `yajl` instead of `json` when error happens inside
     `JSON.parse/JSON.dump`
 
+
+### Fluentd warns "Oj is not installed, and failing back to Yajl for json parser"
+
+If you are using Alpine Linux, you need to install `ruby-bigdecimal` to
+use Oj as the JSON parser. Please Execute the following command and see
+if the warning still shows up.
+
+``` {.CodeRay}
+# apk add --update ruby-bigdecimal
+```
+
+
 Plugin Development
 ------------------
+
 
 ### How do I develop a custom plugin?
 
 Please refer to the [Plugin Development
 Guide](http://docs.fluentd.org/articles/plugin-development).
+
 
 HOWTOs
 ------

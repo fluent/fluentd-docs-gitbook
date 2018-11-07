@@ -1,5 +1,4 @@
-Cloud Big Data Analytics with Treasure Data
-===========================================
+# Cloud Big Data Analytics with Treasure Data
 
 This article explains how to use [Treasure
 Data](www.fluentd.org/treasuredata) with [Fluentd](http://fluentd.org/)
@@ -7,8 +6,7 @@ to aggregate semi-structured logs into Treasure Data (TD), which offers
 Cloud Data Service.
 
 
-Background
-----------
+## Background
 
 [Fluentd](http://fluentd.org/) is an advanced open-source log collector
 originally developed at [Treasure Data,
@@ -24,12 +22,16 @@ to spend engineering resources maintaining your backend infrastructure.
 This article will show you how to use [Fluentd](http://fluentd.org/) to
 receive data from HTTP and stream it into TD.
 
+
 Architecture
 ------------
 
 The figure below shows the high-level architecture.
 
-![](/images/treasuredata_architecture.png)
+![](/images/treasuredata_architecture.png){width="600"}
+
+\
+\
 
 
 Install
@@ -50,6 +52,7 @@ plugin, please use `gem install fluent-plugin-td`.
 -   [RPM Package](/articles/install-by-rpm.md)
 -   [Ruby gem](/articles/install-by-gem.md)
 
+
 Signup
 ------
 
@@ -65,12 +68,14 @@ $ td apikey:show
 kdfasklj218dsakfdas0983120
 ```
 
+
 Fluentd Configuration
 ---------------------
 
 Let's start configuring Fluentd. If you used the deb/rpm package,
 Fluentd's config file is located at /etc/td-agent/td-agent.conf.
 Otherwise, it is located at /etc/fluentd/fluentd.conf.
+
 
 ### HTTP Input
 
@@ -84,6 +89,7 @@ HTTP. The Fluentd configuration file should look like this:
 </source>
 ```
 
+
 ### Treasure Data Output
 
 The output destination will be Treasure Data. The output configuration
@@ -95,9 +101,11 @@ should look like this:
   @type tdlog
   apikey YOUR_API_KEY_IS_HERE
   auto_create_table
-  buffer_type file
-  buffer_path /var/log/td-agent/buffer/td
   use_ssl true
+  <buffer>
+    @type file
+    path /var/log/td-agent/buffer/td
+  </buffer>
 </match>
 ```
 
@@ -105,6 +113,7 @@ The match section specifies the regexp used to look for matching tags.
 If a matching tag is found in a log, then the config inside
 `<match>...</match>` is used (i.e. the log is routed according to the
 config inside).
+
 
 Test
 ----
@@ -148,11 +157,13 @@ Result     :
 |   1 |
 +-----+
 ```
+
 It\'s not advisable to send sensitive user information to the cloud. To
 assist with this need, out\_tdlog comes with some anonymization systems.
 Please see the [Treasure Data
 plugin](http://github.com/treasure-data/fluent-plugin-td/) article for
 details.
+
 
 Conclusion
 ----------
@@ -162,10 +173,11 @@ in days, not months. Treasure Data is a useful solution if you don't
 want to spend engineering resources maintaining the backend storage and
 analytics infrastructure.
 
+
 Learn More
 ----------
 
--   [Fluentd Architecture](///www.fluentd.org/architecture)
+-   [Fluentd Architecture](//www.fluentd.org/architecture)
 -   [Fluentd Get Started](/articles/quickstart.md)
 -   [Treasure Data](http://www.fluentd.org/treasuredata)
 -   [Treasure Data: Documentation](http://docs.treasuredata.com/)

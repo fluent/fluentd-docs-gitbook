@@ -1,130 +1,101 @@
-Easy Data Stream Manipulation using Fluentd
-===========================================
+# Easy Data Stream Manipulation using Fluentd
 
-In this article, we introduce several common data manipulation
-challenges faced by our users (such as filtering and modifying data) and
-explain how to solve each task using one or more Fluentd plugins.
+Sometimes, you need to transform the data stream in a certain way. For
+example, you might want to extract a potion of data for error reporting,
+or need to append additional information to events for later inspection.
+
+This article explains common data-manipulation techniques in details.
 
 
-Scenario: Filtering Data by the Value of a Field
-------------------------------------------------
+## How to Filter Events by Fields
 
-Let's suppose our Fluentd instances are collecting data from Apache web
-server logs via [in\_tail](/articles/in_tail.md). Our goal is to filter out all the
-200 requests.
+[filter\_grep](/articles/filter_grep.md) is a built-in plugin that allows to filter
+the data stream using regular expressions.
 
-Solution: Use fluent-plugin-grep
---------------------------------
-
-[fluent-plugin-grep](https://github.com/sonots/fluent-plugin-grep) is a
-plugin that can "grep" data according to the different fields within
-Fluentd events.
-
-If our events looks like
+Suppose you are managing a web service, and try to monitor the access
+logs using Fluentd. In this case, an event in the data stream will look
+like:
 
 ``` {.CodeRay}
 {
-    "code": 200,
-    "url": "http://yourdomain.com/page.html",
-    "size": 2344,
-    "referer": "http://www.treasuredata.com"
-    ...
+  "host": "192.168.1.1",
+  "method": "GET",
+  "path": "/index.html",
+  "code": 200,
+  "size": 2344,
+  "referer": null
 }
 ```
 
-then we can filter out all the requests with status code 200 as follows:
+Let's filter out all the successful responses with 2xx status codes, so
+that we can easily inspect if any error has occurred in the service:
 
 ``` {.CodeRay}
-...
-<match apache.**>
-    @type grep
-    input_key code
-    exclude ^200$
-    add_tag_prefix filtered
-</match>
+<filter apache.**>
+  @type grep
+  <exclude>
+    key code
+    pattern ^2\d\d$
+  </exclude>
+</filter>
 ```
 
-By using the `add_tag_prefix` option, we can prepend a tag in front of
-filtered events so that they can be matched to a subsequent section. For
-example, we can send all logs with non-200 status codes to [Treasure
-Data](http://www.treasuredata.com), as shown below:
+You can also filter the data using multiple fields. For example, the
+following example will keep all 5xx server errors, except those coming
+from the test directory:
 
 ``` {.CodeRay}
-...
-<match apache.**>
-    @type grep
-    input_key code
-    exclude ^200$
-    add_tag_prefix filtered
-</match>
-<match filtered.apache.**>
-    @type td_log
-    apikey XXXXX
-    ...
-</match>
+<filter apache.**>
+  @type grep
+  <regexp>
+    key code
+    pattern ^5\d\d$
+  </regexp>
+  <exclude>
+    key path
+    pattern ^/test/
+  </exclude>
+</filter>
 ```
 
-`fluent-plugin-grep` can filter based on multiple fields as well. The
-config below keeps all requests with status code 4xx that are NOT
-referred from yourdomain.com (a real world use case: figuring out how
-many dead links there are in the wild by filtering out internal links)
+
+How to Inject Custom Fields into Events
+---------------------------------------
+
+[filter\_record\_transformer](/articles/filter_record_transformer.md) is a built-in
+plugin that enables to inject arbitrary data into events.
+
+Suppose you are running a web service on multiple web servers, and you
+want to record which server handled each request. This can be
+implemented trivially using this plugin:
 
 ``` {.CodeRay}
-...
-<match apache.**>
-    @type grep
-    regexp1 code ^4\d\d$
-    exclude1 referer ^https?://yourdomain.com
-    add_tag_prefix external_dead_links
-</match>
-...
+<filter apache.**>
+  @type record_transformer
+  <record>
+    server "${hostname}"
+  </record>
+</filter>
 ```
 
-Scenario: Adding a New Field (such as hostname)
------------------------------------------------
-
-When collecting data, we often need to add a new field or change an
-existing field in our log data. For example, many Fluentd users need to
-add the hostname of their servers to the Apache web server log data in
-order to compute the number of requests handled by each server (i.e.,
-store them in MongoDB/HDFS and run GROUP-BYs).
-
-Solution: Use fluent-plugin-record-modifier
--------------------------------------------
-
-[fluent-plugin-record-modifier](https://github.com/repeatedly/fluent-plugin-record-modifier)
-can add a new field to each data record.
-
-If our events looks like
+This will produce an event like below:
 
 ``` {.CodeRay}
-{"code":200, "url":"http://yourdomain.com", "size":1232}
+{
+  "host": "192.168.1.1",
+  "method": "GET",
+  "path": "/index.html",
+  "code": 200,
+  "size": 2344,
+  "referer": null,
+  "server": "app1"
+}
 ```
 
-then we can add a new field with the hostname information as follows:
-
-``` {.CodeRay}
-<match foo.bar>
-    @type record_modifier
-    gen_host "#{Socket.gethostname}"
-    tag with_hostname
-</match>
-...
-<match with_hostname>
-    ...
-</match>
-```
-
-The modified events now look like
-
-``` {.CodeRay}
-{"gen_host": "our_server", code":200, "url":"http://yourdomain.com", "size":1232}
-```
-
-NOTE: The `"#{Socket.gethostname}"` placeholder is interpreted at
-configuration parsing phase. It inlines the host name of the server that
-the Fluentd instance is running on (in this example, our server's name
-is "our\_server").
+Note that `${hostname}` is a pre-defined variable supplied by the
+plugin. You can also define a custom variable, or even evaluate
+arbitrary ruby expressions. For details, please read [the manual page of
+this plugin](/articles/filter_record_transformer.md).
 
 
 ------------------------------------------------------------------------

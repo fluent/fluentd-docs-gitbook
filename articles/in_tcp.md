@@ -1,5 +1,4 @@
-TCP Input Plugin
-================
+# TCP Input Plugin
 
 The `in_tcp` Input plugin enables Fluentd to accept TCP payload.
 
@@ -7,8 +6,7 @@ Don't use this plugin for receiving logs from client libraries. Use
 `in_forward` for such cases.
 
 
-Example Configuration
----------------------
+## Example Configuration
 
 `in_tcp` is included in Fluentd's core. No additional installation
 process is required.
@@ -17,44 +15,92 @@ process is required.
 <source>
   @type tcp
   tag tcp.events # required
-  format /^(?<field1>\d+):(?<field2>\w+)$/ # required
-  port 20001 # optional. 5170 by default
+  <parse>
+    @type regexp
+    expression /^(?<field1>\d+):(?<field2>\w+)$/
+  </parse>
+  port 20001   # optional. 5170 by default
   bind 0.0.0.0 # optional. 0.0.0.0 by default
   delimiter \n # optional. \n (newline) by default
 </source>
 ```
+
+Example input:
+
+``` {.CodeRay}
+$ echo '123456:awesome' | netcat 0.0.0.0 5170
+```
+
+Parsed result like below:
+
+``` {.CodeRay}
+{"field1":"123456","field2":"awesome}
+```
+
 Please see the [Config File](/articles/config-file.md) article for the basic
-structure and syntax of the configuration file.
+structure and syntax of the configuration file. For \<parse\> section,
+please check [Parse section cofiguration](/articles/parse-section.md).
 
 We\'ve observed the drastic performance improvements on Linux, with
 proper kernel parameter settings. If you have high-volume TCP traffic,
 please make sure to follow the instruction described at [Before
 Installing Fluentd](/articles/before-install.md).
 
+
+Plugin helpers
+--------------
+
+-   [server](/articles/api-plugin-helper-server.md)
+-   [parser](/articles/api-plugin-helper-parser.md)
+-   [extract](/articles/api-plugin-helper-extract.md)
+-   [compat\_parameters](/articles/api-plugin-helper-compat_parameters.md)
+
+
 Parameters
 ----------
 
-### \@type (required)
+[Common Parameters](/articles/plugin-common-parameters.md)
+
+[]{#@type}
+
+### \@type
 
 The value must be `tcp`.
 
-### tag (required)
+
+### tag
+
+    type         default         version
+  -------- -------------------- ---------
+   string   required parameter   0.14.0
 
 tag of output events.
 
+
 ### port
 
-The port to listen to. Default Value = 5170
+    type     default   version
+  --------- --------- ---------
+   integer    5170     0.14.0
+
+The port to listen to.
+
 
 ### bind
 
-The bind address to listen to. Default Value = 0.0.0.0
+    type            default           version
+  -------- ------------------------- ---------
+   string   0.0.0.0 (all addresses)   0.14.0
 
-### delimiter
+The bind address to listen to.
 
-The payload is read up to this character. By default, it is "\\n".
+[]{#source_hostname_key}
 
 ### source\_hostname\_key
+
+    type            default            version
+  -------- -------------------------- ---------
+   string   nil (no adding hostname)   0.14.10
 
 The field name of the client's hostname. If set the value, the client's
 hostname will be set to its key. The default is nil (no adding
@@ -76,37 +122,20 @@ then the client's hostname is set to `client_host` field.
 }
 ```
 
-### format (required)
+[]{#<parse>-section}
 
-The format of the TCP payload. Here is the example by regular
-expression.
+### \<parse\> section
 
-``` {.CodeRay}
-format /^(?<field1>\d+):(?<field2>\w+)$/
-```
+   required   multi   version
+  ---------- ------- ---------
+     true     false   0.14.10
 
-If you execute following command:
+`in_tcp` uses parser plugin to parse the payload.
 
-``` {.CodeRay}
-$ echo '123456:awesome' | netcat 0.0.0.0 5170
-```
+For more details about parser plugin, see followings:
 
-then got parsed result like below:
-
-``` {.CodeRay}
-{"field1":"123456","field2":"awesome}
-```
-
-`in_tcp` uses parser plugin to parse the payload. See [parser
-article](/articles/parser-plugin-overview.md) for more detail.
-
-#### log\_level option
-
-The `log_level` option allows the user to set different levels of
-logging for each plugin. The supported log levels are: `fatal`, `error`,
-`warn`, `info`, `debug`, and `trace`.
-
-Please see the [logging article](/articles/logging.md) for further details.
+-   [Parser Plugin Overview](/articles/parser-plugin-overview.md)
+-   [Parse section configurations](/articles/parse-section.md)
 
 
 ------------------------------------------------------------------------

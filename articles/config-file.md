@@ -1,12 +1,11 @@
-Configuration File Syntax
-=========================
+# Configuration File Syntax
 
 This article describes the basic concepts of Fluentd's configuration
 file syntax.
 
+[]{#introduction:-the-life-of-a-fluentd-event}
 
-Introduction: The Life of a Fluentd Event
------------------------------------------
+## Introduction: The Life of a Fluentd Event
 
 Here is a brief overview of the life of a Fluentd event to help you
 understand the rest of this page:
@@ -17,6 +16,7 @@ specifying the plugin parameters. The file is required for Fluentd to
 operate properly.
 
 See also [Life of a Fluentd Event](/articles/life-of-a-fluentd-event.md) article.
+
 
 Config File Location
 --------------------
@@ -51,10 +51,12 @@ For example, `/etc/td-agent/td-agent.conf` is specified via
 
 See [Command Line Option article](/articles/command-line-option.md).
 
+
 Character encoding
 ------------------
 
 Fluentd assumes configuration file is UTF-8 or ASCII.
+
 
 List of Directives
 ------------------
@@ -70,6 +72,8 @@ The configuration file consists of the following directives:
 6.  **\@include** directives include other files.
 
 Let's actually create a configuration file step by step.
+
+[]{#(1)-%E2%80%9Csource%E2%80%9D:-where-all-the-data-come-from}
 
 (1) "source": where all the data come from
 ------------------------------------------
@@ -107,6 +111,7 @@ a string separated by '.'s (e.g. myapp.access), and is used as the
 directions for Fluentd's internal routing engine. The time field is
 specified by input plugins, and it must be in the Unix time format. The
 record is a JSON object.
+
 Fluentd accepts all non-period characters as a part of a tag. However,
 since the tag is sometimes used in a different context by output
 destinations (e.g., table name, database name, key name, etc.), **it is
@@ -127,6 +132,8 @@ record: {"event":"data"}
 You can add new input sources by writing your own plugins. For further
 information regarding Fluentd's input sources, please refer to the
 [Input Plugin Overview](/articles/input-plugin-overview.md) article.
+
+[]{#(2)-%E2%80%9Cmatch%E2%80%9D:-tell-fluentd-what-to-do!}
 
 (2) "match": Tell fluentd what to do!
 -------------------------------------
@@ -174,6 +181,8 @@ your own plugins. For further information regarding Fluentd's output
 destinations, please refer to the [Output Plugin
 Overview](/articles/output-plugin-overview.md) article.
 
+[]{#(3)-%E2%80%9Cfilter%E2%80%9D:-event-processing-pipeline}
+
 (3) "filter": Event processing pipeline
 ---------------------------------------
 
@@ -216,6 +225,8 @@ You can also add new filters by writing your own plugins. For further
 information regarding Fluentd's filter destinations, please refer to the
 [Filter Plugin Overview](/articles/filter-plugin-overview.md) article.
 
+[]{#(4)-set-system-wide-configuration:-the-%E2%80%9Csystem%E2%80%9D-directive}
+
 (4) Set system wide configuration: the "system" directive
 ---------------------------------------------------------
 
@@ -242,6 +253,8 @@ Here is an example:
 </system>
 ```
 
+[]{#process_name}
+
 ### process\_name
 
 If set this parameter, fluentd's supervisor and worker process names are
@@ -262,6 +275,8 @@ foo      45647   0.0  0.1  2481260  23700 s001  S+    7:04AM   0:00.40 superviso
 ```
 
 This feature requires ruby 2.1 or later.
+
+[]{#(5)-group-filter-and-output:-the-%E2%80%9Clabel%E2%80%9D-directive}
 
 (5) Group filter and output: the "label" directive
 --------------------------------------------------
@@ -311,6 +326,8 @@ events are routed to `grep` filter / `s3` output inside `@SYSTEM` label.
 
 "label" is useful for event flow separation without tag prefix.
 
+[]{#@error-label}
+
 ### \@ERROR label
 
 `@ERROR` label is a built-in label used for error record emitted by
@@ -319,6 +336,8 @@ plugin's `emit_error_event` API.
 If you set `<label @ERROR>` in the configuration, events are routed to
 this label when emit related error, e.g. buffer is full or invalid
 record.
+
+[]{#(6)-re-use-your-config:-the-%E2%80%9C@include%E2%80%9D-directive}
 
 (6) Re-use your config: the "\@include" directive
 -------------------------------------------------
@@ -366,6 +385,7 @@ prone. Please separate `@include` for safety.
 @include z.conf
 ```
 
+
 How match patterns work
 -----------------------
 
@@ -373,6 +393,7 @@ As described above, Fluentd allows you to route events based on their
 tags. Although you can just specify the exact tag to be matched (like
 `<filter app.log>`), there are a number of techniques you can use to
 manage the data flow more efficiently.
+
 
 ### Wildcards and Expansions
 
@@ -404,6 +425,7 @@ tags.
 
     -   The patterns `<match a.** b.*>` match `a`, `a.b`, `a.b.c` (from
         the first pattern) and `b.d` (from the second pattern).
+
 
 ### Note on Match Order
 
@@ -458,6 +480,7 @@ for the reason explained above.
   path /var/log/fluent/access
 </match>
 ```
+
 
 Supported Data Types for Values
 -------------------------------
@@ -514,6 +537,7 @@ plugin author know.
 `array` and `hash` are JSON because almost all programming languages and
 infrastructure tools can generate JSON value easily than unusual format.
 
+
 Common plugin parameter
 -----------------------
 
@@ -530,6 +554,7 @@ These parameters are system reserved and it has `@` prefix.
 
 `type`, `id` and `log_level` are supported for backward compatibility.
 
+
 Check configuration file
 ------------------------
 
@@ -540,10 +565,12 @@ You can check your configuration without plugins start by specifying
 $ fluentd --dry-run -c fluent.conf
 ```
 
+
 Format tips
 -----------
 
 This section describes useful features in configuration format.
+
 
 ### Multi line support for " quoted string, array and hash values
 
@@ -586,6 +613,7 @@ Example2: map plugin:
 
 We will remove this restriction with configuration parser improvement.
 
+
 ### Embedded Ruby code
 
 You can evaluate the Ruby code with `#{}` in `"` quoted string. This is
@@ -595,6 +623,17 @@ useful for setting machine information like hostname.
 host_param "#{Socket.gethostname}" # host_param is actual hostname like `webserver1`.
 env_param "foo-#{ENV["FOO_BAR"]}" # NOTE that foo-"#{ENV["FOO_BAR"]}" doesn't work.
 ```
+
+Since v1.1.0, `hostname` and `worker_id` short-cut are available
+
+``` {.CodeRay}
+host_param "#{hostname}"  # This is same with Socket.gethostname
+@id "out_foo#{worker_id}" # This is same with ENV["SERVERENGINE_WORKER_ID"]
+```
+
+`worker_id` short-cut is useful under multiple workers. For example,
+separate plugin id, add worker\_id to stored path in s3 to avoid file
+conflict.
 
 config-xxx mixins use \"\${}\", not \"\#{}\". These embedded
 configurations are two different things.

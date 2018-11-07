@@ -1,28 +1,27 @@
-Installing Fluentd Using deb Package
-====================================
+# Installing Fluentd Using deb Package
 
-This article explains how to install the td-agent deb package, the
-stable Fluentd distribution package maintained by [Treasure Data,
+This article explains how to install the
+[td-agent](https://docs.treasuredata.com/articles/td-agent) deb package,
+the stable Fluentd distribution package maintained by [Treasure Data,
 Inc](http://www.treasuredata.com/).
 
 
-What is td-agent?
------------------
+## What is td-agent?
 
 Fluentd is written in Ruby for flexibility, with performance sensitive
 parts written in C. However, some users may have difficulty installing
 and operating a Ruby daemon.
 
 That's why [Treasure Data, Inc](http://www.treasuredata.com/) is
-providing **the stable community distribution of Fluentd**, called
-`td-agent`. The differences between Fluentd and td-agent can be found
+providing **the stable distribution of Fluentd**, called `td-agent`. The
+differences between Fluentd and td-agent can be found
 [here](//www.fluentd.org/faqs).
 
-Currently, td-agent 2 deb has two versions, td-agent 2.5 / td-agent 2.3.
-The different point is bundled ruby version. td-agent 2.5 or later uses
-ruby 2.5 and td-agent 2.3 or earlier uses ruby 2.1. ruby 2.1 is EOL so
-we recommend to use td-agent 2.5 for new deployment. td-agent 2.5 and
-td-agent 2.3 use fluentd v0.12 serise so the behaviour is same.
+This installation guide is for td-agent v3, the new stable version.
+td-agent v3 uses fluentd v1.0 in the core. See [this
+page](/articles/td-agent-v2-vs-v3.md) for the comparison between v2 and v3.
+
+[]{#step-0:-before-installation}
 
 Step 0: Before Installation
 ---------------------------
@@ -30,90 +29,88 @@ Step 0: Before Installation
 Please follow the [Preinstallation Guide](/articles/before-install.md) to configure
 your OS properly. This will prevent many unnecessary problems.
 
-Step 1 : Install from Apt Repository
-------------------------------------
+[]{#step-1:-install-from-apt-repository}
+
+Step 1: Install from Apt Repository
+-----------------------------------
 
 For Ubuntu, we currently support "Ubuntu 18.04 LTS / Bionic 64bit",
-"Ubuntu 16.04 LTS / Xenial 64bit", "Ubuntu 14.04 LTS / Trusty
-64bit/32bit", "Ubuntu 12.04 LTS / Precise 64bit/32bit", "Ubuntu 10.04
-LTS / Lucid 64bit/32bit".
-
-For Debian, we currently support Jessie, Wheezy and Squeeze. There is no
-32bit packages for Debian.
-We might not provide td-agent for older distributions. For example, we
-don\'t provide latest td-agent version for squeeze and lucid for now.
+"Ubuntu 16.04 LTS / Xenial 64bit", "Ubuntu 14.04 LTS / Trusty 64bit".
+For Debian, we currently support "Debian 9 Stretch 64bit", "Debian 8
+Jessie 64bit".
 
 A shell script is provided to automate the installation process for each
 version. The shell script registers a new apt repository at
 `/etc/apt/sources.list.d/treasure-data.list` and installs the `td-agent`
 deb package.
 
-For Bionic,
+For Ubuntu Bionic,
 
 ``` {.CodeRay}
-curl -L https://toolbelt.treasuredata.com/sh/install-ubuntu-bionic-td-agent2.5.sh | sh
+curl -L https://toolbelt.treasuredata.com/sh/install-ubuntu-bionic-td-agent3.sh | sh
 ```
 
-For Xenial,
+For Ubuntu Xenial,
 
 ``` {.CodeRay}
-# td-agent 2.5 or later
-curl -L https://toolbelt.treasuredata.com/sh/install-ubuntu-xenial-td-agent2.5.sh | sh
-# td-agent 2.3 or earlier
-curl -L https://toolbelt.treasuredata.com/sh/install-ubuntu-xenial-td-agent2.sh | sh
+curl -L https://toolbelt.treasuredata.com/sh/install-ubuntu-xenial-td-agent3.sh | sh
 ```
 
-For Trusty,
+For Ubuntu Trusty,
 
 ``` {.CodeRay}
-# td-agent 2.5 or later
-curl -L https://toolbelt.treasuredata.com/sh/install-ubuntu-trusty-td-agent2.5.sh | sh
-# td-agent 2.3 or earlier
-curl -L https://toolbelt.treasuredata.com/sh/install-ubuntu-trusty-td-agent2.sh | sh
-```
-
-For Precise,
-
-``` {.CodeRay}
-curl -L https://toolbelt.treasuredata.com/sh/install-ubuntu-precise-td-agent2.sh | sh
-```
-
-For Lucid,
-
-``` {.CodeRay}
-curl -L https://toolbelt.treasuredata.com/sh/install-ubuntu-lucid-td-agent2.sh | sh
+curl -L https://toolbelt.treasuredata.com/sh/install-ubuntu-trusty-td-agent3.sh | sh
 ```
 
 For Debian Stretch,
 
 ``` {.CodeRay}
-curl -L https://toolbelt.treasuredata.com/sh/install-debian-stretch-td-agent2.sh | sh
+curl -L https://toolbelt.treasuredata.com/sh/install-debian-stretch-td-agent3.sh | sh
 ```
 
 For Debian Jessie,
 
 ``` {.CodeRay}
-curl -L https://toolbelt.treasuredata.com/sh/install-debian-jessie-td-agent2.sh | sh
-```
-
-For Debian Wheezy,
-
-``` {.CodeRay}
-curl -L https://toolbelt.treasuredata.com/sh/install-debian-wheezy-td-agent2.sh | sh
-```
-
-For Debian Squeeze,
-
-``` {.CodeRay}
-curl -L https://toolbelt.treasuredata.com/sh/install-debian-squeeze-td-agent2.sh | sh
+curl -L https://toolbelt.treasuredata.com/sh/install-debian-jessie-td-agent3.sh | sh
 ```
 
 It's HIGHLY recommended that you set up **ntpd** on the node to prevent
 invalid timestamps in your logs. Please check the [Preinstallation
 Guide](/articles/before-install.md).
 
-Step2: Launch Daemon
---------------------
+[]{#step-2:-launch-daemon}
+
+Step 2: Launch Daemon
+---------------------
+
+
+### systemd
+
+The `/lib/systemd/system/td-agent` script is provided to start, stop, or
+restart the agent.
+
+``` {.CodeRay}
+$ sudo systemctl start td-agent.service
+$ sudo systemctl status td-agent.service
+● td-agent.service - td-agent: Fluentd based data collector for Treasure Data
+   Loaded: loaded (/lib/systemd/system/td-agent.service; disabled; vendor preset: enabled)
+   Active: active (running) since Thu 2017-12-07 15:12:27 PST; 6min ago
+     Docs: https://docs.treasuredata.com/articles/td-agent
+  Process: 53192 ExecStart = /opt/td-agent/embedded/bin/fluentd --log /var/log/td-agent/td-agent.log --daemon /var/run/td-agent/td-agent.pid (code = exited, statu
+ Main PID: 53198 (fluentd)
+   CGroup: /system.slice/td-agent.service
+           ├─53198 /opt/td-agent/embedded/bin/ruby /opt/td-agent/embedded/bin/fluentd --log /var/log/td-agent/td-agent.log --daemon /var/run/td-agent/td-agent
+           └─53203 /opt/td-agent/embedded/bin/ruby -Eascii-8bit:ascii-8bit /opt/td-agent/embedded/bin/fluentd --log /var/log/td-agent/td-agent.log --daemon /v
+
+Dec 07 15:12:27 ubuntu systemd[1]: Starting td-agent: Fluentd based data collector for Treasure Data...
+Dec 07 15:12:27 ubuntu systemd[1]: Started td-agent: Fluentd based data collector for Treasure Data.
+```
+
+If you want to customize systemd behaviour, put your `td-agent.service`
+into `/etc/systemd/system`
+
+
+### init.d
 
 The `/etc/init.d/td-agent` script is provided to start, stop, or restart
 the agent.
@@ -136,8 +133,10 @@ $ sudo /etc/init.d/td-agent status
 Please make sure **your configuration file** is located at
 `/etc/td-agent/td-agent.conf`.
 
-Step3: Post Sample Logs via HTTP
---------------------------------
+[]{#step-3:-post-sample-logs-via-http}
+
+Step 3: Post Sample Logs via HTTP
+---------------------------------
 
 By default, `/etc/td-agent/td-agent.conf` is configured to take logs
 from HTTP and route them to stdout (`/var/log/td-agent/td-agent.log`).
@@ -146,6 +145,7 @@ You can post sample log records using the curl command.
 ``` {.CodeRay}
 $ curl -X POST -d 'json={"json":"message"}' http://localhost:8888/debug.test
 ```
+
 
 Next Steps
 ----------

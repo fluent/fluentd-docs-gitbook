@@ -1,11 +1,9 @@
-relabel Output Plugin
-=====================
+# relabel Output Plugin
 
 The `relabel` output plugin re-labels events.
 
 
-Example Configuration
----------------------
+## Example Configuration
 
 `out_relabel` is included in Fluentd's core. No additional installation
 process is required.
@@ -17,7 +15,7 @@ process is required.
 </match>
 
 <label @foo>
-  <match patter>
+  <match pattern>
     ...
   </match>
 </label>
@@ -30,24 +28,41 @@ FYI: All of input and output plugins also have `@label` parameter
 provided by Fluentd core. The `relabel` plugin is a plugin which
 actually does nothing, but supports only `@label` parameter.
 
+
+Supported modes
+---------------
+
+-   Non-Buffered
+
+-   See also: [Output Plugin Overview](/articles/output-plugin-overview.md)
+
+
+Plugin helpers
+--------------
+
+-   [event\_emitter](/articles/api-plugin-helper-event_emitter.md)
+
+
 Parameters
 ----------
 
-### \@type (required)
+[Common Parameters](/articles/plugin-common-parameters.md)
+
+[]{#@type}
+
+### \@type
 
 The value must be `relabel`.
+
+[]{#@label}
 
 ### \@label
 
 The label.
 
-#### log\_level option
-
-The `log_level` option allows the user to set different levels of
-logging for each plugin. The supported log levels are: `fatal`, `error`,
-`warn`, `info`, `debug`, and `trace`.
-
-Please see the [logging article](/articles/logging.md) for further details.
+    type         default         version
+  -------- -------------------- ---------
+   string   required parameter   0.14.0
 
 
 ------------------------------------------------------------------------

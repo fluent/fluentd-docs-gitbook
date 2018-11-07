@@ -1,13 +1,11 @@
-Fluentd + HDFS: Instant Big Data Collection
-===========================================
+# Fluentd + HDFS: Instant Big Data Collection
 
 This article explains how to use [Fluentd](http://fluentd.org/)'s
 [WebHDFS Output plugin](http://github.com/fluent/fluent-plugin-webhdfs/)
 to aggregate semi-structured logs into Hadoop HDFS.
 
 
-Background
-----------
+## Background
 
 [Fluentd](http://fluentd.org/) is an advanced open-source log collector
 originally developed at [Treasure Data,
@@ -23,12 +21,14 @@ supports an HTTP interface called WebHDFS.
 This article will show you how to use [Fluentd](http://fluentd.org/) to
 receive data from HTTP and stream it into HDFS.
 
+
 Architecture
 ------------
 
 The figure below shows the high-level architecture.
 
 ![](/images/http-to-hdfs.png)
+
 
 Install
 -------
@@ -53,12 +53,14 @@ install the plugin, please use `gem install fluent-plugin-webhdfs`.
     (CDH3u5 and CDH4 onwards)
 -   [Ruby gem](/articles/install-by-gem.md)
 
+
 Fluentd Configuration
 ---------------------
 
 Let's start configuring Fluentd. If you used the deb/rpm package,
 Fluentd's config file is located at /etc/td-agent/td-agent.conf.
 Otherwise, it is located at /etc/fluentd/fluentd.conf.
+
 
 ### HTTP Input
 
@@ -72,6 +74,7 @@ HTTP. The Fluentd configuration file should look like this:
 </source>
 ```
 
+
 ### WebHDFS Output
 
 The output destination will be WebHDFS. The output configuration should
@@ -83,7 +86,9 @@ look like this:
   host namenode.your.cluster.local
   port 50070
   path "/log/%Y%m%d_%H/access.log.#{Socket.gethostname}"
-  flush_interval 10s
+  <buffer>
+    flush_interval 10s
+  </buffer>
 </match>
 ```
 
@@ -101,6 +106,7 @@ parameter. This prevents multiple Fluentd instances from appending data
 to the same file, which must be avoided for append operations.
 
 Other options specify HDFS's NameNode host and port.
+
 
 HDFS Configuration
 ------------------
@@ -129,6 +135,7 @@ cluster.
 Please confirm that the HDFS user has write access to the *path*
 specified as the WebHDFS output.
 
+
 Test
 ----
 
@@ -149,6 +156,7 @@ $ sudo -u hdfs hadoop fs -lsr /log/
 drwxr-xr-x   - 1 supergroup          0 2012-10-22 09:40 /log/20121022_14/access.log.dev
 ```
 
+
 Conclusion
 ----------
 
@@ -157,10 +165,11 @@ scalable! [\@tagomoris](http://github.com/tagomoris) has already been
 using this plugin to collect 20,000 msgs/sec, 1.5 TB/day without any
 major problems for several months now.
 
+
 Learn More
 ----------
 
--   [Fluentd Architecture](///www.fluentd.org/architecture)
+-   [Fluentd Architecture](//www.fluentd.org/architecture)
 -   [Fluentd Get Started](/articles/quickstart.md)
 -   [WebHDFS Output Plugin](/articles/out_webhdfs.md)
 -   [Slides: Fluentd and

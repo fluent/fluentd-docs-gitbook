@@ -1,5 +1,4 @@
-Source Code
-===========
+# Source Code
 
 The Fluentd Source Code is managed on github. The project organization
 can be found [here](https://github.com/fluent/).

@@ -1,11 +1,9 @@
-copy Output Plugin
-==================
+# copy Output Plugin
 
 The `copy` output plugin copies events to multiple outputs.
 
 
-Example Configuration
----------------------
+## Example Configuration
 
 `out_copy` is included in Fluentd's core. No additional installation
 process is required.
@@ -26,73 +24,122 @@ process is required.
   </store>
 </match>
 ```
+
 Please see the [Config File](/articles/config-file.md) article for the basic
 structure and syntax of the configuration file.
 
 Here is an example set up to send events to both a local file under
-`/var/log/fluent/myapp` and the collection `fluentd.test` in a local
-MongoDB instance (Please see the [out\_file](/articles/out_file.md) and
-[out\_mongo](/articles/out_mongo.md) articles for more details about the
-respective plugins.)
+`/var/log/fluent/myapp` and the collection `fluentd.test` in a
+Elasticsearch instance (Please see the [out\_file](/articles/out_file.md)
+and [out\_elasticsearch](/articles/out_elasticsearch.md) articles for more
+details about the respective plugins.)
 
 ``` {.CodeRay}
-<match myevent.file_and_mongo>
+<match myevent.file_and_elasticsearch>
   @type copy
   <store>
     @type file
     path /var/log/fluent/myapp
-    time_slice_format %Y%m%d
-    time_slice_wait 10m
-    time_format %Y%m%dT%H%M%S%z
     compress gzip
-    utc
+    <format>
+      localtime false
+    </format>
+    <buffer time>
+      timekey_wait 10m
+      timekey 86400
+      timekey_use_utc true
+      path /var/log/fluent/myapp
+    </buffer>
+    <inject>
+      time_format %Y%m%dT%H%M%S%z
+      localtime false
+    </inject>
   </store>
   <store>
-    @type mongo
+    @type elasticsearch
     host fluentd
-    port 27017
-    database fluentd
-    collection test
+    port 9200
+    index_name fluentd
+    type_name fluentd
   </store>
 </match>
 ```
 
+
+Plugin helpers
+--------------
+
+-   [formatter](/articles/api-plugin-helper-formatter.md)
+-   [inject](/articles/api-plugin-helper-inject.md)
+-   [compat\_parameters](/articles/api-plugin-helper-compat_parameters.md)
+
+-   See also: [Output Plugin Overview](/articles/output-plugin-overview.md)
+
+
 Parameters
 ----------
 
-### \@type (required)
+[Common Parameters](/articles/plugin-common-parameters.md)
+
+[]{#@type}
+
+### \@type
 
 The value must be `copy`.
 
+[]{#deep_copy}
+
 ### deep\_copy
+
+   type   default   version
+  ------ --------- ---------
+   bool    false    0.14.0
 
 `out_copy` shares a record between `store` plugins by default.
 
-When `deep_copy` is true, `out_copy` passes different record to each
+When `deep_copy` is true, `out_copy` passes dupped record to each
 `store` plugin.
 
-### \<store\> (at least one required)
+[]{#<store>-section}
+
+### \<store\> section
 
 Specifies the storage destinations. The format is the same as the
 \<match\> directive.
 
-#### log\_level option
+This section is required at least once.
 
-The `log_level` option allows the user to set different levels of
-logging for each plugin. The supported log levels are: `fatal`, `error`,
-`warn`, `info`, `debug`, and `trace`.
+#### ignore\_error argument
 
-Please see the [logging article](/articles/logging.md) for further details.
+If one `store` raises an error, it affects other `<store>`. For example,
 
-FAQ
----
+``` {.CodeRay}
+<match app.**>
+  @type copy
+  <store>
+    @type plugin1
+  </store>
+  <store>
+    @type plugin2
+  </store>
+</match>
+```
 
-### How to ignore each error in \\\<store\>?
+if plugin1's emit/format raises an error, plugin2 is not executed. If
+you want to ignore an error from less important `<store>`, you can
+specify `ignore_error` in `<store>`.
 
-If one `store` raises an error, it affects other `<store>`. If you want
-to ignore an exception from less important `<store>`, you can use 3rd
-party [out\_copy\_ex](https://github.com/sonots/fluent-plugin-copy_ex)
-instead.
+``` {.CodeRay}
+<match app.**>
+  @type copy
+  <store ignore_error>
+    @type plugin1
+  </store>
+  <store>
+    @type plugin2
+  </store>
+</match>
+```
 
 
 ------------------------------------------------------------------------

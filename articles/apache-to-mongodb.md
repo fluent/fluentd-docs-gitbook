@@ -1,13 +1,11 @@
-Store Apache Logs into MongoDB
-==============================
+# Store Apache Logs into MongoDB
 
 This article explains how to use [Fluentd](http://fluentd.org/)'s
 MongoDB Output plugin ([out\_mongo](/articles/out_mongo.md)) to aggregate
 semi-structured logs in real-time.
 
 
-Background
-----------
+## Background
 
 [Fluentd](http://fluentd.org/) is an advanced open-source log collector
 originally developed at [Treasure Data,
@@ -18,11 +16,12 @@ this criterion, but we believe [MongoDB](http://www.mongodb.org/) is the
 market leader.
 
 MongoDB is an open-source, document-oriented database developed at
-[10gen, Inc](http://www.10gen.com/). It is schema-free and uses a
+[MongoDB, Inc](http://www.mongodb.com/). It is schema-free and uses a
 JSON-like format to manage semi-structured data.
 
 This article will show you how to use [Fluentd](http://fluentd.org/) to
 import Apache logs into MongoDB.
+
 
 Mechanism
 ---------
@@ -37,6 +36,7 @@ Fluentd does 3 things:
 2.  It parses the incoming log entries into meaningful fields (such as
     `ip`, `path`, etc.) and buffers them.
 3.  It writes the buffered data to MongoDB periodically.
+
 
 Install
 -------
@@ -61,12 +61,14 @@ For MongoDB, please refer to the following downloads page.
 
 -   [MongoDB Downloads](http://www.mongodb.org/downloads)
 
+
 Configuration
 -------------
 
 Let's start configuring Fluentd. If you used the deb/rpm package,
 Fluentd's config file is located at /etc/td-agent/td-agent.conf.
 Otherwise, it is located at /etc/fluentd/fluentd.conf.
+
 
 ### Tail Input
 
@@ -77,21 +79,25 @@ configuration file should look like this:
 ``` {.CodeRay}
 <source>
   @type tail
-  format apache2
   path /var/log/apache2/access_log
   pos_file /var/log/td-agent/apache2.access_log.pos
+  <parse>
+    @type apache2
+  </parse>
   tag mongo.apache.access
 </source>
 ```
+
 Please make sure that your Apache outputs are in the default
 \'combined\' format. \`format apache2\` cannot parse custom log formats.
 Please see the [in\_tail](/articles/in_tail.md) article for more information.
 
 Let's go through the configuration line by line.
 
-1.  `type tail`: The tail Input plugin continuously tracks the log file.
-    This handy plugin is included in Fluentd's core.
-2.  `format apache2`: Uses Fluentd's built-in Apache log parser.
+1.  `@type tail`: The tail Input plugin continuously tracks the log
+    file. This handy plugin is included in Fluentd's core.
+2.  `@type apache2` in `<parse>`: Uses Fluentd's built-in Apache log
+    parser.
 3.  `path /var/log/apache2/access_log`: The location of the Apache log.
     This may be different for your particular system.
 4.  `tag mongo.apache.access`: `mongo.apache.access` is used as the tag
@@ -99,6 +105,7 @@ Let's go through the configuration line by line.
 
 That's it! You should now be able to output a JSON-formatted data stream
 for Fluentd to process.
+
 
 ### MongoDB Output
 
@@ -119,10 +126,14 @@ look like this:
   port 27017
 
   # interval
-  flush_interval 10s
+  <buffer>
+    flush_interval 10s
+  </buffer>
 
   # make sure to include the time key
-  include_time_key true
+  <inject>
+    time_key time
+  </inject>
 </match>
 ```
 
@@ -141,6 +152,7 @@ The other options specify MongoDB's host, port, db, and collection.
 For additional configuration parameters, please see the [MongoDB Output
 plugin](/articles/out_mongo.md) article. If you are using ReplicaSet, please see the
 [MongoDB ReplicaSet Output plugin](/articles/out_mongo_replset.md) article.
+
 
 Test
 ----
@@ -163,16 +175,18 @@ $ mongo
 { "_id" : ObjectId("4ed1ed3a340765ce73000003"), "host" : "127.0.0.1", "user" : "-", "method" : "GET", "path" : "/", "code" : "200", "size" : "44", "time" : ISODate("2011-11-27T07:56:34Z") }
 ```
 
+
 Conclusion
 ----------
 
 Fluentd + MongoDB makes real-time log collection simple, easy, and
 robust.
 
+
 Learn More
 ----------
 
--   [Fluentd Architecture](///www.fluentd.org/architecture)
+-   [Fluentd Architecture](//www.fluentd.org/architecture)
 -   [Fluentd Get Started](/articles/quickstart.md)
 -   [MongoDB Output Plugin](/articles/out_mongo.md)
 -   [MongoDB ReplicaSet Output Plugin](/articles/out_mongo_replset.md)

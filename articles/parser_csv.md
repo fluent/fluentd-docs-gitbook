@@ -1,5 +1,4 @@
-CSV Parser Plugin
-=================
+# CSV Parser Plugin
 
 The `csv` parser plugin parses CSV format.
 
@@ -8,88 +7,38 @@ This plugin uses
 method.
 
 
-Parameters
-----------
+## Parameters
 
-### time\_key
+See [Parse section configurations](/articles/parse-section.md)
 
-Specify time field for event time. Default is `nil`.
 
-If there is no time field in the record, this parser uses current time
-as an event time.
+### keys
 
-### time\_format
+        type              default         version
+  ----------------- -------------------- ---------
+   array of string   required parameter   0.14.9
 
-If time field value is formatted string, e.g. "28/Feb/2013:12:00:00
-+0900", you need to specify this parameter to parse it.
+Names of fields included in each lines.
 
-Default is `nil` and it uses `Time.parse` method to parse the field.
 
-See
-[Time\#strptime](http://ruby-doc.org/stdlib-2.4.1/libdoc/time/rdoc/Time.html#method-c-strptime)
-for additional format information.
+### delimiter
 
-### null\_value\_pattern
+    type    default   version
+  -------- --------- ---------
+   string      ,      0.14.2
 
-Specify null value pattern. Default is `nil`.
+The delimiter character (or string) of CSV values.
 
-If given field value is matched with this pattern, the field value is
-replaced with `nil`.
-
-### null\_empty\_string
-
-If `true`, empty string field is replaced with `nil`. Default is
-`false`.
-
-### types
-
-Although every parsed field has type `string` by default, you can
-specify other types. This is useful when filtering particular fields
-numerically or storing data with sensible type information.
-
-The syntax is
-
-``` {.CodeRay}
-types <field_name_1>:<type_name_1>,<field_name_2>:<type_name_2>,...
-```
-
-e.g.,
-
-``` {.CodeRay}
-types user_id:integer,paid:bool,paid_usd_amount:float
-```
-
-As demonstrated above, "," is used to delimit field-type pairs while ":"
-is used to separate a field name with its intended type.
-
-Unspecified fields are parsed at the default string type.
-
-The list of supported types are shown below:
-
--   string
--   bool
--   integer ("int" would NOT work!)
--   float
--   time
--   array
-
-For the `time` and `array` types, there is an optional third field after
-the type name. For the "time" type, you can specify a time format like
-you would in `time_format`.
-
-For the "array" type, the third field specifies the delimiter (the
-default is ","). For example, if a field called "item\_ids" contains the
-value "3,4,5", `types item_ids:array` parses it as \["3", "4", "5"\].
-Alternatively, if the value is "Adam\|Alice\|Bob",
-`types item_ids:array:|` parses it as \["Adam", "Alice", "Bob"\].
 
 Example
 -------
 
 ``` {.CodeRay}
-format csv
-keys time,host,req_id,user
-time_key time
+<parse>
+  @type csv
+  keys time,host,req_id,user
+  time_key time
+</parse>
 ```
 
 With this configuration:

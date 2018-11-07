@@ -1,56 +1,59 @@
-Output Plugin Overview
-======================
+# Output Plugin Overview
 
-Fluentd has 6 types of plugins: [Input](/articles/input-plugin-overview.md),
+Fluentd has 7 types of plugins: [Input](/articles/input-plugin-overview.md),
 [Parser](/articles/parser-plugin-overview.md), [Filter](/articles/filter-plugin-overview.md),
-[Output](/articles/output-plugin-overview.md), [Formatter](/articles/formatter-plugin-overview.md)
-and [Buffer](/articles/buffer-plugin-overview.md). This article gives an overview of
-Output Plugin.
+[Output](/articles/output-plugin-overview.md),
+[Formatter](/articles/formatter-plugin-overview.md),
+[Storage](/articles/storage-plugin-overview.md) and [Buffer](/articles/buffer-plugin-overview.md).
+This article gives an overview of Output Plugin.
 
 
-Overview
---------
+## Overview
 
-There are three types of output plugins: Non-Buffered, Buffered, and
-Time Sliced.
+Fluentd v1.0 output plugins have 3 modes about buffering and flushing.
 
--   *Non-Buffered* output plugins do not buffer data and immediately
-    write out results.
--   *Buffered* output plugins maintain a queue of chunks (a chunk is a
-    collection of events), and its behavior can be tuned by the "chunk
-    limit" and "queue limit" parameters (See the diagram below).
--   *Time Sliced* output plugins are in fact a type of Bufferred plugin,
-    but the chunks are keyed by time (See the diagram below).
+-   *Non-Buffered* mode doesn't buffer data and write out results
+    immediately.
+-   *Synchronous Buffered* mode has "staged" buffer chunks (a chunk is a
+    collection of events) and a queue of chunks, and its behavior can be
+    controlled by `<buffer>` section (See the diagram below).
+-   *Asynchronous Buffered* mode also has "stage" and "queue", but
+    output plugin will not commit writing chunks in methods
+    synchronously, but commit later.
 
-![](http://image.slidesharecdn.com/fluentdmeetup-diveintofluentplugin-120203210125-phpapp02/95/slide-60-728.jpg)
+![Fluentd v1.0 Plugin API
+Overview](//docs.fluentd.org/images/fluentd-v0.14-plugin-api-overview.png)
 
-The output plugin's buffer behavior (if any) is defined by a separate
-[Buffer plugin](/articles/buffer-plugin-overview.md). Different buffer plugins can be
-chosen for each output plugin. Some output plugins are fully customized
-and do not use buffers.
+Output plugins can support all modes, but may support just one of these
+modes. Fluentd choose appropriate mode automatically if there are no
+`<buffer>` sections in configuration. If users specify `<buffer>`
+section for output plugins which doesn't support buffering, Fluentd will
+stop with configuration errors.
 
-List of Non-Buffered Output Plugins
------------------------------------
+Output plugins in v0.14 can control keys of buffer chunking by
+configurations, dynamically. Users can configure buffer chunk keys as
+time (any unit specified by user), tag and any key name of records.
+Output plugin will split events into chunks: events in a chunk have same
+values for chunk keys. The output plugin's buffer behavior (if any) is
+defined by a separate [Buffer plugin](/articles/buffer-plugin-overview.md). Different
+buffer plugins can be chosen for each output plugin.
+
+
+List of Output Plugins
+----------------------
 
 -   [out\_copy](/articles/out_copy.md)
 -   [out\_null](/articles/out_null.md)
 -   [out\_roundrobin](/articles/out_roundrobin.md)
 -   [out\_stdout](/articles/out_stdout.md)
-
-List of Buffered Output Plugins
--------------------------------
-
 -   [out\_exec\_filter](/articles/out_exec_filter.md)
 -   [out\_forward](/articles/out_forward.md)
 -   [out\_mongo](/articles/out_mongo.md) or [out\_mongo\_replset](/articles/out_mongo_replset.md)
-
-List of Time Sliced Output Plugins
-----------------------------------
-
 -   [out\_exec](/articles/out_exec.md)
 -   [out\_file](/articles/out_file.md)
 -   [out\_s3](/articles/out_s3.md)
 -   [out\_webhdfs](/articles/out_webhdfs.md)
+
 
 Other Plugins
 -------------
@@ -60,173 +63,221 @@ Output plugins.
 
 -   [others](http://fluentd.org/plugin/)
 
-Buffered Output Parameters
---------------------------
 
-For advanced usage, you can tune Fluentd's internal buffering mechanism
-with these parameters.
+Difference between v1.0 and v0.12
+---------------------------------
 
-### buffer\_type
+Fluentd v0.12 uses only `<match>` section for both of configuration
+parameters of output plugin and buffer plugin. Fluentd v1.0 uses
+`<buffer>` subsection to write parameters for buffering, flushing and
+retrying. `<match>` sections are used only for output plugin itself.
 
-The buffer type is `memory` by default ([buf\_memory](/articles/buf_memory.md)) for
-the ease of testing, however `file` ([buf\_file](/articles/buf_file.md)) buffer type
-is always recommended for the production deployments. If you use `file`
-buffer type, `buffer_path` parameter is required.
-
-### buffer\_queue\_limit, buffer\_chunk\_limit
-
-The length of the chunk queue and the size of each chunk, respectively.
-Please see the [Buffer Plugin Overview](/articles/buffer-plugin-overview.md) article
-for the basic buffer structure. The default values are 64 and 8m,
-respectively. The suffixes "k" (KB), "m" (MB), and "g" (GB) can be used
-for buffer\_chunk\_limit.
-
-### flush\_interval
-
-The interval between data flushes. The default is 60s. The suffixes "s"
-(seconds), "m" (minutes), and "h" (hours) can be used.
-
-### flush\_at\_shutdown
-
-If set to true, Fluentd waits for the buffer to flush at shutdown. By
-default, it is set to true for Memory Buffer and false for File Buffer.
-
-### retry\_wait, max\_retry\_wait
-
-The initial and maximum intervals between write retries. The default
-values are 1.0 seconds and unset (no limit). The interval doubles (with
-+/-12.5% randomness) every retry until `max_retry_wait` is reached.
-
-Since td-agent will retry 17 times before giving up by default (see the
-`retry_limit` parameter for details), the sleep interval can be up to
-approximately 131072 seconds (roughly 36 hours) in the default
-configurations.
-
-### retry\_limit, disable\_retry\_limit
-
-The limit on the number of retries before buffered data is discarded,
-and an option to disable that limit (if true, the value of `retry_limit`
-is ignored and there is no limit). The default values are 17 and false
-(not disabled). If the limit is reached, buffered data is discarded and
-the retry interval is reset to its initial value (`retry_wait`).
-
-### num\_threads
-
-The number of threads to flush the buffer. This option can be used to
-parallelize writes into the output(s) designated by the output plugin.
-Increasing the number of threads improves the flush throughput to hide
-write / network latency. The default is 1.
-
-### slow\_flush\_log\_threshold
-
-The threshold for checking chunk flush performance. The default value is
-`20.0` seconds. Note that parameter type is `float`, not `time`.
-
-If chunk flush takes longer time than this threshold, fluentd logs
-warning message like below:
+Example of v1.0 output plugin configuration:
 
 ``` {.CodeRay}
-2016-12-19 12:00:00 +0000 [warn]: buffer flush took longer time than slow_flush_log_threshold: elapsed_time = 15.0031226690043695 slow_flush_log_threshold=10.0 plugin_id="foo"
+<match myservice_name>
+  @type file
+  path /my/data/access.${tag}.%Y-%m-%d.%H%M.log
+  <buffer tag,time>
+    @type file
+    path /my/buffer/myservice
+    timekey     60m
+    timekey_wait 1m
+  </buffer>
+</source>
 ```
 
-### secondary output
+For Fluentd v0.12, configuration parameters for buffer plugins were
+written in same section:
 
-At Buffered output plugin, the user can specify `<secondary>` with any
-output plugin in `<match>` configuration. If the retry count exceeds the
-buffer's `retry_limit` (and the retry limit has not been disabled via
-`disable_retry_limit`), then buffered chunk is output to `<secondary>`
-output plugin.
+``` {.CodeRay}
+<match myservice_name>
+  @type file
+  path /my/data/access.myservice_name.*.log
+  buffer_type file
+  buffer_path /my/buffer/myservice/access.myservice_name.*.log
+  time_slice_format %Y-%m-%d.%H%M
+  time_slice_wait   1m
+</source>
+```
+
+See buffer section in [Compat Parameters Plugin Helper
+API](https://docs.fluentd.org/v1.0/articles/api-plugin-helper-compat_parameters#compat_parameters_convert(conf,-*types,-**kwargs))
+for parameter name changes between v1 and v0.12.
+
+
+Buffering/Retrying Parameters
+-----------------------------
+
+See [Buffer section configurations](/articles/buffer-section.md).
+
+
+### Control Flushing
+
+See [Buffer Plugin Overview](/articles/buffer-plugin-overview.md) for the basic
+behaviour of buffer.
+
+#### flush\_mode
+
+The default is `default`. Supported types are `default`, `lazy`,
+`interval` or `immediate`
+
+How to enqueue chunks to be flushed. "interval" flushes per
+flush\_interval, "immediate" flushes just after event arrival.
+
+#### flush\_interval
+
+the default is 60
+
+The interval between buffer chunk flushes.
+
+#### flush\_thread\_count
+
+The default is 1.
+
+The number of threads to flush the buffer.
+
+#### flush\_thread\_interval
+
+The default is `1.0`
+
+Seconds to sleep between checks for buffer flushes in flush threads.
+
+#### flush\_thread\_burst\_interval
+
+The default is `1.0`
+
+Seconds to sleep between flushes when many buffer chunks are queued.
+
+#### delayed\_commit\_timeout
+
+The default is 60.
+
+Seconds of timeout for buffer chunks to be committed by plugins later
+
+#### overflow\_action
+
+Control the buffer behaviour when the queue becomes full. 3 modes are
+supported:
+
+-   throw\_exception
+
+This is default mode. This mode raises `BufferQueueLimitError` exception
+to input plugin. How handle `BufferQueueLimitError` depends on input
+plugins, e.g. tail input stops reading new lines, forward input returns
+an error to forward output. This action fits for streaming manner.
+
+-   block
+
+This mode stops input plugin thread until buffer full is resolved. This
+action is good for batch-like use-case.
+
+We don't recommend to use `block` action to avoid
+`BufferQueueLimitError`. Please consider improving destination setting
+to resolve `BufferQueueLimitError` or use `@ERROR` label for routing
+overflowed events to another backup destination(or `secondary` with
+lower `retry_limit`). If you hit `BufferQueueLimitError` frequently, it
+means your destination capacity is insufficient for your traffic.
+
+-   drop\_oldest\_chunk
+
+This mode drops oldest chunks. This mode is useful for monitoring system
+destinations. For monitoring, newer events are important than older.
+
+
+### Control Retrying
+
+If the bottom chunk write out fails, it will remain in the queue and
+Fluentd will retry after waiting several seconds (`retry_wait`). If the
+retry limit has not been disabled (`retry_forever` is true) and the
+retry count exceeds the specified limit (`retry_max_times`), the chunk
+is trashed. The retry wait time doubles each time (1.0sec, 2.0sec,
+4.0sec, ...) until `retry_max_interval` is reached. If the queue length
+exceeds the specified limit (`queue_limit_length`), new events are
+rejected.
+
+writing out the bottom chunk is considered to be a failure if
+\"Output\#write\" or \`Output\#try\_write\` method throws an exception.
+
+#### retry\_type
+
+The default is `exponential_backoff`.
+
+How to wait next retry to flush buffer. Supported types are
+`exponential_backoff` or `periodic`
+
+#### retry\_forever
+
+The default is false.
+
+If true, plugin will ignore retry\_timeout and retry\_max\_times options
+and retry flushing forever.
+
+#### retry\_timeout
+
+The default is 72 hours.
+
+The maximum seconds to retry to flush while failing, until plugin
+discards buffer chunks.
+
+#### retry\_max\_times
+
+The default is `nil`
+
+The maximum number of times to retry to flush while failing. If
+`retry_timeout` is the default, the number is 17 with exponential
+backoff.
+
+#### retry\_secondary\_threshold
+
+The default is `0.8`
+
+The ratio of retry\_timeout to switch to use secondary while failing.
+
+#### retry\_wait
+
+The default is 1
+
+Seconds to wait before next retry to flush, or constant factor of
+exponential backoff.
+
+#### retry\_exponential\_backoff\_base
+
+The default is 2
+
+The base number of exponencial backoff for retries.
+
+#### retry\_max\_interval
+
+The default is `nil`.
+
+The maximum interval seconds for exponential backoff between retries
+while failing.
+
+#### retry\_randomize, :bool, default: true
+
+The default is `true`.
+
+If true, output plugin will retry after randomized interval not to do
+burst retries.
+
+For other configuration parameters available in `<buffer>` sections, see
+[Buffer plugin overview](/articles/buffer-plugin-overview.md) and each plugins.
+
+
+Secondary Output
+----------------
+
+In buffered mode, the user can specify `<secondary>` with any output
+plugin in `<match>` configuration. If plugins continue to fail writing
+buffer chunks and exceeds the timeout threshold for retries, then output
+plugins will delegate to write the buffer chunk to secondary plugin.
 
 `<secondary>` is useful for backup when destination servers are
 unavailable, e.g. forward, mongo and other plugins. We strongly
-recommend `out_file` plugin for `<secondary>`.
+recommend `out_secondary_file` plugin for `<secondary>`.
 
-Time Sliced Output Parameters
------------------------------
-
-For advanced usage, you can tune Fluentd's internal buffering mechanism
-with these parameters.
-
-### time\_slice\_format
-
-The time format used as part of the file name. The following characters
-are replaced with actual values when the file is created:
-
--   \%Y: year including the century (at least 4 digits)
--   \%m: month of the year (01..12)
--   \%d: Day of the month (01..31)
--   \%H: Hour of the day, 24-hour clock (00..23)
--   \%M: Minute of the hour (00..59)
--   \%S: Second of the minute (00..60)
-
-The default format is `%Y%m%d%H`, which creates one file per hour.
-
-### time\_slice\_wait
-
-The amount of time Fluentd will wait for old logs to arrive. This is
-used to account for delays in logs arriving to your Fluentd node. The
-default wait time is 10 minutes ('10m'), where Fluentd will wait until
-10 minutes past the hour for any logs that occurred within the past
-hour.
-
-For example, when splitting files on an hourly basis, a log recorded at
-1:59 but arriving at the Fluentd node between 2:00 and 2:10 will be
-uploaded together with all the other logs from 1:00 to 1:59 in one
-transaction, avoiding extra overhead. Larger values can be set as
-needed.
-
-### buffer\_type
-
-The buffer type is `file` by default ([buf\_file](/articles/buf_file.md)). The
-`memory` ([buf\_memory](/articles/buf_memory.md)) buffer type can be chosen as well.
-If you use `file` buffer type, `buffer_path` parameter is required.
-
-### buffer\_queue\_limit, buffer\_chunk\_limit
-
-The length of the chunk queue and the size of each chunk, respectively.
-Please see the [Buffer Plugin Overview](/articles/buffer-plugin-overview.md) article
-for the basic buffer structure. The default values are 64 and 8m,
-respectively. The suffixes "k" (KB), "m" (MB), and "g" (GB) can be used
-for buffer\_chunk\_limit.
-
-### flush\_interval
-
-The interval between data flushes. The default is 60s. The suffixes "s"
-(seconds), "m" (minutes), and "h" (hours) can be used.
-
-### flush\_at\_shutdown
-
-If set to true, Fluentd waits for the buffer to flush at shutdown. By
-default, it is set to true for Memory Buffer and false for File Buffer.
-
-### retry\_wait, max\_retry\_wait
-
-The initial and maximum intervals between write retries. The default
-values are 1.0 and unset (no limit). The interval doubles (with +/-12.5%
-randomness) every retry until `max_retry_wait` is reached.
-
-Since td-agent will retry 17 times before giving up by default (see the
-`retry_limit` parameter for details), the sleep interval can be up to
-approximately 131072 seconds (roughly 36 hours) in the default
-configurations.
-
-### retry\_limit, disable\_retry\_limit
-
-The limit on the number of retries before buffered data is discarded,
-and an option to disable that limit (if true, the value of `retry_limit`
-is ignored and there is no limit). The default values are 17 and false
-(not disabled). If the limit is reached, buffered data is discarded and
-the retry interval is reset to its initial value (`retry_wait`).
-
-### num\_threads
-
-The number of threads to flush the buffer. This option can be used to
-parallelize writes into the output(s) designated by the output plugin.
-The default is 1.
-
-### slow\_flush\_log\_threshold
-
-Same as Buffered Output but default value is changed to `40.0` seconds.
+TODO: add examples for secondary output
 
 
 ------------------------------------------------------------------------

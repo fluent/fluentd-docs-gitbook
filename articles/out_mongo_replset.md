@@ -1,15 +1,18 @@
-MongoDB ReplicaSet Output Plugin
-================================
+# MongoDB ReplicaSet Output Plugin
 
-The `out_mongo_replset` Buffered Output plugin writes records into
+The `out_mongo_replset` Output plugin writes records into
 [MongoDB](http://mongodb.org/), the emerging document-oriented database
 system.
+
 This plugin is for users using ReplicaSet. If you are not using
 ReplicaSet, please see the [out\_mongo](/articles/out_mongo.md) article instead.
 
+This plugin has breaking changes since 0.8.0 due to mongo-ruby driver\'s
+breaking changes. If you are using prior 0.7.x series, please be careful
+to upgrade 1.0.0 or later versions.
 
-Why Fluentd with MongoDB?
--------------------------
+
+## Why Fluentd with MongoDB?
 
 Fluentd enables your apps to insert records to MongoDB asynchronously
 with batch-insertion, unlike direct insertion of records from your apps.
@@ -19,16 +22,18 @@ This has the following advantages:
 2.  higher MongoDB insertion throughput while maintaining JSON record
     structure
 
+
 Install
 -------
 
-`out_mongo_replset` is included in td-agent by default. Fluentd gem
+`out_mongo_replset` is not included in td-agent by default. Fluentd gem
 users will need to install the fluent-plugin-mongo gem using the
 following command.
 
 ``` {.CodeRay}
 $ fluent-gem install fluent-plugin-mongo
 ```
+
 
 Example Configuration
 ---------------------
@@ -41,8 +46,13 @@ Example Configuration
   collection test
   nodes localhost:27017,localhost:27018,localhost:27019
 
-  # flush
-  flush_interval 10s
+  # The name of the replica set
+  replica_set myapp
+
+  <buffer>
+    # flush
+    flush_interval 10s
+  </buffer>
 </match>
 ```
 
@@ -50,47 +60,92 @@ Please see the [Store Apache Logs into MongoDB](/articles/apache-to-mongodb.md)
 article for real-world use cases.
 
 Please see the [Config File](/articles/config-file.md) article for the basic
-structure and syntax of the configuration file.
+structure and syntax of the configuration file. For \<buffer\> section,
+please check [Buffer section cofiguration](/articles/buffer-section.md).
+
 
 Parameters
 ----------
 
-### type (required)
+
+### type
 
 The value must be `mongo`.
 
-### nodes (required)
+
+### nodes
+
+    type         default         version
+  -------- -------------------- ---------
+   string   required parameter    1.0.0
 
 The comma separated node strings (e.g.
 host1:27017,host2:27017,host3:27017).
 
-### database (required)
+
+### database
+
+    type         default         version
+  -------- -------------------- ---------
+   string   required parameter    1.0.0
 
 The database name.
 
-### collection (required if not tag\_mapped)
+
+### collection
+
+    type                   default                   version
+  -------- ---------------------------------------- ---------
+   string   required parameter if not `tag_mapped`    1.0.0
 
 The collection name.
 
+
 ### capped
+
+    type    default    version
+  -------- ---------- ---------
+   string   optional    1.0.0
 
 This option enables capped collection. This is always recommended
 because MongoDB is not suited to storing large amounts of historical
 data.
 
+[]{#capped_size}
+
 ### capped\_size
+
+   type   default    version
+  ------ ---------- ---------
+   size   optional    1.0.0
 
 Sets the capped collection size.
 
+
 ### user
+
+    type    default    version
+  -------- ---------- ---------
+   string   optional    1.0.0
 
 The username to use for authentication.
 
+
 ### password
+
+    type    default    version
+  -------- ---------- ---------
+   string   optional    1.0.0
 
 The password to use for authentication.
 
+[]{#tag_mapped}
+
 ### tag\_mapped
+
+    type    default    version
+  -------- ---------- ---------
+   string   optional    1.0.0
 
 This option will allow out\_mongo to use Fluentd's tag to determine the
 destination collection.
@@ -117,103 +172,46 @@ database.
 </match>
 ```
 
-### name
+[]{#replica_set}
 
-The ReplicaSet name.
+### replica\_set
+
+    type         default         version
+  -------- -------------------- ---------
+   string   required parameter    1.0.0
+
+The name of the replica set.
+
 
 ### read
 
+    type    default   version
+  -------- --------- ---------
+   string    `nil`     1.0.0
+
 The ReplicaSet read preference (e.g. secondary, etc).
 
-### refresh\_mode
-
-The ReplicaSet refresh mode (e.g. sync, etc).
-
-### refresh\_interval
-
-The ReplicaSet refresh interval.
+[]{#num_retries}
 
 ### num\_retries
+
+    type     default   version
+  --------- --------- ---------
+   integer     60       1.0.0
 
 The ReplicaSet failover threshold. The default threshold is 60. If the
 retry count reaches this threshold, the plugin raises an exception.
 
-Buffered Output Parameters
---------------------------
 
-For advanced usage, you can tune Fluentd's internal buffering mechanism
-with these parameters.
+Common Output / Buffer parameters
+---------------------------------
 
-### buffer\_type
+For common output / buffer parameters, please check the following
+articles.
 
-The buffer type is `memory` by default ([buf\_memory](/articles/buf_memory.md)) for
-the ease of testing, however `file` ([buf\_file](/articles/buf_file.md)) buffer type
-is always recommended for the production deployments. If you use `file`
-buffer type, `buffer_path` parameter is required.
+-   [Output Plugin Overview](/articles/output-plugin-overview.md)
+-   [Buffer Section Configuration](/articles/buffer-section.md)
 
-### buffer\_queue\_limit, buffer\_chunk\_limit
-
-The length of the chunk queue and the size of each chunk, respectively.
-Please see the [Buffer Plugin Overview](/articles/buffer-plugin-overview.md) article
-for the basic buffer structure. The default values are 64 and 8m,
-respectively. The suffixes "k" (KB), "m" (MB), and "g" (GB) can be used
-for buffer\_chunk\_limit.
-
-### flush\_interval
-
-The interval between data flushes. The default is 60s. The suffixes "s"
-(seconds), "m" (minutes), and "h" (hours) can be used.
-
-### flush\_at\_shutdown
-
-If set to true, Fluentd waits for the buffer to flush at shutdown. By
-default, it is set to true for Memory Buffer and false for File Buffer.
-
-### retry\_wait, max\_retry\_wait
-
-The initial and maximum intervals between write retries. The default
-values are 1.0 seconds and unset (no limit). The interval doubles (with
-+/-12.5% randomness) every retry until `max_retry_wait` is reached.
-
-Since td-agent will retry 17 times before giving up by default (see the
-`retry_limit` parameter for details), the sleep interval can be up to
-approximately 131072 seconds (roughly 36 hours) in the default
-configurations.
-
-### retry\_limit, disable\_retry\_limit
-
-The limit on the number of retries before buffered data is discarded,
-and an option to disable that limit (if true, the value of `retry_limit`
-is ignored and there is no limit). The default values are 17 and false
-(not disabled). If the limit is reached, buffered data is discarded and
-the retry interval is reset to its initial value (`retry_wait`).
-
-### num\_threads
-
-The number of threads to flush the buffer. This option can be used to
-parallelize writes into the output(s) designated by the output plugin.
-Increasing the number of threads improves the flush throughput to hide
-write / network latency. The default is 1.
-
-### slow\_flush\_log\_threshold
-
-The threshold for checking chunk flush performance. The default value is
-`20.0` seconds. Note that parameter type is `float`, not `time`.
-
-If chunk flush takes longer time than this threshold, fluentd logs
-warning message like below:
-
-``` {.CodeRay}
-2016-12-19 12:00:00 +0000 [warn]: buffer flush took longer time than slow_flush_log_threshold: elapsed_time = 15.0031226690043695 slow_flush_log_threshold=10.0 plugin_id="foo"
-```
-
-#### log\_level option
-
-The `log_level` option allows the user to set different levels of
-logging for each plugin. The supported log levels are: `fatal`, `error`,
-`warn`, `info`, `debug`, and `trace`.
-
-Please see the [logging article](/articles/logging.md) for further details.
 
 Further Readings
 ----------------

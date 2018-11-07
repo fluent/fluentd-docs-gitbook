@@ -1,24 +1,38 @@
-single\_value Formatter Plugin
-==============================
+# single\_value Formatter Plugin
 
 The `single_value` formatter plugin output the value of a single field
 instead of the whole record.
 
-This formatter is often used in conjunction with [in\_tail](/articles/in_tail.md)'s
-`format none`.
+This formatter is often used in conjunction with [none
+parser](/articles/parser_none.md) in input plugin.
 
 
-Parameters
-----------
+## Parameters
 
-### add\_newline (Boolean, Optional, defaults to true)
+-   [Common Parameters](/articles/plugin-common-parameters.md)
+-   [Format section configurations](/articles/format-section.md)
+
+[]{#add_newline}
+
+### add\_newline
+
+   type   default   version
+  ------ --------- ---------
+   bool    true     0.14.0
 
 Add `\n` to the result. If there is a trailing "\\n" already, set it
 "false"
 
-### message\_key (String, Optional, defaults to "message")
+[]{#message_key}
+
+### message\_key
+
+    type    default   version
+  -------- --------- ---------
+   string   message   0.14.0
 
 The value of this field is outputted.
+
 
 Example
 -------

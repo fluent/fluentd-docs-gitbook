@@ -1,12 +1,10 @@
-roundrobin Output Plugin
-========================
+# roundrobin Output Plugin
 
 The `roundrobin` Output plugin distributes events to multiple outputs
-using a round-robin algorithm.
+using a weighted round-robin algorithm.
 
 
-Example Configuration
----------------------
+## Example Configuration
 
 `out_roundrobin` is included in Fluentd's core. No additional
 installation process is required.
@@ -18,38 +16,59 @@ installation process is required.
   <store>
     @type tcp
     host 192.168.1.21
+    weight 3
     ...
   </store>
   <store>
+    @type tcp
+    host 192.168.1.22
+    weight 2
     ...
   </store>
   <store>
+    @type tcp
+    host 192.168.1.23
+    weight 1
     ...
   </store>
 </match>
 ```
+
 Please see the [Config File](/articles/config-file.md) article for the basic
 structure and syntax of the configuration file.
+
+
+Supported modes
+---------------
+
+-   Non-Buffered
+
 
 Parameters
 ----------
 
-### \@type (required)
+[Common Parameters](/articles/plugin-common-parameters.md)
+
+[]{#@type}
+
+### \@type
 
 The value must be `roundrobin`.
 
-### \<store\> (required at least one)
+[]{#<store>}
+
+### \<store\>
 
 Specifies the storage destinations. The format is the same as the
 \<match\> directive.
 
-#### log\_level option
+#### weight
 
-The `log_level` option allows the user to set different levels of
-logging for each plugin. The supported log levels are: `fatal`, `error`,
-`warn`, `info`, `debug`, and `trace`.
+    type     default   version
+  --------- --------- ---------
+   integer      1      0.14.1
 
-Please see the [logging article](/articles/logging.md) for further details.
+Weight to distribute events to multiple outputs.
 
 
 ------------------------------------------------------------------------

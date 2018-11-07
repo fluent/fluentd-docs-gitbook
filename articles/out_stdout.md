@@ -1,12 +1,10 @@
-stdout Output Plugin
-====================
+# stdout Output Plugin
 
 The `stdout` output plugin prints events to stdout (or logs if launched
 with daemon mode). This output plugin is useful for debugging purposes.
 
 
-Example Configuration
----------------------
+## Example Configuration
 
 `out_stdout` is included in Fluentd's core. No additional installation
 process is required.
@@ -16,30 +14,98 @@ process is required.
   @type stdout
 </match>
 ```
+
 Please see the [Config File](/articles/config-file.md) article for the basic
 structure and syntax of the configuration file.
+
+A sample output is as follows:
+
+``` {.CodeRay}
+2017-11-28 11:43:13.814351757 +0900 tag: {"field1":"value1","field2":"value2"}
+```
+
+where the first part shows the output time, the second part shows the
+tag, and the third part shows the record.
+
+
+Supported modes
+---------------
+
+-   Non-Buffered
+-   Synchronous
+
+
+Plugin helpers
+--------------
+
+-   [inject](/articles/api-plugin-helper-inject.md)
+-   [formatter](/articles/api-plugin-helper-formatter.md)
+-   [compat\_parameters](/articles/api-plugin-helper-compat_parameters.md)
+
 
 Parameters
 ----------
 
-### \@type (required)
+[Common Parameters](/articles/plugin-common-parameters.md)
+
+[]{#@type}
+
+### \@type
 
 The value must be `stdout`.
 
-### output\_type
+[]{#<buffer>-section}
 
-Output format. The following formats are supported:
+### \<buffer\> section
 
--   json
--   hash (Ruby's hash)
+See [Buffer section configurations](/articles/buffer-section.md) for more details.
 
-#### log\_level option
+#### chunk\_keys
 
-The `log_level` option allows the user to set different levels of
-logging for each plugin. The supported log levels are: `fatal`, `error`,
-`warn`, `info`, `debug`, and `trace`.
+   type    default   version
+  ------- --------- ---------
+   array     tag     0.14.5
 
-Please see the [logging article](/articles/logging.md) for further details.
+Overwrite default value in this plugin.
+
+#### flush\_at\_shutdown
+
+   type   default   version
+  ------ --------- ---------
+   bool    true     0.14.5
+
+Overwrite default value in this plugin.
+
+#### chunk\_limit\_size
+
+   type   default   version
+  ------ --------- ---------
+   size    10240    0.14.5
+
+Overwrite default value in this plugin.
+
+[]{#<format>-section}
+
+### \<format\> section
+
+See [Format section configurations](/articles/format-section.md) for more details.
+
+#### \@type
+
+    type    default   version
+  -------- --------- ---------
+   string   stdout    0.14.5
+
+The format of output.
+
+#### output\_type
+
+    type    default   version
+  -------- --------- ---------
+   string    json     0.14.5
+
+This is the option of `stdout` format. Configure the format of record
+(third part). Any formatter plugins can be specified.
 
 
 ------------------------------------------------------------------------

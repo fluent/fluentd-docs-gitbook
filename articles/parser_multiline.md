@@ -1,5 +1,4 @@
-multiline Parser Plugin
-=======================
+# multiline Parser Plugin
 
 The `multiline` parser plugin parses multiline logs. This plugin is
 multiline version of `regexp` parser.
@@ -8,26 +7,18 @@ The `multiline` parser parses log with `formatN` and `format_firstline`
 parameters. `format_firstline` is for detecting start line of multiline
 log. `formatN`, N's range is 1..20, is the list of Regexp format for
 multiline log.
+
 Unlike other parser plugins, this plugin needs special code in input
 plugin, e.g. handle format\_firstline. So currently, in\_tail plugin
 works with \`multiline\` but other input plugins don\'t work with
 \`multiline\`.
 
 
-Parameters
-----------
+## Parameters
 
-### time\_key
+See [Parse section configurations](/articles/parse-section.md)
 
-Specify the field for event time. Default is `time`.
-
-### time\_format
-
-Specify time format for `time_key`.
-
-See
-[Time\#strptime](http://ruby-doc.org/stdlib-2.4.1/libdoc/time/rdoc/Time.html#method-c-strptime)
-for additional format information.
+[]{#format_firstline}
 
 ### format\_firstline
 
@@ -38,31 +29,35 @@ If `format_firstline` is not specified, input plugin should store
 unmatched new lines in temporary buffer and try to match buffered logs
 with each new line.
 
+
 ### formatN
+
+    type         default         version
+  -------- -------------------- ---------
+   string   required parameter   0.14.0
 
 Specify regexp patterns. For readability, you can separate regexp
 patterns into multiple regexpN parameters, See "Rails log" example.
 These patterns are joined and constructs regexp pattern with multiline
 mode.
 
-### keep\_time\_key
-
-If you want to keep time field in the record, set `true`. Default is
-`false`.
 
 Example
 -------
 
+
 ### Rails log
 
 ``` {.CodeRay}
-format multiline
-format_firstline /^Started/
-format1 /Started (?<method>[^ ]+) "(?<path>[^"]+)" for (?<host>[^ ]+) at (?<time>[^ ]+ [^ ]+ [^ ]+)\n/
-format2 /Processing by (?<controller>[^\u0023]+)\u0023(?<controller_method>[^ ]+) as (?<format>[^ ]+?)\n/
-format3 /(  Parameters: (?<parameters>[^ ]+)\n)?/
-format4 /  Rendered (?<template>[^ ]+) within (?<layout>.+) \([\d\.]+ms\)\n/
-format5 /Completed (?<code>[^ ]+) [^ ]+ in (?<runtime>[\d\.]+)ms \(Views: (?<view_runtime>[\d\.]+)ms \| ActiveRecord: (?<ar_runtime>[\d\.]+)ms\)/
+<parse>
+  @type multiline
+  format_firstline /^Started/
+  format1 /Started (?<method>[^ ]+) "(?<path>[^"]+)" for (?<host>[^ ]+) at (?<time>[^ ]+ [^ ]+ [^ ]+)\n/
+  format2 /Processing by (?<controller>[^\u0023]+)\u0023(?<controller_method>[^ ]+) as (?<format>[^ ]+?)\n/
+  format3 /(  Parameters: (?<parameters>[^ ]+)\n)?/
+  format4 /  Rendered (?<template>[^ ]+) within (?<layout>.+) \([\d\.]+ms\)\n/
+  format5 /Completed (?<code>[^ ]+) [^ ]+ in (?<runtime>[\d\.]+)ms \(Views: (?<view_runtime>[\d\.]+)ms \| ActiveRecord: (?<ar_runtime>[\d\.]+)ms\)/
+</parse>
 ```
 
 With this configuration:
@@ -94,12 +89,15 @@ record:
 }
 ```
 
+
 ### Java stacktrace log
 
 ``` {.CodeRay}
-format multiline
-format_firstline /\d{4}-\d{1,2}-\d{1,2}/
-format1 /^(?<time>\d{4}-\d{1,2}-\d{1,2} \d{1,2}:\d{1,2}:\d{1,2}) \[(?<thread>.*)\] (?<level>[^\s]+)(?<message>.*)/
+<parse>
+  @type multiline
+  format_firstline /\d{4}-\d{1,2}-\d{1,2}/
+  format1 /^(?<time>\d{4}-\d{1,2}-\d{1,2} \d{1,2}:\d{1,2}:\d{1,2}) \[(?<thread>.*)\] (?<level>[^\s]+)(?<message>.*)/
+</parse>
 ```
 
 With this configuration:

@@ -1,5 +1,4 @@
-ltsv Formatter Plugin
-=====================
+# ltsv Formatter Plugin
 
 The `ltsv` formatter plugin output an event as [LTSV](http://ltsv.org).
 
@@ -8,63 +7,40 @@ field1[label_delimiter]value1[delimiter]field2[label_delimiter]value2\n
 ```
 
 
-Parameters
-----------
+## Parameters
 
-### delimiter (String, Optional. defaults to "\\t"(TAB))
+-   [Common Parameters](/articles/plugin-common-parameters.md)
+-   [Format section configurations](/articles/format-section.md)
+
+
+### delimiter
+
+    type     default     version
+  -------- ------------ ---------
+   string   "\\t"(TAB)   0.14.0
 
 Delimiter for fields.
 
-### label\_delimiter (String, Optional. defaults to ":")
+[]{#label_delimiter}
+
+### label\_delimiter
+
+    type    default   version
+  -------- --------- ---------
+   string      :      0.14.0
 
 Delimiter for key value field.
 
-### add\_newline (Boolean, Optional, defaults to true)
+[]{#add_newline}
+
+### add\_newline
+
+   type   default   version
+  ------ --------- ---------
+   bool    true     0.14.12
 
 Add `\n` to the result.
 
-### include\_time\_key (Boolean, Optional, defaults to false)
-
-If true, the time field (as specified by the `time_key` parameter) is
-kept in the record.
-
-### time\_key (String, Optional, defaults to "time")
-
-The field name for the time key.
-
-### time\_format (String. Optional)
-
-By default, the output format is iso8601 (e.g. "2008-02-01T21:41:49").
-One can specify their own format with this parameter.
-
-### include\_tag\_key (Boolean. Optional, defaults to false)
-
-If true, the tag field (as specified by the `tag_key` parameter) is kept
-in the record.
-
-### tag\_key (String, Optional, defaults to "tag")
-
-The field name for the tag key.
-
-### localtime (Boolean. Optional, defaults to true)
-
-If true, use local time. Otherwise, UTC is used. This parameter is
-overwritten by the `utc` parameter.
-
-### timezone (String. Optional)
-
-By setting this parameter, one can parse the time value in the specified
-timezone. The following formats are accepted:
-
-1.  \[+-\]HH:MM (e.g. "+09:00")
-2.  \[+-\]HHMM (e.g. "+0900")
-3.  \[+-\]HH (e.g. "+09")
-4.  Region/Zone (e.g. "Asia/Tokyo")
-5.  Region/Zone/Zone (e.g. "America/Argentina/Buenos\_Aires")
-
-The timezone set in this parameter takes precedence over
-`localtime`\*\*, e.g., if `localtime` is set to `true` but `timezone` is
-set to `+0000`, UTC would be used.
 
 Example
 -------

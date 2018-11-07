@@ -1,28 +1,32 @@
-Fluentd command line option
-===========================
+# Fluentd command line option
 
 This article describes built-in commands and its options
 
 
-fluentd
--------
+## fluentd
 
 Invoke fluentd. Here is supported options:
 
 ``` {.CodeRay}
 Usage: fluentd [options]
-    -s, --setup [DIR=/etc/fluent]    install sample configuration file to the directory`
+    -s, --setup [DIR=/etc/fluent]    install sample configuration file to the directory
     -c, --config PATH                config file path (default: /etc/fluent/fluent.conf)
         --dry-run                    Check fluentd setup is correct or not
+        --show-plugin-config=PLUGIN  Show PLUGIN configuration and exit(ex: input:dummy)
     -p, --plugin DIR                 add plugin directory
     -I PATH                          add library path
     -r NAME                          load library
     -d, --daemon PIDFILE             daemonize fluent process
-        --no-supervisor              run without fluent supervisor
+        --under-supervisor           run fluent worker under supervisor (this option is NOT for users)
+        --no-supervisor              run fluent worker without supervisor
+        --workers NUM                specify the number of workers under supervisor
         --user USER                  change user
         --group GROUP                change group
     -o, --log PATH                   log file path
-    -i CONFIG_STRING,                inline config which is appended to the config file on-fly
+        --log-rotate-age AGE         generations to keep rotated log files
+        --log-rotate-size BYTES      sets the byte size to rotate log files
+        --log-event-verbose          enable log events during process startup/shutdown
+    -i CONFIG_STRING,                inline config which is appended to the config file on-the-fly
         --inline-config
         --emit-error-log-interval SECONDS
                                      suppress interval seconds of emit error logs
@@ -38,7 +42,12 @@ Usage: fluentd [options]
     -G, --gem-path GEM_INSTALL_PATH  Gemfile install path (default: $(dirname $gemfile)/vendor/bundle)
 ```
 
+
 ### Important options
+
+#### -g, --gemfile
+
+Fluentd starts with bundler managed dependent plugins.
 
 #### --suppress-config-dump
 
@@ -66,11 +75,13 @@ option is useful.
 If you want to use your supervisor tools, this option avoids double
 supervisor.
 
+
 ### Set via configuration file
 
 Several options could be set via `<system>` directive configuration
 file. See [configuration file
 article](/articles/config-file#4-set-system-wide-configuration-the-ldquosystemrdquo-directive).
+
 
 fluent-cat
 ----------
@@ -91,6 +102,7 @@ Usage: fluent-cat [options] <tag>
         --message-key KEY            key field for none format (default: message)
 ```
 
+
 ### example
 
 Send json message with `debug.log` tag to local fluentd:
@@ -103,6 +115,67 @@ Send to other machine:
 
 ``` {.CodeRay}
 % echo '{"message":"hello"}' | fluent-cat debug.log --host testserver --port 24225
+```
+
+
+fluent-plugin-config-format
+---------------------------
+
+Generate plugin's configuration document with specified format.
+
+``` {.CodeRay}
+Usage: /Users/cosmo/GitHub/fluentd/vendor/bundle/ruby/2.4.0/bin/fluent-plugin-config-format [options] <type> <name>
+
+Output plugin config definitions
+
+Arguments:
+        type: input,output,filter,buffer,parser,formatter,storage
+        name: registered plugin name
+
+Options:
+        --verbose                    Be verbose
+    -c, --compact                    Compact output
+    -f, --format=FORMAT              Specify format. (markdown,txt,json)
+    -I PATH                          Add PATH to $LOAD_PATH
+    -r NAME                          Load library
+    -p, --plugin=DIR                 Add plugin directory
+```
+
+
+### example
+
+Generate README style document from plugin's config parameters:
+
+``` {.CodeRay}
+fluent-plugin-config-format output null
+```
+
+Generate old style output from plugin's config parameters:
+
+``` {.CodeRay}
+fluent-plugin-config-format -f txt output null
+```
+
+
+fluent-plugin-generate
+----------------------
+
+Generate Fluentd plugin project template. It is good for starting to
+Fluentd plugin development for using new API plugin. In more detail,
+please refer to the [Generating plugin project skeleton
+section](plugin-development#generating-plugin-project-skeleton).
+
+``` {.CodeRay}
+Usage: fluent-plugin-generate [options] <type> <name>
+
+Generate a project skeleton for creating a Fluentd plugin
+
+Arguments:
+        type: input,output,filter,parser,formatter
+        name: Your plugin name
+
+Options:
+        --[no-]license=NAME          Specify license name (default: Apache-2.0)
 ```
 
 

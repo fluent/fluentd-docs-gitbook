@@ -1,11 +1,9 @@
-null Output Plugin
-==================
+# null Output Plugin
 
 The `null` output plugin just throws away events.
 
 
-Example Configuration
----------------------
+## Example Configuration
 
 `out_null` is included in Fluentd's core. No additional installation
 process is required.
@@ -15,23 +13,79 @@ process is required.
   @type null
 </match>
 ```
+
 Please see the [Config File](/articles/config-file.md) article for the basic
 structure and syntax of the configuration file.
+
+
+Supported modes
+---------------
+
+-   Non-Buffered
+-   Synchronous
+-   Asynchronous
+
+See [Output Plugin Overview](/articles/output-plugin-overview.md) for more details.
+
 
 Parameters
 ----------
 
-### \@type (required)
+[Common Parameters](/articles/plugin-common-parameters.md)
+
+[]{#@type}
+
+### \@type
 
 The value must be `null`.
 
-#### log\_level option
+[]{#never_flush}
 
-The `log_level` option allows the user to set different levels of
-logging for each plugin. The supported log levels are: `fatal`, `error`,
-`warn`, `info`, `debug`, and `trace`.
+### never\_flush
 
-Please see the [logging article](/articles/logging.md) for further details.
+   type   default   version
+  ------ --------- ---------
+   bool    false    0.14.12
+
+The parameter for testing to simulate output plugin which never succeed
+to flush.
+
+[]{#<buffer>-section}
+
+### \<buffer\> section
+
+See [Buffer section configurations](/articles/buffer-section.md) for more details.
+
+#### chunk\_keys
+
+   type    default   version
+  ------- --------- ---------
+   array     tag     0.14.5
+
+Overwrite default value in this plugin.
+
+#### flush\_at\_shutdown
+
+   type   default   version
+  ------ --------- ---------
+   bool    true     0.14.5
+
+Overwrite default value in this plugin.
+
+#### chunk\_limit\_size
+
+   type   default   version
+  ------ --------- ---------
+   size    10240    0.14.5
+
+Overwrite default value in this plugin.
+
+
+Common Buffer / Output parameters
+---------------------------------
+
+See [Buffer Plugin Overview](/articles/buffer-plugin-overview.md) and [Output Plugin
+Overview](/articles/output-plugin-overview.md)
 
 
 ------------------------------------------------------------------------

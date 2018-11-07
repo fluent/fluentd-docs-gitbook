@@ -1,14 +1,19 @@
-Performance Tuning (Single Process)
-===================================
+# Performance Tuning (Single Process)
 
 This article describes how to optimize Fluentd's performance within
 single process. If your traffic is up to 5,000 messages/sec, the
 following techniques should be enough.
 
 With more traffic, Fluentd tends to be more CPU bound. In such case,
-please also visit [Performance Tuning
-(Multi-Process)](performance-tuning-multi-process) to utilize multiple
-CPU cores.
+please consider using ["multi-worker"
+feature](performance-tuning-single-process#multi-workers).
+
+
+## Check your OS configuration
+
+Please follow the [Preinstallation Guide](/articles/before-install.md) to configure
+your OS properly. This can drastically improve the performance, and
+prevent many unnecessary problems.
 
 
 Check top command
@@ -17,6 +22,7 @@ Check top command
 If Fluentd doesn't perform as well as you had expected, please check the
 `top` command first. You need to identify which part of your system is
 the bottleneck (CPU? Memory? Disk I/O? etc).
+
 
 Avoid extra computations
 ------------------------
@@ -28,24 +34,30 @@ configuration file makes it difficult to read and maintain, while making
 it also less robust. The configuration file should be as simple as
 possible.
 
-Use num\_threads parameter
---------------------------
+[]{#use-flush_thread_count-parameter}
+
+Use flush\_thread\_count parameter
+----------------------------------
 
 If the destination for your logs is a remote storage or service, adding
-a `num_threads` option will parallelize your outputs (the default is 1).
-Using multiple threads can hide the IO/network latency. This parameter
-is available for all output plugins.
+a `flush_thread_count` option will parallelize your outputs (the default
+is 1). Using multiple threads can hide the IO/network latency. This
+parameter is available for all output plugins.
 
 ``` {.CodeRay}
 <match test>
   @type output_plugin
-  num_threads 8
+  <buffer ...>
+    flush_thread_count 8
+    ...
+  </buffer>
   ...
 </match>
 ```
 
 The important point is this option doesn't improve the processing
 performance, e.g. numerical computation, mutating record, etc.
+
 
 Use external gzip command for S3/TD
 -----------------------------------
@@ -55,16 +67,19 @@ execute at a time. While I/O tasks can be multiplexed, CPU-intensive
 tasks will block other jobs. One of the CPU-intensive tasks in Fluentd
 is compression.
 
-The new version of S3/Treasure Data plugin allows compression outside of
-the Fluentd process, using gzip. This frees up the Ruby interpreter
-while allowing Fluentd to process other tasks.
+The S3/Treasure Data plugin allows compression outside of the Fluentd
+process, using gzip. This frees up the Ruby interpreter while allowing
+Fluentd to process other tasks.
 
 ``` {.CodeRay}
 # S3
 <match ...>
   @type s3
   store_as gzip_command
-  num_threads 8
+  <buffer ...>
+    flush_thread_count 8
+    ...
+  </buffer>
   ...
 </match>
 
@@ -72,14 +87,18 @@ while allowing Fluentd to process other tasks.
 <match ...>
   @type tdlog
   use_gzip_command
-  num_threads 8
+  <buffer ...>
+    flush_thread_count 8
+    ...
+  </buffer>
   ...
 </match>
 ```
 
 While not a perfect solution to leverage multiple CPU cores, this can be
 effective for most Fluentd deployments. As before, you can run this with
-`num_threads` option as well.
+`flush_thread_count` option as well.
+
 
 Reduce memory usage
 -------------------
@@ -110,18 +129,25 @@ and [Watching and Understanding the Ruby 2.1 Garbage Collector at
 Work](https://thorstenball.com/blog/2014/03/12/watching-understanding-ruby-2.1-garbage-collector/)
 article for more detail.
 
-Multi-process plugin
---------------------
+
+Multi-workers
+-------------
 
 The CPU is often the bottleneck for Fluentd instances that handle
 billions of incoming records. To utilize multiple CPU cores, we
-recommend using the `in_multiprocess` plugin.
+recommend using `multi workers` feature.
 
--   [Performance Tuning (Multi
-    Process)](performance-tuning-multi-process)
+``` {.CodeRay}
+<system>
+  workers 8
+</system>
+```
+
+For the details of this feature, please read [multi process
+workers](/articles/multi-process-workers.md) article.
 
 
-
+------------------------------------------------------------------------
 
 If this article is incorrect or outdated, or omits critical information,
 please [let us know](https://github.com/fluent/fluentd-docs/issues?state=open).

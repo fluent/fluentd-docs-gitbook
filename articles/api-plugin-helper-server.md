@@ -1,0 +1,230 @@
+# Server Plugin Helper API
+
+`server` helper manages various types of servers.
+
+Here is the code example with `server` helper:
+
+``` {.CodeRay}
+require 'fluent/plugin/input'
+
+module Fluent::Plugin
+  class ExampleInput < Input
+    Fluent::Plugin.register_input('example', self)
+
+    # 1. load server helper
+    helpers :server
+
+    # omit configure, shutdown and other plugin API
+
+    def start
+      # 2. create server
+      server_create(:title, @port) do |data|
+        #3. process data
+      end
+    end
+  end
+end
+```
+
+Launched server is managed by the plugin. No need server shutdown code
+in plugin's `shutdown`. The plugin shutdowns launched servers
+automatically.
+
+For more details about configuration, see [Transport
+section](/articles/transport-section.md).
+
+
+## Methods
+
+[]{#server_create_connection(title,-port,-proto:-nil,-bind:-%E2%80%980.0.0.0%E2%80%99,-shared:-true,-backlog:-nil,-tls_options:-nil,-**socket_options,-&block)}
+
+### server\_create\_connection(title, port, proto: nil, bind: '0.0.0.0', shared: true, backlog: nil, tls\_options: nil, \*\*socket\_options, &block)
+
+This method creates server instance for various protocols.
+
+The block will be invoked with connection as a parameter on connection.
+
+-   `title`: unique symbol
+-   `port`: the port to listen to
+-   `proto`: protocol type. `:tcp`, `:tls`
+-   `bind`: the bind address to listen to
+-   `shared`: if true, share socket via serverengine for multiple
+    workers
+-   `backlog`: the maximum length of the queue for pending connections
+-   `tls_options`: options for TLS
+    -   `version`: set TLS version `:'TLSv1_1'` or `:'TLSv1_2'`.
+        Default: `:'TLSv1_2'`
+    -   `ciphers`: set the list of available cpher suites. Default:
+        `"ALL:!aNULL:!eNULL:!SSLv2"`
+    -   `insecure`: if true, set TLS verify mode NONE
+    -   `verify_fqdn`: if true, check the server certificate is valid
+        for the hostname
+    -   `fqdn`: set FQDN
+    -   `enable_system_cert_store`: if true, enable system default cert
+        store
+    -   `allow_self_signed_cert`: if true, allow self signed certificate
+    -   `cert_paths`: files contain PEM-encoded certificates
+-   `socket_options`: options for socket
+    -   `resolve_name`: if true, resolve hostname
+    -   `connect`: if true, connect to host
+    -   `nonblock`: if true, use non-blocking I/O
+    -   `linger_timeout`: the timeout time in seconds used to set
+        `SO_LINGER`
+    -   `recv_timeout`: the timeout time in seconds used to set
+        `SO_RECVTIMEO`
+    -   `send_timeout`: the timeout time in seconds used to set
+        `SO_SNDTIMEO`
+
+Code example:
+
+``` {.CodeRay}
+# TCP
+server_create_connection(:title, @port) do |conn|
+  # on connection
+  # conn is Fluent::PluginHelper::Server::TCPCallbackSocket
+  source_addr = conn.remote_host
+  source_port = conn.remote_port
+  conn.data do |data|
+    conn.write(something)
+  end
+end
+```
+
+[]{#server_create(title,-port,-proto:-nil,-bind:-%E2%80%980.0.0.0%E2%80%99,-shared:-true,-socket:-nil,-backlog:-nil,-tls_options:-nil,-max_bytes:-nil,-flags:-0,-**socket_options,-&callback)}
+
+### server\_create(title, port, proto: nil, bind: '0.0.0.0', shared: true, socket: nil, backlog: nil, tls\_options: nil, max\_bytes: nil, flags: 0, \*\*socket\_options, &callback)
+
+This method creates server instance for various protocols.
+
+The block will be invoked with parameter(s) on data.
+
+-   `title`: unique symbol
+-   `port`: the port to listen to
+-   `proto`: protocol type. `:tcp`, `:udp`, `:tls`
+-   `bind`: the bind address to listen to
+-   `shared`: if true, share socket via serverengine for multiple
+    workers.
+-   `socket`: socket instance for UDP. this is available only for UDP.
+-   `backlog`: the maximum length of the queue for pending connections
+-   `tls_options`: options for TLS
+    -   `version`: set TLS version `:'TLSv1_1'` or `:'TLSv1_2'`.
+        Default: `:'TLSv1_2'`
+    -   `ciphers`: set the list of available cpher suites. Default:
+        `"ALL:!aNULL:!eNULL:!SSLv2"`
+    -   `insecure`: if true, set TLS verify mode NONE
+    -   `verify_fqdn`: if true, check the server certificate is valid
+        for the hostname
+    -   `fqdn`: set FQDN
+    -   `enable_system_cert_store`: if true, enable system default cert
+        store
+    -   `allow_self_signed_cert`: if true, allow self signed certificate
+    -   `cert_paths`: files contain PEM-encoded certificates
+-   `max_bytes`: the maximum number of bytes to receive from the socket.
+    This is required only for UDP.
+-   `flags`: zero or more of the MSG\_ options. This is available only
+    for UDP.
+-   `socket_options`: options for socket
+    -   `resolve_name`: if true, resolve hostname
+    -   `connect`: if true, connect to host
+    -   `nonblock`: if true, use non-blocking I/O
+    -   `linger_timeout`: the timeout time in seconds used to set
+        `SO_LINGER`
+    -   `recv_timeout`: the timeout time in seconds used to set
+        `SO_RECVTIMEO`
+    -   `send_timeout`: the timeout time in seconds used to set
+        `SO_SNDTIMEO`
+
+Code example:
+
+``` {.CodeRay}
+# UDP (w/o socket)
+server_create(:title, @port, proto: :udp, max_bytes: 2048) do |data|
+  # data is received data
+end
+
+# UDP (w/ socket)
+server_create(:title, @port, proto: :udp, max_bytes: 2048) do |data, sock|
+  # data is received data
+  # sock is UDPSocket
+end
+
+# TCP (w/o connection)
+server_create(:title, @port) do |data|
+  # data is received data
+end
+
+# TCP (w/ connection)
+server_create(:title, @port) do |data, conn|
+  # data is received data
+  # conn is Fluent::PluginHelper::Server::TCPCallbackSocket
+end
+
+# TLS (w/o connection)
+server_create(:title, @port, proto: :tls) do |data|
+  # data is received data
+end
+
+# TLS (w/ connection)
+server_create(:title, @port, proto: :tls) do |data, conn|
+  # data is received data
+  # conn is Fluent::PluginHelper::Server::TLSCallbackSocket
+end
+```
+
+
+Configuration example
+---------------------
+
+Here is TLS configuration example with server helper used plugin.
+
+``` {.CodeRay}
+<source>
+  @type forward
+  # other plugin parameters
+  <transport tls>
+    version TLSv1_2
+    ciphers ALL:!aNULL:!eNULL:!SSLv2
+    insecure false
+
+    # For Cert signed by public CA
+    ca_path /path/to/ca_file
+    cert_path /path/to/cert_path
+    private_key_path /path/to/priv_key
+    private_key_passphrase "passphrase"
+    client_cert_auth false
+
+    # For Cert generated and signed by private CA Certificate
+    ca_cert_path /path/to/ca_cert
+    ca_private_key_path /path/to/ca_priv_key
+    ca_private_key_passphrase "ca_passphrase"
+
+    # For generating certs by private CA certs or self-signed
+    generate_private_key_length 2048
+    generate_cert_country US
+    generate_cert_state CA
+    generate_cert_locality Mountain View
+    generate_cert_common_name "Common Name"
+    generate_cert_expiration "#{10 * 365 * 86400}"
+    generate_cert_digest sha256
+  <transport>
+<source>
+```
+
+
+server used plugins
+-------------------
+
+-   [Forward input](/articles/in_forward.md)
+-   [Syslog input](/articles/in_syslog.md)
+-   [TCP input](/articles/in_tcp.md)
+-   [UDP input](/articles/in_udp.md)
+-   [Forward output](/articles/out_forward.md)
+
+
+------------------------------------------------------------------------
+
+If this article is incorrect or outdated, or omits critical information,
+please [let us know](https://github.com/fluent/fluentd-docs/issues?state=open).
+[Fluentd](http://www.fluentd.org/) is a open source project under [Cloud
+Native Computing Foundation (CNCF)](https://cncf.io/). All components
+are available under the Apache 2 License.

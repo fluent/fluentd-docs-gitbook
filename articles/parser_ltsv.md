@@ -1,94 +1,47 @@
-LTSV Parser Plugin
-==================
+# LTSV Parser Plugin
 
 The `ltsv` parser plugin parses [LTSV](http://ltsv.org/) format.
 
 
-Parameters
-----------
+## Parameters
+
+See [Parse section configurations](/articles/parse-section.md)
+
 
 ### delimiter
 
-Specify field delimiter. Default is `\t`.
+    type    default   version
+  -------- --------- ---------
+   string    "\\t"    0.14.0
+
+The delimiter character (or string) of TSV values
+
+[]{#delimiter_pattern}
+
+### delimiter\_pattern
+
+    type    default   version
+  -------- --------- ---------
+   regexp     nil      1.2.0
+
+The delimiter pattern of TSV values. This paramter overwrites
+`delimiter` paramter if specified.
+
+delimiter\_pattern is string type before 1.2.0.
+
+[]{#label_delimiter}
 
 ### label\_delimiter
 
-Specify key-value delimiter. Default is `:`.
+    type    default   version
+  -------- --------- ---------
+   string      :      0.14.0
 
-### time\_key
+The delimiter character between field name and value
 
-Specify time field for event time. Default is `time`.
 
-If there is no time field in the record, this parser uses current time
-as an event time.
-
-### time\_format
-
-If time field value is formatted string, e.g. "28/Feb/2013:12:00:00
-+0900", you need to specify this parameter to parse it.
-
-Default is `nil` and it uses `Time.parse` method to parse the field.
-
-See
-[Time\#strptime](http://ruby-doc.org/stdlib-2.4.1/libdoc/time/rdoc/Time.html#method-c-strptime)
-for additional format information.
-
-### null\_value\_pattern
-
-Specify null value pattern. Default is `nil`.
-
-If given field value is matched with this pattern, the field value is
-replaced with `nil`.
-
-### null\_empty\_string
-
-If `true`, empty string field is replaced with `nil`. Default is
-`false`.
-
-### types
-
-Although every parsed field has type `string` by default, you can
-specify other types. This is useful when filtering particular fields
-numerically or storing data with sensible type information.
-
-The syntax is
-
-``` {.CodeRay}
-types <field_name_1>:<type_name_1>,<field_name_2>:<type_name_2>,...
-```
-
-e.g.,
-
-``` {.CodeRay}
-types user_id:integer,paid:bool,paid_usd_amount:float
-```
-
-As demonstrated above, "," is used to delimit field-type pairs while ":"
-is used to separate a field name with its intended type.
-
-Unspecified fields are parsed at the default string type.
-
-The list of supported types are shown below:
-
--   string
--   bool
--   integer ("int" would NOT work!)
--   float
--   time
--   array
-
-For the `time` and `array` types, there is an optional third field after
-the type name. For the "time" type, you can specify a time format like
-you would in `time_format`.
-
-For the "array" type, the third field specifies the delimiter (the
-default is ","). For example, if a field called "item\_ids" contains the
-value "3,4,5", `types item_ids:array` parses it as \["3", "4", "5"\].
-Alternatively, if the value is "Adam\|Alice\|Bob",
-`types item_ids:array:|` parses it as \["Adam", "Alice", "Bob"\].
-
-Example
--------
+Example for LTSV
+----------------
 
 ``` {.CodeRay}
 time:2013/02/28 12:00:00\thost:192.168.0.1\treq_id:111\tuser:-
@@ -110,6 +63,39 @@ record:
 
 If you set `null_value_pattern '-'` in the configuration, `user` field
 becomes `nil` instead of `"-"`.
+
+[]{#example-with-delimiter_pattern}
+
+Example with delimiter\_pattern
+-------------------------------
+
+Incoming event:
+
+``` {.CodeRay}
+timestamp=1362020400 host=192.168.0.1  req_id=111 user=-
+```
+
+Configuration to parse above incoming event:
+
+``` {.CodeRay}
+<parse>
+  @type ltsv
+  delimiter_pattern /\s+/
+  label_delimiter =
+</parse>
+```
+
+The incoming event is parsed as:
+
+``` {.CodeRay}
+record:
+{
+  "timestamp": "1362020400",
+  "host"     : "192.168.0.1",
+  "req_id"   : "111",
+  "user"     : "-"
+}
+```
 
 
 ------------------------------------------------------------------------

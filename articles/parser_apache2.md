@@ -1,16 +1,12 @@
-apache2 Parser Plugin
-=====================
+# apache2 Parser Plugin
 
 The `apache2` parser plugin parses apache2 logs.
 
 
-Parameters
-----------
+## Parameters
 
-### keep\_time\_key
+See [Parse section configurations](/articles/parse-section.md)
 
-If you want to keep time field in the record, set `true`. Default is
-`false`.
 
 Regexp patterns
 ---------------
@@ -18,7 +14,7 @@ Regexp patterns
 This is regexp and time format patterns of this plugin:
 
 ``` {.CodeRay}
-format /^(?<host>[^ ]*) [^ ]* (?<user>[^ ]*) \[(?<time>[^\]]*)\] "(?<method>\S+)(?: +(?<path>[^ ]*) +\S*)?" (?<code>[^ ]*) (?<size>[^ ]*)(?: "(?<referer>[^\"]*)" "(?<agent>[^\"]*)")?$/
+expression /^(?<host>[^ ]*) [^ ]* (?<user>[^ ]*) \[(?<time>[^\]]*)\] "(?<method>\S+)(?: +(?<path>[^ ]*) +\S*)?" (?<code>[^ ]*) (?<size>[^ ]*)(?: "(?<referer>[^\"]*)" "(?<agent>[^\"]*)")?$/
 time_format %d/%b/%Y:%H:%M:%S %z
 ```
 
@@ -28,6 +24,7 @@ are included in the event record. `time` is used for the event time.
 `code` and `size` fields are converted into integer type automatically.
 And if the field value is `-`, it is interpreted as `nil`. See "Result
 Example".
+
 
 Example
 -------

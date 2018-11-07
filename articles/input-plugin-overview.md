@@ -1,30 +1,34 @@
-Input Plugin Overview
-=====================
+# Input Plugin Overview
 
-Fluentd has 6 types of plugins: [Input](/articles/input-plugin-overview.md),
+Fluentd has 7 types of plugins: [Input](/articles/input-plugin-overview.md),
 [Parser](/articles/parser-plugin-overview.md), [Filter](/articles/filter-plugin-overview.md),
-[Output](/articles/output-plugin-overview.md), [Formatter](/articles/formatter-plugin-overview.md)
-and [Buffer](/articles/buffer-plugin-overview.md). This article gives an overview of
-Input Plugin.
+[Output](/articles/output-plugin-overview.md),
+[Formatter](/articles/formatter-plugin-overview.md),
+[Storage](/articles/storage-plugin-overview.md) and [Buffer](/articles/buffer-plugin-overview.md).
+This article gives an overview of Input Plugin.
 
 
-Overview
---------
+## Overview
 
 Input plugins extend Fluentd to retrieve and pull event logs from
 external sources. An input plugin typically creates a thread socket and
 a listen socket. It can also be written to periodically pull data from
 data sources.
 
+
 List of Input Plugins
 ---------------------
 
--   [in\_forward](/articles/in_forward.md)
--   [in\_unix](/articles/in_unix.md)
--   [in\_http](/articles/in_http.md)
 -   [in\_tail](/articles/in_tail.md)
--   [in\_exec](/articles/in_exec.md)
+-   [in\_forward](/articles/in_forward.md)
+-   [in\_udp](/articles/in_udp.md)
+-   [in\_tcp](/articles/in_tcp.md)
+-   [in\_http](/articles/in_http.md)
 -   [in\_syslog](/articles/in_syslog.md)
+-   [in\_exec](/articles/in_exec.md)
+-   [in\_dummy](/articles/in_dummy.md)
+-   [in\_windows\_eventlog](/articles/in_windows_eventlog.md)
+
 
 Other Input Plugins
 -------------------
