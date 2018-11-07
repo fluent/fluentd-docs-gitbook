@@ -12,13 +12,13 @@ Articles
     Data](/articles/recipe-syslog-to-treasure-data)
 
 
--   [Recipe Syslog To S3](/articles/recipe-syslog-to-s3)
+-   [Recipe Syslog To S3](/articles/recipe-syslog-to-s3.md)
 
 
--   [Recipe Apache Logs To S3](/articles/recipe-apache-logs-to-s3)
+-   [Recipe Apache Logs To S3](/articles/recipe-apache-logs-to-s3.md)
 
 
--   [Recipe JSON To S3](/articles/recipe-json-to-s3)
+-   [Recipe JSON To S3](/articles/recipe-json-to-s3.md)
 
 
 -   [Recipe Apache Logs To Treasure
@@ -66,7 +66,7 @@ Articles
     Data](/articles/recipe-tsv-to-treasure-data)
 
 
--   [Recipe TSV To S3](/articles/recipe-tsv-to-s3)
+-   [Recipe TSV To S3](/articles/recipe-tsv-to-s3.md)
 
 
 -   [Recipe Syslog To Mongo](/articles/recipe-syslog-to-mongo.md)
@@ -99,7 +99,7 @@ Articles
     Mongo](/articles/recipe-apache-logs-to-mongo)
 
 
--   [Recipe Nginx To S3](/articles/recipe-nginx-to-s3)
+-   [Recipe Nginx To S3](/articles/recipe-nginx-to-s3.md)
 
 
 -   [Recipe CSV To
@@ -110,4 +110,4 @@ Articles
     Elasticsearch](/articles/recipe-apache-logs-to-elasticsearch)
 
 
--   [Recipe CSV To S3](/articles/recipe-csv-to-s3)
+-   [Recipe CSV To S3](/articles/recipe-csv-to-s3.md)

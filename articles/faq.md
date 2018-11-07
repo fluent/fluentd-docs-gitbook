@@ -91,7 +91,7 @@ Management](/articles/plugin-management#plugin-version-management).
 
 ### How can I match (send) an event to multiple outputs?
 
-You can use the `copy` [output plugin](/articles/out_copy) to send the
+You can use the `copy` [output plugin](/articles/out_copy.md) to send the
 same event to multiple output destinations.
 
 ### How can I use environment variables to configure parameters dynamically?
