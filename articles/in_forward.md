@@ -17,8 +17,7 @@ secure connection between nodes, please consider using
 [in\_secure\_forward](/articles/in_secure_forward.md).
 
 
-Example Configuration
----------------------
+## Example Configuration
 
 `in_forward` is included in Fluentd's core. No additional installation
 process is required.
@@ -34,8 +33,7 @@ process is required.
 Please see the [Config File](/articles/config-file.md) article for the basic
 structure and syntax of the configuration file.
 
-Parameters
-----------
+## Parameters
 
 ### \@type (required)
 
@@ -88,8 +86,7 @@ logging for each plugin. The supported log levels are: `fatal`, `error`,
 
 Please see the [logging article](/articles/logging.md) for further details.
 
-Protocol
---------
+## Protocol
 
 This plugin accepts both JSON or [MessagePack](http://msgpack.org/)
 messages and automatically detects which is used. Internally, Fluent
@@ -121,8 +118,7 @@ v0.12 `in_forward` can't accept data from v1.0 `out_forward` because
 time format is different. If you want to forward data from v1.0 to
 v0.12, set `time_as_integer` in v1.0 `out_forward`.
 
-FAQ
----
+## FAQ
 
 ### Why in\_forward doesn't have tag parameter?
 

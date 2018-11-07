@@ -5,8 +5,7 @@ S3 Output plugin ([out\_s3](/articles/out_s3.md)) to aggregate semi-structured l
 in real-time.
 
 
-Background
-----------
+## Background
 
 [Fluentd](http://fluentd.org/) is an advanced open-source log collector
 originally developed at [Treasure Data,
@@ -18,8 +17,7 @@ data archiving.
 This article will show you how to use [Fluentd](http://fluentd.org/) to
 import Apache logs into Amazon S3.
 
-Mechanism
----------
+## Mechanism
 
 Fluentd does 3 things:
 
@@ -28,8 +26,7 @@ Fluentd does 3 things:
     `ip`, `path`, etc.) and buffers them.
 3.  It writes the buffered data to Amazon S3 periodically.
 
-Install
--------
+## Install
 
 For simplicity, this article will describe how to set up an one-node
 configuration. Please install the following software on the same node.
@@ -47,8 +44,7 @@ plugin, please use `gem install fluent-plugin-s3`.
 -   [RPM Package](/articles/install-by-rpm.md)
 -   [Ruby gem](/articles/install-by-gem.md)
 
-Configuration
--------------
+## Configuration
 
 Let's start configuring Fluentd. If you used the deb/rpm package,
 Fluentd's config file is located at /etc/td-agent/td-agent.conf.
@@ -115,8 +111,7 @@ If a matching tag is found in a log, then the config inside
 config inside). In this example, the `s3.apache.access` tag (generated
 by `tail`) is always used.
 
-Test
-----
+## Test
 
 To test the configuration, just ping the Apache server. This example
 uses the `ab` (Apache Bench) program.
@@ -136,13 +131,11 @@ no file is created immediately. The file will be created when the
 frequency, please modify the `time_slice_format` value. To write files
 every minute, please use `%Y%m%d%H%M` for the `time_slice_format`.
 
-Conclusion
-----------
+## Conclusion
 
 Fluentd + Amazon S3 makes real-time log archiving simple.
 
-Learn More
-----------
+## Learn More
 
 -   [Fluentd Architecture](///www.fluentd.org/architecture)
 -   [Fluentd Get Started](/articles/quickstart.md)

@@ -10,15 +10,13 @@ please also visit [Performance Tuning
 CPU cores.
 
 
-Check top command
------------------
+## Check top command
 
 If Fluentd doesn't perform as well as you had expected, please check the
 `top` command first. You need to identify which part of your system is
 the bottleneck (CPU? Memory? Disk I/O? etc).
 
-Avoid extra computations
-------------------------
+## Avoid extra computations
 
 This is more like a general recommendation, but it's always better **NOT
 TO HAVE** extra computation inside Fluentd. Fluentd is flexible to do
@@ -27,8 +25,7 @@ configuration file makes it difficult to read and maintain, while making
 it also less robust. The configuration file should be as simple as
 possible.
 
-Use num\_threads parameter
---------------------------
+## Use num\_threads parameter
 
 If the destination for your logs is a remote storage or service, adding
 a `num_threads` option will parallelize your outputs (the default is 1).
@@ -46,8 +43,7 @@ is available for all output plugins.
 The important point is this option doesn't improve the processing
 performance, e.g. numerical computation, mutating record, etc.
 
-Use external gzip command for S3/TD
------------------------------------
+## Use external gzip command for S3/TD
 
 Ruby has GIL (Global Interpreter Lock), which allows only one thread to
 execute at a time. While I/O tasks can be multiplexed, CPU-intensive
@@ -80,8 +76,7 @@ While not a perfect solution to leverage multiple CPU cores, this can be
 effective for most Fluentd deployments. As before, you can run this with
 `num_threads` option as well.
 
-Reduce memory usage
--------------------
+## Reduce memory usage
 
 Ruby has several GC parameters to tune GC performance and you can
 configure these parameters via environment variable([Parameter list is
@@ -109,8 +104,7 @@ and [Watching and Understanding the Ruby 2.1 Garbage Collector at
 Work](https://thorstenball.com/blog/2014/03/12/watching-understanding-ruby-2.1-garbage-collector/)
 article for more detail.
 
-Multi-process plugin
---------------------
+## Multi-process plugin
 
 The CPU is often the bottleneck for Fluentd instances that handle
 billions of incoming records. To utilize multiple CPU cores, we

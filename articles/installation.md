@@ -1,8 +1,7 @@
 # Installation
 
 
-Articles
---------
+## Articles
 
 -   [Before Installing Fluentd](/articles/before-install.md)
 

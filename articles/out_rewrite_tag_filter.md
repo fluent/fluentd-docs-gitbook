@@ -7,8 +7,7 @@ from apache log by domain, status-code(ex. 500 error), user-agent,
 request-uri, regex-backreference and so on with regular expression.
 
 
-How it works
-------------
+## How it works
 
 It is a sample to arrange the tags by the regexp matched value of
 'message'.
@@ -35,8 +34,7 @@ It is a sample to arrange the tags by the regexp matched value of
 +----------------------------------------+        +----------------------------------------------+
 ```
 
-Install
--------
+## Install
 
 `out_rewrite_tag_filter` is included in td-agent by default (v1.1.18 or
 later). Fluentd gem users will have to install the
@@ -46,8 +44,7 @@ fluent-plugin-rewrite-tag-filter gem using the following command.
 $ fluent-gem install fluent-plugin-rewrite-tag-filter
 ```
 
-Example Configuration
----------------------
+## Example Configuration
 
 Configuration design is dropping some pattern record first, then re-emit
 other matched record as new tag name.
@@ -104,8 +101,7 @@ Please see the
 [README.md](https://github.com/fluent/fluent-plugin-rewrite-tag-filter)
 for further details.
 
-Parameters
-----------
+## Parameters
 
 ### rewriteruleN (required at least one)
 
@@ -148,8 +144,7 @@ Please see the [logging article](/articles/logging.md) for further details.
 It works with the order of appearance, regexp matching `rule/pattern`
 for the values of `rule/key` from each record, re-emit with `rule/tag`.
 
-Placeholders
-------------
+## Placeholders
 
 It is supported these placeholder for new\_tag (rewrited tag). See more
 details at
@@ -162,8 +157,7 @@ details at
 -   \${hostname}
 -   \_\_HOSTNAME\_\_
 
-Use cases
----------
+## Use cases
 
 -   Aggregate + display 404 status pages by URL and referrer to find and
     fix dead links.
@@ -387,8 +381,7 @@ fluent-plugin-irc
 </match>
 ```
 
-FAQ
----
+## FAQ
 
 ### With rewrite-tag-filter, logs are not forwarded. Why?
 

@@ -3,8 +3,7 @@
 This article explains how `Fluentd` handles HTTP RPC.
 
 
-Overview
---------
+## Overview
 
 HTTP RPC is one way of managing fluentd instance. Several provided RPCs
 are replacement of [signals](/articles/signals.md). The response body is JSON format.
@@ -12,8 +11,7 @@ are replacement of [signals](/articles/signals.md). The response body is JSON fo
 On signal unsupported environment, e.g. Windows, you can use RPC instead
 of signals.
 
-Configuration
--------------
+## Configuration
 
 RPC is off by default. If you want to enable RPC, set `rpc_endpoint` in
 `<system>` section.
@@ -31,8 +29,7 @@ $ curl http://127.0.0.1:24444/api/plugins.flushBuffers
 {"ok":true}
 ```
 
-RPCs
-----
+## RPCs
 
 ### /api/processes.interruptWorkers
 

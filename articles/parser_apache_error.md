@@ -3,8 +3,7 @@
 The `apache_error` parser plugin parses apache error logs.
 
 
-Parameters
-----------
+## Parameters
 
 ### keep\_time\_key
 
@@ -53,8 +52,7 @@ value "3,4,5", `types item_ids:array` parses it as \["3", "4", "5"\].
 Alternatively, if the value is "Adam\|Alice\|Bob",
 `types item_ids:array:|` parses it as \["Adam", "Alice", "Bob"\].
 
-Regexp patterns
----------------
+## Regexp patterns
 
 This is regexp pattern of this plugin:
 
@@ -65,8 +63,7 @@ format /^\[[^ ]* (?<time>[^\]]*)\] \[(?<level>[^\]]*)\](?: \[pid (?<pid>[^\]]*)\
 `level`, `pid`, `client` and `message` are included in the event record.
 `time` is used for the event time.
 
-Example
--------
+## Example
 
 ``` {.CodeRay}
 [Wed Oct 11 14:32:52 2000] [error] [client 127.0.0.1] client denied by server configuration

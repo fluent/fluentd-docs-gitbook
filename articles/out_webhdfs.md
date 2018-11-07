@@ -10,8 +10,7 @@ This document doesn\'t describe all parameters. If you want to know full
 features, check the Further Reading section.
 
 
-Install
--------
+## Install
 
 `out_webhdfs` is included in td-agent by default (v1.1.10 or later).
 Fluentd gem users will have to install the fluent-plugin-webhdfs gem
@@ -21,8 +20,7 @@ using the following command.
 $ fluent-gem install fluent-plugin-webhdfs
 ```
 
-HDFS Configuration
-------------------
+## HDFS Configuration
 
 Append operations are not enabled by default on CDH. Please put these
 configurations into your hdfs-site.xml file and restart the whole
@@ -45,8 +43,7 @@ cluster.
 </property>
 ```
 
-Example Configuration
----------------------
+## Example Configuration
 
 ``` {.CodeRay}
 <match access.**>
@@ -64,8 +61,7 @@ Collection](http-to-hdfs) article for real-world use cases.
 Please see the [Config File](/articles/config-file.md) article for the basic
 structure and syntax of the configuration file.
 
-Parameters
-----------
+## Parameters
 
 ### \@type (required)
 
@@ -89,8 +85,7 @@ Path value can contain time placeholders (see `time_slice_format`
 section). If path contains time placeholders, webhdfs output configures
 `time_slice_format` automatically with these placeholders.
 
-Time Sliced Output Parameters (and overwritten values by out\_webhdfs)
-----------------------------------------------------------------------
+## Time Sliced Output Parameters (and overwritten values by out\_webhdfs)
 
 For advanced usage, you can tune Fluentd's internal buffering mechanism
 with these parameters.
@@ -183,8 +178,7 @@ logging for each plugin. The supported log levels are: `fatal`, `error`,
 
 Please see the [logging article](/articles/logging.md) for further details.
 
-Further Reading
----------------
+## Further Reading
 
 -   [fluent-plugin-webhdfs
     repository](https://github.com/fluent/fluent-plugin-webhdfs)

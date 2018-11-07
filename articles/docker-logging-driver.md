@@ -26,8 +26,7 @@ simplicity and high performance [Fluentd](http://fluentd.org).
 Currently, fluentd logging driver doesn\'t support sub-second precision.
 
 
-Getting Started
----------------
+## Getting Started
 
 Using the Docker logging mechanism with
 [Fluentd](http://www.fluentd.org) is a straighforward step, to get
@@ -193,8 +192,7 @@ If the logs are typical stacktraces, consider [detect-exceptions
 plugin](https://github.com/GoogleCloudPlatform/fluent-plugin-detect-exceptions)
 instead.
 
-Driver options
---------------
+## Driver options
 
 The [Fluentd logging
 driver](https://docs.docker.com/engine/admin/logging/fluentd/) support
@@ -231,8 +229,7 @@ Additionally this option allows to specify some internal variables:
 $ docker run --log-driver=fluentd --log-opt tag=docker.{{.ID}} ubuntu echo "..."
 ```
 
-Development Environments
-------------------------
+## Development Environments
 
 In a more real-world use case, you would want to use something other
 than the Fluentd standard output to store Docker containers messages,
@@ -246,8 +243,7 @@ Compose.
 -   [Docker Logging via EFK (Elasticsearch + Fluentd + Kibana) Stack
     with Docker Compose](docker-logging-efk-compose)
 
-Production Environments
------------------------
+## Production Environments
 
 In production environment, you must use one of the container
 orchestration tools. Currently, Kubernetes has better integration with

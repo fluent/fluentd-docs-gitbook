@@ -7,8 +7,7 @@ The `csv` formatter plugin output an event as CSV.
 ```
 
 
-Parameters
-----------
+## Parameters
 
 ### fields (Array of String, Required. defaults to "\\t"(TAB))
 
@@ -69,8 +68,7 @@ The timezone set in this parameter takes precedence over
 `localtime`\*\*, e.g., if `localtime` is set to `true` but `timezone` is
 set to `+0000`, UTC would be used.
 
-Example
--------
+## Example
 
 ``` {.CodeRay}
 format csv

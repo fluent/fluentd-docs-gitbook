@@ -7,15 +7,13 @@ and [Buffer](/articles/buffer-plugin-overview.md). This article gives an overvie
 Formatter Plugin.
 
 
-Overview
---------
+## Overview
 
 Sometimes, the output format for an output plugin does not meet one's
 needs. Fluentd has a pluggable system called Text Formatter that lets
 the user extend and re-use custom output formats.
 
-How To Use
-----------
+## How To Use
 
 For an output plugin that supports Text Formatter, the `format`
 parameter can be used to change the output format.
@@ -48,8 +46,7 @@ retain the event's timestamp and tag.
 See [this section](plugin-development#text-formatter-plugins) to learn
 how to develop a custom formatter.
 
-List of Built-in Formatters
----------------------------
+## List of Built-in Formatters
 
 -   [out\_file](/articles/formatter_out_file.md)
 -   [json](/articles/formatter_json.md)
@@ -59,8 +56,7 @@ List of Built-in Formatters
 -   [hash](/articles/formatter_hash.md)
 -   [single\_value](/articles/formatter_single_value.md)
 
-List of Output Plugins with Text Formatter Support
---------------------------------------------------
+## List of Output Plugins with Text Formatter Support
 
 -   [out\_file](/articles/out_file.md)
 -   [out\_s3](/articles/out_s3.md)

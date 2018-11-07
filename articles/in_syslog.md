@@ -4,8 +4,7 @@ The `in_syslog` Input plugin enables Fluentd to retrieve records via the
 syslog protocol on UDP or TCP.
 
 
-Example Configuration
----------------------
+## Example Configuration
 
 `in_syslog` is included in Fluentd's core. No additional installation
 process is required.
@@ -43,8 +42,7 @@ record = {
 }
 ```
 
-Parameters
-----------
+## Parameters
 
 ### \@type (required)
 
@@ -162,8 +160,7 @@ logging for each plugin. The supported log levels are: `fatal`, `error`,
 
 Please see the [logging article](/articles/logging.md) for further details.
 
-TCP protocol and message delimiter
-----------------------------------
+## TCP protocol and message delimiter
 
 This plugin assumes `\n` for delimiter character between syslog messages
 in one TCP connection. If you use syslog library in your application

@@ -7,8 +7,7 @@ and [Buffer](/articles/buffer-plugin-overview.md). This article will provide a
 high-level overview of Buffer plugins.
 
 
-Buffer Plugin Overview
-----------------------
+## Buffer Plugin Overview
 
 Buffer plugins are used by output plugins. For example, `out_s3` uses
 `buf_file` plugin by default to store incoming stream temporally before
@@ -17,8 +16,7 @@ transmitting to S3.
 Buffer plugins are, as you can tell by the name, *pluggable*. So you can
 choose a suitable backend based on your system requirements.
 
-Buffer Structure
-----------------
+## Buffer Structure
 
 A buffer is essentially a set of "chunks". A chunk is a collection of
 records concatenated into a single blob. Chunks are periodically flushed
@@ -129,8 +127,7 @@ control the behaviour finely through the following options:
     unset)
 -   If the wait interval reaches this limit, the exponentiation stops.
 
-Slicing Data by Time
---------------------
+## Slicing Data by Time
 
 Buffer plugins support a special mode that groups the incoming data by
 time frames. For example, you can group the incoming access logs by date
@@ -177,8 +174,7 @@ Alternatively, you can also flush the chunks regularly using
 mutually exclusive. If you set `flush_interval`, `time_slice_wait` will
 be ignored and fluentd would issue a warning.
 
-List of Buffer Plugins
-----------------------
+## List of Buffer Plugins
 
 -   [buf\_memory](/articles/buf_memory.md)
 -   [buf\_file](/articles/buf_file.md)

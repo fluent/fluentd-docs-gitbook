@@ -3,8 +3,7 @@
 The `json` parser plugin parses JSON logs. One JSON map per line.
 
 
-Parameters
-----------
+## Parameters
 
 ### time\_key
 
@@ -30,8 +29,7 @@ for additional format information.
 If you want to keep time field in the record, set `true`. Default is
 `false`.
 
-Example
--------
+## Example
 
 ``` {.CodeRay}
 {"time":1362020400,"host":"192.168.0.1","size":777,"method":"PUT"}

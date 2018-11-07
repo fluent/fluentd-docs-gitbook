@@ -7,8 +7,7 @@ This plugin is for users using ReplicaSet. If you are not using
 ReplicaSet, please see the [out\_mongo](/articles/out_mongo.md) article instead.
 
 
-Why Fluentd with MongoDB?
--------------------------
+## Why Fluentd with MongoDB?
 
 Fluentd enables your apps to insert records to MongoDB asynchronously
 with batch-insertion, unlike direct insertion of records from your apps.
@@ -18,8 +17,7 @@ This has the following advantages:
 2.  higher MongoDB insertion throughput while maintaining JSON record
     structure
 
-Install
--------
+## Install
 
 `out_mongo_replset` is included in td-agent by default. Fluentd gem
 users will need to install the fluent-plugin-mongo gem using the
@@ -29,8 +27,7 @@ following command.
 $ fluent-gem install fluent-plugin-mongo
 ```
 
-Example Configuration
----------------------
+## Example Configuration
 
 ``` {.CodeRay}
 # Single MongoDB
@@ -51,8 +48,7 @@ article for real-world use cases.
 Please see the [Config File](/articles/config-file.md) article for the basic
 structure and syntax of the configuration file.
 
-Parameters
-----------
+## Parameters
 
 ### type (required)
 
@@ -137,8 +133,7 @@ The ReplicaSet refresh interval.
 The ReplicaSet failover threshold. The default threshold is 60. If the
 retry count reaches this threshold, the plugin raises an exception.
 
-Buffered Output Parameters
---------------------------
+## Buffered Output Parameters
 
 For advanced usage, you can tune Fluentd's internal buffering mechanism
 with these parameters.
@@ -214,8 +209,7 @@ logging for each plugin. The supported log levels are: `fatal`, `error`,
 
 Please see the [logging article](/articles/logging.md) for further details.
 
-Further Readings
-----------------
+## Further Readings
 
 -   [fluent-plugin-webhdfs
     mongo](https://github.com/fluent/fluent-plugin-mongo)

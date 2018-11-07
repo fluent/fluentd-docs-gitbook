@@ -5,8 +5,7 @@ incoming event streams in a versatile manner. If there is a need to
 add/delete/modify events, this plugin is the first filter to try.
 
 
-Example Configurations
-----------------------
+## Example Configurations
 
 `filter_record_transformer` is included in Fluentd's core. No
 installation required.
@@ -105,8 +104,7 @@ So, if an event with the tag "web.auth" and record
 `{"user_id":1, "status":"ok"}` comes in, it transforms it into
 `{"user_id":1, "status":"ok", "service_name":"auth"}`.
 
-Parameters
-----------
+## Parameters
 
 ### \<record\> directive
 
@@ -214,8 +212,7 @@ A list of keys to keep. Only relevant if `renew_record` is set to true.
 
 A list of keys to delete.
 
-Need more performance?
-----------------------
+## Need more performance?
 
 [filter\_record\_modifier](https://github.com/repeatedly/fluent-plugin-record-modifier)
 is light-weight and faster version of `filter_record_transformer`.
@@ -224,8 +221,7 @@ is light-weight and faster version of `filter_record_transformer`.
 you need better performace for mutating records, consider
 `filter_record_modifier` instead.
 
-FAQ
----
+## FAQ
 
 ### What are the differences between `${record["key"]}` and `${key}`?
 
@@ -236,8 +232,7 @@ because `${tag}` is unclear for event tag or `record["tag"]`. So the
 
 Since v0.14, `${key}` short-cut syntax is removed.
 
-Learn More
-----------
+## Learn More
 
 -   [Filter Plugin Overview](/articles/filter-plugin-overview.md)
 

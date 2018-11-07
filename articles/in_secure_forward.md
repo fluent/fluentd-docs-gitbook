@@ -6,15 +6,13 @@ This document doesn\'t describe all parameters. If you want to know full
 features, check the Further Reading section.
 
 
-Installation
-------------
+## Installation
 
 `in_secure_forward` is **not** included in either `td-agent` package or
 `fluentd` gem. In order to install it, please refer to the [Plugin
 Management](/articles/plugin-management.md) article.
 
-Example Configurations
-----------------------
+## Example Configurations
 
 This section provides some example configurations for
 `in_secure_forward`.
@@ -127,8 +125,7 @@ You can use the username/password check and client check together:
 Please refer to the **Secure Sender-Receiver Setup** [sample
 documentation](out_secure_forward#Secure-Sender-Receiver-Setup).
 
-Parameters
-----------
+## Parameters
 
 ### \@type
 
@@ -205,8 +202,7 @@ logging for each plugin. The supported log levels are: `fatal`, `error`,
 
 Please see the [logging article](/articles/logging.md) for further details.
 
-Further Reading
----------------
+## Further Reading
 
 -   [fluent-plugin-secure-forward
     repository](https://github.com/tagomoris/fluent-plugin-secure-forward)

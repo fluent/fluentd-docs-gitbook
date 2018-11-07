@@ -6,8 +6,7 @@ Fluentd has two log layers: global and per plugin. Different log levels
 can be set for global logging and plugin level logging.
 
 
-Log Level
----------
+## Log Level
 
 Shown below is the list of supported values, in increasing order of
 verbosity:
@@ -22,8 +21,7 @@ verbosity:
 The default log level is `info`, and Fluentd outputs `info`, `warn`,
 `error` and `fatal` logs by default.
 
-Global Logs
------------
+## Global Logs
 
 Global logging is used by Fluentd core and plugins that don't set their
 own log levels. The global log level can be adjusted up or down.
@@ -64,8 +62,7 @@ config file like below.
 </system>
 ```
 
-Per Plugin Log
---------------
+## Per Plugin Log
 
 The `log_level` option sets different levels of logging for each plugin.
 It can be set in each plugin's configuration file.
@@ -93,8 +90,7 @@ Some plugins haven\'t supported per-plugin logging yet. The [logging
 section of the Plugin Development article](plugin-development#logging)
 explains how to update such plugins to support the new log level system.
 
-Suppress repeated stacktrace
-----------------------------
+## Suppress repeated stacktrace
 
 Fluentd can suppress same stacktrace with
 `--suppress-repeated-stacktrace`. For example, if you pass
@@ -126,8 +122,7 @@ logs are changed to:
 Same stacktrace is replaced with `suppressed same stacktrace` message
 until other stacktrace is received.
 
-Output to log file
-------------------
+## Output to log file
 
 Fluentd outputs logs to `STDOUT` by default. To output to a file
 instead, please specify the `-o` option.
@@ -138,8 +133,7 @@ $ fluentd -o /path/to/log_file
 
 Fluentd doesn\'t support log rotation yet.
 
-Capture Fluentd logs
---------------------
+## Capture Fluentd logs
 
 Fluentd marks its own logs with the `fluent` tag. You can process
 Fluentd logs by using `<match fluent.**>` or `<match **>`(Of course,

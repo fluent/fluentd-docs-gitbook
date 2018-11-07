@@ -1,8 +1,7 @@
 # Writing plugins
 
 
-Installing custom plugins
--------------------------
+## Installing custom plugins
 
 To install a plugin, please put the ruby script in the
 `/etc/fluent/plugin` directory.
@@ -23,8 +22,7 @@ installed using RubyGems. For further information, please see the [list
 of Fluentd plugins](http://www.fluentd.org/plugins) for third-party
 plugins.
 
-Overview
---------
+## Overview
 
 The following slides can help the user understand how Fluentd works
 before they dive into writing their own plugins.
@@ -50,8 +48,7 @@ a patch is better. If the plugin author is non-active, try to become new
 plugin maintainer first. Forking a plugin and release alternative
 plugin, e.g. fluent-plugin-xxx-alt, is final approach.
 
-Plugin versioning policy
-------------------------
+## Plugin versioning policy
 
 If you don't have a your policy, following semantic versioning is
 better.
@@ -64,8 +61,7 @@ based plugin doesn't work with fluentd v0.12. So if you release your
 existing plugin with new v0.14 API, please update major version, `0.5.0`
 -\> `1.0.0`, `1.2.0` -\> `2.0.0`.
 
-Writing Input Plugins
----------------------
+## Writing Input Plugins
 
 Extend the **Fluent::Input** class and implement the following methods.
 In `initialize`, `configure` and `start`, `super` should be called to
@@ -145,8 +141,7 @@ router.emit(tag, time, {'foo' => 'bar'})  # OK!
 router.emit(tag, time, {:foo => 'bar'})   # NG!
 ```
 
-Writing Buffered Output Plugins
--------------------------------
+## Writing Buffered Output Plugins
 
 Extend the **Fluent::BufferedOutput** class and implement the following
 methods. In `initialize`, `configure` and `start`, `super` should be
@@ -219,8 +214,7 @@ module Fluent
 end
 ```
 
-Writing Time Sliced Output Plugins
-----------------------------------
+## Writing Time Sliced Output Plugins
 
 Time Sliced Output plugins are extended versions of buffered output
 plugins. One example of a time sliced output is the `out_file` plugin.
@@ -250,8 +244,7 @@ module Fluent
 end
 ```
 
-Writing Non-buffered Output Plugins
------------------------------------
+## Writing Non-buffered Output Plugins
 
 Extend the **Fluent::Output** class and implement the following methods.
 **Output** plugin is often used for implementing filter like plugin. In
@@ -302,8 +295,7 @@ module Fluent
 end
 ```
 
-Filter Plugins
---------------
+## Filter Plugins
 
 This section shows how to write custom filters in addition to [the core
 filter plugins](/articles/filter-plugin-overview.md). The plugin files whose names
@@ -387,8 +379,7 @@ end
 [EventStream](https://github.com/fluent/fluentd/blob/master/lib/fluent/event.rb)
 object.
 
-Parser Plugins
---------------
+## Parser Plugins
 
 Fluentd supports [pluggable, customizable formats for input
 plugins](parser-plugin-overview). The plugin files whose names start
@@ -486,8 +477,7 @@ parser.parse(text) { |time, record| ... }
 time, record = parser.parse(text) # or parser.call(text)
 ```
 
-Text Formatter Plugins
-----------------------
+## Text Formatter Plugins
 
 Fluentd supports [pluggable, customizable formats for output
 plugins](formatter-plugin-overview). The plugin files whose names start
@@ -554,8 +544,7 @@ Then, if out\_file is configured as
 and if the record `{"k1": 100, "k2": 200}` is matched, the output file
 should look like `100,200`
 
-Error stream
-------------
+## Error stream
 
 `router` has `emit_error_event` API to rescue invalid events. Emitted
 events via `emit_error_event` are routed to `@ERROR` label.
@@ -579,8 +568,7 @@ There are several use cases:
 -   record: Hash: recommend to use incoming event record
 -   error: Exception: use a raised exception
 
-config\_param
--------------
+## config\_param
 
 `config_param` helper defines plugin parameter. You don't need to parse
 parameters manually. `config_param` syntax is
@@ -656,8 +644,7 @@ These options can be combined.
 config_param :param, :array, default: [1, 2], secret: true, deprecated: "Use new_param instead"
 ```
 
-Debugging plugins
------------------
+## Debugging plugins
 
 Run `fluentd` with the `-vv` option to show debug messages:
 
@@ -723,8 +710,7 @@ combination. The result is same as above but more simpler.
 </match>
 ```
 
-Writing test cases
-------------------
+## Writing test cases
 
 Fluentd provides unit test frameworks for plugins:
 
@@ -757,8 +743,7 @@ If you want to run only one file, use `TEST` environment variable:
 $ bundle exec rake test TEST=test/plugin/test_out_foo.rb
 ```
 
-Further Reading
----------------
+## Further Reading
 
 -   [Slides: Dive into Fluentd
     Plugin](http://www.slideshare.net/repeatedly/dive-into-fluentd-plugin-v012)

@@ -3,8 +3,7 @@
 The `relabel` output plugin re-labels events.
 
 
-Example Configuration
----------------------
+## Example Configuration
 
 `out_relabel` is included in Fluentd's core. No additional installation
 process is required.
@@ -29,8 +28,7 @@ FYI: All of input and output plugins also have `@label` parameter
 provided by Fluentd core. The `relabel` plugin is a plugin which
 actually does nothing, but supports only `@label` parameter.
 
-Parameters
-----------
+## Parameters
 
 ### \@type (required)
 

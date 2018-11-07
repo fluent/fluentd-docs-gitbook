@@ -4,8 +4,7 @@ The `file` buffer plugin provides a persistent buffer implementation. It
 uses files to store buffer chunks on disk.
 
 
-Example Config
---------------
+## Example Config
 
 ``` {.CodeRay}
 <match pattern>
@@ -16,8 +15,7 @@ Example Config
 Please see the [Config File](/articles/config-file.md) article for the basic
 structure and syntax of the configuration file.
 
-Parameters
-----------
+## Parameters
 
 #### buffer\_type (required)
 
@@ -92,8 +90,7 @@ and "h" (hours) can be used.
 
 Limitation
 
-Caution
--------
+## Caution
 
 `file` buffer implementation depends on the characteristics of local
 file system. Don't use `file` buffer on remote file system, e.g. NFS,

@@ -8,8 +8,7 @@ condition has been met. To change the output frequency, please modify
 the `time_slice_format` value.
 
 
-Example Configuration
----------------------
+## Example Configuration
 
 `out_file` is included in Fluentd's core. No additional installation
 process is required.
@@ -28,8 +27,7 @@ process is required.
 Please see the [Config File](/articles/config-file.md) article for the basic
 structure and syntax of the configuration file.
 
-Parameters
-----------
+## Parameters
 
 ### \@type (required)
 
@@ -96,8 +94,7 @@ Create symlink to temporary buffered file when `buffer_type` is `file`.
 No symlink is created by default. This is useful for tailing file
 content to check logs.
 
-Time Sliced Output Parameters
------------------------------
+## Time Sliced Output Parameters
 
 For advanced usage, you can tune Fluentd's internal buffering mechanism
 with these parameters.

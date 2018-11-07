@@ -12,8 +12,7 @@ supports following operations.
 -   View Fluentd log with simple error viewer
 
 
-Getting Started
----------------
+## Getting Started
 
 If you've installed td-agent, you can start it by `td-agent-ui start` as
 below:
@@ -44,8 +43,7 @@ The default account is username="admin" and password="changeme"
 
 ![fluentd-ui](/images/fluentd-ui/fluentd-ui.gif)
 
-Screenshots
------------
+## Screenshots
 
 (v0.3.9)
 

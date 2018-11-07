@@ -6,8 +6,7 @@ to aggregate semi-structured logs into Treasure Data (TD), which offers
 Cloud Data Service.
 
 
-Background
-----------
+## Background
 
 [Fluentd](http://fluentd.org/) is an advanced open-source log collector
 originally developed at [Treasure Data,
@@ -23,16 +22,14 @@ to spend engineering resources maintaining your backend infrastructure.
 This article will show you how to use [Fluentd](http://fluentd.org/) to
 receive data from HTTP and stream it into TD.
 
-Architecture
-------------
+## Architecture
 
 The figure below shows the high-level architecture.
 
 ![](/images/treasuredata_architecture.png)
 
 
-Install
--------
+## Install
 
 For simplicity, this article will describe how to set up an one-node
 configuration. Please install the following software on the same node.
@@ -49,8 +46,7 @@ plugin, please use `gem install fluent-plugin-td`.
 -   [RPM Package](/articles/install-by-rpm.md)
 -   [Ruby gem](/articles/install-by-gem.md)
 
-Signup
-------
+## Signup
 
 Next, please [sign up](https://console.treasure-data.com/users/sign_up)
 to TD and get your apikey using the `td apikey:show` command.
@@ -64,8 +60,7 @@ $ td apikey:show
 kdfasklj218dsakfdas0983120
 ```
 
-Fluentd Configuration
----------------------
+## Fluentd Configuration
 
 Let's start configuring Fluentd. If you used the deb/rpm package,
 Fluentd's config file is located at /etc/td-agent/td-agent.conf.
@@ -105,8 +100,7 @@ If a matching tag is found in a log, then the config inside
 `<match>...</match>` is used (i.e. the log is routed according to the
 config inside).
 
-Test
-----
+## Test
 
 To test the configuration, just post the JSON to Fluentd. Sending a USR1
 signal flushes Fluentd's buffer into TD.
@@ -153,16 +147,14 @@ Please see the [Treasure Data
 plugin](http://github.com/treasure-data/fluent-plugin-td/) article for
 details.
 
-Conclusion
-----------
+## Conclusion
 
 Fluentd + Treasure Data gives you a data collection and analysis system
 in days, not months. Treasure Data is a useful solution if you don't
 want to spend engineering resources maintaining the backend storage and
 analytics infrastructure.
 
-Learn More
-----------
+## Learn More
 
 -   [Fluentd Architecture](///www.fluentd.org/architecture)
 -   [Fluentd Get Started](/articles/quickstart.md)

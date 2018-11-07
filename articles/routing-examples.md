@@ -3,8 +3,7 @@
 This article shows typical routing examples.
 
 
-Simple Input -\> Filter -\> Output
-----------------------------------
+## Simple Input -\> Filter -\> Output
 
 ``` {.CodeRay}
 <source>
@@ -52,8 +51,7 @@ Simple Input -\> Filter -\> Output
 
 If you want to separate data pipeline for each sources, use Label.
 
-Input -\> Filter -\> Output with Label
---------------------------------------
+## Input -\> Filter -\> Output with Label
 
 Label reduces complex tag handling by separating data pipeline.
 
@@ -88,8 +86,7 @@ Label reduces complex tag handling by separating data pipeline.
 </label>
 ```
 
-Re-route event by tag
----------------------
+## Re-route event by tag
 
 Use
 [fluent-plugin-route](https://github.com/tagomoris/fluent-plugin-route)
@@ -123,8 +120,7 @@ Label.
 </label>
 ```
 
-Re-route event by record content
---------------------------------
+## Re-route event by record content
 
 Use
 [fluent-plugin-rewrite-tag-filter](https://github.com/fluent/fluent-plugin-rewrite-tag-filter).
@@ -155,8 +151,7 @@ Use
 
 See also [out\_rewrite\_tag\_filter](/articles/out_rewrite_tag_filter.md) article.
 
-Re-route event to other Label
------------------------------
+## Re-route event to other Label
 
 Use [out\_relabel](/articles/out_relabel.md) plugin. `relabel` plugin simply emits
 events to Label. No tag rewrite.

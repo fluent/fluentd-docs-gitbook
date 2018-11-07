@@ -4,8 +4,7 @@ This article shows how to use Fluentd to collect GlusterFS logs for
 analysis (search, analytics, troubleshooting, etc.)
 
 
-Background
-----------
+## Background
 
 [GlusterFS](http://gluster.org) is an open source, distributed file
 system commercially supported by Red Hat, Inc. Each node in GlusterFS
@@ -27,8 +26,7 @@ For this example, we chose Elasticsearch as the backend system.
 
 ![](/images/glusterfs-fluentd.png)
 
-Setting up Fluentd on GlusterFS Nodes
--------------------------------------
+## Setting up Fluentd on GlusterFS Nodes
 
 ### Step 1: Installing Fluentd
 
@@ -164,15 +162,13 @@ $ sudo cat /etc/td-agent/td-agent.conf
 That's it! You should now be able to search and visualize your GlusterFS
 logs with [Kibana](http://www.elasticsearch.org/overview/kibana).
 
-Acknowledgement
----------------
+## Acknowledgement
 
 This article is inspired by [Daisuke Sasaki's article on Classmethod's
 website](http://dev.classmethod.jp/cloud/aws/glusterfs-with-fluentd/).
 Thanks Daisuke!
 
-Learn More
-----------
+## Learn More
 
 -   [Fluentd Architecture](///www.fluentd.org/architecture)
 -   [Fluentd Get Started](/articles/quickstart.md)

@@ -13,8 +13,7 @@ works with \`multiline\` but other input plugins don\'t work with
 \`multiline\`.
 
 
-Parameters
-----------
+## Parameters
 
 ### time\_key
 
@@ -49,8 +48,7 @@ mode.
 If you want to keep time field in the record, set `true`. Default is
 `false`.
 
-Example
--------
+## Example
 
 ### Rails log
 

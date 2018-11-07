@@ -10,8 +10,7 @@ This document doesn\'t describe all parameters. If you want to know full
 features, check the Further Reading section.
 
 
-Why Fluentd with MongoDB?
--------------------------
+## Why Fluentd with MongoDB?
 
 Fluentd enables your apps to insert records to MongoDB asynchronously
 with batch-insertion, unlike direct insertion of records from your apps.
@@ -21,8 +20,7 @@ This has the following advantages:
 2.  higher MongoDB insertion throughput while maintaining JSON record
     structure
 
-Install
--------
+## Install
 
 `out_mongo` is included in td-agent by default. Fluentd gem users will
 need to install the fluent-plugin-mongo gem using the following command.
@@ -31,8 +29,7 @@ need to install the fluent-plugin-mongo gem using the following command.
 $ fluent-gem install fluent-plugin-mongo
 ```
 
-Example Configuration
----------------------
+## Example Configuration
 
 ``` {.CodeRay}
 # Single MongoDB
@@ -65,8 +62,7 @@ article for real-world use cases.
 Please see the [Config File](/articles/config-file.md) article for the basic
 structure and syntax of the configuration file.
 
-Parameters
-----------
+## Parameters
 
 ### type (required)
 
@@ -138,8 +134,7 @@ within the `fluentd` database.
 
 This option is useful for flexible log collection.
 
-Buffered Output Parameters
---------------------------
+## Buffered Output Parameters
 
 For advanced usage, you can tune Fluentd's internal buffering mechanism
 with these parameters.
@@ -215,8 +210,7 @@ logging for each plugin. The supported log levels are: `fatal`, `error`,
 
 Please see the [logging article](/articles/logging.md) for further details.
 
-Further Reading
----------------
+## Further Reading
 
 -   [fluent-plugin-mongo
     repository](https://github.com/fluent/fluent-plugin-mongo)

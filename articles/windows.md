@@ -19,15 +19,13 @@ first.
 [What is Fluentd?](///www.fluentd.org/architecture)
 
 
-Prerequisites
--------------
+## Prerequisites
 
 1.  [nxlog](http://nxlog.org), an open source log management tool that
     runs on Windows.
 2.  A Linux server (we assume Ubuntu 12 for this article)
 
-Setup
------
+## Setup
 
 ### Set up a Linux server with rsyslogd and Fluentd
 
@@ -171,8 +169,7 @@ unstructured text. For production purposes, you would probably want to
 write a plugin/extend the syslog plugin so that you can parse the
 "message" field in the event.
 
-Learn More
-----------
+## Learn More
 
 -   [Fluentd Architecture](///www.fluentd.org/architecture)
 -   [Fluentd Get Started](/articles/quickstart.md)

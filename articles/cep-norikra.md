@@ -5,8 +5,7 @@ This article explains how to use [Fluentd](http://fluentd.org/) and
 complex event processing platform.
 
 
-Background
-----------
+## Background
 
 [Fluentd](http://fluentd.org/) is an advanced open-source log collector
 originally developed at [Treasure Data,
@@ -37,15 +36,13 @@ and the [Fluentd norikra
 plugin](https://github.com/norikra/fluent-plugin-norikra) to create a
 robust stream data processing platform.
 
-Architecture
-------------
+## Architecture
 
 The figure below shows the high-level architecture.
 
 ![](/images/fluentd-norikra-overview.png)
 
-Installation
-------------
+## Installation
 
 For the sake of simplicity, this guide will set up a one-node
 configuration. Please install the following on the same node:
@@ -91,8 +88,7 @@ command will launch the Norikra server in your console.
 You can also check the current Norikra's status via the WebUI
 (http://localhost:26578/).
 
-Fluentd Configuration
----------------------
+## Fluentd Configuration
 
 We'll now configure Fluentd. If you used the deb/rpm package, Fluentd's
 config file is located at /etc/td-agent/td-agent.conf. Otherwise, it is
@@ -146,8 +142,7 @@ the Norikra server. We can also specify these sets per target with
 available, please refer to the [fluent-plugin-norikra
 documentation](https://github.com/norikra/fluent-plugin-norikra).
 
-Test
-----
+## Test
 
 To test the configuration, just post the JSON to Fluentd (we use the
 curl command in this example).
@@ -247,15 +242,13 @@ first 10 seconds, and counts events per `action` for events with
 that no events arrived (This is teardown records, and reported only
 once).
 
-Conclusion
-----------
+## Conclusion
 
 We can create a stream data processing platform without any schema
 definitions, using Fluentd and Norikra. This platform enables an agile
 stream processing environment that can handle real workloads.
 
-Learn More
-----------
+## Learn More
 
 -   [Fluentd Architecture](//www.fluentd.org/architecture)
 -   [Fluentd Get Started](/articles/quickstart.md)

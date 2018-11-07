@@ -3,16 +3,14 @@
 The `apache2` parser plugin parses apache2 logs.
 
 
-Parameters
-----------
+## Parameters
 
 ### keep\_time\_key
 
 If you want to keep time field in the record, set `true`. Default is
 `false`.
 
-Regexp patterns
----------------
+## Regexp patterns
 
 This is regexp and time format patterns of this plugin:
 
@@ -28,8 +26,7 @@ are included in the event record. `time` is used for the event time.
 And if the field value is `-`, it is interpreted as `nil`. See "Result
 Example".
 
-Example
--------
+## Example
 
 ``` {.CodeRay}
 192.168.0.1 - - [28/Feb/2013:12:00:00 +0900] "GET / HTTP/1.1" 200 777 "-" "Opera/12.0"

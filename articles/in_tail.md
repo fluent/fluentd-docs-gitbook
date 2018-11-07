@@ -4,8 +4,7 @@ The `in_tail` Input plugin allows Fluentd to read events from the tail
 of text files. Its behavior is similar to the `tail -F` command.
 
 
-Example Configuration
----------------------
+## Example Configuration
 
 `in_tail` is included in Fluentd's core. No additional installation
 process is required.
@@ -32,8 +31,7 @@ structure and syntax of the configuration file.
     td-agent read before the restart. This position is recorded in the
     position file specified by the pos\_file parameter.
 
-Parameters
-----------
+## Parameters
 
 ### \@type (required)
 
@@ -233,8 +231,7 @@ logging for each plugin. The supported log levels are: `fatal`, `error`,
 
 Please see the [logging article](/articles/logging.md) for further details.
 
-FAQ
----
+## FAQ
 
 ### in\_tail doesn't start to read log file, why?
 

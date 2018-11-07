@@ -6,8 +6,7 @@ Don't use this plugin for receiving logs from client libraries. Use
 `in_forward` for such cases.
 
 
-Example Configuration
----------------------
+## Example Configuration
 
 `in_tcp` is included in Fluentd's core. No additional installation
 process is required.
@@ -30,8 +29,7 @@ proper kernel parameter settings. If you have high-volume TCP traffic,
 please make sure to follow the instruction described at [Before
 Installing Fluentd](/articles/before-install.md).
 
-Parameters
-----------
+## Parameters
 
 ### \@type (required)
 

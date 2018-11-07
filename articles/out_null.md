@@ -3,8 +3,7 @@
 The `null` output plugin just throws away events.
 
 
-Example Configuration
----------------------
+## Example Configuration
 
 `out_null` is included in Fluentd's core. No additional installation
 process is required.
@@ -17,8 +16,7 @@ process is required.
 Please see the [Config File](/articles/config-file.md) article for the basic
 structure and syntax of the configuration file.
 
-Parameters
-----------
+## Parameters
 
 ### \@type (required)
 

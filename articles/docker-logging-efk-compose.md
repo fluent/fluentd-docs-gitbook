@@ -27,15 +27,13 @@ All of `httpd`'s logs will be ingested into Elasticsearch + Kibana, via
 Fluentd.
 
 
-Prerequisites: Docker
----------------------
+## Prerequisites: Docker
 
 Please download and install Docker / Docker Compose. Well, that's it :)
 
 -   [Docker Installation](https://docs.docker.com/engine/installation/)
 
-Step 0: prepare docker-compose.yml
-----------------------------------
+## Step 0: prepare docker-compose.yml
 
 First, please prepare `docker-compose.yml` for [Docker
 Compose](https://docs.docker.com/compose/overview/). Docker Compose is a
@@ -92,8 +90,7 @@ default container logging driver. All of the logs from `web` container
 will be automatically forwarded to host:port specified by
 `fluentd-address`.
 
-Step 1: Prepare Fluentd image with your Config + Plugin
--------------------------------------------------------
+## Step 1: Prepare Fluentd image with your Config + Plugin
 
 Then, please prepare `fluentd/Dockerfile` with the following content, to
 use Fluentd's [official Docker
@@ -138,8 +135,7 @@ forwarding logs to Elasticsearch.
 </match>
 ```
 
-Step 2: Start Containers
-------------------------
+## Step 2: Start Containers
 
 Let's start all of the containers, with just one command.
 
@@ -158,8 +154,7 @@ a1b15a7210f6        dockercomposeefk_fluentd   "/bin/sh -c 'exec ..."   About an
 b7b439415898        elasticsearch              "/docker-entrypoin..."   About an hour ago   Up 50 seconds       0.0.0.0:9200->9200/tcp, 9300/tcp                               dockercomposeefk_elasticsearch_1
 ```
 
-Step 3: Generate httpd Access Logs
-----------------------------------
+## Step 3: Generate httpd Access Logs
 
 Let's access to `httpd` to generate some access logs. `curl` command is
 always your friend.
@@ -178,8 +173,7 @@ $ repeat 10 curl http://localhost:80/
 <html><body><h1>It works!</h1></body></html>
 ```
 
-Step 4: Confirm Logs from Kibana
---------------------------------
+## Step 4: Confirm Logs from Kibana
 
 Please go to `http://localhost:5601/` with your browser. Then, you need
 to set up the index name pattern for Kibana. Please specify `fluentd-*`
@@ -194,8 +188,7 @@ are properly collected into Elasticsearch + Kibana, via Fluentd.
 ![](/images/efk-kibana-2.png)
 
 
-Conclusion
-----------
+## Conclusion
 
 This article explains how to collect logs from Apache to EFK
 (Elasticsearch + Fluentd + Kibana). The example code is available in
@@ -203,8 +196,7 @@ this repository.
 
 -   <https://github.com/kzk/docker-compose-efk>
 
-Learn More
-----------
+## Learn More
 
 -   [Fluentd Architecture](///www.fluentd.org/architecture)
 -   [Fluentd Get Started](/articles/quickstart.md)

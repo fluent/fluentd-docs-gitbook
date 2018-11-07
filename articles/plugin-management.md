@@ -4,8 +4,7 @@ This article explains how to manage Fluentd plugins, including adding
 3rd party plugins.
 
 
-fluent-gem
-----------
+## fluent-gem
 
 The `fluent-gem` command is used to install Fluentd plugins. This is a
 wrapper around the `gem` command.
@@ -56,8 +55,7 @@ Gem files will remain installed in /opt/td-agent/embedded/lib/ruby/gems/2.1.0/ge
 Results logged to /opt/td-agent/embedded/lib/ruby/gems/2.1.0/extensions/x86_64-linux/2.1.0/string-scrub-0.0.3/gem_make.out
 ```
 
-"-p" option
------------
+## "-p" option
 
 Fluentd's `-p` option is used to add an extra plugin directory to the
 load path. For example, if you put the `out_foo.rb` plugin into
@@ -70,8 +68,7 @@ fluentd -p /path/to/plugin
 
 You can specify the `-p` option more than once.
 
-Add a Plugin Via /etc/fluent/plugin
------------------------------------
+## Add a Plugin Via /etc/fluent/plugin
 
 Fluentd adds the `/etc/fluent/plugin` directory to its load path by
 default. Thus, any additional plugins that are placed in
@@ -86,8 +83,7 @@ If you are using td-agent, Fluentd uses the `/etc/td-agent/plugin`
 directory instead of `/etc/fluent/plugin`. Please put your plugins here
 instead.
 
-Plugin version management
--------------------------
+## Plugin version management
 
 Fluentd and plugins are evolving, so you may hit unexpected error with
 latest version, e.g. regression by new feature, removed deprecated
@@ -117,8 +113,7 @@ You should specify target version with `-v` option.
 `/usr/sbin/td-agent-gem` is also same because `/usr/sbin/td-agent-gem`
 uses `gem` command internally.
 
-"--gemfile" option
-------------------
+## "--gemfile" option
 
 A Ruby application manages gem dependencies using Gemfile and
 [Bundler](http://bundler.io/). Fluentd's `--gemfile` option takes the

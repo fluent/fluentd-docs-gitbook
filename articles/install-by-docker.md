@@ -10,15 +10,13 @@ image](https://hub.docker.com/r/fluent/fluentd/), maintained by
     (Source)](https://github.com/fluent/fluentd-docker-image)
 
 
-Step 0: Install Docker
-----------------------
+## Step 0: Install Docker
 
 Please download and install [Docker](https://www.docker.com/) from here.
 
 -   [Docker Installation](https://docs.docker.com/engine/installation/)
 
-Step 1: Pull Fluentd's Docker image
------------------------------------
+## Step 1: Pull Fluentd's Docker image
 
 Then, please download Fluentd v0.12's image by `docker pull` command.
 
@@ -29,8 +27,7 @@ Debian and Alpine Linux version is available for Fluentd image. Debian
 version is recommended officially since it has jemalloc support, however
 Alpine image is smaller.
 
-Step 2: Launch Fluentd Container
---------------------------------
+## Step 2: Launch Fluentd Container
 
 To make the test simple, create the example config below at
 `/tmp/fluentd.conf`. This example accepts records from http, and output
@@ -71,8 +68,7 @@ $ docker run -d \
 </ROOT>
 ```
 
-Step3: Post Sample Logs via HTTP
---------------------------------
+## Step3: Post Sample Logs via HTTP
 
 Let's post sample logs via HTTP and confirm it's working. `curl` command
 is always your friend.
@@ -92,8 +88,7 @@ $ docker logs b495e527850c | tail -n 1
 2017-01-30 14:04:37 +0000 sample.test: {"json":"message"}
 ```
 
-Next Steps
-----------
+## Next Steps
 
 Now you know how to use Fluentd via Docker. Here're a couple of Docker
 related documentations for Fluentd.

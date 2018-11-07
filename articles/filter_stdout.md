@@ -5,8 +5,7 @@ launched with daemon mode). This filter plugin is useful for debugging
 purposes.
 
 
-Example Configurations
-----------------------
+## Example Configurations
 
 `filter_stdout` is included in Fluentd's core. No installation required.
 
@@ -27,8 +26,7 @@ tag, and the third part shows the record.
 The first part shows the \*\*output\*\* time, not the time attribute of
 message event structure as \`out\_stdout\` does.
 
-Parameters
-----------
+## Parameters
 
 #### type (required)
 
@@ -356,8 +354,7 @@ logging for each plugin. The supported log levels are: `fatal`, `error`,
 
 Please see the [logging article](/articles/logging.md) for further details.
 
-Learn More
-----------
+## Learn More
 
 -   [Filter Plugin Overview](/articles/filter-plugin-overview.md)
 

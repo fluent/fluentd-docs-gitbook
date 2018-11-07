@@ -7,8 +7,7 @@ This plugin uses
 method.
 
 
-Parameters
-----------
+## Parameters
 
 ### time\_key
 
@@ -82,8 +81,7 @@ value "3,4,5", `types item_ids:array` parses it as \["3", "4", "5"\].
 Alternatively, if the value is "Adam\|Alice\|Bob",
 `types item_ids:array:|` parses it as \["Adam", "Alice", "Bob"\].
 
-Example
--------
+## Example
 
 ``` {.CodeRay}
 format csv

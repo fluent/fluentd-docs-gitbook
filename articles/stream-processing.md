@@ -1,8 +1,7 @@
 # Stream Processing
 
 
-Articles
---------
+## Articles
 
 -   [Easy Data Stream Manipulation using
     Fluentd](/articles//articles/filter-modify-apache.md)

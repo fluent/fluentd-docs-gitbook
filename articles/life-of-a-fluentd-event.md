@@ -6,8 +6,7 @@ complete cycle including *Setup*, *Inputs*, *Filters*, *Matches* and
 *Labels*.
 
 
-Basic Setup
------------
+## Basic Setup
 
 The configuration files is the fundamental piece to connect all things
 together, as it allows to define which *Inputs* or listeners
@@ -73,8 +72,7 @@ $ bin/fluentd -c in_http.conf
 2015-01-19 12:39:57 -0600 test.cycle: {"action":"login","user":2}
 ```
 
-Event structure
----------------
+## Event structure
 
 A Fluentd event consists of a tag, time and record.
 
@@ -99,8 +97,7 @@ time: 1362020400   # 28/Feb/2013:12:00:00 +0900
 record: {"user":"-","method":"GET","code":200,"size":777,"host":"192.168.0.1","path":"/"}
 ```
 
-Processing Events
------------------
+## Processing Events
 
 When a *Setup* is defined, the *Router Engine* already contains several
 rules to apply for different input data. Internally an *Event* will pass
@@ -243,8 +240,7 @@ Buffers are important for reliability and throughput. See
 [Output](/articles/output-plugin-overview.md) and [Buffer](/articles/buffer-plugin-overview.md)
 articles.
 
-Execution unit
---------------
+## Execution unit
 
 This section describes the internal implementation.
 
@@ -263,8 +259,7 @@ the output responsibility. This de-couples the input/output and this
 model has merits, separate responsibilities, easy error handling, good
 performance.
 
-Conclusion
-----------
+## Conclusion
 
 Once the events are reported by the [Fluentd](http://fluend.org) engine
 on the *Source* they can be processed *step by step* or inside a
@@ -272,8 +267,7 @@ referenced *Label*, with any *Event* being filtered out at any moment.
 The new *Routing* engine behavior aims to provide more flexibility and
 simplifies the processing before events reach the *Output* plugin.
 
-Learn More
-----------
+## Learn More
 
 -   [Fluentd v0.12 Blog
     Announcement](http://www.fluentd.org/blog/fluentd-v0.12-is-released)

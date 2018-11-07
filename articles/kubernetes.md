@@ -12,8 +12,7 @@ The following document focus on how to deploy Fluentd in Kubernetes and
 extend the possibilities to have different destinations for your logs.
 
 
-Getting Started
----------------
+## Getting Started
 
 The following document assumes that you have a Kubernetes cluster
 running or at least a local (single) node that can be used for testing
@@ -49,8 +48,7 @@ Since applications runs in Pods and multiple Pods might exists across
 multiple nodes, we need a specific Fluentd-Pod that takes care of log
 collection on each node: [Fluentd DaemonSet](/articles/fluentd_daemonset.md).
 
-Fluentd DaemonSet
------------------
+## Fluentd DaemonSet
 
 For [Kubernetes](https://kubernetes.io), a
 [DaemonSet](https://kubernetes.io/docs/admin/daemons/) ensures that all
@@ -92,8 +90,7 @@ outputs.
 -   [DaemonSet preset
     settings](https://github.com/fluent/fluentd-kubernetes-daemonset/tree/master/docker-image/v0.12)
 
-Logging to Elasticsearch
-------------------------
+## Logging to Elasticsearch
 
 ### Requirements
 

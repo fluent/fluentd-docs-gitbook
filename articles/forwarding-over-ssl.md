@@ -1,8 +1,7 @@
 # Forwarding Data Over SSL
 
 
-Overview
---------
+## Overview
 
 This is a quick tutorial on how to use the [secure forward
 plugin](//github.com/tagomoris/fluent-plugin-secure-forward) to **enable
@@ -13,8 +12,7 @@ including parameter definitions, please checkout out the
 [out\_secure\_forward](/articles/out_secure_forward.md) and
 [in\_secure\_forward](/articles/in_secure_forward.md).
 
-Setup: Receiver
----------------
+## Setup: Receiver
 
 First, install the secure forward plugin.
 
@@ -45,8 +43,7 @@ using [out\_stdout](/articles/out_stdout.md).
 
 Then, (re)start Fluentd/td-agent.
 
-Setup: Sender
--------------
+## Setup: Sender
 
 First, install the secure forward plugin.
 
@@ -80,8 +77,7 @@ the receiver's.
 
 Then, (re)start td-agent.
 
-Confirm: Send an Event Over SSL
--------------------------------
+## Confirm: Send an Event Over SSL
 
 On the sender machine, run the following command using `fluent-cat`
 
@@ -99,8 +95,7 @@ Now, checking the receiver's Fluentd's log (for td-agent, this would be
 2014-10-21 18:18:26 -0400 secure.test: {"message":"testing the SSL forwarding"}
 ```
 
-Resources
----------
+## Resources
 
 -   [in\_secure\_forward](/articles/in_secure_forward.md)
 -   [out\_secure\_forward](/articles/out_secure_forward.md)

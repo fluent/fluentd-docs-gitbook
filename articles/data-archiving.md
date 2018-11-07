@@ -1,8 +1,7 @@
 # Connecting to Data Storages
 
 
-Articles
---------
+## Articles
 
 -   [Store Apache Logs into Amazon S3](/articles/apache-to-s3.md)
 

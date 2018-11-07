@@ -1,8 +1,7 @@
 # Data Analytics
 
 
-Articles
---------
+## Articles
 
 -   [Data Analytics with Treasure Data](/articles/http-to-td.md)
 

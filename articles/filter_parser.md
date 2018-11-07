@@ -4,8 +4,7 @@ The `filter_parser` filter plugin "parses" string field in event records
 and mutates its event record with parsed result.
 
 
-Example Configurations
-----------------------
+## Example Configurations
 
 `filter_parser` is included in Fluentd's core since v0.12.29. No
 installation required. If you want to use `filter_parser` with lower
@@ -28,8 +27,7 @@ parser plugin, so you can re-use pre-defined format like `apache`,
 `json` and etc. See document page for more details: [Parser Plugin
 Overview](/articles//articles/parser-plugin-overview.md)
 
-Parameters
-----------
+## Parameters
 
 ### format
 
@@ -141,8 +139,7 @@ are
 
 You can rescue unexpected format logs in `@ERROR` label.
 
-Learn More
-----------
+## Learn More
 
 -   [Filter Plugin Overview](/articles/filter-plugin-overview.md)
 

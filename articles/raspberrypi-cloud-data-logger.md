@@ -18,8 +18,7 @@ place.
 [What is Fluentd?](///www.fluentd.org/architecture)
 
 
-Install Raspbian
-----------------
+## Install Raspbian
 
 [Raspbian](http://www.raspbian.org/) is a free operating system based on
 Debian, optimized for the Raspberry Pi. Please install Raspbian on your
@@ -28,8 +27,7 @@ Raspberry Pi by following the instructions in the blog post below:
 -   [Getting Started with Raspberry Pi: Installing
     Raspbian](http://www.andrewmunsell.com/blog/getting-started-raspberry-pi-install-raspbian)
 
-Install Fluentd
----------------
+## Install Fluentd
 
 Next, we'll install Fluentd on Raspbian. Raspbian bundles Ruby 1.9.3 by
 default, but we need the extra development package to install Fluentd.
@@ -45,8 +43,7 @@ $ sudo gem install fluentd -v "~> 0.12.0"
 $ sudo fluent-gem install fluent-plugin-td
 ```
 
-Configure and Launch Fluentd
-----------------------------
+## Configure and Launch Fluentd
 
 Please sign up to Treasure Data from the [sign up
 page](https://console.treasuredata.com/users/sign_up). Its free plan
@@ -81,8 +78,7 @@ Finally, please launch Fluentd via your terminal.
 $ fluentd -c fluent.conf
 ```
 
-Upload Test
------------
+## Upload Test
 
 To test the configuration, just post a JSON message to Fluentd via HTTP.
 
@@ -112,15 +108,13 @@ SELECT AVG(sensor1) FROM raspberrypi;
 SELECT SUM(sensor2) FROM raspberrypi;
 ```
 
-Conclusion
-----------
+## Conclusion
 
 Raspberry Pi is an ideal platform for prototyping data logger hardware.
 Fluentd helps Raspberry Pi transfer the collected data to the cloud
 easily and reliably.
 
-Learn More
-----------
+## Learn More
 
 -   [Fluentd Architecture](///www.fluentd.org/architecture)
 -   [Fluentd Get Started](/articles/quickstart.md)

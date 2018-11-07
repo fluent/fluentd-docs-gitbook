@@ -3,8 +3,7 @@
 The `copy` output plugin copies events to multiple outputs.
 
 
-Example Configuration
----------------------
+## Example Configuration
 
 `out_copy` is included in Fluentd's core. No additional installation
 process is required.
@@ -56,8 +55,7 @@ respective plugins.)
 </match>
 ```
 
-Parameters
-----------
+## Parameters
 
 ### \@type (required)
 
@@ -83,8 +81,7 @@ logging for each plugin. The supported log levels are: `fatal`, `error`,
 
 Please see the [logging article](/articles/logging.md) for further details.
 
-FAQ
----
+## FAQ
 
 ### How to ignore each error in \\\<store\>?
 

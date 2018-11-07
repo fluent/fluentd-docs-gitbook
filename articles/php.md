@@ -6,15 +6,13 @@ library is used to post records from PHP applications to Fluentd.
 This article explains how to use the fluent-logger-php library.
 
 
-Prerequisites
--------------
+## Prerequisites
 
 -   Basic knowledge of PHP
 -   Basic knowledge of Fluentd
 -   PHP 5.3 or higher
 
-Installing Fluentd
-------------------
+## Installing Fluentd
 
 Please refer to the following documents to install fluentd.
 
@@ -23,8 +21,7 @@ Please refer to the following documents to install fluentd.
 -   [Install Fluentd with Ruby Gem](/articles/install-by-gem.md)
 -   [Install Fluentd from source](/articles/install-from-source.md)
 
-Modifying the Config File
--------------------------
+## Modifying the Config File
 
 Next, please configure Fluentd to use the [forward Input
 plugin](/articles/in_forward.md) as its data source.
@@ -47,8 +44,7 @@ Please restart your agent once these lines are in place.
 $ sudo /etc/init.d/td-agent restart
 ```
 
-Using fluent-logger-php
------------------------
+## Using fluent-logger-php
 
 To use fluent-logger-php, copy the library into your project directory.
 
@@ -77,8 +73,7 @@ $ php test.php
 The logs should be output to `/var/log/td-agent/td-agent.log` or stdout
 of the Fluentd process via the [stdout Output plugin](/articles/out_stdout.md).
 
-Production Deployments
-----------------------
+## Production Deployments
 
 ### Output Plugins
 

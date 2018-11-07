@@ -6,16 +6,14 @@ library is used to post records from Scala applications to Fluentd.
 This article explains how to use the fluent-logger-scala library.
 
 
-Prerequisites
--------------
+## Prerequisites
 
 -   Basic knowledge of Scala and sbt
 -   Basic knowledge of Fluentd
 -   Scala 2.9.0 or 2.9.1
 -   sbt 0.12.0 or later
 
-Installing Fluentd
-------------------
+## Installing Fluentd
 
 Please refer to the following documents to install fluentd.
 
@@ -24,8 +22,7 @@ Please refer to the following documents to install fluentd.
 -   [Install Fluentd with Ruby Gem](/articles/install-by-gem.md)
 -   [Install Fluentd from source](/articles/install-from-source.md)
 
-Modifying the Config File
--------------------------
+## Modifying the Config File
 
 Next, please configure Fluentd to use the [forward Input
 plugin](/articles/in_forward.md) as its data source.
@@ -47,8 +44,7 @@ Please restart your agent once these lines are in place.
 $ sudo /etc/init.d/td-agent restart
 ```
 
-Using fluent-logger-scala
--------------------------
+## Using fluent-logger-scala
 
 First, please add the following lines to build.sbt. The logger's
 revision information can be found in the
@@ -102,8 +98,7 @@ $ sbt
 The logs should be output to `/var/log/td-agent/td-agent.log` or stdout
 of the Fluentd process via the [stdout Output plugin](/articles/out_stdout.md).
 
-Production Deployments
-----------------------
+## Production Deployments
 
 ### Output Plugins
 

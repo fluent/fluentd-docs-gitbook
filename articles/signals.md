@@ -3,15 +3,13 @@
 This article explains how `Fluentd` handles UNIX signals.
 
 
-Process Model
--------------
+## Process Model
 
 When you launch Fluentd, it creates two processes: supervisor and
 worker. The supervisor process controls the life cycle of the worker
 process. Please make sure to send any signals to the supervisor process.
 
-Signals
--------
+## Signals
 
 ### SIGINT or SIGTERM
 

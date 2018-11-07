@@ -3,8 +3,7 @@
 The `in_udp` Input plugin enables Fluentd to accept UDP payload.
 
 
-Example Configuration
----------------------
+## Example Configuration
 
 `in_udp` is included in Fluentd's core. No additional installation
 process is required.
@@ -28,8 +27,7 @@ parameter). If you have high-volume UDP traffic, please make sure to
 follow the instruction described at [Before Installing
 Fluentd](/articles/before-install.md).
 
-Parameters
-----------
+## Parameters
 
 ### \@type (required)
 
@@ -82,8 +80,7 @@ logging for each plugin. The supported log levels are: `fatal`, `error`,
 
 Please see the [logging article](/articles/logging.md) for further details.
 
-FAQ
----
+## FAQ
 
 ### How to prevent request drop?
 

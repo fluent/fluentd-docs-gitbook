@@ -45,8 +45,7 @@ CloudStack management server and directly collect those. Here we rely on
 the `listEvents` API.
 
 
-Getting Started
----------------
+## Getting Started
 
 You can install it from source:
 
@@ -162,8 +161,7 @@ source soon. You might have a different endpoint and of course different
 keys, and don't worry about me sharing that `secret_key` I am using a
 simulator, that key is already gone.
 
-Plugging MongoDB
-----------------
+## Plugging MongoDB
 
 Getting the events and usage information on stdout is interesting, but
 the kicker comes from storing the data in a database or a search index.

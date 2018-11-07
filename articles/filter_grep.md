@@ -4,8 +4,7 @@ The `filter_grep` filter plugin "greps" events by the values of
 specified fields.
 
 
-Example Configurations
-----------------------
+## Example Configurations
 
 `filter_grep` is included in Fluentd's core. No installation required.
 
@@ -50,8 +49,7 @@ whereas the following examples are filtered out:
 {"message":"It's cool outside today"}
 ```
 
-Parameters
-----------
+## Parameters
 
 ### \<regexp\> directive (optional)
 
@@ -179,8 +177,7 @@ exclude2 url \.css$
 ```
 If `<regexp>` and `<exclude>` are used together, both are applied.
 
-Learn More
-----------
+## Learn More
 
 -   [Filter Plugin Overview](/articles/filter-plugin-overview.md)
 -   [record\_transformer Filter Plugin](/articles/filter_record_transformer.md)

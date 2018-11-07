@@ -6,8 +6,7 @@ This document doesn\'t describe all parameters. If you want to know full
 features, check the Further Reading section.
 
 
-Installation
-------------
+## Installation
 
 `out_kafka` is included in td-agent2 after v2.3.3. Fluentd gem users
 will need to install the fluent-plugin-kafka gem using the following
@@ -17,8 +16,7 @@ command.
 $ fluent-gem install fluent-plugin-kafka
 ```
 
-Example Configuration
----------------------
+## Example Configuration
 
 ``` {.CodeRay}
 <match pattern>
@@ -52,8 +50,7 @@ Please make sure that you have **enough space in the buffer\_path
 directory**. Running out of disk space is a problem frequently reported
 by users.
 
-Parameters
-----------
+## Parameters
 
 ### \@type (required)
 
@@ -101,8 +98,7 @@ The codec the producer uses to compress messages (default: nil). The
 available options are `gzip` and `snappy`. When you use `snappy`, you
 need to install `snappy` gem by `td-agent-gem` command.
 
-Buffered Output Parameters
---------------------------
+## Buffered Output Parameters
 
 For advanced usage, you can tune Fluentd's internal buffering mechanism
 with these parameters.
@@ -178,8 +174,7 @@ logging for each plugin. The supported log levels are: `fatal`, `error`,
 
 Please see the [logging article](/articles/logging.md) for further details.
 
-Further Reading
----------------
+## Further Reading
 
 This page doesn't describe all the possible configurations. If you want
 to know about other configurations, please check the link below.

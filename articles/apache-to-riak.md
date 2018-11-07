@@ -7,16 +7,14 @@ aggregate semi-structured logs in real-time.
 ![](http://docs.fluentd.org/images/fluentd-riak.png){height="280px"}
 
 
-Prerequisites
--------------
+## Prerequisites
 
 1.  An OSX or Linux machine
 2.  Fluentd is installed ([installation guide](/articles/installation.md))
 3.  Riak is installed
 4.  An Apache web server log
 
-Installing the Fluentd Riak Output Plugin
------------------------------------------
+## Installing the Fluentd Riak Output Plugin
 
 The [Riak output plugin](https://github.com/kuenishi/fluent-plugin-riak)
 is used to output data from a Fluentd node to a Riak node.
@@ -38,8 +36,7 @@ output plugin.
 -   td-agent v1: \`/usr/lib/fluent/ruby/bin/fluent-gem install
     fluent-plugin-riak
 
-Configuring Fluentd
--------------------
+## Configuring Fluentd
 
 Create a configuration file called `fluent.conf` and add the following
 lines:
@@ -73,8 +70,7 @@ events whose tags start with `riak.` and send all matches to a Riak node
 located at `localhost:8087`. You can send events to multiple nodes by
 writing `nodes host1 host2 host3` instead.
 
-Testing
--------
+## Testing
 
 Launch Fluentd with the following command:
 
@@ -110,8 +106,7 @@ $ curl http://localhost:8098/buckets/fluentlog/keys/2014-01-23-d30b0698-b9de-429
 
 There it is! (the response JSON is formatted for readability)
 
-Learn More
-----------
+## Learn More
 
 -   [Fluentd Architecture](///www.fluentd.org/architecture)
 -   [Fluentd Get Started](/articles/quickstart.md)

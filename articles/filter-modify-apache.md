@@ -5,15 +5,13 @@ challenges faced by our users (such as filtering and modifying data) and
 explain how to solve each task using one or more Fluentd plugins.
 
 
-Scenario: Filtering Data by the Value of a Field
-------------------------------------------------
+## Scenario: Filtering Data by the Value of a Field
 
 Let's suppose our Fluentd instances are collecting data from Apache web
 server logs via [in\_tail](/articles/in_tail.md). Our goal is to filter out all the
 200 requests.
 
-Solution: Use fluent-plugin-grep
---------------------------------
+## Solution: Use fluent-plugin-grep
 
 [fluent-plugin-grep](https://github.com/sonots/fluent-plugin-grep) is a
 plugin that can "grep" data according to the different fields within
@@ -79,8 +77,7 @@ many dead links there are in the wild by filtering out internal links)
 ...
 ```
 
-Scenario: Adding a New Field (such as hostname)
------------------------------------------------
+## Scenario: Adding a New Field (such as hostname)
 
 When collecting data, we often need to add a new field or change an
 existing field in our log data. For example, many Fluentd users need to
@@ -88,8 +85,7 @@ add the hostname of their servers to the Apache web server log data in
 order to compute the number of requests handled by each server (i.e.,
 store them in MongoDB/HDFS and run GROUP-BYs).
 
-Solution: Use fluent-plugin-record-modifier
--------------------------------------------
+## Solution: Use fluent-plugin-record-modifier
 
 [fluent-plugin-record-modifier](https://github.com/repeatedly/fluent-plugin-record-modifier)
 can add a new field to each data record.

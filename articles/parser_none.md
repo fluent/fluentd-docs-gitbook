@@ -4,15 +4,13 @@ The `none` parser plugin parses the line as-is with single field. This
 format is to defer parsing/structuring the data.
 
 
-Parameters
-----------
+## Parameters
 
 ### message\_key
 
 Specify field name to contain logs. Default is `message`.
 
-Example
--------
+## Example
 
 ``` {.CodeRay}
 Hello world. I am a line of log!

@@ -6,8 +6,7 @@ program output. It passes tab-separated values (TSV) to stdin and reads
 TSV from stdout by default.
 
 
-Example Configuration
----------------------
+## Example Configuration
 
 `out_exec_filter` is included in Fluentd's core. No additional
 installation process is required.
@@ -26,8 +25,7 @@ installation process is required.
 Please see the [Config File](/articles/config-file.md) article for the basic
 structure and syntax of the configuration file.
 
-Parameters
-----------
+## Parameters
 
 ### \@type (required)
 
@@ -108,8 +106,7 @@ value in the event record.
 The format for event time used when the `time_key` parameter is
 specified. The default is UNIX time (integer).
 
-Buffered Output Parameters
---------------------------
+## Buffered Output Parameters
 
 For advanced usage, you can tune Fluentd's internal buffering mechanism
 with these parameters.
@@ -185,8 +182,7 @@ logging for each plugin. The supported log levels are: `fatal`, `error`,
 
 Please see the [logging article](/articles/logging.md) for further details.
 
-Script example
---------------
+## Script example
 
 Here is an example writtein in ruby.
 

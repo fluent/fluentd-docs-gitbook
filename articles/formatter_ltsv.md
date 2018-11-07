@@ -7,8 +7,7 @@ field1[label_delimiter]value1[delimiter]field2[label_delimiter]value2\n
 ```
 
 
-Parameters
-----------
+## Parameters
 
 ### delimiter (String, Optional. defaults to "\\t"(TAB))
 
@@ -65,8 +64,7 @@ The timezone set in this parameter takes precedence over
 `localtime`\*\*, e.g., if `localtime` is set to `true` but `timezone` is
 set to `+0000`, UTC would be used.
 
-Example
--------
+## Example
 
 ``` {.CodeRay}
 tag:    app.event

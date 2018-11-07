@@ -6,8 +6,7 @@ By default, `json` formatter result doesn't contain `tag` and `time`
 field.
 
 
-Parameters
-----------
+## Parameters
 
 ### add\_newline (Boolean, Optional, defaults to true)
 
@@ -60,8 +59,7 @@ set to `+0000`, UTC would be used.
 
 Set integer event time instead of stringanized time to `time_key`.
 
-Example
--------
+## Example
 
 ``` {.CodeRay}
 tag:    app.event

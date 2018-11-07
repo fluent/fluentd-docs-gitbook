@@ -3,8 +3,7 @@
 The `msgpack` formatter plugin converts an event to msgpack binary.
 
 
-Parameters
-----------
+## Parameters
 
 ### include\_time\_key (Boolean, Optional, defaults to false)
 
@@ -53,8 +52,7 @@ set to `+0000`, UTC would be used.
 
 Set integer event time instead of stringanized time to `time_key`.
 
-Example
--------
+## Example
 
 ``` {.CodeRay}
 tag:    app.event

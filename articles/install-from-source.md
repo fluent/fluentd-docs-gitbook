@@ -4,13 +4,11 @@ This article explains how to install Fluentd from source code (git
 repository). This is useful for developers.
 
 
-Step-1: Install Ruby interpreter
---------------------------------
+## Step-1: Install Ruby interpreter
 
 Please install Ruby \>= 1.9.3 and bundler on your local environment.
 
-Step-2: Fetch Source Code
--------------------------
+## Step-2: Fetch Source Code
 
 Fetch the source code from github. The official repository is located
 [here](http://github.com/fluent/fluentd/).
@@ -24,8 +22,7 @@ $ git checkout -b v0.12 origin/v0.12
 master branch is now for v1.x development so you need to checkout v0.12
 branch.
 
-Step-3: Build and Install
--------------------------
+## Step-3: Build and Install
 
 Build the package with `rake` and install it with `gem`.
 
@@ -40,8 +37,7 @@ fluentd xxx built to pkg/fluentd-xxx.gem.
 $ gem install pkg/fluentd-xxx.gem
 ```
 
-Step-4: Run
------------
+## Step-4: Run
 
 Run the following commands to to confirm that Fluentd was installed
 successfully:
@@ -67,8 +63,7 @@ For large deployments, you must use
 fragmentation. This is already included in the [rpm](/articles/install-by-rpm.md) and
 [deb](/articles/install-by-deb.md) packages.
 
-Next Steps
-----------
+## Next Steps
 
 You're now ready to collect your real logs using Fluentd. Please see the
 following tutorials to learn how to collect your data from various data

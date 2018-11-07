@@ -8,8 +8,7 @@ Computing Foundation)](https://www.cncf.io/), Fluentd project is
 recommending to use Prometheus by default to monitor Fluentd.
 
 
-Installation
-------------
+## Installation
 
 First of all, please install `fluent-plugin-prometheus` gem.
 
@@ -23,8 +22,7 @@ If you are using td-agent, use `td-agent-gem` for installation.
 $ sudo td-agent-gem install fluent-plugin-prometheus --version=0.4.0
 ```
 
-Example Fluentd Configuration
------------------------------
+## Example Fluentd Configuration
 
 To expose the Fluentd metrics to Prometheus, we need to configure 3
 parts:
@@ -159,8 +157,7 @@ fluentd_output_status_buffer_queue_length{hostname="KZK.local",plugin_id="object
 ....
 ```
 
-Example Prometheus Configuration
---------------------------------
+## Example Prometheus Configuration
 
 Please prepare the file below as `prometheus.yml`.
 
@@ -184,8 +181,7 @@ $ ./prometheus --config.file="prometheus.yml"
 
 Now please open your browser and access to `http://localhost:9090/`.
 
-How to use Prometheus to monitor Fluentd
-----------------------------------------
+## How to use Prometheus to monitor Fluentd
 
 ### List of Fluentd nodes
 
@@ -269,8 +265,7 @@ max_over_time(fluentd_output_status_retry_wait[1m])
 rate(fluentd_output_status_retry_count[1m])
 ```
 
-Grafana for Advanced Visualization / Alerting
----------------------------------------------
+## Grafana for Advanced Visualization / Alerting
 
 For more advanced visualization and alerting, we recommend to use
 [Grafana](https://grafana.com/) as a visualization frontend for
@@ -281,8 +276,7 @@ Prometheus.
 
 ![](/images/prometheus-grafana.png)
 
-Further Readings
-----------------
+## Further Readings
 
 -   [Prometheus
     Documentation](https://prometheus.io/docs/introduction/overview/)

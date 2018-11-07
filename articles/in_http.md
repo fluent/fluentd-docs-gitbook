@@ -5,8 +5,7 @@ POST. The URL path becomes the `tag` of the Fluentd event log and the
 POSTed body element becomes the record itself.
 
 
-Example Configuration
----------------------
+## Example Configuration
 
 `in_http` is included in Fluentd's core. No additional installation
 process is required.
@@ -32,8 +31,7 @@ $ curl -X POST -d 'json={"action":"login","user":2}'
   http://localhost:8888/test.tag.here;
 ```
 
-Parameters
-----------
+## Parameters
 
 ### \@type (required)
 
@@ -121,8 +119,7 @@ logging for each plugin. The supported log levels are: `fatal`, `error`,
 
 Please see the [logging article](/articles/logging.md) for further details.
 
-Additional Features
--------------------
+## Additional Features
 
 ### time query parameter
 
@@ -156,8 +153,7 @@ bechmark result on MacBook Pro with ruby 2.3:
 Tested configuration and ruby script is
 [here](https://gist.github.com/repeatedly/672ac73abf7cbcb629aaec791838cf6d).
 
-FAQ
----
+## FAQ
 
 ### Why in\_http removes '+' from my log?
 

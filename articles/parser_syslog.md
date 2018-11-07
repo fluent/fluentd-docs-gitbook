@@ -4,8 +4,7 @@ The `syslog` parser plugin parses syslog generated logs. This plugin
 supports two RFC formats, rfc3164 and rfc5424.
 
 
-Parameters
-----------
+## Parameters
 
 ### time\_format
 
@@ -34,8 +33,7 @@ Default is `false`.
 If you want to keep time field in the record, set `true`. Default is
 `false`.
 
-Regexp patterns
----------------
+## Regexp patterns
 
 ### rfc3164 pattern
 
@@ -64,8 +62,7 @@ included in the event record. `time` is used for the event time.
 
 `pri` value is converted into integer type.
 
-Example
--------
+## Example
 
 ### rfc3164 log
 

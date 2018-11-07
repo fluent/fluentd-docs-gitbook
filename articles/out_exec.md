@@ -6,8 +6,7 @@ events as its last argument. The file format is tab-separated values
 (TSV) by default.
 
 
-Example Configuration
----------------------
+## Example Configuration
 
 `out_exec` is included in Fluentd's core. No additional installation
 process is required.
@@ -26,8 +25,7 @@ process is required.
 Please see the [Config File](/articles/config-file.md) article for the basic
 structure and syntax of the configuration file.
 
-Example: Running FizzBuzz against data stream
----------------------------------------------
+## Example: Running FizzBuzz against data stream
 
 This example illustrates how to run FizzBuzz with out\_exec.
 
@@ -112,8 +110,7 @@ fizz
 fizzbuzz
 ```
 
-Parameters
-----------
+## Parameters
 
 ### \@type (required)
 
@@ -157,8 +154,7 @@ value in the event record.
 The format for event time used when the `time_key` parameter is
 specified. The default is UNIX time (integer).
 
-Time Sliced Output Parameters
------------------------------
+## Time Sliced Output Parameters
 
 For advanced usage, you can tune Fluentd's internal buffering mechanism
 with these parameters.

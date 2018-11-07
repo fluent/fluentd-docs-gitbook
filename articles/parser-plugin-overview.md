@@ -7,8 +7,7 @@ and [Buffer](/articles/buffer-plugin-overview.md). This article gives an overvie
 Parser Plugin.
 
 
-Overview
---------
+## Overview
 
 Sometimes, the `format` parameter for input plugins (ex:
 [in\_tail](/articles/in_tail.md), [in\_syslog](/articles/in_syslog.md), [in\_tcp](/articles/in_tcp.md) and
@@ -17,8 +16,7 @@ example, a context-dependent grammar that can't be parsed with a regular
 expression). To address such cases. Fluentd has a pluggable system that
 enables the user to create their own parser formats.
 
-How To Use
-----------
+## How To Use
 
 -   Write a custom format plugin. [See here for more
     information](plugin-development#parser-plugins).
@@ -37,8 +35,7 @@ Here is a simple example to read Nginx access logs using `in_tail` and
 </source>
 ```
 
-List of Built-in Parsers
-------------------------
+## List of Built-in Parsers
 
 -   [regexp](/articles/parser_regexp.md)
 -   [apache2](/articles/parser_apache2.md)
@@ -59,8 +56,7 @@ List of Built-in Parsers
 If you are familiar with grok patterns, grok-parser plugin is useful.
 Use `< 1.0.0` versions for fluentd v0.12.
 
-List of Core Input Plugins with Parser support
-----------------------------------------------
+## List of Core Input Plugins with Parser support
 
 with `format` parameter.
 

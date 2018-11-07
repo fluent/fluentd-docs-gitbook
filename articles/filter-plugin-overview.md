@@ -7,8 +7,7 @@ and [Buffer](/articles/buffer-plugin-overview.md). This article gives an overvie
 Filter Plugin.
 
 
-Overview
---------
+## Overview
 
 Filter plugins enables Fluentd to modify event streams. Example use
 cases are:
@@ -17,8 +16,7 @@ cases are:
 2.  Enriching events by adding new fields.
 3.  Deleting or masking certain fields for privacy and compliance.
 
-How to Use
-----------
+## How to Use
 
 It is used with the `<filter>` directive as follows:
 
@@ -59,8 +57,7 @@ Only the events whose "message" field contain "cool" get the new field
 Users can create their own custom plugins with a bit of Ruby. See [this
 section](plugin-development#filter-plugins) for more information.
 
-List of Filter Plugins
-----------------------
+## List of Filter Plugins
 
 -   [grep](/articles/filter_grep.md)
 -   [record-transformer](/articles/filter_record_transformer.md)

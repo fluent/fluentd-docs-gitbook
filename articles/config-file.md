@@ -4,8 +4,7 @@ This article describes the basic concepts of Fluentd's configuration
 file syntax.
 
 
-Introduction: The Life of a Fluentd Event
------------------------------------------
+## Introduction: The Life of a Fluentd Event
 
 Here is a brief overview of the life of a Fluentd event to help you
 understand the rest of this page:
@@ -17,8 +16,7 @@ operate properly.
 
 See also [Life of a Fluentd Event](/articles/life-of-a-fluentd-event.md) article.
 
-Config File Location
---------------------
+## Config File Location
 
 #### RPM, Deb or DMG
 
@@ -50,13 +48,11 @@ For example, `/etc/td-agent/td-agent.conf` is specified via
 
 See [Command Line Option article](/articles/command-line-option.md).
 
-Character encoding
-------------------
+## Character encoding
 
 Fluentd assumes configuration file is UTF-8 or ASCII.
 
-List of Directives
-------------------
+## List of Directives
 
 The configuration file consists of the following directives:
 
@@ -70,8 +66,7 @@ The configuration file consists of the following directives:
 
 Let's actually create a configuration file step by step.
 
-(1) "source": where all the data come from
-------------------------------------------
+## (1) "source": where all the data come from
 
 Fluentd's input sources are enabled by selecting and configuring the
 desired input plugins using **source** directives. Fluentd's standard
@@ -127,8 +122,7 @@ You can add new input sources by writing your own plugins. For further
 information regarding Fluentd's input sources, please refer to the
 [Input Plugin Overview](/articles/input-plugin-overview.md) article.
 
-(2) "match": Tell fluentd what to do!
--------------------------------------
+## (2) "match": Tell fluentd what to do!
 
 The "match" directive looks for events with **match**ing tags and
 processes them. The most common use of the match directive is to output
@@ -173,8 +167,7 @@ your own plugins. For further information regarding Fluentd's output
 destinations, please refer to the [Output Plugin
 Overview](/articles/output-plugin-overview.md) article.
 
-(3) "filter": Event processing pipeline
----------------------------------------
+## (3) "filter": Event processing pipeline
 
 The "filter" directive has same syntax as "match" but "filter" could be
 chained for processing pipeline. Using filters, event flow is like
@@ -215,8 +208,7 @@ You can also add new filters by writing your own plugins. For further
 information regarding Fluentd's filter destinations, please refer to the
 [Filter Plugin Overview](/articles/filter-plugin-overview.md) article.
 
-(4) Set system wide configuration: the "system" directive
----------------------------------------------------------
+## (4) Set system wide configuration: the "system" directive
 
 Following configurations are set by *system* directive. You can set same
 configurations by fluentd options:
@@ -262,8 +254,7 @@ foo      45647   0.0  0.1  2481260  23700 s001  S+    7:04AM   0:00.40 superviso
 
 This feature requires ruby 2.1 or later.
 
-(5) Group filter and output: the "label" directive
---------------------------------------------------
+## (5) Group filter and output: the "label" directive
 
 The "label" directive groups filter and output for internal routing.
 "label" reduces the complexity of tag handling.
@@ -319,8 +310,7 @@ If you set `<label @ERROR>` in the configuration, events are routed to
 this label when emit related error, e.g. buffer is full or invalid
 record.
 
-(6) Re-use your config: the "\@include" directive
--------------------------------------------------
+(6) Re-use your config: the "\@## include" directive
 
 Directives in separate configuration files can be imported using the
 **\@include** directive:
@@ -365,8 +355,7 @@ prone. Please separate `@include` for safety.
 @include z.conf
 ```
 
-How match patterns work
------------------------
+## How match patterns work
 
 As described above, Fluentd allows you to route events based on their
 tags. Although you can just specify the exact tag to be matched (like
@@ -458,8 +447,7 @@ for the reason explained above.
 </match>
 ```
 
-Supported Data Types for Values
--------------------------------
+## Supported Data Types for Values
 
 Each Fluentd plugin has a set of parameters. For example,
 [in\_tail](/articles/in_tail.md) has parameters such as `rotate_wait` and `pos_file`.
@@ -513,8 +501,7 @@ plugin author know.
 `array` and `hash` are JSON because almost all programming languages and
 infrastructure tools can generate JSON value easily than unusual format.
 
-Common plugin parameter
------------------------
+## Common plugin parameter
 
 These parameters are system reserved and it has `@` prefix.
 
@@ -529,8 +516,7 @@ These parameters are system reserved and it has `@` prefix.
 
 `type`, `id` and `log_level` are supported for backward compatibility.
 
-Check configuration file
-------------------------
+## Check configuration file
 
 You can check your configuration without plugins start by specifying
 `--dry-run` option.
@@ -539,8 +525,7 @@ You can check your configuration without plugins start by specifying
 $ fluentd --dry-run -c fluent.conf
 ```
 
-Format tips
------------
+## Format tips
 
 This section describes useful features in configuration format.
 

@@ -9,8 +9,7 @@ for existing Scribe users who want to use Fluentd with an existing
 Scribe infrastructure.
 
 
-Install
--------
+## Install
 
 `in_scribe` is included in td-agent by default. Fluentd gem users will
 need to install the fluent-plugin-scribe gem using the following
@@ -20,8 +19,7 @@ command.
 $ fluent-gem install fluent-plugin-scribe
 ```
 
-Example Configuration
----------------------
+## Example Configuration
 
 ``` {.CodeRay}
 <source>
@@ -46,8 +44,7 @@ Scribe's `category` field becomes the `tag` of the Fluentd event log and
 Scribe's `message` field becomes the record itself. The `msg_format`
 parameter specifies the format of the `message` field.
 
-Parameters
-----------
+## Parameters
 
 #### type (required)
 

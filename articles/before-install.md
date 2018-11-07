@@ -5,8 +5,7 @@ installing Fluentd. Failing to do so will be the cause of many
 unnecessary problems.
 
 
-Set Up NTP
-----------
+## Set Up NTP
 
 It's HIGHLY recommended that you set up NTP daemon (e.g.
 *[chrony](https://chrony.tuxfamily.org/)*, *ntpd*, etc) on the node to
@@ -17,8 +16,7 @@ Service, AWS hosted NTP server. Please check [AWS EC2: Setting the Time
 for Your Linux
 Instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/set-time.html).
 
-Increase Max \# of File Descriptors
------------------------------------
+## Increase Max \# of File Descriptors
 
 Please increase the maximum number of file descriptors. You can check
 the current number using the `ulimit -n` command.
@@ -49,8 +47,7 @@ the estimation examples:
 -   output: The used file descriptors are less than others. Temporary
     file for upload, connection pooling in the client library, etc
 
-Optimize Network Kernel Parameters
-----------------------------------
+## Optimize Network Kernel Parameters
 
 For high load environments consisting of many Fluentd instances, please
 add these parameters to your `/etc/sysctl.conf` file. Please either type

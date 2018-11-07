@@ -3,8 +3,7 @@
 Feel free to use these logos on your slides, blog posts, etc.!
 
 
-Square
-------
+## Square
 
 
 
@@ -17,8 +16,7 @@ Square
 [\[SVG\]](https://raw.githubusercontent.com/fluent/fluentd-docs/master/public/logo/Fluentd_square.svg)
 
 
-Horizontal
-----------
+## Horizontal
 
 [![](https://raw.githubusercontent.com/fluent/fluentd-docs/master/public/logo/Fluentd_horizontal.png)](https://raw.githubusercontent.com/fluent/fluentd-docs/master/public/logo/Fluentd_horizontal.png)
 
@@ -27,8 +25,7 @@ Horizontal
 [\[SVG\]](https://raw.githubusercontent.com/fluent/fluentd-docs/master/public/logo/Fluentd_horizontal.svg)
 
 
-Icon
-----
+## Icon
 
 [![](https://raw.githubusercontent.com/fluent/fluentd-docs/master/public/logo/Fluentd_icon.png)](https://raw.githubusercontent.com/fluent/fluentd-docs/master/public/logo/Fluentd_icon.png)
 
@@ -39,8 +36,7 @@ Icon
 
 
 
-Links
------
+## Links
 
 -   [Fluentd.ai](https://raw.githubusercontent.com/fluent/fluentd-docs/master/public/logo/Fluentd.ai)
 -   [Full list of

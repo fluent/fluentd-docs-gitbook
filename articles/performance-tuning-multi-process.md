@@ -14,8 +14,7 @@ done [all the optimization you can do with single
 process](/articles/performance-tuning-single-process.md).
 
 
-2-Tier Process Topology
------------------------
+## 2-Tier Process Topology
 
 In multi-process environment, we recommend to have the following 2-tier
 process topology within the same server.
@@ -72,8 +71,7 @@ buffered and routed to different output processes automatically. Also
 crashed processes will be automaticlaly relaunched by supervisor
 process.
 
-Example Configuration
----------------------
+## Example Configuration
 
 This git repository contains the fully functional multi-process settings
 for Fluentd.
@@ -147,8 +145,7 @@ When you perform the benchmark, please carefully look at which processes
 are the bottleneck. Please add the processes depending on its resource
 usages.
 
-Fluentd v1.0 or Later
----------------------
+## Fluentd v1.0 or Later
 
 Fluentd v1.0 or later has native multi-process support. We recommend you
 to upgrade to simplify the config file if possible.

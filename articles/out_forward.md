@@ -19,8 +19,7 @@ require a secure connection between nodes, please consider using
 [in\_secure\_forward](/articles/in_secure_forward.md).
 
 
-Example Configuration
----------------------
+## Example Configuration
 
 `out_forward` is included in Fluentd's core. No additional installation
 process is required.
@@ -56,8 +55,7 @@ process is required.
 Please see the [Config File](/articles/config-file.md) article for the basic
 structure and syntax of the configuration file.
 
-Parameters
-----------
+## Parameters
 
 ### \@type (required)
 
@@ -175,8 +173,7 @@ to send data when a hostname has serveral IP addresses.
 \`heartbeat\_type udp\` is not available with \`dns\_round\_robin
 true\`. Use \`heartbeat\_type tcp\` or \`heartbeat\_type none\`.
 
-Buffered Output Parameters
---------------------------
+## Buffered Output Parameters
 
 For advanced usage, you can tune Fluentd's internal buffering mechanism
 with these parameters.
@@ -252,8 +249,7 @@ logging for each plugin. The supported log levels are: `fatal`, `error`,
 
 Please see the [logging article](/articles/logging.md) for further details.
 
-Troubleshooting
----------------
+## Troubleshooting
 
 ### "no nodes are available"
 

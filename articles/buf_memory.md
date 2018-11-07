@@ -5,8 +5,7 @@ uses memory to store buffer chunks. When Fluentd is shut down, buffered
 logs that can't be written quickly are deleted.
 
 
-Example Config
---------------
+## Example Config
 
 ``` {.CodeRay}
 <match pattern>
@@ -16,8 +15,7 @@ Example Config
 Please see the [Config File](/articles/config-file.md) article for the basic
 structure and syntax of the configuration file.
 
-Parameters
-----------
+## Parameters
 
 #### buffer\_type (required)
 

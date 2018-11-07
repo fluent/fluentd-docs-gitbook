@@ -10,8 +10,7 @@ time[delimiter]tag[delimiter]record\n
 This format is a default format of `out_file` plugin.
 
 
-Parameters
-----------
+## Parameters
 
 ### delimiter (String, Optional, default to "\\t"(TAB))
 
@@ -68,8 +67,7 @@ The timezone set in this parameter takes precedence over
 `localtime`\*\*, e.g., if `localtime` is set to `true` but `timezone` is
 set to `+0000`, UTC would be used.
 
-Example
--------
+## Example
 
 ``` {.CodeRay}
 tag:    app.event

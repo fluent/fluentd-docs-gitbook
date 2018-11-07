@@ -4,8 +4,7 @@ The `in_dummy` input plugin generates dummy events. It is useful for
 testing, debugging, benchmarking and getting started with Fluentd.
 
 
-Example Configuration
----------------------
+## Example Configuration
 
 `in_dummy` is included in Fluentd's core. No additional installation
 process is required.
@@ -19,8 +18,7 @@ process is required.
 Please see the [Config File](/articles/config-file.md) article for the basic
 structure and syntax of the configuration file.
 
-Parameters
-----------
+## Parameters
 
 ### \@type (required)
 

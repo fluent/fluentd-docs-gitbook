@@ -1,13 +1,11 @@
 # FAQ
 
 
-What version of Ruby does fluentd support?
-------------------------------------------
+## What version of Ruby does fluentd support?
 
 Fluentd v0.12 works on 1.9.3 or later. Since v1.x, 2.1 or later.
 
-Known Issue
------------
+## Known Issue
 
 ### I use Fluentd with Ruby 2.0 but Fluentd seems deadlocked. Why?
 
@@ -29,8 +27,7 @@ install specified Ruby version using
 Using td-agent is another way to avoid this problem because td-agent
 includes own Ruby.
 
-Operations
-----------
+## Operations
 
 ### I have millisecond timestamp log but fluentd drops subsecond. Why?
 
@@ -149,16 +146,14 @@ There are several approaches to avoid this problem.
 -   Use `yajl` instead of `json` when error happens inside
     `JSON.parse/JSON.dump`
 
-Plugin Development
-------------------
+## Plugin Development
 
 ### How do I develop a custom plugin?
 
 Please refer to the [Plugin Development
 Guide](http://docs.fluentd.org/articles/plugin-development).
 
-HOWTOs
-------
+## HOWTOs
 
 ### How can I parse `<my complex text log>`?
 

@@ -7,16 +7,14 @@ and [Buffer](/articles/buffer-plugin-overview.md). This article gives an overvie
 Input Plugin.
 
 
-Overview
---------
+## Overview
 
 Input plugins extend Fluentd to retrieve and pull event logs from
 external sources. An input plugin typically creates a thread socket and
 a listen socket. It can also be written to periodically pull data from
 data sources.
 
-List of Input Plugins
----------------------
+## List of Input Plugins
 
 -   [in\_forward](/articles/in_forward.md)
 -   [in\_unix](/articles/in_unix.md)
@@ -25,8 +23,7 @@ List of Input Plugins
 -   [in\_exec](/articles/in_exec.md)
 -   [in\_syslog](/articles/in_syslog.md)
 
-Other Input Plugins
--------------------
+## Other Input Plugins
 
 Please refer to this list of available plugins to find out about other
 Input plugins.

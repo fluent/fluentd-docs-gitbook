@@ -4,8 +4,7 @@ The `roundrobin` Output plugin distributes events to multiple outputs
 using a round-robin algorithm.
 
 
-Example Configuration
----------------------
+## Example Configuration
 
 `out_roundrobin` is included in Fluentd's core. No additional
 installation process is required.
@@ -30,8 +29,7 @@ installation process is required.
 Please see the [Config File](/articles/config-file.md) article for the basic
 structure and syntax of the configuration file.
 
-Parameters
-----------
+## Parameters
 
 ### \@type (required)
 

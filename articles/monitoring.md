@@ -3,8 +3,7 @@
 This article desribes how to monitor Fluentd.
 
 
-Fluentd Metrics Monitoring
---------------------------
+## Fluentd Metrics Monitoring
 
 Fluentd can expose internal metrics via REST API, and works with
 monitoring tools such as [Prometheus](https://prometheus.io/),
@@ -17,8 +16,7 @@ Prometheus, since we will be collaborating more in the future under the
     (Datadog)](https://docs.datadoghq.com/integrations/fluentd/)
 -   [Monitoring Fluentd (REST API)](monitoring-rest-api.md)
 
-Process Monitoring
-------------------
+## Process Monitoring
 
 Two `ruby` processes (parent and child) are executed. Please make sure
 that these processes are running. The example for `td-agent` is shown
@@ -39,8 +37,7 @@ $ ps w -C ruby -C td-agent --no-heading
 32345 ?        Sl     0:01 /opt/td-agent/embedded/bin/ruby /usr/sbin/td-agent --daemon /var/run/td-agent/td-agent.pid --log /var/log/td-agent/td-agent.log
 ```
 
-Port Monitoring
----------------
+## Port Monitoring
 
 Fluentd opens several ports according to the configuration file. We
 recommend checking the availability of these ports. The default port
@@ -49,8 +46,7 @@ settings are shown below:
 -   TCP 0.0.0.0 9880 (HTTP by default)
 -   TCP 0.0.0.0 24224 (Forward by default)
 
-Debug Port
-----------
+## Debug Port
 
 A debug port for local communication is recommended for trouble
 shooting. Please note that the configuration below will be required.

@@ -3,8 +3,7 @@
 The `ltsv` parser plugin parses [LTSV](http://ltsv.org/) format.
 
 
-Parameters
-----------
+## Parameters
 
 ### delimiter
 
@@ -86,8 +85,7 @@ value "3,4,5", `types item_ids:array` parses it as \["3", "4", "5"\].
 Alternatively, if the value is "Adam\|Alice\|Bob",
 `types item_ids:array:|` parses it as \["Adam", "Alice", "Bob"\].
 
-Example
--------
+## Example
 
 ``` {.CodeRay}
 time:2013/02/28 12:00:00\thost:192.168.0.1\treq_id:111\tuser:-

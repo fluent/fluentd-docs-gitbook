@@ -3,21 +3,18 @@
 This article explains how to install Fluentd using Ruby gem.
 
 
-Step0: Before Installation
---------------------------
+## Step0: Before Installation
 
 Please follow the [Preinstallation Guide](/articles/before-install.md) to configure
 your OS properly. This will prevent many unnecessary problems.
 
-Step1: Install Ruby interpreter
--------------------------------
+## Step1: Install Ruby interpreter
 
 Please install Ruby \>= 1.9.3 on your local environment. In addition,
 install ruby-dev package via package manager to build native extension
 gems.
 
-Step2: Install Fluentd gem
---------------------------
+## Step2: Install Fluentd gem
 
 Fetch and install the `fluentd` Ruby gem using the `gem` command. The
 official ruby gem page is [here](https://rubygems.org/gems/fluentd).
@@ -29,8 +26,7 @@ $ gem install fluentd -v "~> 0.12.0" --no-ri --no-rdoc
 `-v "~> 0.12.0"` is needed for v0.12 installation. Without it, you
 install v0.14 series.
 
-Step3: Run
-----------
+## Step3: Run
 
 Run the following commands to confirm that Fluentd was installed
 successfully:
@@ -63,8 +59,7 @@ process management tools such as
 [supervisord](http://supervisord.org/), or
 [upstart](http://upstart.ubuntu.com/).
 
-Next Steps
-----------
+## Next Steps
 
 You're now ready to collect your real logs using Fluentd. Please see the
 following tutorials to learn how to collect your data from various data

@@ -14,8 +14,7 @@ Fluentd's scalability has been proven in the field: its largest user
 currently collects logs from **500,000+ servers**.
 
 
-Step1: Installing Fluentd
--------------------------
+## Step1: Installing Fluentd
 
 Please follow the installation/quickstart guides below that matches your
 environment.
@@ -32,8 +31,7 @@ Fluentd v0.12 doesn\'t support Windows environment. Please see
 [Collecting Log Data from Windows](/articles/windows.md) for details. Fluentd v1.x
 supports Windows.
 
-Step2: Use Cases
-----------------
+## Step2: Use Cases
 
 The articles shown below cover the typical use cases of Fluentd. Please
 refer to the article(s) that suits your needs.
@@ -54,8 +52,7 @@ refer to the article(s) that suits your needs.
 -   Happy Users :)
     -   [Users](/articles/users.md)
 
-Step3: Learn More
------------------
+## Step3: Learn More
 
 The articles shown below will provide detailed information for you to
 learn more about Fluentd.

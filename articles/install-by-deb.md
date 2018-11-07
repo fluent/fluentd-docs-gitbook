@@ -5,8 +5,7 @@ stable Fluentd distribution package maintained by [Treasure Data,
 Inc](http://www.treasuredata.com/).
 
 
-What is td-agent?
------------------
+## What is td-agent?
 
 Fluentd is written in Ruby for flexibility, with performance sensitive
 parts written in C. However, some users may have difficulty installing
@@ -23,14 +22,12 @@ ruby 2.5 and td-agent 2.3 or earlier uses ruby 2.1. ruby 2.1 is EOL so
 we recommend to use td-agent 2.5 for new deployment. td-agent 2.5 and
 td-agent 2.3 use fluentd v0.12 serise so the behaviour is same.
 
-Step 0: Before Installation
----------------------------
+## Step 0: Before Installation
 
 Please follow the [Preinstallation Guide](/articles/before-install.md) to configure
 your OS properly. This will prevent many unnecessary problems.
 
-Step 1 : Install from Apt Repository
-------------------------------------
+## Step 1 : Install from Apt Repository
 
 For Ubuntu, we currently support "Ubuntu 18.04 LTS / Bionic 64bit",
 "Ubuntu 16.04 LTS / Xenial 64bit", "Ubuntu 14.04 LTS / Trusty
@@ -111,8 +108,7 @@ It's HIGHLY recommended that you set up **ntpd** on the node to prevent
 invalid timestamps in your logs. Please check the [Preinstallation
 Guide](/articles/before-install.md).
 
-Step2: Launch Daemon
---------------------
+## Step2: Launch Daemon
 
 The `/etc/init.d/td-agent` script is provided to start, stop, or restart
 the agent.
@@ -135,8 +131,7 @@ $ sudo /etc/init.d/td-agent status
 Please make sure **your configuration file** is located at
 `/etc/td-agent/td-agent.conf`.
 
-Step3: Post Sample Logs via HTTP
---------------------------------
+## Step3: Post Sample Logs via HTTP
 
 By default, `/etc/td-agent/td-agent.conf` is configured to take logs
 from HTTP and route them to stdout (`/var/log/td-agent/td-agent.log`).
@@ -146,8 +141,7 @@ You can post sample log records using the curl command.
 $ curl -X POST -d 'json={"json":"message"}' http://localhost:8888/debug.test
 ```
 
-Next Steps
-----------
+## Next Steps
 
 You're now ready to collect your real logs using Fluentd. Please see the
 following tutorials to learn how to collect your data from various data

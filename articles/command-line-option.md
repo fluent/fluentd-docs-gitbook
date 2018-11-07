@@ -3,8 +3,7 @@
 This article describes built-in commands and its options
 
 
-fluentd
--------
+## fluentd
 
 Invoke fluentd. Here is supported options:
 
@@ -71,8 +70,7 @@ Several options could be set via `<system>` directive configuration
 file. See [configuration file
 article](/articles/config-file#4-set-system-wide-configuration-the-ldquosystemrdquo-directive).
 
-fluent-cat
-----------
+## fluent-cat
 
 Send event to fluentd's `in_forward`/`in_unix` plugin. This is useful
 for testing.

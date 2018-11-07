@@ -3,8 +3,7 @@
 This article describes how to install Fluentd (td-agent) on
 [Heroku](http://www.heroku.com/).
 
-With non-Treasure Data backend
-------------------------------
+## With non-Treasure Data backend
 
 Heroku doesn't allow users to install separate processes within a single
 dyno. You will thus need to setup Fluentd as a separate Heroku
@@ -35,8 +34,7 @@ $ git commit -a -m 'update config file'
 $ git push heroku master
 ```
 
-With Treasure Data as a Backend
--------------------------------
+## With Treasure Data as a Backend
 
 Since [Treasure Data](http://www.treasuredata.com), the primary sponsor
 of Fluentd, is a [Heroku Addons
@@ -91,8 +89,7 @@ $ git push heroku master
 To retrieve your `treasure_data_api_key_value`, see
 [here](http://docs.treasuredata.com/articles/get-apikey).
 
-Test
-----
+## Test
 
 Let's confirm that the log aggregation server has been set up correctly.
 Please send a GET request to the log server,

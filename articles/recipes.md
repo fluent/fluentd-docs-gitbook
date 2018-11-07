@@ -1,8 +1,7 @@
 # Recipes
 
 
-Articles
---------
+## Articles
 
 -   [Parsing Common Log Formats](/articles/common-log-formats.md)
 

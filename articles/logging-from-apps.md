@@ -1,8 +1,7 @@
 # Centralized App Logging
 
 
-Articles
---------
+## Articles
 
 -   [Centralize Logs from Java Applications](/articles/java.md)
 

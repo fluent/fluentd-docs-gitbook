@@ -10,8 +10,7 @@ This document doesn\'t describe all parameters. If you want to know full
 features, check the Further Reading section.
 
 
-Installation
-------------
+## Installation
 
 `out_s3` is included in td-agent by default. Fluentd gem users will need
 to install the fluent-plugin-s3 gem using the following command.
@@ -20,8 +19,7 @@ to install the fluent-plugin-s3 gem using the following command.
 $ fluent-gem install fluent-plugin-s3
 ```
 
-Example Configuration
----------------------
+## Example Configuration
 
 ``` {.CodeRay}
 <match pattern>
@@ -52,8 +50,7 @@ Please make sure that you have **enough space in the buffer\_path
 directory**. Running out of disk space is a problem frequently reported
 by users.
 
-Parameters
-----------
+## Parameters
 
 ### \@type (required)
 
@@ -173,8 +170,7 @@ The proxy url. The default is nil.
 Verify SSL certificate of the endpoint. The default is true. Set false
 when you want to ignore the endpoint SSL certificate.
 
-Time Sliced Output Parameters
------------------------------
+## Time Sliced Output Parameters
 
 For advanced usage, you can tune Fluentd's internal buffering mechanism
 with these parameters.
@@ -268,8 +264,7 @@ logging for each plugin. The supported log levels are: `fatal`, `error`,
 
 Please see the [logging article](/articles/logging.md) for further details.
 
-Further Reading
----------------
+## Further Reading
 
 This page doesn't describe all the possible configurations. If you want
 to know about other configurations, please check the link below.

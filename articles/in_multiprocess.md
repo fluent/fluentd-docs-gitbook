@@ -6,8 +6,7 @@ by spawning multiple child processes. One Fluentd user is using this
 plugin to handle 10+ billion records / day.
 
 
-Install
--------
+## Install
 
 `in_multiprocess` is NOT included in td-agent by default. td-agent users
 must install fluent-plugin-multiprocess manually.
@@ -18,8 +17,7 @@ must install fluent-plugin-multiprocess manually.
 -   td-agent v1:
     `/usr/lib/fluent/ruby/bin/fluent-gem install fluent-plugin-multiprocess`
 
-Example Configuration
----------------------
+## Example Configuration
 
 ``` {.CodeRay}
 <source>
@@ -48,8 +46,7 @@ structure and syntax of the configuration file.
 Especially for daemonized fluentd (ex: td-agent), \`\--log\` option MUST
 be specified to put logs of child processes.
 
-Parameters
-----------
+## Parameters
 
 ### \@type (required)
 

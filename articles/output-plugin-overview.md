@@ -7,8 +7,7 @@ and [Buffer](/articles/buffer-plugin-overview.md). This article gives an overvie
 Output Plugin.
 
 
-Overview
---------
+## Overview
 
 There are three types of output plugins: Non-Buffered, Buffered, and
 Time Sliced.
@@ -28,39 +27,34 @@ The output plugin's buffer behavior (if any) is defined by a separate
 chosen for each output plugin. Some output plugins are fully customized
 and do not use buffers.
 
-List of Non-Buffered Output Plugins
------------------------------------
+## List of Non-Buffered Output Plugins
 
 -   [out\_copy](/articles/out_copy.md)
 -   [out\_null](/articles/out_null.md)
 -   [out\_roundrobin](/articles/out_roundrobin.md)
 -   [out\_stdout](/articles/out_stdout.md)
 
-List of Buffered Output Plugins
--------------------------------
+## List of Buffered Output Plugins
 
 -   [out\_exec\_filter](/articles/out_exec_filter.md)
 -   [out\_forward](/articles/out_forward.md)
 -   [out\_mongo](/articles/out_mongo.md) or [out\_mongo\_replset](/articles/out_mongo_replset.md)
 
-List of Time Sliced Output Plugins
-----------------------------------
+## List of Time Sliced Output Plugins
 
 -   [out\_exec](/articles/out_exec.md)
 -   [out\_file](/articles/out_file.md)
 -   [out\_s3](/articles/out_s3.md)
 -   [out\_webhdfs](/articles/out_webhdfs.md)
 
-Other Plugins
--------------
+## Other Plugins
 
 Please refer to this list of available plugins to find out about other
 Output plugins.
 
 -   [others](http://fluentd.org/plugin/)
 
-Buffered Output Parameters
---------------------------
+## Buffered Output Parameters
 
 For advanced usage, you can tune Fluentd's internal buffering mechanism
 with these parameters.
@@ -140,8 +134,7 @@ output plugin.
 unavailable, e.g. forward, mongo and other plugins. We strongly
 recommend `out_file` plugin for `<secondary>`.
 
-Time Sliced Output Parameters
------------------------------
+## Time Sliced Output Parameters
 
 For advanced usage, you can tune Fluentd's internal buffering mechanism
 with these parameters.

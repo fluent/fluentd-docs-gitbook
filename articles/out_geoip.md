@@ -6,8 +6,7 @@ This document doesn\'t describe all parameters. If you want to know full
 features, check the Further Reading section.
 
 
-Prerequisites
--------------
+## Prerequisites
 
 -   The GeoIP library.
 
@@ -18,8 +17,7 @@ Prerequisites
 
     \# for MacOSX (brew) \$ brew install geoip
 
-Install
--------
+## Install
 
 `out_geoip` is not included in td-agent. All users must install the
 fluent-plugin-geoip gem using the following command.
@@ -29,8 +27,7 @@ $ fluent-gem install fluent-plugin-geoip
 $ sudo /usr/sbin/td-agent-gem install fluent-plugin-geoip
 ```
 
-Example Configuration
----------------------
+## Example Configuration
 
 The configuration shown below adds geolocation information to
 apache.access
@@ -71,8 +68,7 @@ Please see the [fluent-plugin-geoip
 README](https://github.com/y-ken/fluent-plugin-geoip#readme) for further
 details.
 
-Parameters
-----------
+## Parameters
 
 ### geoip\_lookup\_key (required)
 
@@ -108,8 +104,7 @@ false)
 Adds the tag name into the record using this value as the key name When
 `include_tag_key` is set to `true`.
 
-Buffer Parameters
------------------
+## Buffer Parameters
 
 For advanced usage, you can tune Fluentd's internal buffering mechanism
 with these parameters.
@@ -143,8 +138,7 @@ logging for each plugin. The supported log levels are: `fatal`, `error`,
 
 Please see the [logging article](/articles/logging.md) for further details.
 
-Use Cases
----------
+## Use Cases
 
 #### Plot real time access statistics on a world map using Elasticsearch and Kibana
 
@@ -179,8 +173,7 @@ fluent-plugin-elasticsearch
 </match>
 ```
 
-Further Reading
----------------
+## Further Reading
 
 -   [fluent-plugin-geoip
     repository](https://github.com/y-ken/fluent-plugin-geoip)

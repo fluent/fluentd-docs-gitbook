@@ -3,8 +3,7 @@
 The `nginx` parser plugin parses default nginx logs.
 
 
-Parameters
-----------
+## Parameters
 
 ### keep\_time\_key
 
@@ -53,8 +52,7 @@ value "3,4,5", `types item_ids:array` parses it as \["3", "4", "5"\].
 Alternatively, if the value is "Adam\|Alice\|Bob",
 `types item_ids:array:|` parses it as \["Adam", "Alice", "Bob"\].
 
-Regexp patterns
----------------
+## Regexp patterns
 
 This is regexp and time format patterns of this plugin:
 
@@ -67,8 +65,7 @@ time_format %d/%b/%Y:%H:%M:%S %z
 `agent` are included in the event record. `time` is used for the event
 time.
 
-Example
--------
+## Example
 
 ``` {.CodeRay}
 127.0.0.1 192.168.0.1 - [28/Feb/2013:12:00:00 +0900] "GET / HTTP/1.1" 200 777 "-" "Opera/12.0"

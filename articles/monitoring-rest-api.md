@@ -4,8 +4,7 @@ This article describes how to get the internal Fluentd metrics via REST
 API.
 
 
-Monitoring Agent
-----------------
+## Monitoring Agent
 
 Fluentd has a monitoring agent to retrieve internal metrics in JSON via
 HTTP. Please add the following lines to your configuration file.
@@ -68,16 +67,14 @@ Since v0.12.17, `monitor_agent` plugin has `tag` parameter. If you set
 2015-09-16 20:28:19 +0900 monitor.metrics: {"plugin_id":"object:3fc62f0e9c84","plugin_category":"output","type":"stdout","output_plugin":true,"retry_count":null}
 ```
 
-Monitoring the event flow
--------------------------
+## Monitoring the event flow
 
 Use
 [flowcounter](https://github.com/tagomoris/fluent-plugin-flowcounter) or
 [flowcounter\_simple](https://github.com/sonots/fluent-plugin-flowcounter-simple)
 plugin.
 
-Datadog (dd-agent) Integration
-------------------------------
+## Datadog (dd-agent) Integration
 
 [Datadog](https://www.datadoghq.com/) is a cloud monitoring service, and
 its monitoring agent `dd-agent` has native integration with Fluentd.

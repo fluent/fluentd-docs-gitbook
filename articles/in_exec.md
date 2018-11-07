@@ -8,8 +8,7 @@ You can run a program periodically or permanently. To run periodically,
 please use the run\_interval parameter.
 
 
-Example Configuration
----------------------
+## Example Configuration
 
 `in_exec` is included in Fluentd's core. No additional installation
 process is required.
@@ -28,8 +27,7 @@ process is required.
 Please see the [Config File](/articles/config-file.md) article for the basic
 structure and syntax of the configuration file.
 
-Parameters
-----------
+## Parameters
 
 ### \@type (required)
 
@@ -95,8 +93,7 @@ logging for each plugin. The supported log levels are: `fatal`, `error`,
 
 Please see the [logging article](/articles/logging.md) for further details.
 
-Real World Use Case: using in\_exec to scrape Hacker News Top Page
-------------------------------------------------------------------
+## Real World Use Case: using in\_exec to scrape Hacker News Top Page
 
 If you already have a script that runs periodically (say, via `cron`)
 that you wish to store the output to multiple backend systems (HDFS,

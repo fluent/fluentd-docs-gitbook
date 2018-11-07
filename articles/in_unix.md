@@ -5,8 +5,7 @@ Unix Domain Socket. The wire protocol is the same as
 [in\_forward](/articles/in_forward.md), but the transport layer is different.
 
 
-Example Configuration
----------------------
+## Example Configuration
 
 `in_unix` is included in Fluentd's core. No additional installation
 process is required.
@@ -20,8 +19,7 @@ process is required.
 Please see the [Config File](/articles/config-file.md) article for the basic
 structure and syntax of the configuration file.
 
-Parameters
-----------
+## Parameters
 
 ### \@type (required)
 

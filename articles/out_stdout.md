@@ -4,8 +4,7 @@ The `stdout` output plugin prints events to stdout (or logs if launched
 with daemon mode). This output plugin is useful for debugging purposes.
 
 
-Example Configuration
----------------------
+## Example Configuration
 
 `out_stdout` is included in Fluentd's core. No additional installation
 process is required.
@@ -18,8 +17,7 @@ process is required.
 Please see the [Config File](/articles/config-file.md) article for the basic
 structure and syntax of the configuration file.
 
-Parameters
-----------
+## Parameters
 
 ### \@type (required)
 
