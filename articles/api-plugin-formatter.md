@@ -89,8 +89,7 @@ See [Formatter Plugin Helper API](/articles/api-plugin-helper-formatter.md) for
 details.
 
 
-Methods
--------
+## Methods
 
 Formatter plugins have a method to format input record (Hash) into a
 String object.
@@ -104,8 +103,7 @@ should return a String object, the result of formatting.
 Formatter plugins must implement this method.
 
 
-Writing Tests
--------------
+## Writing Tests
 
 Fluentd formatter plugin has just one or some points to be tested.
 Others (parsing configurations, controlling buffers, retries, flushes

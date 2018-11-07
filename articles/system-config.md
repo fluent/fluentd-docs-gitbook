@@ -10,8 +10,7 @@ System Configuration is one way to set up system-wide configuration such
 as enabling RPC, multiple workers, to obtain dump.
 
 
-Parameters
-----------
+## Parameters
 
 
 ### workers
@@ -185,8 +184,7 @@ For code example, please refer to [api-plugin-base](/articles/api-plugin-base.md
 `.system_config_override` description.
 
 
-Command Line Options
---------------------
+## Command Line Options
 
 []{#-s,---setup-%5Bdir=/etc/fluent%5D}
 

@@ -59,8 +59,7 @@ The return value of this method should be a Hash of modified record, or
 nil. Fluentd will ignore the event which the filter returns nil.
 
 
-Writing Tests
--------------
+## Writing Tests
 
 Fluentd filter plugin has just one or some points to be tested. Others
 (parsing configurations, controlling buffers, retries, flushes and many

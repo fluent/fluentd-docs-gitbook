@@ -21,8 +21,7 @@ td-agent.
 
 []{#step1:-install-td-agent}
 
-Step1: Install td-agent
------------------------
+## Step1: Install td-agent
 
 Please download the `.dmg` file from here, and install the software.
 
@@ -30,8 +29,7 @@ Please download the `.dmg` file from here, and install the software.
 
 []{#step2:-launch-td-agent}
 
-Step2: Launch td-agent
-----------------------
+## Step2: Launch td-agent
 
 You can launch `td-agent` with `launchctl` command. Please make sure the
 daemon started correctly from the log
@@ -54,8 +52,7 @@ $ sudo launchctl unload /Library/LaunchDaemons/td-agent.plist
 
 []{#step3:-post-sample-logs-via-http}
 
-Step3: Post Sample Logs via HTTP
---------------------------------
+## Step3: Post Sample Logs via HTTP
 
 By default, `/etc/td-agent/td-agent.conf` is configured to take logs
 from HTTP and route them to stdout (`/var/log/td-agent/td-agent.log`).
@@ -68,8 +65,7 @@ $ tail -n 1 /var/log/td-agent/td-agent.log
 ```
 
 
-Uninstall td-agent
-------------------
+## Uninstall td-agent
 
 td-agent for Mac doesn't provide uninstallation app unlike rpm / deb. If
 you want to uninstall td-agent from your Mac, remove these files /
@@ -81,8 +77,7 @@ directories.
 -   /var/log/td-agent
 
 
-Next Steps
-----------
+## Next Steps
 
 You're now ready to collect your real logs using Fluentd. Please see the
 following tutorials to learn how to collect your data from various data

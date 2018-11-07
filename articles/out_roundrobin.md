@@ -38,14 +38,12 @@ Please see the [Config File](/articles/config-file.md) article for the basic
 structure and syntax of the configuration file.
 
 
-Supported modes
----------------
+## Supported modes
 
 -   Non-Buffered
 
 
-Parameters
-----------
+## Parameters
 
 [Common Parameters](/articles/plugin-common-parameters.md)
 

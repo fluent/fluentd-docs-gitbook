@@ -9,8 +9,7 @@ The `msgpack` formatter plugin converts an event to msgpack binary.
 -   [Format section configurations](/articles/format-section.md)
 
 
-Example
--------
+## Example
 
 ``` {.CodeRay}
 tag:    app.event

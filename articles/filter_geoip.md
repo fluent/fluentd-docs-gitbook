@@ -27,8 +27,7 @@ $ brew install geoip
 libmaxminddb for GeoIP2 is bundled to geoip2\_c.
 
 
-Install
--------
+## Install
 
 `filter_geoip` is not included in td-agent. All users must install the
 fluent-plugin-geoip gem using the following command.
@@ -41,8 +40,7 @@ $ sudo /usr/sbin/td-agent-gem install fluent-plugin-geoip
 For more details, see [Plugin Management](/articles/plugin-management.md).
 
 
-Example Configuration
----------------------
+## Example Configuration
 
 The configuration shown below adds geolocation information to
 `apache.access`.
@@ -84,15 +82,13 @@ README](https://github.com/y-ken/fluent-plugin-geoip#readme) for further
 details.
 
 
-Plugin helpers
---------------
+## Plugin helpers
 
 -   [compat\_parameters](/articles/api-plugin-helper-compat_parameters.md)
 -   [inject](/articles/api-plugin-helper-inject.md)
 
 
-Parameters
-----------
+## Parameters
 
 [Common Parameters](/articles/plugin-common-parameters.md)
 
@@ -152,8 +148,7 @@ This is useful for elasticsearch.
 Set backend library.
 
 
-Use cases
----------
+## Use cases
 
 #### Plot real time access statistics on a world map using Elasticsearch and Kibana
 
@@ -189,8 +184,7 @@ fluent-plugin-elasticsearch
 ```
 
 
-Further Reading
----------------
+## Further Reading
 
 -   [fluent-plugin-geoip
     repository](https://github.com/y-ken/fluent-plugin-geoip)

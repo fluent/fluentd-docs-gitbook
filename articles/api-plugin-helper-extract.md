@@ -61,8 +61,7 @@ new_time = extract_time_from_record(record)
 ```
 
 
-extract used plugins
---------------------
+## extract used plugins
 
 -   [Exec input](/articles/in_exec.md)
 -   [TCP input](/articles/in_tcp.md)

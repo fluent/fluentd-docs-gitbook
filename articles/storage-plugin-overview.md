@@ -17,8 +17,7 @@ internal states extract to in-memory or storage or other key-value
 stores and re-use stored key-value pair value.
 
 
-How To Use
-----------
+## How To Use
 
 For an input, an output, and filter plugin that supports Storage, the
 `<storage>` directive can be used to store key-value pair into the
@@ -37,14 +36,12 @@ Here is an example with in\_dummy:
 ```
 
 
-List of Built-in Storage
-------------------------
+## List of Built-in Storage
 
 -   [local](/articles/storage_local.md)
 
 
-List of Core Plugins with Storage support
------------------------------------------
+## List of Core Plugins with Storage support
 
 -   [in\_dummy](/articles/in_dummy.md)
 

@@ -39,8 +39,7 @@ defined by a separate [Buffer plugin](/articles/buffer-plugin-overview.md). Diff
 buffer plugins can be chosen for each output plugin.
 
 
-List of Output Plugins
-----------------------
+## List of Output Plugins
 
 -   [out\_copy](/articles/out_copy.md)
 -   [out\_null](/articles/out_null.md)
@@ -55,8 +54,7 @@ List of Output Plugins
 -   [out\_webhdfs](/articles/out_webhdfs.md)
 
 
-Other Plugins
--------------
+## Other Plugins
 
 Please refer to this list of available plugins to find out about other
 Output plugins.
@@ -64,8 +62,7 @@ Output plugins.
 -   [others](http://fluentd.org/plugin/)
 
 
-Difference between v1.0 and v0.12
----------------------------------
+## Difference between v1.0 and v0.12
 
 Fluentd v0.12 uses only `<match>` section for both of configuration
 parameters of output plugin and buffer plugin. Fluentd v1.0 uses
@@ -106,8 +103,7 @@ API](https://docs.fluentd.org/v1.0/articles/api-plugin-helper-compat_parameters#
 for parameter name changes between v1 and v0.12.
 
 
-Buffering/Retrying Parameters
------------------------------
+## Buffering/Retrying Parameters
 
 See [Buffer section configurations](/articles/buffer-section.md).
 
@@ -265,8 +261,7 @@ For other configuration parameters available in `<buffer>` sections, see
 [Buffer plugin overview](/articles/buffer-plugin-overview.md) and each plugins.
 
 
-Secondary Output
-----------------
+## Secondary Output
 
 In buffered mode, the user can specify `<secondary>` with any output
 plugin in `<match>` configuration. If plugins continue to fail writing

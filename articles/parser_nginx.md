@@ -8,8 +8,7 @@ The `nginx` parser plugin parses default nginx logs.
 See [Parse section configurations](/articles/parse-section.md)
 
 
-Regexp patterns
----------------
+## Regexp patterns
 
 This is regexp and time format patterns of this plugin:
 
@@ -23,8 +22,7 @@ and `http_x_forwarded_for` are included in the event record. `time` is
 used for the event time.
 
 
-Example
--------
+## Example
 
 ``` {.CodeRay}
 127.0.0.1 192.168.0.1 - [28/Feb/2013:12:00:00 +0900] "GET / HTTP/1.1" 200 777 "-" "Opera/12.0" -

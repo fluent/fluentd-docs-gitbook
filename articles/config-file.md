@@ -18,8 +18,7 @@ operate properly.
 See also [Life of a Fluentd Event](/articles/life-of-a-fluentd-event.md) article.
 
 
-Config File Location
---------------------
+## Config File Location
 
 #### RPM, Deb or DMG
 
@@ -52,14 +51,12 @@ For example, `/etc/td-agent/td-agent.conf` is specified via
 See [Command Line Option article](/articles/command-line-option.md).
 
 
-Character encoding
-------------------
+## Character encoding
 
 Fluentd assumes configuration file is UTF-8 or ASCII.
 
 
-List of Directives
-------------------
+## List of Directives
 
 The configuration file consists of the following directives:
 
@@ -75,8 +72,7 @@ Let's actually create a configuration file step by step.
 
 []{#(1)-%E2%80%9Csource%E2%80%9D:-where-all-the-data-come-from}
 
-(1) "source": where all the data come from
-------------------------------------------
+## (1) "source": where all the data come from
 
 Fluentd's input sources are enabled by selecting and configuring the
 desired input plugins using **source** directives. Fluentd's standard
@@ -135,8 +131,7 @@ information regarding Fluentd's input sources, please refer to the
 
 []{#(2)-%E2%80%9Cmatch%E2%80%9D:-tell-fluentd-what-to-do!}
 
-(2) "match": Tell fluentd what to do!
--------------------------------------
+## (2) "match": Tell fluentd what to do!
 
 The "match" directive looks for events with **match**ing tags and
 processes them. The most common use of the match directive is to output
@@ -183,8 +178,7 @@ Overview](/articles/output-plugin-overview.md) article.
 
 []{#(3)-%E2%80%9Cfilter%E2%80%9D:-event-processing-pipeline}
 
-(3) "filter": Event processing pipeline
----------------------------------------
+## (3) "filter": Event processing pipeline
 
 The "filter" directive has same syntax as "match" but "filter" could be
 chained for processing pipeline. Using filters, event flow is like
@@ -227,8 +221,7 @@ information regarding Fluentd's filter destinations, please refer to the
 
 []{#(4)-set-system-wide-configuration:-the-%E2%80%9Csystem%E2%80%9D-directive}
 
-(4) Set system wide configuration: the "system" directive
----------------------------------------------------------
+## (4) Set system wide configuration: the "system" directive
 
 Following configurations are set by *system* directive. You can set same
 configurations by fluentd options:
@@ -278,8 +271,7 @@ This feature requires ruby 2.1 or later.
 
 []{#(5)-group-filter-and-output:-the-%E2%80%9Clabel%E2%80%9D-directive}
 
-(5) Group filter and output: the "label" directive
---------------------------------------------------
+## (5) Group filter and output: the "label" directive
 
 The "label" directive groups filter and output for internal routing.
 "label" reduces the complexity of tag handling.
@@ -339,8 +331,7 @@ record.
 
 []{#(6)-re-use-your-config:-the-%E2%80%9C@include%E2%80%9D-directive}
 
-(6) Re-use your config: the "\@include" directive
--------------------------------------------------
+(6) Re-use your config: the "\@## include" directive
 
 Directives in separate configuration files can be imported using the
 **\@include** directive:
@@ -386,8 +377,7 @@ prone. Please separate `@include` for safety.
 ```
 
 
-How match patterns work
------------------------
+## How match patterns work
 
 As described above, Fluentd allows you to route events based on their
 tags. Although you can just specify the exact tag to be matched (like
@@ -482,8 +472,7 @@ for the reason explained above.
 ```
 
 
-Supported Data Types for Values
--------------------------------
+## Supported Data Types for Values
 
 Each Fluentd plugin has a set of parameters. For example,
 [in\_tail](/articles/in_tail.md) has parameters such as `rotate_wait` and `pos_file`.
@@ -538,8 +527,7 @@ plugin author know.
 infrastructure tools can generate JSON value easily than unusual format.
 
 
-Common plugin parameter
------------------------
+## Common plugin parameter
 
 These parameters are system reserved and it has `@` prefix.
 
@@ -555,8 +543,7 @@ These parameters are system reserved and it has `@` prefix.
 `type`, `id` and `log_level` are supported for backward compatibility.
 
 
-Check configuration file
-------------------------
+## Check configuration file
 
 You can check your configuration without plugins start by specifying
 `--dry-run` option.
@@ -566,8 +553,7 @@ $ fluentd --dry-run -c fluent.conf
 ```
 
 
-Format tips
------------
+## Format tips
 
 This section describes useful features in configuration format.
 

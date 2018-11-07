@@ -66,8 +66,7 @@ details about the respective plugins.)
 ```
 
 
-Plugin helpers
---------------
+## Plugin helpers
 
 -   [formatter](/articles/api-plugin-helper-formatter.md)
 -   [inject](/articles/api-plugin-helper-inject.md)
@@ -76,8 +75,7 @@ Plugin helpers
 -   See also: [Output Plugin Overview](/articles/output-plugin-overview.md)
 
 
-Parameters
-----------
+## Parameters
 
 [Common Parameters](/articles/plugin-common-parameters.md)
 

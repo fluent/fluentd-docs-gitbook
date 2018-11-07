@@ -31,16 +31,14 @@ structure and syntax of the configuration file. For \<buffer\> section,
 please check [Buffer section cofiguration](/articles/buffer-section.md).
 
 
-Plugin helpers
---------------
+## Plugin helpers
 
 -   [formatter](/articles/api-plugin-helper-formatter.md)
 -   [inject](/articles/api-plugin-helper-inject.md)
 -   [compat\_parameters](/articles/api-plugin-helper-compat_parameters.md)
 
 
-Parameters
-----------
+## Parameters
 
 [Common Parameters](/articles/plugin-common-parameters.md)
 
@@ -187,8 +185,7 @@ logging for each plugin. The supported log levels are: `fatal`, `error`,
 Please see the [logging article](/articles/logging.md) for further details.
 
 
-Common Output / Buffer parameters
----------------------------------
+## Common Output / Buffer parameters
 
 For common output / buffer parameters, please check the following
 articles.
@@ -197,8 +194,7 @@ articles.
 -   [Buffer Section Configuration](/articles/buffer-section.md)
 
 
-FAQ
----
+## FAQ
 
 
 ### I can see files but placeholders are not replaced, why?

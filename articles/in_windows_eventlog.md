@@ -15,8 +15,7 @@ $ fluent-gem install fluent-plugin-windows-eventlog
 ```
 
 
-Example Configuration
----------------------
+## Example Configuration
 
 ``` {.CodeRay}
 <source>
@@ -49,15 +48,13 @@ corresponding channel to `channel` field.
 ```
 
 
-Plugin helpers
---------------
+## Plugin helpers
 
 -   [timer](/articles/api-plugin-helper-timer.md)
 -   [storage](/articles/api-plugin-helper-storage.md)
 
 
-Parameters
-----------
+## Parameters
 
 [Common Parameters](/articles/plugin-common-parameters.md)
 
@@ -123,14 +120,12 @@ need to set `path` in `<storage>` section.
 ```
 
 
-Learn More
-----------
+## Learn More
 
 -   [Input Plugin Overview](/articles/input-plugin-overview.md)
 
 
-FAQ
----
+## FAQ
 
 ### in\_windows\_eventlog can't read `setup` or `security` events, why?
 
@@ -138,8 +133,7 @@ You need administrator privilege to read these channels. Launch
 fluentd/td-agent as an administrator.
 
 
-Further Reading
----------------
+## Further Reading
 
 This page doesn't describe all the possible configurations. If you want
 to know about other configurations, please check the link below.

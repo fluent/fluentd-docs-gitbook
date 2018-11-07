@@ -9,8 +9,7 @@ list is the place to be.
 -   [Mailing List](https://groups.google.com/forum/#!forum/fluentd)
 
 
-Slack
------
+## Slack
 
 Join our Slack channel and talk with Fluentd developers and users
 directly, now.

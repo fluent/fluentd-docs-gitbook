@@ -40,8 +40,7 @@ delimiter\_pattern is string type before 1.2.0.
 The delimiter character between field name and value
 
 
-Example for LTSV
-----------------
+## Example for LTSV
 
 ``` {.CodeRay}
 time:2013/02/28 12:00:00\thost:192.168.0.1\treq_id:111\tuser:-
@@ -66,8 +65,7 @@ becomes `nil` instead of `"-"`.
 
 []{#example-with-delimiter_pattern}
 
-Example with delimiter\_pattern
--------------------------------
+## Example with delimiter\_pattern
 
 Incoming event:
 

@@ -52,8 +52,7 @@ end
 
 []{#event_emitter-used-plugins}
 
-event\_emitter used plugins
----------------------------
+## event\_emitter used plugins
 
 -   All input plugins
 -   All filter plugins

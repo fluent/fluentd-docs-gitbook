@@ -20,8 +20,7 @@ with simple way.
 ![](/images/multi-process-workers.png)
 
 
-Configuration
--------------
+## Configuration
 
 
 ### workers parameter
@@ -113,15 +112,13 @@ With this configuration, `forward` output's buffer files are stored into
 `/var/log/fluentd/worker1/out_fwd/buffer` directories.
 
 
-Operation
----------
+## Operation
 
 Each worker consumes memory and disk spaces separately. You should take
 care to configure buffer spaces, and to monitor memory/disk consumption.
 
 
-Multi process workers and Plugins
----------------------------------
+## Multi process workers and Plugins
 
 
 ### Input plugin
@@ -196,8 +193,7 @@ See [Configuration File article](config-file#embedded-ruby-code) for
 embbeded Ruby code feature.
 
 
-FAQ
----
+## FAQ
 
 
 ### Fluentd can't start with multi process workers, why?

@@ -47,8 +47,7 @@ Now that we've checked for prerequisites, we're now ready to install and
 set up the three open source tools.
 
 
-Set Up Elasticsearch
---------------------
+## Set Up Elasticsearch
 
 To install Elasticsearch, please download and extract the Elasticsearch
 package as shown below.
@@ -70,8 +69,7 @@ packages. For details, please refer to [the official
 instructions](https://www.elastic.co/downloads).
 
 
-Set Up Kibana
--------------
+## Set Up Kibana
 
 To install Kibana, download it via the official webpage and extract it.
 Kibana is a HTML / CSS / JavaScript application. Dowload page is
@@ -96,8 +94,7 @@ $ ./bin/kibana
 Access `http://localhost:5601` in your browser.
 
 
-Set Up Fluentd (td-agent)
--------------------------
+## Set Up Fluentd (td-agent)
 
 In this guide We'll install td-agent, the stable release of Fluentd.
 Please refer to the guides below for detailed installation steps.
@@ -153,8 +150,7 @@ $ sudo systemctl start td-agent.service
 ```
 
 
-Set Up rsyslogd
----------------
+## Set Up rsyslogd
 
 In our final step, we'll forward the logs from your rsyslogd to Fluentd.
 Please add the following line to your `/etc/rsyslog.conf`, and restart
@@ -175,8 +171,7 @@ $ sudo systemctl restart rsyslog
 ```
 
 
-Store and Search Event Logs
----------------------------
+## Store and Search Event Logs
 
 Once Fluentd receives some event logs from rsyslog and has flushed them
 to Elasticsearch, you can view, search and visualize the log data using
@@ -228,8 +223,7 @@ errors can be found at `/etc/td-agent/td-agent.log`.
 ```
 
 
-Conclusion
-----------
+## Conclusion
 
 This article introduced the combination of Fluentd and Kibana (with
 Elasticsearch) which achieves a free alternative to Splunk: storing and
@@ -241,8 +235,7 @@ modify some of the configurations (e.g. JVM, Elasticsearch, Fluentd
 buffer, etc.) according to your needs.
 
 
-Learn More
-----------
+## Learn More
 
 -   [Fluentd Architecture](//www.fluentd.org/architecture)
 -   [Fluentd Get Started](/articles/quickstart.md)

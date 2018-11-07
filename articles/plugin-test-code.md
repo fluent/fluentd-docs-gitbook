@@ -47,8 +47,7 @@ The recommended fluentd plugin project structure is:
 ```
 
 
-Plugin Test Driver Overview
----------------------------
+## Plugin Test Driver Overview
 
 There are useful Test Drivers for plugin testing. We can write test code
 for plugins as following:
@@ -103,8 +102,7 @@ end
 ```
 
 
-Testing Utility Methods
------------------------
+## Testing Utility Methods
 
 You can get your plugin instance when you call Test Driver instance's
 `#instance` method. If utility methods are private, you can use
@@ -125,8 +123,7 @@ end
 ```
 
 
-Test Driver Base API
---------------------
+## Test Driver Base API
 
 The methods in this section are available for all Test Driver.
 
@@ -245,8 +242,7 @@ Returns logs managed by this Test Driver.
 Returns the plugin instance managed by this Test Driver.
 
 
-Test Driver Base Owner API
---------------------------
+## Test Driver Base Owner API
 
 filter, output, multi\_output
 
@@ -327,8 +323,7 @@ Returns error events filtered by given tag.
     parameter.
 
 
-Test Driver Base owned API
---------------------------
+## Test Driver Base owned API
 
 #### configure(conf, syntax: :v1)
 
@@ -339,8 +334,7 @@ Configure plugin instance managed by this Test Driver.
     obsoleted.
 
 
-Test Driver Event Feeder API
-----------------------------
+## Test Driver Event Feeder API
 
 filter, output, multi\_output
 
@@ -476,8 +470,7 @@ end
 ```
 
 
-Test Driver Filter API
-----------------------
+## Test Driver Filter API
 
 #### filtered\_records
 
@@ -493,8 +486,7 @@ d.filtered_records
 ```
 
 
-Test Driver Output API
-----------------------
+## Test Driver Output API
 
 #### run(flush: true, wait\_flush\_completion: true, force\_flush\_retry: false, \*\*kwargs, &block)
 
@@ -548,8 +540,7 @@ d.flush
 ```
 
 
-Test helpers
-------------
+## Test helpers
 
 #### assert\_equal\_event\_time(expected, actual, message = nil)
 
@@ -707,8 +698,7 @@ assert_equal("Hello!\n", capture_stdout)
 ```
 
 
-Testing Input Plugins
----------------------
+## Testing Input Plugins
 
 You must test input plugins\' `router#emit` method. But you don't have
 to test this method explicitly. This testing code pattern is
@@ -749,8 +739,7 @@ end
 ```
 
 
-Testing Filter Plugins
-----------------------
+## Testing Filter Plugins
 
 You must test filter plugins\' `#filter` method. But you don't have to
 test this method explicitly. This testing code pattern is encapsulated
@@ -790,8 +779,7 @@ end
 ```
 
 
-Testing Output Plugins
-----------------------
+## Testing Output Plugins
 
 You must test output plugins\' `#process` or `#write` or `#try_write`
 method. But you don't have to test this method explicitly. This testing
@@ -831,8 +819,7 @@ end
 ```
 
 
-Testing Parser Plugins
-----------------------
+## Testing Parser Plugins
 
 You must test parser plugins\' `#parse` method.
 
@@ -872,8 +859,7 @@ end
 ```
 
 
-Testing Formatter Plugins
--------------------------
+## Testing Formatter Plugins
 
 You must test formatter plugins\' `#format` method.
 
@@ -911,8 +897,7 @@ end
 ```
 
 
-Tests for logs
---------------
+## Tests for logs
 
 Testing log is very easy.
 

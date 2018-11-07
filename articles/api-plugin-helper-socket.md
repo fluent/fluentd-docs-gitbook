@@ -152,8 +152,7 @@ terminates.
     -   `cert_paths`: files contain PEM-encoded certificates
 
 
-socket used plugins
--------------------
+## socket used plugins
 
 -   [Forward output](/articles/out_forward.md)
 

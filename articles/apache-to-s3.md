@@ -18,8 +18,7 @@ This article will show you how to use [Fluentd](http://fluentd.org/) to
 import Apache logs into Amazon S3.
 
 
-Mechanism
----------
+## Mechanism
 
 Fluentd does 3 things:
 
@@ -29,8 +28,7 @@ Fluentd does 3 things:
 3.  It writes the buffered data to Amazon S3 periodically.
 
 
-Install
--------
+## Install
 
 For simplicity, this article will describe how to set up an one-node
 configuration. Please install the following software on the same node.
@@ -49,8 +47,7 @@ plugin, please use `gem install fluent-plugin-s3`.
 -   [Ruby gem](/articles/install-by-gem.md)
 
 
-Configuration
--------------
+## Configuration
 
 Let's start configuring Fluentd. If you used the deb/rpm package,
 Fluentd's config file is located at /etc/td-agent/td-agent.conf.
@@ -126,8 +123,7 @@ config inside). In this example, the `s3.apache.access` tag (generated
 by `tail`) is always used.
 
 
-Test
-----
+## Test
 
 To test the configuration, just ping the Apache server. This example
 uses the `ab` (Apache Bench) program.
@@ -148,14 +144,12 @@ frequency, please modify the `time_slice_format` value. To write files
 every minute, please use `%Y%m%d%H%M` for the `time_slice_format`.
 
 
-Conclusion
-----------
+## Conclusion
 
 Fluentd + Amazon S3 makes real-time log archiving simple.
 
 
-Learn More
-----------
+## Learn More
 
 -   [Fluentd Architecture](//www.fluentd.org/architecture)
 -   [Fluentd Get Started](/articles/quickstart.md)

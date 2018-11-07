@@ -15,8 +15,7 @@ This article explains how to use the fluent-logger-scala library.
 -   sbt 0.12.0 or later
 
 
-Installing Fluentd
-------------------
+## Installing Fluentd
 
 Please refer to the following documents to install fluentd.
 
@@ -26,8 +25,7 @@ Please refer to the following documents to install fluentd.
 -   [Install Fluentd from source](/articles/install-from-source.md)
 
 
-Modifying the Config File
--------------------------
+## Modifying the Config File
 
 Next, please configure Fluentd to use the [forward Input
 plugin](/articles/in_forward.md) as its data source.
@@ -52,8 +50,7 @@ $ sudo systemctl restart td-agent.service
 ```
 
 
-Using fluent-logger-scala
--------------------------
+## Using fluent-logger-scala
 
 First, please add the following lines to build.sbt. The logger's
 revision information can be found in [the release
@@ -108,8 +105,7 @@ The logs should be output to `/var/log/td-agent/td-agent.log` or stdout
 of the Fluentd process via the [stdout Output plugin](/articles/out_stdout.md).
 
 
-Production Deployments
-----------------------
+## Production Deployments
 
 
 ### Output Plugins

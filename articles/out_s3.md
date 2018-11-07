@@ -21,8 +21,7 @@ to install the fluent-plugin-s3 gem. In order to install it, please
 refer to the [Plugin Management](/articles/plugin-management.md) article.
 
 
-Example Configuration
----------------------
+## Example Configuration
 
 ``` {.CodeRay}
 <match pattern>
@@ -57,8 +56,7 @@ cofiguration](/articles/buffer-section.md). This plugin uses [file buffer](/arti
 by default.
 
 
-Parameters
-----------
+## Parameters
 
 []{#@type-(required)}
 
@@ -266,8 +264,7 @@ logging for each plugin. The supported log levels are: `fatal`, `error`,
 Please see the [logging article](/articles/logging.md) for further details.
 
 
-Further Reading
----------------
+## Further Reading
 
 This page doesn't describe all the possible configurations. If you want
 to know about other configurations, please check the link below.

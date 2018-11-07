@@ -23,8 +23,7 @@ $ fluent-gem install fluent-plugin-webhdfs
 ```
 
 
-HDFS Configuration
-------------------
+## HDFS Configuration
 
 Append operations are not enabled by default on CDH. Please put these
 configurations into your hdfs-site.xml file and restart the whole
@@ -48,8 +47,7 @@ cluster.
 ```
 
 
-Example Configuration
----------------------
+## Example Configuration
 
 ``` {.CodeRay}
 <match access.**>
@@ -71,16 +69,14 @@ structure and syntax of the configuration file. For \<buffer\> section,
 please check [Buffer section cofiguration](/articles/buffer-section.md).
 
 
-Plugin helpers
---------------
+## Plugin helpers
 
 -   [inject](/articles/api-plugin-helper-inject.md)
 -   [formatter](/articles/api-plugin-helper-formatter.md)
 -   [compat\_parameters](/articles/api-plugin-helper-compat_parameters.md)
 
 
-Parameters
-----------
+## Parameters
 
 [Common Parameters](/articles/plugin-common-parameters.md)
 
@@ -123,8 +119,7 @@ section.
 
 []{#output-parameters-(and-overwritten-values-by-out_webhdfs)}
 
-Output Parameters (and overwritten values by out\_webhdfs)
-----------------------------------------------------------
+## Output Parameters (and overwritten values by out\_webhdfs)
 
 For advanced usage, you can tune Fluentd's internal buffering mechanism
 with these parameters.
@@ -222,8 +217,7 @@ logging for each plugin. The supported log levels are: `fatal`, `error`,
 Please see the [logging article](/articles/logging.md) for further details.
 
 
-Common Output / Buffer parameters
----------------------------------
+## Common Output / Buffer parameters
 
 For common output / buffer parameters, please check the following
 articles.
@@ -232,8 +226,7 @@ articles.
 -   [Buffer Section Configuration](/articles/buffer-section.md)
 
 
-Further Reading
----------------
+## Further Reading
 
 -   [fluent-plugin-webhdfs
     repository](https://github.com/fluent/fluent-plugin-webhdfs)

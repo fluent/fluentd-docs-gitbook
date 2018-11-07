@@ -29,8 +29,7 @@ This article will show you how to use [Fluentd](http://fluentd.org/) to
 import Apache logs into Amazon Kinesis.
 
 
-Mechanism
----------
+## Mechanism
 
 In this example, Fluentd does 3 things:
 
@@ -40,8 +39,7 @@ In this example, Fluentd does 3 things:
 3.  It writes the buffered data to Amazon Kinesis periodically.
 
 
-Install
--------
+## Install
 
 For simplicity, this article will describe how to set up an one-node
 configuration. Please install the following software on the same node.
@@ -56,8 +54,7 @@ You can install Fluentd via major packaging systems.
 -   [Ruby gem](/articles/install-by-gem.md)
 
 
-Install Kinesis Plugin
-----------------------
+## Install Kinesis Plugin
 
 Since Amazon Kinesis plugin is not bundled with td-agent package, plase
 install it manually.
@@ -67,8 +64,7 @@ $ sudo /usr/sbin/td-agent-gem install fluent-plugin-kinesis
 ```
 
 
-Configuration
--------------
+## Configuration
 
 Let's start configuring Fluentd. If you used the deb/rpm package,
 Fluentd's config file is located at /etc/td-agent/td-agent.conf.
@@ -172,8 +168,7 @@ authentication](http://docs.aws.amazon.com/kinesis/latest/dev/controlling-access
 is available too for EC2 nodes.
 
 
-Test
-----
+## Test
 
 Please restart td-agent process first, to make the configuration change
 available.
@@ -193,8 +188,7 @@ $ ab -n 100 -c 10 http://localhost/
 ```
 
 
-FAQs
-----
+## FAQs
 
 #### Why we need Fluentd, while Kinesis also offers client libraries?
 
@@ -206,15 +200,13 @@ can send not only Kinesis, but multiple destinations like Amazon S3,
 local file storage, etc.
 
 
-Conclusion
-----------
+## Conclusion
 
 Fluentd + Amazon Kinesis makes real-time log collection simple, easy,
 and robust.
 
 
-Learn More
-----------
+## Learn More
 
 -   [Fluentd Architecture](//www.fluentd.org/architecture)
 -   [Fluentd Get Started](/articles/quickstart.md)

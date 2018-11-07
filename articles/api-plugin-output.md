@@ -176,8 +176,7 @@ overriding these methods (`#prefer_buffer_processing` and
 `#prefer_delayed_commit`).
 
 
-How Buffers Work
-----------------
+## How Buffers Work
 
 
 ### Understanding Chunking and Metadata
@@ -279,8 +278,7 @@ This default value overriding is valid only for your plugin, and doesn't
 have any effect for others.
 
 
-Development Guide
------------------
+## Development Guide
 
 
 ### How To Use Asynchronous Buffered Mode and Delayed Commit
@@ -346,8 +344,7 @@ For further details, please also read the interface definition of
 `#format` below.
 
 
-List of Interface Methods
--------------------------
+## List of Interface Methods
 
 Some methods should be overridden / implemented by plugins. On the other
 hand, plugins MUST NOT override methods without any metions about it.
@@ -571,8 +568,7 @@ end
 -   `record`: a Hash with String keys
 
 
-How to Write Tests
-------------------
+## How to Write Tests
 
 This section explains how to write a test suite for your custom output
 plugin.

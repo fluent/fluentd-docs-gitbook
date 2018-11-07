@@ -32,8 +32,7 @@ structure and syntax of the configuration file.
 
 []{#example:-running-fizzbuzz-against-data-stream}
 
-Example: Running FizzBuzz against data stream
----------------------------------------------
+## Example: Running FizzBuzz against data stream
 
 This example illustrates how to run FizzBuzz with out\_exec.
 
@@ -124,16 +123,14 @@ fizzbuzz
 ```
 
 
-Supported modes
----------------
+## Supported modes
 
 -   Asynchronous
 
 See [Output Plugin Overview](/articles/output-plugin-overview.md) for more details.
 
 
-Plugin helpers
---------------
+## Plugin helpers
 
 -   [inject](/articles/api-plugin-helper-inject.md)
 -   [formatter](/articles/api-plugin-helper-formatter.md)
@@ -141,8 +138,7 @@ Plugin helpers
 -   [child\_process](/articles/api-plugin-helper-child_process.md)
 
 
-Parameters
-----------
+## Parameters
 
 [Common Parameters](/articles/plugin-common-parameters.md)
 

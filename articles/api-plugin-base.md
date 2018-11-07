@@ -241,8 +241,7 @@ end
 ```
 
 
-Instance methods
-----------------
+## Instance methods
 
 #### \#initialize
 
@@ -424,8 +423,7 @@ this method to re-initialize internal states to make it possible to
 reuse plugin instances in tests or others.
 
 
-Methods for Input/Filter/Output
--------------------------------
+## Methods for Input/Filter/Output
 
 The methods below are available in subclass of Input, Filter and Output.
 Other types

@@ -55,8 +55,7 @@ Use `m` option with expression.
 Deprecated since 1.2.0. Use `expression /pattern/m` instead.
 
 
-Example
--------
+## Example
 
 ``` {.CodeRay}
 <parse>
@@ -89,8 +88,7 @@ record:
 ```
 
 
-FAQ
----
+## FAQ
 
 
 ### How to debug my regexp pattern?

@@ -20,8 +20,7 @@ Please see the [Config File](/articles/config-file.md) article for the basic
 structure and syntax of the configuration file.
 
 
-Plugin helpers
---------------
+## Plugin helpers
 
 -   [thread](/articles/api-plugin-helper-thread.md)
 -   [storage](/articles/api-plugin-helper-storage.md)
@@ -29,8 +28,7 @@ Plugin helpers
 -   See also: [Input Plugin Overview](/articles/input-plugin-overview.md)
 
 
-Parameters
-----------
+## Parameters
 
 [Common Parameters](/articles/plugin-common-parameters.md)
 

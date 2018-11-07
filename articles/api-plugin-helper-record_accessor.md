@@ -53,8 +53,7 @@ If you set non `$.` or `$[` started value, e.g. `key log`, it is same as
 plugin behaviour.
 
 
-Methods
--------
+## Methods
 
 []{#record_accessor_create(param)}
 
@@ -77,8 +76,7 @@ accessor.call(record) # access record field.
 
 []{#record_accessor-used-plugins}
 
-record\_accessor used plugins
------------------------------
+## record\_accessor used plugins
 
 -   [grep filter](/articles/filter_grep.md)
 -   [parser filter](/articles/filter_parser.md)

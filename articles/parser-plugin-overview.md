@@ -18,8 +18,7 @@ expression). To address such cases. Fluentd has a pluggable system that
 enables the user to create their own parser formats.
 
 
-How To Use
-----------
+## How To Use
 
 -   Write a custom format plugin. [See here for more
     information](plugin-development#parser-plugins).
@@ -41,8 +40,7 @@ Here is a simple example to read Nginx access logs using `in_tail` and
 ```
 
 
-List of Built-in Parsers
-------------------------
+## List of Built-in Parsers
 
 -   [regexp](/articles/parser_regexp.md)
 -   [apache2](/articles/parser_apache2.md)
@@ -65,8 +63,7 @@ If you are familiar with grok patterns, grok-parser plugin is useful.
 Use `> 1.0.0` versions for fluentd v0.14/v1.0.
 
 
-List of Core Input Plugins with Parser support
-----------------------------------------------
+## List of Core Input Plugins with Parser support
 
 with `<parse>` directive.
 

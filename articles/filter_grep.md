@@ -50,14 +50,12 @@ whereas the following examples are filtered out:
 ```
 
 
-Plugin helpers
---------------
+## Plugin helpers
 
 -   [record\_accessor](/articles/api-plugin-helper-record_accessor.md)
 
 
-Parameters
-----------
+## Parameters
 
 [Common Parameters](/articles/plugin-common-parameters.md)
 
@@ -343,8 +341,7 @@ exclude2 url \.css$
 If `<regexp>` and `<exclude>` are used together, both are applied.
 
 
-Learn More
-----------
+## Learn More
 
 -   [Filter Plugin Overview](/articles/filter-plugin-overview.md)
 -   [record\_transformer Filter Plugin](/articles/filter_record_transformer.md)

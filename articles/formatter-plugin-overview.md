@@ -15,8 +15,7 @@ needs. Fluentd has a pluggable system called Formatter that lets the
 user extend and re-use custom output formats.
 
 
-How To Use
-----------
+## How To Use
 
 For an output plugin that supports Formatter, the `<format>` directive
 can be used to change the output format.
@@ -52,8 +51,7 @@ See [this section](plugin-development#text-formatter-plugins) to learn
 how to develop a custom formatter.
 
 
-List of Built-in Formatters
----------------------------
+## List of Built-in Formatters
 
 -   [out\_file](/articles/formatter_out_file.md)
 -   [json](/articles/formatter_json.md)
@@ -64,8 +62,7 @@ List of Built-in Formatters
 -   [single\_value](/articles/formatter_single_value.md)
 
 
-List of Output/Filter Plugins with Formatter Support
-----------------------------------------------------
+## List of Output/Filter Plugins with Formatter Support
 
 -   [filter\_stdout](/articles/filter_stdout.md)
 -   [out\_file](/articles/out_file.md)

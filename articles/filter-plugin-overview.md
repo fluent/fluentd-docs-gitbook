@@ -18,8 +18,7 @@ cases are:
 3.  Deleting or masking certain fields for privacy and compliance.
 
 
-How to Use
-----------
+## How to Use
 
 It is used with the `<filter>` directive as follows:
 
@@ -61,8 +60,7 @@ Users can create their own custom plugins with a bit of Ruby. See [this
 section](plugin-development#filter-plugins) for more information.
 
 
-Filter chain optimization
--------------------------
+## Filter chain optimization
 
 If you have multiple filters in the pipeline, fluentd tries to optimize
 filter calls to improve the performance. The condition for optimization
@@ -77,8 +75,7 @@ disable filter chain optimization because [Fluent::Plugin::XXXFilter] uses `#fil
 This is not critical log message and you can ignore it.
 
 
-List of Filter Plugins
-----------------------
+## List of Filter Plugins
 
 -   [grep](/articles/filter_grep.md)
 -   [record-transformer](/articles/filter_record_transformer.md)

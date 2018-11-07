@@ -34,8 +34,7 @@ Please see the [Config File](/articles/config-file.md) article for the basic
 structure and syntax of the configuration file.
 
 
-Parameters
-----------
+## Parameters
 
 [Common Parameters](/articles/plugin-common-parameters.md)
 
@@ -107,8 +106,7 @@ You can set this option to false to remove `retry` field from the
 response.
 
 
-Configuration Example
----------------------
+## Configuration Example
 
 Here is a configuration example that uses `in_monitor_agent`.
 
@@ -137,8 +135,7 @@ unique identifier, so you cannot identify a record just by looking at
 its `plugin_id` field)
 
 
-Output Example
---------------
+## Output Example
 
 Here is how the output looks like (in JSON format):
 
@@ -205,8 +202,7 @@ buffer, response is below:
 is cleared when fluentd restart, not retry succeeded.
 
 
-Tips & Tricks
--------------
+## Tips & Tricks
 
 
 ### How to use query parameters to tune outputs

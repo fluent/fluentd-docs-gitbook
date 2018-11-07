@@ -19,8 +19,7 @@ Format section can be in `<match>` or `<filter>` sections.
 ```
 
 
-formatter plugin type
----------------------
+## formatter plugin type
 
 `<format>` section requires `@type` parameter to specify the type of
 formatter plugin. Fluentd core bundles [some useful formatter
@@ -46,8 +45,7 @@ These are the list of built-in formatter plugins.
 For more details, see plugins documentation.
 
 
-Parameters
-----------
+## Parameters
 
 []{#@type}
 

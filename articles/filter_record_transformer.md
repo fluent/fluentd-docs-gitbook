@@ -105,8 +105,7 @@ So, if an event with the tag "web.auth" and record
 `{"user_id":1, "status":"ok", "service_name":"auth"}`.
 
 
-Parameters
-----------
+## Parameters
 
 [Common Parameters](/articles/plugin-common-parameters.md)
 
@@ -267,8 +266,7 @@ This parameter supports nested field via [record\_accessor
 syntax](api-plugin-helper-record_accessor#syntax) since v1.1.0.
 
 
-Need more performance?
-----------------------
+## Need more performance?
 
 [filter\_record\_modifier](https://github.com/repeatedly/fluent-plugin-record-modifier)
 is light-weight and faster version of `filter_record_transformer`.
@@ -278,8 +276,7 @@ you need better performace for mutating records, consider
 `filter_record_modifier` instead.
 
 
-FAQ
----
+## FAQ
 
 ### What are the differences between `${record["key"]}` and `${key}`?
 
@@ -295,8 +292,7 @@ string for record field access. So use `${record["key"]}` instead of
 `${record['key']}`.
 
 
-Learn More
-----------
+## Learn More
 
 -   [Filter Plugin Overview](/articles/filter-plugin-overview.md)
 

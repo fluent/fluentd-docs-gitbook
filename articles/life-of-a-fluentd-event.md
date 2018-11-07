@@ -73,8 +73,7 @@ $ bin/fluentd -c in_http.conf
 ```
 
 
-Event structure
----------------
+## Event structure
 
 Fluentd event consists of tag, time and record.
 
@@ -100,8 +99,7 @@ record: {"user":"-","method":"GET","code":200,"size":777,"host":"192.168.0.1","p
 ```
 
 
-Processing Events
------------------
+## Processing Events
 
 When a *Setup* is defined, the *Router Engine* already contains several
 rules to apply for different input data. Internally an *Event* will to
@@ -261,8 +259,7 @@ Buffer is important for reliability and throughput. See
 articles.
 
 
-Conclusion
-----------
+## Conclusion
 
 Once the events are reported by the [Fluentd](http://fluend.org) engine
 on the *Source*, can be processed *step by step* or inside a referenced
@@ -271,8 +268,7 @@ on the *Source*, can be processed *step by step* or inside a referenced
 easier the processing before reaching the *Output* plugin.
 
 
-Learn More
-----------
+## Learn More
 
 -   [Fluentd v0.12 Blog
     Announcement](http://www.fluentd.org/blog/fluentd-v0.12-is-released)

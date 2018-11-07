@@ -59,8 +59,7 @@ from the test directory:
 ```
 
 
-How to Inject Custom Fields into Events
----------------------------------------
+## How to Inject Custom Fields into Events
 
 [filter\_record\_transformer](/articles/filter_record_transformer.md) is a built-in
 plugin that enables to inject arbitrary data into events.

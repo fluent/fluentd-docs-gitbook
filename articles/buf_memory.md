@@ -13,8 +13,7 @@ logs that can't be written quickly are deleted.
 `memory` plugin has no specific parameters.
 
 
-Example
--------
+## Example
 
 ``` {.CodeRay}
 <match pattern>

@@ -19,8 +19,7 @@ Then, `helpers` method will include `Timer`, `Storage`. and
 `CompatParameters` plugin helpers.
 
 
-Built-in Plugin Helpers
------------------------
+## Built-in Plugin Helpers
 
 -   [child\_process](/articles/api-plugin-helper-child_process.md)
 -   [compat\_parameters](/articles/api-plugin-helper-compat_parameters.md)

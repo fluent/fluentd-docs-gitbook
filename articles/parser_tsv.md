@@ -26,8 +26,7 @@ Names of fields included in each lines.
 The delimiter character (or string) of TSV values.
 
 
-Example
--------
+## Example
 
 ``` {.CodeRay}
 <parse>

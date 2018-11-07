@@ -27,8 +27,7 @@ repository](https://github.com/kzk/fluentd-prometheus-config-example)
 contains the fully working configuration for this article.
 
 
-Example Fluentd Configuration
------------------------------
+## Example Fluentd Configuration
 
 To expose the Fluentd metrics to Prometheus, we need to configure 3
 parts:
@@ -172,8 +171,7 @@ fluentd_output_status_buffer_queue_length{hostname="KZK.local",plugin_id="object
 ```
 
 
-Example Prometheus Configuration
---------------------------------
+## Example Prometheus Configuration
 
 Please prepare the file below as `prometheus.yml`.
 
@@ -198,8 +196,7 @@ $ ./prometheus --config.file="prometheus.yml"
 Now please open your browser and access to `http://localhost:9090/`.
 
 
-How to use Prometheus to monitor Fluentd
-----------------------------------------
+## How to use Prometheus to monitor Fluentd
 
 
 ### List of Fluentd nodes
@@ -288,8 +285,7 @@ rate(fluentd_output_status_retry_count[1m])
 ```
 
 
-Grafana for Advanced Visualization / Alerting
----------------------------------------------
+## Grafana for Advanced Visualization / Alerting
 
 For more advanced visualization and alerting, we recommend to use
 [Grafana](https://grafana.com/) as a visualization frontend for
@@ -301,8 +297,7 @@ Prometheus.
 ![](/images/prometheus-grafana.png)
 
 
-Further Readings
-----------------
+## Further Readings
 
 -   [Prometheus
     Documentation](https://prometheus.io/docs/introduction/overview/)

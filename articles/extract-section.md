@@ -18,8 +18,7 @@ record.
 ```
 
 
-extract section parameter
--------------------------
+## extract section parameter
 
 
 ### Extract parameters

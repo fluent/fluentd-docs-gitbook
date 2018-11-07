@@ -59,8 +59,7 @@ If the incoming logs have priority prefix, e.g. \<9\>, set `true`.
 Default is `false`.
 
 
-Regexp patterns
----------------
+## Regexp patterns
 
 
 ### rfc3164 pattern
@@ -92,8 +91,7 @@ included in the event record. `time` is used for the event time.
 `pri` value is converted into integer type.
 
 
-Example
--------
+## Example
 
 
 ### rfc3164 log

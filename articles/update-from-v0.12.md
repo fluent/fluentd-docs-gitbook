@@ -23,8 +23,7 @@ $ gem install fluentd
 ```
 
 
-Configuration style
--------------------
+## Configuration style
 
 Configuration style is same but Fluentd v1 adds several sections for
 core features. For example, v1 uses `<buffer>` section for output's
@@ -67,8 +66,7 @@ correspondence table between v1 and v0.12 parameters.\
 Of course, v1 configuration is better for using full v1 API features.
 
 
-Plugin version
---------------
+## Plugin version
 
 Some popular plugins have already used new v1 plugin API. v1 API based
 plugins support useful features like flexible chunk keys, placeholders
@@ -78,8 +76,7 @@ Fluentd v1 supports old v0.12 plugin API so you can use older plugins
 with v1 without code update.
 
 
-Treasure Agent(td-agent)
-------------------------
+## Treasure Agent(td-agent)
 
 td-agent 3 includes Fluentd v1 serise. If you want to use fluentd v1
 with td-agent package, use td-agent 3 instead of td-agent 2.
@@ -102,8 +99,7 @@ soon as possible. For more details see [Configuration
 style](#configuration-style).
 
 
-Operation
----------
+## Operation
 
 
 ### Buffer file changes

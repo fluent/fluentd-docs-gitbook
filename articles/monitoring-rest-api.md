@@ -59,8 +59,7 @@ $ curl http://host:24220/api/plugins.json
 See [in\_monitor\_agent article](/articles/in_monitor_agent.md) for more detail.
 
 
-Monitoring the event flow
--------------------------
+## Monitoring the event flow
 
 Use
 [flowcounter](https://github.com/tagomoris/fluent-plugin-flowcounter) or
@@ -68,8 +67,7 @@ Use
 plugin.
 
 
-Datadog (dd-agent) Integration
-------------------------------
+## Datadog (dd-agent) Integration
 
 [Datadog](https://www.datadoghq.com/) is a cloud monitoring service, and
 its monitoring agent `dd-agent` has native integration with Fluentd.

@@ -25,8 +25,7 @@ plugins which supports buffered output features.
 ```
 
 
-buffer plugin type
-------------------
+## buffer plugin type
 
 `<buffer>` section accepts `@type` parameter to specify the type of
 buffer plugin.
@@ -51,8 +50,7 @@ For the majority of the workload, we always recommend to use the file
 buffer which gives you more durability.
 
 
-Chunk keys
-----------
+## Chunk keys
 
 Output plugins create buffer chunks by gathering events. Chunk keys,
 specified as argument of `<buffer>` section, controls how to gather
@@ -249,8 +247,7 @@ Buffer chunk keys can be empy by specifying `[]` in `buffer` section.
 This is useful when output plugin has default chunk keys and disable it.
 
 
-Placeholders
-------------
+## Placeholders
 
 When the chunk keys are specified, these values can be extracted in
 configuration parameter values. It depends on whether the plugin applies
@@ -317,8 +314,7 @@ Same with chunk keys:
 ```
 
 
-Parameters
-----------
+## Parameters
 
 
 ### Argument

@@ -31,8 +31,7 @@ environment.
 
 []{#step-2:-use-cases}
 
-Step 2: Use Cases
------------------
+## Step 2: Use Cases
 
 The articles shown below cover the typical use cases of Fluentd. Please
 refer to the article(s) that suits your needs.
@@ -54,8 +53,7 @@ refer to the article(s) that suits your needs.
 
 []{#step-3:-learn-more}
 
-Step 3: Learn More
-------------------
+## Step 3: Learn More
 
 The articles shown below will provide detailed information for you to
 learn more about Fluentd.

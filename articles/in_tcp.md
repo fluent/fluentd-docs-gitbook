@@ -47,8 +47,7 @@ please make sure to follow the instruction described at [Before
 Installing Fluentd](/articles/before-install.md).
 
 
-Plugin helpers
---------------
+## Plugin helpers
 
 -   [server](/articles/api-plugin-helper-server.md)
 -   [parser](/articles/api-plugin-helper-parser.md)
@@ -56,8 +55,7 @@ Plugin helpers
 -   [compat\_parameters](/articles/api-plugin-helper-compat_parameters.md)
 
 
-Parameters
-----------
+## Parameters
 
 [Common Parameters](/articles/plugin-common-parameters.md)
 

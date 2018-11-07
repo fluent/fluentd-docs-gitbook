@@ -24,8 +24,7 @@ of Fluentd plugins](http://www.fluentd.org/plugins) for third-party
 plugins.
 
 
-Overview
---------
+## Overview
 
 The following slides can help the user understand how Fluentd works
 before they dive into writing their own plugins.
@@ -58,8 +57,7 @@ plugin maintainer first. Forking a plugin and release alternative
 plugin, e.g. fluent-plugin-xxx-alt, is final approach.
 
 
-Writing plugins
----------------
+## Writing plugins
 
 To create a plugin as a ruby script (to put it on `/etc/fluent/plugin`),
 just write a `<TYPE>_<NAME>.rb` file by editor, IDE or anything you
@@ -149,8 +147,7 @@ Using `fluent-plugin-generate` command is good starting point to develop
 Fluentd plugins.
 
 
-Debugging plugins
------------------
+## Debugging plugins
 
 Run `fluentd` with the `-vv` option to show debug messages:
 
@@ -217,8 +214,7 @@ combination. The result is same as above but more simpler.
 ```
 
 
-Writing tests for plugins
--------------------------
+## Writing tests for plugins
 
 Fluentd provides unit test frameworks for plugins:
 
@@ -263,8 +259,7 @@ See [Writing Plugin Test Code](/articles/plugin-test-code.md) for more
 details about writing tests.
 
 
-Writing documents for plugins
------------------------------
+## Writing documents for plugins
 
 You have a snippet of README.md if you generate project skeleton using
 `fluent-plugin-generate`.
@@ -349,8 +344,7 @@ $ fluent-plugin-config-format -c input dummy
 For more details, see `fluent-plugin-config-format --help`.
 
 
-Further Reading
----------------
+## Further Reading
 
 -   [Slides: Fluentd v0.14 Plugin API
     Details](http://www.slideshare.net/tagomoris/fluentd-v014-plugin-api-details)

@@ -23,8 +23,7 @@ This article will show you how to use [Fluentd](http://fluentd.org/) to
 import Apache logs into MongoDB.
 
 
-Mechanism
----------
+## Mechanism
 
 The figure below shows how things will work.
 
@@ -38,8 +37,7 @@ Fluentd does 3 things:
 3.  It writes the buffered data to MongoDB periodically.
 
 
-Install
--------
+## Install
 
 For simplicity, this article will describe how to set up an one-node
 configuration. Please install the following software on the same node.
@@ -62,8 +60,7 @@ For MongoDB, please refer to the following downloads page.
 -   [MongoDB Downloads](http://www.mongodb.org/downloads)
 
 
-Configuration
--------------
+## Configuration
 
 Let's start configuring Fluentd. If you used the deb/rpm package,
 Fluentd's config file is located at /etc/td-agent/td-agent.conf.
@@ -154,8 +151,7 @@ plugin](/articles/out_mongo.md) article. If you are using ReplicaSet, please see
 [MongoDB ReplicaSet Output plugin](/articles/out_mongo_replset.md) article.
 
 
-Test
-----
+## Test
 
 To test the configuration, just ping the Apache server. This example
 uses the `ab` (Apache Bench) program.
@@ -176,15 +172,13 @@ $ mongo
 ```
 
 
-Conclusion
-----------
+## Conclusion
 
 Fluentd + MongoDB makes real-time log collection simple, easy, and
 robust.
 
 
-Learn More
-----------
+## Learn More
 
 -   [Fluentd Architecture](//www.fluentd.org/architecture)
 -   [Fluentd Get Started](/articles/quickstart.md)

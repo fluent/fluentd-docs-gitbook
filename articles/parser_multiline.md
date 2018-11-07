@@ -42,8 +42,7 @@ These patterns are joined and constructs regexp pattern with multiline
 mode.
 
 
-Example
--------
+## Example
 
 
 ### Rails log

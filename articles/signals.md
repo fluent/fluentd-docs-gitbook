@@ -10,8 +10,7 @@ worker. The supervisor process controls the life cycle of the worker
 process. Please make sure to send any signals to the supervisor process.
 
 
-Signals
--------
+## Signals
 
 
 ### SIGINT or SIGTERM

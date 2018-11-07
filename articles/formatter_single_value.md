@@ -34,8 +34,7 @@ Add `\n` to the result. If there is a trailing "\\n" already, set it
 The value of this field is outputted.
 
 
-Example
--------
+## Example
 
 ``` {.CodeRay}
 tag:    app.event

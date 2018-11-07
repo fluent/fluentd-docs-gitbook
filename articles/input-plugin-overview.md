@@ -16,8 +16,7 @@ a listen socket. It can also be written to periodically pull data from
 data sources.
 
 
-List of Input Plugins
----------------------
+## List of Input Plugins
 
 -   [in\_tail](/articles/in_tail.md)
 -   [in\_forward](/articles/in_forward.md)
@@ -30,8 +29,7 @@ List of Input Plugins
 -   [in\_windows\_eventlog](/articles/in_windows_eventlog.md)
 
 
-Other Input Plugins
--------------------
+## Other Input Plugins
 
 Please refer to this list of available plugins to find out about other
 Input plugins.

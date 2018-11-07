@@ -11,8 +11,7 @@ Please install Ruby \>= 2.1 and bundler on your local environment.
 
 []{#step-2:-fetch-source-code}
 
-Step-2: Fetch Source Code
--------------------------
+## Step-2: Fetch Source Code
 
 Fetch the source code from github. The official repository is located
 [here](http://github.com/fluent/fluentd/).
@@ -26,8 +25,7 @@ $ cd fluentd
 
 []{#step-3:-build-and-install}
 
-Step-3: Build and Install
--------------------------
+## Step-3: Build and Install
 
 Build the package with `rake` and install it with `gem`.
 
@@ -44,8 +42,7 @@ $ gem install pkg/fluentd-xxx.gem
 
 []{#step-4:-run}
 
-Step-4: Run
------------
+## Step-4: Run
 
 Run the following commands to to confirm that Fluentd was installed
 successfully:
@@ -74,8 +71,7 @@ fragmentation. This is already included in the [rpm](/articles/install-by-rpm.md
 [deb](/articles/install-by-deb.md) packages.
 
 
-Next Steps
-----------
+## Next Steps
 
 You're now ready to collect your real logs using Fluentd. Please see the
 following tutorials to learn how to collect your data from various data

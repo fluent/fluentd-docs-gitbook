@@ -29,22 +29,19 @@ provided by Fluentd core. The `relabel` plugin is a plugin which
 actually does nothing, but supports only `@label` parameter.
 
 
-Supported modes
----------------
+## Supported modes
 
 -   Non-Buffered
 
 -   See also: [Output Plugin Overview](/articles/output-plugin-overview.md)
 
 
-Plugin helpers
---------------
+## Plugin helpers
 
 -   [event\_emitter](/articles/api-plugin-helper-event_emitter.md)
 
 
-Parameters
-----------
+## Parameters
 
 [Common Parameters](/articles/plugin-common-parameters.md)
 

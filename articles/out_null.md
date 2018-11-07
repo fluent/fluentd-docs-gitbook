@@ -18,8 +18,7 @@ Please see the [Config File](/articles/config-file.md) article for the basic
 structure and syntax of the configuration file.
 
 
-Supported modes
----------------
+## Supported modes
 
 -   Non-Buffered
 -   Synchronous
@@ -28,8 +27,7 @@ Supported modes
 See [Output Plugin Overview](/articles/output-plugin-overview.md) for more details.
 
 
-Parameters
-----------
+## Parameters
 
 [Common Parameters](/articles/plugin-common-parameters.md)
 
@@ -81,8 +79,7 @@ Overwrite default value in this plugin.
 Overwrite default value in this plugin.
 
 
-Common Buffer / Output parameters
----------------------------------
+## Common Buffer / Output parameters
 
 See [Buffer Plugin Overview](/articles/buffer-plugin-overview.md) and [Output Plugin
 Overview](/articles/output-plugin-overview.md)

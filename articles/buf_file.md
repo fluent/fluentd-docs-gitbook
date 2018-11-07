@@ -67,8 +67,7 @@ Please make sure that you have **enough space in the path directory**.
 Running out of disk space is a problem frequently reported by users.
 
 
-Example
--------
+## Example
 
 ``` {.CodeRay}
 <match pattern>
@@ -80,8 +79,7 @@ Example
 ```
 
 
-Limitation
-----------
+## Limitation
 
 Caution, `file` buffer implementation depends on the characteristics of
 local file system. Don't use `file` buffer on remote file system, e.g.

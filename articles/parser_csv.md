@@ -30,8 +30,7 @@ Names of fields included in each lines.
 The delimiter character (or string) of CSV values.
 
 
-Example
--------
+## Example
 
 ``` {.CodeRay}
 <parse>

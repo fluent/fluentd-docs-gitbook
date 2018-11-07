@@ -84,8 +84,7 @@ end
 ```
 
 
-parser used plugins
--------------------
+## parser used plugins
 
 -   [Parser filter](/articles/filter_parser.md)
 -   [Exec input](/articles/in_exec.md)

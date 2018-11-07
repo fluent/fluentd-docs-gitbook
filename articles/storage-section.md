@@ -20,8 +20,7 @@ It's enabled for plugins which support storage plugin features.
 ```
 
 
-storage plugin type
--------------------
+## storage plugin type
 
 `<storage>` section requires `@type` parameter to specify the type of
 storage plugin. Fluentd core bundles [a useful storage

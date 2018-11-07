@@ -8,8 +8,7 @@ The `apache_error` parser plugin parses apache error logs.
 See [Parse section configurations](/articles/parse-section.md)
 
 
-Regexp patterns
----------------
+## Regexp patterns
 
 This is regexp pattern of this plugin:
 
@@ -21,8 +20,7 @@ expression /^\[[^ ]* (?<time>[^\]]*)\] \[(?<level>[^\]]*)\](?: \[pid (?<pid>[^\]
 `time` is used for the event time.
 
 
-Example
--------
+## Example
 
 ``` {.CodeRay}
 [Wed Oct 11 14:32:52 2000] [error] [client 127.0.0.1] client denied by server configuration

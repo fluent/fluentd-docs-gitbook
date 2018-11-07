@@ -13,8 +13,7 @@ This article explains how to use the fluent-logger-ruby library.
 -   Ruby 2.1 or later
 
 
-Installing Fluentd
-------------------
+## Installing Fluentd
 
 Please refer to the following documents to install fluentd.
 
@@ -24,8 +23,7 @@ Please refer to the following documents to install fluentd.
 -   [Install Fluentd from source](/articles/install-from-source.md)
 
 
-Modifying the Config File
--------------------------
+## Modifying the Config File
 
 Next, please configure Fluentd to use the [forward Input
 plugin](/articles/in_forward.md) as its data source.
@@ -50,8 +48,7 @@ $ sudo /etc/init.d/td-agent restart
 ```
 
 
-Using fluent-logger-ruby
-------------------------
+## Using fluent-logger-ruby
 
 First, add the 'fluent-logger' gem to your Gemfile.
 
@@ -77,8 +74,7 @@ The logs should be output to `/var/log/td-agent/td-agent.log` or stdout
 of the Fluentd process via the [stdout Output plugin](/articles/out_stdout.md).
 
 
-Production Deployments
-----------------------
+## Production Deployments
 
 
 ### Output Plugins

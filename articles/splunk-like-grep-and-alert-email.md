@@ -34,8 +34,7 @@ Note: If you installed Fluentd using ruby gems, use `gem` command
 instead of `td-agent-gem`.
 
 
-Configuration
--------------
+## Configuration
 
 
 ### Full configuration example
@@ -115,8 +114,7 @@ In this way, fluentd now works as an email alerting system that monitors
 the web service for you.
 
 
-Test the configuration
-----------------------
+## Test the configuration
 
 After saving the configuration, restart the td-agent process:
 
@@ -141,8 +139,7 @@ manually will produce the same result.
 Now you will receive an alert email titled "HTTP SERVER ERROR".
 
 
-What's next?
-------------
+## What's next?
 
 Admittedly, this is a contrived example. In reality, you would set the
 threshold higher. Also, you might be interested in tracking 4xx pages as

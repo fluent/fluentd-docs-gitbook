@@ -83,8 +83,7 @@ file. See [configuration file
 article](/articles/config-file#4-set-system-wide-configuration-the-ldquosystemrdquo-directive).
 
 
-fluent-cat
-----------
+## fluent-cat
 
 Send event to fluentd's `in_forward`/`in_unix` plugin. This is useful
 for testing.
@@ -118,8 +117,7 @@ Send to other machine:
 ```
 
 
-fluent-plugin-config-format
----------------------------
+## fluent-plugin-config-format
 
 Generate plugin's configuration document with specified format.
 
@@ -157,8 +155,7 @@ fluent-plugin-config-format -f txt output null
 ```
 
 
-fluent-plugin-generate
-----------------------
+## fluent-plugin-generate
 
 Generate Fluentd plugin project template. It is good for starting to
 Fluentd plugin development for using new API plugin. In more detail,

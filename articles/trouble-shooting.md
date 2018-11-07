@@ -8,8 +8,7 @@ For td-agent (rpm/deb), the logs are located at
 `/var/log/td-agent/td-agent.log`.
 
 
-Turn on Verbose Logging
------------------------
+## Turn on Verbose Logging
 
 You can get more information about the logs if verbose logging is turned
 on. Please follow the steps below.
@@ -57,8 +56,7 @@ $ fluentd .. -vv
 ```
 
 
-Dump fluentd internal information
----------------------------------
+## Dump fluentd internal information
 
 Fluentd uses [sigdump](https://github.com/frsyuki/sigdump) for dumping
 fluentd internal information to local file, e.g. thread dump, object
@@ -66,8 +64,7 @@ allocation and etc. If you have a problem with fluentd like process
 hang, please send `SIGCONT` to fluentd parent and child processes.
 
 
-High CPU usage issue
---------------------
+## High CPU usage issue
 
 If fluentd suddenly hits unexpected high CPU usage problem, there are
 several reasons:
@@ -85,8 +82,7 @@ If you want to know which call causes the problem,
 useful.
 
 
-Check uncaught logs
--------------------
+## Check uncaught logs
 
 You sometimes hit unexpected shutdown with non-zero exit status like
 below.

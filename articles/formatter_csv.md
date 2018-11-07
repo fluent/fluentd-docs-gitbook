@@ -53,8 +53,7 @@ If false, value won't be framed by quotes.
 Add `\n` to the result.
 
 
-Example
--------
+## Example
 
 ``` {.CodeRay}
 <format>

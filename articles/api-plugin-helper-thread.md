@@ -74,8 +74,7 @@ thread_create(:example_plugin_main) {
 ```
 
 
-thread used plugins
--------------------
+## thread used plugins
 
 -   [Forward output](/articles/out_forward.md)
 -   [Monitor Agent input](/articles/in_monitor_agent.md)

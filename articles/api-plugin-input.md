@@ -95,8 +95,7 @@ router.emit(tag, time, {:foo => 'bar'})   # NG!
 There are no specific method for Input plugins.
 
 
-Writing Tests
--------------
+## Writing Tests
 
 Fluentd input plugin has just one or some points to be tested. Others
 (parsing configurations, controlling buffers, retries, flushes and many

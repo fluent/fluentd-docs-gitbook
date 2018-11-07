@@ -22,8 +22,7 @@ See [Parse section configurations](/articles/parse-section.md)
 Specify field name to contain logs.
 
 
-Example
--------
+## Example
 
 ``` {.CodeRay}
 Hello world. I am a line of log!

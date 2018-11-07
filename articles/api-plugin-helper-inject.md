@@ -74,8 +74,7 @@ end
 ```
 
 
-inject used plugins
--------------------
+## inject used plugins
 
 -   [Stdout filter](/articles/filter_stdout.md)
 -   [Exec output](/articles/out_exec.md)

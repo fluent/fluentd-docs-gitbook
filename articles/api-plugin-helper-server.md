@@ -172,8 +172,7 @@ end
 ```
 
 
-Configuration example
----------------------
+## Configuration example
 
 Here is TLS configuration example with server helper used plugin.
 
@@ -211,8 +210,7 @@ Here is TLS configuration example with server helper used plugin.
 ```
 
 
-server used plugins
--------------------
+## server used plugins
 
 -   [Forward input](/articles/in_forward.md)
 -   [Syslog input](/articles/in_syslog.md)

@@ -53,16 +53,14 @@ If you want to keep facility and priority in the record, set related
 parameters.
 
 
-Plugin helpers
---------------
+## Plugin helpers
 
 -   [parser](/articles/api-plugin-helper-parser.md)
 -   [compat\_parameters](/articles/api-plugin-helper-compat_parameters.md)
 -   [server](/articles/api-plugin-helper-server.md)
 
 
-Parameters
-----------
+## Parameters
 
 [Common Parameters](/articles/plugin-common-parameters.md)
 
@@ -274,8 +272,7 @@ logging for each plugin. The supported log levels are: `fatal`, `error`,
 Please see the [logging article](/articles/logging.md) for further details.
 
 
-TCP protocol and message delimiter
-----------------------------------
+## TCP protocol and message delimiter
 
 This plugin assumes `\n` for delimiter character between syslog messages
 in one TCP connection. If you use syslog library in your application
@@ -283,8 +280,7 @@ with `protocol_type tcp`, add `\n` to your syslog message.\
 See also [rfc6587](https://tools.ietf.org/html/rfc6587#section-3.4.2).
 
 
-Tips
-----
+## Tips
 
 
 ### Multi-process environment
@@ -307,8 +303,7 @@ With this configuration, 3 workers share 5140 port. No need additional
 port. Incoming data will be routed to 3 workers automatically.
 
 
-Learn More
-----------
+## Learn More
 
 -   [Input Plugin Overview](/articles/input-plugin-overview.md)
 

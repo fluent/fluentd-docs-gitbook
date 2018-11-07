@@ -37,8 +37,7 @@ please check [Parse section cofiguration](/articles/parse-section.md).
     position file specified by the pos\_file parameter.
 
 
-Plugin helpers
---------------
+## Plugin helpers
 
 -   [timer](/articles/api-plugin-helper-timer.md)
 -   [event\_loop](/articles/api-plugin-helper-event_loop.md)
@@ -46,8 +45,7 @@ Plugin helpers
 -   [compat\_parameters](/articles/api-plugin-helper-compat_parameters.md)
 
 
-Parameters
-----------
+## Parameters
 
 [Common Parameters](/articles/plugin-common-parameters.md)
 
@@ -406,14 +404,12 @@ logging for each plugin. The supported log levels are: `fatal`, `error`,
 Please see the [logging article](/articles/logging.md) for further details.
 
 
-Learn More
-----------
+## Learn More
 
 -   [Input Plugin Overview](/articles/input-plugin-overview.md)
 
 
-FAQ
----
+## FAQ
 
 ### What happens when `<parse>` type is not matched for logs.
 

@@ -17,8 +17,7 @@ Prometheus, since we will be collaborating more in the future under the
 -   [Monitoring Fluentd (REST API)](monitoring-rest-api)
 
 
-Process Monitoring
-------------------
+## Process Monitoring
 
 Two `ruby` processes (parent and child) are executed. Please make sure
 that these processes are running. The example for `td-agent` is shown
@@ -40,8 +39,7 @@ $ ps w -C ruby -C td-agent --no-heading
 ```
 
 
-Port Monitoring
----------------
+## Port Monitoring
 
 Fluentd opens several ports according to the configuration file. We
 recommend checking the availability of these ports. The default port
@@ -51,8 +49,7 @@ settings are shown below:
 -   TCP 0.0.0.0 24224 (Forward by default)
 
 
-Debug Port
-----------
+## Debug Port
 
 A debug port for local communication is recommended for trouble
 shooting. Please note that the configuration below will be required.

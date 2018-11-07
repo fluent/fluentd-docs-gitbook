@@ -65,8 +65,7 @@ Overwrite default value in this plugin.
 Overwrite default value in this plugin.
 
 
-Example
--------
+## Example
 
 ``` {.CodeRay}
 tag:    app.event

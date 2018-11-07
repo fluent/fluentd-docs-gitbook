@@ -26,14 +26,12 @@ Please see the [Config FIle](/articles/config-file.md) article for the basic
 structure and syntax of the configuration file.
 
 
-Plugin helpers
---------------
+## Plugin helpers
 
 -   [server](/articles/api-plugin-helper-server.md)
 
 
-Parameters
-----------
+## Parameters
 
 -   [Common Parameters](/articles/plugin-common-parameters.md)
 -   [Transport section](/articles/transport-section.md)
@@ -284,8 +282,7 @@ Shared key per client.
 Array of username.
 
 
-Protocol
---------
+## Protocol
 
 This plugin accepts both JSON or [MessagePack](http://msgpack.org/)
 messages and automatically detects which is used. Internally, Fluent
@@ -315,8 +312,7 @@ For more details, see [Fluentd Forward Protocol Specification
 (v1)](https://github.com/fluent/fluentd/wiki/Forward-Protocol-Specification-v1).
 
 
-Tips & Tricks
--------------
+## Tips & Tricks
 
 
 ### How to Enable TLS Encryption
@@ -460,8 +456,7 @@ With this configuration, 3 workers share 24224 port. No need additional
 port. Incoming data will be routed to 3 workers automatically.
 
 
-FAQ
----
+## FAQ
 
 []{#why-in_forward-doesn%E2%80%99t-have-tag-parameter?}
 

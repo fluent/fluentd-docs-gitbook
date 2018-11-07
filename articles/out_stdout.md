@@ -28,23 +28,20 @@ where the first part shows the output time, the second part shows the
 tag, and the third part shows the record.
 
 
-Supported modes
----------------
+## Supported modes
 
 -   Non-Buffered
 -   Synchronous
 
 
-Plugin helpers
---------------
+## Plugin helpers
 
 -   [inject](/articles/api-plugin-helper-inject.md)
 -   [formatter](/articles/api-plugin-helper-formatter.md)
 -   [compat\_parameters](/articles/api-plugin-helper-compat_parameters.md)
 
 
-Parameters
-----------
+## Parameters
 
 [Common Parameters](/articles/plugin-common-parameters.md)
 

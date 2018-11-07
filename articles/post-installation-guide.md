@@ -36,8 +36,7 @@ If you want to make td-agent more verbose, read the article ["Trouble
 Shooting"](trouble-shooting).
 
 
-Connect to Other Services
--------------------------
+## Connect to Other Services
 
 
 ### How It Works
@@ -92,8 +91,7 @@ Note that a number of plugins are already included in the standard
 distribution of td-agent, so you may not need to install them manually.
 
 
-Configuration Syntax
---------------------
+## Configuration Syntax
 
 
 ### Data Source

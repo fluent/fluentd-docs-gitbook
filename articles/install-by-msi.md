@@ -21,8 +21,7 @@ td-agent.
 
 []{#step-1:-install-td-agent}
 
-Step 1: Install td-agent
-------------------------
+## Step 1: Install td-agent
 
 Please download the `.msi` file from here, and install the software.
 
@@ -30,8 +29,7 @@ Please download the `.msi` file from here, and install the software.
 
 []{#step-2:-run-td-agent-from-command-prompt}
 
-Step 2: Run td-agent from Command Prompt
-----------------------------------------
+## Step 2: Run td-agent from Command Prompt
 
 First, please prepare your config file located at
 `C:/opt/td-agent/etc/td-agent/td-agent.conf`. The config below is the
@@ -73,8 +71,7 @@ It's working properly if td-agent process outputs the message
 
 []{#step-3:-register-td-agent-to-windows-service}
 
-Step 3: Register td-agent to Windows service
---------------------------------------------
+## Step 3: Register td-agent to Windows service
 
 Next, let's register td-agent to Windows service to permanently run as a
 server process. Please execute `Td-agent Command Prompt` again but with
@@ -87,8 +84,7 @@ administrative privilege, and type the two commands below.
 
 []{#step-4:-run-td-agent-as-windows-service}
 
-Step 4: Run td-agent as Windows service
----------------------------------------
+## Step 4: Run td-agent as Windows service
 
 Please guide yourself to
 `Control Panel -> System and Security -> Administrative Tools -> Services`,
@@ -102,8 +98,7 @@ specified in Step 3.
 
 []{#step-5:-install-plugins}
 
-Step 5: Install Plugins
------------------------
+## Step 5: Install Plugins
 
 Open `Td-agent Command Prompt` and use `fluent-gem` command.
 
@@ -112,8 +107,7 @@ Open `Td-agent Command Prompt` and use `fluent-gem` command.
 ```
 
 
-Next Steps
-----------
+## Next Steps
 
 You're now ready to collect your real logs using Fluentd. Please see the
 following tutorials to learn how to collect your data from various data

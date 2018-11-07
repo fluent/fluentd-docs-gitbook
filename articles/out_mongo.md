@@ -22,8 +22,7 @@ This has the following advantages:
     structure
 
 
-Install
--------
+## Install
 
 `out_mongo` is not included in td-agent by default. Fluentd gem users
 will need to install the fluent-plugin-mongo gem using the following
@@ -36,8 +35,7 @@ $ fluent-gem install fluent-plugin-mongo
 For more details, see [Plugin Management](/articles/plugin-management.md).
 
 
-Example Configuration
----------------------
+## Example Configuration
 
 ``` {.CodeRay}
 # Single MongoDB
@@ -76,8 +74,7 @@ structure and syntax of the configuration file. For \<buffer\> section,
 please check [Buffer section cofiguration](/articles/buffer-section.md).
 
 
-Parameters
-----------
+## Parameters
 
 
 ### type
@@ -203,8 +200,7 @@ within the `fluentd` database.
 This option is useful for flexible log collection.
 
 
-Common Output / Buffer parameters
----------------------------------
+## Common Output / Buffer parameters
 
 For common output / buffer parameters, please check the following
 articles.
@@ -213,8 +209,7 @@ articles.
 -   [Buffer Section Configuration](/articles/buffer-section.md)
 
 
-Further Reading
----------------
+## Further Reading
 
 -   [fluent-plugin-mongo
     repository](https://github.com/fluent/fluent-plugin-mongo)

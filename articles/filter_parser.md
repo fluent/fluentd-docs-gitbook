@@ -26,16 +26,14 @@ parser plugin, so you can re-use pre-defined format like `apache`,
 Overview](/articles/parser-plugin-overview.md)
 
 
-Plugin helpers
---------------
+## Plugin helpers
 
 -   [parser](/articles/api-plugin-helper-parser.md)
 -   [record\_accessor](/articles/api-plugin-helper-record_accessor.md)
 -   [compat\_parameters](/articles/api-plugin-helper-compat_parameters.md)
 
 
-Parameters
-----------
+## Parameters
 
 [Common Parameters](/articles/plugin-common-parameters.md)
 
@@ -222,8 +220,7 @@ In v1.0, `emit_invalid_record_to_error` is `true` by default unlike
 v0.12.
 
 
-Learn More
-----------
+## Learn More
 
 -   [Filter Plugin Overview](/articles/filter-plugin-overview.md)
 

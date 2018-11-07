@@ -57,8 +57,7 @@ Results logged to /opt/td-agent/embedded/lib/ruby/gems/2.1.0/extensions/x86_64-l
 ```
 
 
-"-p" option
------------
+## "-p" option
 
 Fluentd's `-p` option is used to add an extra plugin directory to the
 load path. For example, if you put the `out_foo.rb` plugin into
@@ -72,8 +71,7 @@ fluentd -p /path/to/plugin
 You can specify the `-p` option more than once.
 
 
-Add a Plugin Via /etc/fluent/plugin
------------------------------------
+## Add a Plugin Via /etc/fluent/plugin
 
 Fluentd adds the `/etc/fluent/plugin` directory to its load path by
 default. Thus, any additional plugins that are placed in
@@ -87,8 +85,7 @@ directory instead of `/etc/fluent/plugin`. Please put your plugins here
 instead.
 
 
-Plugin version management
--------------------------
+## Plugin version management
 
 Fluentd and plugins are evolving, so you may hit unexpected error with
 latest version, e.g. regression by new feature, remove deprecated
@@ -112,8 +109,7 @@ You should specify target version with `-v` option.
 -   `gem install fluent-plugin-elasticsearch -v 2.10.3`
 
 
-"--gemfile" option
-------------------
+## "--gemfile" option
 
 A Ruby application manages gem dependencies using Gemfile and
 [Bundler](http://bundler.io/). Fluentd's `--gemfile` option takes the

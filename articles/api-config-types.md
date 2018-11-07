@@ -20,8 +20,7 @@
 
 []{#:string}
 
-:string
--------
+## :string
 
 Define a string parameter.
 
@@ -47,8 +46,7 @@ passowrd very-secret-password
 
 []{#:regexp}
 
-:regexp
--------
+## :regexp
 
 Define a regexp parameter. Since v1.2.0.
 
@@ -80,8 +78,7 @@ pattern ^name_    # Also support pattern without slashes
 
 []{#:integer}
 
-:integer
---------
+## :integer
 
 Define an integer parameter.
 
@@ -108,8 +105,7 @@ num_children 10
 
 []{#:float}
 
-:float
-------
+## :float
 
 Define a float parameter.
 
@@ -136,8 +132,7 @@ interval 1.5
 
 []{#:size}
 
-:size
------
+## :size
 
 Define a size parameter in bytes. Available suffixes are `k`, `m`, `g`,
 `t` (ignore case).
@@ -171,8 +166,7 @@ limit 10m
 
 []{#:time}
 
-:time
------
+## :time
 
 Define a length of time paramater. Available suffixes are `s`, `m`, `h`,
 `d` (lower case only). If omit suffix, apply `to_f` to the value and
@@ -209,8 +203,7 @@ interval 10m
 
 []{#:bool}
 
-:bool
------
+## :bool
 
 Define a bool parameter.
 
@@ -236,8 +229,7 @@ deep_copy true
 
 []{#:enum}
 
-:enum
------
+## :enum
 
 Define an enumeration type parameter.
 
@@ -270,8 +262,7 @@ protocol_type tcp
 
 []{#:array}
 
-:array
-------
+## :array
 
 Define an array type parameter.
 
@@ -306,8 +297,7 @@ These configuration will convert to:
 
 []{#:hash}
 
-:hash
------
+## :hash
 
 Define a hash type parameter.
 

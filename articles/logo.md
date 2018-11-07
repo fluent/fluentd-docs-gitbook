@@ -19,8 +19,7 @@ Feel free to use these logos on your slides, blog posts, etc.!
 </div>
 
 
-Horizontal
-----------
+## Horizontal
 
 <div>
 
@@ -36,8 +35,7 @@ Horizontal
 </div>
 
 
-Icon
-----
+## Icon
 
 <div>
 
@@ -53,8 +51,7 @@ Icon
 </div>
 
 
-Links
------
+## Links
 
 -   [Fluentd.ai](https://raw.githubusercontent.com/fluent/fluentd-docs/master/public/logo/Fluentd.ai)
 -   [Full list of

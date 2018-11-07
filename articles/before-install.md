@@ -16,8 +16,7 @@ For Amazon Web Services users we recommend using [AWS hosted NTP
 server](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/set-time.html).
 
 
-Increase Max \# of File Descriptors
------------------------------------
+## Increase Max \# of File Descriptors
 
 Please increase the maximum number of file descriptors. You can check
 the current number using the `ulimit -n` command.
@@ -42,8 +41,7 @@ can also be used (and if you are using the td-agent package this value
 is setup by default).
 
 
-Optimize Network Kernel Parameters
-----------------------------------
+## Optimize Network Kernel Parameters
 
 For high load environments consisting of many Fluentd instances, please
 add these parameters to your `/etc/sysctl.conf` file. Please either type

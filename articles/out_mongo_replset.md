@@ -23,8 +23,7 @@ This has the following advantages:
     structure
 
 
-Install
--------
+## Install
 
 `out_mongo_replset` is not included in td-agent by default. Fluentd gem
 users will need to install the fluent-plugin-mongo gem using the
@@ -35,8 +34,7 @@ $ fluent-gem install fluent-plugin-mongo
 ```
 
 
-Example Configuration
----------------------
+## Example Configuration
 
 ``` {.CodeRay}
 # Single MongoDB
@@ -64,8 +62,7 @@ structure and syntax of the configuration file. For \<buffer\> section,
 please check [Buffer section cofiguration](/articles/buffer-section.md).
 
 
-Parameters
-----------
+## Parameters
 
 
 ### type
@@ -203,8 +200,7 @@ The ReplicaSet failover threshold. The default threshold is 60. If the
 retry count reaches this threshold, the plugin raises an exception.
 
 
-Common Output / Buffer parameters
----------------------------------
+## Common Output / Buffer parameters
 
 For common output / buffer parameters, please check the following
 articles.
@@ -213,8 +209,7 @@ articles.
 -   [Buffer Section Configuration](/articles/buffer-section.md)
 
 
-Further Readings
-----------------
+## Further Readings
 
 -   [fluent-plugin-webhdfs
     mongo](https://github.com/fluent/fluent-plugin-mongo)

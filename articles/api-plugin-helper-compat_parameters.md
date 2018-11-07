@@ -263,8 +263,7 @@ Plugins](/articles/api-plugin-formatter.md).
 
 []{#compat_parameters-used-plugins}
 
-compat\_parameters used plugins
--------------------------------
+## compat\_parameters used plugins
 
 -   [Parser filter](/articles/filter_parser.md)
 -   [Exec input](/articles/in_exec.md)

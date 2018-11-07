@@ -27,8 +27,7 @@ $ fluent-gem install fluent-plugin-elasticsearch
 ```
 
 
-Example Configuration
----------------------
+## Example Configuration
 
 The following is a simple working configuration. This should serve as a
 good starting point for most users.
@@ -46,15 +45,13 @@ For more details on each option, read [the section on
 Parameters](#parameters).
 
 
-Plugin helpers
---------------
+## Plugin helpers
 
 -   [event\_emitter](/articles/api-plugin-helper-event_emitter.md)
 -   [compat\_parameters](/articles/api-plugin-helper-compat_parameters.md)
 
 
-Parameters
-----------
+## Parameters
 
 []{#@type-(required)}
 
@@ -156,8 +153,7 @@ logging for each plugin. The supported log levels are: `fatal`, `error`,
 Please see the [logging article](/articles/logging.md) for further details.
 
 
-Miscellaneous
--------------
+## Miscellaneous
 
 You can use `%{}` style placeholders to escape for URL encoding needed
 characters.
@@ -185,8 +181,7 @@ password @secret
 are invalid configuration.
 
 
-Common Output / Buffer parameters
----------------------------------
+## Common Output / Buffer parameters
 
 For common output / buffer parameters, please check the following
 articles.
@@ -195,15 +190,13 @@ articles.
 -   [Buffer Section Configuration](/articles/buffer-section.md)
 
 
-Troubleshooting
----------------
+## Troubleshooting
 
 Please refer to [the elasticsearch README's troubleshooting
 section](https://github.com/uken/fluent-plugin-elasticsearch#troubleshooting).
 
 
-Further Reading
----------------
+## Further Reading
 
 -   [fluent-plugin-elasticsearch
     repository](https://github.com/uken/fluent-plugin-elasticsearch)

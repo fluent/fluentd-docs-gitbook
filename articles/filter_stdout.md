@@ -25,16 +25,14 @@ where the first part shows the output time, the second part shows the
 tag, and the third part shows the record.
 
 
-Plugin helpers
---------------
+## Plugin helpers
 
 -   [formatter](/articles/api-plugin-helper-formatter.md)
 -   [compat\_parameters](/articles/api-plugin-helper-compat_parameters.md)
 -   [inject](/articles/api-plugin-helper-inject.md)
 
 
-Parameters
-----------
+## Parameters
 
 [Common Parameters](/articles/plugin-common-parameters.md)
 
@@ -68,8 +66,7 @@ This is the option of `stdout` format. Configure the format of record
 (third part). Any formatter plugins can be specified.
 
 
-Learn More
-----------
+## Learn More
 
 -   [Filter Plugin Overview](/articles/filter-plugin-overview.md)
 

@@ -18,8 +18,7 @@ Buffer plugins are, as you can tell by the name, *pluggable*. So you can
 choose a suitable backend based on your system requirements.
 
 
-How Buffer Works
-----------------
+## How Buffer Works
 
 A buffer is essentially a set of "chunks". A chunk is a collection of
 events concatenated into a single blob. Each chunk is managed one by one
@@ -47,8 +46,7 @@ gets transferred to the destination).
 </div>
 
 
-Control Retry Behaviour
------------------------
+## Control Retry Behaviour
 
 A chunk can fail to be written out to the destination for a number of
 reasons. The network can go down, or the traffic volumes can exceed the
@@ -170,15 +168,13 @@ because these options are, in fact, optional. As for the detail of each
 option, please read [this article](buffer-section#retries-parameters).
 
 
-Parameters
-----------
+## Parameters
 
 -   [Common Parameters](/articles/plugin-common-parameters.md)
 -   [Buffer section configurations](/articles/buffer-section.md)
 
 
-FAQ
----
+## FAQ
 
 
 ### Buffer's chunk size and output's payload size are sometimes different, why?
@@ -199,8 +195,7 @@ payload size limitation. If you have a problem with payload size issue,
 check chunk size configuration and API spec.
 
 
-List of Buffer Plugins
-----------------------
+## List of Buffer Plugins
 
 -   [buf\_memory](/articles/buf_memory.md)
 -   [buf\_file](/articles/buf_file.md)

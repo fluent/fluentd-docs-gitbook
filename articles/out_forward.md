@@ -51,8 +51,7 @@ Please see the [Config File](/articles/config-file.md) article for the basic
 structure and syntax of the configuration file.
 
 
-Supported modes
----------------
+## Supported modes
 
 -   Synchronous
 -   Asynchronous
@@ -60,8 +59,7 @@ Supported modes
 See [Output Plugin Overview](/articles/output-plugin-overview.md) for more details.
 
 
-Plugin helpers
---------------
+## Plugin helpers
 
 -   [socket](/articles/api-plugin-helper-socket.md)
 -   [server](/articles/api-plugin-helper-server.md)
@@ -70,8 +68,7 @@ Plugin helpers
 -   [compat\_parameters](/articles/api-plugin-helper-compat_parameters.md)
 
 
-Parameters
-----------
+## Parameters
 
 [Common Parameters](/articles/plugin-common-parameters.md)
 
@@ -418,8 +415,7 @@ For more details, see [Secondary
 Output](output-plugin-overview#secondary-output).
 
 
-Tips & Tricks
--------------
+## Tips & Tricks
 
 
 ### How to connect to a TLS/SSL enabled server
@@ -537,8 +533,7 @@ al. "The φ accrual failure detector." IEEE,
 2004.](https://scholar.google.com/scholar?cluster=12946656837229314866)
 
 
-Troubleshooting
----------------
+## Troubleshooting
 
 
 ### "no nodes are available"

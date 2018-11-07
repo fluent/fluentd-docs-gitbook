@@ -23,8 +23,7 @@ For the full list of the configurable options, see [the "Parameters"
 section](#parameters).
 
 
-Basic Usage
------------
+## Basic Usage
 
 Here is a simple example to post a record using `curl`.
 
@@ -58,8 +57,7 @@ For more advanced usage, please read [the "Tips & Tricks"
 section](#tips-&-tricks).
 
 
-Parameters
-----------
+## Parameters
 
 [Common Parameters](/articles/plugin-common-parameters.md)
 
@@ -179,8 +177,7 @@ Deprecated parameter. Use the `<parse>` directive [as explained
 below](#handle-various-formats-using-parser-plugins) instead.
 
 
-Tips & Tricks
--------------
+## Tips & Tricks
 
 
 ### How to send data in MessagePack format
@@ -247,8 +244,7 @@ insertion for handling a large data set, please consider to keep using
 the default JSON (or MessagePack) format.
 
 
-Enhance Performance
--------------------
+## Enhance Performance
 
 
 ### Handle large data with batch mode
@@ -309,8 +305,7 @@ With this configuration, 3 workers share 9880 port. No need additional
 port. Incoming data will be routed to 3 workers automatically.
 
 
-Troubleshooting
----------------
+## Troubleshooting
 
 []{#why-in_http-removes-%E2%80%98+%E2%80%99-from-my-log?}
 
@@ -338,8 +333,7 @@ curl -X POST -F 'json={"message":"foo+bar"}' http://localhost:9880/app.log
 ```
 
 
-Learn More
-----------
+## Learn More
 
 -   [Input Plugin Overview](/articles/input-plugin-overview.md)
 

@@ -42,8 +42,7 @@ Delimiter for key value field.
 Add `\n` to the result.
 
 
-Example
--------
+## Example
 
 ``` {.CodeRay}
 tag:    app.event

@@ -30,8 +30,7 @@ As shown in the above example, each endpoint returns a JSON object as
 its response.
 
 
-HTTP endpoints
---------------
+## HTTP endpoints
 
 
 ### /api/processes.interruptWorkers

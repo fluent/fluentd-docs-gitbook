@@ -11,8 +11,7 @@ your OS properly. This will prevent many unnecessary problems.
 
 []{#step-1:-install-ruby-interpreter}
 
-Step 1: Install Ruby interpreter
---------------------------------
+## Step 1: Install Ruby interpreter
 
 Please install Ruby \>= 2.1 on your local environment. In addition,
 install ruby-dev package via package manager to build native extension
@@ -20,8 +19,7 @@ gems.
 
 []{#step-2:-install-fluentd-gem}
 
-Step 2: Install Fluentd gem
----------------------------
+## Step 2: Install Fluentd gem
 
 Fetch and install the `fluentd` Ruby gem using the `gem` command. The
 official ruby gem page is [here](https://rubygems.org/gems/fluentd).
@@ -32,8 +30,7 @@ $ gem install fluentd --no-ri --no-rdoc
 
 []{#step-3:-run}
 
-Step 3: Run
------------
+## Step 3: Run
 
 Run the following commands to confirm that Fluentd was installed
 successfully:
@@ -69,8 +66,7 @@ process management tools such as
 [upstart](http://upstart.ubuntu.com/), or systemd.
 
 
-Next Steps
-----------
+## Next Steps
 
 You're now ready to collect your real logs using Fluentd. Please see the
 following tutorials to learn how to collect your data from various data

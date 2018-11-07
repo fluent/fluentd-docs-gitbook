@@ -118,8 +118,7 @@ which is available with Fluentd v0.14/v1.0.
 -   release it to rubygems.org
 
 
-Updating Plugin Code
---------------------
+## Updating Plugin Code
 
 For all types of plugins, take care about these things:
 

@@ -22,8 +22,7 @@ The default log level is `info`, and Fluentd outputs `info`, `warn`,
 `error` and `fatal` logs by default.
 
 
-Global Logs
------------
+## Global Logs
 
 Global logging is used by Fluentd core and plugins that don't set their
 own log levels. The global log level can be adjusted up or down.
@@ -67,8 +66,7 @@ config file like below.
 ```
 
 
-Per Plugin Log
---------------
+## Per Plugin Log
 
 The `@log_level` option sets different levels of logging for each
 plugin. It can be set in each plugin's configuration file.
@@ -94,8 +92,7 @@ If you don't specify the `@log_level` parameter, the plugin will use the
 global log level.
 
 
-Log format
-----------
+## Log format
 
 `text` and `json` are supported. The default is `text`. The format can
 be changed via `<log>` directive in `<system>`.
@@ -122,8 +119,7 @@ This `text` log line is changed to:
 ```
 
 
-Output to log file
-------------------
+## Output to log file
 
 Fluentd outputs logs to `STDOUT` by default. To output to a file
 instead, please specify the `-o` option.
@@ -158,8 +154,7 @@ $ fluentd -c fluent.conf --log-rotate-age 5 --log-rotate-size 104857600
 ```
 
 
-Capture Fluentd logs
---------------------
+## Capture Fluentd logs
 
 Fluentd marks its own logs with the `fluent` tag. You can process
 Fluentd logs by using `<match fluent.**>`(Of course, `**` captures other

@@ -20,8 +20,7 @@ It's enabled for plugins which support parser plugin features.
 ```
 
 
-parser plugin type
-------------------
+## parser plugin type
 
 `<parse>` section requires `@type` parameter to specify the type of
 parser plugin. Fluentd core bundles [a lot of useful parser
@@ -37,8 +36,7 @@ when installed.
 For more details, see plugins documentation.
 
 
-Parameters
-----------
+## Parameters
 
 []{#@type}
 

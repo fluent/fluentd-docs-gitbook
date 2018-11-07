@@ -107,8 +107,7 @@ end
 See [Parser Plugin Helper API](/articles/api-plugin-helper-parser.md) for details.
 
 
-Methods
--------
+## Methods
 
 Parser plugins have a method to parse input (text) data to a structured
 record (Hash) with time.
@@ -122,8 +121,7 @@ so the parser plugin might call block 2 or more times for an argument.
 Parser plugins must implement this method.
 
 
-Writing Tests
--------------
+## Writing Tests
 
 Fluentd parser plugin has just one or some points to be tested. Others
 (parsing configurations, controlling buffers, retries, flushes and many

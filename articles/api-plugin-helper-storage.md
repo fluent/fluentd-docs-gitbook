@@ -150,8 +150,7 @@ This method delete stored value by key.
 This method update stored value by Proc object.
 
 
-storage used plugins
---------------------
+## storage used plugins
 
 -   [in dummy](/articles/in_dummy.md)
 -   [in windows eventlog](/articles/in_windows_eventlog.md)

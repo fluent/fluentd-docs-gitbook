@@ -72,8 +72,7 @@ The main purposes of this parameter are:
 Please see the [logging article](/articles/logging.md) for further details.
 
 
-Parameters for plugins which emit events
-----------------------------------------
+## Parameters for plugins which emit events
 
 []{#@label}
 

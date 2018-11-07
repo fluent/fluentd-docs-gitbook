@@ -93,8 +93,7 @@ end
 ```
 
 
-formatter used plugins
-----------------------
+## formatter used plugins
 
 -   [Filter stdout](/articles/filter_stdout.md)
 -   [Out stdout](/articles/out_stdout.md)

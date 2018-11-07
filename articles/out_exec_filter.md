@@ -39,16 +39,14 @@ Yajl library to parse the program output. Yajl buffers data internally
 so the output isn\'t always instantaneous.
 
 
-Supported modes
----------------
+## Supported modes
 
 -   Synchronous
 
 -   See also: [Output Plugin Overview](/articles/output-plugin-overview.md)
 
 
-Plugin helpers
---------------
+## Plugin helpers
 
 -   [compat\_parameters](/articles/api-plugin-helper-compat_parameters.md)
 -   [inject](/articles/api-plugin-helper-inject.md)
@@ -59,8 +57,7 @@ Plugin helpers
 -   [event\_emitter](/articles/api-plugin-helper-event_emitter.md)
 
 
-Parameters
-----------
+## Parameters
 
 []{#@type}
 
@@ -269,8 +266,7 @@ Overwrite default value in this plugin.
 Overwrite default value in this plugin.
 
 
-Script example
---------------
+## Script example
 
 Here is an example writtein in ruby.
 

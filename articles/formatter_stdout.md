@@ -26,8 +26,7 @@ Filter Plugin](/articles/filter_stdout.md).
 Set sub-formatter type. Any formatter plugins can be specified.
 
 
-Example
--------
+## Example
 
 ``` {.CodeRay}
 <format>

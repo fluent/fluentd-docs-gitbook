@@ -33,8 +33,7 @@ Please see the [Config File](/articles/config-file.md) article for the basic
 structure and syntax of the configuration file.
 
 
-Plugin helpers
---------------
+## Plugin helpers
 
 -   [compat\_parameters](/articles/api-plugin-helper-compat_parameters.md)
 -   [extract](/articles/api-plugin-helper-extract.md)
@@ -42,8 +41,7 @@ Plugin helpers
 -   [child\_process](/articles/api-plugin-helper-child_process.md)
 
 
-Parameters
-----------
+## Parameters
 
 [Common Parameters](/articles/plugin-common-parameters.md)
 
@@ -156,8 +154,7 @@ See [Extract section configurations](/articles/extract-section.md)
 Overwrite default value in this plugin.
 
 
-Use Cases
----------
+## Use Cases
 
 
 ### Monitor Load Averages

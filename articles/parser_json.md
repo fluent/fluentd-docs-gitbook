@@ -18,8 +18,7 @@ See [Parse section configurations](/articles/parse-section.md)
 Set JSON parser.
 
 
-Example
--------
+## Example
 
 ``` {.CodeRay}
 {"time":1362020400,"host":"192.168.0.1","size":777,"method":"PUT"}

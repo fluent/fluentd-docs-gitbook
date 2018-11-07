@@ -12,8 +12,7 @@ sections. It's specifying transport protocol, its version, and
 certificates.
 
 
-Parameters
-----------
+## Parameters
 
 -   `protocol` \[enum\]
     -   Default: :tcp
@@ -76,8 +75,7 @@ Parameters
     -   Default: (60 \* 60 \* 24 = 86400) \* 365 \* 10 = 10 years
 
 
-Cert digest algorithm parameter
--------------------------------
+## Cert digest algorithm parameter
 
 -   `generate_cert_digest`: \[enum\]
     -   Default: :sha256

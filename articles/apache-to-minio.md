@@ -20,8 +20,7 @@ $ sudo fluent-gem install fluent-plugin-s3
 ```
 
 
-Configuration
--------------
+## Configuration
 
 
 ### Input settings
@@ -80,8 +79,7 @@ After adding the settings above to the conf file, please restart the
 Fluentd daemon.
 
 
-Test the settings
------------------
+## Test the settings
 
 Use `curl` to generate some log data for testing:
 
@@ -103,8 +101,7 @@ Then you will see the aggregated log data on Minio:
 ![](/images/minio-screenshot.png)
 
 
-Learn More
-----------
+## Learn More
 
 -   [Fluentd Architecture](http://www.fluentd.org/architecture)
 -   [Amazon S3 Output plugin](/articles/out_s3.md)

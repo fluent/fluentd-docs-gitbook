@@ -17,8 +17,7 @@ for plugins which support injecting values to the event record.
 ```
 
 
-inject section parameter
-------------------------
+## inject section parameter
 
 
 ### Inject parameters

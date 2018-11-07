@@ -18,8 +18,7 @@ In this guide, we assume you are running
 [td-agent](https://www.fluentd.org/download) on Ubuntu.
 
 
-Setting up rsyslogd
--------------------
+## Setting up rsyslogd
 
 Open `/etc/rsyslogd.conf` and append the following line:
 
@@ -37,8 +36,7 @@ This tells rsyslogd to forward logs to port 5140 to which Fluentd will
 listen.
 
 
-Setting up Fluentd
-------------------
+## Setting up Fluentd
 
 In this section, we will evolve our Fluentd configuration step-by-step.
 
@@ -190,8 +188,7 @@ Now you should have a line looks like below in
 There it is, as you can see in the line!
 
 
-Conclusion
-----------
+## Conclusion
 
 Fluentd makes it easy to ingest syslog events. You can immediately send
 the data to output systems like MongoDB and Elasticsearch, but also you

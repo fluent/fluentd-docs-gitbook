@@ -47,8 +47,7 @@ Sample data:
 ```
 
 
-Installation
-------------
+## Installation
 
 `out_rewrite_tag_filter` is included in td-agent by default (v3.0.1 or
 later). Fluentd gem users will have to install the
@@ -61,8 +60,7 @@ $ fluent-gem install fluent-plugin-rewrite-tag-filter
 For more details, see [Plugin Management](/articles/plugin-management.md).
 
 
-Configuration example
----------------------
+## Configuration example
 
 Configuration design is dropping some pattern record first, then re-emit
 other matched record as new tag name. The example configuration shown
@@ -127,8 +125,7 @@ Please see the
 for further details.
 
 
-Parameters
-----------
+## Parameters
 
 
 ### rewriteruleN
@@ -199,8 +196,7 @@ New tag
 If true, rewrite tag when unmatch pattern
 
 
-Placeholders
-------------
+## Placeholders
 
 The following variable can be used when specifying the name of the
 rewritten tag. See more details at
@@ -214,8 +210,7 @@ rewritten tag. See more details at
 -   \_\_HOSTNAME\_\_
 
 
-Use cases
----------
+## Use cases
 
 -   Aggregate + display 404 status pages by URL and referrer to find and
     fix dead links.
@@ -444,8 +439,7 @@ fluent-plugin-irc
 ```
 
 
-FAQ
----
+## FAQ
 
 
 ### With rewrite-tag-filter, logs are not forwarded. Why?

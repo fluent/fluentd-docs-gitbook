@@ -22,16 +22,14 @@ This article will show you how to use [Fluentd](http://fluentd.org/) to
 receive data from HTTP and stream it into HDFS.
 
 
-Architecture
-------------
+## Architecture
 
 The figure below shows the high-level architecture.
 
 ![](/images/http-to-hdfs.png)
 
 
-Install
--------
+## Install
 
 For simplicity, this article will describe how to set up an one-node
 configuration. Please install the following software on the same node.
@@ -54,8 +52,7 @@ install the plugin, please use `gem install fluent-plugin-webhdfs`.
 -   [Ruby gem](/articles/install-by-gem.md)
 
 
-Fluentd Configuration
----------------------
+## Fluentd Configuration
 
 Let's start configuring Fluentd. If you used the deb/rpm package,
 Fluentd's config file is located at /etc/td-agent/td-agent.conf.
@@ -108,8 +105,7 @@ to the same file, which must be avoided for append operations.
 Other options specify HDFS's NameNode host and port.
 
 
-HDFS Configuration
-------------------
+## HDFS Configuration
 
 Append operations are not enabled by default. Please put these
 configurations into your hdfs-site.xml file and restart the whole
@@ -136,8 +132,7 @@ Please confirm that the HDFS user has write access to the *path*
 specified as the WebHDFS output.
 
 
-Test
-----
+## Test
 
 To test the configuration, just post the JSON to Fluentd (we use the
 curl command in this example). Sending a USR1 signal flushes Fluentd's
@@ -157,8 +152,7 @@ drwxr-xr-x   - 1 supergroup          0 2012-10-22 09:40 /log/20121022_14/access.
 ```
 
 
-Conclusion
-----------
+## Conclusion
 
 Fluentd + WebHDFS make real-time log collection simple, robust and
 scalable! [\@tagomoris](http://github.com/tagomoris) has already been
@@ -166,8 +160,7 @@ using this plugin to collect 20,000 msgs/sec, 1.5 TB/day without any
 major problems for several months now.
 
 
-Learn More
-----------
+## Learn More
 
 -   [Fluentd Architecture](//www.fluentd.org/architecture)
 -   [Fluentd Get Started](/articles/quickstart.md)

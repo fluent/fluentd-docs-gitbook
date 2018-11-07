@@ -34,8 +34,7 @@ However, most failure scenarios are preventable. The following sections
 describe how to set up Fluentd's topology for high availability.
 
 
-Network Topology
-----------------
+## Network Topology
 
 To configure Fluentd for high availability, we assume that your network
 consists of '*log forwarders*' and '*log aggregators*'.
@@ -56,8 +55,7 @@ We assume that the active log aggregator has ip '192.168.0.1' and that
 the backup has ip '192.168.0.2'.
 
 
-Log Forwarder Configuration
----------------------------
+## Log Forwarder Configuration
 
 Please add the following lines to your config file for log forwarders.
 This will configure your log forwarders to transfer logs to log
@@ -105,8 +103,7 @@ sent to the backup aggregator (192.168.0.2). If both servers die, the
 logs are buffered on-disk at the corresponding forwarder nodes.
 
 
-Log Aggregator Configuration
-----------------------------
+## Log Aggregator Configuration
 
 Please add the following lines to the config file for log aggregators.
 The input source for the log transfer is TCP.
@@ -129,8 +126,7 @@ cloud. If upload fails, the logs are stored on the local disk until the
 retransmission succeeds.
 
 
-Failure Case Scenarios
-----------------------
+## Failure Case Scenarios
 
 
 ### Forwarder Failure
@@ -171,8 +167,7 @@ However, possible message loss scenarios do exist:
 -   The aggregator's disk is broken, and the file buffer is lost.
 
 
-Trouble Shooting
-----------------
+## Trouble Shooting
 
 
 ### "no nodes are available"
