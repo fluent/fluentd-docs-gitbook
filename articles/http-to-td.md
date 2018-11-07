@@ -27,7 +27,7 @@ receive data from HTTP and stream it into TD.
 
 The figure below shows the high-level architecture.
 
-![](/images/treasuredata_architecture.png){width="600"}
+![](/images/treasuredata_architecture.png)
 
 \
 \

@@ -7,7 +7,7 @@ Feel free to use these logos on your slides, blog posts, etc.!
 
 <div>
 
-[![](https://raw.githubusercontent.com/fluent/fluentd-docs/master/public/logo/Fluentd_square.png){width="200px"}](https://raw.githubusercontent.com/fluent/fluentd-docs/master/public/logo/Fluentd_square.png)
+[![](https://raw.githubusercontent.com/fluent/fluentd-docs/master/public/logo/Fluentd_square.png)](https://raw.githubusercontent.com/fluent/fluentd-docs/master/public/logo/Fluentd_square.png)
 
 </div>
 
@@ -23,7 +23,7 @@ Feel free to use these logos on your slides, blog posts, etc.!
 
 <div>
 
-[![](https://raw.githubusercontent.com/fluent/fluentd-docs/master/public/logo/Fluentd_horizontal.png){width="400px"}](https://raw.githubusercontent.com/fluent/fluentd-docs/master/public/logo/Fluentd_horizontal.png)
+[![](https://raw.githubusercontent.com/fluent/fluentd-docs/master/public/logo/Fluentd_horizontal.png)](https://raw.githubusercontent.com/fluent/fluentd-docs/master/public/logo/Fluentd_horizontal.png)
 
 </div>
 
@@ -39,7 +39,7 @@ Feel free to use these logos on your slides, blog posts, etc.!
 
 <div>
 
-[![](https://raw.githubusercontent.com/fluent/fluentd-docs/master/public/logo/Fluentd_icon.png){width="200px"}](https://raw.githubusercontent.com/fluent/fluentd-docs/master/public/logo/Fluentd_icon.png)
+[![](https://raw.githubusercontent.com/fluent/fluentd-docs/master/public/logo/Fluentd_icon.png)](https://raw.githubusercontent.com/fluent/fluentd-docs/master/public/logo/Fluentd_icon.png)
 
 </div>
 

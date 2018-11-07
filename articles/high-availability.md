@@ -39,7 +39,7 @@ describe how to set up Fluentd's topology for high availability.
 To configure Fluentd for high availability, we assume that your network
 consists of '*log forwarders*' and '*log aggregators*'.
 
-![](/images/fluentd_ha.png){width="600px"}
+![](/images/fluentd_ha.png)
 
 '*log forwarders*' are typically installed on every node to receive
 local events. Once an event is received, they forward it to the 'log

@@ -5,7 +5,7 @@ its high cost makes it prohibitive for many teams. In this article, we
 present a free and open source alternative to Splunk by combining three
 open source projects: Elasticsearch, Kibana, and Fluentd.
 
-![](/images/kibana6-screenshot-visualize.png){width="90%"}
+![](/images/kibana6-screenshot-visualize.png)
 
 \
 
@@ -19,7 +19,7 @@ By combining these three tools (Fluentd + Elasticsearch + Kibana) we get
 a scalable, flexible, easy to use log search engine with a great Web UI
 that provides an open-source Splunk alternative, all for free.
 
-![](/images/fluentd-elasticsearch-kibana.png){width="540"}
+![](/images/fluentd-elasticsearch-kibana.png)
 
 \
 \
@@ -180,7 +180,7 @@ Kibana.
 For starters, let's access to `http://localhost:5601` and click the "Set
 up index patters" button in the upper-right corner of the screen.
 
-![](/images/kibana6-screenshot-topmenu.png){width="90%"}
+![](/images/kibana6-screenshot-topmenu.png)
 
 \
 
@@ -191,7 +191,7 @@ index pattern, and select `@timestamp` as the time-filter field.
 After setting up an index pattern, you can view the system logs as they
 flow in:
 
-![](/images/kibana6-screenshot.png){width="90%"}
+![](/images/kibana6-screenshot.png)
 
 \
 
