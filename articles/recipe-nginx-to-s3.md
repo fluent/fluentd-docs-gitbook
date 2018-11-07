@@ -5,7 +5,7 @@ Looking to get data out of nginx into s3? You can do that with
 [fluentd](//fluentd.org) in **10 minutes**!
 
 ![](/images/plugin_icon/nginx.png)
-[→]{style="font-size:50px"}
+
 
 ![](/images/plugin_icon/s3.png)
 

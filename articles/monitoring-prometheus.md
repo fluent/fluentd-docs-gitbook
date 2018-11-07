@@ -200,7 +200,7 @@ list of Fluentd nodes and its status.
 Then, visit `http://localhost:9090/graph` to explore Fluentd internal
 metrics. There, you'll see 8 metrics in the metric list:
 
-![](/images/prometheus-metrics.png){width="100%"}
+![](/images/prometheus-metrics.png)
 
 -   fluentd\_input\_status\_num\_records\_total
 -   fluentd\_output\_status\_buffer\_queue\_length
@@ -214,7 +214,7 @@ metrics. There, you'll see 8 metrics in the metric list:
 Please pick `fluentd_input_status_num_records_total`, and you'll see the
 total incoming records per tag.
 
-![](/images/prometheus-graph.png){width="100%"}
+![](/images/prometheus-graph.png)
 
 ### Example Prometheus Queries
 

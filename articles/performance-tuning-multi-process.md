@@ -21,7 +21,7 @@ process](performance-tuning-single-process).
 In multi-process environment, we recommend to have the following 2-tier
 process topology within the same server.
 
-![](/images/multi_process_topology.png){width="100%"}
+![](/images/multi_process_topology.png)
 
 ### 1st Tier: Input Processes
 

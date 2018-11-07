@@ -106,7 +106,7 @@ instance (step \#2) listening for connections on the TCP port 24224,
 note that the container will not start if it cannot connect to the
 Fluentd instance.
 
-![](https://www.fluentd.org/assets/img/recipes/fluentd_docker_integrated.png){width="70%""}
+![](https://www.fluentd.org/assets/img/recipes/fluentd_docker_integrated.png)
 
 The following command will run a base Ubuntu container and print some
 messages to the standard output, note that we have launched the

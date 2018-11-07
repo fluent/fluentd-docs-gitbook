@@ -5,7 +5,7 @@ Looking to get data out of json into treasure data? You can do that with
 [fluentd](//fluentd.org) in **10 minutes**!
 
 ![](/images/plugin_icon/json.png)
-[→]{style="font-size:50px"}
+
 
 ![](/images/plugin_icon/treasure%20data.png)
 
