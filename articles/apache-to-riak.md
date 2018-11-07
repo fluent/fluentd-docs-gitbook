@@ -4,7 +4,7 @@ This article explains how to use Fluentd's Riak Output plugin
 ([out\_riak](https://github.com/kuenishi/fluent-plugin-riak)) to
 aggregate semi-structured logs in real-time.
 
-![](http://docs.fluentd.org/images/fluentd-riak.png){height="280px"}
+![](http://docs.fluentd.org/images/fluentd-riak.png)
 
 
 ## Prerequisites
