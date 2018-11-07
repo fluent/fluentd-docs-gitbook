@@ -19,10 +19,10 @@ Installing Fluentd
 
 Please refer to the following documents to install fluentd.
 
--   [Install Fluentd with rpm Package](install-by-rpm.md)
--   [Install Fluentd with deb Package](install-by-deb.md)
--   [Install Fluentd with Ruby Gem](install-by-gem.md)
--   [Install Fluentd from source](install-from-source.md)
+-   [Install Fluentd with rpm Package](/articles/install-by-rpm.md)
+-   [Install Fluentd with deb Package](/articles/install-by-deb.md)
+-   [Install Fluentd with Ruby Gem](/articles/install-by-gem.md)
+-   [Install Fluentd from source](/articles/install-from-source.md)
 
 Modifying the Config File
 -------------------------
@@ -83,13 +83,13 @@ Production Deployments
 
 ### Output Plugins
 
-Various [output plugins](output-plugin-overview.md) are available for
+Various [output plugins](/articles/output-plugin-overview.md) are available for
 writing records to other destinations:
 
 -   Examples
     -   [Store Apache Logs into Amazon S3](/articles/apache-to-s3.md)
-    -   [Store Apache Logs into MongoDB](apache-to-mongodb.md)
-    -   [Data Collection into HDFS](http-to-hdfs.md)
+    -   [Store Apache Logs into MongoDB](/articles/apache-to-mongodb.md)
+    -   [Data Collection into HDFS](/articles/http-to-hdfs.md)
 -   List of Plugin References
     -   [Output to Another Fluentd](/articles/out_forward.md)
     -   [Output to MongoDB](/articles/out_mongo.md) or [MongoDB ReplicaSet](/articles/out_mongo_replset.md)
@@ -103,14 +103,14 @@ For high-traffic websites (more than 5 application nodes), we recommend
 using a high availability configuration of td-agent. This will improve
 data transfer reliability and query performance.
 
--   [High-Availability Configurations of Fluentd](high-availability.md)
+-   [High-Availability Configurations of Fluentd](/articles/high-availability.md)
 
 ### Monitoring
 
 Monitoring Fluentd itself is also important. The article below describes
 general monitoring methods for td-agent.
 
--   [Monitoring Fluentd](monitoring.md)
+-   [Monitoring Fluentd](/articles/monitoring.md)
 
 
 ------------------------------------------------------------------------

@@ -18,7 +18,7 @@ Using Fluentd"](free-alternative-to-splunk-by-fluentd).
 Installing the requisites
 -------------------------
 
-[Install](/overview/installation.md) Fluentd if you haven't yet.
+[Install](/articles/installation.md) Fluentd if you haven't yet.
 
 Please install `fluent-plugin-grepcounter` by running:
 

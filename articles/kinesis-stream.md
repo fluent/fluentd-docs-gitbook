@@ -48,9 +48,9 @@ configuration. Please install the following software on the same node.
 
 You can install Fluentd via major packaging systems.
 
--   [Debian Package](install-by-deb.md)
--   [RPM Package](install-by-rpm.md)
--   [Ruby gem](install-by-gem.md)
+-   [Debian Package](/articles/install-by-deb.md)
+-   [RPM Package](/articles/install-by-rpm.md)
+-   [Ruby gem](/articles/install-by-gem.md)
 
 Install Kinesis Plugin
 ----------------------
