@@ -1,6 +1,6 @@
 # Introduction
 
-![](.gitbook/assets/images/logo_documentation_0.12.png)
+![](.gitbook/assets/images/logo_documentation_1.0.png)
 
 [Fluentd](https://www.fluentd.org/) is an open source data collector for unified logging layer. Fluentd allows you to unify data collection and consumption for a better use and understanding of data.
 
