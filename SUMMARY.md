@@ -1,7 +1,5 @@
-# Table of contents
 
-
-* [Introduction](README.md)
+            
 * [Overview](nolink.md)
   * [Getting Started](/articles/getting-started.md)
   * [Installation](/articles/installation.md)
@@ -9,7 +7,7 @@
   * [Support](/articles/support.md)
   * [FAQ](/articles/faq.md)
 
-
+            
 * [Use Cases](nolink.md)
   * [Centralized App Logging](/articles/logging-from-apps.md)
   * [Monitoring Service Logs](/articles/monitoring-service-logs.md)
@@ -19,13 +17,13 @@
   * [Windows Event Collection](/articles/windows.md)
   * [IoT Data Logger](/articles/iot.md)
 
-
+            
 * [Configuration](nolink.md)
   * [Config File Syntax](/articles/config-file.md)
   * [Routing Examples](/articles/routing-examples.md)
   * [Recipes](/articles/recipes.md)
 
-
+            
 * [Deployment](nolink.md)
   * [Logging](/articles/logging.md)
   * [Monitoring](/articles/monitoring.md)
@@ -40,14 +38,14 @@
   * [Fluentd UI](/articles/fluentd-ui.md)
   * [Command Line Option](/articles/command-line-option.md)
 
-
+            
 * [Container Deployment](nolink.md)
   * [Docker Image](/articles/install-by-docker.md)
   * [Docker Logging Driver](/articles/docker-logging-driver.md)
   * [Docker Compose](/articles/docker-compose.md)
   * [Kubernetes](/articles/kubernetes.md)
 
-
+            
 * [Input Plugins](nolink.md)
   * [Overview](/articles/input-plugin-overview.md)
   * [in_tail](/articles/in_tail.md)
@@ -64,7 +62,7 @@
   * [in_dummy](/articles/in_dummy.md)
   * [Others](/articles/in_others.md)
 
-
+            
 * [Output Plugins](nolink.md)
   * [Overview](/articles/output-plugin-overview.md)
   * [out_file](/articles/out_file.md)
@@ -87,13 +85,13 @@
   * [out_rewrite_tag_filter](/articles/out_rewrite_tag_filter.md)
   * [Others](/articles/out_others.md)
 
-
+            
 * [Buffer Plugins](nolink.md)
   * [Overview](/articles/buffer-plugin-overview.md)
   * [buf_memory](/articles/buf_memory.md)
   * [buf_file](/articles/buf_file.md)
 
-
+            
 * [Filter Plugins](nolink.md)
   * [Overview](/articles/filter-plugin-overview.md)
   * [filter_record_transformer](/articles/filter_record_transformer.md)
@@ -101,7 +99,7 @@
   * [filter_parser](/articles/filter_parser.md)
   * [filter_stdout](/articles/filter_stdout.md)
 
-
+            
 * [Parser Plugins](nolink.md)
   * [Overview](/articles/parser-plugin-overview.md)
   * [parser_regexp](/articles/parser_regexp.md)
@@ -116,7 +114,7 @@
   * [parser_multiline](/articles/parser_multiline.md)
   * [parser_none](/articles/parser_none.md)
 
-
+            
 * [Formatter Plugins](nolink.md)
   * [Overview](/articles/formatter-plugin-overview.md)
   * [formatter_out_file](/articles/formatter_out_file.md)
@@ -127,7 +125,7 @@
   * [formatter_hash](/articles/formatter_hash.md)
   * [formatter_single_value](/articles/formatter_single_value.md)
 
-
+            
 * [Developer](nolink.md)
   * [Plugin Development](/articles/plugin-development.md)
   * [Community](/articles/community.md)
@@ -136,73 +134,3 @@
   * [Bug Tracking](/articles/bug-tracking.md)
   * [ChangeLog](/articles/changelog.md)
   * [Logo](/articles/logo.md)
-
-* [Articles](nolink.md)
-  * [apache-to-mongodb](/articles/apache-to-mongodb.md)
-  * [apache-to-riak](/articles/apache-to-riak.md)
-  * [apache-to-s3](/articles/apache-to-s3.md)
-  * [before-install](/articles/before-install.md)
-  * [cep-norikra](/articles/cep-norikra.md)
-  * [collect-glusterfs-logs](/articles/collect-glusterfs-logs.md)
-  * [common-log-formats](/articles/common-log-formats.md)
-  * [docker-logging-efk-compose](/articles/docker-logging-efk-compose.md)
-  * [docker-logging](/articles/docker-logging.md)
-  * [filter-modify-apache](/articles/filter-modify-apache.md)
-  * [forwarding-over-ssl](/articles/forwarding-over-ssl.md)
-  * [free-alternative-to-splunk-by-fluentd](/articles/free-alternative-to-splunk-by-fluentd.md)
-  * [http-to-hdfs](/articles/http-to-hdfs.md)
-  * [http-to-td](/articles/http-to-td.md)
-  * [install-by-chef](/articles/install-by-chef.md)
-  * [install-by-deb](/articles/install-by-deb.md)
-  * [install-by-dmg](/articles/install-by-dmg.md)
-  * [install-by-gem](/articles/install-by-gem.md)
-  * [install-by-rpm](/articles/install-by-rpm.md)
-  * [install-from-source](/articles/install-from-source.md)
-  * [install-on-beanstalk](/articles/install-on-beanstalk.md)
-  * [install-on-heroku](/articles/install-on-heroku.md)
-  * [java](/articles/java.md)
-  * [kinesis-stream](/articles/kinesis-stream.md)
-  * [kubernetes-fluentd](/articles/kubernetes-fluentd.md)
-  * [monitoring-prometheus](/articles/monitoring-prometheus.md)
-  * [monitoring-rest-api](/articles/monitoring-rest-api.md)
-  * [nodejs](/articles/nodejs.md)
-  * [performance-tuning-multi-process](/articles/performance-tuning-multi-process.md)
-  * [performance-tuning-single-process](/articles/performance-tuning-single-process.md)
-  * [perl](/articles/perl.md)
-  * [php](/articles/php.md)
-  * [python](/articles/python.md)
-  * [quickstart](/articles/quickstart.md)
-  * [raspberrypi-cloud-data-logger](/articles/raspberrypi-cloud-data-logger.md)
-  * [recipe-apache-logs-to-elasticsearch](/articles/recipe-apache-logs-to-elasticsearch.md)
-  * [recipe-apache-logs-to-mongo](/articles/recipe-apache-logs-to-mongo.md)
-  * [recipe-apache-logs-to-s3](/articles/recipe-apache-logs-to-s3.md)
-  * [recipe-apache-logs-to-treasure-data](/articles/recipe-apache-logs-to-treasure-data.md)
-  * [recipe-cloudstack-to-mongodb](/articles/recipe-cloudstack-to-mongodb.md)
-  * [recipe-csv-to-elasticsearch](/articles/recipe-csv-to-elasticsearch.md)
-  * [recipe-csv-to-mongo](/articles/recipe-csv-to-mongo.md)
-  * [recipe-csv-to-s3](/articles/recipe-csv-to-s3.md)
-  * [recipe-csv-to-treasure-data](/articles/recipe-csv-to-treasure-data.md)
-  * [recipe-http-rest-api-to-elasticsearch](/articles/recipe-http-rest-api-to-elasticsearch.md)
-  * [recipe-http-rest-api-to-mongo](/articles/recipe-http-rest-api-to-mongo.md)
-  * [recipe-http-rest-api-to-s3](/articles/recipe-http-rest-api-to-s3.md)
-  * [recipe-http-rest-api-to-treasure-data](/articles/recipe-http-rest-api-to-treasure-data.md)
-  * [recipe-json-to-elasticsearch](/articles/recipe-json-to-elasticsearch.md)
-  * [recipe-json-to-mongo](/articles/recipe-json-to-mongo.md)
-  * [recipe-json-to-s3](/articles/recipe-json-to-s3.md)
-  * [recipe-json-to-treasure-data](/articles/recipe-json-to-treasure-data.md)
-  * [recipe-nginx-to-elasticsearch](/articles/recipe-nginx-to-elasticsearch.md)
-  * [recipe-nginx-to-mongo](/articles/recipe-nginx-to-mongo.md)
-  * [recipe-nginx-to-s3](/articles/recipe-nginx-to-s3.md)
-  * [recipe-nginx-to-treasure-data](/articles/recipe-nginx-to-treasure-data.md)
-  * [recipe-syslog-to-elasticsearch](/articles/recipe-syslog-to-elasticsearch.md)
-  * [recipe-syslog-to-mongo](/articles/recipe-syslog-to-mongo.md)
-  * [recipe-syslog-to-s3](/articles/recipe-syslog-to-s3.md)
-  * [recipe-syslog-to-treasure-data](/articles/recipe-syslog-to-treasure-data.md)
-  * [recipe-tsv-to-elasticsearch](/articles/recipe-tsv-to-elasticsearch.md)
-  * [recipe-tsv-to-mongo](/articles/recipe-tsv-to-mongo.md)
-  * [recipe-tsv-to-s3](/articles/recipe-tsv-to-s3.md)
-  * [recipe-tsv-to-treasure-data](/articles/recipe-tsv-to-treasure-data.md)
-  * [ruby](/articles/ruby.md)
-  * [scala](/articles/scala.md)
-  * [splunk-like-grep-and-alert-email](/articles/splunk-like-grep-and-alert-email.md)
-
