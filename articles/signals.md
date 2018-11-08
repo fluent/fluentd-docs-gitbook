@@ -38,7 +38,7 @@ buffer; the logs are persisted on the disk by default.
 ### SIGCONT
 
 Call sigdump to dump fluentd internal status. See
-[trouble-shooting](trouble-shooting#dump-fluentd-internal-information)
+[trouble-shooting](/articles/trouble-shooting.md/#dump-fluentd-internal-information)
 article.
 
 

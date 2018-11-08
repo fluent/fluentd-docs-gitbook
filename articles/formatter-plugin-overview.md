@@ -47,7 +47,7 @@ The output changes to
 i.e., each line is a single JSON object with "time" and "tag fields to
 retain the event's timestamp and tag.
 
-See [this section](plugin-development#text-formatter-plugins) to learn
+See [this section](/articles/plugin-development.md/#text-formatter-plugins) to learn
 how to develop a custom formatter.
 
 

@@ -425,7 +425,7 @@ configuration file as below.
 Once you've done the setup, you have to configure your clients
 accordingly. For example, if you have an `out_forward` instance running
 on another server, please [configure it following the
-instruction](out_forward#how-to-enable-password-authentication).
+instruction](/articles/out_forward.md/#how-to-enable-password-authentication).
 
 
 ### Multi-process environment

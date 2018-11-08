@@ -55,7 +55,7 @@ For more details, see [Parse section configurations](/articles/parse-section.md)
 Specify field name in the record to parse.
 
 This parameter supports nested field access via [record\_accessor
-syntax](api-plugin-helper-record_accessor#syntax).
+syntax](/articles/api-plugin-helper-record_accessor.md/#syntax).
 
 
 ### reserve\_time

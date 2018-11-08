@@ -257,7 +257,7 @@ keep\_keys has been supported since 0.14.0
 A list of keys to delete.
 
 This parameter supports nested field via [record\_accessor
-syntax](api-plugin-helper-record_accessor#syntax) since v1.1.0.
+syntax](/articles/api-plugin-helper-record_accessor.md/#syntax) since v1.1.0.
 
 
 ## Need more performance?

@@ -35,32 +35,32 @@ its response.
 
 ### /api/processes.interruptWorkers
 
-Replacement of signal's [SIGINT](signals#sigint-or-sigterm). Stop the
+Replacement of signal's [SIGINT](/articles/signals.md/#sigint-or-sigterm). Stop the
 daemon.
 
 
 ### /api/processes.killWorkers
 
-Replacement of signal's [SIGTERM](signals#sigint-or-sigterm). Stop the
+Replacement of signal's [SIGTERM](/articles/signals.md/#sigint-or-sigterm). Stop the
 daemon.
 
 
 ### /api/processes.flushBuffersAndKillWorkers
 
-This is essentially a combination of [SIGUSR1](signals#sigusr1) and
-[SIGTERM](signals#sigint-or-sigterm). Flush the buffer then stop the
+This is essentially a combination of [SIGUSR1](/articles/signals.md/#sigusr1) and
+[SIGTERM](/articles/signals.md/#sigint-or-sigterm). Flush the buffer then stop the
 daemon.
 
 
 ### /api/plugins.flushBuffers
 
-Replacement of signal's [SIGUSR1](signals#sigusr1). Flush the buffered
+Replacement of signal's [SIGUSR1](/articles/signals.md/#sigusr1). Flush the buffered
 messages.
 
 
 ### /api/config.reload
 
-Replacement of signal's [SIGHUP](signals#sighup). Reload configuration.
+Replacement of signal's [SIGHUP](/articles/signals.md/#sighup). Reload configuration.
 
 
 ------------------------------------------------------------------------

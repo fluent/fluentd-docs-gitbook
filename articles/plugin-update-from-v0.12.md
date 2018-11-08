@@ -501,7 +501,7 @@ Use `<buffer>` section to customize chunking.
 ```
 
 For more details, see [Understanding Chunking and
-Metadata](api-plugin-output#understanding-chunking-and-metadata).
+Metadata](/articles/api-plugin-output.md/#understanding-chunking-and-metadata).
 
 
 ### Multi output plugins

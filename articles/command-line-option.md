@@ -160,7 +160,7 @@ fluent-plugin-config-format -f txt output null
 Generate Fluentd plugin project template. It is good for starting to
 Fluentd plugin development for using new API plugin. In more detail,
 please refer to the [Generating plugin project skeleton
-section](plugin-development#generating-plugin-project-skeleton).
+section](/articles/plugin-development.md/#generating-plugin-project-skeleton).
 
 ``` {.CodeRay}
 Usage: fluent-plugin-generate [options] <type> <name>

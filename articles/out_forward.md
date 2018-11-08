@@ -394,7 +394,7 @@ Shared key for authentication.
 The backup destination that is used when all servers are unavailable.
 
 For more details, see [Secondary
-Output](output-plugin-overview#secondary-output).
+Output](/articles/output-plugin-overview.md/#secondary-output).
 
 
 ## Tips & Tricks
@@ -441,7 +441,7 @@ being received by the destination node properly.
 ### How to Enable Password Authentication
 
 If you want to connect to [a server that requires password
-authentication](in_forward#how-to-enable-password-authentication), you
+authentication](/articles/in_forward.md/#how-to-enable-password-authentication), you
 need to set your credentials in the configuration file.
 
 ``` {.CodeRay}

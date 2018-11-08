@@ -16,7 +16,7 @@ on. Please follow the steps below.
 ### Use directive in configuration file
 
 Set `log_level trace`. See also [logging
-article](logging#by-config-file).
+article](/articles/logging.md/#by-config-file).
 
 
 ### td-agent systemd with user's unit file

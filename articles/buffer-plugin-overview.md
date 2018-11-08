@@ -165,7 +165,7 @@ controlling retry bahaviours.
 
 Normally, you don't need to specify every option as in this example,
 because these options are, in fact, optional. As for the detail of each
-option, please read [this article](buffer-section#retries-parameters).
+option, please read [this article](/articles/buffer-section.md/#retries-parameters).
 
 
 ## Parameters
