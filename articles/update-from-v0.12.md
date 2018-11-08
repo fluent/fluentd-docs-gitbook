@@ -86,10 +86,9 @@ You can upgrade td-agent 2 to 3 by executing install script for td-agent
 
 For more details about install script see following articles:
 
--   [Installing Fluentd using RPM Package (Redhat
-    Linux)](install-by-rpm)
+-   [Installing Fluentd using RPM Package (Redhat Linux)](/articles/install-by-rpm.md)
 -   [Installing Fluentd using DEB Package (Debian / Ubuntu
-    Linux)](install-by-deb)
+    Linux)](/articles/install-by-deb.md)
 
 And then you must reinstall gem packages that you've ever used with
 td-agent 2.
