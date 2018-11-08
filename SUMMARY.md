@@ -1,14 +1,14 @@
             
 * [Overview]()
-  * [Getting Started](/articles/getting-started.md)
+  * [Getting Started](/articles/quickstart.md)
   * [Installation](/articles/installation.md)
   * [Post Installation Guide](/articles/post-installation-guide.md)
   * [Life of a Fluentd event](/articles/life-of-a-fluentd-event.md)
   * [Update from v0.12 to v1](/articles/update-from-v0.12.md)
   * [Support](/articles/support.md)
   * [FAQ](/articles/faq.md)
-                
-                
+
+
             
 * [Use Cases]()
   * [Centralized App Logging](/articles/logging-from-apps.md)
@@ -16,8 +16,8 @@
   * [Data Analytics](/articles/data-analytics.md)
   * [Connecting to Data Storages](/articles/data-archiving.md)
   * [Stream Processing](/articles/stream-processing.md)
-                
-                
+
+
             
 * [Configuration]()
   * [Config File Syntax](/articles/config-file.md)
@@ -27,8 +27,8 @@
   * [Config: Buffer Section](/articles/plugin-buffer-section.md)
   * [Config: Format Section](/articles/plugin-format-section.md)
   * [Config: Advanced Sections](/articles/plugin-advanced-sections.md)
-                
-                
+
+
             
 * [Deployment]()
   * [System Configuration](/articles/system-config.md)
@@ -43,8 +43,8 @@
   * [Trouble Shooting](/articles/trouble-shooting.md)
   * [Fluentd UI](/articles/fluentd-ui.md)
   * [Command Line Option](/articles/command-line-option.md)
-                
-                
+
+
 * [Plugins]()              
   * [Input]()
     * [Overview](/articles/input-plugin-overview.md)
@@ -118,8 +118,8 @@
   * [Storage]()
     * [Overview](/articles/storage-plugin-overview.md)
     * [storage_local](/articles/storage_local.md)
-                
-                
+
+
             
 * [Developer]()
   * [Plugin Development](/articles/plugin-development.md)
