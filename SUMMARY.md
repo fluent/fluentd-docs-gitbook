@@ -23,9 +23,9 @@
   * [Config File Syntax](/articles/config-file.md)
   * [Routing Examples](/articles/routing-examples.md)
   * [Config: Common Parameters](/articles/plugin-common-parameters.md)
-  * [Config: Parse Section](/articles/plugin-parse-section.md)
-  * [Config: Buffer Section](/articles/plugin-buffer-section.md)
-  * [Config: Format Section](/articles/plugin-format-section.md)
+  * [Config: Parse Section](/articles/plugin-parse.md)
+  * [Config: Buffer Section](/articles/plugin-buffer.md)
+  * [Config: Format Section](/articles/plugin-format.md)
   * [Config: Advanced Sections](/articles/plugin-advanced-sections.md)
 
 
@@ -131,3 +131,19 @@
   * [Bug Tracking](/articles/bug-tracking.md)
   * [ChangeLog](/articles/changelog.md)
   * [Logo](/articles/logo.md)
+
+
+
+- Categories 
+  * [Format Section Configurations](/articles/format-section.md)
+  * [Format Section Configurations](/articles/buffer-section.md)
+  * [data-analytics](/articles/data-analytics.md)
+  * [data-archiving](/articles/data-archiving.md)
+  * [installation](/articles/installation.md)
+  * [logging-from-apps](/articles/logging-from-apps.md)
+  * [monitoring-service-logs](/articles/monitoring-service-logs.md)
+  * [performance-tuning](/articles/performance-tuning.md)
+  * [plugin-advanced-sections](/articles/plugin-advanced-sections.md)
+  * [plugin-apis](/articles/plugin-apis.md)
+  * [plugin-helpers](/articles/plugin-helpers.md)
+  * [stream-processing](/articles/stream-processing.md)
