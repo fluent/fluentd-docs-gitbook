@@ -33,22 +33,20 @@ $ curl http://127.0.0.1:24444/api/plugins.flushBuffers
 
 ### /api/processes.interruptWorkers
 
-Replacement of signal's [SIGINT](signals#sigint-or-sigterm). Stop the
-daemon.
+Replacement of signal's [SIGINT](/articles/signals.md/#sigint-or-sigterm). Stop the daemon.
 
 ### /api/processes.killWorkers
 
-Replacement of signal's [SIGTERM](signals#sigint-or-sigterm). Stop the
-daemon.
+Replacement of signal's [SIGTERM](/articles/signals.md/#sigint-or-sigterm). Stop the daemon.
 
 ### /api/plugins.flushBuffers
 
-Replacement of signal's [SIGUSR1](signals#sigusr1). Flushes buffered
+Replacement of signal's [SIGUSR1](/articles/signals.md/#sigusr1). Flushes buffered
 messages.
 
 ### /api/config.reload
 
-Replacement of signal's [SIGHUP](signals#sighup). reload configuration.
+Replacement of signal's [SIGHUP](/articles/signals.md/#sighup). reload configuration.
 
 
 ------------------------------------------------------------------------

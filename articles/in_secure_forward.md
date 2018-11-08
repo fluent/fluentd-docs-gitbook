@@ -123,7 +123,7 @@ You can use the username/password check and client check together:
 ### Secure Sender-Receiver Setup
 
 Please refer to the **Secure Sender-Receiver Setup** [sample
-documentation](out_secure_forward#Secure-Sender-Receiver-Setup).
+documentation](/articles/out_secure_forward.md/#Secure-Sender-Receiver-Setup).
 
 ## Parameters
 

@@ -145,7 +145,7 @@ Normally, the output plugin determines in which mode the buffer plugin
 operates. For example, `out_s3` and `out_file` will enable the
 time-slicing mode. For the list of output plugins which enable the
 time-slicing mode, see [this
-page](output-plugin-overview#list-of-time-sliced-output-plugins).
+page](/articles/output-plugin-overview.md/#list-of-time-sliced-output-plugins).
 
 ### FAQ
 

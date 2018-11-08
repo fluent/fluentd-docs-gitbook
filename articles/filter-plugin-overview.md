@@ -55,7 +55,7 @@ Only the events whose "message" field contain "cool" get the new field
 "hostname" with the machine's hostname as its value.
 
 Users can create their own custom plugins with a bit of Ruby. See [this
-section](plugin-development#filter-plugins) for more information.
+section](/articles/plugin-development.md/#filter-plugins) for more information.
 
 ## List of Filter Plugins
 
