@@ -6,7 +6,7 @@ following techniques should be enough.
 
 With more traffic, Fluentd tends to be more CPU bound. In such case,
 please also visit [Performance Tuning
-(Multi-Process)](performance-tuning-multi-process) to utilize multiple
+(Multi-Process)](/articles/performance-tuning-multi-process.md) to utilize multiple
 CPU cores.
 
 
@@ -111,7 +111,7 @@ billions of incoming records. To utilize multiple CPU cores, we
 recommend using the `in_multiprocess` plugin.
 
 -   [Performance Tuning (Multi
-    Process)](performance-tuning-multi-process)
+    Process)](/articles/performance-tuning-multi-process.md)
 
 
 
