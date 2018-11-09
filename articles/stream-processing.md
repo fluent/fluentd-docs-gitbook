@@ -2,12 +2,12 @@
 
 ## Articles
 -   [Easy Data Stream Manipulation using
-    Fluentd](/v1.0/articles/filter-modify-apache)
+    Fluentd](/articles/filter-modify-apache.md)
 
 
 -   [Stream Data Collection to Kinesis
-    Stream](/v1.0/articles/kinesis-stream)
+    Stream](/articles/kinesis-stream.md)
 
 
 -   [Fluentd and Norikra: Complex Event
-    Processing](/v1.0/articles/cep-norikra)
+    Processing](/articles/cep-norikra.md)

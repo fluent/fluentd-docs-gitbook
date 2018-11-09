@@ -2,31 +2,31 @@
 
 
 ## Articles
--   [Writing Input Plugins](/v1.0/articles/api-plugin-input)
+-   [Writing Input Plugins](/articles/api-plugin-input.md)
 
 
--   [Writing Output Plugins](/v1.0/articles/api-plugin-output)
+-   [Writing Output Plugins](/articles/api-plugin-output.md)
 
 
--   [Writing Filter Plugins](/v1.0/articles/api-plugin-filter)
+-   [Writing Filter Plugins](/articles/api-plugin-filter.md)
 
 
--   [Writing Parser Plugins](/v1.0/articles/api-plugin-parser)
+-   [Writing Parser Plugins](/articles/api-plugin-parser.md)
 
 
--   [Writing Formatter Plugins](/v1.0/articles/api-plugin-formatter)
+-   [Writing Formatter Plugins](/articles/api-plugin-formatter.md)
 
 
--   [Writing Storage Plugins](/v1.0/articles/api-plugin-storage)
+-   [Writing Storage Plugins](/articles/api-plugin-storage.md)
 
 
--   [Writing Buffer Plugins](/v1.0/articles/api-plugin-buffer)
+-   [Writing Buffer Plugins](/articles/api-plugin-buffer.md)
 
 
--   [Plugin Base Class API](/v1.0/articles/api-plugin-base)
+-   [Plugin Base Class API](/articles/api-plugin-base.md)
 
 
--   [Types of Configuration Parameters](/v1.0/articles/api-config-types)
+-   [Types of Configuration Parameters](/articles/api-config-types.md)
 
 
 

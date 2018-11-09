@@ -3,14 +3,14 @@
 
 ## Articles
 -   [Free Alternative to Splunk by Fluentd +
-    Elasticsearch](/v1.0/articles/free-alternative-to-splunk-by-fluentd)
+    Elasticsearch](/articles/free-alternative-to-splunk-by-fluentd.md)
 
 
 -   [Email Alerts like
-    Splunk](/v1.0/articles/splunk-like-grep-and-alert-email)
+    Splunk](/articles/splunk-like-grep-and-alert-email.md)
 
 
--   [Parse Syslog Messages Robustly](/v1.0/articles/parse-syslog)
+-   [Parse Syslog Messages Robustly](/articles/parse-syslog.md)
 
 
 
