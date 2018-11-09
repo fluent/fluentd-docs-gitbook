@@ -99,7 +99,7 @@ written in same section:
 ```
 
 See buffer section in [Compat Parameters Plugin Helper
-API](https://docs.fluentd.org/v1.0/articles/api-plugin-helper-compat_parameters#compat_parameters_convert(conf,-*types,-**kwargs))
+API](https://docs.fluentd.org/articles/api-plugin-helper-compat_parameters#compat_parameters_convert(conf,-*types,-**kwargs))
 for parameter name changes between v1 and v0.12.
 
 

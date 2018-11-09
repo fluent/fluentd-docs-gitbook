@@ -3,53 +3,53 @@
 
 ## Articles
 -   [ChildProcess Plugin Helper
-    API](/v1.0/articles/api-plugin-helper-child_process)
+    API](/articles/api-plugin-helper-child_process)
 
 
 -   [Event Emitter Plugin Helper
-    API](/v1.0/articles/api-plugin-helper-event_emitter)
+    API](/articles/api-plugin-helper-event_emitter)
 
 
 -   [Event Loop Plugin Helper
-    API](/v1.0/articles/api-plugin-helper-event_loop)
+    API](/articles/api-plugin-helper-event_loop)
 
 
--   [Parser Plugin Helper API](/v1.0/articles/api-plugin-helper-parser)
+-   [Parser Plugin Helper API](/articles/api-plugin-helper-parser)
 
 
 -   [Formatter Plugin Helper
-    API](/v1.0/articles/api-plugin-helper-formatter)
+    API](/articles/api-plugin-helper-formatter)
 
 
 -   [Storage Plugin Helper
-    API](/v1.0/articles/api-plugin-helper-storage)
+    API](/articles/api-plugin-helper-storage)
 
 
--   [Inject Plugin Helper API](/v1.0/articles/api-plugin-helper-inject)
+-   [Inject Plugin Helper API](/articles/api-plugin-helper-inject)
 
 
 -   [Extract Plugin Helper
-    API](/v1.0/articles/api-plugin-helper-extract)
+    API](/articles/api-plugin-helper-extract)
 
 
 -   [CompatParameters Plugin Helper
-    API](/v1.0/articles/api-plugin-helper-compat_parameters)
+    API](/articles/api-plugin-helper-compat_parameters)
 
 
 -   [Record Accessor Plugin Helper
-    API](/v1.0/articles/api-plugin-helper-record_accessor)
+    API](/articles/api-plugin-helper-record_accessor)
 
 
--   [Server Plugin Helper API](/v1.0/articles/api-plugin-helper-server)
+-   [Server Plugin Helper API](/articles/api-plugin-helper-server)
 
 
--   [Socket Plugin Helper API](/v1.0/articles/api-plugin-helper-socket)
+-   [Socket Plugin Helper API](/articles/api-plugin-helper-socket)
 
 
--   [Thread Plugin Helper API](/v1.0/articles/api-plugin-helper-thread)
+-   [Thread Plugin Helper API](/articles/api-plugin-helper-thread)
 
 
--   [Timer Plugin Helper API](/v1.0/articles/api-plugin-helper-timer)
+-   [Timer Plugin Helper API](/articles/api-plugin-helper-timer)
 
 
 
