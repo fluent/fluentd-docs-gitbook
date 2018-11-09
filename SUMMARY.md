@@ -24,9 +24,9 @@
   * [Config File Syntax](/articles/config-file.md)
   * [Routing Examples](/articles/routing-examples.md)
   * [Config: Common Parameters](/articles/plugin-common-parameters.md)
-  * [Config: Parse Section](/articles/plugin-parse.md)
-  * [Config: Buffer Section](/articles/plugin-buffer.md)
-  * [Config: Format Section](/articles/plugin-format.md)
+  * [Config: Parse Section](/articles/parse-section.md)
+  * [Config: Buffer Section](/articles/buffer-section.md)
+  * [Config: Format Section](/articles/format-section.md)
   * [Config: Advanced Sections](/articles/plugin-advanced-sections.md)
 
 
