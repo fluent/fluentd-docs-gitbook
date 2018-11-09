@@ -2,16 +2,16 @@
 
 
 ## Articles
--   [Inject section](/articles/inject-section)
+-   [Inject section](/articles/inject-section.md)
 
 
--   [Extract section](/articles/extract-section)
+-   [Extract section](/articles/extract-section.md)
 
 
--   [Storage section](/articles/storage-section)
+-   [Storage section](/articles/storage-section.md)
 
 
--   [Transport section](/articles/transport-section)
+-   [Transport section](/articles/transport-section.md)
 
 
 
