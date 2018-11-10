@@ -16,7 +16,7 @@ when you must collect data streams from Windows machines. For example:
 first.
 
 
-[What is Fluentd?](///www.fluentd.org/architecture)
+[What is Fluentd?](//www.fluentd.org/architecture)
 
 
 ## Prerequisites
@@ -171,7 +171,7 @@ write a plugin/extend the syslog plugin so that you can parse the
 
 ## Learn More
 
--   [Fluentd Architecture](///www.fluentd.org/architecture)
+-   [Fluentd Architecture](//www.fluentd.org/architecture)
 -   [Fluentd Get Started](/articles/quickstart.md)
 
 

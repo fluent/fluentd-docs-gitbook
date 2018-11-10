@@ -57,7 +57,7 @@ refer to the article(s) that suits your needs.
 The articles shown below will provide detailed information for you to
 learn more about Fluentd.
 
--   [Architecture Overview](///www.fluentd.org/architecture)
+-   [Architecture Overview](//www.fluentd.org/architecture)
 -   [Life of a Fluentd Event](/articles/life-of-a-fluentd-event.md)
 -   Plugin Overview
     -   [Input Plugins](/articles/input-plugin-overview.md)

@@ -156,7 +156,7 @@ analytics infrastructure.
 
 ## Learn More
 
--   [Fluentd Architecture](///www.fluentd.org/architecture)
+-   [Fluentd Architecture](//www.fluentd.org/architecture)
 -   [Fluentd Get Started](/articles/quickstart.md)
 -   [Treasure Data](http://www.fluentd.org/treasuredata)
 -   [Treasure Data: Documentation](http://docs.treasuredata.com/)
