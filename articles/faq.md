@@ -4,7 +4,7 @@
 ## What version of Ruby does fluentd support?
 
 Fluentd v1.0 works on Ruby 2.1 or later. See [v0.12
-document](/v0.12//articles/faq#what-version-of-ruby-does-fluentd-support)
+document](/v0.12/articles/faq.md/#what-version-of-ruby-does-fluentd-support)
 for earlier versions.
 
 
@@ -44,7 +44,7 @@ nodes so that your clocks remain synced with the correct clocks.
 ### I installed td-agent and want to add custom plugins. How do I do it?
 
 Use td-agent bundled gem. See [this
-section](/articles/plugin-management#if-using-td-agent,-use-/usr/sbin/td-agent-gem)
+section](/articles/plugin-management.md/#if-using-td-agent,-use-/usr/sbin/td-agent-gem)
 for more information.
 
 
