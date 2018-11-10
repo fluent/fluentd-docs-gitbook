@@ -8,4 +8,4 @@
 
 
 -   [Email Alerts like
-    Splunk](/articles//articles/splunk-like-grep-and-alert-email.md)
+    Splunk](/articles/splunk-like-grep-and-alert-email.md)
