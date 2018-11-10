@@ -23,7 +23,7 @@ If you are using td-agent, please make sure to use td-agent's
 system, rvm, etc.), you won't be able to find your "installed" plugins.
 
 Please see [this
-FAQ](/articles/faq#i-installed-td-agent-and-want-to-add-custom-plugins-how-do-i-do-it)
+FAQ](/articles/faq.md/#i-installed-td-agent-and-want-to-add-custom-plugins-how-do-i-do-it)
 for more information.
 
 ### Gem and native extension

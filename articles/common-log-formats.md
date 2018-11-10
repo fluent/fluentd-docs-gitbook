@@ -32,7 +32,7 @@ the [Tail input plugin](/articles/in_tail.md).
 
     Depending on your particular error log format, you may need to
     adjust the regular expression above. You can test your format using
-    [fluentd-ui's in\_tail editor](/articles/fluentd-ui#intail-setting)
+    [fluentd-ui's in\_tail editor](/articles/fluentd-ui.md/#intail-setting)
     or [Fluentular](http://fluentular.herokuapp.com).
 
 -   Maillog
