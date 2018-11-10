@@ -7,7 +7,6 @@ open source projects: Elasticsearch, Kibana, and Fluentd.
 
 ![](/images/kibana5-screenshot.png)
 
-
 [Elasticsearch](https://www.elastic.co/products/elasticsearch) is an
 open source search engine known for its ease of use.
 [Kibana](https://www.elastic.co/products/kibana) is an open source Web
