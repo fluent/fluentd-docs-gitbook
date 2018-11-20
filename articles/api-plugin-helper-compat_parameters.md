@@ -139,8 +139,7 @@ into:
 </inject>
 ```
 
-For more details, see [Inject Plugin Helper
-API](/articles/api-plugin-helper-inject.md)
+For more details, see [Inject Plugin Helper API](/articles/api-plugin-helper-inject.md)
 
 #### extract
 
@@ -170,8 +169,7 @@ into:
 </extract>
 ```
 
-For more details, see [Extract Plugin Helper
-API](/articles/api-plugin-helper-extract.md)
+For more details, see [Extract Plugin Helper API](/articles/api-plugin-helper-extract.md)
 
 #### parser
 
@@ -256,9 +254,7 @@ into:
 </format>
 ```
 
-For more details, see [Formatter Plugin
-Overview](/articles/formatter-plugin-overview.md) and [Writing Formatter
-Plugins](/articles/api-plugin-formatter.md).
+For more details, see [Formatter Plugin Overview](/articles/formatter-plugin-overview.md) and [Writing Formatter Plugins](/articles/api-plugin-formatter.md).
 
 
 ## compat\_parameters used plugins

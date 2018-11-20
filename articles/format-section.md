@@ -22,8 +22,7 @@ Format section can be in `<match>` or `<filter>` sections.
 ## formatter plugin type
 
 `<format>` section requires `@type` parameter to specify the type of
-formatter plugin. Fluentd core bundles [some useful formatter
-plugins](/articles/formatter-plugin-overview.md). 3rd party plugins are also
+formatter plugin. Fluentd core bundles [some useful formatter plugins](/articles/formatter-plugin-overview.md). 3rd party plugins are also
 available when installed.
 
 ``` {.CodeRay}

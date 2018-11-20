@@ -29,8 +29,7 @@ please check [Parse section cofiguration](/articles/parse-section.md).
 We\'ve observed the drastic performance improvements on Linux, with
 proper kernel parameter settings (e.g. \`net.core.rmem\_max\`
 parameter). If you have high-volume UDP traffic, please make sure to
-follow the instruction described at [Before Installing
-Fluentd](/articles/before-install.md).
+follow the instruction described at [Before Installing Fluentd](/articles/before-install.md).
 
 
 ## Plugin helpers

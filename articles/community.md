@@ -13,8 +13,7 @@ community members, we've got you covered.
 -   Twitter
     ([\#fluentd](https://twitter.com/search?q=%23fluentd&src=typd&f=realtime),
     [\@fluentd](http://www.twitter.com/fluentd))
--   [Facebook
-    Page](https://www.facebook.com/pages/Fluentd-Log-Everything-in-JSON/196064987183037)
+-   [Facebook Page](https://www.facebook.com/pages/Fluentd-Log-Everything-in-JSON/196064987183037)
 -   [StackOverflow](http://stackoverflow.com/questions/tagged/fluentd?sort=newest)
 
 #### Share
@@ -35,8 +34,7 @@ Our meetups are a great way to mingle with fellow Fluentd developers and
 users. Come share your ideas, discuss your challenges, and learn from
 each other.
 
--   [Fluentd User Group in San
-    Francisco](http://www.meetup.com/Fluentd-User-Group/)
+-   [Fluentd User Group in San Francisco](http://www.meetup.com/Fluentd-User-Group/)
 
 #### Contribute
 
@@ -45,8 +43,7 @@ from the developer community. Take a look at our source code repository
 and issue list, and consider submitting a patch.
 
 -   [Source Code](http://github.com/fluent/fluentd)
--   [Bug/Feature
-    Tracker](https://github.com/fluent/fluentd/issues?state=open)
+-   [Bug/Feature Tracker](https://github.com/fluent/fluentd/issues?state=open)
 
 We run the documentation as an open source project as well. We encourage
 and appreciate any improvements, big or small. Make a pull request!

@@ -22,8 +22,7 @@ If you are using td-agent, use `td-agent-gem` for installation.
 $ sudo td-agent-gem install fluent-plugin-prometheus --version='~>1.0.0'
 ```
 
-[This GitHub
-repository](https://github.com/kzk/fluentd-prometheus-config-example)
+[This GitHub repository](https://github.com/kzk/fluentd-prometheus-config-example)
 contains the fully working configuration for this article.
 
 
@@ -147,8 +146,7 @@ $ echo '{"message":"hello"}' | bundle exec fluent-cat company.test2
 ```
 
 Then, please access to `http://localhost:24231/metrics`, which is the
-URL to receive metrics in [Prometheus
-format](https://prometheus.io/docs/instrumenting/exposition_formats/).
+URL to receive metrics in [Prometheus format](https://prometheus.io/docs/instrumenting/exposition_formats/).
 
 ``` {.CodeRay}
 curl http://localhost:24231/metrics
@@ -287,16 +285,14 @@ For more advanced visualization and alerting, we recommend to use
 [Grafana](https://grafana.com/) as a visualization frontend for
 Prometheus.
 
--   [Grafana Support for
-    Prometheus](https://prometheus.io/docs/visualization/grafana/)
+-   [Grafana Support for Prometheus](https://prometheus.io/docs/visualization/grafana/)
 
 ![](/images/prometheus-grafana.png)
 
 
 ## Further Readings
 
--   [Prometheus
-    Documentation](https://prometheus.io/docs/introduction/overview/)
+-   [Prometheus Documentation](https://prometheus.io/docs/introduction/overview/)
 -   [Grafana Documentation](http://docs.grafana.org/)
 
 

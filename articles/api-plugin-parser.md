@@ -2,8 +2,7 @@
 
 Fluentd supports [pluggable, customizable formats for input
 plugins](parser-plugin-overview). The plugin files whose names start
-with "parser\_" are registered as Parser Plugins. See [Plugin Base Class
-API](/articles/api-plugin-base.md) to show details of common API for all plugin
+with "parser\_" are registered as Parser Plugins. See [Plugin Base Class API](/articles/api-plugin-base.md) to show details of common API for all plugin
 types.
 
 Here is an example of a custom parser that parses the following
@@ -81,8 +80,7 @@ path. Then, if in\_tail is configured as
 Then, the log line like `2014-01-01T00:00:00 k=v a=b` is parsed as
 `2013-01-01 00:00:00 +0000 test: {"k":"v","a":"b"}`.
 
-For more details about `<parse>` section, see [Parse section
-configurations](/articles/parse-section.md).
+For more details about `<parse>` section, see [Parse section configurations](/articles/parse-section.md).
 
 
 ## How To Use Parsers From Plugins
@@ -200,8 +198,7 @@ Lifecycle of plugins and test drivers is:
 3.  Run test code
 4.  Assert results of tests by data provided from driver
 
-Test drivers instantiate the plugin. See [Testing API for
-plugins](/articles/plugin-test-code.md) for details.
+Test drivers instantiate the plugin. See [Testing API for plugins](/articles/plugin-test-code.md) for details.
 
 For configuration tests, repeat 1-2. For full feature tests, repeat 1-4.
 Test drivers and helper methods will support it.

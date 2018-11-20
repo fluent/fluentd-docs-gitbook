@@ -32,8 +32,7 @@ project.
 
 This article will show you how to integrate
 [Fluentd](http://fluentd.org/), [Norikra](http://norikra.github.io/),
-and the [Fluentd norikra
-plugin](https://github.com/norikra/fluent-plugin-norikra) to create a
+and the [Fluentd norikra plugin](https://github.com/norikra/fluent-plugin-norikra) to create a
 robust stream data processing platform.
 
 
@@ -50,8 +49,7 @@ For the sake of simplicity, this guide will set up a one-node
 configuration. Please install the following on the same node:
 
 -   [Fluentd](http://fluentd.org/)
--   [Fluentd Norikra
-    Plugin](https://github.com/norikra/fluent-plugin-norikra/)
+-   [Fluentd Norikra Plugin](https://github.com/norikra/fluent-plugin-norikra/)
 -   [Norikra](http://norikra.github.io/)
 
 

@@ -1,8 +1,7 @@
 # HTTP RPC
 
 HTTP RPC enables you to manage your Fluentd instance through HTTP
-endpoints. You can use this feature as a replacement of [Unix
-signals](/articles/signals.md).
+endpoints. You can use this feature as a replacement of [Unix signals](/articles/signals.md).
 
 It's especially useful for environments where signals are not supported
 well (e.g. Windows).

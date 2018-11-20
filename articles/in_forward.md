@@ -369,8 +369,7 @@ server](out_forward#how-to-connect-to-a-tls/ssl-enabled-server).
 
 ### How to Enable TLS Mutual Authentication
 
-Since v1.1.1, Fluentd supports [TLS mutual
-authentication](https://en.wikipedia.org/wiki/Mutual_authentication)
+Since v1.1.1, Fluentd supports [TLS mutual authentication](https://en.wikipedia.org/wiki/Mutual_authentication)
 (a.k.a. client certificate auth). If you want to use this feature,
 please set the `client_cert_auth` and `ca_path` options as follows.
 
@@ -461,11 +460,9 @@ See above "Protocol" section.
 
 `in_forward` doesn't provide parsing mechanism unlike `in_tail` or
 `in_tcp` because `in_forward` is mainly for efficient log transfer. If
-you want to parse incoming event, use [parser
-filter](https://github.com/tagomoris/fluent-plugin-parser) in your
+you want to parse incoming event, use [parser filter](https://github.com/tagomoris/fluent-plugin-parser) in your
 pipeline.\
-See Docker logging driver usecase: [Docker
-Logging](http://www.fluentd.org/guides/recipes/docker-logging)
+See Docker logging driver usecase: [Docker Logging](http://www.fluentd.org/guides/recipes/docker-logging)
 
 
 ------------------------------------------------------------------------

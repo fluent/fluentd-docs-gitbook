@@ -148,8 +148,7 @@ Plugins will work well only with changes above.
 
 Moreover, most input plugins create threads, timers, network servers
 and/or parsers. It's better to use plugin helpers to simplify code and
-to make tests stable. For more details, see [Plugin Helper
-Overview](/articles/plugin-helper-overview.md).
+to make tests stable. For more details, see [Plugin Helper Overview](/articles/plugin-helper-overview.md).
 
 
 ### Filter plugins
@@ -381,8 +380,7 @@ module Fluent
 end
 ```
 
-For more details, see [Writing Buffered Output
-Plugins](/articles/api-plugin-output.md).
+For more details, see [Writing Buffered Output Plugins](/articles/api-plugin-output.md).
 
 
 ### ObjectBuffered output plugins
@@ -427,8 +425,7 @@ module Fluent
 end
 ```
 
-After: same as buffered output. For more details, see [Writing Buffered
-Output Plugins](/articles/api-plugin-output.md).
+After: same as buffered output. For more details, see [Writing Buffered Output Plugins](/articles/api-plugin-output.md).
 
 
 ### TimeSliced output plugins
@@ -484,8 +481,7 @@ Before (configuration):
 </match>
 ```
 
-After (code): same as buffered output. For more details, see [Writing
-Buffered Output Plugins](/articles/api-plugin-output.md).
+After (code): same as buffered output. For more details, see [Writing Buffered Output Plugins](/articles/api-plugin-output.md).
 
 After (configuration):
 

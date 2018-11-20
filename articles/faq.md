@@ -84,8 +84,7 @@ This means you emit the event but no `<match>` directive for emitted
 event. For example, if you emit the event with `foo.bar` tag, you need
 to define `<match>` for `foo.bar` tag like `<match foo.**>`.
 
-See also: [Life of a Fluentd event](/articles/life-of-a-fluentd-event.md) or [Config
-File](/articles/config-file.md)
+See also: [Life of a Fluentd event](/articles/life-of-a-fluentd-event.md) or [Config File](/articles/config-file.md)
 
 
 ### File buffer doesn't work properly, why?
@@ -131,8 +130,7 @@ if the warning still shows up.
 
 ### How do I develop a custom plugin?
 
-Please refer to the [Plugin Development
-Guide](http://docs.fluentd.org/articles/plugin-development).
+Please refer to the [Plugin Development Guide](http://docs.fluentd.org/articles/plugin-development).
 
 
 ## HOWTOs
@@ -144,8 +142,7 @@ editor](/articles/fluentd-ui#intail-setting) or
 [Fluentular](http://fluentular.herokuapp.com) is a great tool to verify
 your Regexps.
 
-If you do NOT want to write any Regexp, look at [the Grok
-parser](https://github.com/kiyoto/fluent-plugin-grok-parser).
+If you do NOT want to write any Regexp, look at [the Grok parser](https://github.com/kiyoto/fluent-plugin-grok-parser).
 
 
 ------------------------------------------------------------------------

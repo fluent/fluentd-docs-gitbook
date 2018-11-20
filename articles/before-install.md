@@ -12,8 +12,7 @@ It's HIGHLY recommended that you set up NTP daemon (e.g.
 have accurate current timestamp. This is crucial for any
 production-grade logging services.
 
-For Amazon Web Services users we recommend using [AWS hosted NTP
-server](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/set-time.html).
+For Amazon Web Services users we recommend using [AWS hosted NTP server](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/set-time.html).
 
 
 ## Increase Max \# of File Descriptors

@@ -2,8 +2,7 @@
 
 Fluentd supports [pluggable, customizable formats for output
 plugins](formatter-plugin-overview). The plugin files whose names start
-with "formatter\_" are registered as Formatter Plugins. See [Plugin Base
-Class API](/articles/api-plugin-base.md) to show details of common API for all plugin
+with "formatter\_" are registered as Formatter Plugins. See [Plugin Base Class API](/articles/api-plugin-base.md) to show details of common API for all plugin
 types.
 
 Here is an example of a custom formatter that outputs events as CSVs. It
@@ -178,8 +177,7 @@ Lifecycle of plugins and test drivers is:
 3.  Run test code
 4.  Assert results of tests by data provided from driver
 
-Test drivers instantiate the plugin. See [Testing API for
-plugins](/articles/plugin-test-code.md) for details.
+Test drivers instantiate the plugin. See [Testing API for plugins](/articles/plugin-test-code.md) for details.
 
 For configuration tests, repeat 1-2. For full feature tests, repeat 1-4.
 Test drivers and helper methods will support it.

@@ -158,13 +158,11 @@ Kinesis Stream consists of `shards`, and the processing power of each
 shard is limited. This partition key will be used by Kinesis, to
 determine which shard wll be assigned to for the specific record.
 
-For additional configuration parameters, please see the [Kinesis Output
-plugin](https://github.com/awslabs/aws-fluent-plugin-kinesis) README.
+For additional configuration parameters, please see the [Kinesis Output plugin](https://github.com/awslabs/aws-fluent-plugin-kinesis) README.
 
 For those who are interested in security, all communication between
 Fluentd and Amazon Kinesis are done via HTTPS. If you don\'t want to
-have AES keys in the configuration file, [IAM Role based
-authentication](http://docs.aws.amazon.com/kinesis/latest/dev/controlling-access.html)
+have AES keys in the configuration file, [IAM Role based authentication](http://docs.aws.amazon.com/kinesis/latest/dev/controlling-access.html)
 is available too for EC2 nodes.
 
 
@@ -211,8 +209,7 @@ and robust.
 -   [Fluentd Architecture](//www.fluentd.org/architecture)
 -   [Fluentd Get Started](/articles/quickstart.md)
 -   [Amazon Kinesis](https://aws.amazon.com/kinesis/)
--   [Amazon Kinesis Output
-    Plugin](https://github.com/awslabs/aws-fluent-plugin-kinesis) (Made
+-   [Amazon Kinesis Output Plugin](https://github.com/awslabs/aws-fluent-plugin-kinesis) (Made
     by Amazon Web Services)
 
 

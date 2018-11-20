@@ -1,9 +1,7 @@
 # Writing Filter Plugins
 
-This section shows how to write custom filters in addition to [the core
-filter plugins](/articles/filter-plugin-overview.md). The plugin files whose names
-start with "filter\_" are registered as filter plugins. See [Plugin Base
-Class API](/articles/api-plugin-base.md) to show details of common API for all plugin
+This section shows how to write custom filters in addition to [the core filter plugins](/articles/filter-plugin-overview.md). The plugin files whose names
+start with "filter\_" are registered as filter plugins. See [Plugin Base Class API](/articles/api-plugin-base.md) to show details of common API for all plugin
 types.
 
 Here is the implementation of the most basic filter that passes through
@@ -162,8 +160,7 @@ Lifecycle of plugins and test drivers is:
 
 Test drivers calls methods for plugin lifecycles at the beginning of 4.
 (`#start`) and the end of 4. (`#stop`, `#shutdown`, ...). It can be
-skipped by optional arguments of `#run`. See [Testing API for
-plugins](/articles/plugin-test-code.md) for details.
+skipped by optional arguments of `#run`. See [Testing API for plugins](/articles/plugin-test-code.md) for details.
 
 For configuration tests, repeat 1-2. For full feature tests, repeat 1-5.
 Test drivers and helper methods will support it.

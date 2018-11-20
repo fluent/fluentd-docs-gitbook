@@ -170,8 +170,7 @@ specifies the output plugin to use.
 
 Just like input sources, you can add new output destinations by writing
 your own plugins. For further information regarding Fluentd's output
-destinations, please refer to the [Output Plugin
-Overview](/articles/output-plugin-overview.md) article.
+destinations, please refer to the [Output Plugin Overview](/articles/output-plugin-overview.md) article.
 
 
 ## (3) "filter": Event processing pipeline
@@ -479,8 +478,7 @@ plugin author know.
     "generic" type, where each plugin decides how to process the string.
     -   `string` has 3 literals, non-quoted one line string, `'` quoted
         string and `"` quoted string.
-    -   See "Format tips" section and [literal
-        examples](https://github.com/fluent/fluentd/blob/master/example/v1_literal_example.conf).
+    -   See "Format tips" section and [literal examples](https://github.com/fluent/fluentd/blob/master/example/v1_literal_example.conf).
 -   `integer` type: the field is parsed as an integer.
 -   `float` type: the field is parsed as a float.
 -   `size` type: the field is parsed as the number of bytes. There are

@@ -6,8 +6,7 @@
     Elasticsearch](/articles/free-alternative-to-splunk-by-fluentd.md)
 
 
--   [Email Alerts like
-    Splunk](/articles/splunk-like-grep-and-alert-email.md)
+-   [Email Alerts like Splunk](/articles/splunk-like-grep-and-alert-email.md)
 
 
 -   [Parse Syslog Messages Robustly](/articles/parse-syslog.md)

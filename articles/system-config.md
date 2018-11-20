@@ -92,8 +92,7 @@ Invoke a fluentd without input plugins.
   -------- --------- ---------
    string     nil     0.14.0
 
-Specify RPC endpoint. In more detail, please refer to [RPC
-document](/articles/rpc.md).
+Specify RPC endpoint. In more detail, please refer to [RPC document](/articles/rpc.md).
 
 
 ### enable\_get\_dump

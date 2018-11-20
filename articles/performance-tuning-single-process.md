@@ -117,10 +117,8 @@ resource environment, e.g. small container. For such cases, try
 `RUBY_GC_HEAP_OLDOBJECT_LIMIT_FACTOR=0.9` or
 `RUBY_GC_HEAP_OLDOBJECT_LIMIT_FACTOR=1.2`.
 
-See [Ruby 2.1 Garbage Collection: ready for
-production](https://samsaffron.com/archive/2014/04/08/ruby-2-1-garbage-collection-ready-for-production)
-and [Watching and Understanding the Ruby 2.1 Garbage Collector at
-Work](https://thorstenball.com/blog/2014/03/12/watching-understanding-ruby-2.1-garbage-collector/)
+See [Ruby 2.1 Garbage Collection: ready for production](https://samsaffron.com/archive/2014/04/08/ruby-2-1-garbage-collection-ready-for-production)
+and [Watching and Understanding the Ruby 2.1 Garbage Collector at Work](https://thorstenball.com/blog/2014/03/12/watching-understanding-ruby-2.1-garbage-collector/)
 article for more detail.
 
 
@@ -136,8 +134,7 @@ recommend using `multi workers` feature.
 </system>
 ```
 
-For the details of this feature, please read [multi process
-workers](/articles/multi-process-workers.md) article.
+For the details of this feature, please read [multi process workers](/articles/multi-process-workers.md) article.
 
 
 ------------------------------------------------------------------------

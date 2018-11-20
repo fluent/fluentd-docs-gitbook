@@ -270,12 +270,9 @@ easier the processing before reaching the *Output* plugin.
 
 ## Learn More
 
--   [Fluentd v0.12 Blog
-    Announcement](http://www.fluentd.org/blog/fluentd-v0.12-is-released)
--   [Fluentd v0.14 Blog
-    Announcement](http://www.fluentd.org/blog/fluentd-v0.14.0-has-been-released)
--   [Fluentd v1.0 Blog
-    Announcement](http://www.fluentd.org/blog/fluentd-v1.0)
+-   [Fluentd v0.12 Blog Announcement](http://www.fluentd.org/blog/fluentd-v0.12-is-released)
+-   [Fluentd v0.14 Blog Announcement](http://www.fluentd.org/blog/fluentd-v0.14.0-has-been-released)
+-   [Fluentd v1.0 Blog Announcement](http://www.fluentd.org/blog/fluentd-v1.0)
 
 
 ------------------------------------------------------------------------

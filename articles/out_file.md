@@ -67,8 +67,7 @@ path /path/to/${tag}/${key1}/file.%Y%m%d
 </buffer>
 ```
 
-See [Buffer section
-configurations](http://docs.fluentd.org/v0.14/articles/buffer-section)
+See [Buffer section configurations](http://docs.fluentd.org/v0.14/articles/buffer-section)
 for more detail.
 
 The `path` parameter is used as `<buffer>`'s `path` in this plugin.

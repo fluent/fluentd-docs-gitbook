@@ -93,8 +93,7 @@ This will produce an event like below:
 
 Note that `${hostname}` is a pre-defined variable supplied by the
 plugin. You can also define a custom variable, or even evaluate
-arbitrary ruby expressions. For details, please read [the manual page of
-this plugin](/articles/filter_record_transformer.md).
+arbitrary ruby expressions. For details, please read [the manual page of this plugin](/articles/filter_record_transformer.md).
 
 
 ------------------------------------------------------------------------

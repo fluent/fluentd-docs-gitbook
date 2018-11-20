@@ -19,8 +19,7 @@ Alternatively, you can create a Ruby Gem package that includes a
 
 For example, an email Output plugin would have the path:
 `lib/fluent/plugin/out_mail.rb`. The packaged gem can be distributed and
-installed using RubyGems. For further information, please see the [list
-of Fluentd plugins](http://www.fluentd.org/plugins) for third-party
+installed using RubyGems. For further information, please see the [list of Fluentd plugins](http://www.fluentd.org/plugins) for third-party
 plugins.
 
 
@@ -346,10 +345,8 @@ For more details, see `fluent-plugin-config-format --help`.
 
 ## Further Reading
 
--   [Slides: Fluentd v0.14 Plugin API
-    Details](http://www.slideshare.net/tagomoris/fluentd-v014-plugin-api-details)
--   [Slides: Dive into Fluentd
-    Plugin](http://www.slideshare.net/repeatedly/dive-into-fluentd-plugin-v012)
+-   [Slides: Fluentd v0.14 Plugin API Details](http://www.slideshare.net/tagomoris/fluentd-v014-plugin-api-details)
+-   [Slides: Dive into Fluentd Plugin](http://www.slideshare.net/repeatedly/dive-into-fluentd-plugin-v012)
     (outdated)
 
 

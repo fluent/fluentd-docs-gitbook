@@ -75,8 +75,7 @@ Define a parameter.
 -   `options`: options for parameter
 -   `block`: if block is given, convert value via given block
 
-About types and options, see [Types of Configuration
-Parameters](/articles/api-config-types.md).
+About types and options, see [Types of Configuration Parameters](/articles/api-config-types.md).
 
 Code Example:
 
@@ -294,8 +293,7 @@ Returns `Fluent::Log` instance
     -   `error`
     -   `fatal`
 
-For more details about Fluentd's logging mechanism, see [Logging of
-Fluentd](/articles/logging.md).
+For more details about Fluentd's logging mechanism, see [Logging of Fluentd](/articles/logging.md).
 
 Code Example:
 

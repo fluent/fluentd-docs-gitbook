@@ -25,8 +25,7 @@ Please refer to the following documents to install fluentd.
 
 ## Modifying the Config File
 
-Next, please configure Fluentd to use the [forward Input
-plugin](/articles/in_forward.md) as its data source.
+Next, please configure Fluentd to use the [forward Input plugin](/articles/in_forward.md) as its data source.
 
 ``` {.CodeRay}
 <source>
@@ -133,8 +132,7 @@ writing records to other destinations:
     -   [Data Collection into HDFS](/articles/http-to-hdfs.md)
 -   List of Plugin References
     -   [Output to Another Fluentd](/articles/out_forward.md)
-    -   [Output to MongoDB](/articles/out_mongo.md) or [MongoDB
-        ReplicaSet](/articles/out_mongo_replset.md)
+    -   [Output to MongoDB](/articles/out_mongo.md) or [MongoDB ReplicaSet](/articles/out_mongo_replset.md)
     -   [Output to Hadoop](/articles/out_webhdfs.md)
     -   [Output to File](/articles/out_file.md)
     -   [etc...](http://fluentd.org/plugin/)

@@ -1,7 +1,6 @@
 # Cloud Big Data Analytics with Treasure Data
 
-This article explains how to use [Treasure
-Data](www.fluentd.org/treasuredata) with [Fluentd](http://fluentd.org/)
+This article explains how to use [Treasure Data](www.fluentd.org/treasuredata) with [Fluentd](http://fluentd.org/)
 to aggregate semi-structured logs into Treasure Data (TD), which offers
 Cloud Data Service.
 
@@ -39,8 +38,7 @@ For simplicity, this article will describe how to set up an one-node
 configuration. Please install the following software on the same node.
 
 -   [Fluentd](http://fluentd.org/)
--   [TD Output
-    Plugin](https://github.com/treasure-data/fluent-plugin-td)
+-   [TD Output Plugin](https://github.com/treasure-data/fluent-plugin-td)
 
 The TD Output plugin is included in Fluentd's deb/rpm package
 (`td-agent`) by default. If you want to use Ruby Gems to install the
@@ -155,8 +153,7 @@ Result     :
 
 It\'s not advisable to send sensitive user information to the cloud. To
 assist with this need, out\_tdlog comes with some anonymization systems.
-Please see the [Treasure Data
-plugin](http://github.com/treasure-data/fluent-plugin-td/) article for
+Please see the [Treasure Data plugin](http://github.com/treasure-data/fluent-plugin-td/) article for
 details.
 
 

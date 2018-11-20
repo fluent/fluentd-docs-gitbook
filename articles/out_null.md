@@ -80,8 +80,7 @@ Overwrite default value in this plugin.
 
 ## Common Buffer / Output parameters
 
-See [Buffer Plugin Overview](/articles/buffer-plugin-overview.md) and [Output Plugin
-Overview](/articles/output-plugin-overview.md)
+See [Buffer Plugin Overview](/articles/buffer-plugin-overview.md) and [Output Plugin Overview](/articles/output-plugin-overview.md)
 
 
 ------------------------------------------------------------------------

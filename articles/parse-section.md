@@ -23,8 +23,7 @@ It's enabled for plugins which support parser plugin features.
 ## parser plugin type
 
 `<parse>` section requires `@type` parameter to specify the type of
-parser plugin. Fluentd core bundles [a lot of useful parser
-plugins](/articles/parser-plugin-overview.md). 3rd party plugins are also available
+parser plugin. Fluentd core bundles [a lot of useful parser plugins](/articles/parser-plugin-overview.md). 3rd party plugins are also available
 when installed.
 
 ``` {.CodeRay}

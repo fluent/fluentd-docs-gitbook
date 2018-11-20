@@ -65,8 +65,7 @@ $ ./bin/elasticsearch
 ```
 
 Note: You can also install ElasticSearch (and Kibana) using RPM/DEB
-packages. For details, please refer to [the official
-instructions](https://www.elastic.co/downloads).
+packages. For details, please refer to [the official instructions](https://www.elastic.co/downloads).
 
 
 ## Set Up Kibana
@@ -195,8 +194,7 @@ flow in:
 
 \
 
-For the detail on how to use Kibana, please read [the official
-manual](https://www.elastic.co/guide/en/kibana/current/index.html).
+For the detail on how to use Kibana, please read [the official manual](https://www.elastic.co/guide/en/kibana/current/index.html).
 
 To manually send logs to Elasticsearch, please use the `logger` command.
 

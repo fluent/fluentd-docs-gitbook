@@ -18,8 +18,7 @@ differences between Fluentd and td-agent can be found
 [here](//www.fluentd.org/faqs).
 
 This installation guide is for td-agent v3, the new stable version.
-td-agent v3 uses fluentd v1.0 in the core. See [this
-page](/articles/td-agent-v2-vs-v3.md) for the comparison between v2 and v3.
+td-agent v3 uses fluentd v1.0 in the core. See [this page](/articles/td-agent-v2-vs-v3.md) for the comparison between v2 and v3.
 
 
 ## Step 0: Before Installation
@@ -31,8 +30,7 @@ your OS properly. This will prevent many unnecessary problems.
 ## Step 1: Install from rpm Repository
 
 It's HIGHLY recommended that you set up **ntpd** on the node to prevent
-invalid timestamps in your logs. Please check the [Preinstallation
-Guide](/articles/before-install.md).
+invalid timestamps in your logs. Please check the [Preinstallation Guide](/articles/before-install.md).
 
 
 ### Redhat / CentOS

@@ -21,8 +21,7 @@ Fluentd v1.0 output plugins have 3 modes about buffering and flushing.
     output plugin will not commit writing chunks in methods
     synchronously, but commit later.
 
-![Fluentd v1.0 Plugin API
-Overview](//docs.fluentd.org/images/fluentd-v0.14-plugin-api-overview.png)
+![Fluentd v1.0 Plugin API Overview](//docs.fluentd.org/images/fluentd-v0.14-plugin-api-overview.png)
 
 Output plugins can support all modes, but may support just one of these
 modes. Fluentd choose appropriate mode automatically if there are no

@@ -28,8 +28,7 @@ module Fluent::Plugin
 end
 ```
 
-For more details about configuration, see [Inject
-section](/articles/inject-section.md).
+For more details about configuration, see [Inject section](/articles/inject-section.md).
 
 
 ## Methods

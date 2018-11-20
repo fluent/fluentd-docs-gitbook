@@ -186,8 +186,7 @@ Lifecycle of plugins and test drivers is:
 
 Test drivers calls methods for plugin lifecycles at the beginning of 4.
 (`#start`) and the end of 4. (`#stop`, `#shutdown`, ...). It can be
-skipped by optional arguments of `#run`. See [Testing API for
-plugins](/articles/plugin-test-code.md) for details.
+skipped by optional arguments of `#run`. See [Testing API for plugins](/articles/plugin-test-code.md) for details.
 
 For configuration tests, repeat 1-2. For full feature tests, repeat 1-5.
 Test drivers and helper methods will support it.

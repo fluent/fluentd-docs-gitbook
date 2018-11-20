@@ -146,8 +146,7 @@ The `**` in `mongo.**` matches zero or more period-delimited tag parts
 **flush\_interval** specifies how often the data is written to MongoDB.
 The other options specify MongoDB's host, port, db, and collection.
 
-For additional configuration parameters, please see the [MongoDB Output
-plugin](/articles/out_mongo.md) article. If you are using ReplicaSet, please see the
+For additional configuration parameters, please see the [MongoDB Output plugin](/articles/out_mongo.md) article. If you are using ReplicaSet, please see the
 [MongoDB ReplicaSet Output plugin](/articles/out_mongo_replset.md) article.
 
 

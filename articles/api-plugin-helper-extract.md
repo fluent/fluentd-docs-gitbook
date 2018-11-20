@@ -26,8 +26,7 @@ module Fluent::Plugin
 end
 ```
 
-For more details about configuration, see [Extract
-section](/articles/extract-section.md).
+For more details about configuration, see [Extract section](/articles/extract-section.md).
 
 
 ## Methods

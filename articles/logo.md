@@ -54,8 +54,7 @@ Feel free to use these logos on your slides, blog posts, etc.!
 ## Links
 
 -   [Fluentd.ai](https://raw.githubusercontent.com/fluent/fluentd-docs/master/public/logo/Fluentd.ai)
--   [Full list of
-    files](https://github.com/fluent/fluentd-docs/tree/master/public/logo)
+-   [Full list of files](https://github.com/fluent/fluentd-docs/tree/master/public/logo)
 
 
 ------------------------------------------------------------------------
