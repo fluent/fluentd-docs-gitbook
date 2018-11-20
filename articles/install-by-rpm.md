@@ -45,8 +45,7 @@ $ curl -L https://toolbelt.treasuredata.com/sh/install-redhat-td-agent2.sh | sh
 ```
 
 It's HIGHLY recommended that you set up **ntpd** on the node to prevent
-invalid timestamps in your logs. Please check the [Preinstallation
-Guide](/articles/before-install.md).
+invalid timestamps in your logs. Please check the [Preinstallation Guide](/articles/before-install.md).
 td-agent supports recent 2 Amazon Linux versions. It means if the latest
 version is 2016.09, we provides new packages for 2016.03 and 2016.09. No
 new packages for 2015.09 or earlier.

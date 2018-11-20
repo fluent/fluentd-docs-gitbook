@@ -269,8 +269,7 @@ simplifies the processing before events reach the *Output* plugin.
 
 ## Learn More
 
--   [Fluentd v0.12 Blog
-    Announcement](http://www.fluentd.org/blog/fluentd-v0.12-is-released)
+-   [Fluentd v0.12 Blog Announcement](http://www.fluentd.org/blog/fluentd-v0.12-is-released)
 
 
 

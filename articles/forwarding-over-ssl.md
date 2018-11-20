@@ -3,8 +3,7 @@
 
 ## Overview
 
-This is a quick tutorial on how to use the [secure forward
-plugin](//github.com/tagomoris/fluent-plugin-secure-forward) to **enable
+This is a quick tutorial on how to use the [secure forward plugin](//github.com/tagomoris/fluent-plugin-secure-forward) to **enable
 SSL for Fluentd-to-Fluentd data transport**.
 
 It is intended as a quick introduction. For comprehensive documentation,

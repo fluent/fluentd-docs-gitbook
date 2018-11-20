@@ -120,8 +120,7 @@ uses the `ab` (Apache Bench) program.
 $ ab -n 100 -c 10 http://localhost/
 ```
 
-Then, log into your [AWS
-Console](https://console.aws.amazon.com/s3/home) and look at your
+Then, log into your [AWS Console](https://console.aws.amazon.com/s3/home) and look at your
 bucket.
 
 WARNING: By default, files are created on an hourly basis (around

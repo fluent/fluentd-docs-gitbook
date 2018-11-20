@@ -43,8 +43,7 @@ then we can filter out all the requests with status code 200 as follows:
 
 By using the `add_tag_prefix` option, we can prepend a tag in front of
 filtered events so that they can be matched to a subsequent section. For
-example, we can send all logs with non-200 status codes to [Treasure
-Data](http://www.treasuredata.com), as shown below:
+example, we can send all logs with non-200 status codes to [Treasure Data](http://www.treasuredata.com), as shown below:
 
 ``` {.CodeRay}
 ...

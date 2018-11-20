@@ -102,8 +102,7 @@ AWS, Elasticsearch, etc.), in\_exec is a great choice.
 The only requirement for the script is that it outputs TSV, JSON or
 MessagePack.
 
-For example, the [following
-script](https://gist.github.com/kiyoto/1bd903ad1bdd6ac51fcc) scrapes the
+For example, the [following script](https://gist.github.com/kiyoto/1bd903ad1bdd6ac51fcc) scrapes the
 front page of [Hacker News](http://news.ycombinator.com) and scrapes
 information about each post:
 

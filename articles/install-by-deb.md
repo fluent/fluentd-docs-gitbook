@@ -105,8 +105,7 @@ curl -L https://toolbelt.treasuredata.com/sh/install-debian-squeeze-td-agent2.sh
 ```
 
 It's HIGHLY recommended that you set up **ntpd** on the node to prevent
-invalid timestamps in your logs. Please check the [Preinstallation
-Guide](/articles/before-install.md).
+invalid timestamps in your logs. Please check the [Preinstallation Guide](/articles/before-install.md).
 
 ## Step2: Launch Daemon
 

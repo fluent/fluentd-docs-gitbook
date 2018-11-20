@@ -38,8 +38,7 @@ cycles events of storage elements, snapshots etc. The `listEvents` API
 is well
 [documented](http://cloudstack.apache.org/docs/api/apidocs-4.2/root_admin/listEvents.html).
 Based mostly on this API and the [fog](http://fog.io) ruby library, a
-CloudStack plugin for `fluentd` was written by [Yuichi
-UEMURA](https://github.com/u-ichi). It is slightly different from using
+CloudStack plugin for `fluentd` was written by [Yuichi UEMURA](https://github.com/u-ichi). It is slightly different from using
 `logstash`, as with `logstash` you can format the log4j logs of the
 CloudStack management server and directly collect those. Here we rely on
 the `listEvents` API.

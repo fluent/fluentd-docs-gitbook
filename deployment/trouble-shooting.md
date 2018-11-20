@@ -57,8 +57,7 @@ several reasons:
 -   system calls has a bug, e.g. `inotify` with lots of files
 
 In such cases, you can use `perf` tool on recent Linux to investigate
-the problem. See [Linux perf
-Examples](http://www.brendangregg.com/perf.html) page.\
+the problem. See [Linux perf Examples](http://www.brendangregg.com/perf.html) page.\
 If you want to know which call causes the problem,
 [pid2line.rb](https://gist.github.com/nurse/0619b6af90df140508c2) is
 useful.

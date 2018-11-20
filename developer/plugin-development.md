@@ -18,8 +18,7 @@ Alternatively, you can create a Ruby Gem package that includes a
 
 For example, an email Output plugin would have the path:
 `lib/fluent/plugin/out_mail.rb`. The packaged gem can be distributed and
-installed using RubyGems. For further information, please see the [list
-of Fluentd plugins](http://www.fluentd.org/plugins) for third-party
+installed using RubyGems. For further information, please see the [list of Fluentd plugins](http://www.fluentd.org/plugins) for third-party
 plugins.
 
 ## Overview
@@ -297,8 +296,7 @@ end
 
 ## Filter Plugins
 
-This section shows how to write custom filters in addition to [the core
-filter plugins](/plugins/filter/filter-plugin-overview.md). The plugin files whose names
+This section shows how to write custom filters in addition to [the core filter plugins](/plugins/filter/filter-plugin-overview.md). The plugin files whose names
 start with "filter\_" are registered as filter plugins.
 
 Here is the implementation of the most basic filter that passes through
@@ -745,8 +743,7 @@ $ bundle exec rake test TEST=test/plugin/test_out_foo.rb
 
 ## Further Reading
 
--   [Slides: Dive into Fluentd
-    Plugin](http://www.slideshare.net/repeatedly/dive-into-fluentd-plugin-v012)
+-   [Slides: Dive into Fluentd Plugin](http://www.slideshare.net/repeatedly/dive-into-fluentd-plugin-v012)
 
 
 ------------------------------------------------------------------------

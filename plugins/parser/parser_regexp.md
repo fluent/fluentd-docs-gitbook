@@ -112,8 +112,7 @@ helps your regexp testing. Another way,
 [Fluentular](http://fluentular.herokuapp.com/) is a great website to
 test your regexp for Fluentd configuration.
 
-NOTE: You may hit Application Error at Fluentular due to [heroku free
-plan limitation](https://www.heroku.com/pricing). Retry a few hours
+NOTE: You may hit Application Error at Fluentular due to [heroku free plan limitation](https://www.heroku.com/pricing). Retry a few hours
 later or use fluentd-ui instead.
 
 

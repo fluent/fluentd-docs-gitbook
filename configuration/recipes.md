@@ -18,24 +18,19 @@
 -   [Recipe JSON To S3](/articles/recipe-json-to-s3.md)
 
 
--   [Recipe Apache Logs To Treasure
-    Data](/articles/recipe-apache-logs-to-treasure-data.md)
+-   [Recipe Apache Logs To Treasure Data](/articles/recipe-apache-logs-to-treasure-data.md)
 
 
--   [Recipe CSV To Treasure
-    Data](/articles/recipe-csv-to-treasure-data.md)
+-   [Recipe CSV To Treasure Data](/articles/recipe-csv-to-treasure-data.md)
 
 
--   [Recipe Nginx To Treasure
-    Data](/articles/recipe-nginx-to-treasure-data.md)
+-   [Recipe Nginx To Treasure Data](/articles/recipe-nginx-to-treasure-data.md)
 
 
--   [Recipe JSON To Treasure
-    Data](/articles/recipe-json-to-treasure-data.md)
+-   [Recipe JSON To Treasure Data](/articles/recipe-json-to-treasure-data.md)
 
 
--   [Recipe Http Rest Api To
-    S3](/articles/recipe-http-rest-api-to-s3.md)
+-   [Recipe Http Rest Api To S3](/articles/recipe-http-rest-api-to-s3.md)
 
 
 -   [Recipe JSON To Mongo](/articles/recipe-json-to-mongo.md)
@@ -47,20 +42,16 @@
 -   [Recipe Nginx To Mongo](/articles/recipe-nginx-to-mongo.md)
 
 
--   [Recipe Http Rest Api To
-    Elasticsearch](/articles/recipe-http-rest-api-to-elasticsearch.md)
+-   [Recipe Http Rest Api To Elasticsearch](/articles/recipe-http-rest-api-to-elasticsearch.md)
 
 
--   [Recipe JSON To
-    Elasticsearch](/articles/recipe-json-to-elasticsearch.md)
+-   [Recipe JSON To Elasticsearch](/articles/recipe-json-to-elasticsearch.md)
 
 
--   [Recipe Cloudstack To
-    Mongodb](/articles/recipe-cloudstack-to-mongodb.md)
+-   [Recipe Cloudstack To Mongodb](/articles/recipe-cloudstack-to-mongodb.md)
 
 
--   [Recipe TSV To Treasure
-    Data](/articles/recipe-tsv-to-treasure-data.md)
+-   [Recipe TSV To Treasure Data](/articles/recipe-tsv-to-treasure-data.md)
 
 
 -   [Recipe TSV To S3](/articles/recipe-tsv-to-s3.md)
@@ -69,42 +60,34 @@
 -   [Recipe Syslog To Mongo](/articles/recipe-syslog-to-mongo.md)
 
 
--   [Recipe Nginx To
-    Elasticsearch](/articles/recipe-nginx-to-elasticsearch.md)
+-   [Recipe Nginx To Elasticsearch](/articles/recipe-nginx-to-elasticsearch.md)
 
 
--   [Recipe Syslog To
-    Elasticsearch](/articles/recipe-syslog-to-elasticsearch.md)
+-   [Recipe Syslog To Elasticsearch](/articles/recipe-syslog-to-elasticsearch.md)
 
 
--   [Recipe TSV To
-    Elasticsearch](/articles/recipe-tsv-to-elasticsearch.md)
+-   [Recipe TSV To Elasticsearch](/articles/recipe-tsv-to-elasticsearch.md)
 
 
--   [Recipe Http Rest Api To
-    Mongo](/articles/recipe-http-rest-api-to-mongo.md)
+-   [Recipe Http Rest Api To Mongo](/articles/recipe-http-rest-api-to-mongo.md)
 
 
--   [Recipe Http Rest Api To Treasure
-    Data](/articles/recipe-http-rest-api-to-treasure-data.md)
+-   [Recipe Http Rest Api To Treasure Data](/articles/recipe-http-rest-api-to-treasure-data.md)
 
 
 -   [Recipe TSV To Mongo](/articles/recipe-tsv-to-mongo.md)
 
 
--   [Recipe Apache Logs To
-    Mongo](/articles/recipe-apache-logs-to-mongo.md)
+-   [Recipe Apache Logs To Mongo](/articles/recipe-apache-logs-to-mongo.md)
 
 
 -   [Recipe Nginx To S3](/articles/recipe-nginx-to-s3.md)
 
 
--   [Recipe CSV To
-    Elasticsearch](/articles/recipe-csv-to-elasticsearch.md)
+-   [Recipe CSV To Elasticsearch](/articles/recipe-csv-to-elasticsearch.md)
 
 
--   [Recipe Apache Logs To
-    Elasticsearch](/articles/recipe-apache-logs-to-elasticsearch.md)
+-   [Recipe Apache Logs To Elasticsearch](/articles/recipe-apache-logs-to-elasticsearch.md)
 
 
 -   [Recipe CSV To S3](/articles/recipe-csv-to-s3.md)

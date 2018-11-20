@@ -172,8 +172,7 @@ Thanks Daisuke!
 
 -   [Fluentd Architecture](//www.fluentd.org/architecture)
 -   [Fluentd Get Started](/articles/quickstart.md)
--   [GlusterFS Input
-    Plugin](https://github.com/keithseahus/fluent-plugin-glusterfs)
+-   [GlusterFS Input Plugin](https://github.com/keithseahus/fluent-plugin-glusterfs)
 
 
 ------------------------------------------------------------------------

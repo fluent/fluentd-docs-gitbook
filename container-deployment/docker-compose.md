@@ -35,8 +35,7 @@ Please download and install Docker / Docker Compose. Well, that's it :)
 
 ## Step 0: prepare docker-compose.yml
 
-First, please prepare `docker-compose.yml` for [Docker
-Compose](https://docs.docker.com/compose/overview/). Docker Compose is a
+First, please prepare `docker-compose.yml` for [Docker Compose](https://docs.docker.com/compose/overview/). Docker Compose is a
 tool for defining and running multi-container Docker applications.
 
 With the YAML file below, you can create and start all the services (in
@@ -84,8 +83,7 @@ services:
 
 `logging` section (check [Docker Compose
 documentation](https://docs.docker.com/compose/compose-file/#/logging))
-of `web` container specifies [Docker Fluentd Logging
-Driver](https://docs.docker.com/engine/admin/logging/fluentd/) as a
+of `web` container specifies [Docker Fluentd Logging Driver](https://docs.docker.com/engine/admin/logging/fluentd/) as a
 default container logging driver. All of the logs from `web` container
 will be automatically forwarded to host:port specified by
 `fluentd-address`.
@@ -93,8 +91,7 @@ will be automatically forwarded to host:port specified by
 ## Step 1: Prepare Fluentd image with your Config + Plugin
 
 Then, please prepare `fluentd/Dockerfile` with the following content, to
-use Fluentd's [official Docker
-image](https://hub.docker.com/r/fluent/fluentd/) and additionally
+use Fluentd's [official Docker image](https://hub.docker.com/r/fluent/fluentd/) and additionally
 install Elasticsearch plugin.
 
 ``` {.CodeRay}

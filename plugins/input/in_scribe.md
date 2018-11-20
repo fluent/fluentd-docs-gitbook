@@ -36,8 +36,7 @@ structure and syntax of the configuration file.
 ### Example Usage
 
 We assume that you're already familiar with the Scribe protocol. This
-[Ruby example
-code](https://github.com/fluent/fluent-plugin-scribe/blob/master/bin/fluent-scribe-remote)
+[Ruby example code](https://github.com/fluent/fluent-plugin-scribe/blob/master/bin/fluent-scribe-remote)
 posts logs to `in_scribe`.
 
 Scribe's `category` field becomes the `tag` of the Fluentd event log and

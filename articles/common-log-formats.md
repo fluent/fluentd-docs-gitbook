@@ -104,8 +104,7 @@ Give us a shout on
 [GitHub](https://github.com/fluent/fluentd-docs/issues?state=open),
 [Twitter](http://twitter.com/fluentd) or [the mailing
 list](https://groups.google.com/forum/#!forum/fluentd). Better yet, we
-always welcome a [pull
-request](https://github.com/fluent/fluentd-docs/pulls)!
+always welcome a [pull request](https://github.com/fluent/fluentd-docs/pulls)!
 
 
 ------------------------------------------------------------------------

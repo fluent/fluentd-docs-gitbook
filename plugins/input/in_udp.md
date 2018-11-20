@@ -24,8 +24,7 @@ structure and syntax of the configuration file.
 We\'ve observed the drastic performance improvements on Linux, with
 proper kernel parameter settings (e.g. \`net.core.rmem\_max\`
 parameter). If you have high-volume UDP traffic, please make sure to
-follow the instruction described at [Before Installing
-Fluentd](/articles/before-install.md).
+follow the instruction described at [Before Installing Fluentd](/articles/before-install.md).
 
 ## Parameters
 
@@ -89,8 +88,7 @@ For example, you can see bigger RcvbufErrors number via `netstat -su`.
 
 This means in\_udp with one process can't handle such traffic. Try
 [fluent-plugin-multiprocess](https://github.com/fluent/fluent-plugin-multiprocess)
-to resolve the problem. See [issue
-1334](https://github.com/fluent/fluentd/issues/1334) for more detail.
+to resolve the problem. See [issue 1334](https://github.com/fluent/fluentd/issues/1334) for more detail.
 
 
 ------------------------------------------------------------------------

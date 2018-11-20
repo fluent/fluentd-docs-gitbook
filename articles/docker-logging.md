@@ -11,15 +11,13 @@ analysis over the registers, or in the other side, if the application
 have multiple instances running, the escenario becomes even more
 complex.
 
-On Docker v1.6, the concept of **[logging
-drivers](https://docs.docker.com/engine/admin/logging/overview/)** was
+On Docker v1.6, the concept of **[logging drivers](https://docs.docker.com/engine/admin/logging/overview/)** was
 introduced, basically the Docker engine is aware about output interfaces
 that manage the application messages.
 
 ![](http://www.fluentd.org/assets/img/recipes/fluentd_docker.png)
 
-For Docker v1.8, we have implemented a native **[Fluentd Docker logging
-driver](https://docs.docker.com/engine/admin/logging/fluentd/)**, now
+For Docker v1.8, we have implemented a native **[Fluentd Docker logging driver](https://docs.docker.com/engine/admin/logging/fluentd/)**, now
 you are able to have an unified and structured logging system with the
 simplicity and high performance [Fluentd](http://fluentd.org).
 Currently, fluentd logging driver doesn\'t support sub-second precision.
@@ -33,8 +31,7 @@ started make sure you have the following prerequisites:
 
 -   A basic understanding of [Fluentd](http://www.fluentd.org)
 -   A basic undersatnding of Docker
--   A basic understanding of [Docker logging
-    drivers](https://docs.docker.com/engine/admin/logging/overview/)
+-   A basic understanding of [Docker logging drivers](https://docs.docker.com/engine/admin/logging/overview/)
 -   Docker v1.8+
 
 This article launches Fluentd as standard process, not a container.
@@ -193,8 +190,7 @@ instead.
 
 ## Driver options
 
-The [Fluentd logging
-driver](https://docs.docker.com/engine/admin/logging/fluentd/) support
+The [Fluentd logging driver](https://docs.docker.com/engine/admin/logging/fluentd/) support
 more options through the *--log-opt* Docker command line argument:
 
 -   fluentd-address

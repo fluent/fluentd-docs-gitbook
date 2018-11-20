@@ -26,8 +26,7 @@ structure and syntax of the configuration file.
 
 We\'ve observed the drastic performance improvements on Linux, with
 proper kernel parameter settings. If you have high-volume TCP traffic,
-please make sure to follow the instruction described at [Before
-Installing Fluentd](/articles/before-install.md).
+please make sure to follow the instruction described at [Before Installing Fluentd](/articles/before-install.md).
 
 ## Parameters
 
@@ -94,8 +93,7 @@ then got parsed result like below:
 {"field1":"123456","field2":"awesome}
 ```
 
-`in_tcp` uses parser plugin to parse the payload. See [parser
-article](/plugins/parser/parser-plugin-overview.md) for more detail.
+`in_tcp` uses parser plugin to parse the payload. See [parser article](/plugins/parser/parser-plugin-overview.md) for more detail.
 
 #### log\_level option
 

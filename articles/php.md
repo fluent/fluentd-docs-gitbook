@@ -23,8 +23,7 @@ Please refer to the following documents to install fluentd.
 
 ## Modifying the Config File
 
-Next, please configure Fluentd to use the [forward Input
-plugin](/plugins/input/in_forward.md) as its data source.
+Next, please configure Fluentd to use the [forward Input plugin](/plugins/input/in_forward.md) as its data source.
 
 ``` {.CodeRay}
 # Unix Domain Socket Input

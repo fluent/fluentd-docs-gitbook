@@ -87,8 +87,7 @@ metadata to the logs.
 This repository has several presets for alpine/debian with popular
 outputs.
 
--   [DaemonSet preset
-    settings](https://github.com/fluent/fluentd-kubernetes-daemonset/tree/master/docker-image/v0.12)
+-   [DaemonSet preset settings](https://github.com/fluent/fluentd-kubernetes-daemonset/tree/master/docker-image/v0.12)
 
 ## Logging to Elasticsearch
 

@@ -23,8 +23,7 @@ place.
 Debian, optimized for the Raspberry Pi. Please install Raspbian on your
 Raspberry Pi by following the instructions in the blog post below:
 
--   [Getting Started with Raspberry Pi: Installing
-    Raspbian](http://www.andrewmunsell.com/blog/getting-started-raspberry-pi-install-raspbian)
+-   [Getting Started with Raspberry Pi: Installing Raspbian](http://www.andrewmunsell.com/blog/getting-started-raspberry-pi-install-raspbian)
 
 ## Install Fluentd
 
@@ -44,11 +43,9 @@ $ sudo fluent-gem install fluent-plugin-td
 
 ## Configure and Launch Fluentd
 
-Please sign up to Treasure Data from the [sign up
-page](https://console.treasuredata.com/users/sign_up). Its free plan
+Please sign up to Treasure Data from the [sign up page](https://console.treasuredata.com/users/sign_up). Its free plan
 lets you store and analyze millions of data points. You can get your
-account's API key from the [users
-page](https://console.treasuredata.com/users/current).
+account's API key from the [users page](https://console.treasuredata.com/users/current).
 
 Please prepare the `fluentd.conf` file with the following information,
 including your API key.
@@ -92,13 +89,11 @@ library.
 Now, access the databases page to confirm that your data has been
 uploaded to the cloud properly.
 
--   [Treasure Data: List of
-    Databases](https://console.treasuredata.com/databases)
+-   [Treasure Data: List of Databases](https://console.treasuredata.com/databases)
 
 You can now issue queries against the imported data.
 
--   [Treasure Data: New
-    Query](https://console.treasuredata.com/query_forms/new)
+-   [Treasure Data: New Query](https://console.treasuredata.com/query_forms/new)
 
 For example, these queries calculate the average sensor1 value and the
 sum of sensor2 values.

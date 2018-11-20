@@ -37,8 +37,7 @@ $ git push heroku master
 ## With Treasure Data as a Backend
 
 Since [Treasure Data](http://www.treasuredata.com), the primary sponsor
-of Fluentd, is a [Heroku Addons
-provider](https://addons.heroku.com/treasure-data), some of you came
+of Fluentd, is a [Heroku Addons provider](https://addons.heroku.com/treasure-data), some of you came
 here to stream data to Treasure Data through Fluentd.
 
 If

@@ -182,8 +182,7 @@ Please see the [logging article](/deployment/logging.md) for further details.
 
 -   [fluent-plugin-webhdfs
     repository](https://github.com/fluent/fluent-plugin-webhdfs)
--   [Slides: Fluentd and
-    WebHDFS](http://www.slideshare.net/tagomoris/fluentd-and-webhdfs)
+-   [Slides: Fluentd and WebHDFS](http://www.slideshare.net/tagomoris/fluentd-and-webhdfs)
 
 
 ------------------------------------------------------------------------
