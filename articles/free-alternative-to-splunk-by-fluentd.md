@@ -200,6 +200,7 @@ buffer, etc.) according to your needs.
 -   [Downloading Fluentd](http://www.fluentd.org/download)
 
 
+------------------------------------------------------------------------
 
 
 If this article is incorrect or outdated, or omits critical information,
