@@ -113,9 +113,9 @@
 
   * [Formatter]()
     * [Overview](/articles/formatter-plugin-overview.md)
-    * [formatter_out_file](/articles/formatter_out_file.md)
-    * [formatter_json](/articles/formatter_json.md)
-    * [formatter_ltsv](/articles/formatter_ltsv.md)
+      * [formatter_out_file](/articles/formatter_out_file.md)
+        * [formatter_json](/articles/formatter_json.md)
+          * [formatter_ltsv](/articles/formatter_ltsv.md)
     * [formatter_csv](/articles/formatter_csv.md)
     * [formatter_msgpack](/articles/formatter_msgpack.md)
     * [formatter_hash](/articles/formatter_hash.md)
