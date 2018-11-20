@@ -11,10 +11,9 @@ monitoring tools such as [Prometheus](https://prometheus.io/),
 Prometheus, since we will be collaborating more in the future under the
 [CNCF (Cloud Native Computing Foundation)](https://www.cncf.io/).
 
--   [Monitoring Fluentd (Prometheus)](monitoring-prometheus.md)
--   [Monitoring Fluentd
-    (Datadog)](https://docs.datadoghq.com/integrations/fluentd/)
--   [Monitoring Fluentd (REST API)](monitoring-rest-api.md)
+-   [Monitoring Fluentd (Prometheus)](/articles/monitoring-prometheus.md)
+-   [Monitoring Fluentd (Datadog)](https://docs.datadoghq.com/integrations/fluentd/)
+-   [Monitoring Fluentd (REST API)](/articles/monitoring-rest-api.md)
 
 ## Process Monitoring
 
