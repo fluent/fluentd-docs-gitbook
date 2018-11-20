@@ -85,8 +85,7 @@
     * [out_rewrite_tag_filter](/articles/out_rewrite_tag_filter.md)
     * [Others](/articles/out_others.md)
 
-  * [Buffer]()
-    * [Overview](/articles/buffer-plugin-overview.md)
+  * [Buffer](/articles/buffer-plugin-overview.md)
     * [buf_memory](/articles/buf_memory.md)
     * [buf_file](/articles/buf_file.md)
 
