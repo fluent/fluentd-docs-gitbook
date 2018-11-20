@@ -98,8 +98,7 @@ Now, checking the receiver's Fluentd's log (for td-agent, this would be
 
 -   [in\_secure\_forward](/plugins/input/in_secure_forward.md)
 -   [out\_secure\_forward](/plugins/output/out_secure_forward.md)
--   [the secure forward plugin's GitHub
-    repo](//github.com/fluent/fluent-plugin-secure-forward)
+-   [the secure forward plugin's GitHub repo](//github.com/fluent/fluent-plugin-secure-forward)
 
 
 ------------------------------------------------------------------------

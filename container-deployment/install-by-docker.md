@@ -1,11 +1,9 @@
 # Installing Fluentd with Docker
 
-This article explains how to use [Fluentd's official Docker
-image](https://hub.docker.com/r/fluent/fluentd/), maintained by
+This article explains how to use [Fluentd's official Docker image](https://hub.docker.com/r/fluent/fluentd/), maintained by
 [Treasure Data, Inc](http://www.treasuredata.com/).
 
--   [Fluentd's official Docker
-    image](https://hub.docker.com/r/fluent/fluentd/)
+-   [Fluentd's official Docker image](https://hub.docker.com/r/fluent/fluentd/)
 -   [Fluentd's official Docker image
     (Source)](https://github.com/fluent/fluentd-docker-image)
 
@@ -93,8 +91,7 @@ $ docker logs b495e527850c | tail -n 1
 Now you know how to use Fluentd via Docker. Here're a couple of Docker
 related documentations for Fluentd.
 
--   [Fluentd's official Docker
-    image](https://hub.docker.com/r/fluent/fluentd/)
+-   [Fluentd's official Docker image](https://hub.docker.com/r/fluent/fluentd/)
 -   [Fluentd's official Docker image
     (Source)](https://github.com/fluent/fluentd-docker-image)
 -   [Docker Logging Driver and Fluentd](/articles/docker-logging.md)

@@ -246,8 +246,7 @@ orchestration tools. Currently, Kubernetes has better integration with
 Fluentd, and we're working on making better integrations with other
 tools as well.
 
--   [Kubernetes's Logging
-    Overview](https://kubernetes.io/docs/user-guide/logging/overview/)
+-   [Kubernetes's Logging Overview](https://kubernetes.io/docs/user-guide/logging/overview/)
 
 
 ------------------------------------------------------------------------

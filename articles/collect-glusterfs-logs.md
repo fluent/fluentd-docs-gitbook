@@ -164,8 +164,7 @@ logs with [Kibana](http://www.elasticsearch.org/overview/kibana).
 
 ## Acknowledgement
 
-This article is inspired by [Daisuke Sasaki's article on Classmethod's
-website](http://dev.classmethod.jp/cloud/aws/glusterfs-with-fluentd/).
+This article is inspired by [Daisuke Sasaki's article on Classmethod's website](http://dev.classmethod.jp/cloud/aws/glusterfs-with-fluentd/).
 Thanks Daisuke!
 
 ## Learn More
