@@ -137,8 +137,7 @@ fluentd/td-agent as an administrator.
 This page doesn't describe all the possible configurations. If you want
 to know about other configurations, please check the link below.
 
--   [fluent-plugin-windows-eventlog
-    repository](https://github.com/fluent/fluent-plugin-windows-eventlog)
+-   [fluent-plugin-windows-eventlog repository](https://github.com/fluent/fluent-plugin-windows-eventlog)
 
 
 ------------------------------------------------------------------------

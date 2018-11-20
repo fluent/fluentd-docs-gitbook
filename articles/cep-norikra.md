@@ -145,8 +145,7 @@ name of set of events as same as table name of RDBMS.
 The `<default>...</default>` section specifies which fields are sent to
 the Norikra server. We can also specify these sets per target with
 `<target NAME>...</target>`. For information on the additional options
-available, please refer to the [fluent-plugin-norikra
-documentation](https://github.com/norikra/fluent-plugin-norikra).
+available, please refer to the [fluent-plugin-norikra documentation](https://github.com/norikra/fluent-plugin-norikra).
 
 
 ## Test
@@ -264,8 +263,7 @@ stream processing environment that can handle real workloads.
 -   [Fluentd Get Started](/articles/quickstart.md)
 -   [Norikra: Query Syntax](http://norikra.github.io/query.html)
 -   [Norikra: Query Examples](http://norikra.github.io/examples.html)
--   [Slides:
-    fluent-plugin-norikra](http://www.slideshare.net/tagomoris/fluentpluginnorikra-fluentdcasual)
+-   [Slides: fluent-plugin-norikra](http://www.slideshare.net/tagomoris/fluentpluginnorikra-fluentdcasual)
 
 
 ------------------------------------------------------------------------

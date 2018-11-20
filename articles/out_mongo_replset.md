@@ -207,8 +207,7 @@ articles.
 
 ## Further Readings
 
--   [fluent-plugin-webhdfs
-    mongo](https://github.com/fluent/fluent-plugin-mongo)
+-   [fluent-plugin-webhdfs mongo](https://github.com/fluent/fluent-plugin-mongo)
 
 
 ------------------------------------------------------------------------

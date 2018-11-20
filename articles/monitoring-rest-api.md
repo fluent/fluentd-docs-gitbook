@@ -74,8 +74,7 @@ its monitoring agent `dd-agent` has native integration with Fluentd.
 
 Please refer this documentation for more details.
 
--   [Datadog-Fluentd
-    Integration](http://docs.datadoghq.com/integrations/fluentd/)
+-   [Datadog-Fluentd Integration](http://docs.datadoghq.com/integrations/fluentd/)
 
 
 ------------------------------------------------------------------------

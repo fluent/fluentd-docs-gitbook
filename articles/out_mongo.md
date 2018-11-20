@@ -208,8 +208,7 @@ articles.
 
 ## Further Reading
 
--   [fluent-plugin-mongo
-    repository](https://github.com/fluent/fluent-plugin-mongo)
+-   [fluent-plugin-mongo repository](https://github.com/fluent/fluent-plugin-mongo)
 
 
 ------------------------------------------------------------------------

@@ -196,8 +196,7 @@ section](https://github.com/uken/fluent-plugin-elasticsearch#troubleshooting).
 
 ## Further Reading
 
--   [fluent-plugin-elasticsearch
-    repository](https://github.com/uken/fluent-plugin-elasticsearch)
+-   [fluent-plugin-elasticsearch repository](https://github.com/uken/fluent-plugin-elasticsearch)
 
 
 ------------------------------------------------------------------------
