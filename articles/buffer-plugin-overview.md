@@ -184,8 +184,7 @@ Let's use elasticsearch output plugin, `out_elasticsearch`, for the
 detailed explanation.
 
 `out_elasticsearch` uses MessagePack for buffer's serialization(NOTE
-that this depends on plugin). On the other hand, [Elasticsearch's bulk
-API](https://www.elastic.co/guide/en/elasticsearch/reference/current/docs-bulk.html)
+that this depends on plugin). On the other hand, [Elasticsearch's bulk API](https://www.elastic.co/guide/en/elasticsearch/reference/current/docs-bulk.html)
 requires json based payload. It means one MessagePack-ed record is
 converted into 2 json lines. So the payload size is larger than buffer's
 chunk size.
