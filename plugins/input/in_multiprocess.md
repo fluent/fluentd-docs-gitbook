@@ -40,7 +40,7 @@ must install fluent-plugin-multiprocess manually.
   </process>
 </source>
 ```
-Please see the [Config File](/articles/config-file.md) article for the basic
+Please see the [Config File](/configuration/config-file.md) article for the basic
 structure and syntax of the configuration file.
 
 Especially for daemonized fluentd (ex: td-agent), \`\--log\` option MUST
@@ -91,7 +91,7 @@ The `log_level` option allows the user to set different levels of
 logging for each plugin. The supported log levels are: `fatal`, `error`,
 `warn`, `info`, `debug`, and `trace`.
 
-Please see the [logging article](/articles/logging.md) for further details.
+Please see the [logging article](/deployment/logging.md) for further details.
 
 
 ------------------------------------------------------------------------

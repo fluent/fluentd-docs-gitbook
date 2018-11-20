@@ -1,9 +1,9 @@
 # Input Plugin Overview
 
-Fluentd has 6 types of plugins: [Input](/articles/input-plugin-overview.md),
-[Parser](/articles/parser-plugin-overview.md), [Filter](/articles/filter-plugin-overview.md),
-[Output](/articles/output-plugin-overview.md), [Formatter](/articles/formatter-plugin-overview.md)
-and [Buffer](/articles/buffer-plugin-overview.md). This article gives an overview of
+Fluentd has 6 types of plugins: [Input](/plugins/input/input-plugin-overview.md),
+[Parser](/plugins/parser/parser-plugin-overview.md), [Filter](/plugins/filter/filter-plugin-overview.md),
+[Output](/plugins/output/output-plugin-overview.md), [Formatter](/plugins/formatter/formatter-plugin-overview.md)
+and [Buffer](/plugins/buffer/buffer-plugin-overview.md). This article gives an overview of
 Input Plugin.
 
 
@@ -16,12 +16,12 @@ data sources.
 
 ## List of Input Plugins
 
--   [in\_forward](/articles/in_forward.md)
--   [in\_unix](/articles/in_unix.md)
--   [in\_http](/articles/in_http.md)
--   [in\_tail](/articles/in_tail.md)
--   [in\_exec](/articles/in_exec.md)
--   [in\_syslog](/articles/in_syslog.md)
+-   [in\_forward](/plugins/input/in_forward.md)
+-   [in\_unix](/plugins/input/in_unix.md)
+-   [in\_http](/plugins/input/in_http.md)
+-   [in\_tail](/plugins/input/in_tail.md)
+-   [in\_exec](/plugins/input/in_exec.md)
+-   [in\_syslog](/plugins/input/in_syslog.md)
 
 ## Other Input Plugins
 

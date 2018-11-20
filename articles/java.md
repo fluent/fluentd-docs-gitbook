@@ -24,7 +24,7 @@ Please refer to the following documents to install fluentd.
 ## Modifying the Config File
 
 Next, please configure Fluentd to use the [forward Input
-plugin](/articles/in_forward.md) as its data source.
+plugin](/plugins/input/in_forward.md) as its data source.
 
 ``` {.CodeRay}
 <source>
@@ -91,13 +91,13 @@ $ java -jar test.jar
 ```
 
 The logs should be output to `/var/log/td-agent/td-agent.log` or stdout
-of the Fluentd process via the [stdout Output plugin](/articles/out_stdout.md).
+of the Fluentd process via the [stdout Output plugin](/plugins/output/out_stdout.md).
 
 ## Production Deployments
 
 ### Output Plugins
 
-Various [output plugins](/articles/output-plugin-overview.md) are available for
+Various [output plugins](/plugins/output/output-plugin-overview.md) are available for
 writing records to other destinations:
 
 -   Examples
@@ -105,10 +105,10 @@ writing records to other destinations:
     -   [Store Apache Logs into MongoDB](/articles/apache-to-mongodb.md)
     -   [Data Collection into HDFS](/articles/http-to-hdfs.md)
 -   List of Plugin References
-    -   [Output to Another Fluentd](/articles/out_forward.md)
-    -   [Output to MongoDB](/articles/out_mongo.md) or [MongoDB ReplicaSet](/articles/out_mongo_replset.md)
-    -   [Output to Hadoop](/articles/out_webhdfs.md)
-    -   [Output to File](/articles/out_file.md)
+    -   [Output to Another Fluentd](/plugins/output/out_forward.md)
+    -   [Output to MongoDB](/plugins/output/out_mongo.md) or [MongoDB ReplicaSet](/plugins/output/out_mongo_replset.md)
+    -   [Output to Hadoop](/plugins/output/out_webhdfs.md)
+    -   [Output to File](/plugins/output/out_file.md)
     -   [etc...](http://fluentd.org/plugin/)
 
 ### High-Availability Configurations of Fluentd
@@ -117,14 +117,14 @@ For high-traffic websites (more than 5 application nodes), we recommend
 using a high availability configuration of td-agent. This will improve
 data transfer reliability and query performance.
 
--   [High-Availability Configurations of Fluentd](/articles/high-availability.md)
+-   [High-Availability Configurations of Fluentd](/deployment/high-availability.md)
 
 ### Monitoring
 
 Monitoring Fluentd itself is also important. The article below describes
 general monitoring methods for td-agent.
 
--   [Monitoring Fluentd](/articles/monitoring.md)
+-   [Monitoring Fluentd](/deployment/monitoring.md)
 
 
 ------------------------------------------------------------------------

@@ -1,7 +1,7 @@
 # Secure Forward Output Plugin
 
 The `out_secure_forward` output plugin sends messages via **SSL with
-authentication** (cf. [in\_secure\_forward](/articles/in_secure_forward.md)).
+authentication** (cf. [in\_secure\_forward](/plugins/input/in_secure_forward.md)).
 This document doesn\'t describe all parameters. If you want to know full
 features, check the Further Reading section.
 
@@ -10,7 +10,7 @@ features, check the Further Reading section.
 
 `out_secure_forward` is **not** included in either `td-agent` package or
 `fluentd` gem. In order to install it, please refer to the [Plugin
-Management](/articles/plugin-management.md) article.
+Management](/deployment/plugin-management.md) article.
 
 ## Example Configurations
 
@@ -409,15 +409,15 @@ with these parameters.
 
 ### buffer\_type
 
-The buffer type is `memory` by default ([buf\_memory](/articles/buf_memory.md)) for
-the ease of testing, however `file` ([buf\_file](/articles/buf_file.md)) buffer type
+The buffer type is `memory` by default ([buf\_memory](/plugins/buffer/buf_memory.md)) for
+the ease of testing, however `file` ([buf\_file](/plugins/buffer/buf_file.md)) buffer type
 is always recommended for the production deployments. If you use `file`
 buffer type, `buffer_path` parameter is required.
 
 ### buffer\_queue\_limit, buffer\_chunk\_limit
 
 The length of the chunk queue and the size of each chunk, respectively.
-Please see the [Buffer Plugin Overview](/articles/buffer-plugin-overview.md) article
+Please see the [Buffer Plugin Overview](/plugins/buffer/buffer-plugin-overview.md) article
 for the basic buffer structure. The default values are 64 and 8m,
 respectively. The suffixes "k" (KB), "m" (MB), and "g" (GB) can be used
 for buffer\_chunk\_limit.
@@ -476,7 +476,7 @@ The `log_level` option allows the user to set different levels of
 logging for each plugin. The supported log levels are: `fatal`, `error`,
 `warn`, `info`, `debug`, and `trace`.
 
-Please see the [logging article](/articles/logging.md) for further details.
+Please see the [logging article](/deployment/logging.md) for further details.
 
 ## Further Reading
 

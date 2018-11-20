@@ -78,7 +78,7 @@ export PATH=$PATH:/opt/td-agent/embedded/bin/
 to your `~/.bash_profile`.
 
 If you would like to find out more about plugin management, please take
-a look at the [Plugin Management](/articles/plugin-management.md) article.
+a look at the [Plugin Management](/deployment/plugin-management.md) article.
 
 ### I installed the plugin and it updates fluentd from v0.12 to v1.x. Why?
 
@@ -87,7 +87,7 @@ Management](/articles/plugin-management#plugin-version-management).
 
 ### How can I match (send) an event to multiple outputs?
 
-You can use the `copy` [output plugin](/articles/out_copy.md) to send the
+You can use the `copy` [output plugin](/plugins/output/out_copy.md) to send the
 same event to multiple output destinations.
 
 ### How can I use environment variables to configure parameters dynamically?
@@ -118,8 +118,8 @@ This means you emit the event but no `<match>` directive for emitted
 event. For example, if you emit the event with `foo.bar` tag, you need
 to define `<match>` for `foo.bar` tag like `<match foo.**>`.
 
-See also: [Life of a Fluentd event](/articles/life-of-a-fluentd-event.md) or [Config
-File](/articles/config-file.md)
+See also: [Life of a Fluentd event](/overview/life-of-a-fluentd-event.md) or [Config
+File](/configuration/config-file.md)
 
 ### File buffer doesn't work properly, why?
 

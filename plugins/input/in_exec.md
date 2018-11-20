@@ -24,7 +24,7 @@ process is required.
   run_interval 10s
 </source>
 ```
-Please see the [Config File](/articles/config-file.md) article for the basic
+Please see the [Config File](/configuration/config-file.md) article for the basic
 structure and syntax of the configuration file.
 
 ## Parameters
@@ -46,7 +46,7 @@ The following formats are supported:
 -   tsv (default)
 -   json
 -   msgpack
--   [parser plugin formats](/articles/parser-plugin-overview.md), e.g. ltsv, none.
+-   [parser plugin formats](/plugins/parser/parser-plugin-overview.md), e.g. ltsv, none.
 
 When using the tsv format, please also specify the comma-separated
 `keys` parameter.
@@ -91,7 +91,7 @@ The `log_level` option allows the user to set different levels of
 logging for each plugin. The supported log levels are: `fatal`, `error`,
 `warn`, `info`, `debug`, and `trace`.
 
-Please see the [logging article](/articles/logging.md) for further details.
+Please see the [logging article](/deployment/logging.md) for further details.
 
 ## Real World Use Case: using in\_exec to scrape Hacker News Top Page
 

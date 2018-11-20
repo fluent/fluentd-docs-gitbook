@@ -1,9 +1,9 @@
 # Output Plugin Overview
 
-Fluentd has 6 types of plugins: [Input](/articles/input-plugin-overview.md),
-[Parser](/articles/parser-plugin-overview.md), [Filter](/articles/filter-plugin-overview.md),
-[Output](/articles/output-plugin-overview.md), [Formatter](/articles/formatter-plugin-overview.md)
-and [Buffer](/articles/buffer-plugin-overview.md). This article gives an overview of
+Fluentd has 6 types of plugins: [Input](/plugins/input/input-plugin-overview.md),
+[Parser](/plugins/parser/parser-plugin-overview.md), [Filter](/plugins/filter/filter-plugin-overview.md),
+[Output](/plugins/output/output-plugin-overview.md), [Formatter](/plugins/formatter/formatter-plugin-overview.md)
+and [Buffer](/plugins/buffer/buffer-plugin-overview.md). This article gives an overview of
 Output Plugin.
 
 
@@ -23,29 +23,29 @@ Time Sliced.
 ![](http://image.slidesharecdn.com/fluentdmeetup-diveintofluentplugin-120203210125-phpapp02/95/slide-60-728.jpg)
 
 The output plugin's buffer behavior (if any) is defined by a separate
-[Buffer plugin](/articles/buffer-plugin-overview.md). Different buffer plugins can be
+[Buffer plugin](/plugins/buffer/buffer-plugin-overview.md). Different buffer plugins can be
 chosen for each output plugin. Some output plugins are fully customized
 and do not use buffers.
 
 ## List of Non-Buffered Output Plugins
 
--   [out\_copy](/articles/out_copy.md)
--   [out\_null](/articles/out_null.md)
--   [out\_roundrobin](/articles/out_roundrobin.md)
--   [out\_stdout](/articles/out_stdout.md)
+-   [out\_copy](/plugins/output/out_copy.md)
+-   [out\_null](/plugins/output/out_null.md)
+-   [out\_roundrobin](/plugins/output/out_roundrobin.md)
+-   [out\_stdout](/plugins/output/out_stdout.md)
 
 ## List of Buffered Output Plugins
 
--   [out\_exec\_filter](/articles/out_exec_filter.md)
--   [out\_forward](/articles/out_forward.md)
--   [out\_mongo](/articles/out_mongo.md) or [out\_mongo\_replset](/articles/out_mongo_replset.md)
+-   [out\_exec\_filter](/plugins/output/out_exec_filter.md)
+-   [out\_forward](/plugins/output/out_forward.md)
+-   [out\_mongo](/plugins/output/out_mongo.md) or [out\_mongo\_replset](/plugins/output/out_mongo_replset.md)
 
 ## List of Time Sliced Output Plugins
 
--   [out\_exec](/articles/out_exec.md)
--   [out\_file](/articles/out_file.md)
--   [out\_s3](/articles/out_s3.md)
--   [out\_webhdfs](/articles/out_webhdfs.md)
+-   [out\_exec](/plugins/output/out_exec.md)
+-   [out\_file](/plugins/output/out_file.md)
+-   [out\_s3](/plugins/output/out_s3.md)
+-   [out\_webhdfs](/plugins/output/out_webhdfs.md)
 
 ## Other Plugins
 
@@ -61,15 +61,15 @@ with these parameters.
 
 ### buffer\_type
 
-The buffer type is `memory` by default ([buf\_memory](/articles/buf_memory.md)) for
-the ease of testing, however `file` ([buf\_file](/articles/buf_file.md)) buffer type
+The buffer type is `memory` by default ([buf\_memory](/plugins/buffer/buf_memory.md)) for
+the ease of testing, however `file` ([buf\_file](/plugins/buffer/buf_file.md)) buffer type
 is always recommended for the production deployments. If you use `file`
 buffer type, `buffer_path` parameter is required.
 
 ### buffer\_queue\_limit, buffer\_chunk\_limit
 
 The length of the chunk queue and the size of each chunk, respectively.
-Please see the [Buffer Plugin Overview](/articles/buffer-plugin-overview.md) article
+Please see the [Buffer Plugin Overview](/plugins/buffer/buffer-plugin-overview.md) article
 for the basic buffer structure. The default values are 64 and 8m,
 respectively. The suffixes "k" (KB), "m" (MB), and "g" (GB) can be used
 for buffer\_chunk\_limit.
@@ -169,14 +169,14 @@ needed.
 
 ### buffer\_type
 
-The buffer type is `file` by default ([buf\_file](/articles/buf_file.md)). The
-`memory` ([buf\_memory](/articles/buf_memory.md)) buffer type can be chosen as well.
+The buffer type is `file` by default ([buf\_file](/plugins/buffer/buf_file.md)). The
+`memory` ([buf\_memory](/plugins/buffer/buf_memory.md)) buffer type can be chosen as well.
 If you use `file` buffer type, `buffer_path` parameter is required.
 
 ### buffer\_queue\_limit, buffer\_chunk\_limit
 
 The length of the chunk queue and the size of each chunk, respectively.
-Please see the [Buffer Plugin Overview](/articles/buffer-plugin-overview.md) article
+Please see the [Buffer Plugin Overview](/plugins/buffer/buffer-plugin-overview.md) article
 for the basic buffer structure. The default values are 64 and 8m,
 respectively. The suffixes "k" (KB), "m" (MB), and "g" (GB) can be used
 for buffer\_chunk\_limit.

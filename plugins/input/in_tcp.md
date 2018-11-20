@@ -21,7 +21,7 @@ process is required.
   delimiter \n # optional. \n (newline) by default
 </source>
 ```
-Please see the [Config File](/articles/config-file.md) article for the basic
+Please see the [Config File](/configuration/config-file.md) article for the basic
 structure and syntax of the configuration file.
 
 We\'ve observed the drastic performance improvements on Linux, with
@@ -95,7 +95,7 @@ then got parsed result like below:
 ```
 
 `in_tcp` uses parser plugin to parse the payload. See [parser
-article](/articles/parser-plugin-overview.md) for more detail.
+article](/plugins/parser/parser-plugin-overview.md) for more detail.
 
 #### log\_level option
 
@@ -103,7 +103,7 @@ The `log_level` option allows the user to set different levels of
 logging for each plugin. The supported log levels are: `fatal`, `error`,
 `warn`, `info`, `debug`, and `trace`.
 
-Please see the [logging article](/articles/logging.md) for further details.
+Please see the [logging article](/deployment/logging.md) for further details.
 
 
 ------------------------------------------------------------------------

@@ -1,9 +1,9 @@
 # Filter Plugin Overview
 
-Fluentd has 6 types of plugins: [Input](/articles/input-plugin-overview.md),
-[Parser](/articles/parser-plugin-overview.md), [Filter](/articles/filter-plugin-overview.md),
-[Output](/articles/output-plugin-overview.md), [Formatter](/articles/formatter-plugin-overview.md)
-and [Buffer](/articles/buffer-plugin-overview.md). This article gives an overview of
+Fluentd has 6 types of plugins: [Input](/plugins/input/input-plugin-overview.md),
+[Parser](/plugins/parser/parser-plugin-overview.md), [Filter](/plugins/filter/filter-plugin-overview.md),
+[Output](/plugins/output/output-plugin-overview.md), [Formatter](/plugins/formatter/formatter-plugin-overview.md)
+and [Buffer](/plugins/buffer/buffer-plugin-overview.md). This article gives an overview of
 Filter Plugin.
 
 
@@ -55,13 +55,13 @@ Only the events whose "message" field contain "cool" get the new field
 "hostname" with the machine's hostname as its value.
 
 Users can create their own custom plugins with a bit of Ruby. See [this
-section](/articles/plugin-development.md/#filter-plugins) for more information.
+section](/developer/plugin-development.md/#filter-plugins) for more information.
 
 ## List of Filter Plugins
 
--   [grep](/articles/filter_grep.md)
--   [record-transformer](/articles/filter_record_transformer.md)
--   [filter\_stdout](/articles/filter_stdout.md)
+-   [grep](/plugins/filter/filter_grep.md)
+-   [record-transformer](/plugins/filter/filter_record_transformer.md)
+-   [filter\_stdout](/plugins/filter/filter_stdout.md)
 
 
 ------------------------------------------------------------------------

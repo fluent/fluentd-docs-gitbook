@@ -33,7 +33,7 @@ first.
 2.  **Make sure it has ports open for TCP. In the following example, we
     assume port 5140 is open.**
 3.  [Install td-agent](/articles/install-by-deb.md). (See
-    [here](/articles/installation.md) for various ways to install
+    [here](/overview/installation.md) for various ways to install
     Fluentd/Treasure Agent)
 4.  Edit td-agent's configuration file located at
     `/etc/td-agent/td-agent.conf` and add the following lines
@@ -132,7 +132,7 @@ first.
 If you are sending JSON logs on Windows to Fluentd, Fluentd can parse
 them as they come in. To do, simply change Fluentd's configuration as
 follows. Note the change from `format none` to `format json`. (See [this
-article](/articles/parser-plugin-overview.md) for more details about the parser
+article](/plugins/parser/parser-plugin-overview.md) for more details about the parser
 plugins)
 
 ``` {.CodeRay}

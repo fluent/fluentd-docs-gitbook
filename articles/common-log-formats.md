@@ -1,7 +1,7 @@
 # Common Log Formats and How To Parse Them
 
 This page is a glossary of common log formats that can be parsed with
-the [Tail input plugin](/articles/in_tail.md).
+the [Tail input plugin](/plugins/input/in_tail.md).
 
 -   Apache Access Log
 
@@ -32,7 +32,7 @@ the [Tail input plugin](/articles/in_tail.md).
 
     Depending on your particular error log format, you may need to
     adjust the regular expression above. You can test your format using
-    [fluentd-ui's in\_tail editor](/articles/fluentd-ui.md/#intail-setting)
+    [fluentd-ui's in\_tail editor](/deployment/fluentd-ui.md/#intail-setting)
     or [Fluentular](http://fluentular.herokuapp.com).
 
 -   Maillog

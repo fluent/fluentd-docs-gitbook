@@ -17,7 +17,7 @@ process is required.
   tag system
 </source>
 ```
-Please see the [Config File](/articles/config-file.md) article for the basic
+Please see the [Config File](/configuration/config-file.md) article for the basic
 structure and syntax of the configuration file.
 
 ### Example Usage
@@ -95,7 +95,7 @@ prefix and parse it.
 ### format
 
 The format of the log. This option is used to parse non-standard syslog
-formats using [parser plugins](/articles/parser-plugin-overview.md).
+formats using [parser plugins](/plugins/parser/parser-plugin-overview.md).
 
 ``` {.CodeRay}
 <source>
@@ -129,7 +129,7 @@ tag like "\<3\>". This option exists since some syslog daemons output
 logs without the priority tag preceding the message body.
 
 If you wish to parse syslog messages of arbitrary formats,
-[in\_tcp](/articles/in_tcp.md) or [in\_udp](/articles/in_udp.md) are recommended.
+[in\_tcp](/plugins/input/in_tcp.md) or [in\_udp](/plugins/input/in_udp.md) are recommended.
 
 ### include\_source\_host
 
@@ -158,7 +158,7 @@ The `log_level` option allows the user to set different levels of
 logging for each plugin. The supported log levels are: `fatal`, `error`,
 `warn`, `info`, `debug`, and `trace`.
 
-Please see the [logging article](/articles/logging.md) for further details.
+Please see the [logging article](/deployment/logging.md) for further details.
 
 ## TCP protocol and message delimiter
 

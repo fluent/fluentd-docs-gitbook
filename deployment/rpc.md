@@ -6,7 +6,7 @@ This article explains how `Fluentd` handles HTTP RPC.
 ## Overview
 
 HTTP RPC is one way of managing fluentd instance. Several provided RPCs
-are replacement of [signals](/articles/signals.md). The response body is JSON format.
+are replacement of [signals](/deployment/signals.md). The response body is JSON format.
 
 On signal unsupported environment, e.g. Windows, you can use RPC instead
 of signals.
@@ -33,20 +33,20 @@ $ curl http://127.0.0.1:24444/api/plugins.flushBuffers
 
 ### /api/processes.interruptWorkers
 
-Replacement of signal's [SIGINT](/articles/signals.md/#sigint-or-sigterm). Stop the daemon.
+Replacement of signal's [SIGINT](/deployment/signals.md/#sigint-or-sigterm). Stop the daemon.
 
 ### /api/processes.killWorkers
 
-Replacement of signal's [SIGTERM](/articles/signals.md/#sigint-or-sigterm). Stop the daemon.
+Replacement of signal's [SIGTERM](/deployment/signals.md/#sigint-or-sigterm). Stop the daemon.
 
 ### /api/plugins.flushBuffers
 
-Replacement of signal's [SIGUSR1](/articles/signals.md/#sigusr1). Flushes buffered
+Replacement of signal's [SIGUSR1](/deployment/signals.md/#sigusr1). Flushes buffered
 messages.
 
 ### /api/config.reload
 
-Replacement of signal's [SIGHUP](/articles/signals.md/#sighup). reload configuration.
+Replacement of signal's [SIGHUP](/deployment/signals.md/#sighup). reload configuration.
 
 
 ------------------------------------------------------------------------

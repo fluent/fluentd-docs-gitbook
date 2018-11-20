@@ -67,8 +67,8 @@ config file like below.
 The `log_level` option sets different levels of logging for each plugin.
 It can be set in each plugin's configuration file.
 
-For example, in order to debug [in\_tail](/articles/in_tail.md) but suppress all but
-fatal log messages for [in\_http](/articles/in_http.md), their respective `log_level`
+For example, in order to debug [in\_tail](/plugins/input/in_tail.md) but suppress all but
+fatal log messages for [in\_http](/plugins/input/in_http.md), their respective `log_level`
 options should be set as follows:
 
 ``` {.CodeRay}
@@ -87,7 +87,7 @@ options should be set as follows:
 If you don't specify the `log_level` parameter, the plugin will use the
 global log level.
 Some plugins haven\'t supported per-plugin logging yet. The [logging
-section of the Plugin Development article](/articles/plugin-development.md/#logging)
+section of the Plugin Development article](/developer/plugin-development.md/#logging)
 explains how to update such plugins to support the new log level system.
 
 ## Suppress repeated stacktrace
@@ -180,7 +180,7 @@ datadog, sentry, irc, etc.
 
 ### Case2: Use aggregation/monitoring server
 
-You can use [out\_forward](/articles/out_forward.md) to send Fluentd logs to a
+You can use [out\_forward](/plugins/output/out_forward.md) to send Fluentd logs to a
 monitoring server. The monitoring server can then filter and send the
 logs to your notification system: chat, irc, etc.
 

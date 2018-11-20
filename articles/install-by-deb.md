@@ -148,7 +148,7 @@ following tutorials to learn how to collect your data from various data
 sources.
 
 -   Basic Configuration
-    -   [Config File](/articles/config-file.md)
+    -   [Config File](/configuration/config-file.md)
 -   Application Logs
     -   [Ruby](/articles/ruby.md), [Java](/articles/java.md), [Python](/articles/python.md), [PHP](/articles/php.md),
         [Perl](/articles/perl.md), [Node.js](/articles/nodejs.md), [Scala](/articles/scala.md)

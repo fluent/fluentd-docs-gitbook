@@ -234,7 +234,7 @@ Since v0.14, `${key}` short-cut syntax is removed.
 
 ## Learn More
 
--   [Filter Plugin Overview](/articles/filter-plugin-overview.md)
+-   [Filter Plugin Overview](/plugins/filter/filter-plugin-overview.md)
 
 
 

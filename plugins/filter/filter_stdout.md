@@ -227,7 +227,7 @@ For this format, the following common parameters are also supported.
 #### single\_value
 
 Output the value of a single field instead of the whole record. Often
-used in conjunction with [in\_tail](/articles/in_tail.md)'s `format none`.
+used in conjunction with [in\_tail](/plugins/input/in_tail.md)'s `format none`.
 
 ``` {.CodeRay}
 value1\n
@@ -352,11 +352,11 @@ The `log_level` option allows the user to set different levels of
 logging for each plugin. The supported log levels are: `fatal`, `error`,
 `warn`, `info`, `debug`, and `trace`.
 
-Please see the [logging article](/articles/logging.md) for further details.
+Please see the [logging article](/deployment/logging.md) for further details.
 
 ## Learn More
 
--   [Filter Plugin Overview](/articles/filter-plugin-overview.md)
+-   [Filter Plugin Overview](/plugins/filter/filter-plugin-overview.md)
 
 
 ------------------------------------------------------------------------

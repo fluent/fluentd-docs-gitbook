@@ -10,7 +10,7 @@ aggregate semi-structured logs in real-time.
 ## Prerequisites
 
 1.  An OSX or Linux machine
-2.  Fluentd is installed ([installation guide](/articles/installation.md))
+2.  Fluentd is installed ([installation guide](/overview/installation.md))
 3.  Riak is installed
 4.  An Apache web server log
 

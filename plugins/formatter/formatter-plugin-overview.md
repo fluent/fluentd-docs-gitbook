@@ -1,9 +1,9 @@
 # Text Formatter Overview
 
-Fluentd has 6 types of plugins: [Input](/articles/input-plugin-overview.md),
-[Parser](/articles/parser-plugin-overview.md), [Filter](/articles/filter-plugin-overview.md),
-[Output](/articles/output-plugin-overview.md), [Formatter](/articles/formatter-plugin-overview.md)
-and [Buffer](/articles/buffer-plugin-overview.md). This article gives an overview of
+Fluentd has 6 types of plugins: [Input](/plugins/input/input-plugin-overview.md),
+[Parser](/plugins/parser/parser-plugin-overview.md), [Filter](/plugins/filter/filter-plugin-overview.md),
+[Output](/plugins/output/output-plugin-overview.md), [Formatter](/plugins/formatter/formatter-plugin-overview.md)
+and [Buffer](/plugins/buffer/buffer-plugin-overview.md). This article gives an overview of
 Formatter Plugin.
 
 
@@ -18,7 +18,7 @@ the user extend and re-use custom output formats.
 For an output plugin that supports Text Formatter, the `format`
 parameter can be used to change the output format.
 
-For example, by default, [out\_file](/articles/out_file.md) plugin outputs data as
+For example, by default, [out\_file](/plugins/output/out_file.md) plugin outputs data as
 
 ``` {.CodeRay}
 2014-08-25 00:00:00 +0000<TAB>foo.bar<TAB>{"k1":"v1", "k2":"v2"}
@@ -43,23 +43,23 @@ The output changes to
 i.e., each line is a single JSON object with "time" and "tag fields to
 retain the event's timestamp and tag.
 
-See [this section](/articles/plugin-development.md/#text-formatter-plugins) to learn
+See [this section](/developer/plugin-development.md/#text-formatter-plugins) to learn
 how to develop a custom formatter.
 
 ## List of Built-in Formatters
 
--   [out\_file](/articles/formatter_out_file.md)
--   [json](/articles/formatter_json.md)
--   [ltsv](/articles/formatter_ltsv.md)
--   [csv](/articles/formatter_csv.md)
--   [msgpack](/articles/formatter_msgpack.md)
--   [hash](/articles/formatter_hash.md)
--   [single\_value](/articles/formatter_single_value.md)
+-   [out\_file](/plugins/formatter/formatter_out_file.md)
+-   [json](/plugins/formatter/formatter_json.md)
+-   [ltsv](/plugins/formatter/formatter_ltsv.md)
+-   [csv](/plugins/formatter/formatter_csv.md)
+-   [msgpack](/plugins/formatter/formatter_msgpack.md)
+-   [hash](/plugins/formatter/formatter_hash.md)
+-   [single\_value](/plugins/formatter/formatter_single_value.md)
 
 ## List of Output Plugins with Text Formatter Support
 
--   [out\_file](/articles/out_file.md)
--   [out\_s3](/articles/out_s3.md)
+-   [out\_file](/plugins/output/out_file.md)
+-   [out\_s3](/plugins/output/out_s3.md)
 
 
 

@@ -1,9 +1,9 @@
 # Buffer Plugin Overview
 
-Fluentd has 6 types of plugins: [Input](/articles/input-plugin-overview.md),
-[Parser](/articles/parser-plugin-overview.md), [Filter](/articles/filter-plugin-overview.md),
-[Output](/articles/output-plugin-overview.md), [Formatter](/articles/formatter-plugin-overview.md)
-and [Buffer](/articles/buffer-plugin-overview.md). This article will provide a
+Fluentd has 6 types of plugins: [Input](/plugins/input/input-plugin-overview.md),
+[Parser](/plugins/parser/parser-plugin-overview.md), [Filter](/plugins/filter/filter-plugin-overview.md),
+[Output](/plugins/output/output-plugin-overview.md), [Formatter](/plugins/formatter/formatter-plugin-overview.md)
+and [Buffer](/plugins/buffer/buffer-plugin-overview.md). This article will provide a
 high-level overview of Buffer plugins.
 
 
@@ -145,7 +145,7 @@ Normally, the output plugin determines in which mode the buffer plugin
 operates. For example, `out_s3` and `out_file` will enable the
 time-slicing mode. For the list of output plugins which enable the
 time-slicing mode, see [this
-page](/articles/output-plugin-overview.md/#list-of-time-sliced-output-plugins).
+page](/plugins/output/output-plugin-overview.md/#list-of-time-sliced-output-plugins).
 
 ### FAQ
 
@@ -176,8 +176,8 @@ be ignored and fluentd would issue a warning.
 
 ## List of Buffer Plugins
 
--   [buf\_memory](/articles/buf_memory.md)
--   [buf\_file](/articles/buf_file.md)
+-   [buf\_memory](/plugins/buffer/buf_memory.md)
+-   [buf\_file](/plugins/buffer/buf_file.md)
 
 
 ------------------------------------------------------------------------

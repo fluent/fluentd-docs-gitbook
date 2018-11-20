@@ -3,7 +3,7 @@
 The `out_forward` Buffered Output plugin forwards events to other
 fluentd nodes. This plugin supports load-balancing and automatic
 fail-over (a.k.a. active-active backup). For replication, please use the
-[out\_copy](/articles/out_copy.md) plugin.
+[out\_copy](/plugins/output/out_copy.md) plugin.
 
 The `out_forward` plugin detects server faults using a "φ accrual
 failure detector" algorithm. You can customize the parameters of the
@@ -16,7 +16,7 @@ Do **NOT** use this plugin for inter-DC or public internet data transfer
 without secure connections. All the data is not encrypted, and this
 plugin is not designed for high-latency network environment. If you
 require a secure connection between nodes, please consider using
-[in\_secure\_forward](/articles/in_secure_forward.md).
+[in\_secure\_forward](/plugins/input/in_secure_forward.md).
 
 
 ## Example Configuration
@@ -52,7 +52,7 @@ process is required.
 </match>
 ```
 
-Please see the [Config File](/articles/config-file.md) article for the basic
+Please see the [Config File](/configuration/config-file.md) article for the basic
 structure and syntax of the configuration file.
 
 ## Parameters
@@ -180,15 +180,15 @@ with these parameters.
 
 ### buffer\_type
 
-The buffer type is `memory` by default ([buf\_memory](/articles/buf_memory.md)) for
-the ease of testing, however `file` ([buf\_file](/articles/buf_file.md)) buffer type
+The buffer type is `memory` by default ([buf\_memory](/plugins/buffer/buf_memory.md)) for
+the ease of testing, however `file` ([buf\_file](/plugins/buffer/buf_file.md)) buffer type
 is always recommended for the production deployments. If you use `file`
 buffer type, `buffer_path` parameter is required.
 
 ### buffer\_queue\_limit, buffer\_chunk\_limit
 
 The length of the chunk queue and the size of each chunk, respectively.
-Please see the [Buffer Plugin Overview](/articles/buffer-plugin-overview.md) article
+Please see the [Buffer Plugin Overview](/plugins/buffer/buffer-plugin-overview.md) article
 for the basic buffer structure. The default values are 64 and 8m,
 respectively. The suffixes "k" (KB), "m" (MB), and "g" (GB) can be used
 for buffer\_chunk\_limit.
@@ -247,7 +247,7 @@ The `log_level` option allows the user to set different levels of
 logging for each plugin. The supported log levels are: `fatal`, `error`,
 `warn`, `info`, `debug`, and `trace`.
 
-Please see the [logging article](/articles/logging.md) for further details.
+Please see the [logging article](/deployment/logging.md) for further details.
 
 ## Troubleshooting
 

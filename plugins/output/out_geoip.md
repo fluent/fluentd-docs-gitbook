@@ -111,15 +111,15 @@ with these parameters.
 
 ### buffer\_type
 
-The buffer type is `memory` by default ([buf\_memory](/articles/buf_memory.md)). The
-`file` ([buf\_file](/articles/buf_file.md)) buffer type can be chosen as well. Unlike
+The buffer type is `memory` by default ([buf\_memory](/plugins/buffer/buf_memory.md)). The
+`file` ([buf\_file](/plugins/buffer/buf_file.md)) buffer type can be chosen as well. Unlike
 many other output plugins, the `buffer_path` parameter MUST be specified
 when using `buffer_type file`.
 
 ### buffer\_queue\_limit, buffer\_chunk\_limit
 
 The length of the chunk queue and the size of each chunk, respectively.
-Please see the [Buffer Plugin Overview](/articles/buffer-plugin-overview.md) article
+Please see the [Buffer Plugin Overview](/plugins/buffer/buffer-plugin-overview.md) article
 for the basic buffer structure. The default values are 64 and 256m,
 respectively. The suffixes "k" (KB), "m" (MB), and "g" (GB) can be used
 for buffer\_chunk\_limit.
@@ -136,7 +136,7 @@ The `log_level` option allows the user to set different levels of
 logging for each plugin. The supported log levels are: `fatal`, `error`,
 `warn`, `info`, `debug`, and `trace`.
 
-Please see the [logging article](/articles/logging.md) for further details.
+Please see the [logging article](/deployment/logging.md) for further details.
 
 ## Use Cases
 

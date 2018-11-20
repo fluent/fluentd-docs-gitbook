@@ -4,7 +4,7 @@ The `out_mongo` Buffered Output plugin writes records into
 [MongoDB](http://mongodb.org/), the emerging document-oriented database
 system.
 If you\'re using ReplicaSet, please see the
-[out\_mongo\_replset](/articles/out_mongo_replset.md) article instead.
+[out\_mongo\_replset](/plugins/output/out_mongo_replset.md) article instead.
 
 This document doesn\'t describe all parameters. If you want to know full
 features, check the Further Reading section.
@@ -59,7 +59,7 @@ $ fluent-gem install fluent-plugin-mongo
 Please see the [Store Apache Logs into MongoDB](/articles/apache-to-mongodb.md)
 article for real-world use cases.
 
-Please see the [Config File](/articles/config-file.md) article for the basic
+Please see the [Config File](/configuration/config-file.md) article for the basic
 structure and syntax of the configuration file.
 
 ## Parameters
@@ -141,15 +141,15 @@ with these parameters.
 
 ### buffer\_type
 
-The buffer type is `memory` by default ([buf\_memory](/articles/buf_memory.md)) for
-the ease of testing, however `file` ([buf\_file](/articles/buf_file.md)) buffer type
+The buffer type is `memory` by default ([buf\_memory](/plugins/buffer/buf_memory.md)) for
+the ease of testing, however `file` ([buf\_file](/plugins/buffer/buf_file.md)) buffer type
 is always recommended for the production deployments. If you use `file`
 buffer type, `buffer_path` parameter is required.
 
 ### buffer\_queue\_limit, buffer\_chunk\_limit
 
 The length of the chunk queue and the size of each chunk, respectively.
-Please see the [Buffer Plugin Overview](/articles/buffer-plugin-overview.md) article
+Please see the [Buffer Plugin Overview](/plugins/buffer/buffer-plugin-overview.md) article
 for the basic buffer structure. The default values are 64 and 8m,
 respectively. The suffixes "k" (KB), "m" (MB), and "g" (GB) can be used
 for buffer\_chunk\_limit.
@@ -208,7 +208,7 @@ The `log_level` option allows the user to set different levels of
 logging for each plugin. The supported log levels are: `fatal`, `error`,
 `warn`, `info`, `debug`, and `trace`.
 
-Please see the [logging article](/articles/logging.md) for further details.
+Please see the [logging article](/deployment/logging.md) for further details.
 
 ## Further Reading
 

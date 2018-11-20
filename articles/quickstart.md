@@ -27,7 +27,7 @@ environment.
 -   [Install Fluentd by Chef](/articles/install-by-chef.md)
 -   [Install Fluentd from source](/articles/install-from-source.md)
 Fluentd v0.12 doesn\'t support Windows environment. Please see
-[Collecting Log Data from Windows](/articles/windows.md) for details. Fluentd v1.x
+[Collecting Log Data from Windows](/use-cases/windows.md) for details. Fluentd v1.x
 supports Windows.
 
 ## Step2: Use Cases
@@ -42,9 +42,9 @@ refer to the article(s) that suits your needs.
     -   [Data Collection to MongoDB](/articles/apache-to-mongodb.md)
     -   [Data Collection to HDFS](/articles/http-to-hdfs.md)
     -   [Data Archiving to Amazon S3](/articles/apache-to-s3.md)
-    -   [Windows Event Collection](/articles/windows.md)
+    -   [Windows Event Collection](/use-cases/windows.md)
 -   Basic Configuration
-    -   [Config File](/articles/config-file.md)
+    -   [Config File](/configuration/config-file.md)
 -   Application Logs
     -   [Ruby](/articles/ruby.md), [Java](/articles/java.md), [Python](/articles/python.md), [PHP](/articles/php.md),
         [Perl](/articles/perl.md), [Node.js](/articles/nodejs.md), [Scala](/articles/scala.md)
@@ -57,16 +57,16 @@ The articles shown below will provide detailed information for you to
 learn more about Fluentd.
 
 -   [Architecture Overview](//www.fluentd.org/architecture)
--   [Life of a Fluentd Event](/articles/life-of-a-fluentd-event.md)
+-   [Life of a Fluentd Event](/overview/life-of-a-fluentd-event.md)
 -   Plugin Overview
-    -   [Input Plugins](/articles/input-plugin-overview.md)
-    -   [Output Plugins](/articles/output-plugin-overview.md)
-    -   [Buffer Plugins](/articles/buffer-plugin-overview.md)
-    -   [Filter Plugins](/articles/filter-plugin-overview.md)
-    -   [Parser Plugins](/articles/parser-plugin-overview.md)
-    -   [Formatter Plugins](/articles/formatter-plugin-overview.md)
--   [High Availability Configuration](/articles/high-availability.md)
--   [FAQ](/articles/faq.md)
+    -   [Input Plugins](/plugins/input/input-plugin-overview.md)
+    -   [Output Plugins](/plugins/output/output-plugin-overview.md)
+    -   [Buffer Plugins](/plugins/buffer/buffer-plugin-overview.md)
+    -   [Filter Plugins](/plugins/filter/filter-plugin-overview.md)
+    -   [Parser Plugins](/plugins/parser/parser-plugin-overview.md)
+    -   [Formatter Plugins](/plugins/formatter/formatter-plugin-overview.md)
+-   [High Availability Configuration](/deployment/high-availability.md)
+-   [FAQ](/overview/faq.md)
 
 
 ------------------------------------------------------------------------

@@ -6,7 +6,7 @@
 -   [Before Installing Fluentd](/articles/before-install.md)
 
 
--   [Installing Fluentd with Docker](/articles/install-by-docker.md)
+-   [Installing Fluentd with Docker](/container-deployment/install-by-docker.md)
 
 
 -   [Installing Fluentd using RPM Package (Redhat Linux)](/articles/install-by-rpm.md)

@@ -3,7 +3,7 @@
 The `single_value` formatter plugin output the value of a single field
 instead of the whole record.
 
-This formatter is often used in conjunction with [in\_tail](/articles/in_tail.md)'s
+This formatter is often used in conjunction with [in\_tail](/plugins/input/in_tail.md)'s
 `format none`.
 
 

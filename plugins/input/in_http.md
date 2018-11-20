@@ -19,7 +19,7 @@ process is required.
   keepalive_timeout 10s
 </source>
 ```
-Please see the [Config File](/articles/config-file.md) article for the basic
+Please see the [Config File](/configuration/config-file.md) article for the basic
 structure and syntax of the configuration file.
 
 ### Example Usage
@@ -109,7 +109,7 @@ then got parsed result like below:
 ```
 
 `json`, `ltsv`, `tsv`, `csv` and `none` are also supported. Check
-[parser plugin overview](/articles/parser-plugin-overview.md) for more details.
+[parser plugin overview](/plugins/parser/parser-plugin-overview.md) for more details.
 
 #### log\_level option
 
@@ -117,7 +117,7 @@ The `log_level` option allows the user to set different levels of
 logging for each plugin. The supported log levels are: `fatal`, `error`,
 `warn`, `info`, `debug`, and `trace`.
 
-Please see the [logging article](/articles/logging.md) for further details.
+Please see the [logging article](/deployment/logging.md) for further details.
 
 ## Additional Features
 

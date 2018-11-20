@@ -12,7 +12,7 @@ logs that can't be written quickly are deleted.
   buffer_type memory
 </match>
 ```
-Please see the [Config File](/articles/config-file.md) article for the basic
+Please see the [Config File](/configuration/config-file.md) article for the basic
 structure and syntax of the configuration file.
 
 ## Parameters
@@ -25,13 +25,13 @@ The value must be `memory`.
 
 The size of each buffer chunk. The default is 8m. The suffixes "k" (KB),
 "m" (MB), and "g" (GB) can be used. Please see the [Buffer Plugin
-Overview](/articles/buffer-plugin-overview.md) article for the basic buffer
+Overview](/plugins/buffer/buffer-plugin-overview.md) article for the basic buffer
 structure.
 
 #### buffer\_queue\_limit
 
 The length limit of the chunk queue. Please see the [Buffer Plugin
-Overview](/articles/buffer-plugin-overview.md) article for the basic buffer
+Overview](/plugins/buffer/buffer-plugin-overview.md) article for the basic buffer
 structure. The default limit is 64 chunks.
 
 #### flush\_interval

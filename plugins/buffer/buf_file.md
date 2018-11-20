@@ -12,7 +12,7 @@ uses files to store buffer chunks on disk.
   buffer_path /var/log/fluent/myapp.*.buffer
 </match>
 ```
-Please see the [Config File](/articles/config-file.md) article for the basic
+Please see the [Config File](/configuration/config-file.md) article for the basic
 structure and syntax of the configuration file.
 
 ## Parameters
@@ -62,7 +62,7 @@ Here is the correct version to avoid prefix problem.
 
 The size of each buffer chunk. The default is 8m. The suffixes "k" (KB),
 "m" (MB), and "g" (GB) can be used. Please see the [Buffer Plugin
-Overview](/articles/buffer-plugin-overview.md) article for the basic buffer
+Overview](/plugins/buffer/buffer-plugin-overview.md) article for the basic buffer
 structure.
 
 The default value for Time Sliced Plugin is overwritten as 256m.
@@ -70,7 +70,7 @@ The default value for Time Sliced Plugin is overwritten as 256m.
 #### buffer\_queue\_limit
 
 The length limit of the chunk queue. Please see the [Buffer Plugin
-Overview](/articles/buffer-plugin-overview.md) article for the basic buffer
+Overview](/plugins/buffer/buffer-plugin-overview.md) article for the basic buffer
 structure. The default limit is 256 chunks.
 
 #### flush\_interval

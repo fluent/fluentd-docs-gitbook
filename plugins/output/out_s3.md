@@ -43,7 +43,7 @@ $ fluent-gem install fluent-plugin-s3
 Please see the [Store Apache Logs into Amazon S3](/articles/apache-to-s3.md) article
 for real-world use cases.
 
-Please see the [Config File](/articles/config-file.md) article for the basic
+Please see the [Config File](/configuration/config-file.md) article for the basic
 structure and syntax of the configuration file.
 
 Please make sure that you have **enough space in the buffer\_path
@@ -113,7 +113,7 @@ The most recent versions of the endpoints can be found
 
 The format of the S3 object. The default is `out_file`.
 
-See [formatter article](/articles/formatter-plugin-overview.md) for more detail.
+See [formatter article](/plugins/formatter/formatter-plugin-overview.md) for more detail.
 
 ### time\_format
 
@@ -205,14 +205,14 @@ needed.
 
 ### buffer\_type
 
-The buffer type is `file` by default ([buf\_file](/articles/buf_file.md)). The
-`memory` ([buf\_memory](/articles/buf_memory.md)) buffer type can be chosen as well.
+The buffer type is `file` by default ([buf\_file](/plugins/buffer/buf_file.md)). The
+`memory` ([buf\_memory](/plugins/buffer/buf_memory.md)) buffer type can be chosen as well.
 If you use `file` buffer type, `buffer_path` parameter is required.
 
 ### buffer\_queue\_limit, buffer\_chunk\_limit
 
 The length of the chunk queue and the size of each chunk, respectively.
-Please see the [Buffer Plugin Overview](/articles/buffer-plugin-overview.md) article
+Please see the [Buffer Plugin Overview](/plugins/buffer/buffer-plugin-overview.md) article
 for the basic buffer structure. The default values are 64 and 8m,
 respectively. The suffixes "k" (KB), "m" (MB), and "g" (GB) can be used
 for buffer\_chunk\_limit.
@@ -262,7 +262,7 @@ The `log_level` option allows the user to set different levels of
 logging for each plugin. The supported log levels are: `fatal`, `error`,
 `warn`, `info`, `debug`, and `trace`.
 
-Please see the [logging article](/articles/logging.md) for further details.
+Please see the [logging article](/deployment/logging.md) for further details.
 
 ## Further Reading
 

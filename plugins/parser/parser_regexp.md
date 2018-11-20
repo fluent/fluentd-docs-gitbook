@@ -107,7 +107,7 @@ record:
 
 ### How to debug my regexp pattern?
 
-[fluentd-ui's in\_tail editor](/articles/fluentd-ui.md/#intail-setting)
+[fluentd-ui's in\_tail editor](/deployment/fluentd-ui.md/#intail-setting)
 helps your regexp testing. Another way,
 [Fluentular](http://fluentular.herokuapp.com/) is a great website to
 test your regexp for Fluentd configuration.

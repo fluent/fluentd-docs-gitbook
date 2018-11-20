@@ -14,7 +14,7 @@ behavior of Fluentd by (1) selecting input and output plugins and (2)
 specifying the plugin parameters. The file is required for Fluentd to
 operate properly.
 
-See also [Life of a Fluentd Event](/articles/life-of-a-fluentd-event.md) article.
+See also [Life of a Fluentd Event](/overview/life-of-a-fluentd-event.md) article.
 
 ## Config File Location
 
@@ -46,7 +46,7 @@ For example, `/etc/td-agent/td-agent.conf` is specified via
 
 #### -c option
 
-See [Command Line Option article](/articles/command-line-option.md).
+See [Command Line Option article](/deployment/command-line-option.md).
 
 ## Character encoding
 
@@ -120,7 +120,7 @@ record: {"event":"data"}
 
 You can add new input sources by writing your own plugins. For further
 information regarding Fluentd's input sources, please refer to the
-[Input Plugin Overview](/articles/input-plugin-overview.md) article.
+[Input Plugin Overview](/plugins/input/input-plugin-overview.md) article.
 
 ## (2) "match": Tell fluentd what to do!
 
@@ -165,7 +165,7 @@ specifies the output plugin to use.
 Just like input sources, you can add new output destinations by writing
 your own plugins. For further information regarding Fluentd's output
 destinations, please refer to the [Output Plugin
-Overview](/articles/output-plugin-overview.md) article.
+Overview](/plugins/output/output-plugin-overview.md) article.
 
 ## (3) "filter": Event processing pipeline
 
@@ -206,7 +206,7 @@ filtered event, `{"event":"data","host_param":"webserver1"}`, goes to
 
 You can also add new filters by writing your own plugins. For further
 information regarding Fluentd's filter destinations, please refer to the
-[Filter Plugin Overview](/articles/filter-plugin-overview.md) article.
+[Filter Plugin Overview](/plugins/filter/filter-plugin-overview.md) article.
 
 ## (4) Set system wide configuration: the "system" directive
 
@@ -427,7 +427,7 @@ defined after tight match patterns.
 
 Of course, if you use two same patterns, second `match` is never
 matched. If you want to send events to multiple outputs, consider
-[out\_copy](/articles/out_copy.md) plugin.
+[out\_copy](/plugins/output/out_copy.md) plugin.
 
 The common pitfall is when you put a `<filter>` block after `<match>`.
 It will never work as supposed, since events never go through the filter
@@ -450,7 +450,7 @@ for the reason explained above.
 ## Supported Data Types for Values
 
 Each Fluentd plugin has a set of parameters. For example,
-[in\_tail](/articles/in_tail.md) has parameters such as `rotate_wait` and `pos_file`.
+[in\_tail](/plugins/input/in_tail.md) has parameters such as `rotate_wait` and `pos_file`.
 Each parameter has a specific type associated with it. They are defined
 as follows:
 
@@ -509,10 +509,10 @@ These parameters are system reserved and it has `@` prefix.
 -   `@id`: Specify plugin id. in\_monitor\_agent uses this value for
     plugin\_id field
 -   `@label`: Specify label symbol. See
-    [label](/articles/config-file.md/#5-group-filter-and-output-the-ldquolabelrdquo-directive)
+    [label](/configuration/config-file.md/#5-group-filter-and-output-the-ldquolabelrdquo-directive)
     section
 -   `@log_level`: Specify per plugin log level. See [Per Plugin
-    Log](/articles/logging.md/#per-plugin-log) section
+    Log](/deployment/logging.md/#per-plugin-log) section
 
 `type`, `id` and `log_level` are supported for backward compatibility.
 
