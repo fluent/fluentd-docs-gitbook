@@ -178,8 +178,7 @@ Please see the [logging article](/deployment/logging.md) for further details.
 This page doesn't describe all the possible configurations. If you want
 to know about other configurations, please check the link below.
 
--   [fluent-plugin-kafka
-    repository](https://github.com/fluent/fluent-plugin-kafka)
+-   [fluent-plugin-kafka repository](https://github.com/fluent/fluent-plugin-kafka)
 
 
 ------------------------------------------------------------------------

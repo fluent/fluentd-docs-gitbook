@@ -5,8 +5,7 @@ single process. If your traffic is up to 5,000 messages/sec, the
 following techniques should be enough.
 
 With more traffic, Fluentd tends to be more CPU bound. In such case,
-please also visit [Performance Tuning
-(Multi-Process)](/articles/performance-tuning-multi-process.md) to utilize multiple
+please also visit [Performance Tuning (Multi-Process)](/articles/performance-tuning-multi-process.md) to utilize multiple
 CPU cores.
 
 
@@ -79,8 +78,7 @@ effective for most Fluentd deployments. As before, you can run this with
 ## Reduce memory usage
 
 Ruby has several GC parameters to tune GC performance and you can
-configure these parameters via environment variable([Parameter list is
-here](https://github.com/ruby/ruby/blob/61701ae1675f790ee3f59207283642dbe64c2d37/gc.c#L7417)).
+configure these parameters via environment variable([Parameter list is here](https://github.com/ruby/ruby/blob/61701ae1675f790ee3f59207283642dbe64c2d37/gc.c#L7417)).
 To reduce memory usage, set `RUBY_GC_HEAP_OLDOBJECT_LIMIT_FACTOR` to
 lower value. `RUBY_GC_HEAP_OLDOBJECT_LIMIT_FACTOR` is used for full GC
 trigger and the default is `2.0`. Quote from documentation.

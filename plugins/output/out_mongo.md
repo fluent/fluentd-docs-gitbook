@@ -212,8 +212,7 @@ Please see the [logging article](/deployment/logging.md) for further details.
 
 ## Further Reading
 
--   [fluent-plugin-mongo
-    repository](https://github.com/fluent/fluent-plugin-mongo)
+-   [fluent-plugin-mongo repository](https://github.com/fluent/fluent-plugin-mongo)
 
 
 ------------------------------------------------------------------------

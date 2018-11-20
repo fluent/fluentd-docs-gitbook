@@ -175,8 +175,7 @@ fluent-plugin-elasticsearch
 
 ## Further Reading
 
--   [fluent-plugin-geoip
-    repository](https://github.com/y-ken/fluent-plugin-geoip)
+-   [fluent-plugin-geoip repository](https://github.com/y-ken/fluent-plugin-geoip)
 
 
 ------------------------------------------------------------------------

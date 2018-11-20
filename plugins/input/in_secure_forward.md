@@ -203,8 +203,7 @@ Please see the [logging article](/deployment/logging.md) for further details.
 
 ## Further Reading
 
--   [fluent-plugin-secure-forward
-    repository](https://github.com/tagomoris/fluent-plugin-secure-forward)
+-   [fluent-plugin-secure-forward repository](https://github.com/tagomoris/fluent-plugin-secure-forward)
 
 
 ------------------------------------------------------------------------

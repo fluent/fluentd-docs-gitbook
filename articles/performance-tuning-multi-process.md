@@ -74,8 +74,7 @@ process.
 This git repository contains the fully functional multi-process settings
 for Fluentd.
 
--   [Fluentd Multi-Process Example Configuration
-    (Githib)](https://github.com/kzk/fluentd-multiprocess-config-example)
+-   [Fluentd Multi-Process Example Configuration (Githib)](https://github.com/kzk/fluentd-multiprocess-config-example)
 
 You can simply test with `td-agent`, or directly use Ruby to launch
 Fluentd.

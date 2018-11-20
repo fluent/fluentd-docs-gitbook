@@ -211,8 +211,7 @@ Please see the [logging article](/deployment/logging.md) for further details.
 
 ## Further Readings
 
--   [fluent-plugin-webhdfs
-    mongo](https://github.com/fluent/fluent-plugin-mongo)
+-   [fluent-plugin-webhdfs mongo](https://github.com/fluent/fluent-plugin-mongo)
 
 
 ------------------------------------------------------------------------

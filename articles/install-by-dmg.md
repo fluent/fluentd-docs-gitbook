@@ -87,8 +87,7 @@ sources.
 
 Please refer to the resources below for further steps.
 
--   [ChangeLog of
-    td-agent](http://docs.treasuredata.com/articles/td-agent-changelog)
+-   [ChangeLog of td-agent](http://docs.treasuredata.com/articles/td-agent-changelog)
 -   [Chef Cookbook](https://github.com/treasure-data/chef-td-agent/)
 
 
