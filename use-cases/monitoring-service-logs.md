@@ -1,7 +1,7 @@
 # Monitoring Service Logs
 
 
-## Articles.
+## Articles
 
 -   [Free Alternative to Splunk by Fluentd + Elasticsearch](/articles/free-alternative-to-splunk-by-fluentd.md)
 
