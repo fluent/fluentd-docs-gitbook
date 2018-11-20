@@ -3,9 +3,7 @@
 
 ## Articles
 
--   [Free Alternative to Splunk by Fluentd +
-    Elasticsearch](/articles/free-alternative-to-splunk-by-fluentd.md)
+-   [Free Alternative to Splunk by Fluentd + Elasticsearch](/articles/free-alternative-to-splunk-by-fluentd.md)
 
 
--   [Email Alerts like
-    Splunk](/articles/splunk-like-grep-and-alert-email.md)
+-   [Email Alerts like Splunk](/articles/splunk-like-grep-and-alert-email.md)
