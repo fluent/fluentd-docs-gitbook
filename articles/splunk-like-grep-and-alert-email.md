@@ -10,8 +10,7 @@ sends an alert email when it detects a 5xx HTTP status code in an Apache
 access log.
 
 If you want a more general introduction to use Fluentd as a free
-alternative to Splunk, see the article ["Free Alternative to Splunk
-Using Fluentd"](free-alternative-to-splunk-by-fluentd).
+alternative to Splunk, see the article ["Free Alternative to Splunk Using Fluentd"](free-alternative-to-splunk-by-fluentd).
 
 
 ## Installing the requisites
@@ -149,6 +148,5 @@ You can learn more about Fluentd and its plugins by
 
 If this article is incorrect or outdated, or omits critical information,
 please [let us know](https://github.com/fluent/fluentd-docs/issues?state=open).
-[Fluentd](http://www.fluentd.org/) is a open source project under [Cloud
-Native Computing Foundation (CNCF)](https://cncf.io/). All components
+[Fluentd](http://www.fluentd.org/) is a open source project under [Cloud Native Computing Foundation (CNCF)](https://cncf.io/). All components
 are available under the Apache 2 License.

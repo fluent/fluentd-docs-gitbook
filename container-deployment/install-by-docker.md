@@ -4,8 +4,7 @@ This article explains how to use [Fluentd's official Docker image](https://hub.d
 [Treasure Data, Inc](http://www.treasuredata.com/).
 
 -   [Fluentd's official Docker image](https://hub.docker.com/r/fluent/fluentd/)
--   [Fluentd's official Docker image
-    (Source)](https://github.com/fluent/fluentd-docker-image)
+-   [Fluentd's official Docker image (Source)](https://github.com/fluent/fluentd-docker-image)
 
 
 ## Step 0: Install Docker
@@ -92,8 +91,7 @@ Now you know how to use Fluentd via Docker. Here're a couple of Docker
 related documentations for Fluentd.
 
 -   [Fluentd's official Docker image](https://hub.docker.com/r/fluent/fluentd/)
--   [Fluentd's official Docker image
-    (Source)](https://github.com/fluent/fluentd-docker-image)
+-   [Fluentd's official Docker image (Source)](https://github.com/fluent/fluentd-docker-image)
 -   [Docker Logging Driver and Fluentd](/articles/docker-logging.md)
 -   [Docker Logging via EFK (Elasticsearch + Fluentd + Kibana) Stack
     with Docker Compose](docker-logging-efk-compose)
@@ -117,6 +115,5 @@ data from various data sources.
 
 If this article is incorrect or outdated, or omits critical information,
 please [let us know](https://github.com/fluent/fluentd-docs/issues?state=open).
-[Fluentd](http://www.fluentd.org/) is a open source project under [Cloud
-Native Computing Foundation (CNCF)](https://cncf.io/). All components
+[Fluentd](http://www.fluentd.org/) is a open source project under [Cloud Native Computing Foundation (CNCF)](https://cncf.io/). All components
 are available under the Apache 2 License.
