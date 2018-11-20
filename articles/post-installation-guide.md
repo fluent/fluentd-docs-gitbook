@@ -32,8 +32,7 @@ By default, td-agent writes its operation logs to the following file:
 /var/log/td-agent/td-agent.log
 ```
 
-If you want to make td-agent more verbose, read the article ["Trouble
-Shooting"](trouble-shooting).
+If you want to make td-agent more verbose, read the article ["Trouble Shooting"](trouble-shooting).
 
 
 ## Connect to Other Services
@@ -153,6 +152,5 @@ syntax.
 
 If this article is incorrect or outdated, or omits critical information,
 please [let us know](https://github.com/fluent/fluentd-docs/issues?state=open).
-[Fluentd](http://www.fluentd.org/) is a open source project under [Cloud
-Native Computing Foundation (CNCF)](https://cncf.io/). All components
+[Fluentd](http://www.fluentd.org/) is a open source project under [Cloud Native Computing Foundation (CNCF)](https://cncf.io/). All components
 are available under the Apache 2 License.

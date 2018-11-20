@@ -3,8 +3,7 @@
 This article describes how to monitor Fluentd via
 [Prometheus](https://prometheus.io/).
 
-Since both Prometheus and Fluentd are under [CNCF (Cloud Native
-Computing Foundation)](https://www.cncf.io/), Fluentd project is
+Since both Prometheus and Fluentd are under [CNCF (Cloud Native Computing Foundation)](https://www.cncf.io/), Fluentd project is
 recommending to use Prometheus by default to monitor Fluentd.
 
 
@@ -300,6 +299,5 @@ Prometheus.
 
 If this article is incorrect or outdated, or omits critical information,
 please [let us know](https://github.com/fluent/fluentd-docs/issues?state=open).
-[Fluentd](http://www.fluentd.org/) is a open source project under [Cloud
-Native Computing Foundation (CNCF)](https://cncf.io/). All components
+[Fluentd](http://www.fluentd.org/) is a open source project under [Cloud Native Computing Foundation (CNCF)](https://cncf.io/). All components
 are available under the Apache 2 License.

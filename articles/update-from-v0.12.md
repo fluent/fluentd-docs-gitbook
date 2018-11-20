@@ -86,8 +86,7 @@ You can upgrade td-agent 2 to 3 by executing install script for td-agent
 For more details about install script see following articles:
 
 -   [Installing Fluentd using RPM Package (Redhat Linux)](/articles/install-by-rpm.md)
--   [Installing Fluentd using DEB Package (Debian / Ubuntu
-    Linux)](/articles/install-by-deb.md)
+-   [Installing Fluentd using DEB Package (Debian / Ubuntu Linux)](/articles/install-by-deb.md)
 
 And then you must reinstall gem packages that you've ever used with
 td-agent 2.
@@ -119,6 +118,5 @@ FAQ](/v0.12/articles/in_forward.md/#i-got-messagepack::unknownexttypeerror-error
 
 If this article is incorrect or outdated, or omits critical information,
 please [let us know](https://github.com/fluent/fluentd-docs/issues?state=open).
-[Fluentd](http://www.fluentd.org/) is a open source project under [Cloud
-Native Computing Foundation (CNCF)](https://cncf.io/). All components
+[Fluentd](http://www.fluentd.org/) is a open source project under [Cloud Native Computing Foundation (CNCF)](https://cncf.io/). All components
 are available under the Apache 2 License.

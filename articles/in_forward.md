@@ -300,8 +300,7 @@ example:
   ["myapp.access", [[1308466941, {"a":1}], [1308466942, {"b":2}]]]
 ```
 
-For more details, see [Fluentd Forward Protocol Specification
-(v1)](https://github.com/fluent/fluentd/wiki/Forward-Protocol-Specification-v1).
+For more details, see [Fluentd Forward Protocol Specification (v1)](https://github.com/fluent/fluentd/wiki/Forward-Protocol-Specification-v1).
 
 
 ## Tips & Tricks
@@ -469,6 +468,5 @@ See Docker logging driver usecase: [Docker Logging](http://www.fluentd.org/guide
 
 If this article is incorrect or outdated, or omits critical information,
 please [let us know](https://github.com/fluent/fluentd-docs/issues?state=open).
-[Fluentd](http://www.fluentd.org/) is a open source project under [Cloud
-Native Computing Foundation (CNCF)](https://cncf.io/). All components
+[Fluentd](http://www.fluentd.org/) is a open source project under [Cloud Native Computing Foundation (CNCF)](https://cncf.io/). All components
 are available under the Apache 2 License.

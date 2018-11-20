@@ -229,8 +229,7 @@ $ curl -X POST -d '123456:awesome' http://localhost:9880/app.log
 ```
 
 Many other formats (e.g. csv/syslog/nginx) are also supported as well.
-You can find the full list of supported formats in ["Parser Plugin
-Overview"](parser-plugin-overview).
+You can find the full list of supported formats in ["Parser Plugin Overview"](parser-plugin-overview).
 
 Note that parser plugins do not support [the batch
 mode](#handle-large-data-with-batch-mode). So if you want to use bulk
@@ -335,6 +334,5 @@ curl -X POST -F 'json={"message":"foo+bar"}' http://localhost:9880/app.log
 
 If this article is incorrect or outdated, or omits critical information,
 please [let us know](https://github.com/fluent/fluentd-docs/issues?state=open).
-[Fluentd](http://www.fluentd.org/) is a open source project under [Cloud
-Native Computing Foundation (CNCF)](https://cncf.io/). All components
+[Fluentd](http://www.fluentd.org/) is a open source project under [Cloud Native Computing Foundation (CNCF)](https://cncf.io/). All components
 are available under the Apache 2 License.
