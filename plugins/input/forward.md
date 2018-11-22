@@ -395,6 +395,8 @@ $ openssl s_client -connect localhost:24224 \
 If the connection gets established successfully, your setup is working
 fine.
 
++For fluentd and fluent-bit combination, see Banzai Cloud article:
+[Secure logging on Kubernetes with Fluentd and Fluent Bit](https://banzaicloud.com/blog/k8s-logging-tls/)
 
 ### How to Enable Password Authentication
 
