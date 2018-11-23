@@ -42,7 +42,7 @@ other purposes.
 This parameter should be specified for all plugins to enable `root_dir`
 and `workers` feature globally.
 
-See also: [System Configuration](/articles/system-config.md).
+See also: [System Configuration](/deployment/system-config.md).
 
 []{#@log_level}
 
@@ -69,7 +69,7 @@ The main purposes of this parameter are:
 -   Suppress too many logs only for that plugin
 -   Show debug logs while debugging that plugin
 
-Please see the [logging article](/articles/logging.md) for further details.
+Please see the [logging article](/deployment/logging.md) for further details.
 
 
 ## Parameters for plugins which emit events

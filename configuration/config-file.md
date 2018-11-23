@@ -527,7 +527,7 @@ These parameters are system reserved and it has `@` prefix.
 -   `@label`: Specify label symbol. See
     [label](/configuration/config-file.md/#5-group-filter-and-output-the-ldquolabelrdquo-directive)
     section
--   `@log_level`: Specify per plugin log level. See [Per Plugin Log](/articles/logging.md/#per-plugin-log) section
+-   `@log_level`: Specify per plugin log level. See [Per Plugin Log](/deployment/logging.md/#per-plugin-log) section
 
 `type`, `id` and `log_level` are supported for backward compatibility.
 

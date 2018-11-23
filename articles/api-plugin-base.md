@@ -206,7 +206,7 @@ Inherit section `section_name` defined in super class.
 
 Returns `Fluent::SystemConfig` instance.
 
-For more details, see [System Configuration](/articles/system-config.md).
+For more details, see [System Configuration](/deployment/system-config.md).
 
 Code Example:
 
@@ -223,7 +223,7 @@ Overwrite system config
 
 This is for internal use and plugin testing.
 
-For more details, see [System Configuration](/articles/system-config.md).
+For more details, see [System Configuration](/deployment/system-config.md).
 
 -   `options`: system configuration as Hash
 
@@ -293,7 +293,7 @@ Returns `Fluent::Log` instance
     -   `error`
     -   `fatal`
 
-For more details about Fluentd's logging mechanism, see [Logging of Fluentd](/articles/logging.md).
+For more details about Fluentd's logging mechanism, see [Logging of Fluentd](/deployment/logging.md).
 
 Code Example:
 

@@ -32,8 +32,8 @@
 
             
 * [Deployment]()
-  * [System Configuration](/articles/system-config.md)
-  * [Logging](/articles/logging.md)
+  * [System Configuration](/deployment/system-config.md)
+  * [Logging](/deployment/logging.md)
   * [Monitoring](/articles/monitoring.md)
   * [Signals](/articles/signals.md)
   * [RPC](/articles/rpc.md)
@@ -239,7 +239,7 @@
   * [Kinesis Stream](/articles/kinesis-stream.md)
   * [Life Of A Fluentd Event](/overview/life-of-a-fluentd-event.md)
   * [Logging From Apps](/use-cases/logging-from-apps.md)
-  * [Logging](/articles/logging.md)
+  * [Logging](/deployment/logging.md)
   * [Logo](/articles/logo.md)
   * [Mailing List](/articles/mailing-list.md)
   * [Monitoring Prometheus](/articles/monitoring-prometheus.md)
@@ -306,7 +306,7 @@
   * [Storage Section](/articles/storage-section.md)
   * [Stream Processing](/use-cases/stream-processing.md)
   * [Support](/overview/support.md)
-  * [System Config](/articles/system-config.md)
+  * [System Config](/deployment/system-config.md)
   * [Transport Section](/articles/transport-section.md)
   * [Trouble Shooting](/articles/trouble-shooting.md)
   * [update-from-v0.12](/overview/update-from-v0.12.md)
