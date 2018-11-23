@@ -73,7 +73,7 @@ end
 
 ## inject used plugins
 
--   [Stdout filter](/articles/filter_stdout.md)
+-   [Stdout filter](/plugins/filter/filter_stdout.md)
 -   [Exec output](/plugins/output/out_exec.md)
 -   [Exec filter output](/plugins/output/out_exec_filter.md)
 -   [File output](/plugins/output/out_file.md)

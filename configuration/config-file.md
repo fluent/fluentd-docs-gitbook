@@ -211,7 +211,7 @@ filtered event, `{"event":"data","host_param":"webserver1"}`, goes to
 
 You can also add new filters by writing your own plugins. For further
 information regarding Fluentd's filter destinations, please refer to the
-[Filter Plugin Overview](/articles/filter-plugin-overview.md) article.
+[Filter Plugin Overview](/plugins/filter/filter-plugin-overview.md) article.
 
 
 ## (4) Set system wide configuration: the "system" directive

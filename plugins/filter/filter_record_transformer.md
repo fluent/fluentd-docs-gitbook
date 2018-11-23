@@ -287,7 +287,7 @@ string for record field access. So use `${record["key"]}` instead of
 
 ## Learn More
 
--   [Filter Plugin Overview](/articles/filter-plugin-overview.md)
+-   [Filter Plugin Overview](/plugins/filter/filter-plugin-overview.md)
 
 
 ------------------------------------------------------------------------

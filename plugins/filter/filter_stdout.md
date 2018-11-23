@@ -68,7 +68,7 @@ This is the option of `stdout` format. Configure the format of record
 
 ## Learn More
 
--   [Filter Plugin Overview](/articles/filter-plugin-overview.md)
+-   [Filter Plugin Overview](/plugins/filter/filter-plugin-overview.md)
 
 
 ------------------------------------------------------------------------

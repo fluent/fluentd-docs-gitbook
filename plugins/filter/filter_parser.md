@@ -212,7 +212,7 @@ v0.12.
 
 ## Learn More
 
--   [Filter Plugin Overview](/articles/filter-plugin-overview.md)
+-   [Filter Plugin Overview](/plugins/filter/filter-plugin-overview.md)
 
 
 ------------------------------------------------------------------------

@@ -2,7 +2,7 @@
 
 The `stdout` formatter plugin converts an event to stdout format.
 
-This plugin is only for [stdout Output Plugin](/plugins/output/out_stdout.md) and [stdout Filter Plugin](/articles/filter_stdout.md).
+This plugin is only for [stdout Output Plugin](/plugins/output/out_stdout.md) and [stdout Filter Plugin](/plugins/filter/filter_stdout.md).
 
 ``` {.CodeRay}
 2015-05-02 12:12:17 +0900 tag: {"field1":"value1","field2":"value2"}

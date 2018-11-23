@@ -259,7 +259,7 @@ For more details, see [Formatter Plugin Overview](/articles/formatter-plugin-ove
 
 ## compat\_parameters used plugins
 
--   [Parser filter](/articles/filter_parser.md)
+-   [Parser filter](/plugins/filter/filter_parser.md)
 -   [Exec input](/plugins/input/in_exec.md)
 -   [HTTP input](/plugins/input/in_http.md)
 -   [Syslog input](/plugins/input/in_syslog.md)

@@ -94,7 +94,7 @@ end
 
 ## formatter used plugins
 
--   [Filter stdout](/articles/filter_stdout.md)
+-   [Filter stdout](/plugins/filter/filter_stdout.md)
 -   [Out stdout](/plugins/output/out_stdout.md)
 -   [Out exec](/plugins/output/out_exec.md)
 -   [Out exec filter](/plugins/output/out_exec_filter.md)

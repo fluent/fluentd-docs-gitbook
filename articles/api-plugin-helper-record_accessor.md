@@ -76,8 +76,8 @@ accessor.call(record) # access record field.
 
 ## record\_accessor used plugins
 
--   [grep filter](/articles/filter_grep.md)
--   [parser filter](/articles/filter_parser.md)
+-   [grep filter](/plugins/filter/filter_grep.md)
+-   [parser filter](/plugins/filter/filter_parser.md)
 
 
 ------------------------------------------------------------------------

@@ -85,7 +85,7 @@ end
 
 ## parser used plugins
 
--   [Parser filter](/articles/filter_parser.md)
+-   [Parser filter](/plugins/filter/filter_parser.md)
 -   [Exec input](/plugins/input/in_exec.md)
 -   [HTTP input](/plugins/input/in_http.md)
 -   [Syslog input](/plugins/input/in_syslog.md)

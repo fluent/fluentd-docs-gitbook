@@ -90,7 +90,7 @@ For security reasons, it's worth knowing which user performed what using
 words, we need to extract syslog messages from `sudo` and handle them
 differently.
 
-For this purpose, we can use [the grep plugin](/articles/filter-grep.md). This plugin
+For this purpose, we can use [the grep plugin](/plugins/filter/filter-grep.md). This plugin
 examines the fields of events, and filter them based on regular
 expression patterns. In the following example, Fluentd filters out
 events that come from `sudo` and contain command data.
@@ -123,7 +123,7 @@ events that come from `sudo` and contain command data.
 ### Step 3: Extract information from messages
 
 Now let's extract some information from syslog messages. For this
-purpose, we use another plugin called [filter-parser](/articles/filter_parser.md).
+purpose, we use another plugin called [filter-parser](/plugins/filter/filter_parser.md).
 With this plugin, you can parse the content of a field using a regular
 expression.
 

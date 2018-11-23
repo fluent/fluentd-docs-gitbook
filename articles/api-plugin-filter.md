@@ -1,6 +1,6 @@
 # Writing Filter Plugins
 
-This section shows how to write custom filters in addition to [the core filter plugins](/articles/filter-plugin-overview.md). The plugin files whose names
+This section shows how to write custom filters in addition to [the core filter plugins](/plugins/filter/filter-plugin-overview.md). The plugin files whose names
 start with "filter\_" are registered as filter plugins. See [Plugin Base Class API](/articles/api-plugin-base.md) to show details of common API for all plugin
 types.
 
