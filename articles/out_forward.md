@@ -401,7 +401,7 @@ For more details, see [Secondary Output](/articles/output-plugin-overview.md/#se
 
 ### How to connect to a TLS/SSL enabled server
 
-If you've [set up TLS/SSL encryption in the receiving server](/articles/in_forward#how-to-enable-tls/ssl-encryption), you need to tell
+If you've [set up TLS/SSL encryption in the receiving server](/articles/in_forward.md/#how-to-enable-tls/ssl-encryption), you need to tell
 the output forwarder to use encryption by setting the `transport`
 parameter:
 

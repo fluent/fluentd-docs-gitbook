@@ -156,7 +156,7 @@ This section is for using SSL transport.
 ```
 
 See "How to Enable TLS Encryption" section for how to use and see
-["Configuration example" in "Server Plugin Helper" article](/articles/api-plugin-helper-server#configuration-example) for
+["Configuration example" in "Server Plugin Helper" article](/articles/api-plugin-helper-server.md/#configuration-example) for
 supported parameters
 
 Without `<transport tls>`, in\_forward uses raw TCP.
@@ -360,8 +360,7 @@ $ echo -e '\x93\xa9debug.tls\xceZr\xbc1\x81\xa3foo\xa3bar' | \
   openssl s_client -connect localhost:24224
 ```
 
-If you can confirm TLS encryption has been set up correctly, please
-proceed to [the configuration of the out\_forward server](out_forward#how-to-connect-to-a-tls/ssl-enabled-server).
+If you can confirm TLS encryption has been set up correctly, please proceed to [the configuration of the out\_forward server](/articles/out_forward.md/#how-to-connect-to-a-tls/ssl-enabled-server).
 
 
 ### How to Enable TLS Mutual Authentication
