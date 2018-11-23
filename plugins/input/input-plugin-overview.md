@@ -2,7 +2,7 @@
 
 Fluentd has 7 types of plugins: [Input](/plugins/input/input-plugin-overview.md),
 [Parser](/articles/parser-plugin-overview.md), [Filter](/articles/filter-plugin-overview.md),
-[Output](/articles/output-plugin-overview.md),
+[Output](/plugins/output/output-plugin-overview.md),
 [Formatter](/articles/formatter-plugin-overview.md),
 [Storage](/articles/storage-plugin-overview.md) and [Buffer](/articles/buffer-plugin-overview.md).
 This article gives an overview of Input Plugin.

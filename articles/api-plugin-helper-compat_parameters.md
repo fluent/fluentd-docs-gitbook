@@ -266,11 +266,11 @@ For more details, see [Formatter Plugin Overview](/articles/formatter-plugin-ove
 -   [Tail input](/plugins/input/in_tail.md)
 -   [TCP input](/plugins/input/in_tcp.md)
 -   [UDP input](/plugins/input/in_udp.md)
--   [Exec output](/articles/out_exec.md)
--   [Exec filter output](/articles/out_exec_filter.md)
--   [File output](/articles/out_file.md)
--   [Forward output](/articles/out_forward.md)
--   [Stdout output](/articles/out_stdout.md)
+-   [Exec output](/plugins/output/out_exec.md)
+-   [Exec filter output](/plugins/output/out_exec_filter.md)
+-   [File output](/plugins/output/out_file.md)
+-   [Forward output](/plugins/output/out_forward.md)
+-   [Stdout output](/plugins/output/out_stdout.md)
 -   [Stream output](/articles/out_stream.md)
 
 

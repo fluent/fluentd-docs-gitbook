@@ -30,8 +30,8 @@ structure and syntax of the configuration file.
 
 Here is an example set up to send events to both a local file under
 `/var/log/fluent/myapp` and the collection `fluentd.test` in a
-Elasticsearch instance (Please see the [out\_file](/articles/out_file.md)
-and [out\_elasticsearch](/articles/out_elasticsearch.md) articles for more
+Elasticsearch instance (Please see the [out\_file](/plugins/output/out_file.md)
+and [out\_elasticsearch](/plugins/output/out_elasticsearch.md) articles for more
 details about the respective plugins.)
 
 ``` {.CodeRay}
@@ -72,7 +72,7 @@ details about the respective plugins.)
 -   [inject](/articles/api-plugin-helper-inject.md)
 -   [compat\_parameters](/articles/api-plugin-helper-compat_parameters.md)
 
--   See also: [Output Plugin Overview](/articles/output-plugin-overview.md)
+-   See also: [Output Plugin Overview](/plugins/output/output-plugin-overview.md)
 
 
 ## Parameters

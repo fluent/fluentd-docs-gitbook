@@ -3,7 +3,7 @@
 The `out_forward` Buffered Output plugin forwards events to other
 fluentd nodes. This plugin supports load-balancing and automatic
 fail-over (a.k.a. active-active backup). For replication, please use the
-[out\_copy](/articles/out_copy.md) plugin.
+[out\_copy](/plugins/output/out_copy.md) plugin.
 
 The `out_forward` plugin detects server faults using a "φ accrual
 failure detector" algorithm. You can customize the parameters of the
@@ -56,7 +56,7 @@ structure and syntax of the configuration file.
 -   Synchronous
 -   Asynchronous
 
-See [Output Plugin Overview](/articles/output-plugin-overview.md) for more details.
+See [Output Plugin Overview](/plugins/output/output-plugin-overview.md) for more details.
 
 
 ## Plugin helpers
@@ -393,7 +393,7 @@ Shared key for authentication.
 
 The backup destination that is used when all servers are unavailable.
 
-For more details, see [Secondary Output](/articles/output-plugin-overview.md/#secondary-output).
+For more details, see [Secondary Output](/plugins/output/output-plugin-overview.md/#secondary-output).
 
 
 ## Tips & Tricks

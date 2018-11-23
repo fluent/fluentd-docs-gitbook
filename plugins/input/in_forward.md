@@ -360,7 +360,7 @@ $ echo -e '\x93\xa9debug.tls\xceZr\xbc1\x81\xa3foo\xa3bar' | \
   openssl s_client -connect localhost:24224
 ```
 
-If you can confirm TLS encryption has been set up correctly, please proceed to [the configuration of the out\_forward server](/articles/out_forward.md/#how-to-connect-to-a-tls/ssl-enabled-server).
+If you can confirm TLS encryption has been set up correctly, please proceed to [the configuration of the out\_forward server](/plugins/output/out_forward.md/#how-to-connect-to-a-tls/ssl-enabled-server).
 
 
 ### How to Enable TLS Mutual Authentication
@@ -419,7 +419,7 @@ configuration file as below.
 
 Once you've done the setup, you have to configure your clients
 accordingly. For example, if you have an `out_forward` instance running
-on another server, please [configure it following the instruction](/articles/out_forward.md/#how-to-enable-password-authentication).
+on another server, please [configure it following the instruction](/plugins/output/out_forward.md/#how-to-enable-password-authentication).
 
 
 ### Multi-process environment

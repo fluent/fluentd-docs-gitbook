@@ -2,7 +2,7 @@
 
 Fluentd has 7 types of plugins: [Input](/plugins/input/input-plugin-overview.md),
 [Parser](/articles/parser-plugin-overview.md), [Filter](/articles/filter-plugin-overview.md),
-[Output](/articles/output-plugin-overview.md),
+[Output](/plugins/output/output-plugin-overview.md),
 [Formatter](/articles/formatter-plugin-overview.md),
 [Storage](/articles/storage-plugin-overview.md) and [Buffer](/articles/buffer-plugin-overview.md).
 This article gives an overview of Formatter Plugin.
@@ -20,7 +20,7 @@ user extend and re-use custom output formats.
 For an output plugin that supports Formatter, the `<format>` directive
 can be used to change the output format.
 
-For example, by default, [out\_file](/articles/out_file.md) plugin outputs data as
+For example, by default, [out\_file](/plugins/output/out_file.md) plugin outputs data as
 
 ``` {.CodeRay}
 2014-08-25 00:00:00 +0000<TAB>foo.bar<TAB>{"k1":"v1", "k2":"v2"}
@@ -65,8 +65,8 @@ how to develop a custom formatter.
 ## List of Output/Filter Plugins with Formatter Support
 
 -   [filter\_stdout](/articles/filter_stdout.md)
--   [out\_file](/articles/out_file.md)
--   [out\_s3](/articles/out_s3.md)
+-   [out\_file](/plugins/output/out_file.md)
+-   [out\_s3](/plugins/output/out_s3.md)
 
 
 ------------------------------------------------------------------------

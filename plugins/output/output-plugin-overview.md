@@ -2,7 +2,7 @@
 
 Fluentd has 7 types of plugins: [Input](/plugins/input/input-plugin-overview.md),
 [Parser](/articles/parser-plugin-overview.md), [Filter](/articles/filter-plugin-overview.md),
-[Output](/articles/output-plugin-overview.md),
+[Output](/plugins/output/output-plugin-overview.md),
 [Formatter](/articles/formatter-plugin-overview.md),
 [Storage](/articles/storage-plugin-overview.md) and [Buffer](/articles/buffer-plugin-overview.md).
 This article gives an overview of Output Plugin.
@@ -40,17 +40,17 @@ buffer plugins can be chosen for each output plugin.
 
 ## List of Output Plugins
 
--   [out\_copy](/articles/out_copy.md)
--   [out\_null](/articles/out_null.md)
--   [out\_roundrobin](/articles/out_roundrobin.md)
--   [out\_stdout](/articles/out_stdout.md)
--   [out\_exec\_filter](/articles/out_exec_filter.md)
--   [out\_forward](/articles/out_forward.md)
--   [out\_mongo](/articles/out_mongo.md) or [out\_mongo\_replset](/articles/out_mongo_replset.md)
--   [out\_exec](/articles/out_exec.md)
--   [out\_file](/articles/out_file.md)
--   [out\_s3](/articles/out_s3.md)
--   [out\_webhdfs](/articles/out_webhdfs.md)
+-   [out\_copy](/plugins/output/out_copy.md)
+-   [out\_null](/plugins/output/out_null.md)
+-   [out\_roundrobin](/plugins/output/out_roundrobin.md)
+-   [out\_stdout](/plugins/output/out_stdout.md)
+-   [out\_exec\_filter](/plugins/output/out_exec_filter.md)
+-   [out\_forward](/plugins/output/out_forward.md)
+-   [out\_mongo](/plugins/output/out_mongo.md) or [out\_mongo\_replset](/plugins/output/out_mongo_replset.md)
+-   [out\_exec](/plugins/output/out_exec.md)
+-   [out\_file](/plugins/output/out_file.md)
+-   [out\_s3](/plugins/output/out_s3.md)
+-   [out\_webhdfs](/plugins/output/out_webhdfs.md)
 
 
 ## Other Plugins

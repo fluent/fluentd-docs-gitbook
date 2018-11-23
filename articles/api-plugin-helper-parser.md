@@ -92,7 +92,7 @@ end
 -   [Tail input](/plugins/input/in_tail.md)
 -   [TCP input](/plugins/input/in_tcp.md)
 -   [UDP input](/plugins/input/in_udp.md)
--   [Exec filter output](/articles/out_exec_filter.md)
+-   [Exec filter output](/plugins/output/out_exec_filter.md)
 
 
 ------------------------------------------------------------------------

@@ -24,7 +24,7 @@ structure and syntax of the configuration file.
 -   Synchronous
 -   Asynchronous
 
-See [Output Plugin Overview](/articles/output-plugin-overview.md) for more details.
+See [Output Plugin Overview](/plugins/output/output-plugin-overview.md) for more details.
 
 
 ## Parameters
@@ -80,7 +80,7 @@ Overwrite default value in this plugin.
 
 ## Common Buffer / Output parameters
 
-See [Buffer Plugin Overview](/articles/buffer-plugin-overview.md) and [Output Plugin Overview](/articles/output-plugin-overview.md)
+See [Buffer Plugin Overview](/articles/buffer-plugin-overview.md) and [Output Plugin Overview](/plugins/output/output-plugin-overview.md)
 
 
 ------------------------------------------------------------------------

@@ -150,7 +150,7 @@ terminates.
 
 ## socket used plugins
 
--   [Forward output](/articles/out_forward.md)
+-   [Forward output](/plugins/output/out_forward.md)
 
 
 ------------------------------------------------------------------------

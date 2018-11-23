@@ -78,8 +78,8 @@ end
 ## child\_process used plugins
 
 -   [in exec](/plugins/input/in_exec.md)
--   [out exec](/articles/out_exec.md)
--   [out exec filter](/articles/out_exec_filter.md)
+-   [out exec](/plugins/output/out_exec.md)
+-   [out exec filter](/plugins/output/out_exec_filter.md)
 
 
 ------------------------------------------------------------------------

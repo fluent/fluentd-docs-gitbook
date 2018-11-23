@@ -153,12 +153,12 @@ Use
 </match>
 ```
 
-See also [out\_rewrite\_tag\_filter](/articles/out_rewrite_tag_filter.md) article.
+See also [out\_rewrite\_tag\_filter](/plugins/output/out_rewrite_tag_filter.md) article.
 
 
 ## Re-route event to other Label
 
-Use [out\_relabel](/articles/out_relabel.md) plugin. `relabel` plugin simply emits
+Use [out\_relabel](/plugins/output/out_relabel.md) plugin. `relabel` plugin simply emits
 events to Label. No tag rewrite.
 
 ``` {.CodeRay}

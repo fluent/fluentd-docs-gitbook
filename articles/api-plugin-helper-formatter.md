@@ -95,11 +95,11 @@ end
 ## formatter used plugins
 
 -   [Filter stdout](/articles/filter_stdout.md)
--   [Out stdout](/articles/out_stdout.md)
--   [Out exec](/articles/out_exec.md)
--   [Out exec filter](/articles/out_exec_filter.md)
--   [Out file](/articles/out_file.md)
--   [Out s3](/articles/out_s3.md)
+-   [Out stdout](/plugins/output/out_stdout.md)
+-   [Out exec](/plugins/output/out_exec.md)
+-   [Out exec filter](/plugins/output/out_exec_filter.md)
+-   [Out file](/plugins/output/out_file.md)
+-   [Out s3](/plugins/output/out_s3.md)
 
 
 ------------------------------------------------------------------------

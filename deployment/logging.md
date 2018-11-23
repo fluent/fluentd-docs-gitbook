@@ -207,7 +207,7 @@ datadog, sentry, irc, etc.
 
 ### Case2: Use aggregation/monitoring server
 
-You can use [out\_forward](/articles/out_forward.md) to send Fluentd logs to a
+You can use [out\_forward](/plugins/output/out_forward.md) to send Fluentd logs to a
 monitoring server. The monitoring server can then filter and send the
 logs to your notification system: chat, irc, etc.
 

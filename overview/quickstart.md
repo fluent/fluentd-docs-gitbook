@@ -56,7 +56,7 @@ learn more about Fluentd.
 -   [Life of a Fluentd Event](/overview/life-of-a-fluentd-event.md)
 -   Plugin Overview
     -   [Input Plugins](/plugins/input/input-plugin-overview.md)
-    -   [Output Plugins](/articles/output-plugin-overview.md)
+    -   [Output Plugins](/plugins/output/output-plugin-overview.md)
     -   [Buffer Plugins](/articles/buffer-plugin-overview.md)
     -   [Filter Plugins](/articles/filter-plugin-overview.md)
     -   [Parser Plugins](/articles/parser-plugin-overview.md)

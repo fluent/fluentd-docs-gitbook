@@ -33,7 +33,7 @@ actually does nothing, but supports only `@label` parameter.
 
 -   Non-Buffered
 
--   See also: [Output Plugin Overview](/articles/output-plugin-overview.md)
+-   See also: [Output Plugin Overview](/plugins/output/output-plugin-overview.md)
 
 
 ## Plugin helpers

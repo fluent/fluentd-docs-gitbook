@@ -49,7 +49,7 @@ for more information.
 
 ### How can I match (send) an event to multiple outputs?
 
-You can use the `copy` [output plugin](/articles/out_copy.md) to send the
+You can use the `copy` [output plugin](/plugins/output/out_copy.md) to send the
 same event to multiple output destinations.
 
 

@@ -186,7 +186,7 @@ Please see the [logging article](/deployment/logging.md) for further details.
 For common output / buffer parameters, please check the following
 articles.
 
--   [Output Plugin Overview](/articles/output-plugin-overview.md)
+-   [Output Plugin Overview](/plugins/output/output-plugin-overview.md)
 -   [Buffer Section Configuration](/configuration/buffer-section.md)
 
 

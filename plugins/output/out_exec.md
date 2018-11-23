@@ -126,7 +126,7 @@ fizzbuzz
 
 -   Asynchronous
 
-See [Output Plugin Overview](/articles/output-plugin-overview.md) for more details.
+See [Output Plugin Overview](/plugins/output/output-plugin-overview.md) for more details.
 
 
 ## Plugin helpers

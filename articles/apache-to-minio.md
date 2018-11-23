@@ -13,7 +13,7 @@ This article requires the following services are set up correctly:
 -   [Apache](https://httpd.apache.org/)
 
 Also, if you have installed Fluentd through ruby gems (without
-td-agent), please install the [out\_s3](/articles/out_s3.md) plugin manually:
+td-agent), please install the [out\_s3](/plugins/output/out_s3.md) plugin manually:
 
 ``` {.CodeRay}
 $ sudo fluent-gem install fluent-plugin-s3
@@ -50,7 +50,7 @@ td-agent/fluentd, the rest of this article will not work.
 
 Now let's add settings for storing the incoming data in your Minio
 server. Since Minio is compatible with Amazon Simple Storage Service
-(S3), we can use the [out\_s3](/articles/out_s3.md) plugin to connect to the server.
+(S3), we can use the [out\_s3](/plugins/output/out_s3.md) plugin to connect to the server.
 
 ``` {.CodeRay}
 <match minio.apache.**>
@@ -104,7 +104,7 @@ Then you will see the aggregated log data on Minio:
 ## Learn More
 
 -   [Fluentd Architecture](http://www.fluentd.org/architecture)
--   [Amazon S3 Output plugin](/articles/out_s3.md)
+-   [Amazon S3 Output plugin](/plugins/output/out_s3.md)
 
 
 ------------------------------------------------------------------------

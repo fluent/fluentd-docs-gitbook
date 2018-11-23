@@ -55,10 +55,10 @@ end
 
 -   All input plugins
 -   All filter plugins
--   [Exec output](/articles/out_exec.md)
--   [Relabel output](/articles/out_relabel.md)
--   [Copy output](/articles/out_copy.md)
--   [Roundrobin output](/articles/out_roundrobin.md)
+-   [Exec output](/plugins/output/out_exec.md)
+-   [Relabel output](/plugins/output/out_relabel.md)
+-   [Copy output](/plugins/output/out_copy.md)
+-   [Roundrobin output](/plugins/output/out_roundrobin.md)
 
 
 ------------------------------------------------------------------------

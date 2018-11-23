@@ -169,7 +169,7 @@ specifies the output plugin to use.
 
 Just like input sources, you can add new output destinations by writing
 your own plugins. For further information regarding Fluentd's output
-destinations, please refer to the [Output Plugin Overview](/articles/output-plugin-overview.md) article.
+destinations, please refer to the [Output Plugin Overview](/plugins/output/output-plugin-overview.md) article.
 
 
 ## (3) "filter": Event processing pipeline
@@ -442,7 +442,7 @@ defined after tight match patterns.
 
 Of course, if you use two same patterns, second `match` is never
 matched. If you want to send events to multiple outputs, consider
-[out\_copy](/articles/out_copy.md) plugin.
+[out\_copy](/plugins/output/out_copy.md) plugin.
 
 The common pitfall is when you put a `<filter>` block after `<match>`.
 It will never work as supposed, since events never go through the filter
