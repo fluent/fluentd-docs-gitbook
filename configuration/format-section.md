@@ -22,7 +22,7 @@ Format section can be in `<match>` or `<filter>` sections.
 ## formatter plugin type
 
 `<format>` section requires `@type` parameter to specify the type of
-formatter plugin. Fluentd core bundles [some useful formatter plugins](/articles/formatter-plugin-overview.md). 3rd party plugins are also
+formatter plugin. Fluentd core bundles [some useful formatter plugins](/plugins/formatter/formatter-plugin-overview.md). 3rd party plugins are also
 available when installed.
 
 ``` {.CodeRay}
@@ -33,13 +33,13 @@ available when installed.
 
 These are the list of built-in formatter plugins.
 
--   [out\_file](/articles/formatter_out_file.md)
--   [json](/articles/formatter_json.md)
--   [ltsv](/articles/formatter_ltsv.md)
--   [csv](/articles/formatter_csv.md)
--   [msgpack](/articles/formatter_msgpack.md)
--   [hash](/articles/formatter_hash.md)
--   [single\_value](/articles/formatter_single_value.md)
+-   [out\_file](/plugins/formatter/formatter_out_file.md)
+-   [json](/plugins/formatter/formatter_json.md)
+-   [ltsv](/plugins/formatter/formatter_ltsv.md)
+-   [csv](/plugins/formatter/formatter_csv.md)
+-   [msgpack](/plugins/formatter/formatter_msgpack.md)
+-   [hash](/plugins/formatter/formatter_hash.md)
+-   [single\_value](/plugins/formatter/formatter_single_value.md)
 
 For more details, see plugins documentation.
 

@@ -8,7 +8,7 @@
 -   [Extract section](/articles/extract-section.md)
 
 
--   [Storage section](/articles/storage-section.md)
+-   [Storage section](/plugins/storage/storage-section.md)
 
 
 -   [Transport section](/articles/transport-section.md)

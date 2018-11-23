@@ -254,7 +254,7 @@ into:
 </format>
 ```
 
-For more details, see [Formatter Plugin Overview](/articles/formatter-plugin-overview.md) and [Writing Formatter Plugins](/articles/api-plugin-formatter.md).
+For more details, see [Formatter Plugin Overview](/plugins/formatter/formatter-plugin-overview.md) and [Writing Formatter Plugins](/articles/api-plugin-formatter.md).
 
 
 ## compat\_parameters used plugins

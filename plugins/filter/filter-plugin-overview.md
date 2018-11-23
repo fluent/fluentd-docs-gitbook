@@ -3,8 +3,8 @@
 Fluentd has 7 types of plugins: [Input](/plugins/input/input-plugin-overview.md),
 [Parser](/plugins/parser/parser-plugin-overview.md), [Filter](/plugins/filter/filter-plugin-overview.md),
 [Output](/plugins/output/output-plugin-overview.md),
-[Formatter](/articles/formatter-plugin-overview.md),
-[Storage](/articles/storage-plugin-overview.md) and [Buffer](/articles/buffer-plugin-overview.md).
+[Formatter](/plugins/formatter/formatter-plugin-overview.md),
+[Storage](/plugins/storage/storage-plugin-overview.md) and [Buffer](/plugins/buffer/buffer-plugin-overview.md).
 This article gives an overview of Filter Plugin.
 
 
@@ -56,7 +56,7 @@ Hence, in the following example,
 Only the events whose "message" field contain "cool" get the new field
 "hostname" with the machine's hostname as its value.
 
-Users can create their own custom plugins with a bit of Ruby. See [this section](/articles/plugin-development.md/#filter-plugins) for more information.
+Users can create their own custom plugins with a bit of Ruby. See [this section](/developer/plugin-development.md/#filter-plugins) for more information.
 
 
 ## Filter chain optimization

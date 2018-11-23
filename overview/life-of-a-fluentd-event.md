@@ -255,7 +255,7 @@ conditions. So using buffered output, you don't see received events
 immediately unlike `stdout` non-buffered output.
 
 Buffer is important for reliability and throughput. See
-[Output](/plugins/output/output-plugin-overview.md) and [Buffer](/articles/buffer-plugin-overview.md)
+[Output](/plugins/output/output-plugin-overview.md) and [Buffer](/plugins/buffer/buffer-plugin-overview.md)
 articles.
 
 

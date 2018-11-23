@@ -3,8 +3,8 @@
 Fluentd has 7 types of plugins: [Input](/plugins/input/input-plugin-overview.md),
 [Parser](/plugins/parser/parser-plugin-overview.md), [Filter](/plugins/filter/filter-plugin-overview.md),
 [Output](/plugins/output/output-plugin-overview.md),
-[Formatter](/articles/formatter-plugin-overview.md),
-[Storage](/articles/storage-plugin-overview.md) and [Buffer](/articles/buffer-plugin-overview.md).
+[Formatter](/plugins/formatter/formatter-plugin-overview.md),
+[Storage](/plugins/storage/storage-plugin-overview.md) and [Buffer](/plugins/buffer/buffer-plugin-overview.md).
 This article gives an overview of Output Plugin.
 
 
@@ -34,7 +34,7 @@ configurations, dynamically. Users can configure buffer chunk keys as
 time (any unit specified by user), tag and any key name of records.
 Output plugin will split events into chunks: events in a chunk have same
 values for chunk keys. The output plugin's buffer behavior (if any) is
-defined by a separate [Buffer plugin](/articles/buffer-plugin-overview.md). Different
+defined by a separate [Buffer plugin](/plugins/buffer/buffer-plugin-overview.md). Different
 buffer plugins can be chosen for each output plugin.
 
 
@@ -109,7 +109,7 @@ See [Buffer section configurations](/configuration/buffer-section.md).
 
 ### Control Flushing
 
-See [Buffer Plugin Overview](/articles/buffer-plugin-overview.md) for the basic
+See [Buffer Plugin Overview](/plugins/buffer/buffer-plugin-overview.md) for the basic
 behaviour of buffer.
 
 #### flush\_mode
@@ -257,7 +257,7 @@ If true, output plugin will retry after randomized interval not to do
 burst retries.
 
 For other configuration parameters available in `<buffer>` sections, see
-[Buffer plugin overview](/articles/buffer-plugin-overview.md) and each plugins.
+[Buffer plugin overview](/plugins/buffer/buffer-plugin-overview.md) and each plugins.
 
 
 ## Secondary Output

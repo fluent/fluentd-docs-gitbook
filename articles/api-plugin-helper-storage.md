@@ -59,7 +59,7 @@ Created storage is managed by the plugin. No need storage shutdown code
 in plugin's `shutdown`. The plugin shutdowns created storages
 automatically.
 
-For more details about configuration, see [Storage section](/articles/storage-section.md).
+For more details about configuration, see [Storage section](/plugins/storage/storage-section.md).
 
 
 ## Methods

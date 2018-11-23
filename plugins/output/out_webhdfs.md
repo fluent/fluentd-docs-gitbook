@@ -151,7 +151,7 @@ needed.
 ### queue\_limit\_length, chunk\_limit\_size
 
 The length of the chunk queue and the size of each chunk, respectively.
-Please see the [Buffer Plugin Overview](/articles/buffer-plugin-overview.md) article
+Please see the [Buffer Plugin Overview](/plugins/buffer/buffer-plugin-overview.md) article
 for the basic buffer structure. The default values are 64 and 8m,
 respectively. The suffixes "k" (KB), "m" (MB), and "g" (GB) can be used
 for chunk\_limit\_size.

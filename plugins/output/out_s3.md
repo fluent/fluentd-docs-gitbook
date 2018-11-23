@@ -50,7 +50,7 @@ for real-world use cases.
 Please see the [Config File](/configuration/config-file.md) article for the basic
 structure and syntax of the configuration file.
 
-For \<buffer\> section, please check [Buffer section cofiguration](/configuration/buffer-section.md). This plugin uses [file buffer](/articles/buf_file.md)
+For \<buffer\> section, please check [Buffer section cofiguration](/configuration/buffer-section.md). This plugin uses [file buffer](/plugins/buffer/buf_file.md)
 by default.
 
 
@@ -96,7 +96,7 @@ The Amazon S3 bucket name.
 
 The buffer of the S3 plugin. The default settings is time sliced buffer.
 
-See [buffer article](/articles/buffer-plugin-overview.md) for more detail.
+See [buffer article](/plugins/buffer/buffer-plugin-overview.md) for more detail.
 
 
 ### s3\_region
@@ -156,7 +156,7 @@ Here is json example:
 </format>
 ```
 
-See [formatter article](/articles/formatter-plugin-overview.md) for more detail.
+See [formatter article](/plugins/formatter/formatter-plugin-overview.md) for more detail.
 
 
 ### format
