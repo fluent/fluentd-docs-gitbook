@@ -71,8 +71,8 @@ config file like below.
 The `@log_level` option sets different levels of logging for each
 plugin. It can be set in each plugin's configuration file.
 
-For example, in order to debug [in\_tail](/articles/in_tail.md) but suppress all but
-fatal log messages for [in\_http](/articles/in_http.md), their respective
+For example, in order to debug [in\_tail](/plugins/input/in_tail.md) but suppress all but
+fatal log messages for [in\_http](/plugins/input/in_http.md), their respective
 `@log_level` options should be set as follows:
 
 ``` {.CodeRay}

@@ -1,6 +1,6 @@
 # Parser Plugin Overview
 
-Fluentd has 7 types of plugins: [Input](/articles/input-plugin-overview.md),
+Fluentd has 7 types of plugins: [Input](/plugins/input/input-plugin-overview.md),
 [Parser](/articles/parser-plugin-overview.md), [Filter](/articles/filter-plugin-overview.md),
 [Output](/articles/output-plugin-overview.md),
 [Formatter](/articles/formatter-plugin-overview.md),
@@ -11,8 +11,8 @@ This article gives an overview of Parser Plugin.
 ## Overview
 
 Sometimes, the `<parse>` directive for input plugins (ex:
-[in\_tail](/articles/in_tail.md), [in\_syslog](/articles/in_syslog.md), [in\_tcp](/articles/in_tcp.md) and
-[in\_udp](/articles/in_udp.md)) cannot parse the user's custom data format (for
+[in\_tail](/plugins/input/in_tail.md), [in\_syslog](/plugins/input/in_syslog.md), [in\_tcp](/plugins/input/in_tcp.md) and
+[in\_udp](/plugins/input/in_udp.md)) cannot parse the user's custom data format (for
 example, a context-dependent grammar that can't be parsed with a regular
 expression). To address such cases. Fluentd has a pluggable system that
 enables the user to create their own parser formats.
@@ -66,11 +66,11 @@ Use `> 1.0.0` versions for fluentd v0.14/v1.0.
 
 with `<parse>` directive.
 
--   [in\_tail](/articles/in_tail.md)
--   [in\_tcp](/articles/in_tcp.md)
--   [in\_udp](/articles/in_udp.md)
--   [in\_syslog](/articles/in_syslog.md)
--   [in\_http](/articles/in_http.md)
+-   [in\_tail](/plugins/input/in_tail.md)
+-   [in\_tcp](/plugins/input/in_tcp.md)
+-   [in\_udp](/plugins/input/in_udp.md)
+-   [in\_syslog](/plugins/input/in_syslog.md)
+-   [in\_http](/plugins/input/in_http.md)
 
 
 ------------------------------------------------------------------------

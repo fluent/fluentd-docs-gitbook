@@ -86,7 +86,7 @@ configuration file should look like this:
 
 Please make sure that your Apache outputs are in the default
 \'combined\' format. \`format apache2\` cannot parse custom log formats.
-Please see the [in\_tail](/articles/in_tail.md) article for more information.
+Please see the [in\_tail](/plugins/input/in_tail.md) article for more information.
 
 Let's go through the configuration line by line.
 

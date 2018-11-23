@@ -25,7 +25,7 @@ structure and syntax of the configuration file.
 -   [thread](/articles/api-plugin-helper-thread.md)
 -   [storage](/articles/api-plugin-helper-storage.md)
 
--   See also: [Input Plugin Overview](/articles/input-plugin-overview.md)
+-   See also: [Input Plugin Overview](/plugins/input/input-plugin-overview.md)
 
 
 ## Parameters

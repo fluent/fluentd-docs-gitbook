@@ -55,13 +55,13 @@ learn more about Fluentd.
 -   [Architecture Overview](//www.fluentd.org/architecture)
 -   [Life of a Fluentd Event](/overview/life-of-a-fluentd-event.md)
 -   Plugin Overview
-    -   [Input Plugins](/articles/input-plugin-overview.md)
+    -   [Input Plugins](/plugins/input/input-plugin-overview.md)
     -   [Output Plugins](/articles/output-plugin-overview.md)
     -   [Buffer Plugins](/articles/buffer-plugin-overview.md)
     -   [Filter Plugins](/articles/filter-plugin-overview.md)
     -   [Parser Plugins](/articles/parser-plugin-overview.md)
     -   [Formatter Plugins](/articles/formatter-plugin-overview.md)
--   [High Availability Configuration](/articles/high-availability.md)
+-   [High Availability Configuration](/deployment/high-availability.md)
 -   [FAQ](/overview/faq.md)
 
 

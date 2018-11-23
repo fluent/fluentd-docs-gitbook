@@ -57,7 +57,7 @@ fluent-plugin-rewrite-tag-filter gem using the following command.
 $ fluent-gem install fluent-plugin-rewrite-tag-filter
 ```
 
-For more details, see [Plugin Management](/articles/plugin-management.md).
+For more details, see [Plugin Management](/deployment/plugin-management.md).
 
 
 ## Configuration example

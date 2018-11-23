@@ -27,7 +27,7 @@ Please refer to the following documents to install fluentd.
 
 ## Modifying the Config File
 
-Next, please configure Fluentd to use the [forward Input plugin](/articles/in_forward.md) as its data source.
+Next, please configure Fluentd to use the [forward Input plugin](/plugins/input/in_forward.md) as its data source.
 
 ``` {.CodeRay}
 <source>
@@ -129,7 +129,7 @@ For high-traffic websites (more than 5 application nodes), we recommend
 using a high availability configuration of td-agent. This will improve
 data transfer reliability and query performance.
 
--   [High-Availability Configurations of Fluentd](/articles/high-availability.md)
+-   [High-Availability Configurations of Fluentd](/deployment/high-availability.md)
 
 
 ### Monitoring
@@ -137,7 +137,7 @@ data transfer reliability and query performance.
 Monitoring Fluentd itself is also important. The article below describes
 general monitoring methods for td-agent.
 
--   [Monitoring Fluentd](/articles/monitoring.md)
+-   [Monitoring Fluentd](/deployment/monitoring.md)
 
 
 ------------------------------------------------------------------------

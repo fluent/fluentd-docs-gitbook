@@ -43,7 +43,7 @@ nodes so that your clocks remain synced with the correct clocks.
 ### I installed td-agent and want to add custom plugins. How do I do it?
 
 Use td-agent bundled gem. See [this
-section](/articles/plugin-management.md/#if-using-td-agent,-use-/usr/sbin/td-agent-gem)
+section](/deployment/plugin-management.md/#if-using-td-agent,-use-/usr/sbin/td-agent-gem)
 for more information.
 
 
@@ -137,7 +137,7 @@ Please refer to the [Plugin Development Guide](http://docs.fluentd.org/articles/
 ### How can I parse `<my complex text log>`?
 
 If you are willing to write Regexp, [fluentd-ui's in\_tail
-editor](/articles/fluentd-ui#intail-setting) or
+editor](/deployment/fluentd-ui#intail-setting) or
 [Fluentular](http://fluentular.herokuapp.com) is a great tool to verify
 your Regexps.
 

@@ -77,7 +77,7 @@ end
 
 ## child\_process used plugins
 
--   [in exec](/articles/in_exec.md)
+-   [in exec](/plugins/input/in_exec.md)
 -   [out exec](/articles/out_exec.md)
 -   [out exec filter](/articles/out_exec_filter.md)
 

@@ -260,12 +260,12 @@ For more details, see [Formatter Plugin Overview](/articles/formatter-plugin-ove
 ## compat\_parameters used plugins
 
 -   [Parser filter](/articles/filter_parser.md)
--   [Exec input](/articles/in_exec.md)
--   [HTTP input](/articles/in_http.md)
--   [Syslog input](/articles/in_syslog.md)
--   [Tail input](/articles/in_tail.md)
--   [TCP input](/articles/in_tcp.md)
--   [UDP input](/articles/in_udp.md)
+-   [Exec input](/plugins/input/in_exec.md)
+-   [HTTP input](/plugins/input/in_http.md)
+-   [Syslog input](/plugins/input/in_syslog.md)
+-   [Tail input](/plugins/input/in_tail.md)
+-   [TCP input](/plugins/input/in_tcp.md)
+-   [UDP input](/plugins/input/in_udp.md)
 -   [Exec output](/articles/out_exec.md)
 -   [Exec filter output](/articles/out_exec_filter.md)
 -   [File output](/articles/out_file.md)

@@ -1,6 +1,6 @@
 # Output Plugin Overview
 
-Fluentd has 7 types of plugins: [Input](/articles/input-plugin-overview.md),
+Fluentd has 7 types of plugins: [Input](/plugins/input/input-plugin-overview.md),
 [Parser](/articles/parser-plugin-overview.md), [Filter](/articles/filter-plugin-overview.md),
 [Output](/articles/output-plugin-overview.md),
 [Formatter](/articles/formatter-plugin-overview.md),

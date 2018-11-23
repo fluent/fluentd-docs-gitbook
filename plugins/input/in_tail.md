@@ -390,7 +390,7 @@ Please see the [logging article](/deployment/logging.md) for further details.
 
 ## Learn More
 
--   [Input Plugin Overview](/articles/input-plugin-overview.md)
+-   [Input Plugin Overview](/plugins/input/input-plugin-overview.md)
 
 
 ## FAQ

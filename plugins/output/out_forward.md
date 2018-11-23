@@ -401,7 +401,7 @@ For more details, see [Secondary Output](/articles/output-plugin-overview.md/#se
 
 ### How to connect to a TLS/SSL enabled server
 
-If you've [set up TLS/SSL encryption in the receiving server](/articles/in_forward.md/#how-to-enable-tls/ssl-encryption), you need to tell
+If you've [set up TLS/SSL encryption in the receiving server](/plugins/input/in_forward.md/#how-to-enable-tls/ssl-encryption), you need to tell
 the output forwarder to use encryption by setting the `transport`
 parameter:
 
@@ -438,7 +438,7 @@ being received by the destination node properly.
 
 ### How to Enable Password Authentication
 
-If you want to connect to [a server that requires password authentication](/articles/in_forward.md/#how-to-enable-password-authentication), you
+If you want to connect to [a server that requires password authentication](/plugins/input/in_forward.md/#how-to-enable-password-authentication), you
 need to set your credentials in the configuration file.
 
 ``` {.CodeRay}

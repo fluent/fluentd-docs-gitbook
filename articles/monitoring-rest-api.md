@@ -56,7 +56,7 @@ $ curl http://host:24220/api/plugins.json
 }
 ```
 
-See [in\_monitor\_agent article](/articles/in_monitor_agent.md) for more detail.
+See [in\_monitor\_agent article](/plugins/input/in_monitor_agent.md) for more detail.
 
 
 ## Monitoring the event flow

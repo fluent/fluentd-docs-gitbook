@@ -17,7 +17,7 @@ features, check the Further Reading section.
 
 `out_s3` is included in td-agent by default. Fluentd gem users will need
 to install the fluent-plugin-s3 gem. In order to install it, please
-refer to the [Plugin Management](/articles/plugin-management.md) article.
+refer to the [Plugin Management](/deployment/plugin-management.md) article.
 
 
 ## Example Configuration

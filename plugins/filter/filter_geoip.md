@@ -37,7 +37,7 @@ $ fluent-gem install fluent-plugin-geoip
 $ sudo /usr/sbin/td-agent-gem install fluent-plugin-geoip
 ```
 
-For more details, see [Plugin Management](/articles/plugin-management.md).
+For more details, see [Plugin Management](/deployment/plugin-management.md).
 
 
 ## Example Configuration

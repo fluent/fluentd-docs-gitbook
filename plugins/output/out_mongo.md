@@ -32,7 +32,7 @@ command.
 $ fluent-gem install fluent-plugin-mongo
 ```
 
-For more details, see [Plugin Management](/articles/plugin-management.md).
+For more details, see [Plugin Management](/deployment/plugin-management.md).
 
 
 ## Example Configuration

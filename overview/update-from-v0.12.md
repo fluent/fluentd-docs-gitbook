@@ -109,7 +109,7 @@ to flush existing buffer files before update fluentd.
 ### Log forward from v1.0 to v0.12
 
 Log forwarding from v0.12 to v1.0 is no problem but Log forwarding from
-v1.0 to v0.12 has a problem due to timestamp change. See [in\_forward's FAQ](/v0.12/articles/in_forward.md/#i-got-messagepack::unknownexttypeerror-error.-why?)
+v1.0 to v0.12 has a problem due to timestamp change. See [in\_forward's FAQ](/v0.12/plugins/input/in_forward.md/#i-got-messagepack::unknownexttypeerror-error.-why?)
 
 
 ------------------------------------------------------------------------

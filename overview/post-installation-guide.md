@@ -100,7 +100,7 @@ A configuration file consists of a number of setting blocks (like
 endpoint.
 
 For example, if you want to create an endpoint to receive data from
-[syslog](/articles/in_syslog.md), you need to add a `<source>` block and set up its
+[syslog](/plugins/input/in_syslog.md), you need to add a `<source>` block and set up its
 settings as follows.
 
 ``` {.CodeRay}

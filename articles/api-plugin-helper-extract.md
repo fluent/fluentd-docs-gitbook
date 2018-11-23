@@ -60,9 +60,9 @@ new_time = extract_time_from_record(record)
 
 ## extract used plugins
 
--   [Exec input](/articles/in_exec.md)
--   [TCP input](/articles/in_tcp.md)
--   [UDP input](/articles/in_udp.md)
+-   [Exec input](/plugins/input/in_exec.md)
+-   [TCP input](/plugins/input/in_tcp.md)
+-   [UDP input](/plugins/input/in_udp.md)
 -   [Exec filter output](/articles/out_exec_filter.md)
 
 

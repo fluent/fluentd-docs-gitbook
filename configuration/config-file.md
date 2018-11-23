@@ -47,7 +47,7 @@ For example, `/etc/td-agent/td-agent.conf` is specified via
 
 #### -c option
 
-See [Command Line Option article](/articles/command-line-option.md).
+See [Command Line Option article](/deployment/command-line-option.md).
 
 
 ## Character encoding
@@ -125,7 +125,7 @@ record: {"event":"data"}
 
 You can add new input sources by writing your own plugins. For further
 information regarding Fluentd's input sources, please refer to the
-[Input Plugin Overview](/articles/input-plugin-overview.md) article.
+[Input Plugin Overview](/plugins/input/input-plugin-overview.md) article.
 
 
 ## (2) "match": Tell fluentd what to do!
@@ -466,7 +466,7 @@ for the reason explained above.
 ## Supported Data Types for Values
 
 Each Fluentd plugin has a set of parameters. For example,
-[in\_tail](/articles/in_tail.md) has parameters such as `rotate_wait` and `pos_file`.
+[in\_tail](/plugins/input/in_tail.md) has parameters such as `rotate_wait` and `pos_file`.
 Each parameter has a specific type associated with it. They are defined
 as follows:
 
