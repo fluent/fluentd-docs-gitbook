@@ -129,7 +129,7 @@
 - Articles
   * [Apache To Mongodb](/articles/apache-to-mongodb.md)
   * [Apache To Riak](/articles/apache-to-riak.md)
-  * [Apache To S3](/articles/apache-to-s3.md)
+  * [Store Apache Logs into Amazon S3](/articles/apache-to-s3.md)
   * [Before Install](/articles/before-install.md)
   * [Cep Norikra](/articles/cep-norikra.md)
   * [Collect Glusterfs Logs](/articles/collect-glusterfs-logs.md)
