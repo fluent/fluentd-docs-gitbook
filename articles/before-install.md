@@ -12,9 +12,7 @@ It's HIGHLY recommended that you set up NTP daemon (e.g.
 have accurate current timestamp. This is crucial for the
 production-grade logging services.
 For AWS (Amazon Web Services) users we recommend to use Amazon Time Sync
-Service, AWS hosted NTP server. Please check [AWS EC2: Setting the Time
-for Your Linux
-Instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/set-time.html).
+Service, AWS hosted NTP server. Please check [AWS EC2: Setting the Time for Your Linux Instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/set-time.html).
 
 ## Increase Max \# of File Descriptors
 
@@ -65,11 +63,8 @@ net.ipv4.tcp_tw_reuse = 1
 net.ipv4.ip_local_port_range = 10240 65535
 ```
 
-These kernel options were originally taken from the presentation "[How
-Netflix Tunes EC2 Instances for
-Performance](https://www.slideshare.net/brendangregg/how-netflix-tunes-ec2-instances-for-performance)"
-by [Brendan Gregg](http://www.brendangregg.com/), Senior Performance
-Architect at AWS re:Invent 2017.
+These kernel options were originally taken from the presentation "[How Netflix Tunes EC2 Instances for Performance](https://www.slideshare.net/brendangregg/how-netflix-tunes-ec2-instances-for-performance)"
+by [Brendan Gregg](http://www.brendangregg.com/), Senior Performance Architect at AWS re:Invent 2017.
 
 
 ------------------------------------------------------------------------
