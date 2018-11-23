@@ -34,10 +34,7 @@ started make sure you have the following prerequisites:
 -   A basic understanding of [Docker logging drivers](https://docs.docker.com/engine/admin/logging/overview/)
 -   Docker v1.8+
 
-This article launches Fluentd as standard process, not a container.
-Prease refer [Docker Logging via EFK (Elasticsearch + Fluentd + Kibana)
-Stack with Docker Compose](docker-logging-efk-compose) for fully
-containerized environment tutorial.
+This article launches Fluentd as standard process, not a container. Please refer [Docker Logging via EFK (Elasticsearch + Fluentd + Kibana) Stack with Docker Compose](/articles/docker-logging-efk-compose.md) for fully containerized environment tutorial.
 
 ### Step 1: Create the Fluentd configuration file
 
@@ -234,8 +231,7 @@ This document describes how to set up multi-container logging
 environment via EFK (Elasticsearch, Fluentd, Kibana) with Docker
 Compose.
 
--   [Docker Logging via EFK (Elasticsearch + Fluentd + Kibana) Stack
-    with Docker Compose](docker-logging-efk-compose)
+-   [Docker Logging via EFK (Elasticsearch + Fluentd + Kibana) Stack with Docker Compose](/articles/docker-logging-efk-compose.md)
 
 ## Production Environments
 

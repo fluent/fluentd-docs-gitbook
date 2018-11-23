@@ -93,8 +93,7 @@ related documentations for Fluentd.
 -   [Fluentd's official Docker image](https://hub.docker.com/r/fluent/fluentd/)
 -   [Fluentd's official Docker image (Source)](https://github.com/fluent/fluentd-docker-image)
 -   [Docker Logging Driver and Fluentd](/articles/docker-logging.md)
--   [Docker Logging via EFK (Elasticsearch + Fluentd + Kibana) Stack
-    with Docker Compose](docker-logging-efk-compose)
+-   [Docker Logging via EFK (Elasticsearch + Fluentd + Kibana) Stack with Docker Compose](/articles/docker-logging-efk-compose.md)
 
 Also, please see the following tutorials to learn how to collect your
 data from various data sources.

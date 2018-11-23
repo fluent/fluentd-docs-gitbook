@@ -1,14 +1,9 @@
 # Quickstart Guide
 
-Let's get started with **Fluentd**! **Fluentd** is a fully free and
-fully open-source log collector that instantly enables you to have a
-'**Log Everything**' architecture with [600+ types of
-systems](http://fluentd.org/plugin/).
+Let's get started with **Fluentd**! **Fluentd** is a fully free and fully open-source log collector that instantly enables you to have a '**Log Everything**' architecture with [600+ types of systems](http://fluentd.org/plugin/).
 
 ![](/images/fluentd-architecture.png)
-Fluentd treats logs as JSON, a popular machine-readable format. It is
-written primarily in C with a thin-Ruby wrapper that gives users
-flexibility.
+Fluentd treats logs as JSON, a popular machine-readable format. It is written primarily in C with a thin-Ruby wrapper that gives users flexibility.
 
 Fluentd's scalability has been proven in the field: its largest user
 currently collects logs from **500,000+ servers**.
@@ -20,8 +15,7 @@ Please follow the installation/quickstart guides below that matches your
 environment.
 
 -   [Install Fluentd by RPM package](/articles/install-by-rpm.md) (Redhat Linux)
--   [Install Fluentd by Deb package](/articles/install-by-deb.md) (Ubuntu/Debian
-    Linux)
+-   [Install Fluentd by Deb package](/articles/install-by-deb.md) (Ubuntu/Debian Linux)
 -   [Install Fluentd by DMG package](/articles/install-by-dmg.md) (Mac OS X)
 -   [Install Fluentd by Ruby Gem](/articles/install-by-gem.md)
 -   [Install Fluentd by Chef](/articles/install-by-chef.md)
