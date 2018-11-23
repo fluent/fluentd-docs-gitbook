@@ -6,8 +6,8 @@ uses files to store buffer chunks on disk.
 
 ## Parameters
 
--   [Common Parameters](/articles/plugin-common-parameters.md)
--   [Buffer section configurations](/articles/buffer-section.md)
+-   [Common Parameters](/configuration/plugin-common-parameters.md)
+-   [Buffer section configurations](/configuration/buffer-section.md)
 
 
 ### path

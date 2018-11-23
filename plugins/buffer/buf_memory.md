@@ -7,8 +7,8 @@ logs that can't be written quickly are deleted.
 
 ## Parameters
 
--   [Common Parameters](/articles/plugin-common-parameters.md)
--   [Buffer section configurations](/articles/buffer-section.md)
+-   [Common Parameters](/configuration/plugin-common-parameters.md)
+-   [Buffer section configurations](/configuration/buffer-section.md)
 
 `memory` plugin has no specific parameters.
 

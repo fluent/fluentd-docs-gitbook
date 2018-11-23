@@ -181,7 +181,7 @@ overriding these methods (`#prefer_buffer_processing` and
 
 ### Understanding Chunking and Metadata
 
-See [Buffer section](/articles/buffer-section.md) article for basic knowledge.
+See [Buffer section](/configuration/buffer-section.md) article for basic knowledge.
 
 Fluentd creates buffer chunks to store events. Each buffer chunks should
 be written at once, without any re-chunking in methods to write. In

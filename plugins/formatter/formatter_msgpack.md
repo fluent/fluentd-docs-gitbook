@@ -5,8 +5,8 @@ The `msgpack` formatter plugin converts an event to msgpack binary.
 
 ## Parameters
 
--   [Common Parameters](/articles/plugin-common-parameters.md)
--   [Format section configurations](/articles/format-section.md)
+-   [Common Parameters](/configuration/plugin-common-parameters.md)
+-   [Format section configurations](/configuration/format-section.md)
 
 
 ## Example

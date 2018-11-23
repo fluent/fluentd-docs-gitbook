@@ -189,7 +189,7 @@ same and it causes data lost. To avoid this problem, an user need to set
 </match>
 ```
 
-See [Configuration File article](/articles/config-file.md/#embedded-ruby-code) for
+See [Configuration File article](/configuration/config-file.md/#embedded-ruby-code) for
 embbeded Ruby code feature.
 
 

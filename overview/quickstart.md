@@ -39,7 +39,7 @@ refer to the article(s) that suits your needs.
     -   [Data Collection to HDFS](/articles/http-to-hdfs.md)
     -   [Data Archiving to Amazon S3](/articles/apache-to-s3.md)
 -   Basic Configuration
-    -   [Config File](/articles/config-file.md)
+    -   [Config File](/configuration/config-file.md)
 -   Application Logs
     -   [Ruby](/articles/ruby.md), [Java](/articles/java.md), [Python](/articles/python.md), [PHP](/articles/php.md),
         [Perl](/articles/perl.md), [Node.js](/articles/nodejs.md), [Scala](/articles/scala.md)

@@ -8,7 +8,7 @@ This parser is often used in conjunction with [single\_value format](/articles/f
 
 ## Parameters
 
-See [Parse section configurations](/articles/parse-section.md)
+See [Parse section configurations](/configuration/parse-section.md)
 
 
 ### message\_key

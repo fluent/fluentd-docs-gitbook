@@ -47,10 +47,10 @@ refer to the [Plugin Management](/articles/plugin-management.md) article.
 Please see the [Store Apache Logs into Amazon S3](/articles/apache-to-s3.md) article
 for real-world use cases.
 
-Please see the [Config File](/articles/config-file.md) article for the basic
+Please see the [Config File](/configuration/config-file.md) article for the basic
 structure and syntax of the configuration file.
 
-For \<buffer\> section, please check [Buffer section cofiguration](/articles/buffer-section.md). This plugin uses [file buffer](/articles/buf_file.md)
+For \<buffer\> section, please check [Buffer section cofiguration](/configuration/buffer-section.md). This plugin uses [file buffer](/articles/buf_file.md)
 by default.
 
 

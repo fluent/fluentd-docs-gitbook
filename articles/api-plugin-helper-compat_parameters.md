@@ -41,7 +41,7 @@ end
     -   `:formatter`
 -   `kwargs`:
     -   `default_chunk_key`: Set default chunk key. For more details,
-        see [Buffer section configurations](/articles/buffer-section.md)
+        see [Buffer section configurations](/configuration/buffer-section.md)
 
 The important point is you can't mix v1.0 and v0.12 styles in one plugin
 directive. If you mix v1.0 and v0.12 styles, v1.0 style is used and
@@ -107,7 +107,7 @@ into:
 </buffer>
 ```
 
-For more details, see [Buffer section configuration](/articles/buffer-section.md)
+For more details, see [Buffer section configuration](/configuration/buffer-section.md)
 
 #### inject
 

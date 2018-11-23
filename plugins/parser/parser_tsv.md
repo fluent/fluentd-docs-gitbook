@@ -5,7 +5,7 @@ The `tsv` parser plugin parses TSV format.
 
 ## Parameters
 
-See [Parse section configurations](/articles/parse-section.md)
+See [Parse section configurations](/configuration/parse-section.md)
 
 
 ### keys

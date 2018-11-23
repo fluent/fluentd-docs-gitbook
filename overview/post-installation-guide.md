@@ -144,7 +144,7 @@ example, `debug.**` matches not only `debug.log`, but also
 
 ### Further Reading
 
-Read [Configuration File Syntax](/articles/config-file.md) for the full configuration
+Read [Configuration File Syntax](/configuration/config-file.md) for the full configuration
 syntax.
 
 

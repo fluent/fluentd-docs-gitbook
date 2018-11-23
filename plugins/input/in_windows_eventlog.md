@@ -31,7 +31,7 @@ $ fluent-gem install fluent-plugin-windows-eventlog
 </source>
 ```
 
-Please see the [Config File](/articles/config-file.md) article for the basic
+Please see the [Config File](/configuration/config-file.md) article for the basic
 structure and syntax of the configuration file.
 
 
@@ -56,7 +56,7 @@ corresponding channel to `channel` field.
 
 ## Parameters
 
-[Common Parameters](/articles/plugin-common-parameters.md)
+[Common Parameters](/configuration/plugin-common-parameters.md)
 
 []{#@type-(required)}
 

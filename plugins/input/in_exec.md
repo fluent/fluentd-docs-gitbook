@@ -29,7 +29,7 @@ process is required.
 </source>
 ```
 
-Please see the [Config File](/articles/config-file.md) article for the basic
+Please see the [Config File](/configuration/config-file.md) article for the basic
 structure and syntax of the configuration file.
 
 
@@ -43,7 +43,7 @@ structure and syntax of the configuration file.
 
 ## Parameters
 
-[Common Parameters](/articles/plugin-common-parameters.md)
+[Common Parameters](/configuration/plugin-common-parameters.md)
 
 []{#@type}
 
@@ -99,7 +99,7 @@ The default block size to read if parser requires partial read.
 For more details about parse section, see followings
 
 -   [Parser plugin overview](/articles/parser-plugin-overview.md)
--   [Parse section configuration](/articles/parse-section.md)
+-   [Parse section configuration](/configuration/parse-section.md)
 
 #### \@type
 

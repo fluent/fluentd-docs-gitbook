@@ -16,7 +16,7 @@ format using the time\_format parameter.
 
 ## Parameters
 
-See [Parse section configurations](/articles/parse-section.md) for common parameters.
+See [Parse section configurations](/configuration/parse-section.md) for common parameters.
 
 
 ### expression

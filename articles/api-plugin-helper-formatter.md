@@ -35,7 +35,7 @@ For more details about formatter plugin, see following articles:
 
 -   [Formatter Plugin Overview](/articles/formatter-plugin-overview.md)
 -   [Writing Formatter Plugins](/articles/api-plugin-formatter.md)
--   [Format section](/articles/format-section.md)
+-   [Format section](/configuration/format-section.md)
 
 
 ## Methods

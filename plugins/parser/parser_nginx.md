@@ -5,7 +5,7 @@ The `nginx` parser plugin parses default nginx logs.
 
 ## Parameters
 
-See [Parse section configurations](/articles/parse-section.md)
+See [Parse section configurations](/configuration/parse-section.md)
 
 
 ## Regexp patterns

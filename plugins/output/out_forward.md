@@ -47,7 +47,7 @@ process is required.
 </match>
 ```
 
-Please see the [Config File](/articles/config-file.md) article for the basic
+Please see the [Config File](/configuration/config-file.md) article for the basic
 structure and syntax of the configuration file.
 
 
@@ -70,7 +70,7 @@ See [Output Plugin Overview](/articles/output-plugin-overview.md) for more detai
 
 ## Parameters
 
-[Common Parameters](/articles/plugin-common-parameters.md)
+[Common Parameters](/configuration/plugin-common-parameters.md)
 
 []{#@type}
 

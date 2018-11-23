@@ -90,7 +90,7 @@ details.
 
 ## Parameters
 
-[Common Parameters](/articles/plugin-common-parameters.md)
+[Common Parameters](/configuration/plugin-common-parameters.md)
 
 
 ### geoip\_database

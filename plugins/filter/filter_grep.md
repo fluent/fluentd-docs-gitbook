@@ -57,7 +57,7 @@ whereas the following examples are filtered out:
 
 ## Parameters
 
-[Common Parameters](/articles/plugin-common-parameters.md)
+[Common Parameters](/configuration/plugin-common-parameters.md)
 
 []{#<and>-directive}
 

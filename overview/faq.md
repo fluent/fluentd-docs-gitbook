@@ -83,7 +83,7 @@ This means you emit the event but no `<match>` directive for emitted
 event. For example, if you emit the event with `foo.bar` tag, you need
 to define `<match>` for `foo.bar` tag like `<match foo.**>`.
 
-See also: [Life of a Fluentd event](/overview/life-of-a-fluentd-event.md) or [Config File](/articles/config-file.md)
+See also: [Life of a Fluentd event](/overview/life-of-a-fluentd-event.md) or [Config File](/configuration/config-file.md)
 
 
 ### File buffer doesn't work properly, why?

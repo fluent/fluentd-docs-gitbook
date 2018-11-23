@@ -61,7 +61,7 @@ parameters.
 
 ## Parameters
 
-[Common Parameters](/articles/plugin-common-parameters.md)
+[Common Parameters](/configuration/plugin-common-parameters.md)
 
 []{#@type-(required)}
 

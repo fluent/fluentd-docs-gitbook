@@ -22,7 +22,7 @@ process is required.
 </source>
 ```
 
-Please see the [Config FIle](/articles/config-file.md) article for the basic
+Please see the [Config FIle](/configuration/config-file.md) article for the basic
 structure and syntax of the configuration file.
 
 
@@ -33,7 +33,7 @@ structure and syntax of the configuration file.
 
 ## Parameters
 
--   [Common Parameters](/articles/plugin-common-parameters.md)
+-   [Common Parameters](/configuration/plugin-common-parameters.md)
 -   [Transport section](/articles/transport-section.md)
 
 []{#@type}

@@ -43,7 +43,7 @@ actually does nothing, but supports only `@label` parameter.
 
 ## Parameters
 
-[Common Parameters](/articles/plugin-common-parameters.md)
+[Common Parameters](/configuration/plugin-common-parameters.md)
 
 []{#@type}
 

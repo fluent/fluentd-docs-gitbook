@@ -30,13 +30,13 @@ Also you can fetch the same data in LTSV format:
 $ curl http://host:24220/api/plugins
 ```
 
-Please see the [Config File](/articles/config-file.md) article for the basic
+Please see the [Config File](/configuration/config-file.md) article for the basic
 structure and syntax of the configuration file.
 
 
 ## Parameters
 
-[Common Parameters](/articles/plugin-common-parameters.md)
+[Common Parameters](/configuration/plugin-common-parameters.md)
 
 []{#@type-(required)}
 
@@ -269,7 +269,7 @@ example, with this configuration:
 
 3 HTTP servers will be launched. Port 24230 for worker 0, port 24231 for
 worker 1 and port 24232 for worker 2. Note that you may need to set
-worker\_id to `@id` parameter. See [config article](/articles/config-file.md#embedded-ruby-code)
+worker\_id to `@id` parameter. See [config article](/configuration/config-file.md#embedded-ruby-code)
 
 
 ------------------------------------------------------------------------

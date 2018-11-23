@@ -26,9 +26,9 @@ process is required.
 </match>
 ```
 
-Please see the [Config File](/articles/config-file.md) article for the basic
+Please see the [Config File](/configuration/config-file.md) article for the basic
 structure and syntax of the configuration file. For \<buffer\> section,
-please check [Buffer section cofiguration](/articles/buffer-section.md).
+please check [Buffer section cofiguration](/configuration/buffer-section.md).
 
 
 ## Plugin helpers
@@ -40,7 +40,7 @@ please check [Buffer section cofiguration](/articles/buffer-section.md).
 
 ## Parameters
 
-[Common Parameters](/articles/plugin-common-parameters.md)
+[Common Parameters](/configuration/plugin-common-parameters.md)
 
 []{#@type-(required)}
 
@@ -187,7 +187,7 @@ For common output / buffer parameters, please check the following
 articles.
 
 -   [Output Plugin Overview](/articles/output-plugin-overview.md)
--   [Buffer Section Configuration](/articles/buffer-section.md)
+-   [Buffer Section Configuration](/configuration/buffer-section.md)
 
 
 ## FAQ

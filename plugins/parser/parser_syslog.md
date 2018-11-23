@@ -6,7 +6,7 @@ supports two RFC formats, rfc3164 and rfc5424.
 
 ## Parameters
 
-See [Parse section configurations](/articles/parse-section.md)
+See [Parse section configurations](/configuration/parse-section.md)
 
 
 ### time\_format

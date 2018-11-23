@@ -80,7 +80,7 @@ path. Then, if in\_tail is configured as
 Then, the log line like `2014-01-01T00:00:00 k=v a=b` is parsed as
 `2013-01-01 00:00:00 +0000 test: {"k":"v","a":"b"}`.
 
-For more details about `<parse>` section, see [Parse section configurations](/articles/parse-section.md).
+For more details about `<parse>` section, see [Parse section configurations](/configuration/parse-section.md).
 
 
 ## How To Use Parsers From Plugins

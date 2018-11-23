@@ -165,13 +165,13 @@ controlling retry bahaviours.
 
 Normally, you don't need to specify every option as in this example,
 because these options are, in fact, optional. As for the detail of each
-option, please read [this article](/articles/buffer-section.md/#retries-parameters).
+option, please read [this article](/configuration/buffer-section.md/#retries-parameters).
 
 
 ## Parameters
 
--   [Common Parameters](/articles/plugin-common-parameters.md)
--   [Buffer section configurations](/articles/buffer-section.md)
+-   [Common Parameters](/configuration/plugin-common-parameters.md)
+-   [Buffer section configurations](/configuration/buffer-section.md)
 
 
 ## FAQ

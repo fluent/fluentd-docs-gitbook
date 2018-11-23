@@ -34,7 +34,7 @@ parser plugin, so you can re-use pre-defined format like `apache`,
 
 ## Parameters
 
-[Common Parameters](/articles/plugin-common-parameters.md)
+[Common Parameters](/configuration/plugin-common-parameters.md)
 
 []{#<parse>-section}
 
@@ -42,7 +42,7 @@ parser plugin, so you can re-use pre-defined format like `apache`,
 
 This is required sub section. Specify parser type and related parameter.
 
-For more details, see [Parse section configurations](/articles/parse-section.md).
+For more details, see [Parse section configurations](/configuration/parse-section.md).
 
 
 ### key\_name

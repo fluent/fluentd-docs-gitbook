@@ -69,9 +69,9 @@ For more details, see [Plugin Management](/articles/plugin-management.md).
 Please see the [Store Apache Logs into MongoDB](/articles/apache-to-mongodb.md)
 article for real-world use cases.
 
-Please see the [Config File](/articles/config-file.md) article for the basic
+Please see the [Config File](/configuration/config-file.md) article for the basic
 structure and syntax of the configuration file. For \<buffer\> section,
-please check [Buffer section cofiguration](/articles/buffer-section.md).
+please check [Buffer section cofiguration](/configuration/buffer-section.md).
 
 
 ## Parameters
@@ -203,7 +203,7 @@ For common output / buffer parameters, please check the following
 articles.
 
 -   [Output Plugin Overview](/articles/output-plugin-overview.md)
--   [Buffer Section Configuration](/articles/buffer-section.md)
+-   [Buffer Section Configuration](/configuration/buffer-section.md)
 
 
 ## Further Reading

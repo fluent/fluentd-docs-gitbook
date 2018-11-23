@@ -44,7 +44,7 @@ For more details about parser plugin, see following articles:
 
 -   [Parser Plugin Overview](/articles/parser-plugin-overview.md)
 -   [Writing Parser Plugins](/articles/api-plugin-parser.md)
--   [Parser plugin](/articles/parse-section.md)
+-   [Parser plugin](/configuration/parse-section.md)
 
 
 ## Methods

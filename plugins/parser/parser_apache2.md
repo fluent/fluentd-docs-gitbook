@@ -5,7 +5,7 @@ The `apache2` parser plugin parses apache2 logs.
 
 ## Parameters
 
-See [Parse section configurations](/articles/parse-section.md)
+See [Parse section configurations](/configuration/parse-section.md)
 
 
 ## Regexp patterns

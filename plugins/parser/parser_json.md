@@ -5,7 +5,7 @@ The `json` parser plugin parses JSON logs. One JSON map per line.
 
 ## Parameters
 
-See [Parse section configurations](/articles/parse-section.md)
+See [Parse section configurations](/configuration/parse-section.md)
 
 
 ### json\_parser

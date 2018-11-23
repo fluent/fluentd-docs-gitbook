@@ -8,8 +8,8 @@ This formatter is often used in conjunction with [none parser](/articles/parser_
 
 ## Parameters
 
--   [Common Parameters](/articles/plugin-common-parameters.md)
--   [Format section configurations](/articles/format-section.md)
+-   [Common Parameters](/configuration/plugin-common-parameters.md)
+-   [Format section configurations](/configuration/format-section.md)
 
 
 ### add\_newline

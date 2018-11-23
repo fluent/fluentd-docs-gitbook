@@ -37,9 +37,9 @@ Parsed result like below:
 {"field1":"123456","field2":"awesome}
 ```
 
-Please see the [Config File](/articles/config-file.md) article for the basic
+Please see the [Config File](/configuration/config-file.md) article for the basic
 structure and syntax of the configuration file. For \<parse\> section,
-please check [Parse section cofiguration](/articles/parse-section.md).
+please check [Parse section cofiguration](/configuration/parse-section.md).
 
 We\'ve observed the drastic performance improvements on Linux, with
 proper kernel parameter settings. If you have high-volume TCP traffic,
@@ -56,7 +56,7 @@ please make sure to follow the instruction described at [Before Installing Fluen
 
 ## Parameters
 
-[Common Parameters](/articles/plugin-common-parameters.md)
+[Common Parameters](/configuration/plugin-common-parameters.md)
 
 []{#@type}
 
@@ -131,7 +131,7 @@ then the client's hostname is set to `client_host` field.
 For more details about parser plugin, see followings:
 
 -   [Parser Plugin Overview](/articles/parser-plugin-overview.md)
--   [Parse section configurations](/articles/parse-section.md)
+-   [Parse section configurations](/configuration/parse-section.md)
 
 
 ------------------------------------------------------------------------

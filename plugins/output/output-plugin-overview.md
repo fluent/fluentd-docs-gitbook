@@ -104,7 +104,7 @@ for parameter name changes between v1 and v0.12.
 
 ## Buffering/Retrying Parameters
 
-See [Buffer section configurations](/articles/buffer-section.md).
+See [Buffer section configurations](/configuration/buffer-section.md).
 
 
 ### Control Flushing

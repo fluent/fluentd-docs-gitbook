@@ -9,8 +9,8 @@ field1[label_delimiter]value1[delimiter]field2[label_delimiter]value2\n
 
 ## Parameters
 
--   [Common Parameters](/articles/plugin-common-parameters.md)
--   [Format section configurations](/articles/format-section.md)
+-   [Common Parameters](/configuration/plugin-common-parameters.md)
+-   [Format section configurations](/configuration/format-section.md)
 
 
 ### delimiter

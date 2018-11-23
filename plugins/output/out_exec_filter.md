@@ -31,7 +31,7 @@ installation process is required.
 </match>
 ```
 
-Please see the [Config File](/articles/config-file.md) article for the basic
+Please see the [Config File](/configuration/config-file.md) article for the basic
 structure and syntax of the configuration file.
 
 When using the json format in \<parse\> section, this plugin uses the
@@ -158,7 +158,7 @@ The format used to process the program output.
 
 The format used to map the incoming events to the program input.
 
-See [Format section configurations](/articles/format-section.md) for more details.
+See [Format section configurations](/configuration/format-section.md) for more details.
 
 #### \@type
 
@@ -174,7 +174,7 @@ Overwrite default value in this plugin.
 
 The format used to process the program output.
 
-See [Parse section configurations](/articles/parse-section.md) for more details.
+See [Parse section configurations](/configuration/parse-section.md) for more details.
 
 #### \@type
 
@@ -240,7 +240,7 @@ Overwrite default value in this plugin.
 
 ### \<buffer\> section
 
-See [Buffer section configurations](/articles/buffer-section.md) for more details.
+See [Buffer section configurations](/configuration/buffer-section.md) for more details.
 
 #### flush\_mode
 

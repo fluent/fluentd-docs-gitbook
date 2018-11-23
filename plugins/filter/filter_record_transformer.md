@@ -107,7 +107,7 @@ So, if an event with the tag "web.auth" and record
 
 ## Parameters
 
-[Common Parameters](/articles/plugin-common-parameters.md)
+[Common Parameters](/configuration/plugin-common-parameters.md)
 
 []{#@type}
 

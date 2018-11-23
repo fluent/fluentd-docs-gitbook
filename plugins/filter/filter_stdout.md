@@ -34,7 +34,7 @@ tag, and the third part shows the record.
 
 ## Parameters
 
-[Common Parameters](/articles/plugin-common-parameters.md)
+[Common Parameters](/configuration/plugin-common-parameters.md)
 
 []{#@type-(required)}
 
@@ -46,7 +46,7 @@ The value must be `stdout`.
 
 ### \<format\> section
 
-See [Format section configurations](/articles/format-section.md) for more details.
+See [Format section configurations](/configuration/format-section.md) for more details.
 
 #### \@type
 

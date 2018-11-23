@@ -9,8 +9,8 @@ The `csv` formatter plugin output an event as CSV.
 
 ## Parameters
 
--   [Common Parameters](/articles/plugin-common-parameters.md)
--   [Format section configurations](/articles/format-section.md)
+-   [Common Parameters](/configuration/plugin-common-parameters.md)
+-   [Format section configurations](/configuration/format-section.md)
 
 
 ### fields
