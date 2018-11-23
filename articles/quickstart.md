@@ -2,8 +2,7 @@
 
 Let's get started with **Fluentd**! **Fluentd** is a fully free and
 fully open-source log collector that instantly enables you to have a
-'**Log Everything**' architecture with [125+ types of
-systems](http://fluentd.org/plugin/).
+'**Log Everything**' architecture with [125+ types of systems](http://fluentd.org/plugin/).
 
 ![](/images/fluentd-architecture.png)
 
@@ -21,8 +20,7 @@ Please follow the installation/quickstart guides below that matches your
 environment.
 
 -   [Install Fluentd by RPM package](/articles/install-by-rpm.md) (Redhat Linux)
--   [Install Fluentd by Deb package](/articles/install-by-deb.md) (Ubuntu/Debian
-    Linux)
+-   [Install Fluentd by Deb package](/articles/install-by-deb.md) (Ubuntu/Debian Linux)
 -   [Install Fluentd by MSI package](/articles/install-by-msi.md) (Windows msi)
 -   [Install Fluentd by Ruby Gem](/articles/install-by-gem.md)
 -   [Install Fluentd from source](/articles/install-from-source.md)

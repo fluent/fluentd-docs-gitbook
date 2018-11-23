@@ -61,8 +61,7 @@ cluster.
 </match>
 ```
 
-Please see the [Fluentd + HDFS: Instant Big Data
-Collection](http-to-hdfs) article for real-world use cases.
+Please see the [Fluentd + HDFS: Instant Big Data Collection](http-to-hdfs) article for real-world use cases.
 
 Please see the [Config File](/articles/config-file.md) article for the basic
 structure and syntax of the configuration file. For \<buffer\> section,
