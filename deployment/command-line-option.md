@@ -67,8 +67,7 @@ supervisor.
 ### Set via configuration file
 
 Several options could be set via `<system>` directive configuration
-file. See [configuration file
-article](/articles/config-file#4-set-system-wide-configuration-the-ldquosystemrdquo-directive).
+file. See [configuration file article](/configuration/config-file.md#4-set-system-wide-configuration-the-ldquosystemrdquo-directive).
 
 ## fluent-cat
 

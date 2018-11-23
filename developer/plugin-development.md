@@ -346,9 +346,7 @@ end
 In `initialize`, `configure`, `start` and `shutdown`, `super` should be
 called to call Filter plugin default behaviour.
 
-See [Writing Input
-plugins](/articles/plugin-development#writing-input-plugins) section for
-the details of `tag`, `time` and `record`.
+See [Writing Input plugins](/developer/plugin-development.md#writing-input-plugins) section for the details of `tag`, `time` and `record`.
 
 ### filter\_stream method
 

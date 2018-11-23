@@ -86,8 +86,7 @@ options should be set as follows:
 
 If you don't specify the `log_level` parameter, the plugin will use the
 global log level.
-Some plugins haven\'t supported per-plugin logging yet. The [logging
-section of the Plugin Development article](/developer/plugin-development.md/#logging)
+Some plugins haven\'t supported per-plugin logging yet. The [logging section of the Plugin Development article](/developer/plugin-development.md/#logging)
 explains how to update such plugins to support the new log level system.
 
 ## Suppress repeated stacktrace

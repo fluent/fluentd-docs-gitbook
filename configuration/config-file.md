@@ -1,7 +1,6 @@
 # Configuration File Syntax
 
-This article describes the basic concepts of Fluentd's configuration
-file syntax.
+This article describes the basic concepts of Fluentd's configuration file syntax.
 
 
 ## Introduction: The Life of a Fluentd Event
@@ -158,8 +157,7 @@ configuration file.
 Each **match** directive must include a match pattern and a `@type`
 parameter. Only events with a **tag** matching the pattern will be sent
 to the output destination (in the above example, only the events with
-the tag "myapp.access" is matched. See [the section below for more
-advanced usage](#how-match-patterns-work)). The `@type` parameter
+the tag "myapp.access" is matched. See [the section below for more advanced usage](#how-match-patterns-work)). The `@type` parameter
 specifies the output plugin to use.
 
 Just like input sources, you can add new output destinations by writing
@@ -509,8 +507,7 @@ These parameters are system reserved and it has `@` prefix.
 -   `@label`: Specify label symbol. See
     [label](/configuration/config-file.md/#5-group-filter-and-output-the-ldquolabelrdquo-directive)
     section
--   `@log_level`: Specify per plugin log level. See [Per Plugin
-    Log](/deployment/logging.md/#per-plugin-log) section
+-   `@log_level`: Specify per plugin log level. See [Per Plugin Log](/deployment/logging.md/#per-plugin-log) section
 
 `type`, `id` and `log_level` are supported for backward compatibility.
 

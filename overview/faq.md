@@ -82,8 +82,7 @@ a look at the [Plugin Management](/deployment/plugin-management.md) article.
 
 ### I installed the plugin and it updates fluentd from v0.12 to v1.x. Why?
 
-You installed v1.0 based plugin. See [Plugin
-Management](/articles/plugin-management#plugin-version-management).
+You installed v1.0 based plugin. See [Plugin Management](/deployment/plugin-management.md/#plugin-version-management).
 
 ### How can I match (send) an event to multiple outputs?
 

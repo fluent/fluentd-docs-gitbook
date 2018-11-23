@@ -18,8 +18,7 @@ enables the user to create their own parser formats.
 
 ## How To Use
 
--   Write a custom format plugin. [See here for more
-    information](/developer/plugin-development.md/#parser-plugins).
+-   Write a custom format plugin. [See here for more information](/developer/plugin-development.md/#parser-plugins).
 -   From any input plugin that supports the "format" field, call the
     custom plugin by its name.
 

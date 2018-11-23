@@ -23,8 +23,7 @@ structure and syntax of the configuration file.
 ### Example Usage
 
 The retrieved data is organized as follows. Fluentd's tag is generated
-by the `tag` parameter (tag prefix), [facility
-level](http://en.wikipedia.org/wiki/Syslog#Facility_Levels), and
+by the `tag` parameter (tag prefix), [facility level](http://en.wikipedia.org/wiki/Syslog#Facility_Levels), and
 [priority](http://en.wikipedia.org/wiki/Syslog#Severity_levels). The
 record is parsed by the regexp
 [here](https://github.com/fluent/fluentd/blob/master/lib/fluent/plugin/in_syslog.rb#L25).

@@ -81,8 +81,7 @@ services:
       - "5601:5601"
 ```
 
-`logging` section (check [Docker Compose
-documentation](https://docs.docker.com/compose/compose-file/#/logging))
+`logging` section (check [Docker Compose documentation](https://docs.docker.com/compose/compose-file/#/logging))
 of `web` container specifies [Docker Fluentd Logging Driver](https://docs.docker.com/engine/admin/logging/fluentd/) as a
 default container logging driver. All of the logs from `web` container
 will be automatically forwarded to host:port specified by

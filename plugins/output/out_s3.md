@@ -86,8 +86,7 @@ are the region examples.
 -   ap-southeast-1
 -   sa-east-1
 
-The full list can be found [official AWS
-document](http://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region).
+The full list can be found [official AWS document](http://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region).
 
 ### s3\_endpoint
 
