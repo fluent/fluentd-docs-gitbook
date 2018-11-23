@@ -3,8 +3,7 @@
 The `none` parser plugin parses the line as-is with single field. This
 format is to defer parsing/structuring the data.
 
-This parser is often used in conjunction with [single\_value
-format](/articles/formatter_single_value.md) in output plugin.
+This parser is often used in conjunction with [single\_value format](/articles/formatter_single_value.md) in output plugin.
 
 
 ## Parameters

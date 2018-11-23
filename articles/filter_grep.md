@@ -169,8 +169,7 @@ Specify filtering rule. This directive contains two parameters.
 
 The field name to which the regular expression is applied.
 
-This parameter supports nested field access via [record\_accessor
-syntax](/articles/api-plugin-helper-record_accessor.md/#syntax).
+This parameter supports nested field access via [record\_accessor syntax](/articles/api-plugin-helper-record_accessor.md/#syntax).
 
 #### pattern
 
@@ -279,8 +278,7 @@ parameters.
 
 The field name to which the regular expression is applied.
 
-This parameter supports nested field access via [record\_accessor
-syntax](/articles/api-plugin-helper-record_accessor.md/#syntax).
+This parameter supports nested field access via [record\_accessor syntax](/articles/api-plugin-helper-record_accessor.md/#syntax).
 
 #### pattern
 

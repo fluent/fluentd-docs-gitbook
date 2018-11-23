@@ -496,8 +496,7 @@ Use `<buffer>` section to customize chunking.
 </match>
 ```
 
-For more details, see [Understanding Chunking and
-Metadata](/articles/api-plugin-output.md/#understanding-chunking-and-metadata).
+For more details, see [Understanding Chunking and Metadata](/articles/api-plugin-output.md/#understanding-chunking-and-metadata).
 
 
 ### Multi output plugins

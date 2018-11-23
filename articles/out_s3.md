@@ -7,8 +7,7 @@ is created immediately.
 
 The file will be created when the `timekey` condition has been met. To
 change the output frequency, please modify the `timekey` value in buffer
-section. In more detail, please refer to [the time chunk keys in
-bufferdocument](https://docs.fluentd.org/articles/buffer-section#time).
+section. In more detail, please refer to [the time chunk keys in buffer document](https://docs.fluentd.org/articles/buffer-section#time).
 
 This document doesn\'t describe all parameters. If you want to know full
 features, check the Further Reading section.
@@ -116,8 +115,7 @@ are the region examples.
 -   ap-southeast-1
 -   sa-east-1
 
-The full list can be found [official AWS
-document](http://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region).
+The full list can be found [official AWS document](http://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region).
 
 
 ### s3\_endpoint

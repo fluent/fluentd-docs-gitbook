@@ -92,8 +92,7 @@ And then you must reinstall gem packages that you've ever used with
 td-agent 2.
 
 You should update your td-agent.conf to use Fluentd v1 configuration as
-soon as possible. For more details see [Configuration
-style](#configuration-style).
+soon as possible. For more details see [Configuration style](#configuration-style).
 
 
 ## Operation
@@ -110,8 +109,7 @@ to flush existing buffer files before update fluentd.
 ### Log forward from v1.0 to v0.12
 
 Log forwarding from v0.12 to v1.0 is no problem but Log forwarding from
-v1.0 to v0.12 has a problem due to timestamp change. See [in\_forward's
-FAQ](/v0.12/articles/in_forward.md/#i-got-messagepack::unknownexttypeerror-error.-why?)
+v1.0 to v0.12 has a problem due to timestamp change. See [in\_forward's FAQ](/v0.12/articles/in_forward.md/#i-got-messagepack::unknownexttypeerror-error.-why?)
 
 
 ------------------------------------------------------------------------

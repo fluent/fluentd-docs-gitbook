@@ -48,8 +48,7 @@ Deprecated since 1.2.0. Use `expression /pattern/i` instead.
    bool    false    0.14.2
 
 Build regular expression as a multline mode. `.` matches newline. See
-[Ruby's Regexp
-document](https://ruby-doc.org/core-2.4.1/Regexp.html#class-Regexp-label-Options)
+[Ruby's Regexp document](https://ruby-doc.org/core-2.4.1/Regexp.html#class-Regexp-label-Options)
 Use `m` option with expression.
 
 Deprecated since 1.2.0. Use `expression /pattern/m` instead.

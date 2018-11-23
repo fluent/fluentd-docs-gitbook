@@ -269,8 +269,7 @@ example, with this configuration:
 
 3 HTTP servers will be launched. Port 24230 for worker 0, port 24231 for
 worker 1 and port 24232 for worker 2. Note that you may need to set
-worker\_id to `@id` parameter. See [config
-article](/articles/config-file.md#embedded-ruby-code)
+worker\_id to `@id` parameter. See [config article](/articles/config-file.md#embedded-ruby-code)
 
 
 ------------------------------------------------------------------------

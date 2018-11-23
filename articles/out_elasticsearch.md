@@ -41,8 +41,7 @@ good starting point for most users.
 </match>
 ```
 
-For more details on each option, read [the section on
-Parameters](#parameters).
+For more details on each option, read [the section on Parameters](#parameters).
 
 
 ## Plugin helpers
@@ -190,8 +189,7 @@ articles.
 
 ## Troubleshooting
 
-Please refer to [the elasticsearch README's troubleshooting
-section](https://github.com/uken/fluent-plugin-elasticsearch#troubleshooting).
+Please refer to [the elasticsearch README's troubleshooting section](https://github.com/uken/fluent-plugin-elasticsearch#troubleshooting).
 
 
 ## Further Reading

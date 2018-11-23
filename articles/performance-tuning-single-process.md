@@ -98,8 +98,7 @@ effective for most Fluentd deployments. As before, you can run this with
 ## Reduce memory usage
 
 Ruby has several GC parameters to tune GC performance and you can
-configure these parameters via environment variable([Parameter list is
-here](https://github.com/ruby/ruby/blob/61701ae1675f790ee3f59207283642dbe64c2d37/gc.c#L7417)).
+configure these parameters via environment variable([Parameter list is here](https://github.com/ruby/ruby/blob/61701ae1675f790ee3f59207283642dbe64c2d37/gc.c#L7417)).
 To reduce memory usage, set `RUBY_GC_HEAP_OLDOBJECT_LIMIT_FACTOR` to
 lower value. `RUBY_GC_HEAP_OLDOBJECT_LIMIT_FACTOR` is used for full GC
 trigger and the default is `2.0`. Quote from documentation.

@@ -393,8 +393,7 @@ Shared key for authentication.
 
 The backup destination that is used when all servers are unavailable.
 
-For more details, see [Secondary
-Output](/articles/output-plugin-overview.md/#secondary-output).
+For more details, see [Secondary Output](/articles/output-plugin-overview.md/#secondary-output).
 
 
 ## Tips & Tricks
@@ -402,8 +401,7 @@ Output](/articles/output-plugin-overview.md/#secondary-output).
 
 ### How to connect to a TLS/SSL enabled server
 
-If you've [set up TLS/SSL encryption in the receiving
-server](in_forward#how-to-enable-tls/ssl-encryption), you need to tell
+If you've [set up TLS/SSL encryption in the receiving server](/articles/in_forward#how-to-enable-tls/ssl-encryption), you need to tell
 the output forwarder to use encryption by setting the `transport`
 parameter:
 
@@ -440,8 +438,7 @@ being received by the destination node properly.
 
 ### How to Enable Password Authentication
 
-If you want to connect to [a server that requires password
-authentication](/articles/in_forward.md/#how-to-enable-password-authentication), you
+If you want to connect to [a server that requires password authentication](/articles/in_forward.md/#how-to-enable-password-authentication), you
 need to set your credentials in the configuration file.
 
 ``` {.CodeRay}
@@ -510,9 +507,7 @@ For example, suppose that the historical average interval is 1 seconds
 and the standard deviation is 1, it's not likely that the node is still
 being active when its heartbeat does not arrive for the last 10 seconds.
 
-For details, please read the original paper: [Hayashibara, Naohiro, et
-al. "The φ accrual failure detector." IEEE,
-2004.](https://scholar.google.com/scholar?cluster=12946656837229314866)
+For details, please read the original paper: [Hayashibara, Naohiro, et al. "The φ accrual failure detector." IEEE, 2004.](https://scholar.google.com/scholar?cluster=12946656837229314866)
 
 
 ## Troubleshooting
@@ -529,8 +524,7 @@ $ telnet host 24224
 $ nmap -p 24224 -sU host
 ```
 
-Please note that there is one [known
-issue](http://kb.vmware.com/selfservice/microsites/search.do?language=en_US&cmd=displayKC&externalId=2019944)
+Please note that there is one [known issue](http://kb.vmware.com/selfservice/microsites/search.do?language=en_US&cmd=displayKC&externalId=2019944)
 where VMware will occasionally lose small UDP packets used for
 heartbeat.
 
