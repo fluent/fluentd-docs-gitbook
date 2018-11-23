@@ -217,7 +217,7 @@ into:
 </parse>
 ```
 
-For more details, see [Parser Plugin Overview](/articles/parser-plugin-overview.md)
+For more details, see [Parser Plugin Overview](/plugins/parser/parser-plugin-overview.md)
 and [Writing Parser Plugins](/articles/api-plugin-parser.md).
 
 #### formatter

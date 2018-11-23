@@ -98,7 +98,7 @@ The default block size to read if parser requires partial read.
 
 For more details about parse section, see followings
 
--   [Parser plugin overview](/articles/parser-plugin-overview.md)
+-   [Parser plugin overview](/plugins/parser/parser-plugin-overview.md)
 -   [Parse section configuration](/configuration/parse-section.md)
 
 #### \@type

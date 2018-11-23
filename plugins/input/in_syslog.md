@@ -124,7 +124,7 @@ Deprecated parameter. Use `<parse>` instead.
 ### \<parse\> directive
 
 The format of the log. This option is used to parse non-standard syslog
-formats using [parser plugins](/articles/parser-plugin-overview.md).
+formats using [parser plugins](/plugins/parser/parser-plugin-overview.md).
 
 ``` {.CodeRay}
 <source>

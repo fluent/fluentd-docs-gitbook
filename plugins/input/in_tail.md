@@ -250,7 +250,7 @@ Check [this issue](https://github.com/fluent/fluentd/issues/1126).
 ### \<parse\> directive (required)
 
 The format of the log. `in_tail` uses parser plugin to parse the log.
-See [parser article](/articles/parser-plugin-overview.md) for more detail.
+See [parser article](/plugins/parser/parser-plugin-overview.md) for more detail.
 
 Here are several examples:
 

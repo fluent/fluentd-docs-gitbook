@@ -42,7 +42,7 @@ end
 
 For more details about parser plugin, see following articles:
 
--   [Parser Plugin Overview](/articles/parser-plugin-overview.md)
+-   [Parser Plugin Overview](/plugins/parser/parser-plugin-overview.md)
 -   [Writing Parser Plugins](/articles/api-plugin-parser.md)
 -   [Parser plugin](/configuration/parse-section.md)
 

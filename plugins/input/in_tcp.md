@@ -130,7 +130,7 @@ then the client's hostname is set to `client_host` field.
 
 For more details about parser plugin, see followings:
 
--   [Parser Plugin Overview](/articles/parser-plugin-overview.md)
+-   [Parser Plugin Overview](/plugins/parser/parser-plugin-overview.md)
 -   [Parse section configurations](/configuration/parse-section.md)
 
 

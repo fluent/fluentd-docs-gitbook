@@ -3,7 +3,7 @@
 The `single_value` formatter plugin output the value of a single field
 instead of the whole record.
 
-This formatter is often used in conjunction with [none parser](/articles/parser_none.md) in input plugin.
+This formatter is often used in conjunction with [none parser](/plugins/parser/parser_none.md) in input plugin.
 
 
 ## Parameters

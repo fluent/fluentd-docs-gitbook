@@ -23,7 +23,7 @@ It's enabled for plugins which support parser plugin features.
 ## parser plugin type
 
 `<parse>` section requires `@type` parameter to specify the type of
-parser plugin. Fluentd core bundles [a lot of useful parser plugins](/articles/parser-plugin-overview.md). 3rd party plugins are also available
+parser plugin. Fluentd core bundles [a lot of useful parser plugins](/plugins/parser/parser-plugin-overview.md). 3rd party plugins are also available
 when installed.
 
 ``` {.CodeRay}
@@ -52,17 +52,17 @@ For more details, see plugins documentation.
 
 These parsers are built-in by default.
 
--   [regexp](/articles/parser_regexp.md)
--   [apache2](/articles/parser_apache2.md)
--   [apache\_error](/articles/parser_apache_error.md)
--   [nginx](/articles/parser_nginx.md)
--   [syslog](/articles/parser_syslog.md)
--   [csv](/articles/parser_csv.md)
--   [tsv](/articles/parser_tsv.md)
--   [ltsv](/articles/parser_ltsv.md)
--   [json](/articles/parser_json.md)
--   [multiline](/articles/parser_multiline.md)
--   [none](/articles/parser_none.md)
+-   [regexp](/plugins/parser/parser_regexp.md)
+-   [apache2](/plugins/parser/parser_apache2.md)
+-   [apache\_error](/plugins/parser/parser_apache_error.md)
+-   [nginx](/plugins/parser/parser_nginx.md)
+-   [syslog](/plugins/parser/parser_syslog.md)
+-   [csv](/plugins/parser/parser_csv.md)
+-   [tsv](/plugins/parser/parser_tsv.md)
+-   [ltsv](/plugins/parser/parser_ltsv.md)
+-   [json](/plugins/parser/parser_json.md)
+-   [multiline](/plugins/parser/parser_multiline.md)
+-   [none](/plugins/parser/parser_none.md)
 
 
 ### Parse parameters

@@ -59,7 +59,7 @@ learn more about Fluentd.
     -   [Output Plugins](/plugins/output/output-plugin-overview.md)
     -   [Buffer Plugins](/articles/buffer-plugin-overview.md)
     -   [Filter Plugins](/plugins/filter/filter-plugin-overview.md)
-    -   [Parser Plugins](/articles/parser-plugin-overview.md)
+    -   [Parser Plugins](/plugins/parser/parser-plugin-overview.md)
     -   [Formatter Plugins](/articles/formatter-plugin-overview.md)
 -   [High Availability Configuration](/deployment/high-availability.md)
 -   [FAQ](/overview/faq.md)
