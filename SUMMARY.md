@@ -47,8 +47,7 @@
 
 
 * [Plugins]()              
-  * [Input]()
-    * [Overview](/plugins/input/input-plugin-overview.md)
+  * [Input](/plugins/input/input-plugin-overview.md)
     * [in_tail](/plugins/input/in_tail.md)
     * [in_forward](/plugins/input/in_forward.md)
     * [in_udp](/plugins/input/in_udp.md)
@@ -60,8 +59,7 @@
     * [in_monitor_agent](/plugins/input/in_monitor_agent.md)
     * [in_windows_eventlog](/plugins/input/in_windows_eventlog.md)
               
-  * [Output]()
-    * [Overview](/plugins/output/output-plugin-overview.md)
+  * [Output](/plugins/output/output-plugin-overview.md)
     * [out_file](/plugins/output/out_file.md)
     * [out_s3](/plugins/output/out_s3.md)
     * [out_elasticsearch](/plugins/output/out_elasticsearch.md)
@@ -78,16 +76,14 @@
     * [out_rewrite_tag_filter](/plugins/output/out_rewrite_tag_filter.md)
     * [out_webhdfs](/plugins/output/out_webhdfs.md)
               
-  * [Filter]()
-    * [Overview](/plugins/filter/filter-plugin-overview.md)
+  * [Filter](/plugins/filter/filter-plugin-overview.md)
     * [filter_record_transformer](/plugins/filter/filter_record_transformer.md)
     * [filter_grep](/plugins/filter/filter_grep.md)
     * [filter_parser](/plugins/filter/filter_parser.md)
     * [filter_geoip](/plugins/filter/filter_geoip.md)
     * [filter_stdout](/plugins/filter/filter_stdout.md)
               
-  * [Parser]()
-    * [Overview](/plugins/parser/parser-plugin-overview.md)
+  * [Parser](/plugins/parser/parser-plugin-overview.md)
     * [parser_regexp](/plugins/parser/parser_regexp.md)
     * [parser_apache2](/plugins/parser/parser_apache2.md)
     * [parser_apache_error](/plugins/parser/parser_apache_error.md)
@@ -100,8 +96,7 @@
     * [parser_multiline](/plugins/parser/parser_multiline.md)
     * [parser_none](/plugins/parser/parser_none.md)
               
-  * [Formatter]()
-    * [Overview](/plugins/formatter/formatter-plugin-overview.md)
+  * [Formatter](/plugins/formatter/formatter-plugin-overview.md)
     * [formatter_out_file](/plugins/formatter/formatter_out_file.md)
     * [formatter_json](/plugins/formatter/formatter_json.md)
     * [formatter_ltsv](/plugins/formatter/formatter_ltsv.md)
@@ -111,13 +106,11 @@
     * [formatter_single_value](/plugins/formatter/formatter_single_value.md)
     * [formatter_stdout](/plugins/formatter/formatter_stdout.md)
               
-  * [Buffer]()
-    * [Overview](/plugins/buffer/buffer-plugin-overview.md)
+  * [Buffer](/plugins/buffer/buffer-plugin-overview.md)
     * [buf_memory](/plugins/buffer/buf_memory.md)
     * [buf_file](/plugins/buffer/buf_file.md)
               
-  * [Storage]()
-    * [Overview](/plugins/storage/storage-plugin-overview.md)
+  * [Storage](/plugins/storage/storage-plugin-overview.md)
     * [storage_local](/plugins/storage/storage_local.md)
 
 
