@@ -7,7 +7,6 @@ open source projects: Elasticsearch, Kibana, and Fluentd.
 
 ![](/images/kibana6-screenshot-visualize.png)
 
-\
 
 [Elasticsearch](https://www.elastic.co/products/elasticsearch) is an
 open source search engine known for its ease of use.
@@ -179,7 +178,6 @@ up index patters" button in the upper-right corner of the screen.
 
 ![](/images/kibana6-screenshot-topmenu.png)
 
-\
 
 Kibana will start a wizard that guides you through configuring the data
 sets to visualize. If you want a quick start, use `logstash-*` as the
@@ -190,7 +188,6 @@ flow in:
 
 ![](/images/kibana6-screenshot.png)
 
-\
 
 For the detail on how to use Kibana, please read [the official manual](https://www.elastic.co/guide/en/kibana/current/index.html).
 
