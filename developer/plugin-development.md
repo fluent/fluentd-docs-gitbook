@@ -84,7 +84,7 @@ module Fluent
 end
 ```
 
-See the [Plugin API details](/categories/plugin-apis) for what
+See the [Plugin API details](/developer/plugin-apis.md) for what
 should be written / API details of each plugin types.
 
 Single ruby script is easy to write, but hard to test, to manage

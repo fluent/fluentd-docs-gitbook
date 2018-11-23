@@ -272,7 +272,7 @@ If an error occurs, you will get a notification message in your Slack
 01:01  fluentd: [11:10:24] notice: fluent.warn [2014/02/27 01:00:00] @leaf.server.domain detached forwarding server 'server.name'
 ```
 
-You can still use [v0.12 way](/v0.12/deployment/logging#capture-fluentd-logs) without
+You can still use [v0.12 way](/v0.12/deployment/logging.md/#capture-fluentd-logs) without
 `<label @FLUENT_LOG>`.
 
 
