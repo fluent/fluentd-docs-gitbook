@@ -59,9 +59,7 @@ net.ipv4.tcp_tw_reuse = 1
 net.ipv4.ip_local_port_range = 10240 65535
 ```
 
-These kernel options were originally taken from the presentation "[How
-Netflix Tunes EC2 Instances for
-Performance](https://www.slideshare.net/brendangregg/how-netflix-tunes-ec2-instances-for-performance)"
+These kernel options were originally taken from the presentation "[How Netflix Tunes EC2 Instances for Performance](https://www.slideshare.net/brendangregg/how-netflix-tunes-ec2-instances-for-performance)"
 by [Brendan Gregg](http://www.brendangregg.com/), Senior Performance
 Architect at AWS re:Invent 2017.
 

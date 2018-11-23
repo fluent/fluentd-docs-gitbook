@@ -226,9 +226,7 @@ total incoming records per tag.
 
 Since `fluentd_input_status_num_records_total` and
 `fluentd_output_status_num_records_total` are monotonically increasing
-numbers, it requires a little bit of calculation by [PromQL (Prometheus
-Query
-Language)](https://prometheus.io/docs/prometheus/latest/querying/basics/)
+numbers, it requires a little bit of calculation by [PromQL (Prometheus Query Language)](https://prometheus.io/docs/prometheus/latest/querying/basics/)
 to make them meaningful.
 
 Here are the example PromQLs for common metrics everyone wants to see.
