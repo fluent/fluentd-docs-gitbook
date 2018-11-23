@@ -1,8 +1,7 @@
 # Installing Fluentd using .msi Installer (Windows)
 
 This article explains how to install td-agent, the stable Fluentd
-distribution package maintained by [Treasure Data,
-Inc](http://www.treasuredata.com/), on Windows.
+distribution package maintained by [Treasure Data, Inc](http://www.treasuredata.com/), on Windows.
 
 
 ## What is td-agent?

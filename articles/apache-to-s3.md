@@ -8,8 +8,7 @@ in real-time.
 ## Background
 
 [Fluentd](http://fluentd.org/) is an advanced open-source log collector
-originally developed at [Treasure Data,
-Inc](http://www.treasuredata.com/). One of the main objectives of log
+originally developed at [Treasure Data, Inc](http://www.treasuredata.com/). One of the main objectives of log
 aggregation is data archiving. [Amazon S3](http://aws.amazon.com/s3/),
 the cloud object storage provided by Amazon, is a popular solution for
 data archiving.

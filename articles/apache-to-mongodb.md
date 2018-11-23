@@ -8,8 +8,7 @@ semi-structured logs in real-time.
 ## Background
 
 [Fluentd](http://fluentd.org/) is an advanced open-source log collector
-originally developed at [Treasure Data,
-Inc](http://www.treasuredata.com/). Because Fluentd handles logs as
+originally developed at [Treasure Data, Inc](http://www.treasuredata.com/). Because Fluentd handles logs as
 semi-structured data streams, the ideal database should have strong
 support for semi-structured data. There are several candidates that meet
 this criterion, but we believe [MongoDB](http://www.mongodb.org/) is the

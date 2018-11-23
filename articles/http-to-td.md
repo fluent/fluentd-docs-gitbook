@@ -7,16 +7,9 @@ Cloud Data Service.
 
 ## Background
 
-[Fluentd](http://fluentd.org/) is an advanced open-source log collector
-originally developed at [Treasure Data,
-Inc](www.fluentd.org/treasuredata). Fluentd is specifically designed to
-solve the big-data log collection problem.
+[Fluentd](http://fluentd.org/) is an advanced open-source log collector originally developed at [Treasure Data, Inc](www.fluentd.org/treasuredata). Fluentd is specifically designed to solve the big-data log collection problem.
 
-[Treasure Data](http://www.fluentd.org/treasuredata) provides Cloud Data
-Service, which Fluentd users can use to easily store and analyze data on
-the cloud. Fluentd is designed to flexibly connect with many systems via
-plugins, but Treasure Data should be your top choice if you don't want
-to spend engineering resources maintaining your backend infrastructure.
+[Treasure Data](http://www.fluentd.org/treasuredata) provides Cloud Data Service, which Fluentd users can use to easily store and analyze data on the cloud. Fluentd is designed to flexibly connect with many systems via plugins, but Treasure Data should be your top choice if you don't want to spend engineering resources maintaining your backend infrastructure.
 
 This article will show you how to use [Fluentd](http://fluentd.org/) to
 receive data from HTTP and stream it into TD.
@@ -27,9 +20,6 @@ receive data from HTTP and stream it into TD.
 The figure below shows the high-level architecture.
 
 ![](/images/treasuredata_architecture.png)
-
-\
-\
 
 
 ## Install

@@ -8,15 +8,11 @@ developed and published by Amazon Web Services officially.
 
 ![](/images/fluentd-kinesis.png)
 
-\
-\
-
 
 ## Background
 
 [Fluentd](http://fluentd.org/) is an advanced open-source log collector
-originally developed at [Treasure Data,
-Inc](http://www.treasuredata.com/). Because Fluentd can collect logs
+originally developed at [Treasure Data, Inc](http://www.treasuredata.com/). Because Fluentd can collect logs
 from various sources, [Amazon Kinesis](https://aws.amazon.com/kinesis/)
 is one of the popular destinations for the output.
 
@@ -209,8 +205,7 @@ and robust.
 -   [Fluentd Architecture](//www.fluentd.org/architecture)
 -   [Fluentd Get Started](/articles/quickstart.md)
 -   [Amazon Kinesis](https://aws.amazon.com/kinesis/)
--   [Amazon Kinesis Output Plugin](https://github.com/awslabs/aws-fluent-plugin-kinesis) (Made
-    by Amazon Web Services)
+-   [Amazon Kinesis Output Plugin](https://github.com/awslabs/aws-fluent-plugin-kinesis) (Made by Amazon Web Services)
 
 
 ------------------------------------------------------------------------

@@ -8,8 +8,7 @@ complex event processing platform.
 ## Background
 
 [Fluentd](http://fluentd.org/) is an advanced open-source log collector
-originally developed at [Treasure Data,
-Inc](http://www.treasuredata.com/). Fluentd is not only a log collector,
+originally developed at [Treasure Data, Inc](http://www.treasuredata.com/). Fluentd is not only a log collector,
 but also an all-purpose stream processing platform. Plugins can be
 written to handle many kinds of events.
 

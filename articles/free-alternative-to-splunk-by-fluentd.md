@@ -21,8 +21,6 @@ that provides an open-source Splunk alternative, all for free.
 
 ![](/images/fluentd-elasticsearch-kibana.png)
 
-\
-\
 
 In this guide, we will go over installation, setup, and basic use of
 this combined log search solution. This article was tested on Ubuntu

@@ -8,8 +8,7 @@ to aggregate semi-structured logs into Hadoop HDFS.
 ## Background
 
 [Fluentd](http://fluentd.org/) is an advanced open-source log collector
-originally developed at [Treasure Data,
-Inc](http://www.treasuredata.com/). Fluentd is specifically designed to
+originally developed at [Treasure Data, Inc](http://www.treasuredata.com/). Fluentd is specifically designed to
 solve the big-data log collection problem. A lot of users are using
 Fluentd with MongoDB, and have found that it doesn't scale well for now.
 
