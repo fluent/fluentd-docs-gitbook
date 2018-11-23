@@ -3,7 +3,7 @@
 
 ## What version of Ruby does fluentd support?
 
-Fluentd v1.0 works on Ruby 2.1 or later. See [v0.12 document](/v0.12/articles/faq.md/#what-version-of-ruby-does-fluentd-support)
+Fluentd v1.0 works on Ruby 2.1 or later. See [v0.12 document](/v0.12/overview/faq.md/#what-version-of-ruby-does-fluentd-support)
 for earlier versions.
 
 
@@ -83,7 +83,7 @@ This means you emit the event but no `<match>` directive for emitted
 event. For example, if you emit the event with `foo.bar` tag, you need
 to define `<match>` for `foo.bar` tag like `<match foo.**>`.
 
-See also: [Life of a Fluentd event](/articles/life-of-a-fluentd-event.md) or [Config File](/articles/config-file.md)
+See also: [Life of a Fluentd event](/overview/life-of-a-fluentd-event.md) or [Config File](/articles/config-file.md)
 
 
 ### File buffer doesn't work properly, why?

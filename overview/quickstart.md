@@ -53,7 +53,7 @@ The articles shown below will provide detailed information for you to
 learn more about Fluentd.
 
 -   [Architecture Overview](//www.fluentd.org/architecture)
--   [Life of a Fluentd Event](/articles/life-of-a-fluentd-event.md)
+-   [Life of a Fluentd Event](/overview/life-of-a-fluentd-event.md)
 -   Plugin Overview
     -   [Input Plugins](/articles/input-plugin-overview.md)
     -   [Output Plugins](/articles/output-plugin-overview.md)
@@ -62,7 +62,7 @@ learn more about Fluentd.
     -   [Parser Plugins](/articles/parser-plugin-overview.md)
     -   [Formatter Plugins](/articles/formatter-plugin-overview.md)
 -   [High Availability Configuration](/articles/high-availability.md)
--   [FAQ](/articles/faq.md)
+-   [FAQ](/overview/faq.md)
 
 
 ------------------------------------------------------------------------

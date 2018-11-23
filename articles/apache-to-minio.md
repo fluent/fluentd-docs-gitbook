@@ -8,7 +8,7 @@ Apache logs to a [Minio](https://www.minio.io) server.
 
 This article requires the following services are set up correctly:
 
--   [Fluentd](/articles/installation.md)
+-   [Fluentd](/overview/installation.md)
 -   [Minio](https://minio.io/download/)
 -   [Apache](https://httpd.apache.org/)
 

@@ -8,10 +8,7 @@ in real-time.
 ## Background
 
 [Fluentd](http://fluentd.org/) is an advanced open-source log collector
-originally developed at [Treasure Data, Inc](http://www.treasuredata.com/). One of the main objectives of log
-aggregation is data archiving. [Amazon S3](http://aws.amazon.com/s3/),
-the cloud object storage provided by Amazon, is a popular solution for
-data archiving.
+originally developed at [Treasure Data, Inc](http://www.treasuredata.com/). One of the main objectives of log aggregation is data archiving. [Amazon S3](http://aws.amazon.com/s3/), the cloud object storage provided by Amazon, is a popular solution for data archiving.
 
 This article will show you how to use [Fluentd](http://fluentd.org/) to
 import Apache logs into Amazon S3.
@@ -150,7 +147,7 @@ Fluentd + Amazon S3 makes real-time log archiving simple.
 ## Learn More
 
 -   [Fluentd Architecture](//www.fluentd.org/architecture)
--   [Fluentd Get Started](/articles/quickstart.md)
+-   [Fluentd Get Started](/overview/quickstart.md)
 -   [Amazon S3 Output plugin](/articles/out_s3.md)
 
 

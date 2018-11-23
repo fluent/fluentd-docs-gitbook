@@ -14,7 +14,7 @@ behavior of Fluentd by (1) selecting input and output plugins and (2)
 specifying the plugin parameters. The file is required for Fluentd to
 operate properly.
 
-See also [Life of a Fluentd Event](/articles/life-of-a-fluentd-event.md) article.
+See also [Life of a Fluentd Event](/overview/life-of-a-fluentd-event.md) article.
 
 
 ## Config File Location

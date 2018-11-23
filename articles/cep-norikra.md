@@ -259,7 +259,7 @@ stream processing environment that can handle real workloads.
 ## Learn More
 
 -   [Fluentd Architecture](//www.fluentd.org/architecture)
--   [Fluentd Get Started](/articles/quickstart.md)
+-   [Fluentd Get Started](/overview/quickstart.md)
 -   [Norikra: Query Syntax](http://norikra.github.io/query.html)
 -   [Norikra: Query Examples](http://norikra.github.io/examples.html)
 -   [Slides: fluent-plugin-norikra](http://www.slideshare.net/tagomoris/fluentpluginnorikra-fluentdcasual)

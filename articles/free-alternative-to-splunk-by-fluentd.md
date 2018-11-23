@@ -231,7 +231,7 @@ buffer, etc.) according to your needs.
 ## Learn More
 
 -   [Fluentd Architecture](//www.fluentd.org/architecture)
--   [Fluentd Get Started](/articles/quickstart.md)
+-   [Fluentd Get Started](/overview/quickstart.md)
 -   [Downloading Fluentd](http://www.fluentd.org/download)
 
 

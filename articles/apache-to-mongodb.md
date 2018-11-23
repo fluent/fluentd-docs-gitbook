@@ -179,7 +179,7 @@ robust.
 ## Learn More
 
 -   [Fluentd Architecture](//www.fluentd.org/architecture)
--   [Fluentd Get Started](/articles/quickstart.md)
+-   [Fluentd Get Started](/overview/quickstart.md)
 -   [MongoDB Output Plugin](/articles/out_mongo.md)
 -   [MongoDB ReplicaSet Output Plugin](/articles/out_mongo_replset.md)
 
