@@ -71,7 +71,7 @@ $ python test.py
 ```
 
 The logs should be output to `/var/log/td-agent/td-agent.log` or stdout
-of the Fluentd process via the [stdout Output plugin](/plugins/output/out_stdout.md).
+of the Fluentd process via the [stdout Output plugin](/plugins/output/stdout.md).
 
 ## Production Deployments
 
@@ -85,10 +85,10 @@ writing records to other destinations:
     -   [Store Apache Logs into MongoDB](/articles/apache-to-mongodb.md)
     -   [Data Collection into HDFS](/articles/http-to-hdfs.md)
 -   List of Plugin References
-    -   [Output to Another Fluentd](/plugins/output/out_forward.md)
-    -   [Output to MongoDB](/plugins/output/out_mongo.md) or [MongoDB ReplicaSet](/plugins/output/out_mongo_replset.md)
-    -   [Output to Hadoop](/plugins/output/out_webhdfs.md)
-    -   [Output to File](/plugins/output/out_file.md)
+    -   [Output to Another Fluentd](/plugins/output/forward.md)
+    -   [Output to MongoDB](/plugins/output/mongo.md) or [MongoDB ReplicaSet](/plugins/output/mongo_replset.md)
+    -   [Output to Hadoop](/plugins/output/webhdfs.md)
+    -   [Output to File](/plugins/output/file.md)
     -   [etc...](http://fluentd.org/plugin/)
 
 ### High-Availability Configurations of Fluentd

@@ -1,138 +1,101 @@
-# MongoDB Output Plugin
+# Apache Kafka Output Plugin
 
-The `out_mongo` Buffered Output plugin writes records into
-[MongoDB](http://mongodb.org/), the emerging document-oriented database
-system.
-If you\'re using ReplicaSet, please see the
-[out\_mongo\_replset](/plugins/output/out_mongo_replset.md) article instead.
-
+The `out_kafka` Output plugin writes records into [Apache Kafka](https://kafka.apache.org/).
 This document doesn\'t describe all parameters. If you want to know full
 features, check the Further Reading section.
 
 
-## Why Fluentd with MongoDB?
+## Installation
 
-Fluentd enables your apps to insert records to MongoDB asynchronously
-with batch-insertion, unlike direct insertion of records from your apps.
-This has the following advantages:
-
-1.  less impact on application performance
-2.  higher MongoDB insertion throughput while maintaining JSON record
-    structure
-
-## Install
-
-`out_mongo` is included in td-agent by default. Fluentd gem users will
-need to install the fluent-plugin-mongo gem using the following command.
+`out_kafka` is included in td-agent2 after v2.3.3. Fluentd gem users
+will need to install the fluent-plugin-kafka gem using the following
+command.
 
 ``` {.CodeRay}
-$ fluent-gem install fluent-plugin-mongo
+$ fluent-gem install fluent-plugin-kafka
 ```
 
 ## Example Configuration
 
 ``` {.CodeRay}
-# Single MongoDB
-<match mongo.**>
-  @type mongo
-  host fluentd
-  port 27017
-  database fluentd
-  collection test
+<match pattern>
+  @type kafka_buffered
 
-  # for capped collection
-  capped
-  capped_size 1024m
+  # list of seed brokers
+  brokers <broker1_host>:<broker1_port>,<broker2_host>:<broker2_port>
 
-  # authentication
-  user michael
-  password jordan
+  # buffer settings
+  buffer_type file
+  buffer_path /var/log/td-agent/buffer/td
+  flush_interval 3s
 
-  # key name of timestamp
-  time_key time
+  # topic settings
+  default_topic messages
 
-  # flush
-  flush_interval 10s
+  # data type settings
+  output_data_type json
+  compression_codec gzip
+
+  # producer settings
+  max_send_retries 1
+  required_acks -1
 </match>
 ```
-
-Please see the [Store Apache Logs into MongoDB](/articles/apache-to-mongodb.md)
-article for real-world use cases.
 
 Please see the [Config File](/configuration/config-file.md) article for the basic
 structure and syntax of the configuration file.
 
+Please make sure that you have **enough space in the buffer\_path
+directory**. Running out of disk space is a problem frequently reported
+by users.
+
 ## Parameters
 
-### type (required)
+### \@type (required)
 
-The value must be `mongo`.
+The value must be `kafka_buffered`.
 
-### host (required)
+### brokers (required/optional)
 
-The MongoDB hostname.
+The list of all seed brokers, with their host and port information.
 
-### port (required)
+### default\_topic
 
-The MongoDB port.
+The name of default topic (default: nil).
 
-### database (required)
+### default\_partition\_key
 
-The database name.
+The name of default partition key (default: nil).
 
-### collection (required, if not tag\_mapped)
+### default\_message\_key
 
-The collection name.
+The name of default message key (default: nil).
 
-### capped
+### output\_data\_type
 
-This option enables capped collection. This is always recommended
-because MongoDB is not suited to storing large amounts of historical
-data.
+The format of each message. The available options are `json`, `ltsv`,
+`msgpack`, `attr:<record name>`, `<formatter name>`. `msgpack` is
+recommended since it's more compact and faster.
 
-#### capped\_size
+### max\_send\_retries
 
-Sets the capped collection size.
+The number of times to retry sending of messages to a leader (default:
+1).
 
-### user
+### required\_acks
 
-The username to use for authentication.
+The number of acks required per request (default: -1).
 
-### password
+### ack\_timeout
 
-The password to use for authentication.
+How long the producer waits for acks. The unit is seconds (default: nil
+=\> Use default of ruby-kafka library)
 
-### time\_key
+### compression\_codec
 
-The key name of timestamp. (default is "time")
-
-### tag\_mapped
-
-This option will allow out\_mongo to use Fluentd's tag to determine the
-destination collection. For example, if you generate records with tags
-'mongo.foo', the records will be inserted into the `foo` collection
-within the `fluentd` database.
-
-``` {.CodeRay}
-<match mongo.*>
-  @type mongo
-  host fluentd
-  port 27017
-  database fluentd
-
-  # Set 'tag_mapped' if you want to use tag mapped mode.
-  tag_mapped
-
-  # If the tag is "mongo.foo", then the prefix "mongo." is removed.
-  # The inserted collection name is "foo".
-  remove_tag_prefix mongo.
-
-  # This configuration is used if the tag is not found. The default is 'untagged'.
-  collection misc
-</match>
-```
-
-This option is useful for flexible log collection.
+The codec the producer uses to compress messages (default: nil). The
+available options are `gzip` and `snappy`. When you use `snappy`, you
+need to install `snappy` gem by `td-agent-gem` command.
 
 ## Buffered Output Parameters
 
@@ -141,8 +104,8 @@ with these parameters.
 
 ### buffer\_type
 
-The buffer type is `memory` by default ([buf\_memory](/plugins/buffer/buf_memory.md)) for
-the ease of testing, however `file` ([buf\_file](/plugins/buffer/buf_file.md)) buffer type
+The buffer type is `memory` by default ([buf\_memory](/plugins/buffer/memory.md)) for
+the ease of testing, however `file` ([buf\_file](/plugins/buffer/file.md)) buffer type
 is always recommended for the production deployments. If you use `file`
 buffer type, `buffer_path` parameter is required.
 
@@ -212,7 +175,10 @@ Please see the [logging article](/deployment/logging.md) for further details.
 
 ## Further Reading
 
--   [fluent-plugin-mongo repository](https://github.com/fluent/fluent-plugin-mongo)
+This page doesn't describe all the possible configurations. If you want
+to know about other configurations, please check the link below.
+
+-   [fluent-plugin-kafka repository](https://github.com/fluent/fluent-plugin-kafka)
 
 
 ------------------------------------------------------------------------

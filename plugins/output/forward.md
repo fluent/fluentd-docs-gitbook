@@ -3,7 +3,7 @@
 The `out_forward` Buffered Output plugin forwards events to other
 fluentd nodes. This plugin supports load-balancing and automatic
 fail-over (a.k.a. active-active backup). For replication, please use the
-[out\_copy](/plugins/output/out_copy.md) plugin.
+[out\_copy](/plugins/output/copy.md) plugin.
 
 The `out_forward` plugin detects server faults using a "φ accrual
 failure detector" algorithm. You can customize the parameters of the
@@ -180,8 +180,8 @@ with these parameters.
 
 ### buffer\_type
 
-The buffer type is `memory` by default ([buf\_memory](/plugins/buffer/buf_memory.md)) for
-the ease of testing, however `file` ([buf\_file](/plugins/buffer/buf_file.md)) buffer type
+The buffer type is `memory` by default ([buf\_memory](/plugins/buffer/memory.md)) for
+the ease of testing, however `file` ([buf\_file](/plugins/buffer/file.md)) buffer type
 is always recommended for the production deployments. If you use `file`
 buffer type, `buffer_path` parameter is required.
 

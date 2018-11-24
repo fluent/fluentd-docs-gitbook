@@ -175,8 +175,8 @@ be ignored and fluentd would issue a warning.
 
 ## List of Buffer Plugins
 
--   [buf\_memory](/plugins/buffer/buf_memory.md)
--   [buf\_file](/plugins/buffer/buf_file.md)
+-   [buf\_memory](/plugins/buffer/memory.md)
+-   [buf\_file](/plugins/buffer/file.md)
 
 
 ------------------------------------------------------------------------

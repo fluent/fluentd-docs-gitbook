@@ -29,23 +29,23 @@ and do not use buffers.
 
 ## List of Non-Buffered Output Plugins
 
--   [out\_copy](/plugins/output/out_copy.md)
--   [out\_null](/plugins/output/out_null.md)
--   [out\_roundrobin](/plugins/output/out_roundrobin.md)
--   [out\_stdout](/plugins/output/out_stdout.md)
+-   [out\_copy](/plugins/output/copy.md)
+-   [out\_null](/plugins/output/null.md)
+-   [out\_roundrobin](/plugins/output/roundrobin.md)
+-   [out\_stdout](/plugins/output/stdout.md)
 
 ## List of Buffered Output Plugins
 
--   [out\_exec\_filter](/plugins/output/out_exec_filter.md)
--   [out\_forward](/plugins/output/out_forward.md)
--   [out\_mongo](/plugins/output/out_mongo.md) or [out\_mongo\_replset](/plugins/output/out_mongo_replset.md)
+-   [out\_exec\_filter](/plugins/output/exec_filter.md)
+-   [out\_forward](/plugins/output/forward.md)
+-   [out\_mongo](/plugins/output/mongo.md) or [out\_mongo\_replset](/plugins/output/mongo_replset.md)
 
 ## List of Time Sliced Output Plugins
 
--   [out\_exec](/plugins/output/out_exec.md)
--   [out\_file](/plugins/output/out_file.md)
--   [out\_s3](/plugins/output/out_s3.md)
--   [out\_webhdfs](/plugins/output/out_webhdfs.md)
+-   [out\_exec](/plugins/output/exec.md)
+-   [out\_file](/plugins/output/file.md)
+-   [out\_s3](/plugins/output/s3.md)
+-   [out\_webhdfs](/plugins/output/webhdfs.md)
 
 ## Other Plugins
 
@@ -61,8 +61,8 @@ with these parameters.
 
 ### buffer\_type
 
-The buffer type is `memory` by default ([buf\_memory](/plugins/buffer/buf_memory.md)) for
-the ease of testing, however `file` ([buf\_file](/plugins/buffer/buf_file.md)) buffer type
+The buffer type is `memory` by default ([buf\_memory](/plugins/buffer/memory.md)) for
+the ease of testing, however `file` ([buf\_file](/plugins/buffer/file.md)) buffer type
 is always recommended for the production deployments. If you use `file`
 buffer type, `buffer_path` parameter is required.
 
@@ -169,8 +169,8 @@ needed.
 
 ### buffer\_type
 
-The buffer type is `file` by default ([buf\_file](/plugins/buffer/buf_file.md)). The
-`memory` ([buf\_memory](/plugins/buffer/buf_memory.md)) buffer type can be chosen as well.
+The buffer type is `file` by default ([buf\_file](/plugins/buffer/file.md)). The
+`memory` ([buf\_memory](/plugins/buffer/memory.md)) buffer type can be chosen as well.
 If you use `file` buffer type, `buffer_path` parameter is required.
 
 ### buffer\_queue\_limit, buffer\_chunk\_limit

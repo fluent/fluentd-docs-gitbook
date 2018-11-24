@@ -1,110 +1,137 @@
-# exec\_filter Output Plugin
+# MongoDB ReplicaSet Output Plugin
 
-The `out_exec_filter` Buffered Output plugin (1) executes an external
-program using an event as input and (2) reads a new event from the
-program output. It passes tab-separated values (TSV) to stdin and reads
-TSV from stdout by default.
+The `out_mongo_replset` Buffered Output plugin writes records into
+[MongoDB](http://mongodb.org/), the emerging document-oriented database
+system.
+This plugin is for users using ReplicaSet. If you are not using
+ReplicaSet, please see the [out\_mongo](/plugins/output/mongo.md) article instead.
 
+
+## Why Fluentd with MongoDB?
+
+Fluentd enables your apps to insert records to MongoDB asynchronously
+with batch-insertion, unlike direct insertion of records from your apps.
+This has the following advantages:
+
+1.  less impact on application performance
+2.  higher MongoDB insertion throughput while maintaining JSON record
+    structure
+
+## Install
+
+`out_mongo_replset` is included in td-agent by default. Fluentd gem
+users will need to install the fluent-plugin-mongo gem using the
+following command.
+
+``` {.CodeRay}
+$ fluent-gem install fluent-plugin-mongo
+```
 
 ## Example Configuration
 
-`out_exec_filter` is included in Fluentd's core. No additional
-installation process is required.
-
 ``` {.CodeRay}
-<match pattern>
-  @type exec_filter
-  command cmd arg arg
-  in_keys k1,k2,k3
-  out_keys k1,k2,k3,k4
-  tag_key k1
-  time_key k2
-  time_format %Y-%m-%d %H:%M:%S
+# Single MongoDB
+<match mongo.**>
+  @type mongo_replset
+  database fluentd
+  collection test
+  nodes localhost:27017,localhost:27018,localhost:27019
+
+  # flush
+  flush_interval 10s
 </match>
 ```
+
+Please see the [Store Apache Logs into MongoDB](/articles/apache-to-mongodb.md)
+article for real-world use cases.
+
 Please see the [Config File](/configuration/config-file.md) article for the basic
 structure and syntax of the configuration file.
 
 ## Parameters
 
-### \@type (required)
+### type (required)
 
-The value must be `exec_filter`.
+The value must be `mongo`.
 
-### command (required)
+### nodes (required)
 
-The command (program) to execute. The `out_exec_filter` plugin passes
-the incoming event to the program input and receives the filtered event
-from the program output.
+The comma separated node strings (e.g.
+host1:27017,host2:27017,host3:27017).
 
-### num\_children
+### database (required)
 
-The number of spawned process for `command`. Default is 1.
+The database name.
 
-If the number is larger than 2, fluentd uses spawned processes by round
-robin fashion.
+### collection (required if not tag\_mapped)
 
-### child\_respawn
+The collection name.
 
-Respawn command when command exit. Default is disabled.
+### capped
 
-If you specify a positive number, try to respawn until specified times.
-If you specify `inf` or `-1`, try to respawn forever.
+This option enables capped collection. This is always recommended
+because MongoDB is not suited to storing large amounts of historical
+data.
 
-### in\_format
+### capped\_size
 
-The format used to map the incoming event to the program input.
+Sets the capped collection size.
 
-The following formats are supported:
+### user
 
--   tsv (default)
+The username to use for authentication.
 
-When using the tsv format, please also specify the comma-separated
-`in_keys` parameter.
+### password
 
-``` {.CodeRay}
-in_keys k1,k2,k3
-```
+The password to use for authentication.
 
--   json
--   msgpack
+### tag\_mapped
 
-### out\_format
+This option will allow out\_mongo to use Fluentd's tag to determine the
+destination collection.
 
-The format used to process the program output.
-
-The following formats are supported:
-
--   tsv (default)
-
-When using the tsv format, please also specify the comma-separated
-`out_keys` parameter.
+For example, if you generate records with tags 'mongo.foo', the records
+will be inserted into the `foo` collection within the `fluentd`
+database.
 
 ``` {.CodeRay}
-out_keys k1,k2,k3,k4
+<match mongo.*>
+  @type mongo_replset
+  database fluentd
+  nodes localhost:27017,localhost:27018,localhost:27019
+
+  # Set 'tag_mapped' if you want to use tag mapped mode.
+  tag_mapped
+
+  # If the tag is "mongo.foo", then the prefix "mongo." is removed.
+  # The inserted collection name is "foo".
+  remove_tag_prefix mongo.
+
+  # This configuration is used if the tag is not found. The default is 'untagged'.
+  collection misc
+</match>
 ```
 
--   json
--   msgpack
+### name
 
-When using the json format, this plugin uses the Yajl library to parse
-the program output. Yajl buffers data internally so the output isn\'t
-always instantaneous.
+The ReplicaSet name.
 
-### tag\_key
+### read
 
-The name of the key to use as the event tag. This replaces the value in
-the event record.
+The ReplicaSet read preference (e.g. secondary, etc).
 
-### time\_key
+### refresh\_mode
 
-The name of the key to use as the event time. This replaces the the
-value in the event record.
+The ReplicaSet refresh mode (e.g. sync, etc).
 
-### time\_format
+### refresh\_interval
 
-The format for event time used when the `time_key` parameter is
-specified. The default is UNIX time (integer).
+The ReplicaSet refresh interval.
+
+### num\_retries
+
+The ReplicaSet failover threshold. The default threshold is 60. If the
+retry count reaches this threshold, the plugin raises an exception.
 
 ## Buffered Output Parameters
 
@@ -113,8 +140,8 @@ with these parameters.
 
 ### buffer\_type
 
-The buffer type is `memory` by default ([buf\_memory](/plugins/buffer/buf_memory.md)) for
-the ease of testing, however `file` ([buf\_file](/plugins/buffer/buf_file.md)) buffer type
+The buffer type is `memory` by default ([buf\_memory](/plugins/buffer/memory.md)) for
+the ease of testing, however `file` ([buf\_file](/plugins/buffer/file.md)) buffer type
 is always recommended for the production deployments. If you use `file`
 buffer type, `buffer_path` parameter is required.
 
@@ -182,49 +209,9 @@ logging for each plugin. The supported log levels are: `fatal`, `error`,
 
 Please see the [logging article](/deployment/logging.md) for further details.
 
-## Script example
+## Further Readings
 
-Here is an example writtein in ruby.
-
-``` {.CodeRay}
-require 'json'
-require 'msgpack'
-
-begin
-  while line = STDIN.gets # continue to read a event from stdin
-    line.chomp!
-
-    # Input format depends on exec_filter's in_format setting
-    json = JSON.parse(line)
-
-    # main processing. You can do anything, mutate record, access to database and etc.
-    json['new_field'] = "Hey from exec_filter script!"
-
-    # Write data to stdout. Output format depends on exec_filter's out_format setting
-    STDOUT.print MessagePack.pack(json)
-
-    # Call flush to avoid buffering events
-    STDOUT.flush
-  end
-rescue Interrupt # Ignore Interrupt exception because it happens during exec_filter shutdown
-end
-```
-
-Corresponding configuration is below:
-
-``` {.CodeRay}
-<match test.**>
-  @type exec_filter
-  command ruby /path/to/ruby_script.rb
-  in_format json
-  out_format msgpack
-  flush_interval 10s
-  tag filtered.exec
-</match>
-```
-
-If you want to use other language, translate above script example into
-your language.
+-   [fluent-plugin-webhdfs mongo](https://github.com/fluent/fluent-plugin-mongo)
 
 
 ------------------------------------------------------------------------

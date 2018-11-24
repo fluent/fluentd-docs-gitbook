@@ -424,7 +424,7 @@ defined after tight match patterns.
 
 Of course, if you use two same patterns, second `match` is never
 matched. If you want to send events to multiple outputs, consider
-[out\_copy](/plugins/output/out_copy.md) plugin.
+[out\_copy](/plugins/output/copy.md) plugin.
 
 The common pitfall is when you put a `<filter>` block after `<match>`.
 It will never work as supposed, since events never go through the filter

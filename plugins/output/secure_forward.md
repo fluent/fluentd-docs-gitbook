@@ -408,8 +408,8 @@ with these parameters.
 
 ### buffer\_type
 
-The buffer type is `memory` by default ([buf\_memory](/plugins/buffer/buf_memory.md)) for
-the ease of testing, however `file` ([buf\_file](/plugins/buffer/buf_file.md)) buffer type
+The buffer type is `memory` by default ([buf\_memory](/plugins/buffer/memory.md)) for
+the ease of testing, however `file` ([buf\_file](/plugins/buffer/file.md)) buffer type
 is always recommended for the production deployments. If you use `file`
 buffer type, `buffer_path` parameter is required.
 

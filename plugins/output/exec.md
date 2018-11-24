@@ -189,8 +189,8 @@ needed.
 
 ### buffer\_type
 
-The buffer type is `file` by default ([buf\_file](/plugins/buffer/buf_file.md)). The
-`memory` ([buf\_memory](/plugins/buffer/buf_memory.md)) buffer type can be chosen as well.
+The buffer type is `file` by default ([buf\_file](/plugins/buffer/file.md)). The
+`memory` ([buf\_memory](/plugins/buffer/memory.md)) buffer type can be chosen as well.
 If you use `file` buffer type, `buffer_path` parameter is required.
 
 ### buffer\_queue\_limit, buffer\_chunk\_limit

@@ -1,29 +1,62 @@
-# file Output Plugin
+# HDFS (WebHDFS) Output Plugin
 
-The `out_file` TimeSliced Output plugin writes events to files. By
-default, it creates files on a daily basis (around 00:10). This means
-that when you first import records using the plugin, no file is created
-immediately. The file will be created when the `time_slice_format`
-condition has been met. To change the output frequency, please modify
-the `time_slice_format` value.
+The `out_webhdfs` TimeSliced Output plugin writes records into HDFS
+(Hadoop Distributed File System). By default, it creates files on an
+hourly basis. This means that when you first import records using the
+plugin, no file is created immediately. The file will be created when
+the `time_slice_format` condition has been met. To change the output
+frequency, please modify the `time_slice_format` value.
+This document doesn\'t describe all parameters. If you want to know full
+features, check the Further Reading section.
 
+
+## Install
+
+`out_webhdfs` is included in td-agent by default (v1.1.10 or later).
+Fluentd gem users will have to install the fluent-plugin-webhdfs gem
+using the following command.
+
+``` {.CodeRay}
+$ fluent-gem install fluent-plugin-webhdfs
+```
+
+## HDFS Configuration
+
+Append operations are not enabled by default on CDH. Please put these
+configurations into your hdfs-site.xml file and restart the whole
+cluster.
+
+``` {.CodeRay}
+<property>
+  <name>dfs.webhdfs.enabled</name>
+  <value>true</value>
+</property>
+
+<property>
+  <name>dfs.support.append</name>
+  <value>true</value>
+</property>
+
+<property>
+  <name>dfs.support.broken.append</name>
+  <value>true</value>
+</property>
+```
 
 ## Example Configuration
 
-`out_file` is included in Fluentd's core. No additional installation
-process is required.
-
 ``` {.CodeRay}
-<match pattern>
-  @type file
-  path /var/log/fluent/myapp
-  time_slice_format %Y%m%d
-  time_slice_wait 10m
-  time_format %Y%m%dT%H%M%S%z
-  compress gzip
-  utc
+<match access.**>
+  @type webhdfs
+  host namenode.your.cluster.local
+  port 50070
+  path "/path/on/hdfs/access.log.%Y%m%d_%H.#{Socket.gethostname}.log"
+  flush_interval 10s
 </match>
 ```
+
+Please see the [Fluentd + HDFS: Instant Big Data Collection](/articles/http-to-hdfs.md) article for real-world use cases.
+
 Please see the [Config File](/configuration/config-file.md) article for the basic
 structure and syntax of the configuration file.
 
@@ -31,70 +64,27 @@ structure and syntax of the configuration file.
 
 ### \@type (required)
 
-The value must be `file`.
+The value must be `webhfds`.
+
+### host (required)
+
+The namenode hostname.
+
+### port (required)
+
+The namenode port number.
 
 ### path (required)
 
-The Path of the file. The actual path is path + time + ".log". The time
-portion is determined by the time\_slice\_format parameter, descried
-below.
+The path on HDFS. Please include `"#{Socket.gethostname}"` in your path
+to avoid writing into the same HDFS file from multiple Fluentd
+instances. This conflict could result in data loss.
 
-The `path` parameter is used as `buffer_path` in this plugin.
+Path value can contain time placeholders (see `time_slice_format`
+section). If path contains time placeholders, webhdfs output configures
+`time_slice_format` automatically with these placeholders.
 
-Initially, you may see a file which looks like
-\"/path/to/file.20140101.log.b4eea2c8166b147a0\". This is an
-intermediate buffer file (\"b4eea2c8166b147a0\" identifies the buffer).
-Once the content of the buffer has been completely [flushed](/plugins/buffer/buf_file.md),
-you will see the output file without the trailing identifier.
-
-### append
-
-The flushed chunk is appended to existence file or not. The default is
-`false`. By default, out\_file flushes each chunk to different path.
-
-``` {.CodeRay}
-# append false
-log.20140608_0.log
-log.20140608_1.log
-log.20140609_0.log
-log.20140609_1.log
-```
-
-This makes parallel file processing easy. But if you want to disable
-this behaviour, you can disable it by setting `append true`.
-
-``` {.CodeRay}
-# append true
-log.20140608.log
-log.20140609.log
-```
-
-### format
-
-The format of the file content. The default is `out_file`.
-
-See [formatter article](/plugins/formatter/README.md) for more detail.
-
-### time\_format
-
-The format of the time written in files. The default format is ISO-8601.
-
-### utc
-
-Uses UTC for path formatting. The default format is localtime.
-
-### compress
-
-Compresses flushed files using `gzip`. No compression is performed by
-default.
-
-### symlink\_path
-
-Create symlink to temporary buffered file when `buffer_type` is `file`.
-No symlink is created by default. This is useful for tailing file
-content to check logs.
-
-## Time Sliced Output Parameters
+## Time Sliced Output Parameters (and overwritten values by out\_webhdfs)
 
 For advanced usage, you can tune Fluentd's internal buffering mechanism
 with these parameters.
@@ -111,7 +101,8 @@ are replaced with actual values when the file is created:
 -   \%M: Minute of the hour (00..59)
 -   \%S: Second of the minute (00..60)
 
-The default format is `%Y%m%d%H`, which creates one file per hour.
+The default format is `%Y%m%d%H`, which creates one file per hour. This
+parameter may be overwritten by `path` configuration.
 
 ### time\_slice\_wait
 
@@ -129,9 +120,9 @@ needed.
 
 ### buffer\_type
 
-The buffer type is `file` by default ([buf\_file](/plugins/buffer/buf_file.md)). The
-`memory` ([buf\_memory](/plugins/buffer/buf_memory.md)) buffer type can be chosen as well.
-If you use `file` buffer type, `buffer_path` parameter is required.
+The buffer type is `memory` by default ([buf\_memory](/plugins/buffer/memory.md)). The
+`file` ([buf\_file](/plugins/buffer/file.md)) buffer type can be chosen as well. If you
+use `file` buffer type, `buffer_path` parameter is required.
 
 ### buffer\_queue\_limit, buffer\_chunk\_limit
 
@@ -143,13 +134,15 @@ for buffer\_chunk\_limit.
 
 ### flush\_interval
 
-The interval between data flushes. The default is 60s. The suffixes "s"
-(seconds), "m" (minutes), and "h" (hours) can be used.
+The interval between data flushes. The default is unspecified, and
+buffer chunks will be flushed at the end of time slices. The suffixes
+"s" (seconds), "m" (minutes), and "h" (hours) can be used.
 
 ### flush\_at\_shutdown
 
-If set to true, Fluentd waits for the buffer to flush at shutdown. By
-default, it is set to true for Memory Buffer and false for File Buffer.
+The boolean value to specify whether to flush buffer chunks at shutdown
+time, or not. The default is true. Specify true if you use `memory`
+buffer type.
 
 ### retry\_wait, max\_retry\_wait
 
@@ -176,10 +169,6 @@ The number of threads to flush the buffer. This option can be used to
 parallelize writes into the output(s) designated by the output plugin.
 The default is 1.
 
-### slow\_flush\_log\_threshold
-
-Same as Buffered Output but default value is changed to `40.0` seconds.
-
 #### log\_level option
 
 The `log_level` option allows the user to set different levels of
@@ -187,6 +176,11 @@ logging for each plugin. The supported log levels are: `fatal`, `error`,
 `warn`, `info`, `debug`, and `trace`.
 
 Please see the [logging article](/deployment/logging.md) for further details.
+
+## Further Reading
+
+-   [fluent-plugin-webhdfs repository](https://github.com/fluent/fluent-plugin-webhdfs)
+-   [Slides: Fluentd and WebHDFS](http://www.slideshare.net/tagomoris/fluentd-and-webhdfs)
 
 
 ------------------------------------------------------------------------

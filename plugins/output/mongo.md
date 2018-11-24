@@ -1,10 +1,13 @@
-# MongoDB ReplicaSet Output Plugin
+# MongoDB Output Plugin
 
-The `out_mongo_replset` Buffered Output plugin writes records into
+The `out_mongo` Buffered Output plugin writes records into
 [MongoDB](http://mongodb.org/), the emerging document-oriented database
 system.
-This plugin is for users using ReplicaSet. If you are not using
-ReplicaSet, please see the [out\_mongo](/plugins/output/out_mongo.md) article instead.
+If you\'re using ReplicaSet, please see the
+[out\_mongo\_replset](/plugins/output/mongo_replset.md) article instead.
+
+This document doesn\'t describe all parameters. If you want to know full
+features, check the Further Reading section.
 
 
 ## Why Fluentd with MongoDB?
@@ -19,9 +22,8 @@ This has the following advantages:
 
 ## Install
 
-`out_mongo_replset` is included in td-agent by default. Fluentd gem
-users will need to install the fluent-plugin-mongo gem using the
-following command.
+`out_mongo` is included in td-agent by default. Fluentd gem users will
+need to install the fluent-plugin-mongo gem using the following command.
 
 ``` {.CodeRay}
 $ fluent-gem install fluent-plugin-mongo
@@ -32,10 +34,22 @@ $ fluent-gem install fluent-plugin-mongo
 ``` {.CodeRay}
 # Single MongoDB
 <match mongo.**>
-  @type mongo_replset
+  @type mongo
+  host fluentd
+  port 27017
   database fluentd
   collection test
-  nodes localhost:27017,localhost:27018,localhost:27019
+
+  # for capped collection
+  capped
+  capped_size 1024m
+
+  # authentication
+  user michael
+  password jordan
+
+  # key name of timestamp
+  time_key time
 
   # flush
   flush_interval 10s
@@ -54,16 +68,19 @@ structure and syntax of the configuration file.
 
 The value must be `mongo`.
 
-### nodes (required)
+### host (required)
 
-The comma separated node strings (e.g.
-host1:27017,host2:27017,host3:27017).
+The MongoDB hostname.
+
+### port (required)
+
+The MongoDB port.
 
 ### database (required)
 
 The database name.
 
-### collection (required if not tag\_mapped)
+### collection (required, if not tag\_mapped)
 
 The collection name.
 
@@ -73,7 +90,7 @@ This option enables capped collection. This is always recommended
 because MongoDB is not suited to storing large amounts of historical
 data.
 
-### capped\_size
+#### capped\_size
 
 Sets the capped collection size.
 
@@ -85,20 +102,23 @@ The username to use for authentication.
 
 The password to use for authentication.
 
+### time\_key
+
+The key name of timestamp. (default is "time")
+
 ### tag\_mapped
 
 This option will allow out\_mongo to use Fluentd's tag to determine the
-destination collection.
-
-For example, if you generate records with tags 'mongo.foo', the records
-will be inserted into the `foo` collection within the `fluentd`
-database.
+destination collection. For example, if you generate records with tags
+'mongo.foo', the records will be inserted into the `foo` collection
+within the `fluentd` database.
 
 ``` {.CodeRay}
 <match mongo.*>
-  @type mongo_replset
+  @type mongo
+  host fluentd
+  port 27017
   database fluentd
-  nodes localhost:27017,localhost:27018,localhost:27019
 
   # Set 'tag_mapped' if you want to use tag mapped mode.
   tag_mapped
@@ -112,26 +132,7 @@ database.
 </match>
 ```
 
-### name
-
-The ReplicaSet name.
-
-### read
-
-The ReplicaSet read preference (e.g. secondary, etc).
-
-### refresh\_mode
-
-The ReplicaSet refresh mode (e.g. sync, etc).
-
-### refresh\_interval
-
-The ReplicaSet refresh interval.
-
-### num\_retries
-
-The ReplicaSet failover threshold. The default threshold is 60. If the
-retry count reaches this threshold, the plugin raises an exception.
+This option is useful for flexible log collection.
 
 ## Buffered Output Parameters
 
@@ -140,8 +141,8 @@ with these parameters.
 
 ### buffer\_type
 
-The buffer type is `memory` by default ([buf\_memory](/plugins/buffer/buf_memory.md)) for
-the ease of testing, however `file` ([buf\_file](/plugins/buffer/buf_file.md)) buffer type
+The buffer type is `memory` by default ([buf\_memory](/plugins/buffer/memory.md)) for
+the ease of testing, however `file` ([buf\_file](/plugins/buffer/file.md)) buffer type
 is always recommended for the production deployments. If you use `file`
 buffer type, `buffer_path` parameter is required.
 
@@ -209,9 +210,9 @@ logging for each plugin. The supported log levels are: `fatal`, `error`,
 
 Please see the [logging article](/deployment/logging.md) for further details.
 
-## Further Readings
+## Further Reading
 
--   [fluent-plugin-webhdfs mongo](https://github.com/fluent/fluent-plugin-mongo)
+-   [fluent-plugin-mongo repository](https://github.com/fluent/fluent-plugin-mongo)
 
 
 ------------------------------------------------------------------------

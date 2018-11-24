@@ -58,9 +58,9 @@ Users can create their own custom plugins with a bit of Ruby. See [this section]
 
 ## List of Filter Plugins
 
--   [grep](/plugins/filter/filter_grep.md)
--   [record-transformer](/plugins/filter/filter_record_transformer.md)
--   [filter\_stdout](/plugins/filter/filter_stdout.md)
+-   [grep](/plugins/filter/grep.md)
+-   [record-transformer](/plugins/filter/record_transformer.md)
+-   [filter\_stdout](/plugins/filter/stdout.md)
 
 
 ------------------------------------------------------------------------

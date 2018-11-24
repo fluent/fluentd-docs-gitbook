@@ -29,8 +29,8 @@ structure and syntax of the configuration file.
 
 Here is an example set up to send events to both a local file under
 `/var/log/fluent/myapp` and the collection `fluentd.test` in a local
-MongoDB instance (Please see the [out\_file](/plugins/output/out_file.md) and
-[out\_mongo](/plugins/output/out_mongo.md) articles for more details about the
+MongoDB instance (Please see the [out\_file](/plugins/output/file.md) and
+[out\_mongo](/plugins/output/mongo.md) articles for more details about the
 respective plugins.)
 
 ``` {.CodeRay}

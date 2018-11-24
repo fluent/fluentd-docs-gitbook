@@ -18,7 +18,7 @@ the user extend and re-use custom output formats.
 For an output plugin that supports Text Formatter, the `format`
 parameter can be used to change the output format.
 
-For example, by default, [out\_file](/plugins/output/out_file.md) plugin outputs data as
+For example, by default, [out\_file](/plugins/output/file.md) plugin outputs data as
 
 ``` {.CodeRay}
 2014-08-25 00:00:00 +0000<TAB>foo.bar<TAB>{"k1":"v1", "k2":"v2"}
@@ -48,18 +48,18 @@ how to develop a custom formatter.
 
 ## List of Built-in Formatters
 
--   [out\_file](/plugins/formatter/formatter_out_file.md)
--   [json](/plugins/formatter/formatter_json.md)
--   [ltsv](/plugins/formatter/formatter_ltsv.md)
--   [csv](/plugins/formatter/formatter_csv.md)
--   [msgpack](/plugins/formatter/formatter_msgpack.md)
--   [hash](/plugins/formatter/formatter_hash.md)
--   [single\_value](/plugins/formatter/formatter_single_value.md)
+-   [out\_file](/plugins/formatter/out_file.md)
+-   [json](/plugins/formatter/json.md)
+-   [ltsv](/plugins/formatter/ltsv.md)
+-   [csv](/plugins/formatter/csv.md)
+-   [msgpack](/plugins/formatter/msgpack.md)
+-   [hash](/plugins/formatter/hash.md)
+-   [single\_value](/plugins/formatter/single_value.md)
 
 ## List of Output Plugins with Text Formatter Support
 
--   [out\_file](/plugins/output/out_file.md)
--   [out\_s3](/plugins/output/out_s3.md)
+-   [out\_file](/plugins/output/file.md)
+-   [out\_s3](/plugins/output/s3.md)
 
 
 ------------------------------------------------------------------------

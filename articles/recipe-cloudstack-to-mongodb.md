@@ -191,7 +191,7 @@ this will be done like so:
 $sudo gem install fluent-plugin-mongo.
 ```
 
-The complete [documentation](/plugins/output/out_mongo.md) also explains how to
+The complete [documentation](/plugins/output/mongo.md) also explains how to
 modify the configuration of `fluentd` to use this backend. Previously we
 used `stdout` as the output backend, to use `mongodb` we just need to
 write a different `<match>` section like so:

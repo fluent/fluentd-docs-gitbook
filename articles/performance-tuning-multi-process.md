@@ -24,7 +24,7 @@ process topology within the same server.
 These processes will be in charge for input (typicall either
 [in\_tail](/plugins/input/tail.md) or other input plugins) and its parsing. The input
 processes will transfer all the records to 2nd tier output processes, by
-[out\_forward](/plugins/output/out_forward.md).
+[out\_forward](/plugins/output/forward.md).
 
 In the config, it will be recommended to use shorter `flush_interval`
 (e.g. 1s) with smaller `buffer_chunk_size` (e.g. 1MB) to immediately
@@ -61,7 +61,7 @@ load across the processes automatically.
 
 If any of the process goes down, the supervisor process will
 automatically relaunch the process. Also we recommend to use
-[buf\_file](/plugins/buffer/buf_file.md) for both input and output processes, to simply
+[buf\_file](/plugins/buffer/file.md) for both input and output processes, to simply
 prevent losing the data.
 
 For example, even if one of the output processes die, the data gets

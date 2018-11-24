@@ -36,17 +36,17 @@ Here is a simple example to read Nginx access logs using `in_tail` and
 
 ## List of Built-in Parsers
 
--   [regexp](/plugins/parser/parser_regexp.md)
--   [apache2](/plugins/parser/parser_apache2.md)
--   [apache\_error](/plugins/parser/parser_apache_error.md)
--   [nginx](/plugins/parser/parser_nginx.md)
--   [syslog](/plugins/parser/parser_syslog.md)
--   [csv](/plugins/parser/parser_csv.md)
--   [tsv](/plugins/parser/parser_tsv.md)
--   [ltsv](/plugins/parser/parser_ltsv.md)
--   [json](/plugins/parser/parser_json.md)
--   [multiline](/plugins/parser/parser_multiline.md)
--   [none](/plugins/parser/parser_none.md)
+-   [regexp](/plugins/parser/regexp.md)
+-   [apache2](/plugins/parser/apache2.md)
+-   [apache\_error](/plugins/parser/apache_error.md)
+-   [nginx](/plugins/parser/nginx.md)
+-   [syslog](/plugins/parser/syslog.md)
+-   [csv](/plugins/parser/csv.md)
+-   [tsv](/plugins/parser/tsv.md)
+-   [ltsv](/plugins/parser/ltsv.md)
+-   [json](/plugins/parser/json.md)
+-   [multiline](/plugins/parser/multiline.md)
+-   [none](/plugins/parser/none.md)
 
 ### 3rd party Parsers
 
