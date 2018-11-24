@@ -447,7 +447,7 @@ for the reason explained above.
 ## Supported Data Types for Values
 
 Each Fluentd plugin has a set of parameters. For example,
-[in\_tail](/plugins/input/in_tail.md) has parameters such as `rotate_wait` and `pos_file`.
+[in\_tail](/plugins/input/tail.md) has parameters such as `rotate_wait` and `pos_file`.
 Each parameter has a specific type associated with it. They are defined
 as follows:
 

@@ -8,7 +8,7 @@ explain how to solve each task using one or more Fluentd plugins.
 ## Scenario: Filtering Data by the Value of a Field
 
 Let's suppose our Fluentd instances are collecting data from Apache web
-server logs via [in\_tail](/plugins/input/in_tail.md). Our goal is to filter out all the
+server logs via [in\_tail](/plugins/input/tail.md). Our goal is to filter out all the
 200 requests.
 
 ## Solution: Use fluent-plugin-grep

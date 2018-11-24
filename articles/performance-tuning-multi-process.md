@@ -1,7 +1,7 @@
 # Performance Tuning (Multi Process)
 
 This article desdrivbes how to optimize Fluentd's performance with
-[in\_multiprocess](/plugins/input/in_multiprocess.md) plugin. With high traffic, Fluentd
+[in\_multiprocess](/plugins/input/multiprocess.md) plugin. With high traffic, Fluentd
 tends to be more CPU bound.
 
 However with Ruby MRI's GVL ([Global VM Lock](https://en.wikipedia.org/wiki/Global_interpreter_lock))
@@ -22,7 +22,7 @@ process topology within the same server.
 ### 1st Tier: Input Processes
 
 These processes will be in charge for input (typicall either
-[in\_tail](/plugins/input/in_tail.md) or other input plugins) and its parsing. The input
+[in\_tail](/plugins/input/tail.md) or other input plugins) and its parsing. The input
 processes will transfer all the records to 2nd tier output processes, by
 [out\_forward](/plugins/output/out_forward.md).
 
@@ -34,7 +34,7 @@ forward incoming data to 2nd tier output processes.
 
 These process will be in charge for filter and output to your favorite
 destinations. The output processes accept incoming data from input
-processes, by [in\_forward](/plugins/input/in_forward.md).
+processes, by [in\_forward](/plugins/input/forward.md).
 
 The output processes are shared across all input processes, by
 out\_forward's load balancing mechanism. In this way, you can simply add

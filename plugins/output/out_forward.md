@@ -16,7 +16,7 @@ Do **NOT** use this plugin for inter-DC or public internet data transfer
 without secure connections. All the data is not encrypted, and this
 plugin is not designed for high-latency network environment. If you
 require a secure connection between nodes, please consider using
-[in\_secure\_forward](/plugins/input/in_secure_forward.md).
+[in\_secure\_forward](/plugins/input/secure_forward.md).
 
 
 ## Example Configuration

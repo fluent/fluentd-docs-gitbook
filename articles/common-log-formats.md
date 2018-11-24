@@ -1,7 +1,7 @@
 # Common Log Formats and How To Parse Them
 
 This page is a glossary of common log formats that can be parsed with
-the [Tail input plugin](/plugins/input/in_tail.md).
+the [Tail input plugin](/plugins/input/tail.md).
 
 -   Apache Access Log
 

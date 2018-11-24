@@ -10,8 +10,8 @@ Parser Plugin.
 ## Overview
 
 Sometimes, the `format` parameter for input plugins (ex:
-[in\_tail](/plugins/input/in_tail.md), [in\_syslog](/plugins/input/in_syslog.md), [in\_tcp](/plugins/input/in_tcp.md) and
-[in\_udp](/plugins/input/in_udp.md)) cannot parse the user's custom data format (for
+[in\_tail](/plugins/input/tail.md), [in\_syslog](/plugins/input/syslog.md), [in\_tcp](/plugins/input/tcp.md) and
+[in\_udp](/plugins/input/udp.md)) cannot parse the user's custom data format (for
 example, a context-dependent grammar that can't be parsed with a regular
 expression). To address such cases. Fluentd has a pluggable system that
 enables the user to create their own parser formats.
@@ -59,11 +59,11 @@ Use `< 1.0.0` versions for fluentd v0.12.
 
 with `format` parameter.
 
--   [in\_tail](/plugins/input/in_tail.md)
--   [in\_tcp](/plugins/input/in_tcp.md)
--   [in\_udp](/plugins/input/in_udp.md)
--   [in\_syslog](/plugins/input/in_syslog.md)
--   [in\_http](/plugins/input/in_http.md)
+-   [in\_tail](/plugins/input/tail.md)
+-   [in\_tcp](/plugins/input/tcp.md)
+-   [in\_udp](/plugins/input/udp.md)
+-   [in\_syslog](/plugins/input/syslog.md)
+-   [in\_http](/plugins/input/http.md)
 
 
 ------------------------------------------------------------------------

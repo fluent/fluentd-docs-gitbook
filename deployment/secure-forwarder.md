@@ -9,7 +9,7 @@ SSL for Fluentd-to-Fluentd data transport**.
 It is intended as a quick introduction. For comprehensive documentation,
 including parameter definitions, please checkout out the
 [out\_secure\_forward](/plugins/output/out_secure_forward.md) and
-[in\_secure\_forward](/plugins/input/in_secure_forward.md).
+[in\_secure\_forward](/plugins/input/secure_forward.md).
 
 ## Setup: Receiver
 
@@ -71,7 +71,7 @@ Then, set up the configuration file as follows:
 ```
 
 The `<source>` clause is there to feed test data into Fluentd using
-[in\_forward](/plugins/input/in_forward.md). Make sure that `YOUR_SHARED_KEY` is same with
+[in\_forward](/plugins/input/forward.md). Make sure that `YOUR_SHARED_KEY` is same with
 the receiver's.
 
 Then, (re)start td-agent.
@@ -96,7 +96,7 @@ Now, checking the receiver's Fluentd's log (for td-agent, this would be
 
 ## Resources
 
--   [in\_secure\_forward](/plugins/input/in_secure_forward.md)
+-   [in\_secure\_forward](/plugins/input/secure_forward.md)
 -   [out\_secure\_forward](/plugins/output/out_secure_forward.md)
 -   [the secure forward plugin's GitHub repo](//github.com/fluent/fluent-plugin-secure-forward)
 

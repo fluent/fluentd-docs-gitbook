@@ -16,12 +16,12 @@ data sources.
 
 ## List of Input Plugins
 
--   [in\_forward](/plugins/input/in_forward.md)
--   [in\_unix](/plugins/input/in_unix.md)
--   [in\_http](/plugins/input/in_http.md)
--   [in\_tail](/plugins/input/in_tail.md)
--   [in\_exec](/plugins/input/in_exec.md)
--   [in\_syslog](/plugins/input/in_syslog.md)
+-   [in\_forward](/plugins/input/forward.md)
+-   [in\_unix](/plugins/input/unix.md)
+-   [in\_http](/plugins/input/http.md)
+-   [in\_tail](/plugins/input/tail.md)
+-   [in\_exec](/plugins/input/exec.md)
+-   [in\_syslog](/plugins/input/syslog.md)
 
 ## Other Input Plugins
 

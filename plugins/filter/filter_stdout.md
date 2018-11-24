@@ -227,7 +227,7 @@ For this format, the following common parameters are also supported.
 #### single\_value
 
 Output the value of a single field instead of the whole record. Often
-used in conjunction with [in\_tail](/plugins/input/in_tail.md)'s `format none`.
+used in conjunction with [in\_tail](/plugins/input/tail.md)'s `format none`.
 
 ``` {.CodeRay}
 value1\n
