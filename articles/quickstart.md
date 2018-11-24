@@ -54,7 +54,7 @@ learn more about Fluentd.
 -   [Architecture Overview](//www.fluentd.org/architecture)
 -   [Life of a Fluentd Event](/overview/life-of-a-fluentd-event.md)
 -   Plugin Overview
-    -   [Input Plugins](/plugins/input/input-plugin-overview.md)
+    -   [Input Plugins](/plugins/input/README.md)
     -   [Output Plugins](/plugins/output/output-plugin-overview.md)
     -   [Buffer Plugins](/plugins/buffer/buffer-plugin-overview.md)
     -   [Filter Plugins](/plugins/filter/filter-plugin-overview.md)

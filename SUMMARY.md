@@ -47,7 +47,7 @@
 
 
 * [Plugins]()            
-  * [Input](/plugins/input/input-plugin-overview.md)
+  * [Input](/plugins/input/README.md)
     * [in_tail](/plugins/input/in_tail.md)
     * [in_forward](/plugins/input/in_forward.md)
     * [in_secure_forward](/plugins/input/in_secure_forward.md)

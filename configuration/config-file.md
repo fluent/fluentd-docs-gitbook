@@ -119,7 +119,7 @@ record: {"event":"data"}
 
 You can add new input sources by writing your own plugins. For further
 information regarding Fluentd's input sources, please refer to the
-[Input Plugin Overview](/plugins/input/input-plugin-overview.md) article.
+[Input Plugin Overview](/plugins/input/README.md) article.
 
 ## (2) "match": Tell fluentd what to do!
 
