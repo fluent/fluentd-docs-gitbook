@@ -416,7 +416,7 @@ buffer type, `buffer_path` parameter is required.
 ### buffer\_queue\_limit, buffer\_chunk\_limit
 
 The length of the chunk queue and the size of each chunk, respectively.
-Please see the [Buffer Plugin Overview](/plugins/buffer/buffer-plugin-overview.md) article
+Please see the [Buffer Plugin Overview](/plugins/buffer/README.md) article
 for the basic buffer structure. The default values are 64 and 8m,
 respectively. The suffixes "k" (KB), "m" (MB), and "g" (GB) can be used
 for buffer\_chunk\_limit.

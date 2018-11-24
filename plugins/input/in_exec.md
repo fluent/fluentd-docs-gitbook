@@ -46,7 +46,7 @@ The following formats are supported:
 -   tsv (default)
 -   json
 -   msgpack
--   [parser plugin formats](/plugins/parser/parser-plugin-overview.md), e.g. ltsv, none.
+-   [parser plugin formats](/plugins/parser/README.md), e.g. ltsv, none.
 
 When using the tsv format, please also specify the comma-separated
 `keys` parameter.

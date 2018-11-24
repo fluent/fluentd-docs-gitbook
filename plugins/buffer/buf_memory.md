@@ -24,12 +24,12 @@ The value must be `memory`.
 #### buffer\_chunk\_limit
 
 The size of each buffer chunk. The default is 8m. The suffixes "k" (KB),
-"m" (MB), and "g" (GB) can be used. Please see the [Buffer Plugin Overview](/plugins/buffer/buffer-plugin-overview.md) article for the basic buffer
+"m" (MB), and "g" (GB) can be used. Please see the [Buffer Plugin Overview](/plugins/buffer/README.md) article for the basic buffer
 structure.
 
 #### buffer\_queue\_limit
 
-The length limit of the chunk queue. Please see the [Buffer Plugin Overview](/plugins/buffer/buffer-plugin-overview.md) article for the basic buffer
+The length limit of the chunk queue. Please see the [Buffer Plugin Overview](/plugins/buffer/README.md) article for the basic buffer
 structure. The default limit is 64 chunks.
 
 #### flush\_interval

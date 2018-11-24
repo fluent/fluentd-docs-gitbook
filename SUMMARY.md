@@ -62,7 +62,7 @@
     * [in_dummy](/plugins/input/in_dummy.md)
     * [Others](/plugins/input/in_others.md)
 
-  * [Output](/plugins/output/output-plugin-overview.md)
+  * [Output](/plugins/output/README.md)
     * [out_file](/plugins/output/out_file.md)
     * [out_s3](/plugins/output/out_s3.md)
     * [out_kafka](/plugins/output/out_kafka.md)
@@ -83,17 +83,17 @@
     * [out_rewrite_tag_filter](/plugins/output/out_rewrite_tag_filter.md)
     * [Others](/plugins/output/out_others.md)
 
-  * [Buffer](/plugins/buffer/buffer-plugin-overview.md)
+  * [Buffer](/plugins/buffer/README.md)
     * [buf_memory](/plugins/buffer/buf_memory.md)
     * [buf_file](/plugins/buffer/buf_file.md)
 
-  * [Filter](/plugins/filter/filter-plugin-overview.md)
+  * [Filter](/plugins/filter/README.md)
     * [filter_record_transformer](/plugins/filter/filter_record_transformer.md)
     * [filter_grep](/plugins/filter/filter_grep.md)
     * [filter_parser](/plugins/filter/filter_parser.md)
     * [filter_stdout](/plugins/filter/filter_stdout.md)
 
-  * [Parser](/plugins/parser/parser-plugin-overview.md)
+  * [Parser](/plugins/parser/README.md)
     * [parser_regexp](/plugins/parser/parser_regexp.md)
     * [parser_apache2](/plugins/parser/parser_apache2.md)
     * [parser_apache_error](/plugins/parser/parser_apache_error.md)
@@ -106,7 +106,7 @@
     * [parser_multiline](/plugins/parser/parser_multiline.md)
     * [parser_none](/plugins/parser/parser_none.md)
 
-  * [Formatter](/plugins/formatter/formatter-plugin-overview.md)
+  * [Formatter](/plugins/formatter/README.md)
     * [formatter_out_file](/plugins/formatter/formatter_out_file.md)
     * [formatter_json](/plugins/formatter/formatter_json.md)
     * [formatter_ltsv](/plugins/formatter/formatter_ltsv.md)

@@ -112,7 +112,7 @@ The most recent versions of the endpoints can be found
 
 The format of the S3 object. The default is `out_file`.
 
-See [formatter article](/plugins/formatter/formatter-plugin-overview.md) for more detail.
+See [formatter article](/plugins/formatter/README.md) for more detail.
 
 ### time\_format
 
@@ -211,7 +211,7 @@ If you use `file` buffer type, `buffer_path` parameter is required.
 ### buffer\_queue\_limit, buffer\_chunk\_limit
 
 The length of the chunk queue and the size of each chunk, respectively.
-Please see the [Buffer Plugin Overview](/plugins/buffer/buffer-plugin-overview.md) article
+Please see the [Buffer Plugin Overview](/plugins/buffer/README.md) article
 for the basic buffer structure. The default values are 64 and 8m,
 respectively. The suffixes "k" (KB), "m" (MB), and "g" (GB) can be used
 for buffer\_chunk\_limit.

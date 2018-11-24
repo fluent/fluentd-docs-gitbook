@@ -172,7 +172,7 @@ Check [this issue](https://github.com/fluent/fluentd/issues/1126).
 ### format (required)
 
 The format of the log. `in_tail` uses parser plugin to parse the log.
-See [parser article](/plugins/parser/parser-plugin-overview.md) for more detail.
+See [parser article](/plugins/parser/README.md) for more detail.
 
 ### path\_key
 

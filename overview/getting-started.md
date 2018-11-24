@@ -55,11 +55,11 @@ learn more about Fluentd.
 -   [Life of a Fluentd Event](/overview/life-of-a-fluentd-event.md)
 -   Plugin Overview
     -   [Input Plugins](/plugins/input/README.md)
-    -   [Output Plugins](/plugins/output/output-plugin-overview.md)
-    -   [Buffer Plugins](/plugins/buffer/buffer-plugin-overview.md)
-    -   [Filter Plugins](/plugins/filter/filter-plugin-overview.md)
-    -   [Parser Plugins](/plugins/parser/parser-plugin-overview.md)
-    -   [Formatter Plugins](/plugins/formatter/formatter-plugin-overview.md)
+    -   [Output Plugins](/plugins/output/README.md)
+    -   [Buffer Plugins](/plugins/buffer/README.md)
+    -   [Filter Plugins](/plugins/filter/README.md)
+    -   [Parser Plugins](/plugins/parser/README.md)
+    -   [Formatter Plugins](/plugins/formatter/README.md)
 -   [High Availability Configuration](/deployment/high-availability.md)
 -   [FAQ](/overview/faq.md)
 

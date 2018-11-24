@@ -179,7 +179,7 @@ If `<regexp>` and `<exclude>` are used together, both are applied.
 
 ## Learn More
 
--   [Filter Plugin Overview](/plugins/filter/filter-plugin-overview.md)
+-   [Filter Plugin Overview](/plugins/filter/README.md)
 -   [record\_transformer Filter Plugin](/plugins/filter/filter_record_transformer.md)
 
 

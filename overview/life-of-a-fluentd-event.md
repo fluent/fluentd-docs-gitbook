@@ -237,7 +237,7 @@ Using buffered output you don't see received events immediately, unlike
 `stdout` non-buffered output.
 
 Buffers are important for reliability and throughput. See
-[Output](/plugins/output/output-plugin-overview.md) and [Buffer](/plugins/buffer/buffer-plugin-overview.md)
+[Output](/plugins/output/README.md) and [Buffer](/plugins/buffer/README.md)
 articles.
 
 ## Execution unit

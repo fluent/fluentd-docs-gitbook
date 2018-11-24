@@ -162,7 +162,7 @@ specifies the output plugin to use.
 
 Just like input sources, you can add new output destinations by writing
 your own plugins. For further information regarding Fluentd's output
-destinations, please refer to the [Output Plugin Overview](/plugins/output/output-plugin-overview.md) article.
+destinations, please refer to the [Output Plugin Overview](/plugins/output/README.md) article.
 
 ## (3) "filter": Event processing pipeline
 
@@ -203,7 +203,7 @@ filtered event, `{"event":"data","host_param":"webserver1"}`, goes to
 
 You can also add new filters by writing your own plugins. For further
 information regarding Fluentd's filter destinations, please refer to the
-[Filter Plugin Overview](/plugins/filter/filter-plugin-overview.md) article.
+[Filter Plugin Overview](/plugins/filter/README.md) article.
 
 ## (4) Set system wide configuration: the "system" directive
 

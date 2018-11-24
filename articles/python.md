@@ -77,7 +77,7 @@ of the Fluentd process via the [stdout Output plugin](/plugins/output/out_stdout
 
 ### Output Plugins
 
-Various [output plugins](/plugins/output/output-plugin-overview.md) are available for
+Various [output plugins](/plugins/output/README.md) are available for
 writing records to other destinations:
 
 -   Examples

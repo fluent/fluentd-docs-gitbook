@@ -94,7 +94,7 @@ prefix and parse it.
 ### format
 
 The format of the log. This option is used to parse non-standard syslog
-formats using [parser plugins](/plugins/parser/parser-plugin-overview.md).
+formats using [parser plugins](/plugins/parser/README.md).
 
 ``` {.CodeRay}
 <source>

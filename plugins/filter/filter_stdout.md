@@ -356,7 +356,7 @@ Please see the [logging article](/deployment/logging.md) for further details.
 
 ## Learn More
 
--   [Filter Plugin Overview](/plugins/filter/filter-plugin-overview.md)
+-   [Filter Plugin Overview](/plugins/filter/README.md)
 
 
 ------------------------------------------------------------------------

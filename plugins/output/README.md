@@ -1,9 +1,9 @@
 # Output Plugin Overview
 
 Fluentd has 6 types of plugins: [Input](/plugins/input/README.md),
-[Parser](/plugins/parser/parser-plugin-overview.md), [Filter](/plugins/filter/filter-plugin-overview.md),
-[Output](/plugins/output/output-plugin-overview.md), [Formatter](/plugins/formatter/formatter-plugin-overview.md)
-and [Buffer](/plugins/buffer/buffer-plugin-overview.md). This article gives an overview of
+[Parser](/plugins/parser/README.md), [Filter](/plugins/filter/README.md),
+[Output](/plugins/output/README.md), [Formatter](/plugins/formatter/README.md)
+and [Buffer](/plugins/buffer/README.md). This article gives an overview of
 Output Plugin.
 
 
@@ -23,7 +23,7 @@ Time Sliced.
 ![](http://image.slidesharecdn.com/fluentdmeetup-diveintofluentplugin-120203210125-phpapp02/95/slide-60-728.jpg)
 
 The output plugin's buffer behavior (if any) is defined by a separate
-[Buffer plugin](/plugins/buffer/buffer-plugin-overview.md). Different buffer plugins can be
+[Buffer plugin](/plugins/buffer/README.md). Different buffer plugins can be
 chosen for each output plugin. Some output plugins are fully customized
 and do not use buffers.
 
@@ -69,7 +69,7 @@ buffer type, `buffer_path` parameter is required.
 ### buffer\_queue\_limit, buffer\_chunk\_limit
 
 The length of the chunk queue and the size of each chunk, respectively.
-Please see the [Buffer Plugin Overview](/plugins/buffer/buffer-plugin-overview.md) article
+Please see the [Buffer Plugin Overview](/plugins/buffer/README.md) article
 for the basic buffer structure. The default values are 64 and 8m,
 respectively. The suffixes "k" (KB), "m" (MB), and "g" (GB) can be used
 for buffer\_chunk\_limit.
@@ -176,7 +176,7 @@ If you use `file` buffer type, `buffer_path` parameter is required.
 ### buffer\_queue\_limit, buffer\_chunk\_limit
 
 The length of the chunk queue and the size of each chunk, respectively.
-Please see the [Buffer Plugin Overview](/plugins/buffer/buffer-plugin-overview.md) article
+Please see the [Buffer Plugin Overview](/plugins/buffer/README.md) article
 for the basic buffer structure. The default values are 64 and 8m,
 respectively. The suffixes "k" (KB), "m" (MB), and "g" (GB) can be used
 for buffer\_chunk\_limit.

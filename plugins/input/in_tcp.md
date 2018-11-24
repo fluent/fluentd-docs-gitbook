@@ -93,7 +93,7 @@ then got parsed result like below:
 {"field1":"123456","field2":"awesome}
 ```
 
-`in_tcp` uses parser plugin to parse the payload. See [parser article](/plugins/parser/parser-plugin-overview.md) for more detail.
+`in_tcp` uses parser plugin to parse the payload. See [parser article](/plugins/parser/README.md) for more detail.
 
 #### log\_level option
 

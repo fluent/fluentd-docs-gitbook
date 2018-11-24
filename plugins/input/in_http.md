@@ -109,7 +109,7 @@ then got parsed result like below:
 ```
 
 `json`, `ltsv`, `tsv`, `csv` and `none` are also supported. Check
-[parser plugin overview](/plugins/parser/parser-plugin-overview.md) for more details.
+[parser plugin overview](/plugins/parser/README.md) for more details.
 
 #### log\_level option
 
