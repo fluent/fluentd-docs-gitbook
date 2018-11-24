@@ -43,7 +43,7 @@ so the output isn\'t always instantaneous.
 
 -   Synchronous
 
--   See also: [Output Plugin Overview](/plugins/output/output-plugin-overview.md)
+-   See also: [Output Plugin Overview](/plugins/output/README.md)
 
 
 ## Plugin helpers

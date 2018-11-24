@@ -5,7 +5,7 @@ The `out_mongo_replset` Output plugin writes records into
 system.
 
 This plugin is for users using ReplicaSet. If you are not using
-ReplicaSet, please see the [out\_mongo](/plugins/output/out_mongo.md) article instead.
+ReplicaSet, please see the [out\_mongo](/plugins/output/mongo.md) article instead.
 
 This plugin has breaking changes since 0.8.0 due to mongo-ruby driver\'s
 breaking changes. If you are using prior 0.7.x series, please be careful
@@ -201,7 +201,7 @@ retry count reaches this threshold, the plugin raises an exception.
 For common output / buffer parameters, please check the following
 articles.
 
--   [Output Plugin Overview](/plugins/output/output-plugin-overview.md)
+-   [Output Plugin Overview](/plugins/output/README.md)
 -   [Buffer Section Configuration](/configuration/buffer-section.md)
 
 

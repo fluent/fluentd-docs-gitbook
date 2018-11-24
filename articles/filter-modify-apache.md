@@ -9,7 +9,7 @@ This article explains common data-manipulation techniques in details.
 
 ## How to Filter Events by Fields
 
-[filter\_grep](/plugins/filter/filter_grep.md) is a built-in plugin that allows to filter
+[filter\_grep](/plugins/filter/grep.md) is a built-in plugin that allows to filter
 the data stream using regular expressions.
 
 Suppose you are managing a web service, and try to monitor the access
@@ -61,7 +61,7 @@ from the test directory:
 
 ## How to Inject Custom Fields into Events
 
-[filter\_record\_transformer](/plugins/filter/filter_record_transformer.md) is a built-in
+[filter\_record\_transformer](/plugins/filter/record_transformer.md) is a built-in
 plugin that enables to inject arbitrary data into events.
 
 Suppose you are running a web service on multiple web servers, and you
@@ -93,7 +93,7 @@ This will produce an event like below:
 
 Note that `${hostname}` is a pre-defined variable supplied by the
 plugin. You can also define a custom variable, or even evaluate
-arbitrary ruby expressions. For details, please read [the manual page of this plugin](/plugins/filter/filter_record_transformer.md).
+arbitrary ruby expressions. For details, please read [the manual page of this plugin](/plugins/filter/record_transformer.md).
 
 
 ------------------------------------------------------------------------

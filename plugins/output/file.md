@@ -76,7 +76,7 @@ Initially, you may see a file which looks like
 \"/path/to/file.%Y%m%d/buffer.b5692238db04045286097f56f361028db.log\".
 This is an intermediate buffer file
 (\"b5692238db04045286097f56f361028db\" identifies the buffer). Once the
-content of the buffer has been completely [flushed](/plugins/buffer/buf_file.md), you will
+content of the buffer has been completely [flushed](/plugins/buffer/file.md), you will
 see the output file without the trailing identifier.
 
 
@@ -121,7 +121,7 @@ Here is json example:
 </format>
 ```
 
-See [formatter article](/plugins/formatter/formatter-plugin-overview.md) for more detail.
+See [formatter article](/plugins/formatter/README.md) for more detail.
 
 
 ### format
@@ -186,7 +186,7 @@ Please see the [logging article](/deployment/logging.md) for further details.
 For common output / buffer parameters, please check the following
 articles.
 
--   [Output Plugin Overview](/plugins/output/output-plugin-overview.md)
+-   [Output Plugin Overview](/plugins/output/README.md)
 -   [Buffer Section Configuration](/configuration/buffer-section.md)
 
 

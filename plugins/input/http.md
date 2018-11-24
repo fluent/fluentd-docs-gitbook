@@ -324,7 +324,7 @@ curl -X POST -F 'json={"message":"foo+bar"}' http://localhost:9880/app.log
 
 ## Learn More
 
--   [Input Plugin Overview](/plugins/input/input-plugin-overview.md)
+-   [Input Plugin Overview](/plugins/input/README.md)
 
 
 ------------------------------------------------------------------------

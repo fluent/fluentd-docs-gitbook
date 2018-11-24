@@ -1,10 +1,10 @@
 # Buffer Plugin Overview
 
-Fluentd has 7 types of plugins: [Input](/plugins/input/input-plugin-overview.md),
-[Parser](/plugins/parser/parser-plugin-overview.md), [Filter](/plugins/filter/filter-plugin-overview.md),
-[Output](/plugins/output/output-plugin-overview.md),
-[Formatter](/plugins/formatter/formatter-plugin-overview.md),
-[Storage](/plugins/storage/storage-plugin-overview.md) and [Buffer](/plugins/buffer/buffer-plugin-overview.md).
+Fluentd has 7 types of plugins: [Input](/plugins/input/README.md),
+[Parser](/plugins/parser/README.md), [Filter](/plugins/filter/README.md),
+[Output](/plugins/output/README.md),
+[Formatter](/plugins/formatter/README.md),
+[Storage](/plugins/storage/README.md) and [Buffer](/plugins/buffer/README.md).
 This article gives an overview of Buffer Plugin.
 
 
@@ -22,8 +22,8 @@ choose a suitable backend based on your system requirements.
 
 A buffer is essentially a set of "chunks". A chunk is a collection of
 events concatenated into a single blob. Each chunk is managed one by one
-in the form of files ([buf\_file](/plugins/buffer/buf_file.md)) or continuous memory blocks
-([buf\_memory](/plugins/buffer/buf_memory.md)).
+in the form of files ([buf\_file](/plugins/buffer/file.md)) or continuous memory blocks
+([buf\_memory](/plugins/buffer/memory.md)).
 
 
 ### The Lifecycle of Chunks
@@ -196,8 +196,8 @@ check chunk size configuration and API spec.
 
 ## List of Buffer Plugins
 
--   [buf\_memory](/plugins/buffer/buf_memory.md)
--   [buf\_file](/plugins/buffer/buf_file.md)
+-   [buf\_memory](/plugins/buffer/memory.md)
+-   [buf\_file](/plugins/buffer/file.md)
 
 
 ------------------------------------------------------------------------

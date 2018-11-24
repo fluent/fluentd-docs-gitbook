@@ -124,7 +124,7 @@ Deprecated parameter. Use `<parse>` instead.
 ### \<parse\> directive
 
 The format of the log. This option is used to parse non-standard syslog
-formats using [parser plugins](/plugins/parser/parser-plugin-overview.md).
+formats using [parser plugins](/plugins/parser/README.md).
 
 ``` {.CodeRay}
 <source>
@@ -212,7 +212,7 @@ syslog daemons output logs without the priority tag preceding the
 message body.
 
 If you wish to parse syslog messages of arbitrary formats,
-[in\_tcp](/plugins/input/in_tcp.md) or [in\_udp](/plugins/input/in_udp.md) are recommended.
+[in\_tcp](/plugins/input/tcp.md) or [in\_udp](/plugins/input/udp.md) are recommended.
 
 
 ### source\_hostname\_key
@@ -296,7 +296,7 @@ port. Incoming data will be routed to 3 workers automatically.
 
 ## Learn More
 
--   [Input Plugin Overview](/plugins/input/input-plugin-overview.md)
+-   [Input Plugin Overview](/plugins/input/README.md)
 
 
 ------------------------------------------------------------------------

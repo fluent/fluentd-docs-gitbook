@@ -42,7 +42,7 @@ end
 
 For more details about parser plugin, see following articles:
 
--   [Parser Plugin Overview](/plugins/parser/parser-plugin-overview.md)
+-   [Parser Plugin Overview](/plugins/parser/README.md)
 -   [Writing Parser Plugins](/articles/api-plugin-parser.md)
 -   [Parser plugin](/configuration/parse-section.md)
 
@@ -85,14 +85,14 @@ end
 
 ## parser used plugins
 
--   [Parser filter](/plugins/filter/filter_parser.md)
--   [Exec input](/plugins/input/in_exec.md)
--   [HTTP input](/plugins/input/in_http.md)
--   [Syslog input](/plugins/input/in_syslog.md)
--   [Tail input](/plugins/input/in_tail.md)
--   [TCP input](/plugins/input/in_tcp.md)
--   [UDP input](/plugins/input/in_udp.md)
--   [Exec filter output](/plugins/output/out_exec_filter.md)
+-   [Parser filter](/plugins/filter/parser.md)
+-   [Exec input](/plugins/input/exec.md)
+-   [HTTP input](/plugins/input/http.md)
+-   [Syslog input](/plugins/input/syslog.md)
+-   [Tail input](/plugins/input/tail.md)
+-   [TCP input](/plugins/input/tcp.md)
+-   [UDP input](/plugins/input/udp.md)
+-   [Exec filter output](/plugins/output/exec_filter.md)
 
 
 ------------------------------------------------------------------------

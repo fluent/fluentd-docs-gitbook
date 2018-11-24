@@ -121,7 +121,7 @@ need to set `path` in `<storage>` section.
 
 ## Learn More
 
--   [Input Plugin Overview](/plugins/input/input-plugin-overview.md)
+-   [Input Plugin Overview](/plugins/input/README.md)
 
 
 ## FAQ

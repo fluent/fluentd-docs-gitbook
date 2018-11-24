@@ -1,10 +1,10 @@
 # Input Plugin Overview
 
-Fluentd has 7 types of plugins: [Input](/plugins/input/input-plugin-overview.md),
-[Parser](/plugins/parser/parser-plugin-overview.md), [Filter](/plugins/filter/filter-plugin-overview.md),
-[Output](/plugins/output/output-plugin-overview.md),
-[Formatter](/plugins/formatter/formatter-plugin-overview.md),
-[Storage](/plugins/storage/storage-plugin-overview.md) and [Buffer](/plugins/buffer/buffer-plugin-overview.md).
+Fluentd has 7 types of plugins: [Input](/plugins/input/README.md),
+[Parser](/plugins/parser/README.md), [Filter](/plugins/filter/README.md),
+[Output](/plugins/output/README.md),
+[Formatter](/plugins/formatter/README.md),
+[Storage](/plugins/storage/README.md) and [Buffer](/plugins/buffer/README.md).
 This article gives an overview of Input Plugin.
 
 
@@ -18,15 +18,15 @@ data sources.
 
 ## List of Input Plugins
 
--   [in\_tail](/plugins/input/in_tail.md)
--   [in\_forward](/plugins/input/in_forward.md)
--   [in\_udp](/plugins/input/in_udp.md)
--   [in\_tcp](/plugins/input/in_tcp.md)
--   [in\_http](/plugins/input/in_http.md)
--   [in\_syslog](/plugins/input/in_syslog.md)
--   [in\_exec](/plugins/input/in_exec.md)
--   [in\_dummy](/plugins/input/in_dummy.md)
--   [in\_windows\_eventlog](/plugins/input/in_windows_eventlog.md)
+-   [in\_tail](/plugins/input/tail.md)
+-   [in\_forward](/plugins/input/forward.md)
+-   [in\_udp](/plugins/input/udp.md)
+-   [in\_tcp](/plugins/input/tcp.md)
+-   [in\_http](/plugins/input/http.md)
+-   [in\_syslog](/plugins/input/syslog.md)
+-   [in\_exec](/plugins/input/exec.md)
+-   [in\_dummy](/plugins/input/dummy.md)
+-   [in\_windows\_eventlog](/plugins/input/windows_eventlog.md)
 
 
 ## Other Input Plugins

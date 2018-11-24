@@ -1,10 +1,10 @@
 # Storage Plugin Overview
 
-Fluentd has 7 types of plugins: [Input](/plugins/input/input-plugin-overview.md),
-[Parser](/plugins/parser/parser-plugin-overview.md), [Filter](/plugins/filter/filter-plugin-overview.md),
-[Output](/plugins/output/output-plugin-overview.md),
-[Formatter](/plugins/formatter/formatter-plugin-overview.md),
-[Storage](/plugins/storage/storage-plugin-overview.md) and [Buffer](/plugins/buffer/buffer-plugin-overview.md).
+Fluentd has 7 types of plugins: [Input](/plugins/input/README.md),
+[Parser](/plugins/parser/README.md), [Filter](/plugins/filter/README.md),
+[Output](/plugins/output/README.md),
+[Formatter](/plugins/formatter/README.md),
+[Storage](/plugins/storage/README.md) and [Buffer](/plugins/buffer/README.md).
 This article gives an overview of Storage Plugin.
 
 
@@ -38,12 +38,12 @@ Here is an example with in\_dummy:
 
 ## List of Built-in Storage
 
--   [local](/plugins/storage/storage_local.md)
+-   [local](/plugins/storage/local.md)
 
 
 ## List of Core Plugins with Storage support
 
--   [in\_dummy](/plugins/input/in_dummy.md)
+-   [in\_dummy](/plugins/input/dummy.md)
 
 
 ------------------------------------------------------------------------

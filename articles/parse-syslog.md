@@ -123,7 +123,7 @@ events that come from `sudo` and contain command data.
 ### Step 3: Extract information from messages
 
 Now let's extract some information from syslog messages. For this
-purpose, we use another plugin called [filter-parser](/plugins/filter/filter_parser.md).
+purpose, we use another plugin called [filter-parser](/plugins/filter/parser.md).
 With this plugin, you can parse the content of a field using a regular
 expression.
 

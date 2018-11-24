@@ -33,7 +33,7 @@ end
 
 For more details about formatter plugin, see following articles:
 
--   [Formatter Plugin Overview](/plugins/formatter/formatter-plugin-overview.md)
+-   [Formatter Plugin Overview](/plugins/formatter/README.md)
 -   [Writing Formatter Plugins](/articles/api-plugin-formatter.md)
 -   [Format section](/configuration/format-section.md)
 
@@ -94,12 +94,12 @@ end
 
 ## formatter used plugins
 
--   [Filter stdout](/plugins/filter/filter_stdout.md)
--   [Out stdout](/plugins/output/out_stdout.md)
--   [Out exec](/plugins/output/out_exec.md)
--   [Out exec filter](/plugins/output/out_exec_filter.md)
--   [Out file](/plugins/output/out_file.md)
--   [Out s3](/plugins/output/out_s3.md)
+-   [Filter stdout](/plugins/filter/stdout.md)
+-   [Out stdout](/plugins/output/stdout.md)
+-   [Out exec](/plugins/output/exec.md)
+-   [Out exec filter](/plugins/output/exec_filter.md)
+-   [Out file](/plugins/output/file.md)
+-   [Out s3](/plugins/output/s3.md)
 
 
 ------------------------------------------------------------------------

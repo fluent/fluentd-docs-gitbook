@@ -25,7 +25,7 @@ Please refer to the following documents to install fluentd.
 
 ## Modifying the Config File
 
-Next, please configure Fluentd to use the [forward Input plugin](/plugins/input/in_forward.md) as its data source.
+Next, please configure Fluentd to use the [forward Input plugin](/plugins/input/forward.md) as its data source.
 
 ``` {.CodeRay}
 <source>
@@ -95,7 +95,7 @@ $ java -jar test.jar
 ```
 
 The logs should be output to `/var/log/td-agent/td-agent.log` or stdout
-of the Fluentd process via the [stdout Output plugin](/plugins/output/out_stdout.md).
+of the Fluentd process via the [stdout Output plugin](/plugins/output/stdout.md).
 
 
 ## Production Deployments
@@ -103,7 +103,7 @@ of the Fluentd process via the [stdout Output plugin](/plugins/output/out_stdout
 
 ### Output Plugins
 
-Various [output plugins](/plugins/output/output-plugin-overview.md) are available for
+Various [output plugins](/plugins/output/README.md) are available for
 writing records to other destinations:
 
 -   Examples
@@ -111,10 +111,10 @@ writing records to other destinations:
     -   [Store Apache Logs into MongoDB](/articles/apache-to-mongodb.md)
     -   [Data Collection into HDFS](/articles/http-to-hdfs.md)
 -   List of Plugin References
-    -   [Output to Another Fluentd](/plugins/output/out_forward.md)
-    -   [Output to MongoDB](/plugins/output/out_mongo.md) or [MongoDB ReplicaSet](/plugins/output/out_mongo_replset.md)
-    -   [Output to Hadoop](/plugins/output/out_webhdfs.md)
-    -   [Output to File](/plugins/output/out_file.md)
+    -   [Output to Another Fluentd](/plugins/output/forward.md)
+    -   [Output to MongoDB](/plugins/output/mongo.md) or [MongoDB ReplicaSet](/plugins/output/mongo_replset.md)
+    -   [Output to Hadoop](/plugins/output/webhdfs.md)
+    -   [Output to File](/plugins/output/file.md)
     -   [etc...](http://fluentd.org/plugin/)
 
 

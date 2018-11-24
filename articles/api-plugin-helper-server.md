@@ -209,11 +209,11 @@ Here is TLS configuration example with server helper used plugin.
 
 ## server used plugins
 
--   [Forward input](/plugins/input/in_forward.md)
--   [Syslog input](/plugins/input/in_syslog.md)
--   [TCP input](/plugins/input/in_tcp.md)
--   [UDP input](/plugins/input/in_udp.md)
--   [Forward output](/plugins/output/out_forward.md)
+-   [Forward input](/plugins/input/forward.md)
+-   [Syslog input](/plugins/input/syslog.md)
+-   [TCP input](/plugins/input/tcp.md)
+-   [UDP input](/plugins/input/udp.md)
+-   [Forward output](/plugins/output/forward.md)
 
 
 ------------------------------------------------------------------------

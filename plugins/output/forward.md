@@ -3,7 +3,7 @@
 The `out_forward` Buffered Output plugin forwards events to other
 fluentd nodes. This plugin supports load-balancing and automatic
 fail-over (a.k.a. active-active backup). For replication, please use the
-[out\_copy](/plugins/output/out_copy.md) plugin.
+[out\_copy](/plugins/output/copy.md) plugin.
 
 The `out_forward` plugin detects server faults using a "φ accrual
 failure detector" algorithm. You can customize the parameters of the
@@ -56,7 +56,7 @@ structure and syntax of the configuration file.
 -   Synchronous
 -   Asynchronous
 
-See [Output Plugin Overview](/plugins/output/output-plugin-overview.md) for more details.
+See [Output Plugin Overview](/plugins/output/README.md) for more details.
 
 
 ## Plugin helpers
@@ -393,7 +393,7 @@ Shared key for authentication.
 
 The backup destination that is used when all servers are unavailable.
 
-For more details, see [Secondary Output](/plugins/output/output-plugin-overview.md/#secondary-output).
+For more details, see [Secondary Output](/plugins/output/README.md/#secondary-output).
 
 
 ## Tips & Tricks
@@ -401,7 +401,7 @@ For more details, see [Secondary Output](/plugins/output/output-plugin-overview.
 
 ### How to connect to a TLS/SSL enabled server
 
-If you've [set up TLS/SSL encryption in the receiving server](/plugins/input/in_forward.md/#how-to-enable-tls/ssl-encryption), you need to tell
+If you've [set up TLS/SSL encryption in the receiving server](/plugins/input/forward.md/#how-to-enable-tls/ssl-encryption), you need to tell
 the output forwarder to use encryption by setting the `transport`
 parameter:
 
@@ -438,7 +438,7 @@ being received by the destination node properly.
 
 ### How to Enable Password Authentication
 
-If you want to connect to [a server that requires password authentication](/plugins/input/in_forward.md/#how-to-enable-password-authentication), you
+If you want to connect to [a server that requires password authentication](/plugins/input/forward.md/#how-to-enable-password-authentication), you
 need to set your credentials in the configuration file.
 
 ``` {.CodeRay}

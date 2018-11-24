@@ -133,7 +133,7 @@ Remove newline from the end of incoming payload
 
 For more details about parser plugin, see followings:
 
--   [Parser Plugin Overview](/plugins/parser/parser-plugin-overview.md)
+-   [Parser Plugin Overview](/plugins/parser/README.md)
 -   [Parse section configurations](/configuration/parse-section.md)
 
 

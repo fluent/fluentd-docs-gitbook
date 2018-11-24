@@ -5,7 +5,7 @@ The `out_mongo` Output plugin writes records into
 system.
 
 If you\'re using ReplicaSet, please see the
-[out\_mongo\_replset](/plugins/output/out_mongo_replset.md) article instead.
+[out\_mongo\_replset](/plugins/output/mongo_replset.md) article instead.
 
 This document doesn\'t describe all parameters. If you want to know full
 features, check the Further Reading section.
@@ -202,7 +202,7 @@ This option is useful for flexible log collection.
 For common output / buffer parameters, please check the following
 articles.
 
--   [Output Plugin Overview](/plugins/output/output-plugin-overview.md)
+-   [Output Plugin Overview](/plugins/output/README.md)
 -   [Buffer Section Configuration](/configuration/buffer-section.md)
 
 

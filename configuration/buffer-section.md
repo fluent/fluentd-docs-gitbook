@@ -39,8 +39,8 @@ buffer plugin.
 Fluentd core bundles `memory` and `file` plugins. 3rd party plugins are
 also available when installed.
 
--   [buf\_file Plugin](/plugins/buffer/buf_file.md)
--   [buf\_memory Plugin](/plugins/buffer/buf_memory.md)
+-   [buf\_file Plugin](/plugins/buffer/file.md)
+-   [buf\_memory Plugin](/plugins/buffer/memory.md)
 
 `@type` can be omitted. When `@type` parameter is not configured, the
 default buffer plugin specified by output plugin will be used (if

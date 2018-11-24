@@ -1,10 +1,10 @@
 # Filter Plugin Overview
 
-Fluentd has 7 types of plugins: [Input](/plugins/input/input-plugin-overview.md),
-[Parser](/plugins/parser/parser-plugin-overview.md), [Filter](/plugins/filter/filter-plugin-overview.md),
-[Output](/plugins/output/output-plugin-overview.md),
-[Formatter](/plugins/formatter/formatter-plugin-overview.md),
-[Storage](/plugins/storage/storage-plugin-overview.md) and [Buffer](/plugins/buffer/buffer-plugin-overview.md).
+Fluentd has 7 types of plugins: [Input](/plugins/input/README.md),
+[Parser](/plugins/parser/README.md), [Filter](/plugins/filter/README.md),
+[Output](/plugins/output/README.md),
+[Formatter](/plugins/formatter/README.md),
+[Storage](/plugins/storage/README.md) and [Buffer](/plugins/buffer/README.md).
 This article gives an overview of Filter Plugin.
 
 
@@ -76,9 +76,9 @@ This is not critical log message and you can ignore it.
 
 ## List of Filter Plugins
 
--   [grep](/plugins/filter/filter_grep.md)
--   [record-transformer](/plugins/filter/filter_record_transformer.md)
--   [filter\_stdout](/plugins/filter/filter_stdout.md)
+-   [grep](/plugins/filter/grep.md)
+-   [record-transformer](/plugins/filter/record_transformer.md)
+-   [filter\_stdout](/plugins/filter/stdout.md)
 
 
 ------------------------------------------------------------------------

@@ -44,8 +44,8 @@ This method attaches watcher to event loop
 
 ## event\_loop used plugins
 
--   [HTTP input](/plugins/input/in_http.md)
--   [Tail input](/plugins/input/in_tail.md)
+-   [HTTP input](/plugins/input/http.md)
+-   [Tail input](/plugins/input/tail.md)
 
 
 ------------------------------------------------------------------------

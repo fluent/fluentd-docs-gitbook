@@ -13,7 +13,7 @@ together, as it allows to define which *Inputs* or listeners
 [Fluentd](http://fluentd.org) will have and setup common matching rules
 to route the *Event* data to a specific *Output*.
 
-We will use the [in\_http](/plugins/input/in_http.md) and the [out\_stdout](/plugins/output/out_stdout.md)
+We will use the [in\_http](/plugins/input/http.md) and the [out\_stdout](/plugins/output/stdout.md)
 plugins as examples to describe the events cycle. The following is a
 basic definition on the configuration file to specify an *http* input,
 for short: we will be listening for **HTTP Requests**:
@@ -255,7 +255,7 @@ conditions. So using buffered output, you don't see received events
 immediately unlike `stdout` non-buffered output.
 
 Buffer is important for reliability and throughput. See
-[Output](/plugins/output/output-plugin-overview.md) and [Buffer](/plugins/buffer/buffer-plugin-overview.md)
+[Output](/plugins/output/README.md) and [Buffer](/plugins/buffer/README.md)
 articles.
 
 

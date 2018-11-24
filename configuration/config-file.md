@@ -125,7 +125,7 @@ record: {"event":"data"}
 
 You can add new input sources by writing your own plugins. For further
 information regarding Fluentd's input sources, please refer to the
-[Input Plugin Overview](/plugins/input/input-plugin-overview.md) article.
+[Input Plugin Overview](/plugins/input/README.md) article.
 
 
 ## (2) "match": Tell fluentd what to do!
@@ -169,7 +169,7 @@ specifies the output plugin to use.
 
 Just like input sources, you can add new output destinations by writing
 your own plugins. For further information regarding Fluentd's output
-destinations, please refer to the [Output Plugin Overview](/plugins/output/output-plugin-overview.md) article.
+destinations, please refer to the [Output Plugin Overview](/plugins/output/README.md) article.
 
 
 ## (3) "filter": Event processing pipeline
@@ -211,7 +211,7 @@ filtered event, `{"event":"data","host_param":"webserver1"}`, goes to
 
 You can also add new filters by writing your own plugins. For further
 information regarding Fluentd's filter destinations, please refer to the
-[Filter Plugin Overview](/plugins/filter/filter-plugin-overview.md) article.
+[Filter Plugin Overview](/plugins/filter/README.md) article.
 
 
 ## (4) Set system wide configuration: the "system" directive
@@ -442,7 +442,7 @@ defined after tight match patterns.
 
 Of course, if you use two same patterns, second `match` is never
 matched. If you want to send events to multiple outputs, consider
-[out\_copy](/plugins/output/out_copy.md) plugin.
+[out\_copy](/plugins/output/copy.md) plugin.
 
 The common pitfall is when you put a `<filter>` block after `<match>`.
 It will never work as supposed, since events never go through the filter
@@ -466,7 +466,7 @@ for the reason explained above.
 ## Supported Data Types for Values
 
 Each Fluentd plugin has a set of parameters. For example,
-[in\_tail](/plugins/input/in_tail.md) has parameters such as `rotate_wait` and `pos_file`.
+[in\_tail](/plugins/input/tail.md) has parameters such as `rotate_wait` and `pos_file`.
 Each parameter has a specific type associated with it. They are defined
 as follows:
 

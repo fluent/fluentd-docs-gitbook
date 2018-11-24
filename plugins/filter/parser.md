@@ -22,7 +22,7 @@ and mutates its event record with parsed result.
 
 `filter_parser` uses built-in parser plugins and your own customized
 parser plugin, so you can re-use pre-defined format like `apache`,
-`json` and etc. See document page for more details: [Parser Plugin Overview](/plugins/parser/parser-plugin-overview.md)
+`json` and etc. See document page for more details: [Parser Plugin Overview](/plugins/parser/README.md)
 
 
 ## Plugin helpers
@@ -212,7 +212,7 @@ v0.12.
 
 ## Learn More
 
--   [Filter Plugin Overview](/plugins/filter/filter-plugin-overview.md)
+-   [Filter Plugin Overview](/plugins/filter/README.md)
 
 
 ------------------------------------------------------------------------

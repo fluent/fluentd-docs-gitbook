@@ -150,8 +150,8 @@ This method update stored value by Proc object.
 
 ## storage used plugins
 
--   [in dummy](/plugins/input/in_dummy.md)
--   [in windows eventlog](/plugins/input/in_windows_eventlog.md)
+-   [in dummy](/plugins/input/dummy.md)
+-   [in windows eventlog](/plugins/input/windows_eventlog.md)
 
 
 ------------------------------------------------------------------------

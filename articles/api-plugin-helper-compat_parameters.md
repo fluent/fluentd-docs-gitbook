@@ -217,7 +217,7 @@ into:
 </parse>
 ```
 
-For more details, see [Parser Plugin Overview](/plugins/parser/parser-plugin-overview.md)
+For more details, see [Parser Plugin Overview](/plugins/parser/README.md)
 and [Writing Parser Plugins](/articles/api-plugin-parser.md).
 
 #### formatter
@@ -254,23 +254,23 @@ into:
 </format>
 ```
 
-For more details, see [Formatter Plugin Overview](/plugins/formatter/formatter-plugin-overview.md) and [Writing Formatter Plugins](/articles/api-plugin-formatter.md).
+For more details, see [Formatter Plugin Overview](/plugins/formatter/README.md) and [Writing Formatter Plugins](/articles/api-plugin-formatter.md).
 
 
 ## compat\_parameters used plugins
 
--   [Parser filter](/plugins/filter/filter_parser.md)
--   [Exec input](/plugins/input/in_exec.md)
--   [HTTP input](/plugins/input/in_http.md)
--   [Syslog input](/plugins/input/in_syslog.md)
--   [Tail input](/plugins/input/in_tail.md)
--   [TCP input](/plugins/input/in_tcp.md)
--   [UDP input](/plugins/input/in_udp.md)
--   [Exec output](/plugins/output/out_exec.md)
--   [Exec filter output](/plugins/output/out_exec_filter.md)
--   [File output](/plugins/output/out_file.md)
--   [Forward output](/plugins/output/out_forward.md)
--   [Stdout output](/plugins/output/out_stdout.md)
+-   [Parser filter](/plugins/filter/parser.md)
+-   [Exec input](/plugins/input/exec.md)
+-   [HTTP input](/plugins/input/http.md)
+-   [Syslog input](/plugins/input/syslog.md)
+-   [Tail input](/plugins/input/tail.md)
+-   [TCP input](/plugins/input/tcp.md)
+-   [UDP input](/plugins/input/udp.md)
+-   [Exec output](/plugins/output/exec.md)
+-   [Exec filter output](/plugins/output/exec_filter.md)
+-   [File output](/plugins/output/file.md)
+-   [Forward output](/plugins/output/forward.md)
+-   [Stdout output](/plugins/output/stdout.md)
 -   [Stream output](/articles/out_stream.md)
 
 

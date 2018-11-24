@@ -1,10 +1,10 @@
 # Output Plugin Overview
 
-Fluentd has 7 types of plugins: [Input](/plugins/input/input-plugin-overview.md),
-[Parser](/plugins/parser/parser-plugin-overview.md), [Filter](/plugins/filter/filter-plugin-overview.md),
-[Output](/plugins/output/output-plugin-overview.md),
-[Formatter](/plugins/formatter/formatter-plugin-overview.md),
-[Storage](/plugins/storage/storage-plugin-overview.md) and [Buffer](/plugins/buffer/buffer-plugin-overview.md).
+Fluentd has 7 types of plugins: [Input](/plugins/input/README.md),
+[Parser](/plugins/parser/README.md), [Filter](/plugins/filter/README.md),
+[Output](/plugins/output/README.md),
+[Formatter](/plugins/formatter/README.md),
+[Storage](/plugins/storage/README.md) and [Buffer](/plugins/buffer/README.md).
 This article gives an overview of Output Plugin.
 
 
@@ -34,23 +34,23 @@ configurations, dynamically. Users can configure buffer chunk keys as
 time (any unit specified by user), tag and any key name of records.
 Output plugin will split events into chunks: events in a chunk have same
 values for chunk keys. The output plugin's buffer behavior (if any) is
-defined by a separate [Buffer plugin](/plugins/buffer/buffer-plugin-overview.md). Different
+defined by a separate [Buffer plugin](/plugins/buffer/README.md). Different
 buffer plugins can be chosen for each output plugin.
 
 
 ## List of Output Plugins
 
--   [out\_copy](/plugins/output/out_copy.md)
--   [out\_null](/plugins/output/out_null.md)
--   [out\_roundrobin](/plugins/output/out_roundrobin.md)
--   [out\_stdout](/plugins/output/out_stdout.md)
--   [out\_exec\_filter](/plugins/output/out_exec_filter.md)
--   [out\_forward](/plugins/output/out_forward.md)
--   [out\_mongo](/plugins/output/out_mongo.md) or [out\_mongo\_replset](/plugins/output/out_mongo_replset.md)
--   [out\_exec](/plugins/output/out_exec.md)
--   [out\_file](/plugins/output/out_file.md)
--   [out\_s3](/plugins/output/out_s3.md)
--   [out\_webhdfs](/plugins/output/out_webhdfs.md)
+-   [out\_copy](/plugins/output/copy.md)
+-   [out\_null](/plugins/output/null.md)
+-   [out\_roundrobin](/plugins/output/roundrobin.md)
+-   [out\_stdout](/plugins/output/stdout.md)
+-   [out\_exec\_filter](/plugins/output/exec_filter.md)
+-   [out\_forward](/plugins/output/forward.md)
+-   [out\_mongo](/plugins/output/mongo.md) or [out\_mongo\_replset](/plugins/output/mongo_replset.md)
+-   [out\_exec](/plugins/output/exec.md)
+-   [out\_file](/plugins/output/file.md)
+-   [out\_s3](/plugins/output/s3.md)
+-   [out\_webhdfs](/plugins/output/webhdfs.md)
 
 
 ## Other Plugins
@@ -109,7 +109,7 @@ See [Buffer section configurations](/configuration/buffer-section.md).
 
 ### Control Flushing
 
-See [Buffer Plugin Overview](/plugins/buffer/buffer-plugin-overview.md) for the basic
+See [Buffer Plugin Overview](/plugins/buffer/README.md) for the basic
 behaviour of buffer.
 
 #### flush\_mode
@@ -257,7 +257,7 @@ If true, output plugin will retry after randomized interval not to do
 burst retries.
 
 For other configuration parameters available in `<buffer>` sections, see
-[Buffer plugin overview](/plugins/buffer/buffer-plugin-overview.md) and each plugins.
+[Buffer plugin overview](/plugins/buffer/README.md) and each plugins.
 
 
 ## Secondary Output
