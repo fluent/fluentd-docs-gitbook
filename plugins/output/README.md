@@ -240,7 +240,7 @@ exponential backoff.
 
 The default is 2
 
-The base number of exponencial backoff for retries.
+The base number of exponential backoff for retries.
 
 #### retry\_max\_interval
 

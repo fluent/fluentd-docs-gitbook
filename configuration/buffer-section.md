@@ -488,10 +488,10 @@ performance (latency and throughput).
         of exponential backoff
 -   `retry_exponential_backoff_base` \[float\]
     -   Default: 2
-    -   The base number of exponencial backoff for retries
+    -   The base number of exponential backoff for retries
 -   `retry_max_interval` \[time\]
     -   Default: none
-    -   The maximum interval seconds for exponencial backoff between
+    -   The maximum interval seconds for exponential backoff between
         retries while failing
 -   `retry_randomize` \[bool\]
     -   Default: true
