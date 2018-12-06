@@ -80,6 +80,9 @@ plugins.
 -   **time\_key** (string) (optional): Specify time field for event
     time. If the event doesn't have this field, current time is used.
     -   Default: `nil`
+    -   Note that [json](parser_json), [ltsv](parser_ltsv) and
+        [regexp](parser_regexp) override the default value of this
+        parameter and set it to `time` by default.
 -   **null\_value\_pattern** (string) (optional): Specify null value
     pattern.
     -   Default: `nil`
