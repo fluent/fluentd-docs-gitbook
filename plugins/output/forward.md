@@ -352,10 +352,33 @@ Verify hostname of servers and certificates or not in TLS transport.
 
 | type            | default | version |
 |:----------------|:--------|:--------|
-| array of string | false   | 0.14.12 |
+| array of string | nil     | 0.14.12 |
 
 The additional CA certificate path for TLS.
 
+### tls\_client\_cert\_pat
+
+| type   | default | version |
+|:------:|:-------:|:-------:|
+| string | nil     | 1.3.2   |
+
+The client certificate path for TLS
+
+### tls\_client\_private\_key\_path
+
+| type   | default | version |
+|:------:|:-------:|:-------:|
+| string | nil     | 1.3.2   |
+
+The client private key path for TLS.
+
+### tls\_client\_private\_key\_passphrase
+
+| type   | default | version |
+|:------:|:-------:|:-------:|
+| string | nil     | 1.3.2   |
+
+The client private key passphrase for TLS.
 
 ### &lt;security&gt; section
 
