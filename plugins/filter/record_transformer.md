@@ -265,6 +265,26 @@ is light-weight and faster version of `filter_record_transformer`.
 you need better performace for mutating records, consider
 `filter_record_modifier` instead.
 
+## Tips
+
+### Use dig method for nested field
+
+Users sometimes need to access nested field. In this case, you can use `[]`
+chain like below.
+
+    ${record["top"]["nest1"]["nest2"]}
+
+But this approach has a problem. When `record["top"]` or
+`record["top"]["nest1"]` doesn't exist, you hit unexpected error.
+Here is log example:
+
+    error_class=RuntimeError error="failed to expand `record[\"top\"][\"nest1\"][\"nest2\"]` : error = undefined method `[]' for nil:NilClass
+
+`dig` method resolves this problem. If field not found, it return `nil`
+instead of raising error.
+
+    ${record.dig("top", "nest1", "nest2")}
+
 
 ## FAQ
 
