@@ -205,10 +205,19 @@ Emit invalid record to `@ERROR` label. Invalid cases are
 
 You can rescue unexpected format logs in `@ERROR` label.
 
-In v1.0, `emit_invalid_record_to_error` is `true` by default unlike
-v0.12.
+If you want to ignore these errors, set `false`.
 
+## FAQ
 
+### suppress_parse_error_log is missing. What are the alternatives?
+
+Since v1, `parser` filter doesn't support `suppress_parse_error_log`
+parameter because `parser` filter uses `@ERROR` feature instead of
+internal logging to rescue invalid records. If you want to simply
+ignore invalid records, set `emit_invalid_record_to_error false`.
+
+See also `emit_invalid_record_to_error` parameter.
+ 
 ## Learn More
 
 -   [Filter Plugin Overview](/plugins/filter/README.md)
