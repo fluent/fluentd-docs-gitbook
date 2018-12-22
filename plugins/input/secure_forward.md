@@ -1,5 +1,7 @@
 # Secure Forward Input Plugin
 
+![](/images/plugins/input/secure_forward.png)
+
 The `in_secure_forward` input plugin accepts messages via **SSL with
 authentication** (cf. [out\_secure\_forward](/plugins/output/secure_forward.md)).
 This document doesn\'t describe all parameters. If you want to know full

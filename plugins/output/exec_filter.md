@@ -1,5 +1,7 @@
 # exec\_filter Output Plugin
 
+![](/images/plugins/output/exec_filter.png)
+
 The `out_exec_filter` Buffered Output plugin (1) executes an external
 program using an event as input and (2) reads a new event from the
 program output. It passes tab-separated values (TSV) to stdin and reads

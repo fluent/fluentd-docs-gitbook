@@ -1,5 +1,7 @@
 # forward Output Plugin
 
+![](/images/plugins/output/forward.png)
+
 The `out_forward` Buffered Output plugin forwards events to other
 fluentd nodes. This plugin supports load-balancing and automatic
 fail-over (a.k.a. active-active backup). For replication, please use the

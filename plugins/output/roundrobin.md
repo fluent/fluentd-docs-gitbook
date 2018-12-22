@@ -1,5 +1,7 @@
 # roundrobin Output Plugin
 
+![](/images/plugins/output/roundrobin.png)
+
 The `roundrobin` Output plugin distributes events to multiple outputs
 using a round-robin algorithm.
 

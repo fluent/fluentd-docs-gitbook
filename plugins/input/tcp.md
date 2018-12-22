@@ -1,5 +1,7 @@
 # TCP Input Plugin
 
+![](/images/plugins/input/tcp.png)
+
 The `in_tcp` Input plugin enables Fluentd to accept TCP payload.
 
 Don't use this plugin for receiving logs from client libraries. Use

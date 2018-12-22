@@ -1,5 +1,7 @@
 # exec Output Plugin
 
+![](/images/plugins/output/exec.png)
+
 The `out_exec` TimeSliced Output plugin passes events to an external
 program. The program receives the path to a file containing the incoming
 events as its last argument. The file format is tab-separated values

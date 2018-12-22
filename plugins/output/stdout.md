@@ -1,5 +1,7 @@
 # stdout Output Plugin
 
+![](/images/plugins/output/stdout.png)
+
 The `stdout` output plugin prints events to stdout (or logs if launched
 with daemon mode). This output plugin is useful for debugging purposes.
 

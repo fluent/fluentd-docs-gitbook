@@ -1,5 +1,7 @@
 # Multiprocess Input Plugin
 
+![](/images/plugins/input/multiprocess.png)
+
 By default, Fluentd only uses a single CPU core on the system. The
 `in_multiprocess` Input plugin enables Fluentd to use multiple CPU cores
 by spawning multiple child processes. One Fluentd user is using this

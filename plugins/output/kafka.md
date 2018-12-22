@@ -1,5 +1,7 @@
 # Apache Kafka Output Plugin
 
+![](/images/plugins/output/kafka.png)
+
 The `out_kafka` Output plugin writes records into [Apache Kafka](https://kafka.apache.org/).
 This document doesn\'t describe all parameters. If you want to know full
 features, check the Further Reading section.

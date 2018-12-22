@@ -1,5 +1,7 @@
 # copy Output Plugin
 
+![](/images/plugins/output/copy.png)
+
 The `copy` output plugin copies events to multiple outputs.
 
 
