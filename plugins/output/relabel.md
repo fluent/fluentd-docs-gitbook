@@ -1,5 +1,7 @@
 # relabel Output Plugin
 
+![](/images/plugins/output/relabel.png)
+
 The `relabel` output plugin re-labels events.
 
 

@@ -1,5 +1,7 @@
 # Splunk Enterprise and Splunk Cloud output plugin
 
+![](/images/plugins/output/splunk.png)
+
 The `out_splunk` Buffered Output plugin allows you to send data to a
 Splunk HTTP Event Collector or send data to Splunk Enterprise via TCP.
 

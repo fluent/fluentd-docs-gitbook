@@ -1,5 +1,7 @@
 # Other Output Plugins
 
+![](/images/plugins/output/others.png)
+
 Please refer to this list of available plugins to find out about other
 Output plugins.
 
