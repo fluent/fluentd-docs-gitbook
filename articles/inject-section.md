@@ -16,6 +16,30 @@ for plugins which support injecting values to the event record.
 </match>
 ```
 
+### Example
+
+Here is an example of configuration and event:
+
+```
+# Configuration example
+<inject>
+  time_key fluentd_time
+  time_type string
+  time_format %Y-%m-%dT%H:%M:%S.%NZ
+  tag_key fluentd_tag
+</inject>
+
+# Record example
+tag: test
+time: 1547575563.952259
+record: {"message":"hello"}
+```
+
+Injected record is below:
+
+```
+{"message":"hello","fluetnd_tag":"test","fluentd_time":"2019-01-15T18:06:03.952259000Z"}
+```
 
 ## inject section parameter
 
