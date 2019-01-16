@@ -55,7 +55,7 @@ record.
         -   For more details about parsing, see
             [Time.strptime](https://docs.ruby-lang.org/en/2.4.0/Time.html#method-c-strptime)
         -   `%iso8601` (only for parsing)
-        -    Use `%N` to parse subsecond, because [strptime](https://github.com/nurse/strptime)
+        -    Use `%N` to parse/format subsecond, because [strptime](https://github.com/nurse/strptime)
             does not support `%3N`, `%6N`, `%9N`, and `%L`
 -   **localtime** (bool) (optional): if true, use local time. Otherwise,
     UTC is used. This is exclusive with `utc`.
