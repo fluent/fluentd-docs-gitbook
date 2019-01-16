@@ -129,6 +129,11 @@ See [formatter article](/plugins/formatter/README.md) for more detail.
 Deprecated parameter. Use `<format>` instead.
 
 
+### &lt;inject&gt; section
+
+See [Inject section configurations](inject-section) for more details.
+
+
 ### utc
 
 Deprecated parameter. Use `timekey_use_utc` in `<buffer>` instead.

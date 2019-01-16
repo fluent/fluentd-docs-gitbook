@@ -23,11 +23,6 @@ This incoming event is formatted to:
 {"host":"192.168.0.1","size":777,"method":"PUT"}
 ```
 
-With `include_tag_key true` and `tag_key event_tag`, result is:
-
-``` {.CodeRay}
-\x83\xA4host\xAB192.168.0.1\xA4size\xCD\x03\t\xA6method\xA3PUT
-```
 
 
 ------------------------------------------------------------------------
