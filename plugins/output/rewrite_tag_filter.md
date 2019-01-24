@@ -1,7 +1,5 @@
 # rewrite\_tag\_filter Output Plugin
 
-![](/images/plugins/output/rewrite_tag_filter.png)
-
 The `out_rewrite_tag_filter` Output plugin has designed to rewrite tag
 like mod\_rewrite. Re-emit a record with rewrited tag when a value
 matches/unmatches with the regular expression. Also you can change a tag
