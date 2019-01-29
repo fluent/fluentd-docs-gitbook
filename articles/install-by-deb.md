@@ -37,7 +37,7 @@ LTS / Lucid 64bit/32bit".
 For Debian, we currently support Jessie, Wheezy and Squeeze. There is no
 32bit packages for Debian.
 We might not provide td-agent for older distributions. For example, we
-don\'t provide latest td-agent version for squeeze and lucid for now.
+don't provide latest td-agent version for squeeze and lucid for now.
 
 A shell script is provided to automate the installation process for each
 version. The shell script registers a new apt repository at

@@ -113,7 +113,7 @@ rotation will not occur in `*` directory.
 
 When this is true, in\_tail tries to read a file during start up phase.
 If target file is large, it takes long time and starting other plugins
-isn\'t executed until reading file is finished.
+isn't executed until reading file is finished.
 
 ### encoding, from\_encoding
 
@@ -163,7 +163,7 @@ pos_file /var/log/td-agent/tmp/access.log.pos
 `pos_file` handles multiple positions in one file so no need multiple
 `pos_file` parameters per `source`.
 
-Don\'t share pos\_file between in\_tail configurations. It causes
+Don't share pos\_file between in\_tail configurations. It causes
 unexpected behavior, e.g. corrupt pos\_file content.
 
 in\_tail removes untracked file position during startup phase. It means

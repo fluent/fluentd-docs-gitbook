@@ -9,7 +9,7 @@ log. `formatN`, N's range is 1..20, is the list of Regexp format for
 multiline log.
 Unlike other parser plugins, this plugin needs special code in input
 plugin, e.g. handle format\_firstline. So currently, in\_tail plugin
-works with \`multiline\` but other input plugins don\'t work with
+works with \`multiline\` but other input plugins don't work with
 \`multiline\`.
 
 

@@ -5,10 +5,10 @@
 The `out_mongo` Buffered Output plugin writes records into
 [MongoDB](http://mongodb.org/), the emerging document-oriented database
 system.
-If you\'re using ReplicaSet, please see the
+If you're using ReplicaSet, please see the
 [out\_mongo\_replset](/plugins/output/mongo_replset.md) article instead.
 
-This document doesn\'t describe all parameters. If you want to know full
+This document doesn't describe all parameters. If you want to know full
 features, check the Further Reading section.
 
 

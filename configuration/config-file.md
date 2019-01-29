@@ -451,7 +451,7 @@ Each Fluentd plugin has a set of parameters. For example,
 Each parameter has a specific type associated with it. They are defined
 as follows:
 
-Each parameter\'s type should be documented. If not, please let the
+Each parameter's type should be documented. If not, please let the
 plugin author know.
 
 -   `string` type: the field is parsed as a string. This is the most

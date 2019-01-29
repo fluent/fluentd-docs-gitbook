@@ -139,7 +139,7 @@ Result     :
 |   1 |
 +-----+
 ```
-It\'s not advisable to send sensitive user information to the cloud. To
+It's not advisable to send sensitive user information to the cloud. To
 assist with this need, out\_tdlog comes with some anonymization systems.
 Please see the [Treasure Data plugin](http://github.com/treasure-data/fluent-plugin-td/) article for
 details.

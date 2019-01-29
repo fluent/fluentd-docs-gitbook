@@ -58,7 +58,7 @@ keys k1,k2,k3
 ```
 
 When using the json format, this plugin uses the Yajl library to parse
-the program output. Yajl buffers data internally so the output isn\'t
+the program output. Yajl buffers data internally so the output isn't
 always instantaneous.
 
 ### tag (required if tag\_key is not specified)

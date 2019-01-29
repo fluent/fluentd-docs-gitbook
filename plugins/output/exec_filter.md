@@ -90,7 +90,7 @@ out_keys k1,k2,k3,k4
 -   msgpack
 
 When using the json format, this plugin uses the Yajl library to parse
-the program output. Yajl buffers data internally so the output isn\'t
+the program output. Yajl buffers data internally so the output isn't
 always instantaneous.
 
 ### tag\_key

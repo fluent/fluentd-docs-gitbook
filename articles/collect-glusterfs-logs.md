@@ -62,7 +62,7 @@ $ ls -alF /var/log/glusterfs/etc-glusterfs-glusterd.vol.log
 
 Now, modify Fluentd's configuration file. It is located at
 `/etc/td-agent/td-agent.conf`.
-\`td-agent\` is Fluentd\'s rpm/deb package maintained by [Treasure Data](http://docs.treasuredata.com/articles/td-agent)
+\`td-agent\` is Fluentd's rpm/deb package maintained by [Treasure Data](http://docs.treasuredata.com/articles/td-agent)
 
 This is what the configuration file should look like:
 

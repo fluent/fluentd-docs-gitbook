@@ -21,7 +21,7 @@ For Docker v1.8, we have implemented a native **[Fluentd Docker logging driver](
 you are able to have an unified and structured logging system with the
 simplicity and high performance [Fluentd](http://fluentd.org).
 
-Currently, fluentd logging driver doesn\'t support sub-second precision.
+Currently, fluentd logging driver doesn't support sub-second precision.
 
 
 ## Getting Started

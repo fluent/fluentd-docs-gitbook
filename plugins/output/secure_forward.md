@@ -2,7 +2,7 @@
 
 The `out_secure_forward` output plugin sends messages via **SSL with
 authentication** (cf. [in\_secure\_forward](/plugins/input/secure_forward.md)).
-This document doesn\'t describe all parameters. If you want to know full
+This document doesn't describe all parameters. If you want to know full
 features, check the Further Reading section.
 
 

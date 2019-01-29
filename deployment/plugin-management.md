@@ -12,8 +12,8 @@ wrapper around the `gem` command.
 ``` {.CodeRay}
 fluent-gem install fluent-plugin-grep
 ```
-Ruby doesn\'t guarantee C extension API compatibility between its major
-versions. If you update Fluentd\'s Ruby version, you should re-install
+Ruby doesn't guarantee C extension API compatibility between its major
+versions. If you update Fluentd's Ruby version, you should re-install
 the plugins that depend on C extension.
 
 ### If Using td-agent, Use /usr/sbin/td-agent-gem

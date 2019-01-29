@@ -83,7 +83,7 @@ $ curl -X POST -d 'json={"sensor1":3123.13,"sensor2":321.3}' \
   http://localhost:8888/td.testdb.raspberrypi
 ```
 
-If you\'re using Python, you can use Fluentd\'s [python logger](/articles/python.md)
+If you're using Python, you can use Fluentd's [python logger](/articles/python.md)
 library.
 
 Now, access the databases page to confirm that your data has been

@@ -21,7 +21,7 @@ environment.
 -   [Install Fluentd by Chef](/articles/install-by-chef.md)
 -   [Install Fluentd from source](/articles/install-from-source.md)
 
-Fluentd v0.12 doesn\'t support Windows environment. Please see
+Fluentd v0.12 doesn't support Windows environment. Please see
 [Collecting Log Data from Windows](/use-cases/windows.md) for details. Fluentd v1.x
 supports Windows.
 
