@@ -36,7 +36,7 @@ structure and syntax of the configuration file.
 
 When using the json format in \<parse\> section, this plugin uses the
 Yajl library to parse the program output. Yajl buffers data internally
-so the output isn\'t always instantaneous.
+so the output isn't always instantaneous.
 
 
 ## Supported modes

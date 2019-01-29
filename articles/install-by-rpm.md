@@ -71,7 +71,7 @@ latest td-agent 3, please upgrade your Amazon Linux 1 to Amazon Linux 2.
 We use \$releasever for repository path in the script and \$releasever
 should be \"year.month\" format like \"2017.09\". On AWS, some services
 modify \$releasever to own format and it will cause installation
-failure. If your environment\'s \$releasever is non-\"year.month\"
+failure. If your environment's \$releasever is non-\"year.month\"
 format, change it to \"year.month\" format or setup TD repository
 manually.
 

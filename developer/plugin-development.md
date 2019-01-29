@@ -33,7 +33,7 @@ before they dive into writing their own plugins.
 
 This slide is based on Fluentd v0.12. There are many difference between
 v0.12 and v0.14/v1.0 API, but it may help our understanding about
-Fluent\'s total design.
+Fluent's total design.
 
 
 ### Fluentd version and Plugin API

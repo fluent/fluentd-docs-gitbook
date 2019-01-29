@@ -169,7 +169,7 @@ actual command execution is:
 cmd arg arg /path/to/file
 ```
 
-If \"cmd\" doesn\'t exist in PATH, you need to specify absolute path,
+If \"cmd\" doesn't exist in PATH, you need to specify absolute path,
 e.g. \"/path/to/cmd\".
 
 

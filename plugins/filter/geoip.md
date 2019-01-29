@@ -3,7 +3,7 @@
 The `filter_geoip` Filter plugin adds geographic location information to
 logs using the Maxmind GeoIP databases.
 
-This document doesn\'t describe all parameters. If you want to know full
+This document doesn't describe all parameters. If you want to know full
 features, check the Further Reading section.
 
 

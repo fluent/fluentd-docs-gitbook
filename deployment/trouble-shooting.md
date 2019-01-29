@@ -42,8 +42,8 @@ ExecStart=...existing options... -vv
     ...
     ```
 
-This approach doesn\'t work on systemd environment because systemd hooks
-init.d\'s start routine and ignore options.
+This approach doesn't work on systemd environment because systemd hooks
+init.d's start routine and ignore options.
 
 
 ### gem

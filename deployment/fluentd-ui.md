@@ -11,7 +11,7 @@ supports following operations.
     path, etc
 -   View Fluentd log with simple error viewer
 
-fluentd-ui dosen\'t work with fluentd v1 and td-agent 3 doesn\'t include
+fluentd-ui dosen't work with fluentd v1 and td-agent 3 doesn't include
 it. This content is for v0.12 for now.
 
 

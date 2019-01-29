@@ -13,8 +13,8 @@ wrapper around the `gem` command.
 fluent-gem install fluent-plugin-grep
 ```
 
-Ruby doesn\'t guarantee C extension API compatibility between its major
-versions. If you update Fluentd\'s Ruby version, you should re-install
+Ruby doesn't guarantee C extension API compatibility between its major
+versions. If you update Fluentd's Ruby version, you should re-install
 the plugins that depend on C extension.
 
 

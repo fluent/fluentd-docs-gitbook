@@ -9,7 +9,7 @@ The record will be created when the `chunk_keys` condition has been met.
 To change the output frequency, please specify the `time` in chunk\_keys
 and specify `timekey` value in conf.
 
-This document doesn\'t describe all parameters. If you want to know full
+This document doesn't describe all parameters. If you want to know full
 features, check the Further Reading section.
 
 

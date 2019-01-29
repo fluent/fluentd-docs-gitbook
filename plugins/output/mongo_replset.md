@@ -7,7 +7,7 @@ system.
 This plugin is for users using ReplicaSet. If you are not using
 ReplicaSet, please see the [out\_mongo](/plugins/output/mongo.md) article instead.
 
-This plugin has breaking changes since 0.8.0 due to mongo-ruby driver\'s
+This plugin has breaking changes since 0.8.0 due to mongo-ruby driver's
 breaking changes. If you are using prior 0.7.x series, please be careful
 to upgrade 1.0.0 or later versions.
 

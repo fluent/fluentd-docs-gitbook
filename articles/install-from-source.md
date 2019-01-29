@@ -58,7 +58,7 @@ installation was successful, Fluentd will output the following message:
 2011-07-10 16:49:50 +0900 debug.test: {"json":"message"}
 ```
 
-It\'s HIGHLY recommended that you set up **ntpd** on the node to prevent
+It's HIGHLY recommended that you set up **ntpd** on the node to prevent
 invalid timestamps in your logs.
 
 For large deployments, you must use

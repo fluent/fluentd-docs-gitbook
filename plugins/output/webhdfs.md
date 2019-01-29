@@ -8,7 +8,7 @@ no file is created immediately.
 The file will be created when the `timekey` condition has been met. To
 change the output frequency, please modify the `timekey` value.
 
-This document doesn\'t describe all parameters. If you want to know full
+This document doesn't describe all parameters. If you want to know full
 features, check the Further Reading section.
 
 

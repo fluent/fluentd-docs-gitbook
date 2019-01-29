@@ -516,7 +516,7 @@ specified as a chunk key.
 
 `Chunk#read` reads all content of the chunk, and return it as a String.
 
-this method doesn\'t get any arguments, unlinke Ruby\'s IO object.
+this method doesn't get any arguments, unlinke Ruby's IO object.
 
 
 ### chunk.open(&block)
