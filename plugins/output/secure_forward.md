@@ -40,7 +40,7 @@ by safe way (scp, or anyway else).
 ```
 
 Without hostname ACL (not yet implemented), \`self\_hostname\` is not
-checked in any state. The \`\"\#{Socket.gethostname}\"\` placeholder is
+checked in any state. The \`"\#{Socket.gethostname}"\` placeholder is
 available for such cases.
 
 ``` {.CodeRay}
