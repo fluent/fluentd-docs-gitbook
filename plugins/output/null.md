@@ -20,7 +20,7 @@ structure and syntax of the configuration file.
 
 ## Parameters
 
-### \@type (required)
+### type (required)
 
 The value must be `null`.
 

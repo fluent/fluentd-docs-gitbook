@@ -30,11 +30,11 @@ actually does nothing, but supports only `@label` parameter.
 
 ## Parameters
 
-### \@type (required)
+### type (required)
 
 The value must be `relabel`.
 
-### \@label
+### label
 
 The label.
 

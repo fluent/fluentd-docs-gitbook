@@ -48,7 +48,7 @@ be specified to put logs of child processes.
 
 ## Parameters
 
-### \@type (required)
+### type (required)
 
 The value must be `multiprocess`.
 

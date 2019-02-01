@@ -53,7 +53,7 @@ by users.
 
 ## Parameters
 
-### \@type (required)
+### type (required)
 
 The value must be `kafka_buffered`.
 

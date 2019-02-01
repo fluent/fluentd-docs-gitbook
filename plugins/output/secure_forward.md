@@ -344,7 +344,7 @@ set to none for simplicity here).
 
 ## Parameters
 
-### \@type
+### type
 
 This parameter is required. Its value must be `secure_forward`.
 

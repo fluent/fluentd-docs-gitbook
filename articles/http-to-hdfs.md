@@ -144,7 +144,7 @@ drwxr-xr-x   - 1 supergroup          0 2012-10-22 09:40 /log/20121022_14/access.
 ## Conclusion
 
 Fluentd + WebHDFS make real-time log collection simple, robust and
-scalable! [\@tagomoris](http://github.com/tagomoris) has already been
+scalable! [tagomoris](http://github.com/tagomoris) has already been
 using this plugin to collect 20,000 msgs/sec, 1.5 TB/day without any
 major problems for several months now.
 

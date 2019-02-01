@@ -59,7 +59,7 @@ respective plugins.)
 
 ## Parameters
 
-### \@type (required)
+### type (required)
 
 The value must be `copy`.
 

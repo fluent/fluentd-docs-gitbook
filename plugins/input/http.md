@@ -35,7 +35,7 @@ $ curl -X POST -d 'json={"action":"login","user":2}'
 
 ## Parameters
 
-### \@type (required)
+### type (required)
 
 The value must be `http`.
 

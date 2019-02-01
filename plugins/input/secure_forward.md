@@ -127,7 +127,7 @@ Please refer to the **Secure Sender-Receiver Setup** [sample documentation](/plu
 
 ## Parameters
 
-### \@type
+### type
 
 This parameter is required. Its value must be `secure_forward`.
 

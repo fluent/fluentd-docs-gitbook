@@ -32,7 +32,7 @@ please make sure to follow the instruction described at [Before Installing Fluen
 
 ## Parameters
 
-### \@type (required)
+### type (required)
 
 The value must be `tcp`.
 

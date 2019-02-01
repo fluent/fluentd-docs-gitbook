@@ -30,7 +30,7 @@ follow the instruction described at [Before Installing Fluentd](/articles/before
 
 ## Parameters
 
-### \@type (required)
+### type (required)
 
 The value must be `udp`.
 
