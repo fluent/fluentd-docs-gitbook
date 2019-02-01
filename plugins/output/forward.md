@@ -74,13 +74,10 @@ See [Output Plugin Overview](/plugins/output/README.md) for more details.
 
 [Common Parameters](/configuration/plugin-common-parameters.md)
 
-[]{#@type}
-
-### \@type
+### @type
 
 The value must be `forward`.
 
-[]{#<server>-(at-least-one-is-required)}
 
 ### \<server\> (at least one is required)
 
@@ -359,7 +356,6 @@ Verify hostname of servers and certificates or not in TLS transport.
 
 The additional CA certificate path for TLS.
 
-[]{#<security>-section}
 
 ### \<security\> section
 
@@ -385,7 +381,6 @@ The hostname.
 
 Shared key for authentication.
 
-[]{#<secondary>}
 
 ### \<secondary\>
 

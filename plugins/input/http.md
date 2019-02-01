@@ -62,9 +62,8 @@ section](#tips-&-tricks).
 
 [Common Parameters](/configuration/plugin-common-parameters.md)
 
-[]{#@type-(required)}
 
-### \@type (required)
+### @type (required)
 
 The value must be `http`.
 

@@ -45,15 +45,12 @@ actually does nothing, but supports only `@label` parameter.
 
 [Common Parameters](/configuration/plugin-common-parameters.md)
 
-[]{#@type}
-
-### \@type
+### @type
 
 The value must be `relabel`.
 
-[]{#@label}
 
-### \@label
+### @label
 
 The label.
 

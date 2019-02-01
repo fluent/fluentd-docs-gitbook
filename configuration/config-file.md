@@ -309,9 +309,8 @@ events are routed to `grep` filter / `s3` output inside `@SYSTEM` label.
 
 "label" is useful for event flow separation without tag prefix.
 
-[]{#@error-label}
 
-### \@ERROR label
+### @ERROR label
 
 `@ERROR` label is a built-in label used for error record emitted by
 plugin's `emit_error_event` API.
@@ -320,7 +319,6 @@ If you set `<label @ERROR>` in the configuration, events are routed to
 this label when emit related error, e.g. buffer is full or invalid
 record.
 
-[]{#(6)-re-use-your-config:-the-%E2%80%9C@include%E2%80%9D-directive}
 
 (6) Re-use your config: the "\@## include" directive
 

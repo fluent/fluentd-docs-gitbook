@@ -51,9 +51,8 @@ please check [Parse section cofiguration](/configuration/parse-section.md).
 
 [Common Parameters](/configuration/plugin-common-parameters.md)
 
-[]{#@type-(required)}
 
-### \@type (required)
+### @type (required)
 
 The value must be `tail`.
 
@@ -247,7 +246,6 @@ the content of pos\_file is growing until restart when you tails lots of
 files with dynamic path setting. I will fix this problem in the future.
 Check [this issue](https://github.com/fluent/fluentd/issues/1126).
 
-[]{#<parse>-directive-(required)}
 
 ### \<parse\> directive (required)
 
@@ -381,7 +379,7 @@ Emitted record is `{"unmatched_line" : incoming line}`, e.g.
 If you hard to exclude non-permision files from watching list, set this
 parameter to `true`. It suppress repeated permission error logs.
 
-#### \@log\_level option
+#### @log\_level option
 
 The `@log_level` option allows the user to set different levels of
 logging for each plugin. The supported log levels are: `fatal`, `error`,

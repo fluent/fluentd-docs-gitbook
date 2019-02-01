@@ -357,9 +357,8 @@ When `time` is specified, parameters below are available:
     -   The timezone (`-0700` or `Asia/Tokyo`) string for formatting
         timekey placeholders
 
-[]{#@type}
 
-### \@type
+### @type
 
 `@type` key is to specify the type of buffer plugin. The default type is
 `memory` of bare output plugin, but it may be overwritten by output

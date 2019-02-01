@@ -46,9 +46,7 @@ follow the instruction described at [Before Installing Fluentd](/articles/before
 
 [Common Parameters](/configuration/plugin-common-parameters.md)
 
-[]{#@type}
-
-### \@type
+### @type
 
 The value must be `udp`.
 
@@ -123,7 +121,6 @@ The max bytes of message
 
 Remove newline from the end of incoming payload
 
-[]{#<parse>-section}
 
 ### \<parse\> section
 

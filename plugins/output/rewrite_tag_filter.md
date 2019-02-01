@@ -152,7 +152,6 @@ Maps)
 Override hostname command for placeholder. (default setting is long
 hostname)
 
-[]{#<rule>-section}
 
 ### \<rule\> section
 

@@ -47,9 +47,7 @@ structure and syntax of the configuration file.
 
 [Common Parameters](/configuration/plugin-common-parameters.md)
 
-[]{#@type}
-
-### \@type
+### @type
 
 The value must be `exec`.
 
@@ -90,7 +88,6 @@ command script runs only once.
 
 The default block size to read if parser requires partial read.
 
-[]{#<parse>-section}
 
 ### \<parse\> section
 
@@ -103,7 +100,7 @@ For more details about parse section, see followings
 -   [Parser plugin overview](/plugins/parser/README.md)
 -   [Parse section configuration](/configuration/parse-section.md)
 
-#### \@type
+#### @type
 
     type    default   version
   -------- --------- ---------
@@ -135,7 +132,6 @@ Overwrite default value in this plugin.
 
 Overwrite default value in this plugin.
 
-[]{#<extract>-section}
 
 ### \<extract\> section
 

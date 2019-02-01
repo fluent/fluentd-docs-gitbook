@@ -60,9 +60,7 @@ please make sure to follow the instruction described at [Before Installing Fluen
 
 [Common Parameters](/configuration/plugin-common-parameters.md)
 
-[]{#@type}
-
-### \@type
+### @type
 
 The value must be `tcp`.
 
@@ -120,7 +118,6 @@ then the client's hostname is set to `client_host` field.
 }
 ```
 
-[]{#<parse>-section}
 
 ### \<parse\> section
 

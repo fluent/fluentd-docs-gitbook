@@ -130,7 +130,6 @@ Specify file permission with octal.
 
 Specify directory permission with octal.
 
-[]{#<log>-section}
 
 ### \<log\> section
 
@@ -172,7 +171,6 @@ For code example, please refer to [api-plugin-base](/articles/api-plugin-base.md
 
 ## Command Line Options
 
-[]{#-s,---setup-%5Bdir=/etc/fluent%5D}
 
 ### -s, \--setup \[DIR=/etc/fluent\]
 
@@ -188,7 +186,6 @@ Config file path (default: /etc/fluent/fluent.conf)
 
 Check fluentd setup is correct or not
 
-[]{#--show-plugin-config=plugin-(obsoleted)}
 
 ### \--show-plugin-config=PLUGIN (obsoleted)
 

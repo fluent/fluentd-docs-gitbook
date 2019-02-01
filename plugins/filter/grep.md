@@ -59,7 +59,6 @@ whereas the following examples are filtered out:
 
 [Common Parameters](/configuration/plugin-common-parameters.md)
 
-[]{#<and>-directive}
 
 ### \<and\> directive
 
@@ -107,7 +106,6 @@ We can also use \<and\> directive with \<exclude\> directive:
 </and>
 ```
 
-[]{#<or>-directive}
 
 ### \<or\> directive
 
@@ -155,7 +153,6 @@ We can also use \<or\> directive with \<regexp\> directive:
 </or>
 ```
 
-[]{#<regexp>-directive}
 
 ### \<regexp\> directive
 
@@ -263,7 +260,6 @@ regexp1 price [1-9]\d*
 regexp2 item_name ^book_
 ```
 
-[]{#<exclude>-directive}
 
 ### \<exclude\> directive
 

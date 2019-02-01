@@ -6,9 +6,8 @@ plugins. This page describes the list of these parameters.
 
 ## Parameters for all plugins
 
-[]{#@type}
 
-### \@type
+### @type
 
 The parameter `@type` is to specify the type of plugin for the section.
 
@@ -22,9 +21,8 @@ The parameter `@type` is to specify the type of plugin for the section.
 </filter>
 ```
 
-[]{#@id}
 
-### \@id
+### @id
 
 The `@id` parameter is used to add the unique name of plugin
 configuration, which is used for paths of buffer/storage, logging and
@@ -44,9 +42,8 @@ and `workers` feature globally.
 
 See also: [System Configuration](/deployment/system-config.md).
 
-[]{#@log_level}
 
-### \@log\_level
+### @log\_level
 
 This parameter is to specify plugin-specific logging level. The default
 log level is `info`. Global log level can be specified by `log_level` in
@@ -74,9 +71,8 @@ Please see the [logging article](/deployment/logging.md) for further details.
 
 ## Parameters for plugins which emit events
 
-[]{#@label}
 
-### \@label
+### @label
 
 The `@label` parameter is to route input events to `<label>` sections,
 the set of `<filter>` and `<match>` sections.

@@ -47,15 +47,11 @@ tag, and the third part shows the record.
 
 [Common Parameters](/configuration/plugin-common-parameters.md)
 
-[]{#@type}
-
-### \@type
+### @type
 
 The value must be `stdout`.
 
-[]{#<buffer>-section}
-
-### \<buffer\> section
+### &lt;buffer&gt; section
 
 See [Buffer section configurations](/configuration/buffer-section.md) for more details.
 
@@ -83,13 +79,12 @@ Overwrite default value in this plugin.
 
 Overwrite default value in this plugin.
 
-[]{#<format>-section}
 
 ### \<format\> section
 
 See [Format section configurations](/configuration/format-section.md) for more details.
 
-#### \@type
+#### @type
 
     type    default   version
   -------- --------- ---------

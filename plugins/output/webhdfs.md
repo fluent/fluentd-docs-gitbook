@@ -81,9 +81,8 @@ please check [Buffer section cofiguration](/configuration/buffer-section.md).
 
 [Common Parameters](/configuration/plugin-common-parameters.md)
 
-[]{#@type-(required)}
 
-### \@type (required)
+### @type (required)
 
 The value must be `webhfds`.
 
@@ -201,7 +200,7 @@ The number of threads to flush the buffer. This option can be used to
 parallelize writes into the output(s) designated by the output plugin.
 The default is 1.
 
-#### \@log\_level option
+#### @log\_level option
 
 The `@log_level` option allows the user to set different levels of
 logging for each plugin. The supported log levels are: `fatal`, `error`,

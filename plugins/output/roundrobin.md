@@ -47,13 +47,10 @@ structure and syntax of the configuration file.
 
 [Common Parameters](/configuration/plugin-common-parameters.md)
 
-[]{#@type}
-
-### \@type
+### @type
 
 The value must be `roundrobin`.
 
-[]{#<store>}
 
 ### \<store\>
 

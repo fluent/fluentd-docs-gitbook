@@ -109,13 +109,10 @@ So, if an event with the tag "web.auth" and record
 
 [Common Parameters](/configuration/plugin-common-parameters.md)
 
-[]{#@type}
-
-### \@type
+### @type
 
 The value must be `record_transformer`.
 
-[]{#<record>-directive}
 
 ### \<record\> directive
 

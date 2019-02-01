@@ -44,9 +44,8 @@ please check [Buffer section cofiguration](/configuration/buffer-section.md).
 
 [Common Parameters](/configuration/plugin-common-parameters.md)
 
-[]{#@type-(required)}
 
-### \@type (required)
+### @type (required)
 
 The value must be `file`.
 
@@ -109,7 +108,6 @@ file.20140608.log
 file.20140609.log
 ```
 
-[]{#<format>-directive}
 
 ### \<format\> directive
 
@@ -174,7 +172,7 @@ content to check logs.
 
 This is disabled on Windows.
 
-#### \@log\_level option
+#### @log\_level option
 
 The `@log_level` option allows the user to set different levels of
 logging for each plugin. The supported log levels are: `fatal`, `error`,

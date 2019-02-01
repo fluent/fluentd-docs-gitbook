@@ -61,9 +61,7 @@ so the output isn't always instantaneous.
 
 ## Parameters
 
-[]{#@type}
-
-### \@type
+### @type
 
 The value must be `exec_filter`.
 
@@ -154,7 +152,6 @@ The format used to map the incoming event to the program input.
 
 The format used to process the program output.
 
-[]{#<format>-section}
 
 ### \<format\> section
 
@@ -162,7 +159,7 @@ The format used to map the incoming events to the program input.
 
 See [Format section configurations](/configuration/format-section.md) for more details.
 
-#### \@type
+#### @type
 
     type    default   version
   -------- --------- ---------
@@ -170,7 +167,6 @@ See [Format section configurations](/configuration/format-section.md) for more d
 
 Overwrite default value in this plugin.
 
-[]{#<parse>-section}
 
 ### \<parse\> section
 
@@ -178,7 +174,7 @@ The format used to process the program output.
 
 See [Parse section configurations](/configuration/parse-section.md) for more details.
 
-#### \@type
+#### @type
 
     type    default   version
   -------- --------- ---------
@@ -210,7 +206,6 @@ Overwrite default value in this plugin.
 
 Overwrite default value in this plugin.
 
-[]{#<inject>-section}
 
 ### \<inject\> section
 
@@ -224,7 +219,6 @@ See [Inject section configurations](/articles/inject-section.md) for more detail
 
 Overwrite default value in this plugin.
 
-[]{#<extract>-section}
 
 ### \<extract\> section
 
@@ -238,9 +232,7 @@ See [Extract section configurations](/articles/extract-section.md) for more deta
 
 Overwrite default value in this plugin.
 
-[]{#<buffer>-section}
-
-### \<buffer\> section
+### &lt;buffer&gt; section
 
 See [Buffer section configurations](/configuration/buffer-section.md) for more details.
 

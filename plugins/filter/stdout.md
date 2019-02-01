@@ -36,19 +36,17 @@ tag, and the third part shows the record.
 
 [Common Parameters](/configuration/plugin-common-parameters.md)
 
-[]{#@type-(required)}
 
-### \@type (required)
+### @type (required)
 
 The value must be `stdout`.
 
-[]{#<format>-section}
 
 ### \<format\> section
 
 See [Format section configurations](/configuration/format-section.md) for more details.
 
-#### \@type
+#### @type
 
     type    default   version
   -------- --------- ---------

@@ -36,7 +36,6 @@ of workers.
 
 With this configuration, fluentd launches 4 workers.
 
-[]{#<worker-n>-directive}
 
 ### \<worker N\> directive
 
@@ -65,7 +64,6 @@ such plugins, we can run any plugins in specific worker with
 With this directive, you can mix multi-process ready and
 non-multi-process ready plugins in 1 instance.
 
-[]{#root_dir/@id-parameter}
 
 ### root\_dir/\@id parameter
 

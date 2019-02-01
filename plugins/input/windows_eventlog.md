@@ -58,9 +58,8 @@ corresponding channel to `channel` field.
 
 [Common Parameters](/configuration/plugin-common-parameters.md)
 
-[]{#@type-(required)}
 
-### \@type (required)
+### @type (required)
 
 The value must be `windows_eventlog`.
 
@@ -89,7 +88,6 @@ Default is `["application"]`.
 
 The interval of reading windowd event log. Default is `2` seconds.
 
-[]{#<storage>}
 
 ### \<storage\>
 

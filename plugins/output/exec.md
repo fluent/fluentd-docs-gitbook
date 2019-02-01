@@ -141,9 +141,7 @@ See [Output Plugin Overview](/plugins/output/README.md) for more details.
 
 [Common Parameters](/configuration/plugin-common-parameters.md)
 
-[]{#@type}
-
-### \@type
+### @type
 
 The value must be `exec`.
 
@@ -181,13 +179,12 @@ e.g. \"/path/to/cmd\".
 
 Command (program) execution timeout.
 
-[]{#<format>-section}
 
 ### \<format\> section
 
 See [Format section configurations](/configuration/format-section.md) for more details.
 
-#### \@type
+#### @type
 
     type    default   version
   -------- --------- ---------
@@ -197,7 +194,6 @@ The format used to map the incoming events to the program input.
 
 Overwrite default value in this plugin.
 
-[]{#<inject>-section}
 
 ### \<inject\> section
 
@@ -219,9 +215,7 @@ Overwrite default value in this plugin.
 
 Overwrite default value in this plugin.
 
-[]{#<buffer>-section}
-
-### \<buffer\> section
+### &lt;buffer&gt; section
 
 See [Buffer section configurations](/configuration/buffer-section.md) for more details.
 

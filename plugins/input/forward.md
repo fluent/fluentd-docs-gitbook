@@ -38,9 +38,7 @@ structure and syntax of the configuration file.
 -   [Common Parameters](/configuration/plugin-common-parameters.md)
 -   [Transport section](/articles/transport-section.md)
 
-[]{#@type}
-
-### \@type
+### @type
 
 The value must be `forward`.
 
@@ -144,7 +142,6 @@ hostname will be set to its key.
 This iterates incoming events. So if you sends larger chunks to
 `in_forward`, it needs additional processing time.
 
-[]{#<transport>-section}
 
 ### \<transport\> section
 
@@ -163,7 +160,6 @@ supported parameters
 
 Without `<transport tls>`, in\_forward uses raw TCP.
 
-[]{#<security>-section}
 
 ### \<security\> section
 

@@ -65,9 +65,8 @@ parameters.
 
 [Common Parameters](/configuration/plugin-common-parameters.md)
 
-[]{#@type-(required)}
 
-### \@type (required)
+### @type (required)
 
 The value must be `syslog`.
 
@@ -121,7 +120,6 @@ parameter.
 
 Deprecated parameter. Use `<parse>` instead.
 
-[]{#<parse>-directive}
 
 ### \<parse\> directive
 
@@ -256,7 +254,7 @@ set to its key.
 The field name of the facility. If set the value, the facility will be
 set to its key.
 
-#### \@log\_level option
+#### @log\_level option
 
 The `@log_level` option allows the user to set different levels of
 logging for each plugin. The supported log levels are: `fatal`, `error`,

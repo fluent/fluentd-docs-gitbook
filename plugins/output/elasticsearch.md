@@ -52,9 +52,8 @@ For more details on each option, read [the section on Parameters](#parameters).
 
 ## Parameters
 
-[]{#@type-(required)}
 
-### \@type (required)
+### @type (required)
 
 This option must be always `elasticsearch`.
 
@@ -141,7 +140,7 @@ With this option set `true`, Fluentd uses the conventional index name
 format `logstash-%Y.%m.%d` (default: `false`). This option supersedes
 the `index_name` option.
 
-#### \@log\_level option
+#### @log\_level option
 
 The `@log_level` option allows the user to set different levels of
 logging for each plugin. The supported log levels are: `fatal`, `error`,

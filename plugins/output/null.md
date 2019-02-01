@@ -33,9 +33,7 @@ See [Output Plugin Overview](/plugins/output/README.md) for more details.
 
 [Common Parameters](/configuration/plugin-common-parameters.md)
 
-[]{#@type}
-
-### \@type
+### @type
 
 The value must be `null`.
 
@@ -49,9 +47,7 @@ The value must be `null`.
 The parameter for testing to simulate output plugin which never succeed
 to flush.
 
-[]{#<buffer>-section}
-
-### \<buffer\> section
+### &lt;buffer&gt; section
 
 See [Buffer section configurations](/configuration/buffer-section.md) for more details.
 

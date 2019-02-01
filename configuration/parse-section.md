@@ -37,9 +37,8 @@ For more details, see plugins documentation.
 
 ## Parameters
 
-[]{#@type}
 
-### \@type
+### @type
 
 `@type` key is to specify the type of parser plugin.
 

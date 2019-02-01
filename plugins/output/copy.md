@@ -81,9 +81,7 @@ details about the respective plugins.)
 
 [Common Parameters](/configuration/plugin-common-parameters.md)
 
-[]{#@type}
-
-### \@type
+### @type
 
 The value must be `copy`.
 
@@ -99,7 +97,6 @@ The value must be `copy`.
 When `deep_copy` is true, `out_copy` passes dupped record to each
 `store` plugin.
 
-[]{#<store>-section}
 
 ### \<store\> section
 
