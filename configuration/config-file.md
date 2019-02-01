@@ -65,7 +65,7 @@ The configuration file consists of the following directives:
 4.  **system** directives set system wide configuration.
 5.  **label** directives group the output and filter for internal
     routing
-6.  **\@include** directives include other files.
+6.  **@include** directives include other files.
 
 Let's actually create a configuration file step by step.
 
@@ -320,17 +320,17 @@ this label when emit related error, e.g. buffer is full or invalid
 record.
 
 
-(6) Re-use your config: the "\@## include" directive
+(6) Re-use your config: the "@## include" directive
 
 Directives in separate configuration files can be imported using the
-**\@include** directive:
+**@include** directive:
 
 ``` {.CodeRay}
 # Include config files in the ./config.d directory
 @include config.d/*.conf
 ```
 
-The **\@include** directive supports regular file path, glob pattern,
+The **@include** directive supports regular file path, glob pattern,
 and http URL conventions:
 
 ``` {.CodeRay}

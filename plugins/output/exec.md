@@ -85,7 +85,7 @@ Then, configure Fluentd as follows
 </match>
 ```
 
-The "\@type tsv" and "keys fizzbuzz" in `<format>` tells Fluentd to
+The "@type tsv" and "keys fizzbuzz" in `<format>` tells Fluentd to
 extract the "fizzbuzz" field and output it as TSV. This simple example
 has a single key, but you can of course extract multiple fields and use
 "format json" to output newline-delimited JSONs.

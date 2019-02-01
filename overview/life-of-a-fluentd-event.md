@@ -238,7 +238,7 @@ follows:
 </label>
 ```
 
-The new configuration contains a *\@label* key on the *source*
+The new configuration contains a *@label* key on the *source*
 indicating that any further steps takes place on the *STAGING* *Label*
 section. The expectation is that every *Event* reported on the *Source*,
 the *Routing* engine will continue processing on *STAGING*, for hence it

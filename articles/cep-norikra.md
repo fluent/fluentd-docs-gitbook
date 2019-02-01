@@ -26,7 +26,7 @@ server based on [Esper](http://esper.codehaus.org/) by
 [EsperTech](http://www.espertech.com). It allows you to
 subscribe/unsubscribe to data streams anytime and add/remove SQL queries
 anytime. [Norikra](http://norikra.github.io/) is written by
-[\@tagomoris](http://github.com/tagomoris), a committer of the Fluentd
+[@tagomoris](http://github.com/tagomoris), a committer of the Fluentd
 project.
 
 This article will show you how to integrate

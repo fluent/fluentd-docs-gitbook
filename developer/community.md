@@ -12,7 +12,7 @@ community members, we've got you covered.
     Groups](https://groups.google.com/forum/?fromgroups#!forum/fluentd)
 -   Twitter
     ([\#fluentd](https://twitter.com/search?q=%23fluentd&src=typd&f=realtime),
-    [\@fluentd](http://www.twitter.com/fluentd))
+    [@fluentd](http://www.twitter.com/fluentd))
 -   [Facebook Page](https://www.facebook.com/pages/Fluentd-Log-Everything-in-JSON/196064987183037)
 -   [StackOverflow](http://stackoverflow.com/questions/tagged/fluentd?sort=newest)
 
@@ -25,7 +25,7 @@ Whether it be a company/community tech talk, a conference talk proposal,
 or a blog article, if you have a great story to tell we'll be happy to
 help spread the word. Tweet us at
 ([\#fluentd](https://twitter.com/search?q=%23fluentd&src=typd&f=realtime)
-and [\@fluentd](http://www.twitter.com/fluentd)) about how you are using
+and [@fluentd](http://www.twitter.com/fluentd)) about how you are using
 Fluentd!
 
 #### Meetup

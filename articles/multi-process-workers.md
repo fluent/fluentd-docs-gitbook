@@ -65,7 +65,7 @@ With this directive, you can mix multi-process ready and
 non-multi-process ready plugins in 1 instance.
 
 
-### root\_dir/\@id parameter
+### root\_dir/@id parameter
 
 These parameters must be specified when you use file buffer.
 
