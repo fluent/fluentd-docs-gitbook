@@ -575,7 +575,7 @@ host_param "#{Socket.gethostname}" # host_param is actual hostname like `webserv
 env_param "foo-#{ENV["FOO_BAR"]}" # NOTE that foo-"#{ENV["FOO_BAR"]}" doesn't work.
 ```
 
-config-xxx mixins use \"\${}\", not \"\#{}\". These embedded
+config-xxx mixins use "\${}", not "\#{}". These embedded
 configurations are two different things.
 
 ### In double quoted string literal, `\` is escape character
