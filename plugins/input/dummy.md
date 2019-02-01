@@ -1,5 +1,7 @@
 # dummy Input Plugin
 
+![](/images/plugins/input/dummy.png)
+
 The `in_dummy` input plugin generates dummy events. It is useful for
 testing, debugging, benchmarking and getting started with Fluentd.
 

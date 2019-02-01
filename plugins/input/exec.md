@@ -1,5 +1,7 @@
 # exec Input Plugin
 
+![](/images/plugins/input/exec.png)
+
 The `in_exec` Input plugin executes external programs to receive or pull
 event logs. It will then read TSV (tab separated values), JSON or
 MessagePack from the stdout of the program.

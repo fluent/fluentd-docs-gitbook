@@ -1,5 +1,7 @@
 # HTTP Input Plugin
 
+![](/images/plugins/input/http.png)
+
 The `in_http` Input plugin allows you to send events through HTTP
 requests. Using this plugin, you can trivially launch a REST endpoint to
 gather data.
