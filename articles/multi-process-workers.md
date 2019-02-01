@@ -37,7 +37,7 @@ of workers.
 With this configuration, fluentd launches 4 workers.
 
 
-### \<worker N\> directive
+### &lt;worker N&gt; directive
 
 Some plugins don't work on multi process worker, e.g. `in_tail`. For
 such plugins, we can run any plugins in specific worker with

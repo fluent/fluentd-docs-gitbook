@@ -143,7 +143,7 @@ This iterates incoming events. So if you sends larger chunks to
 `in_forward`, it needs additional processing time.
 
 
-### \<transport\> section
+### &lt;transport&gt; section
 
 This section is for using SSL transport.
 
@@ -161,7 +161,7 @@ supported parameters
 Without `<transport tls>`, in\_forward uses raw TCP.
 
 
-### \<security\> section
+### &lt;security&gt; section
 
    required   multi   version
   ---------- ------- ---------

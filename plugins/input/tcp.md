@@ -119,7 +119,7 @@ then the client's hostname is set to `client_host` field.
 ```
 
 
-### \<parse\> section
+### &lt;parse&gt; section
 
    required   multi   version
   ---------- ------- ---------

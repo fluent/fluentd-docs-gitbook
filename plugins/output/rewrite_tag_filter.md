@@ -153,7 +153,7 @@ Override hostname command for placeholder. (default setting is long
 hostname)
 
 
-### \<rule\> section
+### &lt;rule&gt; section
 
 It works with the order of appearance, regexp matching `rule/pattern`
 for the values of `rule/key` from each record, re-emit with `rule/tag`.

@@ -80,7 +80,7 @@ Overwrite default value in this plugin.
 Overwrite default value in this plugin.
 
 
-### \<format\> section
+### &lt;format&gt; section
 
 See [Format section configurations](/configuration/format-section.md) for more details.
 

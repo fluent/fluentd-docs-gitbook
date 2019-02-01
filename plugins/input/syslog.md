@@ -121,7 +121,7 @@ parameter.
 Deprecated parameter. Use `<parse>` instead.
 
 
-### \<parse\> directive
+### &lt;parse&gt; directive
 
 The format of the log. This option is used to parse non-standard syslog
 formats using [parser plugins](/plugins/parser/README.md).

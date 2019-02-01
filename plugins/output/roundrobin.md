@@ -52,7 +52,7 @@ structure and syntax of the configuration file.
 The value must be `roundrobin`.
 
 
-### \<store\>
+### &lt;store&gt;
 
 Specifies the storage destinations. The format is the same as the
 \<match\> directive.

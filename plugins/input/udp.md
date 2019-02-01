@@ -122,7 +122,7 @@ The max bytes of message
 Remove newline from the end of incoming payload
 
 
-### \<parse\> section
+### &lt;parse&gt; section
 
    required   multi   version
   ---------- ------- ---------

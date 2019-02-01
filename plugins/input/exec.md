@@ -89,7 +89,7 @@ command script runs only once.
 The default block size to read if parser requires partial read.
 
 
-### \<parse\> section
+### &lt;parse&gt; section
 
    required   multi   version
   ---------- ------- ---------
@@ -133,7 +133,7 @@ Overwrite default value in this plugin.
 Overwrite default value in this plugin.
 
 
-### \<extract\> section
+### &lt;extract&gt; section
 
    required   multi   version
   ---------- ------- ---------

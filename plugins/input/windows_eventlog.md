@@ -89,7 +89,7 @@ Default is `["application"]`.
 The interval of reading windowd event log. Default is `2` seconds.
 
 
-### \<storage\>
+### &lt;storage&gt;
 
 `<storage>` section is the configuration for storage plugin.
 `in_windows_eventlog` plugin uses storage plugin for recording the

@@ -98,7 +98,7 @@ When `deep_copy` is true, `out_copy` passes dupped record to each
 `store` plugin.
 
 
-### \<store\> section
+### &lt;store&gt; section
 
 Specifies the storage destinations. The format is the same as the
 \<match\> directive.

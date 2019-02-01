@@ -247,7 +247,7 @@ files with dynamic path setting. I will fix this problem in the future.
 Check [this issue](https://github.com/fluent/fluentd/issues/1126).
 
 
-### \<parse\> directive (required)
+### &lt;parse&gt; directive (required)
 
 The format of the log. `in_tail` uses parser plugin to parse the log.
 See [parser article](/plugins/parser/README.md) for more detail.

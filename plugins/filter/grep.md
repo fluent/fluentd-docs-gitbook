@@ -60,7 +60,7 @@ whereas the following examples are filtered out:
 [Common Parameters](/configuration/plugin-common-parameters.md)
 
 
-### \<and\> directive
+### &lt;and&gt; directive
 
 Specify filtering rule. This directive contains either \<regexp\> or
 \<exclude\> directive. This directive has been added since 1.2.0.
@@ -107,7 +107,7 @@ We can also use \<and\> directive with \<exclude\> directive:
 ```
 
 
-### \<or\> directive
+### &lt;or&gt; directive
 
 Specify filtering rule. This directive contains either \<regexp\> or
 \<exclude\> directive. This directive has been added since 1.2.0.
@@ -154,7 +154,7 @@ We can also use \<or\> directive with \<regexp\> directive:
 ```
 
 
-### \<regexp\> directive
+### &lt;regexp&gt; directive
 
 Specify filtering rule. This directive contains two parameters.
 
@@ -261,7 +261,7 @@ regexp2 item_name ^book_
 ```
 
 
-### \<exclude\> directive
+### &lt;exclude&gt; directive
 
 Specify filtering rule to reject events. This directive contains two
 parameters.

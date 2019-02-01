@@ -131,7 +131,7 @@ Specify file permission with octal.
 Specify directory permission with octal.
 
 
-### \<log\> section
+### &lt;log&gt; section
 
 #### format
 

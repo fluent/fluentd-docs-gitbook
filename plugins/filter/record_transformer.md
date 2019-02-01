@@ -114,7 +114,7 @@ So, if an event with the tag "web.auth" and record
 The value must be `record_transformer`.
 
 
-### \<record\> directive
+### &lt;record&gt; directive
 
 Parameters inside `<record>` directives are considered to be new
 key-value pairs:

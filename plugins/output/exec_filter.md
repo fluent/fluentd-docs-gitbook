@@ -153,7 +153,7 @@ The format used to map the incoming event to the program input.
 The format used to process the program output.
 
 
-### \<format\> section
+### &lt;format&gt; section
 
 The format used to map the incoming events to the program input.
 
@@ -168,7 +168,7 @@ See [Format section configurations](/configuration/format-section.md) for more d
 Overwrite default value in this plugin.
 
 
-### \<parse\> section
+### &lt;parse&gt; section
 
 The format used to process the program output.
 
@@ -207,7 +207,7 @@ Overwrite default value in this plugin.
 Overwrite default value in this plugin.
 
 
-### \<inject\> section
+### &lt;inject&gt; section
 
 See [Inject section configurations](/articles/inject-section.md) for more details.
 
@@ -220,7 +220,7 @@ See [Inject section configurations](/articles/inject-section.md) for more detail
 Overwrite default value in this plugin.
 
 
-### \<extract\> section
+### &lt;extract&gt; section
 
 See [Extract section configurations](/articles/extract-section.md) for more details.
 

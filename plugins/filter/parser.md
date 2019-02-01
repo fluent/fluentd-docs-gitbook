@@ -37,7 +37,7 @@ parser plugin, so you can re-use pre-defined format like `apache`,
 [Common Parameters](/configuration/plugin-common-parameters.md)
 
 
-### \<parse\> section
+### &lt;parse&gt; section
 
 This is required sub section. Specify parser type and related parameter.
 

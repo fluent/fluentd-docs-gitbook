@@ -79,7 +79,7 @@ See [Output Plugin Overview](/plugins/output/README.md) for more details.
 The value must be `forward`.
 
 
-### \<server\> (at least one is required)
+### &lt;server&gt; (at least one is required)
 
    required   multi   version
   ---------- ------- ---------
@@ -357,7 +357,7 @@ Verify hostname of servers and certificates or not in TLS transport.
 The additional CA certificate path for TLS.
 
 
-### \<security\> section
+### &lt;security&gt; section
 
    required   multi   version
   ---------- ------- ---------
@@ -382,7 +382,7 @@ The hostname.
 Shared key for authentication.
 
 
-### \<secondary\>
+### &lt;secondary&gt;
 
    required   multi   version
   ---------- ------- ---------

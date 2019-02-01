@@ -109,7 +109,7 @@ file.20140609.log
 ```
 
 
-### \<format\> directive
+### &lt;format&gt; directive
 
 The format of the file content. The default `@type` is `out_file`.
 

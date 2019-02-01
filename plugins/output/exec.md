@@ -180,7 +180,7 @@ e.g. \"/path/to/cmd\".
 Command (program) execution timeout.
 
 
-### \<format\> section
+### &lt;format&gt; section
 
 See [Format section configurations](/configuration/format-section.md) for more details.
 
@@ -195,7 +195,7 @@ The format used to map the incoming events to the program input.
 Overwrite default value in this plugin.
 
 
-### \<inject\> section
+### &lt;inject&gt; section
 
 See [Inject section configurations](/articles/inject-section.md) for more details.
 

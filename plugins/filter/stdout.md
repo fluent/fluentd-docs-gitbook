@@ -42,7 +42,7 @@ tag, and the third part shows the record.
 The value must be `stdout`.
 
 
-### \<format\> section
+### &lt;format&gt; section
 
 See [Format section configurations](/configuration/format-section.md) for more details.
 
