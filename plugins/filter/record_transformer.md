@@ -106,7 +106,7 @@ So, if an event with the tag "web.auth" and record
 
 ## Parameters
 
-### \<record\> directive
+### &lt;record&gt; directive
 
 Parameters inside `<record>` directives are considered to be new
 key-value pairs:

@@ -35,7 +35,7 @@ structure and syntax of the configuration file.
 
 The value must be `roundrobin`.
 
-### \<store\> (required at least one)
+### &lt;store&gt; (required at least one)
 
 Specifies the storage destinations. The format is the same as the
 \<match\> directive.

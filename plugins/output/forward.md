@@ -63,7 +63,7 @@ structure and syntax of the configuration file.
 
 The value must be `forward`.
 
-### \<server\> (at least one is required)
+### &lt;server&gt; (at least one is required)
 
 The destination servers. Each server must have following information.
 
@@ -92,7 +92,7 @@ is 190. This default value is based on popular tcp\_syn\_retries.
 
 If set `0`, this plugin doesn't wait the ack response.
 
-### \<secondary\> (optional)
+### &lt;secondary&gt; (optional)
 
 The backup destination that is used when all servers are unavailable.
 

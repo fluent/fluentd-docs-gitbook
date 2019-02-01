@@ -70,7 +70,7 @@ The value must be `copy`.
 When `deep_copy` is true, `out_copy` passes different record to each
 `store` plugin.
 
-### \<store\> (at least one required)
+### &lt;store&gt; (at least one required)
 
 Specifies the storage destinations. The format is the same as the
 \<match\> directive.

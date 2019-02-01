@@ -51,7 +51,7 @@ whereas the following examples are filtered out:
 
 ## Parameters
 
-### \<regexp\> directive (optional)
+### &lt;regexp&gt; directive (optional)
 
 Specify filtering rule. This directive contains two parameters. This
 parameter is available since v0.12.38.
@@ -121,7 +121,7 @@ regexp1 price [1-9]\d*
 regexp2 item_name ^book_
 ```
 
-### \<exclude\> directive (optional)
+### &lt;exclude&gt; directive (optional)
 
 Specify filtering rule to reject events. This directive contains two
 parameters. This parameter is available since v0.12.38.

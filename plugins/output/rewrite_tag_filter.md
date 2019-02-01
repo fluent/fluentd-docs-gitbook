@@ -131,7 +131,7 @@ logging for each plugin. The supported log levels are: `fatal`, `error`,
 
 Please see the [logging article](/deployment/logging.md) for further details.
 
-### \<rule\> section (optional) (multiple)
+### &lt;rule&gt; section (optional) (multiple)
 
 -   **key** (string) (required): The field name to which the regular
     expression is applied
