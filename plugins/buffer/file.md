@@ -12,7 +12,7 @@ uses files to store buffer chunks on disk.
 
 ### path
 
-|	    type    required   default   version	|
+|	type 	|	required 	|	default 	|	version		|
 |--------|----------|---------|---------|
 |	string      ✔                  0.9.0
 

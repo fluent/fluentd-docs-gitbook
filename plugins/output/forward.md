@@ -221,7 +221,7 @@ The wait time before accepting a server fault recovery.
 
 ### heartbeat\_type
 
-|	   type    default            available           version	|
+|	type 	|	default 	|	available 	|	version		|
 |------|-----------|---------------------------|---------|
 |	enum   transport   transport, tcp, udp, none   0.14.12
 
@@ -305,7 +305,7 @@ Ignore DNS resolution and errors at startup time.
 
 ### tls\_version
 
-|	   type   default        available        version	|
+|	type 	|	default 	|	available 	|	version		|
 |------|----------|--------------------|---------|
 |	enum   TLSv1\_2   TLSv1\_1, TLSv1\_2   0.14.12
 
