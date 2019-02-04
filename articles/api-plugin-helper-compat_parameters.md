@@ -144,7 +144,7 @@ For more details, see [Inject Plugin Helper API](/articles/api-plugin-helper-inj
 
 #### extract
 
-|	  old (v0.12)    new (v1)       note	|
+|	  old (v0.12)|    new (v1)|       note	|
 |--------------|--------------|--------------------------|
 |	  time\_key      time\_key      
   time\_format   time\_format   

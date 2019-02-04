@@ -158,7 +158,7 @@ tag_prefix[2] = debug.my.app   tag_suffix[2] = app
 
 ### enable\_ruby
 
-|	   type   default   version	|
+|	   type |  default |  version	|
 |------|---------|---------|
 |	   bool    false    0.14.0
 
@@ -186,7 +186,7 @@ nested_value ${record["payload"]["key"]}
 
 ### auto\_typecast
 
-|	   type   default   version	|
+|	   type |  default |  version	|
 |------|---------|---------|
 |	   bool    false    0.14.0
 
@@ -215,7 +215,7 @@ placeholder is used.
 
 ### renew\_record
 
-|	   type   default   version	|
+|	   type |  default |  version	|
 |------|---------|---------|
 |	   bool    false    0.14.0
 
@@ -226,7 +226,7 @@ instead.
 
 ### renew\_time\_key
 
-|	    type    default   version	|
+|	    type |   default |  version	|
 |--------|---------|---------|
 |	   string     nil     0.14.0
 
@@ -236,7 +236,7 @@ record field `foo` if exists. The value of `foo` must be a unix time.
 
 ### keep\_keys
 
-|	   type    default   version	|
+|	   type |   default |  version	|
 |-------|---------|---------|
 |	   array     nil     0.14.0
 
@@ -247,7 +247,7 @@ keep\_keys has been supported since 0.14.0
 
 ### remove\_keys
 
-|	   type    default   version	|
+|	   type |   default |  version	|
 |-------|---------|---------|
 |	   array     nil     0.14.0
 

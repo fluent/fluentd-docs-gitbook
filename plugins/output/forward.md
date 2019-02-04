@@ -81,7 +81,7 @@ The value must be `forward`.
 
 ### &lt;server&gt; (at least one is required)
 
-|	   required   multi   version	|
+|	   required |  multi |  version	|
 |----------|-------|---------|
 |	     true     true    0.14.5
 
@@ -89,7 +89,7 @@ The destination servers. Each server must have following information.
 
 #### host
 
-|	    type         default         version	|
+|	    type |        default |        version	|
 |--------|--------------------|---------|
 |	   string   required parameter   0.14.5
 
@@ -97,7 +97,7 @@ The IP address or host name of the server.
 
 #### name
 
-|	    type    default   version	|
+|	    type |   default |  version	|
 |--------|---------|---------|
 |	   string     nil     0.14.5
 
@@ -106,7 +106,7 @@ TLS transport (when host is address).
 
 #### port
 
-|	    type     default   version	|
+|	    type |    default |  version	|
 |---------|---------|---------|
 |	   integer    24224    0.14.5
 
@@ -115,7 +115,7 @@ and UDP packets (heartbeat message) are sent to this port.
 
 #### shared\_key
 
-|	    type    default   version	|
+|	    type |   default |  version	|
 |--------|---------|---------|
 |	   string     nil     0.14.5
 
@@ -123,7 +123,7 @@ The shared key per server.
 
 #### username
 
-|	    type         default        version	|
+|	    type |        default |       version	|
 |--------|-------------------|---------|
 |	   string   "" (empty string)   0.14.5
 
@@ -131,7 +131,7 @@ The username for authentication.
 
 #### password
 
-|	    type         default        version	|
+|	    type |        default |       version	|
 |--------|-------------------|---------|
 |	   string   "" (empty string)   0.14.5
 
@@ -139,7 +139,7 @@ The password for authentication.
 
 #### standby
 
-|	   type   default   version	|
+|	   type |  default |  version	|
 |------|---------|---------|
 |	   bool    false    0.14.5
 
@@ -170,7 +170,7 @@ promoted to an active node. The standby node is not used by the
 
 #### weight
 
-|	    type     default   version	|
+|	    type |    default |  version	|
 |---------|---------|---------|
 |	   integer     60      0.14.5
 
@@ -181,7 +181,7 @@ default weight is 60.
 
 ### require\_ack\_response
 
-|	   type   default   version	|
+|	   type |  default |  version	|
 |------|---------|---------|
 |	   bool    false    0.14.0
 
@@ -191,7 +191,7 @@ destination's in\_forward plugin.
 
 ### ack\_response\_timeout
 
-|	   type   default   version	|
+|	   type |  default |  version	|
 |------|---------|---------|
 |	   time     190     0.14.0
 
@@ -203,7 +203,7 @@ If set `0`, this plugin doesn't wait the ack response.
 
 ### send\_timeout
 
-|	   type   default   version	|
+|	   type |  default |  version	|
 |------|---------|---------|
 |	   time     60      0.14.0
 
@@ -212,7 +212,7 @@ The timeout time when sending event logs.
 
 ### recover\_wait
 
-|	   type   default   version	|
+|	   type |  default |  version	|
 |------|---------|---------|
 |	   time     10      0.14.0
 
@@ -231,7 +231,7 @@ heartbeat.
 
 ### heartbeat\_interval
 
-|	   type   default   version	|
+|	   type |  default |  version	|
 |------|---------|---------|
 |	   time      1      0.14.0
 
@@ -240,7 +240,7 @@ The interval of the heartbeat packer.
 
 ### phi\_failure\_detector
 
-|	   type   default   version	|
+|	   type |  default |  version	|
 |------|---------|---------|
 |	   bool    true     0.14.0
 
@@ -249,7 +249,7 @@ Use the "Phi accrual failure detector" to detect server failure.
 
 ### phi\_threshold
 
-|	    type     default   version	|
+|	    type |    default |  version	|
 |---------|---------|---------|
 |	   integer     16      0.14.0
 
@@ -264,7 +264,7 @@ destination servers. The default value 16 is tuned for
 
 ### hard\_timeout
 
-|	   type   default   version	|
+|	   type |  default |  version	|
 |------|---------|---------|
 |	   time     60      0.14.0
 
@@ -274,7 +274,7 @@ equal to the `send_timeout` parameter.
 
 ### expire\_dns\_cache
 
-|	   type          default           version	|
+|	   type |         default |          version	|
 |------|------------------------|---------|
 |	   time   nil (persistent cache)   0.14.0
 
@@ -283,7 +283,7 @@ Set TTL to expire DNS cache in seconds. Set 0 not to use DNS Cache.
 
 ### dns\_round\_robin
 
-|	   type   default   version	|
+|	   type |  default |  version	|
 |------|---------|---------|
 |	   bool    false    0.14.0
 
@@ -296,7 +296,7 @@ true\`. Use \`heartbeat\_type tcp\` or \`heartbeat\_type none\`.
 
 ### ignore\_network\_errors\_at\_startup
 
-|	   type   default   version	|
+|	   type |  default |  version	|
 |------|---------|---------|
 |	   bool    false    0.14.12
 
@@ -314,7 +314,7 @@ The default version of TLS transport.
 
 ### tls\_ciphers
 
-|	    type                          default                         version	|
+|	    type |                         default |                        version	|
 |--------|-----------------------------------------------------|---------|
 |	   string   ALL:!aNULL:!eNULL:!SSLv2 (OpenSSL \> 1.0.0 default)   0.14.12
 
@@ -323,7 +323,7 @@ The cipher configuration of TLS transport.
 
 ### tls\_insecure\_mode
 
-|	   type   default   version	|
+|	   type |  default |  version	|
 |------|---------|---------|
 |	   bool    false    0.14.12
 
@@ -332,7 +332,7 @@ Skip all verification of certificates or not.
 
 ### tls\_allow\_self\_signed\_cert
 
-|	   type   default   version	|
+|	   type |  default |  version	|
 |------|---------|---------|
 |	   bool    false    0.14.12
 
@@ -341,7 +341,7 @@ Allow self signed certificates or not.
 
 ### tls\_verify\_hostname
 
-|	   type   default   version	|
+|	   type |  default |  version	|
 |------|---------|---------|
 |	   bool    true     0.14.12
 
@@ -350,7 +350,7 @@ Verify hostname of servers and certificates or not in TLS transport.
 
 ### tls\_cert\_path
 
-|	        type         default   version	|
+|	        type |        default |  version	|
 |-----------------|---------|---------|
 |	   array of string    false    0.14.12
 
@@ -359,7 +359,7 @@ The additional CA certificate path for TLS.
 
 ### &lt;security&gt; section
 
-|	   required   multi   version	|
+|	   required |  multi |  version	|
 |----------|-------|---------|
 |	    false     false   0.14.5
 
@@ -367,7 +367,7 @@ This section contains parameters related to authentication.
 
 #### self\_hostname
 
-|	    type         default         version	|
+|	    type |        default |        version	|
 |--------|--------------------|---------|
 |	   string   required parameter   0.14.5
 
@@ -375,7 +375,7 @@ The hostname.
 
 #### shared\_key
 
-|	    type         default         version	|
+|	    type |        default |        version	|
 |--------|--------------------|---------|
 |	   string   required parameter   0.14.5
 
@@ -384,7 +384,7 @@ Shared key for authentication.
 
 ### &lt;secondary&gt;
 
-|	   required   multi   version	|
+|	   required |  multi |  version	|
 |----------|-------|---------|
 |	    false     false   0.14.0
 

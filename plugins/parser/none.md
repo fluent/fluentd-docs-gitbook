@@ -13,7 +13,7 @@ See [Parse section configurations](/configuration/parse-section.md)
 
 ### message\_key
 
-|	    type    default   version	|
+|	    type |   default |  version	|
 |--------|---------|---------|
 |	   string   message   0.14.0
 

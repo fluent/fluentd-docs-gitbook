@@ -46,7 +46,7 @@ For more details, see [Parse section configurations](/configuration/parse-sectio
 
 ### key\_name
 
-|	    type         default         version	|
+|	    type |        default |        version	|
 |--------|--------------------|---------|
 |	   string   required parameter   0.14.9
 
@@ -57,7 +57,7 @@ This parameter supports nested field access via [record\_accessor syntax](/artic
 
 ### reserve\_time
 
-|	   type   default   version	|
+|	   type |  default |  version	|
 |------|---------|---------|
 |	   bool    false    0.14.9
 
@@ -66,7 +66,7 @@ Keep original event time in parsed result.
 
 ### reserve\_data
 
-|	   type   default   version	|
+|	   type |  default |  version	|
 |------|---------|---------|
 |	   bool    false    0.14.9
 
@@ -100,7 +100,7 @@ Without `reserve_data`, result is below
 
 ### remove\_key\_name\_field
 
-|	   type   default   version	|
+|	   type |  default |  version	|
 |------|---------|---------|
 |	   bool    false     1.2.2
 
@@ -128,7 +128,7 @@ With above configuration, result is below:
 
 ### replace\_invalid\_sequence
 
-|	   type   default   version	|
+|	   type |  default |  version	|
 |------|---------|---------|
 |	   bool    false    0.14.9
 
@@ -138,7 +138,7 @@ it.
 
 ### inject\_key\_prefix
 
-|	    type    default   version	|
+|	    type |   default |  version	|
 |--------|---------|---------|
 |	   string    false    0.14.9
 
@@ -166,7 +166,7 @@ With above configuration, result is below:
 
 ### hash\_value\_field
 
-|	    type    default   version	|
+|	    type |   default |  version	|
 |--------|---------|---------|
 |	   string    false    0.14.9
 
@@ -193,7 +193,7 @@ With above configuration, result is below:
 
 ### emit\_invalid\_record\_to\_error
 
-|	   type   default   version	|
+|	   type |  default |  version	|
 |------|---------|---------|
 |	   bool    true     0.14.0
 

@@ -48,7 +48,7 @@ See [Format section configurations](/configuration/format-section.md) for more d
 
 #### @type
 
-|	    type    default   version	|
+|	    type |   default |  version	|
 |--------|---------|---------|
 |	   string   stdout    0.14.5
 
@@ -56,7 +56,7 @@ The format of output.
 
 #### output\_type
 
-|	    type    default   version	|
+|	    type |   default |  version	|
 |--------|---------|---------|
 |	   string    json     0.14.5
 

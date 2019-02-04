@@ -95,7 +95,7 @@ details.
 
 ### geoip\_database
 
-|	    type    default   version	|
+|	    type |   default |  version	|
 |--------|---------|---------|
 |	   string   bundled    1.0.0
 
@@ -104,7 +104,7 @@ Path to GeoIP database file.
 
 ### geoip2\_database
 
-|	    type    default   version	|
+|	    type |   default |  version	|
 |--------|---------|---------|
 |	   string   bundled    1.0.0
 
@@ -113,7 +113,7 @@ Path to GeoIP2 database file.
 
 ### geoip\_lookup\_key
 
-|	    type    default   version	|
+|	    type |   default |  version	|
 |--------|---------|---------|
 |	   string    host      1.0.0
 
@@ -125,7 +125,7 @@ In the case of accessing nested value, delimit keys by dot like
 
 ### skip\_adding\_null\_record
 
-|	   type   default   version	|
+|	   type |  default |  version	|
 |------|---------|---------|
 |	   bool    false     1.0.0
 

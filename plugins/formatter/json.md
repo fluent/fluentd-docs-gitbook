@@ -14,7 +14,7 @@ field.
 
 ### add\_newline
 
-|	   type   default   version	|
+|	   type |  default |  version	|
 |------|---------|---------|
 |	   bool    true     0.14.12
 

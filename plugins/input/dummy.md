@@ -41,7 +41,7 @@ The value must be `dummy`.
 
 ### tag
 
-|	    type    default   version	|
+|	    type |   default |  version	|
 |--------|---------|---------|
 |	   string   Nothing   0.14.0
 
@@ -50,7 +50,7 @@ The value is the tag assigned to the generated events.
 
 ### size
 
-|	    type     default   version	|
+|	    type |    default |  version	|
 |---------|---------|---------|
 |	   integer      1      0.14.4
 
@@ -59,7 +59,7 @@ The number of events in event stream of each emits.
 
 ### rate
 
-|	    type     default   version	|
+|	    type |    default |  version	|
 |---------|---------|---------|
 |	   integer      1      0.14.0
 
@@ -68,7 +68,7 @@ It configures how many events to generate per second.
 
 ### auto\_increment\_key
 
-|	    type    default   version	|
+|	    type |   default |  version	|
 |--------|---------|---------|
 |	   string     nil     0.14.0
 
@@ -86,7 +86,7 @@ events look like:
 
 ### suspend
 
-|	   type   default   version	|
+|	   type |  default |  version	|
 |------|---------|---------|
 |	   bool    false    0.14.2
 
@@ -95,7 +95,7 @@ The boolean to suspend-and-resume incremental value after restart.
 
 ### dummy
 
-|	    type            default            version	|
+|	    type |           default |           version	|
 |--------|--------------------------|---------|
 |	   string   `[{"message": "dummy"}]`   0.14.0
 
