@@ -10,7 +10,7 @@ See [Parse section configurations](/configuration/parse-section.md)
 
 ### delimiter
 
-    type    default   version	|
+|	    type    default   version	|
 |--------|---------|---------|
 |	   string    "\\t"    0.14.0
 
@@ -19,7 +19,7 @@ The delimiter character (or string) of TSV values
 
 ### delimiter\_pattern
 
-    type    default   version	|
+|	    type    default   version	|
 |--------|---------|---------|
 |	   regexp     nil      1.2.0
 
@@ -31,7 +31,7 @@ delimiter\_pattern is string type before 1.2.0.
 
 ### label\_delimiter
 
-    type    default   version	|
+|	    type    default   version	|
 |--------|---------|---------|
 |	   string      :      0.14.0
 

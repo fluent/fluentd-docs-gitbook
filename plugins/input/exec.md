@@ -54,7 +54,7 @@ The value must be `exec`.
 
 ### command
 
-    type         default         version	|
+|	    type         default         version	|
 |--------|--------------------|---------|
 |	   string   required parameter   0.14.0
 
@@ -63,7 +63,7 @@ The command (program) to execute.
 
 ### tag
 
-    type                       default                      version	|
+|	    type                       default                      version	|
 |--------|-----------------------------------------------|---------|
 |	   string   required if extract/tag\_key is not specified   0.14.0
 
@@ -72,7 +72,7 @@ Tag of the output events.
 
 ### run\_interval
 
-   type   default   version	|
+|	   type   default   version	|
 |------|---------|---------|
 |	   time     nil     0.14.0
 
@@ -82,7 +82,7 @@ command script runs only once.
 
 ### read\_block\_size
 
-   type   default   version	|
+|	   type   default   version	|
 |------|---------|---------|
 |	   size    10240    0.14.9
 
@@ -91,7 +91,7 @@ The default block size to read if parser requires partial read.
 
 ### &lt;parse&gt; section
 
-   required   multi   version	|
+|	   required   multi   version	|
 |----------|-------|---------|
 |	    false     false   0.14.9
 
@@ -102,7 +102,7 @@ For more details about parse section, see followings
 
 #### @type
 
-    type    default   version	|
+|	    type    default   version	|
 |--------|---------|---------|
 |	   string     tsv     0.14.9
 
@@ -110,7 +110,7 @@ Overwrite default value in this plugin.
 
 #### time\_type
 
-    type    default   version	|
+|	    type    default   version	|
 |--------|---------|---------|
 |	   string    float    0.14.9
 
@@ -118,7 +118,7 @@ Overwrite default value in this plugin.
 
 #### time\_key
 
-    type    default   version	|
+|	    type    default   version	|
 |--------|---------|---------|
 |	   string     nil     0.14.9
 
@@ -126,7 +126,7 @@ Overwrite default value in this plugin.
 
 #### estimate\_current\_event
 
-   type   default   version	|
+|	   type   default   version	|
 |------|---------|---------|
 |	   bool    false    0.14.9
 
@@ -135,7 +135,7 @@ Overwrite default value in this plugin.
 
 ### &lt;extract&gt; section
 
-   required   multi   version	|
+|	   required   multi   version	|
 |----------|-------|---------|
 |	    false     false   0.14.9
 
@@ -143,7 +143,7 @@ See [Extract section configurations](/articles/extract-section.md)
 
 #### time\_type
 
-    type    default   version	|
+|	    type    default   version	|
 |--------|---------|---------|
 |	   string    float    0.14.9
 

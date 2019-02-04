@@ -21,7 +21,7 @@ See [Parse section configurations](/configuration/parse-section.md) for common p
 
 ### expression
 
-    type         default         version	|
+|	    type         default         version	|
 |--------|--------------------|---------|
 |	   regexp   required parameter    1.2.0
 
@@ -32,7 +32,7 @@ expression is string type before 1.2.0.
 
 ### ignorecase
 
-   type   default   version	|
+|	   type   default   version	|
 |------|---------|---------|
 |	   bool    false    0.14.2
 
@@ -43,7 +43,7 @@ Deprecated since 1.2.0. Use `expression /pattern/i` instead.
 
 ### multiline
 
-   type   default   version	|
+|	   type   default   version	|
 |------|---------|---------|
 |	   bool    false    0.14.2
 

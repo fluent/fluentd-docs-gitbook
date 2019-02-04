@@ -88,7 +88,7 @@ The value must be `copy`.
 
 ### deep\_copy
 
-   type   default   version	|
+|	   type   default   version	|
 |------|---------|---------|
 |	   bool    false    0.14.0
 

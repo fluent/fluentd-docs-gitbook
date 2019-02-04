@@ -80,7 +80,7 @@ and [priority](http://en.wikipedia.org/wiki/Syslog#Severity_levels).
 
 ### port
 
-    type     default   version	|
+|	    type     default   version	|
 |---------|---------|---------|
 |	   integer    5140     0.14.0
 
@@ -89,7 +89,7 @@ The port to listen to.
 
 ### bind
 
-    type            default           version	|
+|	    type            default           version	|
 |--------|-------------------------|---------|
 |	   string   0.0.0.0 (all addresses)   0.14.0
 
@@ -98,7 +98,7 @@ The bind address to listen to.
 
 ### protocol\_type
 
-   type   default   available values   version	|
+|	   type   default   available values   version	|
 |------|---------|------------------|---------|
 |	enum     udp         udp/tcp        0.14.0
 
@@ -108,7 +108,7 @@ supported.
 
 ### message\_length\_limit
 
-   type   default   version	|
+|	   type   default   version	|
 |------|---------|---------|
 |	   size    2048     0.14.2
 
@@ -155,7 +155,7 @@ assumed to have the canonical syslog format.
 
 ### message\_format
 
-   type   default     available values    version	|
+|	   type   default     available values    version	|
 |------|---------|----------------------|---------|
 |	enum   rfc3164   rfc3164/rfc5424/auto  0.14.14
 
@@ -190,7 +190,7 @@ prefix and parse it.
 
 ### with\_priority
 
-   type   default   version	|
+|	   type   default   version	|
 |------|---------|---------|
 |	   bool    true     0.14.0
 
@@ -217,7 +217,7 @@ If you wish to parse syslog messages of arbitrary formats,
 
 ### source\_hostname\_key
 
-    type        default       version	|
+|	    type        default       version	|
 |--------|-----------------|---------|
 |	   string   nil (no assign)   0.14.0
 
@@ -227,7 +227,7 @@ hostname will be set to its key.
 
 ### source\_address\_key
 
-    type        default       version	|
+|	    type        default       version	|
 |--------|-----------------|---------|
 |	   string   nil (no assign)   0.14.0
 
@@ -237,7 +237,7 @@ address will be set to its key.
 
 ### priority\_key
 
-    type        default       version	|
+|	    type        default       version	|
 |--------|-----------------|---------|
 |	   string   nil (no assign)   0.14.10
 
@@ -247,7 +247,7 @@ set to its key.
 
 ### facility\_key
 
-    type        default       version	|
+|	    type        default       version	|
 |--------|-----------------|---------|
 |	   string   nil (no assign)   0.14.10
 

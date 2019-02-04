@@ -10,7 +10,7 @@ See [Parse section configurations](/configuration/parse-section.md)
 
 ### keys
 
-        type              default         version	|
+|	        type              default         version	|
 |-----------------|--------------------|---------|
 |	   array of string   required parameter   0.14.9
 
@@ -19,7 +19,7 @@ Names of fields included in each lines.
 
 ### delimiter
 
-    type    default   version	|
+|	    type    default   version	|
 |--------|---------|---------|
 |	   string    "\\t"    0.14.0
 

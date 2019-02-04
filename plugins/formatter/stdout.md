@@ -17,7 +17,7 @@ This plugin is only for [stdout Output Plugin](/plugins/output/stdout.md) and [s
 
 ### output\_type (string) (optional)
 
-    type    default   version	|
+|	    type    default   version	|
 |--------|---------|---------|
 |	   string    json     0.14.0
 

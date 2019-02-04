@@ -14,7 +14,7 @@ This formatter is often used in conjunction with [none parser](/plugins/parser/n
 
 ### add\_newline
 
-   type   default   version	|
+|	   type   default   version	|
 |------|---------|---------|
 |	   bool    true     0.14.0
 
@@ -24,7 +24,7 @@ Add `\n` to the result. If there is a trailing "\\n" already, set it
 
 ### message\_key
 
-    type    default   version	|
+|	    type    default   version	|
 |--------|---------|---------|
 |	   string   message   0.14.0
 

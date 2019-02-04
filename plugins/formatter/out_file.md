@@ -18,7 +18,7 @@ This format is a default format of `out_file` plugin.
 
 ### delimiter
 
-    type     default     version	|
+|	    type     default     version	|
 |--------|------------|---------|
 |	   string   "\\t"(TAB)   0.14.0
 
@@ -27,7 +27,7 @@ Delimiter for each field. "SPACE"(' ') and "COMMA"(',') are supported.
 
 ### output\_tag
 
-   type   default   version	|
+|	   type   default   version	|
 |------|---------|---------|
 |	   bool    true     0.14.0
 
@@ -36,7 +36,7 @@ Output tag field if true,
 
 ### output\_time
 
-   type   default   version	|
+|	   type   default   version	|
 |------|---------|---------|
 |	   bool    true     0.14.0
 
@@ -45,7 +45,7 @@ Output time field if true,
 
 ### time\_type
 
-   type   default   version	|
+|	   type   default   version	|
 |------|---------|---------|
 |	   enum   string    0.14.7
 
@@ -54,7 +54,7 @@ Overwrite default value in this plugin.
 
 ### time\_format
 
-    type      default      version	|
+|	    type      default      version	|
 |--------|--------------|---------|
 |	   string   nil(iso8601)   0.14.7
 

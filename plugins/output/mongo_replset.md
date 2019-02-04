@@ -74,7 +74,7 @@ The value must be `mongo`.
 
 ### nodes
 
-    type         default         version	|
+|	    type         default         version	|
 |--------|--------------------|---------|
 |	   string   required parameter    1.0.0
 
@@ -84,7 +84,7 @@ host1:27017,host2:27017,host3:27017).
 
 ### database
 
-    type         default         version	|
+|	    type         default         version	|
 |--------|--------------------|---------|
 |	   string   required parameter    1.0.0
 
@@ -93,7 +93,7 @@ The database name.
 
 ### collection
 
-    type                   default                   version	|
+|	    type                   default                   version	|
 |--------|----------------------------------------|---------|
 |	   string   required parameter if not `tag_mapped`    1.0.0
 
@@ -102,7 +102,7 @@ The collection name.
 
 ### capped
 
-    type    default    version	|
+|	    type    default    version	|
 |--------|----------|---------|
 |	   string   optional    1.0.0
 
@@ -113,7 +113,7 @@ data.
 
 ### capped\_size
 
-   type   default    version	|
+|	   type   default    version	|
 |------|----------|---------|
 |	   size   optional    1.0.0
 
@@ -122,7 +122,7 @@ Sets the capped collection size.
 
 ### user
 
-    type    default    version	|
+|	    type    default    version	|
 |--------|----------|---------|
 |	   string   optional    1.0.0
 
@@ -131,7 +131,7 @@ The username to use for authentication.
 
 ### password
 
-    type    default    version	|
+|	    type    default    version	|
 |--------|----------|---------|
 |	   string   optional    1.0.0
 
@@ -140,7 +140,7 @@ The password to use for authentication.
 
 ### tag\_mapped
 
-    type    default    version	|
+|	    type    default    version	|
 |--------|----------|---------|
 |	   string   optional    1.0.0
 
@@ -172,7 +172,7 @@ database.
 
 ### replica\_set
 
-    type         default         version	|
+|	    type         default         version	|
 |--------|--------------------|---------|
 |	   string   required parameter    1.0.0
 
@@ -181,7 +181,7 @@ The name of the replica set.
 
 ### read
 
-    type    default   version	|
+|	    type    default   version	|
 |--------|---------|---------|
 |	   string    `nil`     1.0.0
 
@@ -190,7 +190,7 @@ The ReplicaSet read preference (e.g. secondary, etc).
 
 ### num\_retries
 
-    type     default   version	|
+|	    type     default   version	|
 |---------|---------|---------|
 |	   integer     60       1.0.0
 

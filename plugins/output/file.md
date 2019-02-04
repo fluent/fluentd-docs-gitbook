@@ -52,7 +52,7 @@ The value must be `file`.
 
 ### path
 
-    type         default         version	|
+|	    type         default         version	|
 |--------|--------------------|---------|
 |	   string   required parameter   0.14.0
 
@@ -83,7 +83,7 @@ see the output file without the trailing identifier.
 
 ### append
 
-   type   default   version	|
+|	   type   default   version	|
 |------|---------|---------|
 |	   bool    false    0.14.0
 
@@ -136,7 +136,7 @@ Deprecated parameter. Use `timekey_use_utc` in `<buffer>` instead.
 
 ### add\_path\_suffix
 
-   type   default   version	|
+|	   type   default   version	|
 |------|---------|---------|
 |	   bool    true     0.14.9
 
@@ -145,7 +145,7 @@ Add path suffix or not. See also `path_suffix` parameter.
 
 ### path\_suffix
 
-    type    default   version	|
+|	    type    default   version	|
 |--------|---------|---------|
 |	   string   ".log"    0.14.9
 

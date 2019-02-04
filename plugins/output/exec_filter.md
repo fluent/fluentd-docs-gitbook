@@ -68,7 +68,7 @@ The value must be `exec_filter`.
 
 ### command
 
-    type         default         version	|
+|	    type         default         version	|
 |--------|--------------------|---------|
 |	   string   required parameter   0.14.0
 
@@ -79,7 +79,7 @@ from the program output.
 
 ### num\_children
 
-    type     default   version	|
+|	    type     default   version	|
 |---------|---------|---------|
 |	   integer      1      0.14.0
 
@@ -91,7 +91,7 @@ robin fashion.
 
 ### child\_respawn
 
-    type    default   version	|
+|	    type    default   version	|
 |--------|---------|---------|
 |	   string     nil     0.14.0
 
@@ -103,7 +103,7 @@ If you specify `inf` or `-1`, try to respawn forever.
 
 ### tag
 
-    type    default   version	|
+|	    type    default   version	|
 |--------|---------|---------|
 |	   string     nil     0.14.0
 
@@ -112,7 +112,7 @@ The tag of the event.
 
 ### read\_block\_size
 
-   type   default   version	|
+|	   type   default   version	|
 |------|---------|---------|
 |	   size    10240    0.14.9
 
@@ -121,7 +121,7 @@ The default block size to read if parser requires partial read.
 
 ### num\_children
 
-    type     default   version	|
+|	    type     default   version	|
 |---------|---------|---------|
 |	   integer      1      0.14.0
 
@@ -130,7 +130,7 @@ The number of spawned process for command.
 
 ### suppress\_error\_log\_interval
 
-   type   default   version	|
+|	   type   default   version	|
 |------|---------|---------|
 |	   time      0      0.14.0
 
@@ -161,7 +161,7 @@ See [Format section configurations](/configuration/format-section.md) for more d
 
 #### @type
 
-    type    default   version	|
+|	    type    default   version	|
 |--------|---------|---------|
 |	   string     tsv     0.14.9
 
@@ -176,7 +176,7 @@ See [Parse section configurations](/configuration/parse-section.md) for more det
 
 #### @type
 
-    type    default   version	|
+|	    type    default   version	|
 |--------|---------|---------|
 |	   string     tsv     0.14.9
 
@@ -184,7 +184,7 @@ Overwrite default value in this plugin.
 
 #### time\_key
 
-    type    default   version	|
+|	    type    default   version	|
 |--------|---------|---------|
 |	   string     nil     0.14.9
 
@@ -192,7 +192,7 @@ Overwrite default value in this plugin.
 
 #### time\_format
 
-    type    default   version	|
+|	    type    default   version	|
 |--------|---------|---------|
 |	   string     nil     0.14.9
 
@@ -200,7 +200,7 @@ Overwrite default value in this plugin.
 
 #### localtime
 
-   type   default   version	|
+|	   type   default   version	|
 |------|---------|---------|
 |	   bool    false    0.14.9
 
@@ -213,7 +213,7 @@ See [Inject section configurations](/articles/inject-section.md) for more detail
 
 #### time\_type
 
-   type   default   version	|
+|	   type   default   version	|
 |------|---------|---------|
 |	   enum    float    0.14.9
 
@@ -226,7 +226,7 @@ See [Extract section configurations](/articles/extract-section.md) for more deta
 
 #### time\_type
 
-   type   default   version	|
+|	   type   default   version	|
 |------|---------|---------|
 |	   enum    float    0.14.9
 
@@ -238,7 +238,7 @@ See [Buffer section configurations](/configuration/buffer-section.md) for more d
 
 #### flush\_mode
 
-   type   default    version	|
+|	   type   default    version	|
 |------|----------|---------|
 |	   enum   interval   0.14.9
 
@@ -246,7 +246,7 @@ Overwrite default value in this plugin.
 
 #### flush\_interval
 
-    type     default   version	|
+|	    type     default   version	|
 |---------|---------|---------|
 |	   integer      1      0.14.9
 

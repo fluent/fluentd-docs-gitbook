@@ -70,7 +70,7 @@ The value must be `http`.
 
 ### port
 
-    type     default   version	|
+|	    type     default   version	|
 |---------|---------|---------|
 |	   integer    9880     0.14.0
 
@@ -79,7 +79,7 @@ The port to listen to.
 
 ### bind
 
-    type            default           version	|
+|	    type            default           version	|
 |--------|-------------------------|---------|
 |	   string   0.0.0.0 (all addresses)   0.14.0
 
@@ -88,7 +88,7 @@ The bind address to listen to.
 
 ### body\_size\_limit
 
-   type   default   version	|
+|	   type   default   version	|
 |------|---------|---------|
 |	   size    32MB     0.14.0
 
@@ -97,7 +97,7 @@ The size limit of the POSTed element.
 
 ### keepalive\_timeout
 
-   type     default      version	|
+|	   type     default      version	|
 |------|--------------|---------|
 |	   size   10 (seconds)   0.14.0
 
@@ -106,7 +106,7 @@ The timeout limit for keeping the connection alive.
 
 ### add\_http\_headers
 
-   type   default   version	|
+|	   type   default   version	|
 |------|---------|---------|
 |	   bool    false    0.14.0
 
@@ -115,7 +115,7 @@ Add `HTTP_` prefix headers to the record.
 
 ### add\_remote\_addr
 
-   type   default   version	|
+|	   type   default   version	|
 |------|---------|---------|
 |	   bool    false    0.14.0
 
@@ -135,7 +135,7 @@ If send above multiple headers, `REMOTE_ADDR` value is `host1`.
 
 ### cors\_allow\_origins
 
-   type       default      version	|
+|	   type       default      version	|
 |-------|---------------|---------|
 |	   array   nil(disabled)   0.14.0
 
@@ -157,7 +157,7 @@ the following example).
 
 ### respond\_with\_empty\_img
 
-   type   default   version	|
+|	   type   default   version	|
 |------|---------|---------|
 |	   bool    false    0.12.0
 
@@ -253,7 +253,7 @@ This significantly improves the throughput since it reduces the number
 of HTTP requests. Here is a simple bechmark result on MacBook Pro with
 ruby 2.3:
 
-  json              msgpack           msgpack array(10 items)	|
+|	  json              msgpack           msgpack array(10 items)	|
 |-----------------|-----------------|-------------------------|
 |	  2100 events/sec   2400 events/sec   10000 events/sec
 

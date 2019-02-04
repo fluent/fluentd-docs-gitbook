@@ -53,7 +53,7 @@ The value must be `udp`.
 
 ### tag
 
-    type         default         version	|
+|	    type         default         version	|
 |--------|--------------------|---------|
 |	   string   required parameter   0.14.0
 
@@ -62,7 +62,7 @@ tag of output events.
 
 ### port
 
-    type     default   version	|
+|	    type     default   version	|
 |---------|---------|---------|
 |	   integer    5160     0.14.0
 
@@ -71,7 +71,7 @@ The port to listen to. Default Value = 5160
 
 ### bind
 
-    type            default           version	|
+|	    type            default           version	|
 |--------|-------------------------|---------|
 |	   string   0.0.0.0 (all addresses)   0.14.0
 
@@ -80,7 +80,7 @@ The bind address to listen to.
 
 ### source\_hostname\_key
 
-    type            default            version	|
+|	    type            default            version	|
 |--------|--------------------------|---------|
 |	   string   nil (no adding hostname)   0.14.10
 
@@ -106,7 +106,7 @@ then the client's hostname is set to `client_host` field.
 
 ### message\_length\_limit
 
-   type   default   version	|
+|	   type   default   version	|
 |------|---------|---------|
 |	   size    4096     0.14.14
 
@@ -115,7 +115,7 @@ The max bytes of message
 
 ### remove\_newline
 
-   type   default   version	|
+|	   type   default   version	|
 |------|---------|---------|
 |	   bool    true     0.14.23
 
@@ -124,7 +124,7 @@ Remove newline from the end of incoming payload
 
 ### &lt;parse&gt; section
 
-   required   multi   version	|
+|	   required   multi   version	|
 |----------|-------|---------|
 |	     true     false   0.14.10
 

@@ -31,7 +31,7 @@ with each new line.
 
 ### formatN
 
-    type         default         version	|
+|	    type         default         version	|
 |--------|--------------------|---------|
 |	   string   required parameter   0.14.0
 

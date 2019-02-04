@@ -59,7 +59,7 @@ The value must be `tail`.
 
 ### tag
 
-    type         default         version	|
+|	    type         default         version	|
 |--------|--------------------|---------|
 |	   string   required parameter   0.14.0
 
@@ -79,7 +79,7 @@ in\_tail emits the parsed events with the 'foo.path.to.file' tag.
 
 ### path
 
-    type         default         version	|
+|	    type         default         version	|
 |--------|--------------------|---------|
 |	   string   required parameter   0.14.0
 
@@ -109,7 +109,7 @@ configuration.
 
 ### exclude\_path
 
-   type      default      version	|
+|	   type      default      version	|
 |-------|--------------|---------|
 |	   array   \[\] (empty)   0.14.0
 
@@ -127,7 +127,7 @@ takes it as a string.
 
 ### refresh\_interval
 
-   type     default      version	|
+|	   type     default      version	|
 |------|--------------|---------|
 |	   time   60 (seconds)   0.14.0
 
@@ -137,7 +137,7 @@ path includes `*`.
 
 ### limit\_recently\_modified
 
-   type      default       version	|
+|	   type      default       version	|
 |------|----------------|---------|
 |	   time   nil (disabled)   0.14.13
 
@@ -147,7 +147,7 @@ specified time range when use `*` in `path` parameter.
 
 ### skip\_refresh\_on\_startup
 
-   type   default   version	|
+|	   type   default   version	|
 |------|---------|---------|
 |	   bool    false    0.14.13
 
@@ -157,7 +157,7 @@ time when use `*` in `path`.
 
 ### read\_from\_head
 
-   type   default   version	|
+|	   type   default   version	|
 |------|---------|---------|
 |	   bool    false    0.14.0
 
@@ -174,7 +174,7 @@ isn't executed until reading file is finished.
 
 ### encoding, from\_encoding
 
-    type                   default                  version	|
+|	    type                   default                  version	|
 |--------|---------------------------------------|---------|
 |	   string   nil (string encoding is `ASCII-8BIT`)   0.14.0
 
@@ -199,7 +199,7 @@ $ ruby -e 'p Encoding.name_list.sort'
 
 ### read\_lines\_limit
 
-    type     default   version	|
+|	    type     default   version	|
 |---------|---------|---------|
 |	   integer    1000     0.14.0
 
@@ -211,7 +211,7 @@ with in\_tail, set smaller value.
 
 ### multiline\_flush\_interval
 
-   type      default       version	|
+|	   type      default       version	|
 |------|----------------|---------|
 |	   time   nil (disabled)   0.14.0
 
@@ -224,7 +224,7 @@ event after 5 seconds from last emit. This option is useful when you use
 
 ### pos\_file (highly recommended)
 
-    type    default   version	|
+|	    type    default   version	|
 |--------|---------|---------|
 |	   string     nil     0.14.0
 
@@ -277,7 +277,7 @@ Deprecated parameter. Use `<parse>` instead.
 
 ### path\_key
 
-    type        default       version	|
+|	    type        default       version	|
 |--------|-----------------|---------|
 |	   string   nil (no assign)   0.14.0
 
@@ -294,7 +294,7 @@ With this config, generated events are like
 
 ### rotate\_wait
 
-   type     default     version	|
+|	   type     default     version	|
 |------|-------------|---------|
 |	   time   5 (seconds)   0.14.0
 
@@ -313,7 +313,7 @@ number of seconds you want this time interval to be.
 
 ### enable\_watch\_timer
 
-   type   default   version	|
+|	   type   default   version	|
 |------|---------|---------|
 |	   bool    true     0.14.0
 
@@ -336,7 +336,7 @@ may be disabled by default.
 
 ### enable\_stat\_watcher
 
-   type   default   version	|
+|	   type   default   version	|
 |------|---------|---------|
 |	   bool    true      1.0.1
 
@@ -349,7 +349,7 @@ This option is mainly for avoiding stuck issue with inotify.
 
 ### open\_on\_every\_update
 
-   type   default   version	|
+|	   type   default   version	|
 |------|---------|---------|
 |	   bool    false    0.14.12
 
@@ -359,7 +359,7 @@ it gets rotated.
 
 ### emit\_unmatched\_lines
 
-   type   default   version	|
+|	   type   default   version	|
 |------|---------|---------|
 |	   bool    false    0.14.12
 
@@ -372,7 +372,7 @@ Emitted record is `{"unmatched_line" : incoming line}`, e.g.
 
 ### ignore\_repeated\_permission\_error
 
-   type   default   version	|
+|	   type   default   version	|
 |------|---------|---------|
 |	   bool    false    0.14.0
 

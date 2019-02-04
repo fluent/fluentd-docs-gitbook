@@ -86,7 +86,7 @@ The value must be `mongo`.
 
 ### host
 
-    type      default     version	|
+|	    type      default     version	|
 |--------|-------------|---------|
 |	   string   'localhost'    1.0.0
 
@@ -95,7 +95,7 @@ The MongoDB hostname.
 
 ### port (required)
 
-    type     default   version	|
+|	    type     default   version	|
 |---------|---------|---------|
 |	   integer    27017     1.0.0
 
@@ -104,7 +104,7 @@ The MongoDB port.
 
 ### database
 
-    type         default         version	|
+|	    type         default         version	|
 |--------|--------------------|---------|
 |	   string   required parameter    1.0.0
 
@@ -113,7 +113,7 @@ The database name.
 
 ### collection (required, if not tag\_mapped)
 
-    type                          default                          version	|
+|	    type                          default                          version	|
 |--------|------------------------------------------------------|---------|
 |	   string   'untagged' or required parameter if not `tag_mapped`    1.0.0
 
@@ -122,7 +122,7 @@ The collection name.
 
 ### capped
 
-    type    default    version	|
+|	    type    default    version	|
 |--------|----------|---------|
 |	   string   optional    1.0.0
 
@@ -132,7 +132,7 @@ data.
 
 #### capped\_size
 
-   type   default    version	|
+|	   type   default    version	|
 |------|----------|---------|
 |	   size   optional    1.0.0
 
@@ -141,7 +141,7 @@ Sets the capped collection size.
 
 ### user
 
-    type    default   version	|
+|	    type    default   version	|
 |--------|---------|---------|
 |	   string    `nil`     1.0.0
 
@@ -150,7 +150,7 @@ The username to use for authentication.
 
 ### password
 
-    type    default   version	|
+|	    type    default   version	|
 |--------|---------|---------|
 |	   string    `nil`     1.0.0
 
@@ -159,7 +159,7 @@ The password to use for authentication.
 
 ### time\_key
 
-    type    default   version	|
+|	    type    default   version	|
 |--------|---------|---------|
 |	   string   `time`     1.0.0
 
@@ -168,7 +168,7 @@ The key name of timestamp. (default is "time")
 
 ### tag\_mapped
 
-   type   default   version	|
+|	   type   default   version	|
 |------|---------|---------|
 |	   bool   `false`    1.0.0
 

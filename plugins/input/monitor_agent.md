@@ -46,7 +46,7 @@ The value must be `monitor_agent`.
 
 ### port
 
-    type     default   version	|
+|	    type     default   version	|
 |---------|---------|---------|
 |	   integer    24220    0.14.0
 
@@ -55,7 +55,7 @@ The port to listen to.
 
 ### bind
 
-    type            default           version	|
+|	    type            default           version	|
 |--------|-------------------------|---------|
 |	   string   0.0.0.0 (all addresses)   0.14.0
 
@@ -64,7 +64,7 @@ The bind address to listen to.
 
 ### tag
 
-    type    default   version	|
+|	    type    default   version	|
 |--------|---------|---------|
 |	   string     nil     0.14.0
 
@@ -74,7 +74,7 @@ If you set this parameter, this plugin emits metrics as records. See
 
 ### emit\_interval
 
-    type     default   version	|
+|	    type     default   version	|
 |---------|---------|---------|
 |	   integer     60      0.14.0
 
@@ -84,7 +84,7 @@ configured.
 
 ### include\_config
 
-   type   default   version	|
+|	   type   default   version	|
 |------|---------|---------|
 |	   bool    true     0.14.0
 
@@ -94,7 +94,7 @@ response.
 
 ### include\_retry
 
-   type   default   version	|
+|	   type   default   version	|
 |------|---------|---------|
 |	   bool    true     0.14.11
 
@@ -211,7 +211,7 @@ append `debug=1` to the request URL to get the verbose internal metrics.
 $ curl http://localhost:24220/api/plugins.json?debug=1
 ```
 
-The following list shows the available query parameters.
+|	The following list shows the available query parameters.
 
   Parameter       Value            Explanation	|
 |---------------|----------------|--------------------------------------------------------|

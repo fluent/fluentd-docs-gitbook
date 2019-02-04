@@ -57,7 +57,7 @@ See [Buffer section configurations](/configuration/buffer-section.md) for more d
 
 #### chunk\_keys
 
-   type    default   version	|
+|	   type    default   version	|
 |-------|---------|---------|
 |	   array     tag     0.14.5
 
@@ -65,7 +65,7 @@ Overwrite default value in this plugin.
 
 #### flush\_at\_shutdown
 
-   type   default   version	|
+|	   type   default   version	|
 |------|---------|---------|
 |	   bool    true     0.14.5
 
@@ -73,7 +73,7 @@ Overwrite default value in this plugin.
 
 #### chunk\_limit\_size
 
-   type   default   version	|
+|	   type   default   version	|
 |------|---------|---------|
 |	   size    10240    0.14.5
 
@@ -86,7 +86,7 @@ See [Format section configurations](/configuration/format-section.md) for more d
 
 #### @type
 
-    type    default   version	|
+|	    type    default   version	|
 |--------|---------|---------|
 |	   string   stdout    0.14.5
 
@@ -94,7 +94,7 @@ The format of output.
 
 #### output\_type
 
-    type    default   version	|
+|	    type    default   version	|
 |--------|---------|---------|
 |	   string    json     0.14.5
 

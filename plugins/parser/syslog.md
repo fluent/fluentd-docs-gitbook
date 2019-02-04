@@ -11,7 +11,7 @@ See [Parse section configurations](/configuration/parse-section.md)
 
 ### time\_format
 
-    type        default       version	|
+|	    type        default       version	|
 |--------|-----------------|---------|
 |	   string   \%b %d %H:%M:%S   0.14.10
 
@@ -21,7 +21,7 @@ rfc3164 protocol.
 
 ### rfc5424\_time\_format
 
-    type            default           version	|
+|	    type            default           version	|
 |--------|-------------------------|---------|
 |	   string   \%Y-%m-%dT%H:%M:%S.%L%z   0.14.14
 
@@ -30,7 +30,7 @@ Specify time format for event time for rfc5424 protocol.
 
 ### message\_format
 
-    type    default   version	|
+|	    type    default   version	|
 |--------|---------|---------|
 |	   string   rfc3164   0.14.14
 
@@ -47,7 +47,7 @@ via syslog don't have `<9>` like priority prefix.
 
 ### with\_priority
 
-   type   default   version	|
+|	   type   default   version	|
 |------|---------|---------|
 |	   bool    false    0.14.0
 

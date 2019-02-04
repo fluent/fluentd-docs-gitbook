@@ -160,7 +160,7 @@ Specify filtering rule. This directive contains two parameters.
 
 #### key
 
-    type         default         version	|
+|	    type         default         version	|
 |--------|--------------------|---------|
 |	   string   required parameter   0.14.19
 
@@ -170,7 +170,7 @@ This parameter supports nested field access via [record\_accessor syntax](/artic
 
 #### pattern
 
-    type         default         version	|
+|	    type         default         version	|
 |--------|--------------------|---------|
 |	   regexp   required parameter    1.2.0
 
@@ -268,7 +268,7 @@ parameters.
 
 #### key
 
-    type         default         version	|
+|	    type         default         version	|
 |--------|--------------------|---------|
 |	   string   required parameter   0.14.19
 
@@ -278,7 +278,7 @@ This parameter supports nested field access via [record\_accessor syntax](/artic
 
 #### pattern
 
-    type         default         version	|
+|	    type         default         version	|
 |--------|--------------------|---------|
 |	   regexp   required parameter    1.2.0
 
