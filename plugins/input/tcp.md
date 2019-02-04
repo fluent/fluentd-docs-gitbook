@@ -67,36 +67,36 @@ The value must be `tcp`.
 
 ### tag
 
-    type         default         version
-  -------- -------------------- ---------
-   string   required parameter   0.14.0
+    type         default         version	|
+|--------|--------------------|---------|
+|	   string   required parameter   0.14.0
 
 tag of output events.
 
 
 ### port
 
-    type     default   version
-  --------- --------- ---------
-   integer    5170     0.14.0
+    type     default   version	|
+|---------|---------|---------|
+|	   integer    5170     0.14.0
 
 The port to listen to.
 
 
 ### bind
 
-    type            default           version
-  -------- ------------------------- ---------
-   string   0.0.0.0 (all addresses)   0.14.0
+    type            default           version	|
+|--------|-------------------------|---------|
+|	   string   0.0.0.0 (all addresses)   0.14.0
 
 The bind address to listen to.
 
 
 ### source\_hostname\_key
 
-    type            default            version
-  -------- -------------------------- ---------
-   string   nil (no adding hostname)   0.14.10
+    type            default            version	|
+|--------|--------------------------|---------|
+|	   string   nil (no adding hostname)   0.14.10
 
 The field name of the client's hostname. If set the value, the client's
 hostname will be set to its key. The default is nil (no adding
@@ -121,9 +121,9 @@ then the client's hostname is set to `client_host` field.
 
 ### &lt;parse&gt; section
 
-   required   multi   version
-  ---------- ------- ---------
-     true     false   0.14.10
+   required   multi   version	|
+|----------|-------|---------|
+|	     true     false   0.14.10
 
 `in_tcp` uses parser plugin to parse the payload.
 

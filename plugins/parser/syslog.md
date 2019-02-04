@@ -11,9 +11,9 @@ See [Parse section configurations](/configuration/parse-section.md)
 
 ### time\_format
 
-    type        default       version
-  -------- ----------------- ---------
-   string   \%b %d %H:%M:%S   0.14.10
+    type        default       version	|
+|--------|-----------------|---------|
+|	   string   \%b %d %H:%M:%S   0.14.10
 
 Specify time format for event time. Default is "%b %d %H:%M:%S" for
 rfc3164 protocol.
@@ -21,18 +21,18 @@ rfc3164 protocol.
 
 ### rfc5424\_time\_format
 
-    type            default           version
-  -------- ------------------------- ---------
-   string   \%Y-%m-%dT%H:%M:%S.%L%z   0.14.14
+    type            default           version	|
+|--------|-------------------------|---------|
+|	   string   \%Y-%m-%dT%H:%M:%S.%L%z   0.14.14
 
 Specify time format for event time for rfc5424 protocol.
 
 
 ### message\_format
 
-    type    default   version
-  -------- --------- ---------
-   string   rfc3164   0.14.14
+    type    default   version	|
+|--------|---------|---------|
+|	   string   rfc3164   0.14.14
 
 Specify protocol format. Supported values are `rfc3164`, `rfc5424` and
 `auto`. Default is `rfc3164`. If your syslog uses `rfc5424`, use
@@ -47,9 +47,9 @@ via syslog don't have `<9>` like priority prefix.
 
 ### with\_priority
 
-   type   default   version
-  ------ --------- ---------
-   bool    false    0.14.0
+   type   default   version	|
+|------|---------|---------|
+|	   bool    false    0.14.0
 
 If the incoming logs have priority prefix, e.g. \<9\>, set `true`.
 Default is `false`.

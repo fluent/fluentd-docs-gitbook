@@ -15,27 +15,27 @@ as enabling RPC, multiple workers, to obtain dump.
 
 ### workers
 
-    type     default   version
-  --------- --------- ---------
-   integer      1      0.14.12
+    type     default   version	|
+|---------|---------|---------|
+|	   integer      1      0.14.12
 
 Specify number of workers.
 
 
 ### root\_dir
 
-    type    default   version
-  -------- --------- ---------
-   string     nil     0.14.11
+    type    default   version	|
+|--------|---------|---------|
+|	   string     nil     0.14.11
 
 Specify root directory.
 
 
 ### log\_level
 
-   type   default   version
-  ------ --------- ---------
-   enum     nil     0.14.0
+   type   default   version	|
+|------|---------|---------|
+|	   enum     nil     0.14.0
 
 Specify log\_level. Users can choose `trace`, `debug`, `info`, `warn`,
 `error`, and `fatal` level.
@@ -43,90 +43,90 @@ Specify log\_level. Users can choose `trace`, `debug`, `info`, `warn`,
 
 ### suppress\_repeated\_stacktrace
 
-   type   default   version
-  ------ --------- ---------
-   bool     nil     0.14.0
+   type   default   version	|
+|------|---------|---------|
+|	   bool     nil     0.14.0
 
 Suppress repeated stacktrace.
 
 
 ### emit\_error\_log\_interval
 
-   type   default   version
-  ------ --------- ---------
-   time     nil     0.14.0
+   type   default   version	|
+|------|---------|---------|
+|	   time     nil     0.14.0
 
 Specify time value of emitting error log interval.
 
 
 ### suppress\_config\_dump
 
-   type   default   version
-  ------ --------- ---------
-   bool     nil     0.14.0
+   type   default   version	|
+|------|---------|---------|
+|	   bool     nil     0.14.0
 
 Suppress config dump.
 
 
 ### log\_event\_verbose
 
-   type   default   version
-  ------ --------- ---------
-   bool     nil     0.14.12
+   type   default   version	|
+|------|---------|---------|
+|	   bool     nil     0.14.12
 
 Log event verbose.
 
 
 ### without\_source
 
-   type   default   version
-  ------ --------- ---------
-   bool     nil     0.14.0
+   type   default   version	|
+|------|---------|---------|
+|	   bool     nil     0.14.0
 
 Invoke a fluentd without input plugins.
 
 
 ### rpc\_endpoint
 
-    type    default   version
-  -------- --------- ---------
-   string     nil     0.14.0
+    type    default   version	|
+|--------|---------|---------|
+|	   string     nil     0.14.0
 
 Specify RPC endpoint. In more detail, please refer to [RPC document](/deployment/rpc.md).
 
 
 ### enable\_get\_dump
 
-   type   default   version
-  ------ --------- ---------
-   bool     nil     0.14.0
+   type   default   version	|
+|------|---------|---------|
+|	   bool     nil     0.14.0
 
 Enabling to get dump.
 
 
 ### process\_name
 
-    type    default   version
-  -------- --------- ---------
-   string     nil     0.14.0
+    type    default   version	|
+|--------|---------|---------|
+|	   string     nil     0.14.0
 
 Specify process name.
 
 
 ### file\_permission
 
-    type    default   version
-  -------- --------- ---------
-   string     nil     0.14.0
+    type    default   version	|
+|--------|---------|---------|
+|	   string     nil     0.14.0
 
 Specify file permission with octal.
 
 
 ### dir\_permission
 
-    type    default   version
-  -------- --------- ---------
-   string     nil     0.14.0
+    type    default   version	|
+|--------|---------|---------|
+|	   string     nil     0.14.0
 
 Specify directory permission with octal.
 
@@ -135,17 +135,17 @@ Specify directory permission with octal.
 
 #### format
 
-   type   default   version
-  ------ --------- ---------
-   enum    text     0.14.20
+   type   default   version	|
+|------|---------|---------|
+|	   enum    text     0.14.20
 
 Specify logging format. Users can choose `text` and `json` format.
 
 #### time\_format
 
-    type           default           version
-  -------- ------------------------ ---------
-   string   `%Y-%m-%d %H:%M:%S %z`   0.14.20
+    type           default           version	|
+|--------|------------------------|---------|
+|	   string   `%Y-%m-%d %H:%M:%S %z`   0.14.20
 
 Specify time format.
 

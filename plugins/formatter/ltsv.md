@@ -15,27 +15,27 @@ field1[label_delimiter]value1[delimiter]field2[label_delimiter]value2\n
 
 ### delimiter
 
-    type     default     version
-  -------- ------------ ---------
-   string   "\\t"(TAB)   0.14.0
+    type     default     version	|
+|--------|------------|---------|
+|	   string   "\\t"(TAB)   0.14.0
 
 Delimiter for fields.
 
 
 ### label\_delimiter
 
-    type    default   version
-  -------- --------- ---------
-   string      :      0.14.0
+    type    default   version	|
+|--------|---------|---------|
+|	   string      :      0.14.0
 
 Delimiter for key value field.
 
 
 ### add\_newline
 
-   type   default   version
-  ------ --------- ---------
-   bool    true     0.14.12
+   type   default   version	|
+|------|---------|---------|
+|	   bool    true     0.14.12
 
 Add `\n` to the result.
 

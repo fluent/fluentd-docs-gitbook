@@ -41,36 +41,36 @@ The value must be `dummy`.
 
 ### tag
 
-    type    default   version
-  -------- --------- ---------
-   string   Nothing   0.14.0
+    type    default   version	|
+|--------|---------|---------|
+|	   string   Nothing   0.14.0
 
 The value is the tag assigned to the generated events.
 
 
 ### size
 
-    type     default   version
-  --------- --------- ---------
-   integer      1      0.14.4
+    type     default   version	|
+|---------|---------|---------|
+|	   integer      1      0.14.4
 
 The number of events in event stream of each emits.
 
 
 ### rate
 
-    type     default   version
-  --------- --------- ---------
-   integer      1      0.14.0
+    type     default   version	|
+|---------|---------|---------|
+|	   integer      1      0.14.0
 
 It configures how many events to generate per second.
 
 
 ### auto\_increment\_key
 
-    type    default   version
-  -------- --------- ---------
-   string     nil     0.14.0
+    type    default   version	|
+|--------|---------|---------|
+|	   string     nil     0.14.0
 
 If specified, each generated event has an auto-incremented key field.
 
@@ -86,18 +86,18 @@ events look like:
 
 ### suspend
 
-   type   default   version
-  ------ --------- ---------
-   bool    false    0.14.2
+   type   default   version	|
+|------|---------|---------|
+|	   bool    false    0.14.2
 
 The boolean to suspend-and-resume incremental value after restart.
 
 
 ### dummy
 
-    type            default            version
-  -------- -------------------------- ---------
-   string   `[{"message": "dummy"}]`   0.14.0
+    type            default            version	|
+|--------|--------------------------|---------|
+|	   string   `[{"message": "dummy"}]`   0.14.0
 
 The dummy data to be generated. It should be either an array of JSON
 hashes or a single JSON hash. If it is an array of JSON hashes, the

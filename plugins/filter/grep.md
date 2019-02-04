@@ -160,9 +160,9 @@ Specify filtering rule. This directive contains two parameters.
 
 #### key
 
-    type         default         version
-  -------- -------------------- ---------
-   string   required parameter   0.14.19
+    type         default         version	|
+|--------|--------------------|---------|
+|	   string   required parameter   0.14.19
 
 The field name to which the regular expression is applied.
 
@@ -170,9 +170,9 @@ This parameter supports nested field access via [record\_accessor syntax](/artic
 
 #### pattern
 
-    type         default         version
-  -------- -------------------- ---------
-   regexp   required parameter    1.2.0
+    type         default         version	|
+|--------|--------------------|---------|
+|	   regexp   required parameter    1.2.0
 
 The regular expression.
 
@@ -268,9 +268,9 @@ parameters.
 
 #### key
 
-    type         default         version
-  -------- -------------------- ---------
-   string   required parameter   0.14.19
+    type         default         version	|
+|--------|--------------------|---------|
+|	   string   required parameter   0.14.19
 
 The field name to which the regular expression is applied.
 
@@ -278,9 +278,9 @@ This parameter supports nested field access via [record\_accessor syntax](/artic
 
 #### pattern
 
-    type         default         version
-  -------- -------------------- ---------
-   regexp   required parameter    1.2.0
+    type         default         version	|
+|--------|--------------------|---------|
+|	   regexp   required parameter    1.2.0
 
 The regular expression.
 

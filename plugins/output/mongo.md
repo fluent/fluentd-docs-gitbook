@@ -86,45 +86,45 @@ The value must be `mongo`.
 
 ### host
 
-    type      default     version
-  -------- ------------- ---------
-   string   'localhost'    1.0.0
+    type      default     version	|
+|--------|-------------|---------|
+|	   string   'localhost'    1.0.0
 
 The MongoDB hostname.
 
 
 ### port (required)
 
-    type     default   version
-  --------- --------- ---------
-   integer    27017     1.0.0
+    type     default   version	|
+|---------|---------|---------|
+|	   integer    27017     1.0.0
 
 The MongoDB port.
 
 
 ### database
 
-    type         default         version
-  -------- -------------------- ---------
-   string   required parameter    1.0.0
+    type         default         version	|
+|--------|--------------------|---------|
+|	   string   required parameter    1.0.0
 
 The database name.
 
 
 ### collection (required, if not tag\_mapped)
 
-    type                          default                          version
-  -------- ------------------------------------------------------ ---------
-   string   'untagged' or required parameter if not `tag_mapped`    1.0.0
+    type                          default                          version	|
+|--------|------------------------------------------------------|---------|
+|	   string   'untagged' or required parameter if not `tag_mapped`    1.0.0
 
 The collection name.
 
 
 ### capped
 
-    type    default    version
-  -------- ---------- ---------
-   string   optional    1.0.0
+    type    default    version	|
+|--------|----------|---------|
+|	   string   optional    1.0.0
 
 This option enables capped collection. This is always recommended
 because MongoDB is not suited to storing large amounts of historical
@@ -132,45 +132,45 @@ data.
 
 #### capped\_size
 
-   type   default    version
-  ------ ---------- ---------
-   size   optional    1.0.0
+   type   default    version	|
+|------|----------|---------|
+|	   size   optional    1.0.0
 
 Sets the capped collection size.
 
 
 ### user
 
-    type    default   version
-  -------- --------- ---------
-   string    `nil`     1.0.0
+    type    default   version	|
+|--------|---------|---------|
+|	   string    `nil`     1.0.0
 
 The username to use for authentication.
 
 
 ### password
 
-    type    default   version
-  -------- --------- ---------
-   string    `nil`     1.0.0
+    type    default   version	|
+|--------|---------|---------|
+|	   string    `nil`     1.0.0
 
 The password to use for authentication.
 
 
 ### time\_key
 
-    type    default   version
-  -------- --------- ---------
-   string   `time`     1.0.0
+    type    default   version	|
+|--------|---------|---------|
+|	   string   `time`     1.0.0
 
 The key name of timestamp. (default is "time")
 
 
 ### tag\_mapped
 
-   type   default   version
-  ------ --------- ---------
-   bool   `false`    1.0.0
+   type   default   version	|
+|------|---------|---------|
+|	   bool   `false`    1.0.0
 
 This option will allow out\_mongo to use Fluentd's tag to determine the
 destination collection. For example, if you generate records with tags

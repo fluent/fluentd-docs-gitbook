@@ -12,9 +12,9 @@ uses files to store buffer chunks on disk.
 
 ### path
 
-    type    required   default   version
-  -------- ---------- --------- ---------
-   string      ✔                  0.9.0
+    type    required   default   version	|
+|--------|----------|---------|---------|
+|	string      ✔                  0.9.0
 
 The path where buffer chunks are stored. The '\*' is replaced with
 random characters. This parameter is require

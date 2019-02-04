@@ -135,9 +135,9 @@ This is obsoleted since 2.0.0. Use \<rule\> section.
 
 ### capitalize\_regex\_backreference
 
-   type   default   version
-  ------ --------- ---------
-   bool    false     2.0.0
+   type   default   version	|
+|------|---------|---------|
+|	   bool    false     2.0.0
 
 Capitalize letter for every matched regex backreference. (ex: maps -\>
 Maps)
@@ -145,9 +145,9 @@ Maps)
 
 ### hostname\_command
 
-    type    default    version
-  -------- ---------- ---------
-   string   hostname    2.0.0
+    type    default    version	|
+|--------|----------|---------|
+|	   string   hostname    2.0.0
 
 Override hostname command for placeholder. (default setting is long
 hostname)
@@ -160,17 +160,17 @@ for the values of `rule/key` from each record, re-emit with `rule/tag`.
 
 #### key
 
-    type         default         version
-  -------- -------------------- ---------
-   string   required parameter    2.0.0
+    type         default         version	|
+|--------|--------------------|---------|
+|	   string   required parameter    2.0.0
 
 The field name to which the regular expression is applied
 
 #### pattern
 
-    type         default         version
-  -------- -------------------- ---------
-   regexp   required parameter    2.1.0
+    type         default         version	|
+|--------|--------------------|---------|
+|	   regexp   required parameter    2.1.0
 
 The regular expression which is applied on the field value
 
@@ -178,17 +178,17 @@ The type of pattern is string before 2.1.0.
 
 #### tag
 
-    type         default         version
-  -------- -------------------- ---------
-   string   required parameter    2.0.0
+    type         default         version	|
+|--------|--------------------|---------|
+|	   string   required parameter    2.0.0
 
 New tag
 
 #### invert\*\* (bool) (optional):
 
-   type   default   version
-  ------ --------- ---------
-   bool    false     2.0.0
+   type   default   version	|
+|------|---------|---------|
+|	   bool    false     2.0.0
 
 If true, rewrite tag when unmatch pattern
 

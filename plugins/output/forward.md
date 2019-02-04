@@ -81,67 +81,67 @@ The value must be `forward`.
 
 ### &lt;server&gt; (at least one is required)
 
-   required   multi   version
-  ---------- ------- ---------
-     true     true    0.14.5
+   required   multi   version	|
+|----------|-------|---------|
+|	     true     true    0.14.5
 
 The destination servers. Each server must have following information.
 
 #### host
 
-    type         default         version
-  -------- -------------------- ---------
-   string   required parameter   0.14.5
+    type         default         version	|
+|--------|--------------------|---------|
+|	   string   required parameter   0.14.5
 
 The IP address or host name of the server.
 
 #### name
 
-    type    default   version
-  -------- --------- ---------
-   string     nil     0.14.5
+    type    default   version	|
+|--------|---------|---------|
+|	   string     nil     0.14.5
 
 The name of the server. Used for logging and certificate verification in
 TLS transport (when host is address).
 
 #### port
 
-    type     default   version
-  --------- --------- ---------
-   integer    24224    0.14.5
+    type     default   version	|
+|---------|---------|---------|
+|	   integer    24224    0.14.5
 
 The port number of the host. Note that both TCP packets (event stream)
 and UDP packets (heartbeat message) are sent to this port.
 
 #### shared\_key
 
-    type    default   version
-  -------- --------- ---------
-   string     nil     0.14.5
+    type    default   version	|
+|--------|---------|---------|
+|	   string     nil     0.14.5
 
 The shared key per server.
 
 #### username
 
-    type         default        version
-  -------- ------------------- ---------
-   string   "" (empty string)   0.14.5
+    type         default        version	|
+|--------|-------------------|---------|
+|	   string   "" (empty string)   0.14.5
 
 The username for authentication.
 
 #### password
 
-    type         default        version
-  -------- ------------------- ---------
-   string   "" (empty string)   0.14.5
+    type         default        version	|
+|--------|-------------------|---------|
+|	   string   "" (empty string)   0.14.5
 
 The password for authentication.
 
 #### standby
 
-   type   default   version
-  ------ --------- ---------
-   bool    false    0.14.5
+   type   default   version	|
+|------|---------|---------|
+|	   bool    false    0.14.5
 
 Marks a node as the standby node for an Active-Standby model between
 Fluentd nodes. When an active node goes down, the standby node is
@@ -170,9 +170,9 @@ promoted to an active node. The standby node is not used by the
 
 #### weight
 
-    type     default   version
-  --------- --------- ---------
-   integer     60      0.14.5
+    type     default   version	|
+|---------|---------|---------|
+|	   integer     60      0.14.5
 
 The load balancing weight. If the weight of one server is 20 and the
 weight of the other server is 30, events are sent in a 2:3 ratio. The
@@ -181,9 +181,9 @@ default weight is 60.
 
 ### require\_ack\_response
 
-   type   default   version
-  ------ --------- ---------
-   bool    false    0.14.0
+   type   default   version	|
+|------|---------|---------|
+|	   bool    false    0.14.0
 
 Change the protocol to at-least-once. The plugin waits the ack from
 destination's in\_forward plugin.
@@ -191,9 +191,9 @@ destination's in\_forward plugin.
 
 ### ack\_response\_timeout
 
-   type   default   version
-  ------ --------- ---------
-   time     190     0.14.0
+   type   default   version	|
+|------|---------|---------|
+|	   time     190     0.14.0
 
 This option is used when `require_ack_response` is `true`. This default
 value is based on popular `tcp_syn_retries`.
@@ -203,27 +203,27 @@ If set `0`, this plugin doesn't wait the ack response.
 
 ### send\_timeout
 
-   type   default   version
-  ------ --------- ---------
-   time     60      0.14.0
+   type   default   version	|
+|------|---------|---------|
+|	   time     60      0.14.0
 
 The timeout time when sending event logs.
 
 
 ### recover\_wait
 
-   type   default   version
-  ------ --------- ---------
-   time     10      0.14.0
+   type   default   version	|
+|------|---------|---------|
+|	   time     10      0.14.0
 
 The wait time before accepting a server fault recovery.
 
 
 ### heartbeat\_type
 
-   type    default            available           version
-  ------ ----------- --------------------------- ---------
-   enum   transport   transport, tcp, udp, none   0.14.12
+   type    default            available           version	|
+|------|-----------|---------------------------|---------|
+|	enum   transport   transport, tcp, udp, none   0.14.12
 
 The transport protocol to use for heartbeats. Set "none" to disable
 heartbeat.
@@ -231,27 +231,27 @@ heartbeat.
 
 ### heartbeat\_interval
 
-   type   default   version
-  ------ --------- ---------
-   time      1      0.14.0
+   type   default   version	|
+|------|---------|---------|
+|	   time      1      0.14.0
 
 The interval of the heartbeat packer.
 
 
 ### phi\_failure\_detector
 
-   type   default   version
-  ------ --------- ---------
-   bool    true     0.14.0
+   type   default   version	|
+|------|---------|---------|
+|	   bool    true     0.14.0
 
 Use the "Phi accrual failure detector" to detect server failure.
 
 
 ### phi\_threshold
 
-    type     default   version
-  --------- --------- ---------
-   integer     16      0.14.0
+    type     default   version	|
+|---------|---------|---------|
+|	   integer     16      0.14.0
 
 The threshold parameter used to detect server faults.
 
@@ -264,9 +264,9 @@ destination servers. The default value 16 is tuned for
 
 ### hard\_timeout
 
-   type   default   version
-  ------ --------- ---------
-   time     60      0.14.0
+   type   default   version	|
+|------|---------|---------|
+|	   time     60      0.14.0
 
 The hard timeout used to detect server failure. The default value is
 equal to the `send_timeout` parameter.
@@ -274,18 +274,18 @@ equal to the `send_timeout` parameter.
 
 ### expire\_dns\_cache
 
-   type          default           version
-  ------ ------------------------ ---------
-   time   nil (persistent cache)   0.14.0
+   type          default           version	|
+|------|------------------------|---------|
+|	   time   nil (persistent cache)   0.14.0
 
 Set TTL to expire DNS cache in seconds. Set 0 not to use DNS Cache.
 
 
 ### dns\_round\_robin
 
-   type   default   version
-  ------ --------- ---------
-   bool    false    0.14.0
+   type   default   version	|
+|------|---------|---------|
+|	   bool    false    0.14.0
 
 Enable client-side DNS round robin. Uniform randomly pick an IP address
 to send data when a hostname has several IP addresses.
@@ -296,97 +296,97 @@ true\`. Use \`heartbeat\_type tcp\` or \`heartbeat\_type none\`.
 
 ### ignore\_network\_errors\_at\_startup
 
-   type   default   version
-  ------ --------- ---------
-   bool    false    0.14.12
+   type   default   version	|
+|------|---------|---------|
+|	   bool    false    0.14.12
 
 Ignore DNS resolution and errors at startup time.
 
 
 ### tls\_version
 
-   type   default        available        version
-  ------ ---------- -------------------- ---------
-   enum   TLSv1\_2   TLSv1\_1, TLSv1\_2   0.14.12
+   type   default        available        version	|
+|------|----------|--------------------|---------|
+|	enum   TLSv1\_2   TLSv1\_1, TLSv1\_2   0.14.12
 
 The default version of TLS transport.
 
 
 ### tls\_ciphers
 
-    type                          default                         version
-  -------- ----------------------------------------------------- ---------
-   string   ALL:!aNULL:!eNULL:!SSLv2 (OpenSSL \> 1.0.0 default)   0.14.12
+    type                          default                         version	|
+|--------|-----------------------------------------------------|---------|
+|	   string   ALL:!aNULL:!eNULL:!SSLv2 (OpenSSL \> 1.0.0 default)   0.14.12
 
 The cipher configuration of TLS transport.
 
 
 ### tls\_insecure\_mode
 
-   type   default   version
-  ------ --------- ---------
-   bool    false    0.14.12
+   type   default   version	|
+|------|---------|---------|
+|	   bool    false    0.14.12
 
 Skip all verification of certificates or not.
 
 
 ### tls\_allow\_self\_signed\_cert
 
-   type   default   version
-  ------ --------- ---------
-   bool    false    0.14.12
+   type   default   version	|
+|------|---------|---------|
+|	   bool    false    0.14.12
 
 Allow self signed certificates or not.
 
 
 ### tls\_verify\_hostname
 
-   type   default   version
-  ------ --------- ---------
-   bool    true     0.14.12
+   type   default   version	|
+|------|---------|---------|
+|	   bool    true     0.14.12
 
 Verify hostname of servers and certificates or not in TLS transport.
 
 
 ### tls\_cert\_path
 
-        type         default   version
-  ----------------- --------- ---------
-   array of string    false    0.14.12
+        type         default   version	|
+|-----------------|---------|---------|
+|	   array of string    false    0.14.12
 
 The additional CA certificate path for TLS.
 
 
 ### &lt;security&gt; section
 
-   required   multi   version
-  ---------- ------- ---------
-    false     false   0.14.5
+   required   multi   version	|
+|----------|-------|---------|
+|	    false     false   0.14.5
 
 This section contains parameters related to authentication.
 
 #### self\_hostname
 
-    type         default         version
-  -------- -------------------- ---------
-   string   required parameter   0.14.5
+    type         default         version	|
+|--------|--------------------|---------|
+|	   string   required parameter   0.14.5
 
 The hostname.
 
 #### shared\_key
 
-    type         default         version
-  -------- -------------------- ---------
-   string   required parameter   0.14.5
+    type         default         version	|
+|--------|--------------------|---------|
+|	   string   required parameter   0.14.5
 
 Shared key for authentication.
 
 
 ### &lt;secondary&gt;
 
-   required   multi   version
-  ---------- ------- ---------
-    false     false   0.14.0
+   required   multi   version	|
+|----------|-------|---------|
+|	    false     false   0.14.0
 
 The backup destination that is used when all servers are unavailable.
 

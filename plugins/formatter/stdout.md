@@ -17,9 +17,9 @@ This plugin is only for [stdout Output Plugin](/plugins/output/stdout.md) and [s
 
 ### output\_type (string) (optional)
 
-    type    default   version
-  -------- --------- ---------
-   string    json     0.14.0
+    type    default   version	|
+|--------|---------|---------|
+|	   string    json     0.14.0
 
 Set sub-formatter type. Any formatter plugins can be specified.
 

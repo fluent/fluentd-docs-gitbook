@@ -158,9 +158,9 @@ tag_prefix[2] = debug.my.app   tag_suffix[2] = app
 
 ### enable\_ruby
 
-   type   default   version
-  ------ --------- ---------
-   bool    false    0.14.0
+   type   default   version	|
+|------|---------|---------|
+|	   bool    false    0.14.0
 
 When set to true, the full Ruby syntax is enabled in the `${...}`
 expression. The default value is false.
@@ -186,9 +186,9 @@ nested_value ${record["payload"]["key"]}
 
 ### auto\_typecast
 
-   type   default   version
-  ------ --------- ---------
-   bool    false    0.14.0
+   type   default   version	|
+|------|---------|---------|
+|	   bool    false    0.14.0
 
 Automatically cast the field types. Default is false.
 
@@ -215,9 +215,9 @@ placeholder is used.
 
 ### renew\_record
 
-   type   default   version
-  ------ --------- ---------
-   bool    false    0.14.0
+   type   default   version	|
+|------|---------|---------|
+|	   bool    false    0.14.0
 
 By default, the record transformer filter mutates the incoming data.
 However, if this parameter is set to true, it modifies a new empty hash
@@ -226,9 +226,9 @@ instead.
 
 ### renew\_time\_key
 
-    type    default   version
-  -------- --------- ---------
-   string     nil     0.14.0
+    type    default   version	|
+|--------|---------|---------|
+|	   string     nil     0.14.0
 
 `renew_time_key foo` overwrites the time of events with a value of the
 record field `foo` if exists. The value of `foo` must be a unix time.
@@ -236,9 +236,9 @@ record field `foo` if exists. The value of `foo` must be a unix time.
 
 ### keep\_keys
 
-   type    default   version
-  ------- --------- ---------
-   array     nil     0.14.0
+   type    default   version	|
+|-------|---------|---------|
+|	   array     nil     0.14.0
 
 A list of keys to keep. Only relevant if `renew_record` is set to true.
 
@@ -247,9 +247,9 @@ keep\_keys has been supported since 0.14.0
 
 ### remove\_keys
 
-   type    default   version
-  ------- --------- ---------
-   array     nil     0.14.0
+   type    default   version	|
+|-------|---------|---------|
+|	   array     nil     0.14.0
 
 A list of keys to delete.
 

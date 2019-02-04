@@ -144,9 +144,9 @@ For more details, see [Inject Plugin Helper API](/articles/api-plugin-helper-inj
 
 #### extract
 
-  old (v0.12)    new (v1)       note
-  -------------- -------------- --------------------------
-  time\_key      time\_key      
+  old (v0.12)    new (v1)       note	|
+|--------------|--------------|--------------------------|
+|	  time\_key      time\_key      
   time\_format   time\_format   
   timezone       timezone       
   tag\_key       tag\_key       
@@ -174,9 +174,9 @@ For more details, see [Extract Plugin Helper API](/articles/api-plugin-helper-ex
 
 #### parser
 
-  old (v0.12)               new (v1)                note                       plugin
-  ------------------------- ----------------------- -------------------------- -----------------------------------------
-  format                    @type                                             
+  old (v0.12)               new (v1)                note                       plugin	|
+|-------------------------|-----------------------|--------------------------|-----------------------------------------|
+|	format                    @type                                             
   types                     types                   converted to JSON format   
   types\_delimiter          types                                              
   types\_label\_delimiter   types                                              
@@ -223,9 +223,9 @@ and [Writing Parser Plugins](/articles/api-plugin-parser.md).
 
 #### formatter
 
-  old (v0.12)        new (v1)           note                       plugin
-  ------------------ ------------------ -------------------------- ----------------------
-  format             @type                                        
+  old (v0.12)        new (v1)           note                       plugin	|
+|------------------|------------------|--------------------------|----------------------|
+|	format             @type                                        
   delimiter          delimiter                                     
   force\_quotes      force\_quotes                                 CsvFormatter
   keys               keys                                          TSVFormatter

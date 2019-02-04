@@ -15,18 +15,18 @@ The `csv` formatter plugin output an event as CSV.
 
 ### fields
 
-        type              default         version
-  ----------------- -------------------- ---------
-   array of string   required parameter   0.14.0
+        type              default         version	|
+|-----------------|--------------------|---------|
+|	   array of string   required parameter   0.14.0
 
 Specify output fields
 
 
 ### delimiter (String, Optional. defaults to ",")
 
-    type    default   version
-  -------- --------- ---------
-   string      ,      0.14.0
+    type    default   version	|
+|--------|---------|---------|
+|	   string      ,      0.14.0
 
 Delimiter for values.
 
@@ -35,18 +35,18 @@ Use `\t` or `TAB` to specify tab character.
 
 ### force\_quotes
 
-   type   default   version
-  ------ --------- ---------
-   bool    true     0.14.0
+   type   default   version	|
+|------|---------|---------|
+|	   bool    true     0.14.0
 
 If false, value won't be framed by quotes.
 
 
 ### add\_newline
 
-   type   default   version
-  ------ --------- ---------
-   bool    true     0.14.12
+   type   default   version	|
+|------|---------|---------|
+|	   bool    true     0.14.12
 
 Add `\n` to the result.
 
