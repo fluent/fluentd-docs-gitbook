@@ -98,7 +98,7 @@ The bind address to listen to.
 
 ### protocol\_type
 
-|	type 	|	default 	|	available values	|	version		|
+|	   type   default   available values   version	|
 |------|---------|------------------|---------|
 |	enum     udp         udp/tcp        0.14.0
 
@@ -155,7 +155,7 @@ assumed to have the canonical syslog format.
 
 ### message\_format
 
-|	type 	|	default 	|	available values	|	version		|
+|	   type   default     available values    version	|
 |------|---------|----------------------|---------|
 |	enum   rfc3164   rfc3164/rfc5424/auto  0.14.14
 

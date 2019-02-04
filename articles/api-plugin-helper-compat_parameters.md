@@ -174,7 +174,7 @@ For more details, see [Extract Plugin Helper API](/articles/api-plugin-helper-ex
 
 #### parser
 
-|	old (v0.12)	|	new (v1)	|	note 	|	plugin		|
+|	  old (v0.12)               new (v1)                note                       plugin	|
 |-------------------------|-----------------------|--------------------------|-----------------------------------------|
 |	format                    @type                                             
   types                     types                   converted to JSON format   
@@ -223,7 +223,7 @@ and [Writing Parser Plugins](/articles/api-plugin-parser.md).
 
 #### formatter
 
-|	old (v0.12)	|	new (v1)	|	note 	|	plugin		|
+|	  old (v0.12)        new (v1)           note                       plugin	|
 |------------------|------------------|--------------------------|----------------------|
 |	format             @type                                        
   delimiter          delimiter                                     
