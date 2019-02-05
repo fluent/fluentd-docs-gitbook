@@ -169,6 +169,11 @@ Without `<transport tls>`, in\_forward uses raw TCP.
 
 This section contains parameters related to authentication.
 
+- self\_hostname
+- shared\_key
+- user\_auth
+- allow\_anonymous\_source
+
 #### self\_hostname
 
 | type   | default            | version |
@@ -209,6 +214,11 @@ Allow anonymous source. `<client>` sections are required if disabled.
 
 This section contains user based authentication.
 
+- username
+- password
+
+This section can be used in `<security>`.
+
 ##### username
 
 | type   | default            | version |
@@ -233,6 +243,13 @@ The password for authentication.
 
 This section contains that client IP/Network authentication and shared
 key per host.
+
+- host
+- network
+- shared\_key
+- users
+
+This section can be used in `<security>`
 
 ##### host
 

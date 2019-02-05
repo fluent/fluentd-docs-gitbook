@@ -85,8 +85,17 @@ The value must be `forward`.
 |:---------|:------|:--------|
 | true     | true  | 0.14.5  |
 
-The destination servers. Each server must have following information.
+The destination servers. Each server has following parameters.
 
+- host
+- name
+- port
+- shared\_key
+- username
+- password
+- standby
+- weight
+ 
 #### host
 
 | type   | default            | version |
@@ -388,6 +397,9 @@ The client private key passphrase for TLS.
 
 This section contains parameters related to authentication.
 
+- self\_hostname
+- shared\_key
+
 #### self\_hostname
 
 | type   | default            | version |
@@ -402,8 +414,8 @@ The hostname.
 |:-------|:-------------------|:--------|
 | string | required parameter | 0.14.5  |
 
-Shared key for authentication.
-
+Shared key for authentication. If you want to specify `shared_key`
+for specific server, use `<server>` section.
 
 ### &lt;secondary&gt;
 

@@ -158,6 +158,9 @@ We can also use \<or\> directive with \<regexp\> directive:
 
 Specify filtering rule. This directive contains two parameters.
 
+- key
+- pattern
+
 #### key
 
 | type   | default            | version |
@@ -265,6 +268,9 @@ regexp2 item_name ^book_
 
 Specify filtering rule to reject events. This directive contains two
 parameters.
+
+- key
+- pattern
 
 #### key
 
