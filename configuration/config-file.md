@@ -39,6 +39,16 @@ $ sudo fluentd --setup /etc/fluent
 $ sudo vi /etc/fluent/fluent.conf
 ```
 
+### Docker
+
+If you're using the Docker container, the default location is located at
+/fluentd/etc/fluent.conf To mount a config file from outside of Docker,
+use a bind-mount.
+
+    ::: term
+    docker run -ti --rm -v /path/to/dir:/fluentd/etc fluentd -c /fluentd/etc/<conf-file> -v
+
+
 #### FLUENT\_CONF environment variable
 
 You can change default configuration file location via `FLUENT_CONF`.
