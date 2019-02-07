@@ -54,7 +54,7 @@ The value must be `file`.
 
 |	    type |        default |        version	|
 |--------|--------------------|---------|
-|	   string   required parameter   0.14.0
+|	   string | required parameter | 0.14.0	|
 
 The Path of the file. The actual path is path + time + ".log" by
 default.\
@@ -85,7 +85,7 @@ see the output file without the trailing identifier.
 
 |	   type |  default |  version	|
 |------|---------|---------|
-|	   bool    false    0.14.0
+|	   bool | false | 0.14.0	|
 
 The flushed chunk is appended to existence file or not. The default is
 not appended. By default, out\_file flushes each chunk to different
@@ -138,7 +138,7 @@ Deprecated parameter. Use `timekey_use_utc` in `<buffer>` instead.
 
 |	   type |  default |  version	|
 |------|---------|---------|
-|	   bool    true     0.14.9
+|	   bool | true | 0.14.9	|
 
 Add path suffix or not. See also `path_suffix` parameter.
 
@@ -147,7 +147,7 @@ Add path suffix or not. See also `path_suffix` parameter.
 
 |	    type |   default |  version	|
 |--------|---------|---------|
-|	   string   ".log"    0.14.9
+|	   string | ".log" | 0.14.9	|
 
 The suffix of output result.
 

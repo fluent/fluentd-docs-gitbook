@@ -16,7 +16,7 @@ field.
 
 |	   type |  default |  version	|
 |------|---------|---------|
-|	   bool    true     0.14.12
+|	   bool | true | 0.14.12	|
 
 Add `\n` to the result.
 

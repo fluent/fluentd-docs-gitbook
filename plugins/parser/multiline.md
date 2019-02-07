@@ -33,7 +33,7 @@ with each new line.
 
 |	    type |        default |        version	|
 |--------|--------------------|---------|
-|	   string   required parameter   0.14.0
+|	   string | required parameter | 0.14.0	|
 
 Specify regexp patterns. For readability, you can separate regexp
 patterns into multiple regexpN parameters, See "Rails log" example.

@@ -61,7 +61,7 @@ Specifies the storage destinations. The format is the same as the
 
 |	    type |    default |  version	|
 |---------|---------|---------|
-|	   integer      1      0.14.1
+|	   integer | 1 | 0.14.1	|
 
 Weight to distribute events to multiple outputs.
 

@@ -137,7 +137,7 @@ This is obsoleted since 2.0.0. Use \<rule\> section.
 
 |	   type |  default |  version	|
 |------|---------|---------|
-|	   bool    false     2.0.0
+|	   bool | false | 2.0.0	|
 
 Capitalize letter for every matched regex backreference. (ex: maps -\>
 Maps)
@@ -147,7 +147,7 @@ Maps)
 
 |	    type |   default |   version	|
 |--------|----------|---------|
-|	   string   hostname    2.0.0
+|	   string | hostname | 2.0.0	|
 
 Override hostname command for placeholder. (default setting is long
 hostname)
@@ -162,7 +162,7 @@ for the values of `rule/key` from each record, re-emit with `rule/tag`.
 
 |	    type |        default |        version	|
 |--------|--------------------|---------|
-|	   string   required parameter    2.0.0
+|	   string | required parameter | 2.0.0	|
 
 The field name to which the regular expression is applied
 
@@ -170,7 +170,7 @@ The field name to which the regular expression is applied
 
 |	    type |        default |        version	|
 |--------|--------------------|---------|
-|	   regexp   required parameter    2.1.0
+|	   regexp | required parameter | 2.1.0	|
 
 The regular expression which is applied on the field value
 
@@ -180,7 +180,7 @@ The type of pattern is string before 2.1.0.
 
 |	    type |        default |        version	|
 |--------|--------------------|---------|
-|	   string   required parameter    2.0.0
+|	   string | required parameter | 2.0.0	|
 
 New tag
 
@@ -188,7 +188,7 @@ New tag
 
 |	   type |  default |  version	|
 |------|---------|---------|
-|	   bool    false     2.0.0
+|	   bool | false | 2.0.0	|
 
 If true, rewrite tag when unmatch pattern
 

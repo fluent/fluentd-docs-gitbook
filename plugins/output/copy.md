@@ -90,7 +90,7 @@ The value must be `copy`.
 
 |	   type |  default |  version	|
 |------|---------|---------|
-|	   bool    false    0.14.0
+|	   bool | false | 0.14.0	|
 
 `out_copy` shares a record between `store` plugins by default.
 

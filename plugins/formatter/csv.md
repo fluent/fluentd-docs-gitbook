@@ -17,7 +17,7 @@ The `csv` formatter plugin output an event as CSV.
 
 |	        type |             default |        version	|
 |-----------------|--------------------|---------|
-|	   array of string   required parameter   0.14.0
+|	   array of string | required parameter | 0.14.0	|
 
 Specify output fields
 
@@ -26,7 +26,7 @@ Specify output fields
 
 |	    type |   default |  version	|
 |--------|---------|---------|
-|	   string      ,      0.14.0
+|	   string | , | 0.14.0	|
 
 Delimiter for values.
 
@@ -37,7 +37,7 @@ Use `\t` or `TAB` to specify tab character.
 
 |	   type |  default |  version	|
 |------|---------|---------|
-|	   bool    true     0.14.0
+|	   bool | true | 0.14.0	|
 
 If false, value won't be framed by quotes.
 
@@ -46,7 +46,7 @@ If false, value won't be framed by quotes.
 
 |	   type |  default |  version	|
 |------|---------|---------|
-|	   bool    true     0.14.12
+|	   bool | true | 0.14.12	|
 
 Add `\n` to the result.
 

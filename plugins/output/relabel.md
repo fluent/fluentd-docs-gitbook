@@ -56,7 +56,7 @@ The value must be `relabel`.
 
     type         default         version	|
 |--------|--------------------|---------|
-|	   string   required parameter   0.14.0
+|	   string | required parameter | 0.14.0	|
 
 
 ------------------------------------------------------------------------

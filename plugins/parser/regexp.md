@@ -23,7 +23,7 @@ See [Parse section configurations](/configuration/parse-section.md) for common p
 
 |	    type |        default |        version	|
 |--------|--------------------|---------|
-|	   regexp   required parameter    1.2.0
+|	   regexp | required parameter | 1.2.0	|
 
 Regular expression for matching logs.
 
@@ -34,7 +34,7 @@ expression is string type before 1.2.0.
 
 |	   type |  default |  version	|
 |------|---------|---------|
-|	   bool    false    0.14.2
+|	   bool | false | 0.14.2	|
 
 Ignore case in matching. Use `i` option with expression.
 
@@ -45,7 +45,7 @@ Deprecated since 1.2.0. Use `expression /pattern/i` instead.
 
 |	   type |  default |  version	|
 |------|---------|---------|
-|	   bool    false    0.14.2
+|	   bool | false | 0.14.2	|
 
 Build regular expression as a multline mode. `.` matches newline. See
 [Ruby's Regexp document](https://ruby-doc.org/core-2.4.1/Regexp.html#class-Regexp-label-Options)

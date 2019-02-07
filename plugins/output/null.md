@@ -42,7 +42,7 @@ The value must be `null`.
 
 |	   type |  default |  version	|
 |------|---------|---------|
-|	   bool    false    0.14.12
+|	   bool | false | 0.14.12	|
 
 The parameter for testing to simulate output plugin which never succeed
 to flush.
@@ -55,7 +55,7 @@ See [Buffer section configurations](/configuration/buffer-section.md) for more d
 
 |	   type |   default |  version	|
 |-------|---------|---------|
-|	   array     tag     0.14.5
+|	   array | tag | 0.14.5	|
 
 Overwrite default value in this plugin.
 
@@ -63,7 +63,7 @@ Overwrite default value in this plugin.
 
 |	   type |  default |  version	|
 |------|---------|---------|
-|	   bool    true     0.14.5
+|	   bool | true | 0.14.5	|
 
 Overwrite default value in this plugin.
 
@@ -71,7 +71,7 @@ Overwrite default value in this plugin.
 
 |	   type |  default |  version	|
 |------|---------|---------|
-|	   size    10240    0.14.5
+|	   size | 10240 | 0.14.5	|
 
 Overwrite default value in this plugin.
 

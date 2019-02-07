@@ -48,7 +48,7 @@ The value must be `monitor_agent`.
 
 |	    type |    default |  version	|
 |---------|---------|---------|
-|	   integer    24220    0.14.0
+|	   integer | 24220 | 0.14.0	|
 
 The port to listen to.
 
@@ -57,7 +57,7 @@ The port to listen to.
 
 |	    type |           default |          version	|
 |--------|-------------------------|---------|
-|	   string   0.0.0.0 (all addresses)   0.14.0
+|	   string | 0.0.0.0 (all addresses) | 0.14.0	|
 
 The bind address to listen to.
 
@@ -66,7 +66,7 @@ The bind address to listen to.
 
 |	    type |   default |  version	|
 |--------|---------|---------|
-|	   string     nil     0.14.0
+|	   string | nil | 0.14.0	|
 
 If you set this parameter, this plugin emits metrics as records. See
 "Reuse plugins" section.
@@ -76,7 +76,7 @@ If you set this parameter, this plugin emits metrics as records. See
 
 |	    type |    default |  version	|
 |---------|---------|---------|
-|	   integer     60      0.14.0
+|	   integer | 60 | 0.14.0	|
 
 The interval time between event emits. This will be used when `tag` is
 configured.
@@ -86,7 +86,7 @@ configured.
 
 |	   type |  default |  version	|
 |------|---------|---------|
-|	   bool    true     0.14.0
+|	   bool | true | 0.14.0	|
 
 You can set this option to false to remove `config` field from the
 response.
@@ -96,7 +96,7 @@ response.
 
 |	   type |  default |  version	|
 |------|---------|---------|
-|	   bool    true     0.14.11
+|	   bool | true | 0.14.11	|
 
 You can set this option to false to remove `retry` field from the
 response.
@@ -211,17 +211,17 @@ append `debug=1` to the request URL to get the verbose internal metrics.
 $ curl http://localhost:24220/api/plugins.json?debug=1
 ```
 
-|	The following list shows the available query parameters.
+The following list shows the available query parameters.
 
-  Parameter       Value            Explanation	|
+| Parameter     | Value          | Explanation                                            |
 |---------------|----------------|--------------------------------------------------------|
-|	  `debug`         Constant         Expose additional internal metrics
-  `with_ivars`    Variable names   Expose the specified instance variables of each plugin
-  `with_config`   Boolean          Override the configuration option with\_config
-  `with_retry`    Boolean          Override the configuration option with\_retry
-  `tag`           Event tag        Only show plugins that matches the specified tag
-  `@id`           Plugin id        Filter plugins by plugin id
-  `@type`         Plugin type      Filter plugins by plugin type
+| `debug`       | Constant       | Expose additional internal metrics                     |
+| `with_ivars`  | Variable names | Expose the specified instance variables of each plugin |
+| `with_config` | Boolean        | Override the configuration option with\_config         |
+| `with_retry`  | Boolean        | Override the configuration option with\_retry          |
+| `tag`         | Event tag      | Only show plugins that matches the specified tag       |
+| `@id`         | Plugin id      | Filter plugins by plugin id                            |
+| `@type`       | Plugin type    | Filter plugins by plugin type                          |
 
 
 ### How to emit metrics as events

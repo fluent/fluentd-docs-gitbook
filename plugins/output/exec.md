@@ -150,7 +150,7 @@ The value must be `exec`.
 
 |	    type |   default |  version	|
 |--------|---------|---------|
-|	   string   Nothing   0.14.0
+|	   string | Nothing | 0.14.0	|
 
 The command (program) to execute. The exec plugin passes the path of
 flushed buffer chunk as the last argument.
@@ -175,7 +175,7 @@ e.g. \"/path/to/cmd\".
 
 |	   type |  default |  version	|
 |------|---------|---------|
-|	   time     270     0.14.9
+|	   time | 270 | 0.14.9	|
 
 Command (program) execution timeout.
 
@@ -188,7 +188,7 @@ See [Format section configurations](/configuration/format-section.md) for more d
 
 |	    type |   default |  version	|
 |--------|---------|---------|
-|	   string     tsv     0.14.9
+|	   string | tsv | 0.14.9	|
 
 The format used to map the incoming events to the program input.
 
@@ -203,7 +203,7 @@ See [Inject section configurations](/articles/inject-section.md) for more detail
 
 |	    type |   default |  version	|
 |--------|---------|---------|
-|	   string   string    0.14.9
+|	   string | string | 0.14.9	|
 
 Overwrite default value in this plugin.
 
@@ -211,7 +211,7 @@ Overwrite default value in this plugin.
 
 |	   type |  default |  version	|
 |------|---------|---------|
-|	   bool    false    0.14.9
+|	   bool | false | 0.14.9	|
 
 Overwrite default value in this plugin.
 
@@ -223,7 +223,7 @@ See [Buffer section configurations](/configuration/buffer-section.md) for more d
 
 |	   type |  default |  version	|
 |------|---------|---------|
-|	   time     300     0.14.9
+|	   time | 300 | 0.14.9	|
 
 Overwrite default value in this plugin.
 

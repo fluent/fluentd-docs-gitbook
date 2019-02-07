@@ -72,7 +72,7 @@ The value must be `http`.
 
 |	    type |    default |  version	|
 |---------|---------|---------|
-|	   integer    9880     0.14.0
+|	   integer | 9880 | 0.14.0	|
 
 The port to listen to.
 
@@ -81,7 +81,7 @@ The port to listen to.
 
 |	    type |           default |          version	|
 |--------|-------------------------|---------|
-|	   string   0.0.0.0 (all addresses)   0.14.0
+|	   string | 0.0.0.0 (all addresses) | 0.14.0	|
 
 The bind address to listen to.
 
@@ -90,7 +90,7 @@ The bind address to listen to.
 
 |	   type |  default |  version	|
 |------|---------|---------|
-|	   size    32MB     0.14.0
+|	   size | 32MB | 0.14.0	|
 
 The size limit of the POSTed element.
 
@@ -99,7 +99,7 @@ The size limit of the POSTed element.
 
 |	   type |    default |     version	|
 |------|--------------|---------|
-|	   size   10 (seconds)   0.14.0
+|	   size | 10 (seconds) | 0.14.0	|
 
 The timeout limit for keeping the connection alive.
 
@@ -108,7 +108,7 @@ The timeout limit for keeping the connection alive.
 
 |	   type |  default |  version	|
 |------|---------|---------|
-|	   bool    false    0.14.0
+|	   bool | false | 0.14.0	|
 
 Add `HTTP_` prefix headers to the record.
 
@@ -117,7 +117,7 @@ Add `HTTP_` prefix headers to the record.
 
 |	   type |  default |  version	|
 |------|---------|---------|
-|	   bool    false    0.14.0
+|	   bool | false | 0.14.0	|
 
 Add `REMOTE_ADDR` field to the record. The value of `REMOTE_ADDR` is the
 client's address.
@@ -137,7 +137,7 @@ If send above multiple headers, `REMOTE_ADDR` value is `host1`.
 
 |	   type |      default |     version	|
 |-------|---------------|---------|
-|	   array   nil(disabled)   0.14.0
+|	   array | nil(disabled) | 0.14.0	|
 
 White list domains for CORS.
 
@@ -159,7 +159,7 @@ the following example).
 
 |	   type |  default |  version	|
 |------|---------|---------|
-|	   bool    false    0.12.0
+|	   bool | false | 0.12.0	|
 
 Respond with an empty gif image of 1x1 pixel (rather than an emtpy
 string).
@@ -255,7 +255,7 @@ ruby 2.3:
 
 |	  json              msgpack           msgpack array(10 items)	|
 |-----------------|-----------------|-------------------------|
-|	  2100 events/sec   2400 events/sec   10000 events/sec
+|	  2100 events/sec | 2400 events/sec | 10000 events/sec	|
 
 Tested configuration and ruby script is
 [here](https://gist.github.com/repeatedly/672ac73abf7cbcb629aaec791838cf6d).

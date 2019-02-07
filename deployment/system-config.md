@@ -17,7 +17,7 @@ as enabling RPC, multiple workers, to obtain dump.
 
 |	    type |    default |  version	|
 |---------|---------|---------|
-|	   integer      1      0.14.12
+|	   integer | 1 | 0.14.12	|
 
 Specify number of workers.
 
@@ -26,7 +26,7 @@ Specify number of workers.
 
 |	    type |   default |  version	|
 |--------|---------|---------|
-|	   string     nil     0.14.11
+|	   string | nil | 0.14.11	|
 
 Specify root directory.
 
@@ -35,7 +35,7 @@ Specify root directory.
 
 |	   type |  default |  version	|
 |------|---------|---------|
-|	   enum     nil     0.14.0
+|	   enum | nil | 0.14.0	|
 
 Specify log\_level. Users can choose `trace`, `debug`, `info`, `warn`,
 `error`, and `fatal` level.
@@ -45,7 +45,7 @@ Specify log\_level. Users can choose `trace`, `debug`, `info`, `warn`,
 
 |	   type |  default |  version	|
 |------|---------|---------|
-|	   bool     nil     0.14.0
+|	   bool | nil | 0.14.0	|
 
 Suppress repeated stacktrace.
 
@@ -54,7 +54,7 @@ Suppress repeated stacktrace.
 
 |	   type |  default |  version	|
 |------|---------|---------|
-|	   time     nil     0.14.0
+|	   time | nil | 0.14.0	|
 
 Specify time value of emitting error log interval.
 
@@ -63,7 +63,7 @@ Specify time value of emitting error log interval.
 
 |	   type |  default |  version	|
 |------|---------|---------|
-|	   bool     nil     0.14.0
+|	   bool | nil | 0.14.0	|
 
 Suppress config dump.
 
@@ -72,7 +72,7 @@ Suppress config dump.
 
 |	   type |  default |  version	|
 |------|---------|---------|
-|	   bool     nil     0.14.12
+|	   bool | nil | 0.14.12	|
 
 Log event verbose.
 
@@ -81,7 +81,7 @@ Log event verbose.
 
 |	   type |  default |  version	|
 |------|---------|---------|
-|	   bool     nil     0.14.0
+|	   bool | nil | 0.14.0	|
 
 Invoke a fluentd without input plugins.
 
@@ -90,7 +90,7 @@ Invoke a fluentd without input plugins.
 
 |	    type |   default |  version	|
 |--------|---------|---------|
-|	   string     nil     0.14.0
+|	   string | nil | 0.14.0	|
 
 Specify RPC endpoint. In more detail, please refer to [RPC document](/deployment/rpc.md).
 
@@ -99,7 +99,7 @@ Specify RPC endpoint. In more detail, please refer to [RPC document](/deployment
 
 |	   type |  default |  version	|
 |------|---------|---------|
-|	   bool     nil     0.14.0
+|	   bool | nil | 0.14.0	|
 
 Enabling to get dump.
 
@@ -108,7 +108,7 @@ Enabling to get dump.
 
 |	    type |   default |  version	|
 |--------|---------|---------|
-|	   string     nil     0.14.0
+|	   string | nil | 0.14.0	|
 
 Specify process name.
 
@@ -117,7 +117,7 @@ Specify process name.
 
 |	    type |   default |  version	|
 |--------|---------|---------|
-|	   string     nil     0.14.0
+|	   string | nil | 0.14.0	|
 
 Specify file permission with octal.
 
@@ -126,7 +126,7 @@ Specify file permission with octal.
 
 |	    type |   default |  version	|
 |--------|---------|---------|
-|	   string     nil     0.14.0
+|	   string | nil | 0.14.0	|
 
 Specify directory permission with octal.
 
@@ -137,7 +137,7 @@ Specify directory permission with octal.
 
 |	   type |  default |  version	|
 |------|---------|---------|
-|	   enum    text     0.14.20
+|	   enum | text | 0.14.20	|
 
 Specify logging format. Users can choose `text` and `json` format.
 
@@ -145,7 +145,7 @@ Specify logging format. Users can choose `text` and `json` format.
 
 |	    type |          default |          version	|
 |--------|------------------------|---------|
-|	   string   `%Y-%m-%d %H:%M:%S %z`   0.14.20
+|	   string | `%Y-%m-%d %H:%M:%S %z` | 0.14.20	|
 
 Specify time format.
 

@@ -48,7 +48,7 @@ For more details, see [Parse section configurations](/configuration/parse-sectio
 
 |	    type |        default |        version	|
 |--------|--------------------|---------|
-|	   string   required parameter   0.14.9
+|	   string | required parameter | 0.14.9	|
 
 Specify field name in the record to parse.
 
@@ -59,7 +59,7 @@ This parameter supports nested field access via [record\_accessor syntax](/artic
 
 |	   type |  default |  version	|
 |------|---------|---------|
-|	   bool    false    0.14.9
+|	   bool | false | 0.14.9	|
 
 Keep original event time in parsed result.
 
@@ -68,7 +68,7 @@ Keep original event time in parsed result.
 
 |	   type |  default |  version	|
 |------|---------|---------|
-|	   bool    false    0.14.9
+|	   bool | false | 0.14.9	|
 
 Keep original key-value pair in parsed result.
 
@@ -102,7 +102,7 @@ Without `reserve_data`, result is below
 
 |	   type |  default |  version	|
 |------|---------|---------|
-|	   bool    false     1.2.2
+|	   bool | false | 1.2.2	|
 
 Remove `key_name` field when parsing is succeeded.
 
@@ -130,7 +130,7 @@ With above configuration, result is below:
 
 |	   type |  default |  version	|
 |------|---------|---------|
-|	   bool    false    0.14.9
+|	   bool | false | 0.14.9	|
 
 If `true`, invalid string is replaced with safe characters and re-parse
 it.
@@ -140,7 +140,7 @@ it.
 
 |	    type |   default |  version	|
 |--------|---------|---------|
-|	   string    false    0.14.9
+|	   string | false | 0.14.9	|
 
 Store parsed values with specified key name prefix.
 
@@ -168,7 +168,7 @@ With above configuration, result is below:
 
 |	    type |   default |  version	|
 |--------|---------|---------|
-|	   string    false    0.14.9
+|	   string | false | 0.14.9	|
 
 Store parsed values as a hash value in a field.
 
@@ -195,7 +195,7 @@ With above configuration, result is below:
 
 |	   type |  default |  version	|
 |------|---------|---------|
-|	   bool    true     0.14.0
+|	   bool | true | 0.14.0	|
 
 Emit invalid record to `@ERROR` label. Invalid cases are
 

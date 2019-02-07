@@ -15,7 +15,7 @@ See [Parse section configurations](/configuration/parse-section.md)
 
 |	    type |   default |  version	|
 |--------|---------|---------|
-|	   string   message   0.14.0
+|	   string | message | 0.14.0	|
 
 Specify field name to contain logs.
 

@@ -82,7 +82,7 @@ and [priority](http://en.wikipedia.org/wiki/Syslog#Severity_levels).
 
 |	    type |    default |  version	|
 |---------|---------|---------|
-|	   integer    5140     0.14.0
+|	   integer | 5140 | 0.14.0	|
 
 The port to listen to.
 
@@ -91,7 +91,7 @@ The port to listen to.
 
 |	    type |           default |          version	|
 |--------|-------------------------|---------|
-|	   string   0.0.0.0 (all addresses)   0.14.0
+|	   string | 0.0.0.0 (all addresses) | 0.14.0	|
 
 The bind address to listen to.
 
@@ -110,7 +110,7 @@ supported.
 
 |	   type |  default |  version	|
 |------|---------|---------|
-|	   size    2048     0.14.2
+|	   size | 2048 | 0.14.2	|
 
 The max bytes of syslog message. If you send larger message, change this
 parameter.
@@ -192,7 +192,7 @@ prefix and parse it.
 
 |	   type |  default |  version	|
 |------|---------|---------|
-|	   bool    true     0.14.0
+|	   bool | true | 0.14.0	|
 
 This parameter is used inside `<parse>` directive.
 
@@ -219,7 +219,7 @@ If you wish to parse syslog messages of arbitrary formats,
 
 |	    type |       default |      version	|
 |--------|-----------------|---------|
-|	   string   nil (no assign)   0.14.0
+|	   string | nil (no assign) | 0.14.0	|
 
 The field name of the client's hostname. If set the value, the client's
 hostname will be set to its key.
@@ -229,7 +229,7 @@ hostname will be set to its key.
 
 |	    type |       default |      version	|
 |--------|-----------------|---------|
-|	   string   nil (no assign)   0.14.0
+|	   string | nil (no assign) | 0.14.0	|
 
 The field name of the client's address. If set the value, the client's
 address will be set to its key.
@@ -239,7 +239,7 @@ address will be set to its key.
 
 |	    type |       default |      version	|
 |--------|-----------------|---------|
-|	   string   nil (no assign)   0.14.10
+|	   string | nil (no assign) | 0.14.10	|
 
 The field name of the priority. If set the value, the priority will be
 set to its key.
@@ -249,7 +249,7 @@ set to its key.
 
 |	    type |       default |      version	|
 |--------|-----------------|---------|
-|	   string   nil (no assign)   0.14.10
+|	   string | nil (no assign) | 0.14.10	|
 
 The field name of the facility. If set the value, the facility will be
 set to its key.

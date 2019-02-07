@@ -59,7 +59,7 @@ See [Buffer section configurations](/configuration/buffer-section.md) for more d
 
 |	   type |   default |  version	|
 |-------|---------|---------|
-|	   array     tag     0.14.5
+|	   array | tag | 0.14.5	|
 
 Overwrite default value in this plugin.
 
@@ -67,7 +67,7 @@ Overwrite default value in this plugin.
 
 |	   type |  default |  version	|
 |------|---------|---------|
-|	   bool    true     0.14.5
+|	   bool | true | 0.14.5	|
 
 Overwrite default value in this plugin.
 
@@ -75,7 +75,7 @@ Overwrite default value in this plugin.
 
 |	   type |  default |  version	|
 |------|---------|---------|
-|	   size    10240    0.14.5
+|	   size | 10240 | 0.14.5	|
 
 Overwrite default value in this plugin.
 
@@ -88,7 +88,7 @@ See [Format section configurations](/configuration/format-section.md) for more d
 
 |	    type |   default |  version	|
 |--------|---------|---------|
-|	   string   stdout    0.14.5
+|	   string | stdout | 0.14.5	|
 
 The format of output.
 
@@ -96,7 +96,7 @@ The format of output.
 
 |	    type |   default |  version	|
 |--------|---------|---------|
-|	   string    json     0.14.5
+|	   string | json | 0.14.5	|
 
 This is the option of `stdout` format. Configure the format of record
 (third part). Any formatter plugins can be specified.

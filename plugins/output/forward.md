@@ -83,7 +83,7 @@ The value must be `forward`.
 
 |	   required |  multi |  version	|
 |----------|-------|---------|
-|	     true     true    0.14.5
+|	     true | true | 0.14.5	|
 
 The destination servers. Each server must have following information.
 
@@ -91,7 +91,7 @@ The destination servers. Each server must have following information.
 
 |	    type |        default |        version	|
 |--------|--------------------|---------|
-|	   string   required parameter   0.14.5
+|	   string | required parameter | 0.14.5	|
 
 The IP address or host name of the server.
 
@@ -99,7 +99,7 @@ The IP address or host name of the server.
 
 |	    type |   default |  version	|
 |--------|---------|---------|
-|	   string     nil     0.14.5
+|	   string | nil | 0.14.5	|
 
 The name of the server. Used for logging and certificate verification in
 TLS transport (when host is address).
@@ -108,7 +108,7 @@ TLS transport (when host is address).
 
 |	    type |    default |  version	|
 |---------|---------|---------|
-|	   integer    24224    0.14.5
+|	   integer | 24224 | 0.14.5	|
 
 The port number of the host. Note that both TCP packets (event stream)
 and UDP packets (heartbeat message) are sent to this port.
@@ -117,7 +117,7 @@ and UDP packets (heartbeat message) are sent to this port.
 
 |	    type |   default |  version	|
 |--------|---------|---------|
-|	   string     nil     0.14.5
+|	   string | nil | 0.14.5	|
 
 The shared key per server.
 
@@ -125,7 +125,7 @@ The shared key per server.
 
 |	    type |        default |       version	|
 |--------|-------------------|---------|
-|	   string   "" (empty string)   0.14.5
+|	   string | "" (empty string) | 0.14.5	|
 
 The username for authentication.
 
@@ -133,7 +133,7 @@ The username for authentication.
 
 |	    type |        default |       version	|
 |--------|-------------------|---------|
-|	   string   "" (empty string)   0.14.5
+|	   string | "" (empty string) | 0.14.5	|
 
 The password for authentication.
 
@@ -141,7 +141,7 @@ The password for authentication.
 
 |	   type |  default |  version	|
 |------|---------|---------|
-|	   bool    false    0.14.5
+|	   bool | false | 0.14.5	|
 
 Marks a node as the standby node for an Active-Standby model between
 Fluentd nodes. When an active node goes down, the standby node is
@@ -172,7 +172,7 @@ promoted to an active node. The standby node is not used by the
 
 |	    type |    default |  version	|
 |---------|---------|---------|
-|	   integer     60      0.14.5
+|	   integer | 60 | 0.14.5	|
 
 The load balancing weight. If the weight of one server is 20 and the
 weight of the other server is 30, events are sent in a 2:3 ratio. The
@@ -183,7 +183,7 @@ default weight is 60.
 
 |	   type |  default |  version	|
 |------|---------|---------|
-|	   bool    false    0.14.0
+|	   bool | false | 0.14.0	|
 
 Change the protocol to at-least-once. The plugin waits the ack from
 destination's in\_forward plugin.
@@ -193,7 +193,7 @@ destination's in\_forward plugin.
 
 |	   type |  default |  version	|
 |------|---------|---------|
-|	   time     190     0.14.0
+|	   time | 190 | 0.14.0	|
 
 This option is used when `require_ack_response` is `true`. This default
 value is based on popular `tcp_syn_retries`.
@@ -205,7 +205,7 @@ If set `0`, this plugin doesn't wait the ack response.
 
 |	   type |  default |  version	|
 |------|---------|---------|
-|	   time     60      0.14.0
+|	   time | 60 | 0.14.0	|
 
 The timeout time when sending event logs.
 
@@ -214,7 +214,7 @@ The timeout time when sending event logs.
 
 |	   type |  default |  version	|
 |------|---------|---------|
-|	   time     10      0.14.0
+|	   time | 10 | 0.14.0	|
 
 The wait time before accepting a server fault recovery.
 
@@ -233,7 +233,7 @@ heartbeat.
 
 |	   type |  default |  version	|
 |------|---------|---------|
-|	   time      1      0.14.0
+|	   time | 1 | 0.14.0	|
 
 The interval of the heartbeat packer.
 
@@ -242,7 +242,7 @@ The interval of the heartbeat packer.
 
 |	   type |  default |  version	|
 |------|---------|---------|
-|	   bool    true     0.14.0
+|	   bool | true | 0.14.0	|
 
 Use the "Phi accrual failure detector" to detect server failure.
 
@@ -251,7 +251,7 @@ Use the "Phi accrual failure detector" to detect server failure.
 
 |	    type |    default |  version	|
 |---------|---------|---------|
-|	   integer     16      0.14.0
+|	   integer | 16 | 0.14.0	|
 
 The threshold parameter used to detect server faults.
 
@@ -266,7 +266,7 @@ destination servers. The default value 16 is tuned for
 
 |	   type |  default |  version	|
 |------|---------|---------|
-|	   time     60      0.14.0
+|	   time | 60 | 0.14.0	|
 
 The hard timeout used to detect server failure. The default value is
 equal to the `send_timeout` parameter.
@@ -276,7 +276,7 @@ equal to the `send_timeout` parameter.
 
 |	   type |         default |          version	|
 |------|------------------------|---------|
-|	   time   nil (persistent cache)   0.14.0
+|	   time | nil (persistent cache) | 0.14.0	|
 
 Set TTL to expire DNS cache in seconds. Set 0 not to use DNS Cache.
 
@@ -285,7 +285,7 @@ Set TTL to expire DNS cache in seconds. Set 0 not to use DNS Cache.
 
 |	   type |  default |  version	|
 |------|---------|---------|
-|	   bool    false    0.14.0
+|	   bool | false | 0.14.0	|
 
 Enable client-side DNS round robin. Uniform randomly pick an IP address
 to send data when a hostname has several IP addresses.
@@ -298,7 +298,7 @@ true\`. Use \`heartbeat\_type tcp\` or \`heartbeat\_type none\`.
 
 |	   type |  default |  version	|
 |------|---------|---------|
-|	   bool    false    0.14.12
+|	   bool | false | 0.14.12	|
 
 Ignore DNS resolution and errors at startup time.
 
@@ -316,7 +316,7 @@ The default version of TLS transport.
 
 |	    type |                         default |                        version	|
 |--------|-----------------------------------------------------|---------|
-|	   string   ALL:!aNULL:!eNULL:!SSLv2 (OpenSSL \> 1.0.0 default)   0.14.12
+|	   string | ALL:!aNULL:!eNULL:!SSLv2 (OpenSSL \> 1.0.0 default) | 0.14.12	|
 
 The cipher configuration of TLS transport.
 
@@ -325,7 +325,7 @@ The cipher configuration of TLS transport.
 
 |	   type |  default |  version	|
 |------|---------|---------|
-|	   bool    false    0.14.12
+|	   bool | false | 0.14.12	|
 
 Skip all verification of certificates or not.
 
@@ -334,7 +334,7 @@ Skip all verification of certificates or not.
 
 |	   type |  default |  version	|
 |------|---------|---------|
-|	   bool    false    0.14.12
+|	   bool | false | 0.14.12	|
 
 Allow self signed certificates or not.
 
@@ -343,7 +343,7 @@ Allow self signed certificates or not.
 
 |	   type |  default |  version	|
 |------|---------|---------|
-|	   bool    true     0.14.12
+|	   bool | true | 0.14.12	|
 
 Verify hostname of servers and certificates or not in TLS transport.
 
@@ -352,7 +352,7 @@ Verify hostname of servers and certificates or not in TLS transport.
 
 |	        type |        default |  version	|
 |-----------------|---------|---------|
-|	   array of string    false    0.14.12
+|	   array of string | false | 0.14.12	|
 
 The additional CA certificate path for TLS.
 
@@ -361,7 +361,7 @@ The additional CA certificate path for TLS.
 
 |	   required |  multi |  version	|
 |----------|-------|---------|
-|	    false     false   0.14.5
+|	    false | false | 0.14.5	|
 
 This section contains parameters related to authentication.
 
@@ -369,7 +369,7 @@ This section contains parameters related to authentication.
 
 |	    type |        default |        version	|
 |--------|--------------------|---------|
-|	   string   required parameter   0.14.5
+|	   string | required parameter | 0.14.5	|
 
 The hostname.
 
@@ -377,7 +377,7 @@ The hostname.
 
 |	    type |        default |        version	|
 |--------|--------------------|---------|
-|	   string   required parameter   0.14.5
+|	   string | required parameter | 0.14.5	|
 
 Shared key for authentication.
 
@@ -386,7 +386,7 @@ Shared key for authentication.
 
 |	   required |  multi |  version	|
 |----------|-------|---------|
-|	    false     false   0.14.0
+|	    false | false | 0.14.0	|
 
 The backup destination that is used when all servers are unavailable.
 

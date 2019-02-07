@@ -56,7 +56,7 @@ The value must be `exec`.
 
 |	    type |        default |        version	|
 |--------|--------------------|---------|
-|	   string   required parameter   0.14.0
+|	   string | required parameter | 0.14.0	|
 
 The command (program) to execute.
 
@@ -65,7 +65,7 @@ The command (program) to execute.
 
 |	    type |                      default |                     version	|
 |--------|-----------------------------------------------|---------|
-|	   string   required if extract/tag\_key is not specified   0.14.0
+|	   string | required if extract/tag\_key is not specified | 0.14.0	|
 
 Tag of the output events.
 
@@ -74,7 +74,7 @@ Tag of the output events.
 
 |	   type |  default |  version	|
 |------|---------|---------|
-|	   time     nil     0.14.0
+|	   time | nil | 0.14.0	|
 
 The interval time between periodic program runs. If no specify value,
 command script runs only once.
@@ -84,7 +84,7 @@ command script runs only once.
 
 |	   type |  default |  version	|
 |------|---------|---------|
-|	   size    10240    0.14.9
+|	   size | 10240 | 0.14.9	|
 
 The default block size to read if parser requires partial read.
 
@@ -93,7 +93,7 @@ The default block size to read if parser requires partial read.
 
 |	   required |  multi |  version	|
 |----------|-------|---------|
-|	    false     false   0.14.9
+|	    false | false | 0.14.9	|
 
 For more details about parse section, see followings
 
@@ -104,7 +104,7 @@ For more details about parse section, see followings
 
 |	    type |   default |  version	|
 |--------|---------|---------|
-|	   string     tsv     0.14.9
+|	   string | tsv | 0.14.9	|
 
 Overwrite default value in this plugin.
 
@@ -112,7 +112,7 @@ Overwrite default value in this plugin.
 
 |	    type |   default |  version	|
 |--------|---------|---------|
-|	   string    float    0.14.9
+|	   string | float | 0.14.9	|
 
 Overwrite default value in this plugin.
 
@@ -120,7 +120,7 @@ Overwrite default value in this plugin.
 
 |	    type |   default |  version	|
 |--------|---------|---------|
-|	   string     nil     0.14.9
+|	   string | nil | 0.14.9	|
 
 Overwrite default value in this plugin.
 
@@ -128,7 +128,7 @@ Overwrite default value in this plugin.
 
 |	   type |  default |  version	|
 |------|---------|---------|
-|	   bool    false    0.14.9
+|	   bool | false | 0.14.9	|
 
 Overwrite default value in this plugin.
 
@@ -137,7 +137,7 @@ Overwrite default value in this plugin.
 
 |	   required |  multi |  version	|
 |----------|-------|---------|
-|	    false     false   0.14.9
+|	    false | false | 0.14.9	|
 
 See [Extract section configurations](/articles/extract-section.md)
 
@@ -145,7 +145,7 @@ See [Extract section configurations](/articles/extract-section.md)
 
 |	    type |   default |  version	|
 |--------|---------|---------|
-|	   string    float    0.14.9
+|	   string | float | 0.14.9	|
 
 Overwrite default value in this plugin.
 

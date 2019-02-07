@@ -55,7 +55,7 @@ The value must be `udp`.
 
 |	    type |        default |        version	|
 |--------|--------------------|---------|
-|	   string   required parameter   0.14.0
+|	   string | required parameter | 0.14.0	|
 
 tag of output events.
 
@@ -64,7 +64,7 @@ tag of output events.
 
 |	    type |    default |  version	|
 |---------|---------|---------|
-|	   integer    5160     0.14.0
+|	   integer | 5160 | 0.14.0	|
 
 The port to listen to. Default Value = 5160
 
@@ -73,7 +73,7 @@ The port to listen to. Default Value = 5160
 
 |	    type |           default |          version	|
 |--------|-------------------------|---------|
-|	   string   0.0.0.0 (all addresses)   0.14.0
+|	   string | 0.0.0.0 (all addresses) | 0.14.0	|
 
 The bind address to listen to.
 
@@ -82,7 +82,7 @@ The bind address to listen to.
 
 |	    type |           default |           version	|
 |--------|--------------------------|---------|
-|	   string   nil (no adding hostname)   0.14.10
+|	   string | nil (no adding hostname) | 0.14.10	|
 
 The field name of the client's hostname. If set the value, the client's
 hostname will be set to its key.
@@ -108,7 +108,7 @@ then the client's hostname is set to `client_host` field.
 
 |	   type |  default |  version	|
 |------|---------|---------|
-|	   size    4096     0.14.14
+|	   size | 4096 | 0.14.14	|
 
 The max bytes of message
 
@@ -117,7 +117,7 @@ The max bytes of message
 
 |	   type |  default |  version	|
 |------|---------|---------|
-|	   bool    true     0.14.23
+|	   bool | true | 0.14.23	|
 
 Remove newline from the end of incoming payload
 
@@ -126,7 +126,7 @@ Remove newline from the end of incoming payload
 
 |	   required |  multi |  version	|
 |----------|-------|---------|
-|	     true     false   0.14.10
+|	     true | false | 0.14.10	|
 
 `in_tcp` uses parser plugin to parse the payload.
 

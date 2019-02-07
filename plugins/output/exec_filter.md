@@ -70,7 +70,7 @@ The value must be `exec_filter`.
 
 |	    type |        default |        version	|
 |--------|--------------------|---------|
-|	   string   required parameter   0.14.0
+|	   string | required parameter | 0.14.0	|
 
 The command (program) to execute. The `out_exec_filter` plugin passes
 the incoming event to the program input and receives the filtered event
@@ -81,7 +81,7 @@ from the program output.
 
 |	    type |    default |  version	|
 |---------|---------|---------|
-|	   integer      1      0.14.0
+|	   integer | 1 | 0.14.0	|
 
 The number of spawned process for `command`.
 
@@ -93,7 +93,7 @@ robin fashion.
 
 |	    type |   default |  version	|
 |--------|---------|---------|
-|	   string     nil     0.14.0
+|	   string | nil | 0.14.0	|
 
 Respawn command when command exit. Default is disabled.
 
@@ -105,7 +105,7 @@ If you specify `inf` or `-1`, try to respawn forever.
 
 |	    type |   default |  version	|
 |--------|---------|---------|
-|	   string     nil     0.14.0
+|	   string | nil | 0.14.0	|
 
 The tag of the event.
 
@@ -114,7 +114,7 @@ The tag of the event.
 
 |	   type |  default |  version	|
 |------|---------|---------|
-|	   size    10240    0.14.9
+|	   size | 10240 | 0.14.9	|
 
 The default block size to read if parser requires partial read.
 
@@ -123,7 +123,7 @@ The default block size to read if parser requires partial read.
 
 |	    type |    default |  version	|
 |---------|---------|---------|
-|	   integer      1      0.14.0
+|	   integer | 1 | 0.14.0	|
 
 The number of spawned process for command.
 
@@ -132,7 +132,7 @@ The number of spawned process for command.
 
 |	   type |  default |  version	|
 |------|---------|---------|
-|	   time      0      0.14.0
+|	   time | 0 | 0.14.0	|
 
 Suppress error logs during this interval.
 
@@ -163,7 +163,7 @@ See [Format section configurations](/configuration/format-section.md) for more d
 
 |	    type |   default |  version	|
 |--------|---------|---------|
-|	   string     tsv     0.14.9
+|	   string | tsv | 0.14.9	|
 
 Overwrite default value in this plugin.
 
@@ -178,7 +178,7 @@ See [Parse section configurations](/configuration/parse-section.md) for more det
 
 |	    type |   default |  version	|
 |--------|---------|---------|
-|	   string     tsv     0.14.9
+|	   string | tsv | 0.14.9	|
 
 Overwrite default value in this plugin.
 
@@ -186,7 +186,7 @@ Overwrite default value in this plugin.
 
 |	    type |   default |  version	|
 |--------|---------|---------|
-|	   string     nil     0.14.9
+|	   string | nil | 0.14.9	|
 
 Overwrite default value in this plugin.
 
@@ -194,7 +194,7 @@ Overwrite default value in this plugin.
 
 |	    type |   default |  version	|
 |--------|---------|---------|
-|	   string     nil     0.14.9
+|	   string | nil | 0.14.9	|
 
 Overwrite default value in this plugin.
 
@@ -202,7 +202,7 @@ Overwrite default value in this plugin.
 
 |	   type |  default |  version	|
 |------|---------|---------|
-|	   bool    false    0.14.9
+|	   bool | false | 0.14.9	|
 
 Overwrite default value in this plugin.
 
@@ -215,7 +215,7 @@ See [Inject section configurations](/articles/inject-section.md) for more detail
 
 |	   type |  default |  version	|
 |------|---------|---------|
-|	   enum    float    0.14.9
+|	   enum | float | 0.14.9	|
 
 Overwrite default value in this plugin.
 
@@ -228,7 +228,7 @@ See [Extract section configurations](/articles/extract-section.md) for more deta
 
 |	   type |  default |  version	|
 |------|---------|---------|
-|	   enum    float    0.14.9
+|	   enum | float | 0.14.9	|
 
 Overwrite default value in this plugin.
 
@@ -240,7 +240,7 @@ See [Buffer section configurations](/configuration/buffer-section.md) for more d
 
 |	   type |  default |   version	|
 |------|----------|---------|
-|	   enum   interval   0.14.9
+|	   enum | interval | 0.14.9	|
 
 Overwrite default value in this plugin.
 
@@ -248,7 +248,7 @@ Overwrite default value in this plugin.
 
 |	    type |    default |  version	|
 |---------|---------|---------|
-|	   integer      1      0.14.9
+|	   integer | 1 | 0.14.9	|
 
 Overwrite default value in this plugin.
 

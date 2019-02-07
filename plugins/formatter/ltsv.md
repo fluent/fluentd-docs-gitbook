@@ -17,7 +17,7 @@ field1[label_delimiter]value1[delimiter]field2[label_delimiter]value2\n
 
 |	    type |    default |    version	|
 |--------|------------|---------|
-|	   string   "\\t"(TAB)   0.14.0
+|	   string | "\\t"(TAB) | 0.14.0	|
 
 Delimiter for fields.
 
@@ -26,7 +26,7 @@ Delimiter for fields.
 
 |	    type |   default |  version	|
 |--------|---------|---------|
-|	   string      :      0.14.0
+|	   string | : | 0.14.0	|
 
 Delimiter for key value field.
 
@@ -35,7 +35,7 @@ Delimiter for key value field.
 
 |	   type |  default |  version	|
 |------|---------|---------|
-|	   bool    true     0.14.12
+|	   bool | true | 0.14.12	|
 
 Add `\n` to the result.
 

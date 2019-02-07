@@ -47,7 +47,7 @@ The value must be `forward`.
 
 |	    type |    default |  version	|
 |---------|---------|---------|
-|	   integer    24224    0.14.0
+|	   integer | 24224 | 0.14.0	|
 
 The port to listen to.
 
@@ -56,7 +56,7 @@ The port to listen to.
 
 |	    type |           default |          version	|
 |--------|-------------------------|---------|
-|	   string   0.0.0.0 (all addresses)   0.14.0
+|	   string | 0.0.0.0 (all addresses) | 0.14.0	|
 
 The bind address to listen to.
 
@@ -65,7 +65,7 @@ The bind address to listen to.
 
 |	    type |    default |  version	|
 |---------|---------|---------|
-|	   integer      0      0.14.0
+|	   integer | 0 | 0.14.0	|
 
 The timeout time used to set linger option.
 
@@ -74,7 +74,7 @@ The timeout time used to set linger option.
 
 |	   type |  default |  version	|
 |------|---------|---------|
-|	   bool    false    0.14.10
+|	   bool | false | 0.14.10	|
 
 Try to resolve hostname from IP addresses or not.
 
@@ -83,7 +83,7 @@ Try to resolve hostname from IP addresses or not.
 
 |	   type |  default |  version	|
 |------|---------|---------|
-|	   bool    false    0.14.5
+|	   bool | false | 0.14.5	|
 
 Connections will be disconnected right after receiving first message if
 this value is true.
@@ -93,7 +93,7 @@ this value is true.
 
 |	   type |     default |      version	|
 |------|----------------|---------|
-|	   size   nil (no limit)   0.14.0
+|	   size | nil (no limit) | 0.14.0	|
 
 The size limit of the the received chunk. If the chunk size is larger
 than this value, then the received chunk is dropped.
@@ -103,7 +103,7 @@ than this value, then the received chunk is dropped.
 
 |	   type |      default |       version	|
 |------|------------------|---------|
-|	   size   nil (no warning)   0.14.0
+|	   size | nil (no warning) | 0.14.0	|
 
 The warning size limit of the received chunk. If the chunk size is
 larger than this value, a warning message will be sent.
@@ -113,7 +113,7 @@ larger than this value, a warning message will be sent.
 
 |	   type |  default |  version	|
 |------|---------|---------|
-|	   bool    false    0.14.0
+|	   bool | false | 0.14.0	|
 
 Skip an event if incoming event is invalid.
 
@@ -124,7 +124,7 @@ This option is useful at forwarder, not aggragator.
 
 |	    type |           default |          version	|
 |--------|-------------------------|---------|
-|	   string   nil (no adding address)   0.14.11
+|	   string | nil (no adding address) | 0.14.11	|
 
 The field name of the client's source address. If set the value, the
 client's address will be set to its key.
@@ -134,7 +134,7 @@ client's address will be set to its key.
 
 |	    type |           default |           version	|
 |--------|--------------------------|---------|
-|	   string   nil (no adding hostname)   0.14.4
+|	   string | nil (no adding hostname) | 0.14.4	|
 
 The field name of the client's hostname. If set the value, the client's
 hostname will be set to its key.
@@ -165,7 +165,7 @@ Without `<transport tls>`, in\_forward uses raw TCP.
 
 |	   required |  multi |  version	|
 |----------|-------|---------|
-|	    false     false   0.14.5
+|	    false | false | 0.14.5	|
 
 This section contains parameters related to authentication.
 
@@ -173,7 +173,7 @@ This section contains parameters related to authentication.
 
 |	    type |        default |        version	|
 |--------|--------------------|---------|
-|	   string   required parameter   0.14.5
+|	   string | required parameter | 0.14.5	|
 
 The hostname.
 
@@ -181,7 +181,7 @@ The hostname.
 
 |	    type |        default |        version	|
 |--------|--------------------|---------|
-|	   string   required parameter   0.14.5
+|	   string | required parameter | 0.14.5	|
 
 Shared key for authentication.
 
@@ -189,7 +189,7 @@ Shared key for authentication.
 
 |	   type |  default |  version	|
 |------|---------|---------|
-|	   bool    false    0.14.5
+|	   bool | false | 0.14.5	|
 
 If true, use user based authentication.
 
@@ -197,7 +197,7 @@ If true, use user based authentication.
 
 |	   type |  default |  version	|
 |------|---------|---------|
-|	   bool    true     0.14.5
+|	   bool | true | 0.14.5	|
 
 Allow anonymous source. `<client>` sections are required if disabled.
 
@@ -205,7 +205,7 @@ Allow anonymous source. `<client>` sections are required if disabled.
 
 |	   required |  multi |  version	|
 |----------|-------|---------|
-|	    false     true    0.14.5
+|	    false | true | 0.14.5	|
 
 This section contains user based authentication.
 
@@ -213,7 +213,7 @@ This section contains user based authentication.
 
 |	    type |        default |        version	|
 |--------|--------------------|---------|
-|	   string   required parameter   0.14.5
+|	   string | required parameter | 0.14.5	|
 
 The username for authentication.
 
@@ -221,7 +221,7 @@ The username for authentication.
 
 |	    type |        default |        version	|
 |--------|--------------------|---------|
-|	   string   required parameter   0.14.5
+|	   string | required parameter | 0.14.5	|
 
 The password for authentication.
 
@@ -229,7 +229,7 @@ The password for authentication.
 
 |	   required |  multi |  version	|
 |----------|-------|---------|
-|	    false     true    0.14.5
+|	    false | true | 0.14.5	|
 
 This section contains that client IP/Network authentication and shared
 key per host.
@@ -238,7 +238,7 @@ key per host.
 
 |	    type |   default |  version	|
 |--------|---------|---------|
-|	   string     nil     0.14.5
+|	   string | nil | 0.14.5	|
 
 The IP address or host name of the client.
 
@@ -248,7 +248,7 @@ This is exclusive with `network`.
 
 |	    type |   default |  version	|
 |--------|---------|---------|
-|	   string     nil     0.14.5
+|	   string | nil | 0.14.5	|
 
 Network address specification.
 
@@ -258,7 +258,7 @@ This is exclusive with `host`.
 
 |	    type |   default |  version	|
 |--------|---------|---------|
-|	   string     nil     0.14.5
+|	   string | nil | 0.14.5	|
 
 Shared key per client.
 
@@ -266,7 +266,7 @@ Shared key per client.
 
 |	   type |   default |  version	|
 |-------|---------|---------|
-|	   array    `[]`     0.14.5
+|	   array | `[]` | 0.14.5	|
 
 Array of username.
 

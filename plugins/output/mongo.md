@@ -88,7 +88,7 @@ The value must be `mongo`.
 
 |	    type |     default |    version	|
 |--------|-------------|---------|
-|	   string   'localhost'    1.0.0
+|	   string | 'localhost' | 1.0.0	|
 
 The MongoDB hostname.
 
@@ -97,7 +97,7 @@ The MongoDB hostname.
 
 |	    type |    default |  version	|
 |---------|---------|---------|
-|	   integer    27017     1.0.0
+|	   integer | 27017 | 1.0.0	|
 
 The MongoDB port.
 
@@ -106,7 +106,7 @@ The MongoDB port.
 
 |	    type |        default |        version	|
 |--------|--------------------|---------|
-|	   string   required parameter    1.0.0
+|	   string | required parameter | 1.0.0	|
 
 The database name.
 
@@ -115,7 +115,7 @@ The database name.
 
 |	    type |                         default |                         version	|
 |--------|------------------------------------------------------|---------|
-|	   string   'untagged' or required parameter if not `tag_mapped`    1.0.0
+|	   string | 'untagged' or required parameter if not `tag_mapped` | 1.0.0	|
 
 The collection name.
 
@@ -124,7 +124,7 @@ The collection name.
 
 |	    type |   default |   version	|
 |--------|----------|---------|
-|	   string   optional    1.0.0
+|	   string | optional | 1.0.0	|
 
 This option enables capped collection. This is always recommended
 because MongoDB is not suited to storing large amounts of historical
@@ -134,7 +134,7 @@ data.
 
 |	   type |  default |   version	|
 |------|----------|---------|
-|	   size   optional    1.0.0
+|	   size | optional | 1.0.0	|
 
 Sets the capped collection size.
 
@@ -143,7 +143,7 @@ Sets the capped collection size.
 
 |	    type |   default |  version	|
 |--------|---------|---------|
-|	   string    `nil`     1.0.0
+|	   string | `nil` | 1.0.0	|
 
 The username to use for authentication.
 
@@ -152,7 +152,7 @@ The username to use for authentication.
 
 |	    type |   default |  version	|
 |--------|---------|---------|
-|	   string    `nil`     1.0.0
+|	   string | `nil` | 1.0.0	|
 
 The password to use for authentication.
 
@@ -161,7 +161,7 @@ The password to use for authentication.
 
 |	    type |   default |  version	|
 |--------|---------|---------|
-|	   string   `time`     1.0.0
+|	   string | `time` | 1.0.0	|
 
 The key name of timestamp. (default is "time")
 
@@ -170,7 +170,7 @@ The key name of timestamp. (default is "time")
 
 |	   type |  default |  version	|
 |------|---------|---------|
-|	   bool   `false`    1.0.0
+|	   bool | `false` | 1.0.0	|
 
 This option will allow out\_mongo to use Fluentd's tag to determine the
 destination collection. For example, if you generate records with tags

@@ -97,7 +97,7 @@ details.
 
 |	    type |   default |  version	|
 |--------|---------|---------|
-|	   string   bundled    1.0.0
+|	   string | bundled | 1.0.0	|
 
 Path to GeoIP database file.
 
@@ -106,7 +106,7 @@ Path to GeoIP database file.
 
 |	    type |   default |  version	|
 |--------|---------|---------|
-|	   string   bundled    1.0.0
+|	   string | bundled | 1.0.0	|
 
 Path to GeoIP2 database file.
 
@@ -115,7 +115,7 @@ Path to GeoIP2 database file.
 
 |	    type |   default |  version	|
 |--------|---------|---------|
-|	   string    host      1.0.0
+|	   string | host | 1.0.0	|
 
 Specify one or more geoip lookup field which has ip address.
 
@@ -127,7 +127,7 @@ In the case of accessing nested value, delimit keys by dot like
 
 |	   type |  default |  version	|
 |------|---------|---------|
-|	   bool    false     1.0.0
+|	   bool | false | 1.0.0	|
 
 Set to `true` to skip adding field with `[null, null]` array.
 

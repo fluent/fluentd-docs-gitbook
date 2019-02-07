@@ -76,7 +76,7 @@ The value must be `mongo`.
 
 |	    type |        default |        version	|
 |--------|--------------------|---------|
-|	   string   required parameter    1.0.0
+|	   string | required parameter | 1.0.0	|
 
 The comma separated node strings (e.g.
 host1:27017,host2:27017,host3:27017).
@@ -86,7 +86,7 @@ host1:27017,host2:27017,host3:27017).
 
 |	    type |        default |        version	|
 |--------|--------------------|---------|
-|	   string   required parameter    1.0.0
+|	   string | required parameter | 1.0.0	|
 
 The database name.
 
@@ -95,7 +95,7 @@ The database name.
 
 |	    type |                  default |                  version	|
 |--------|----------------------------------------|---------|
-|	   string   required parameter if not `tag_mapped`    1.0.0
+|	   string | required parameter if not `tag_mapped` | 1.0.0	|
 
 The collection name.
 
@@ -104,7 +104,7 @@ The collection name.
 
 |	    type |   default |   version	|
 |--------|----------|---------|
-|	   string   optional    1.0.0
+|	   string | optional | 1.0.0	|
 
 This option enables capped collection. This is always recommended
 because MongoDB is not suited to storing large amounts of historical
@@ -115,7 +115,7 @@ data.
 
 |	   type |  default |   version	|
 |------|----------|---------|
-|	   size   optional    1.0.0
+|	   size | optional | 1.0.0	|
 
 Sets the capped collection size.
 
@@ -124,7 +124,7 @@ Sets the capped collection size.
 
 |	    type |   default |   version	|
 |--------|----------|---------|
-|	   string   optional    1.0.0
+|	   string | optional | 1.0.0	|
 
 The username to use for authentication.
 
@@ -133,7 +133,7 @@ The username to use for authentication.
 
 |	    type |   default |   version	|
 |--------|----------|---------|
-|	   string   optional    1.0.0
+|	   string | optional | 1.0.0	|
 
 The password to use for authentication.
 
@@ -142,7 +142,7 @@ The password to use for authentication.
 
 |	    type |   default |   version	|
 |--------|----------|---------|
-|	   string   optional    1.0.0
+|	   string | optional | 1.0.0	|
 
 This option will allow out\_mongo to use Fluentd's tag to determine the
 destination collection.
@@ -174,7 +174,7 @@ database.
 
 |	    type |        default |        version	|
 |--------|--------------------|---------|
-|	   string   required parameter    1.0.0
+|	   string | required parameter | 1.0.0	|
 
 The name of the replica set.
 
@@ -183,7 +183,7 @@ The name of the replica set.
 
 |	    type |   default |  version	|
 |--------|---------|---------|
-|	   string    `nil`     1.0.0
+|	   string | `nil` | 1.0.0	|
 
 The ReplicaSet read preference (e.g. secondary, etc).
 
@@ -192,7 +192,7 @@ The ReplicaSet read preference (e.g. secondary, etc).
 
 |	    type |    default |  version	|
 |---------|---------|---------|
-|	   integer     60       1.0.0
+|	   integer | 60 | 1.0.0	|
 
 The ReplicaSet failover threshold. The default threshold is 60. If the
 retry count reaches this threshold, the plugin raises an exception.

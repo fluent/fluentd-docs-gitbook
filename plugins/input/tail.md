@@ -61,7 +61,7 @@ The value must be `tail`.
 
 |	    type |        default |        version	|
 |--------|--------------------|---------|
-|	   string   required parameter   0.14.0
+|	   string | required parameter | 0.14.0	|
 
 The tag of the event.
 
@@ -81,7 +81,7 @@ in\_tail emits the parsed events with the 'foo.path.to.file' tag.
 
 |	    type |        default |        version	|
 |--------|--------------------|---------|
-|	   string   required parameter   0.14.0
+|	   string | required parameter | 0.14.0	|
 
 The paths to read. Multiple paths can be specified, separated by ','.
 
@@ -111,7 +111,7 @@ configuration.
 
 |	   type |     default |     version	|
 |-------|--------------|---------|
-|	   array   \[\] (empty)   0.14.0
+|	   array | \[\] (empty) | 0.14.0	|
 
 The paths to exclude the files from watcher list. For example, if you
 want to remove compressed files, you can use following pattern.
@@ -129,7 +129,7 @@ takes it as a string.
 
 |	   type |    default |     version	|
 |------|--------------|---------|
-|	   time   60 (seconds)   0.14.0
+|	   time | 60 (seconds) | 0.14.0	|
 
 The interval of refreshing the list of watch file. This is used when
 path includes `*`.
@@ -139,7 +139,7 @@ path includes `*`.
 
 |	   type |     default |      version	|
 |------|----------------|---------|
-|	   time   nil (disabled)   0.14.13
+|	   time | nil (disabled) | 0.14.13	|
 
 Limit the watching files that the modification time is within the
 specified time range when use `*` in `path` parameter.
@@ -149,7 +149,7 @@ specified time range when use `*` in `path` parameter.
 
 |	   type |  default |  version	|
 |------|---------|---------|
-|	   bool    false    0.14.13
+|	   bool | false | 0.14.13	|
 
 Skip the refresh of watching list on startup. This reduces the start up
 time when use `*` in `path`.
@@ -159,7 +159,7 @@ time when use `*` in `path`.
 
 |	   type |  default |  version	|
 |------|---------|---------|
-|	   bool    false    0.14.0
+|	   bool | false | 0.14.0	|
 
 Start to read the logs from the head of file, not bottom.
 
@@ -176,7 +176,7 @@ isn't executed until reading file is finished.
 
 |	    type |                  default |                 version	|
 |--------|---------------------------------------|---------|
-|	   string   nil (string encoding is `ASCII-8BIT`)   0.14.0
+|	   string | nil (string encoding is `ASCII-8BIT`) | 0.14.0	|
 
 Specify the encoding of reading lines.
 
@@ -201,7 +201,7 @@ $ ruby -e 'p Encoding.name_list.sort'
 
 |	    type |    default |  version	|
 |---------|---------|---------|
-|	   integer    1000     0.14.0
+|	   integer | 1000 | 0.14.0	|
 
 The number of reading lines at each IO.
 
@@ -213,7 +213,7 @@ with in\_tail, set smaller value.
 
 |	   type |     default |      version	|
 |------|----------------|---------|
-|	   time   nil (disabled)   0.14.0
+|	   time | nil (disabled) | 0.14.0	|
 
 The interval of flushing the buffer for multiline format.
 
@@ -226,7 +226,7 @@ event after 5 seconds from last emit. This option is useful when you use
 
 |	    type |   default |  version	|
 |--------|---------|---------|
-|	   string     nil     0.14.0
+|	   string | nil | 0.14.0	|
 
 This parameter is highly recommended. Fluentd will record the position
 it last read into this file.
@@ -279,7 +279,7 @@ Deprecated parameter. Use `<parse>` instead.
 
 |	    type |       default |      version	|
 |--------|-----------------|---------|
-|	   string   nil (no assign)   0.14.0
+|	   string | nil (no assign) | 0.14.0	|
 
 Add watching file path to `path_key` field.
 
@@ -296,7 +296,7 @@ With this config, generated events are like
 
 |	   type |    default |    version	|
 |------|-------------|---------|
-|	   time   5 (seconds)   0.14.0
+|	   time | 5 (seconds) | 0.14.0	|
 
 in\_tail actually does a bit more than `tail -F` itself. When rotating a
 file, some data may still need to be written to the old file as opposed
@@ -315,7 +315,7 @@ number of seconds you want this time interval to be.
 
 |	   type |  default |  version	|
 |------|---------|---------|
-|	   bool    true     0.14.0
+|	   bool | true | 0.14.0	|
 
 Enable the additional watch timer. Setting this parameter to `false`
 will significantly reduce CPU and I/O consumption when tailing a large
@@ -338,7 +338,7 @@ may be disabled by default.
 
 |	   type |  default |  version	|
 |------|---------|---------|
-|	   bool    true      1.0.1
+|	   bool | true | 1.0.1	|
 
 Enable the additional inotify based watcher. Setting this parameter to
 `false` will disable inotify events and use only timer watcher for file
@@ -351,7 +351,7 @@ This option is mainly for avoiding stuck issue with inotify.
 
 |	   type |  default |  version	|
 |------|---------|---------|
-|	   bool    false    0.14.12
+|	   bool | false | 0.14.12	|
 
 Open and close the file on every update instead of leaving it open until
 it gets rotated.
@@ -361,7 +361,7 @@ it gets rotated.
 
 |	   type |  default |  version	|
 |------|---------|---------|
-|	   bool    false    0.14.12
+|	   bool | false | 0.14.12	|
 
 Emit unmatched lines when `<parse>` format is not matched for incoming
 logs.
@@ -374,7 +374,7 @@ Emitted record is `{"unmatched_line" : incoming line}`, e.g.
 
 |	   type |  default |  version	|
 |------|---------|---------|
-|	   bool    false    0.14.0
+|	   bool | false | 0.14.0	|
 
 If you hard to exclude non-permision files from watching list, set this
 parameter to `true`. It suppress repeated permission error logs.

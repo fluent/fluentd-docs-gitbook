@@ -20,7 +20,7 @@ This format is a default format of `out_file` plugin.
 
 |	    type |    default |    version	|
 |--------|------------|---------|
-|	   string   "\\t"(TAB)   0.14.0
+|	   string | "\\t"(TAB) | 0.14.0	|
 
 Delimiter for each field. "SPACE"(' ') and "COMMA"(',') are supported.
 
@@ -29,7 +29,7 @@ Delimiter for each field. "SPACE"(' ') and "COMMA"(',') are supported.
 
 |	   type |  default |  version	|
 |------|---------|---------|
-|	   bool    true     0.14.0
+|	   bool | true | 0.14.0	|
 
 Output tag field if true,
 
@@ -38,7 +38,7 @@ Output tag field if true,
 
 |	   type |  default |  version	|
 |------|---------|---------|
-|	   bool    true     0.14.0
+|	   bool | true | 0.14.0	|
 
 Output time field if true,
 
@@ -47,7 +47,7 @@ Output time field if true,
 
 |	   type |  default |  version	|
 |------|---------|---------|
-|	   enum   string    0.14.7
+|	   enum | string | 0.14.7	|
 
 Overwrite default value in this plugin.
 
@@ -56,7 +56,7 @@ Overwrite default value in this plugin.
 
 |	    type |     default |     version	|
 |--------|--------------|---------|
-|	   string   nil(iso8601)   0.14.7
+|	   string | nil(iso8601) | 0.14.7	|
 
 Overwrite default value in this plugin.
 

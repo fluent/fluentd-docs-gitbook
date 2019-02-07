@@ -16,7 +16,7 @@ This formatter is often used in conjunction with [none parser](/plugins/parser/n
 
 |	   type |  default |  version	|
 |------|---------|---------|
-|	   bool    true     0.14.0
+|	   bool | true | 0.14.0	|
 
 Add `\n` to the result. If there is a trailing "\\n" already, set it
 "false"
@@ -26,7 +26,7 @@ Add `\n` to the result. If there is a trailing "\\n" already, set it
 
 |	    type |   default |  version	|
 |--------|---------|---------|
-|	   string   message   0.14.0
+|	   string | message | 0.14.0	|
 
 The value of this field is outputted.
 
