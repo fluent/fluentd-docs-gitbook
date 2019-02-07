@@ -144,14 +144,14 @@ For more details, see [Inject Plugin Helper API](/articles/api-plugin-helper-inj
 
 #### extract
 
-|	  old (v0.12)|    new (v1)|       note	|
-|--------------|--------------|--------------------------|
-|	  time\_key      time\_key      
-  time\_format   time\_format   
-  timezone       timezone       
-  tag\_key       tag\_key       
-  localtime      localtime      exclusive with utc
-  utc            localtime      exclusive with localtime
+| old (v0.12) | new (v1)    | note                     |
+|-------------|-------------|--------------------------|
+| time_key    | time_key    |                          |
+| time_format | time_format |                          |
+| timezone    | timezone    |                          |
+| tag_key     | tag_key     |                          |
+| localtime   | localtime   | exclusive with utc       |
+| utc         | localtime   | exclusive with localtime |
 
 This converts following flat configuration:
 
@@ -176,7 +176,7 @@ For more details, see [Extract Plugin Helper API](/articles/api-plugin-helper-ex
 
 |	  old (v0.12)|               new (v1)|                note |                      plugin	|
 |-------------------------|-----------------------|--------------------------|-----------------------------------------|
-|	format                    @type                                             
+|	format |                   @type |                                            |	|
   types                     types                   converted to JSON format   
   types\_delimiter          types                                              
   types\_label\_delimiter   types                                              
@@ -225,7 +225,7 @@ and [Writing Parser Plugins](/articles/api-plugin-parser.md).
 
 |	  old (v0.12)|        new (v1)|           note |                      plugin	|
 |------------------|------------------|--------------------------|----------------------|
-|	format             @type                                        
+|	format |            @type |                                       |	|
   delimiter          delimiter                                     
   force\_quotes      force\_quotes                                 CsvFormatter
   keys               keys                                          TSVFormatter
