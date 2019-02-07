@@ -223,7 +223,7 @@ The wait time before accepting a server fault recovery.
 
 |	   type |   default |           available |          version	|
 |------|-----------|---------------------------|---------|
-|	enum   transport   transport, tcp, udp, none   0.14.12
+|	enum | transport | transport, tcp, udp, none | 0.14.12	|
 
 The transport protocol to use for heartbeats. Set "none" to disable
 heartbeat.
@@ -307,7 +307,7 @@ Ignore DNS resolution and errors at startup time.
 
 |	   type |  default |       available |       version	|
 |------|----------|--------------------|---------|
-|	enum   TLSv1\_2   TLSv1\_1, TLSv1\_2   0.14.12
+|	enum | TLSv1\_2 | TLSv1\_1, TLSv1\_2 | 0.14.12	|
 
 The default version of TLS transport.
 

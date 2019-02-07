@@ -12,7 +12,7 @@ See [Parse section configurations](/configuration/parse-section.md)
 
 |	   type |  default |    available |     version	|
 |------|---------|----------------|---------|
-|	enum     oj      oj, yajl, json   0.14.0
+|	enum | oj | oj, yajl, json | 0.14.0	|
 
 Set JSON parser.
 

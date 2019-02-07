@@ -100,7 +100,7 @@ The bind address to listen to.
 
 |	   type |  default |  available values|   version	|
 |------|---------|------------------|---------|
-|	enum     udp         udp/tcp        0.14.0
+|	enum | udp | udp/tcp | 0.14.0	|
 
 The transport protocol used to receive logs. "udp" and "tcp" are
 supported.
@@ -157,7 +157,7 @@ assumed to have the canonical syslog format.
 
 |	   type |  default |    available values|    version	|
 |------|---------|----------------------|---------|
-|	enum   rfc3164   rfc3164/rfc5424/auto  0.14.14
+|	enum | rfc3164 | rfc3164/rfc5424/auto | 0.14.14	|
 
 This parameter is used inside `<parse>` directive. The default is
 `rfc3164`

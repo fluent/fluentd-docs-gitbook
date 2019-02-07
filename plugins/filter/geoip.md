@@ -138,7 +138,7 @@ This is useful for elasticsearch.
 
 |	   type |   default |           available values|           version	|
 |------|-----------|----------------------------------|---------|
-|	enum   geoip2\_c   geoip, geoip2\_compat, geoip2\_c    1.0.0
+|	enum | geoip2\_c | geoip, geoip2\_compat, geoip2\_c | 1.0.0	|
 
 Set backend library.
 
