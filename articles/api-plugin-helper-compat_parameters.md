@@ -86,6 +86,7 @@ v0.12 style is ignored. Here is an example:
 | localtime                        | timekey\_use\_utc               | exclusive with utc  |
 | utc                              | timekey\_use\_utc               | exclusive with localtime |
 
+
 This converts following flat configuration:
 
 ``` {.CodeRay}
@@ -174,28 +175,28 @@ For more details, see [Extract Plugin Helper API](/articles/api-plugin-helper-ex
 
 #### parser
 
-|	  old (v0.12)|               new (v1)|                note |                      plugin	|
+| old (v0.12)             | new (v1)              | note                     | plugin                                  |
 |-------------------------|-----------------------|--------------------------|-----------------------------------------|
-|	format |                   @type |                                            |	|
-  types                     types                   converted to JSON format   
-  types\_delimiter          types                                              
-  types\_label\_delimiter   types                                              
-  keys                      keys                                               CSVParser, TSVParser (old ValuesParser)
-  time\_key                 time\_key                                          
-  time\_format              time\_format                                       
-  localtime                 localtime               exclusive with utc         
-  utc                       localtime               exclusive with localtime   
-  delimiter                 delimiter                                          
-  keep\_time\_key           keep\_time\_key                                    
-  null\_empty\_string       null\_empty\_string                                
-  null\_value\_pattern      null\_value\_pattern                               
-  json\_parser              json\_parser                                       JSONParser
-  label\_delimiter          label\_delimiter                                   LabeledTSVParser
-  format\_firstline         format\_firstline                                  MultilineParser
-  message\_key              message\_key                                       NoneParser
-  with\_priority            with\_priority                                     SyslogParser
-  message\_format           message\_format                                    SyslogParser
-  rfc5424\_time\_format     rfc5424\_time\_format                              SyslogParser
+| format                  | @type                 |                          |                                         |
+| types                   | types                 | converted to JSON format |                                         |
+| types\_delimiter        | types                 |                          |                                         |
+| types\_label\_delimiter | types                 |                          |                                         |
+| keys                    | keys                  |                          | CSVParser, TSVParser (old ValuesParser) |
+| time\_key               | time\_key             |                          |                                         |
+| time\_format            | time\_format          |                          |                                         |
+| localtime               | localtime             | exclusive with utc       |                                         |
+| utc                     | localtime             | exclusive with localtime |                                         |
+| delimiter               | delimiter             |                          |                                         |
+| keep\_time\_key         | keep\_time\_key       |                          |                                         |
+| null\_empty\_string     | null\_empty\_string   |                          |                                         |
+| null\_value\_pattern    | null\_value\_pattern  |                          |                                         |
+| json\_parser            | json\_parser          |                          | JSONParser                              |
+| label\_delimiter        | label\_delimiter      |                          | LabeledTSVParser                        |
+| format\_firstline       | format\_firstline     |                          | MultilineParser                         |
+| message\_key            | message\_key          |                          | NoneParser                              |
+| with\_priority          | with\_priority        |                          | SyslogParser                            |
+| message\_format         | message\_format       |                          | SyslogParser                            |
+| rfc5424\_time\_format   | rfc5424\_time\_format |                          | SyslogParser                            |
 
 This converts following configuration:
 
@@ -223,23 +224,23 @@ and [Writing Parser Plugins](/articles/api-plugin-parser.md).
 
 #### formatter
 
-|	  old (v0.12)|        new (v1)|           note |                      plugin	|
+| old (v0.12)      | new (v1)         | note                     | plugin               |
 |------------------|------------------|--------------------------|----------------------|
-|	format |            @type |                                       |	|
-  delimiter          delimiter                                     
-  force\_quotes      force\_quotes                                 CsvFormatter
-  keys               keys                                          TSVFormatter
-  fields             fields                                        CsvFormatter
-  json\_parser       json\_parser                                  JSONFormatter
-  label\_delimiter   label\_delimiter                              LabeledTSVFormatter
-  output\_time       output\_time                                  OutFileFormatter
-  output\_tag        output\_tag                                   OutFileFormatter
-  localtime          localtime          exclusive with utc         OutFileFormatter
-  utc                utc                exclusive with localtime   OutFileFormatter
-  timezone           timezone                                      OutFileFormatter
-  message\_key       message\_key                                  SingleValueFormatter
-  add\_newline       add\_newline                                  SingleValueFormatter
-  output\_type       output\_type                                  StdoutFormatter
+| format           | @type            |                          |                      |
+| delimiter        | delimiter        |                          |                      |
+| force\_quotes    | force\_quotes    |                          | CsvFormatter         |
+| keys             | keys             |                          | TSVFormatter         |
+| fields           | fields           |                          | CsvFormatter         |
+| json\_parser     | json\_parser     |                          | JSONFormatter        |
+| label\_delimiter | label\_delimiter |                          | LabeledTSVFormatter  |
+| output\_time     | output\_time     |                          | OutFileFormatter     |
+| output\_tag      | output\_tag      |                          | OutFileFormatter     |
+| localtime        | localtime        | exclusive with utc       | OutFileFormatter     |
+| utc              | utc              | exclusive with localtime | OutFileFormatter     |
+| timezone         | timezone         |                          | OutFileFormatter     |
+| message\_key     | message\_key     |                          | SingleValueFormatter |
+| add\_newline     | add\_newline     |                          | SingleValueFormatter |
+| output\_type     | output\_type     |                          | StdoutFormatter      |
 
 This converts following configuration:
 
