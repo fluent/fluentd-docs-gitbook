@@ -147,10 +147,10 @@ This improves the input performance by reducing HTTP access. Non
 `default` format doesn't support batch mode yet. Here is a simple
 bechmark result on MacBook Pro with ruby 2.3:
 
-  ----------------- ----------------- -------------------------
-  json              msgpack           msgpack array(10 items)
-  2100 events/sec   2400 events/sec   10000 events/sec
-  ----------------- ----------------- -------------------------
+	  json              msgpack           msgpack array(10 items)  |
+|-----------------|-----------------|-------------------------|
+|   2100 events/sec   2400 events/sec   10000 events/sec
+
 
 Tested configuration and ruby script is
 [here](https://gist.github.com/repeatedly/672ac73abf7cbcb629aaec791838cf6d).
