@@ -124,10 +124,10 @@ spec:
 The Yaml file have two relevant environment variables that are used by
 Fluentd when the container starts:
 
-  Environment Variable          Description                            Default	|
+| Environment Variable        | Description                          | Default               |
 |-----------------------------|--------------------------------------|-----------------------|
-|	  FLUENT\_ELASTICSEARCH\_HOST   Specify the host name or IP address.   elasticsearch-logging
-  FLUENT\_ELASTICSEARCH\_PORT   Elasticsearch TCP port                 9200
+| FLUENT\_ELASTICSEARCH\_HOST | Specify the host name or IP address. | elasticsearch-logging |
+| FLUENT\_ELASTICSEARCH\_PORT | Elasticsearch TCP port               | 9200                  |
 
 Any relevant change needs to be done to the Yaml file before to deploy
 it. Using the default values assumes that at least an Elasticsearch Pod
