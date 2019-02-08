@@ -1,7 +1,7 @@
 # parser Filter Plugin
 
-The `filter_parser` filter plugin "parses" string field in event records
-and mutates its event record with parsed result.
+The `parser` filter plugin "parses" string field in event records and
+mutates its event record with parsed result.
 
 
 ## Example Configurations
@@ -11,7 +11,7 @@ and mutates its event record with parsed result.
 ``` {.CodeRay}
 <filter foo.bar>
   @type parser
-  key_name message
+  key_name log
   <parse>
     @type regexp
     expression /^(?<host>[^ ]*) [^ ]* (?<user>[^ ]*) \[(?<time>[^\]]*)\] "(?<method>\S+)(?: +(?<path>[^ ]*) +\S*)?" (?<code>[^ ]*) (?<size>[^ ]*)$/
@@ -21,9 +21,23 @@ and mutates its event record with parsed result.
 ```
 
 `filter_parser` uses built-in parser plugins and your own customized
-parser plugin, so you can re-use pre-defined format like `apache`,
-`json` and etc. See document page for more details: [Parser Plugin Overview](/plugins/parser/README.md)
+parser plugin, so you can re-use pre-defined format like `apache2`,
+`json` and etc. See document page for more details:
+[Parser Plugin Overview](/plugins/parser/README.md)
 
+With this example, if you receive following event:
+
+    time:
+    injested time (depends on your input)
+    record:
+    {"log":"192.168.0.1 - - [05/Feb/2018:12:00:00 +0900] \"GET / HTTP/1.1\" 200 777"}
+
+parsed result is below:
+
+    time
+    05/Feb/2018:12:00:00 +0900
+    record:
+    {"host":"192.168.0.1","user":"-","method":"GET","path":"/","code":"200","size":"777"}
 
 ## Plugin helpers
 
