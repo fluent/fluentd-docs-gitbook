@@ -46,27 +46,27 @@ The value must be `monitor_agent`.
 
 ### port
 
-|	    type |    default |  version	|
-|---------|---------|---------|
-|	   integer | 24220 | 0.14.0	|
+| type    | default | version |
+|:--------|:--------|:--------|
+| integer | 24220   | 0.14.0  |
 
 The port to listen to.
 
 
 ### bind
 
-|	    type |           default |          version	|
-|--------|-------------------------|---------|
-|	   string | 0.0.0.0 (all addresses) | 0.14.0	|
+| type   | default                 | version |
+|:-------|:------------------------|:--------|
+| string | 0.0.0.0 (all addresses) | 0.14.0  |
 
 The bind address to listen to.
 
 
 ### tag
 
-|	    type |   default |  version	|
-|--------|---------|---------|
-|	   string | nil | 0.14.0	|
+| type   | default | version |
+|:-------|:--------|:--------|
+| string | nil     | 0.14.0  |
 
 If you set this parameter, this plugin emits metrics as records. See
 "Reuse plugins" section.
@@ -74,9 +74,9 @@ If you set this parameter, this plugin emits metrics as records. See
 
 ### emit\_interval
 
-|	    type |    default |  version	|
-|---------|---------|---------|
-|	   integer | 60 | 0.14.0	|
+| type    | default | version |
+|:--------|:--------|:--------|
+| integer | 60      | 0.14.0  |
 
 The interval time between event emits. This will be used when `tag` is
 configured.
@@ -84,9 +84,9 @@ configured.
 
 ### include\_config
 
-|	   type |  default |  version	|
-|------|---------|---------|
-|	   bool | true | 0.14.0	|
+| type | default | version |
+|:-----|:--------|:--------|
+| bool | true    | 0.14.0  |
 
 You can set this option to false to remove `config` field from the
 response.
@@ -94,9 +94,9 @@ response.
 
 ### include\_retry
 
-|	   type |  default |  version	|
-|------|---------|---------|
-|	   bool | true | 0.14.11	|
+| type | default | version |
+|:-----|:--------|:--------|
+| bool | true    | 0.14.11 |
 
 You can set this option to false to remove `retry` field from the
 response.
@@ -214,7 +214,7 @@ $ curl http://localhost:24220/api/plugins.json?debug=1
 The following list shows the available query parameters.
 
 | Parameter     | Value          | Explanation                                            |
-|---------------|----------------|--------------------------------------------------------|
+|:--------------|:---------------|:-------------------------------------------------------|
 | `debug`       | Constant       | Expose additional internal metrics                     |
 | `with_ivars`  | Variable names | Expose the specified instance variables of each plugin |
 | `with_config` | Boolean        | Override the configuration option with\_config         |

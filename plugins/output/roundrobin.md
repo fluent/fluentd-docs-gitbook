@@ -59,9 +59,9 @@ Specifies the storage destinations. The format is the same as the
 
 #### weight
 
-|	    type |    default |  version	|
-|---------|---------|---------|
-|	   integer | 1 | 0.14.1	|
+| type    | default | version |
+|:--------|:--------|:--------|
+| integer | 1       | 0.14.1  |
 
 Weight to distribute events to multiple outputs.
 

@@ -14,9 +14,9 @@ field.
 
 ### add\_newline
 
-|	   type |  default |  version	|
-|------|---------|---------|
-|	   bool | true | 0.14.12	|
+| type | default | version |
+|:-----|:--------|:--------|
+| bool | true    | 0.14.12 |
 
 Add `\n` to the result.
 

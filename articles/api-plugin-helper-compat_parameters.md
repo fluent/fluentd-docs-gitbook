@@ -64,27 +64,27 @@ v0.12 style is ignored. Here is an example:
 
 #### buffer
 
-|        old (v0.12)               |             new (v1)            |   note  |
-|----------------------------------|---------------------------------|---------|
-| buffer\_type                     | @type                           |         |  
-| buffer\_path                     | path                            |         |  
-| num\_threads                     | flush\_thread\_count            |         | 
-| num\_threads                     | flush\_thread\_count            |         |   
-| flush\_interval                  | flush\_interval                 |         |   
-| try\_flush\_interval             | flush\_thread\_interval         |         |   
-| queued\_chunk\_flush\_interval   | flush\_thread\_burst\_interval  |         |   
-| disable\_retry\_limit            | retry\_forever                  |         |   
-| retry\_limit                     | retry\_max\_times               |         |   
-| max\_retry\_wait                 | retry\_max\_interval            |         |   
-| buffer\_chunk\_limit             | chunk\_limit\_size              |         |   
-| buffer\_queue\_limit             | queue\_limit\_length            |         |   
-| buffer\_queue\_full\_action      | overflow\_action                |         |   
-| flush\_at\_shutdown              | flush\_at\_shutdown             |         |   
-| time\_slice\_format              | timekey                         | also set chunk\_key to 'time' |
-| time\_slice\_wait                | timekey\_wait                   |         |
-| timezone                         | timekey\_zone                   |         |
-| localtime                        | timekey\_use\_utc               | exclusive with utc  |
-| utc                              | timekey\_use\_utc               | exclusive with localtime |
+| old (v0.12)                    | new (v1)                       | note                          |
+|:-------------------------------|:-------------------------------|:------------------------------|
+| buffer\_type                   | @type                          |                               |
+| buffer\_path                   | path                           |                               |
+| num\_threads                   | flush\_thread\_count           |                               |
+| num\_threads                   | flush\_thread\_count           |                               |
+| flush\_interval                | flush\_interval                |                               |
+| try\_flush\_interval           | flush\_thread\_interval        |                               |
+| queued\_chunk\_flush\_interval | flush\_thread\_burst\_interval |                               |
+| disable\_retry\_limit          | retry\_forever                 |                               |
+| retry\_limit                   | retry\_max\_times              |                               |
+| max\_retry\_wait               | retry\_max\_interval           |                               |
+| buffer\_chunk\_limit           | chunk\_limit\_size             |                               |
+| buffer\_queue\_limit           | queue\_limit\_length           |                               |
+| buffer\_queue\_full\_action    | overflow\_action               |                               |
+| flush\_at\_shutdown            | flush\_at\_shutdown            |                               |
+| time\_slice\_format            | timekey                        | also set chunk\_key to 'time' |
+| time\_slice\_wait              | timekey\_wait                  |                               |
+| timezone                       | timekey\_zone                  |                               |
+| localtime                      | timekey\_use\_utc              | exclusive with utc            |
+| utc                            | timekey\_use\_utc              | exclusive with localtime      |
 
 
 This converts following flat configuration:
@@ -113,16 +113,16 @@ For more details, see [Buffer section configuration](/configuration/buffer-secti
 
 #### inject
 
-|  old (v0.12)         |   new (v1)   |        note               |
-|----------------------|--------------|---------------------------|
-|  include\_time\_key  | time\_key    |  if true, set time\_key   |
-|  time\_key           | time\_key    |                           |
-|  time\_format        | time\_format |                           |
-|  timezone            | timezone     |                           |
-|  include\_tag\_key   | tag\_key     |  if true, set tag\_key    |
-|  tag\_key            | tag\_key     |                           |
-|  localtime           | localtime    |  exclusive with utc       |
-|  utc                 | localtime    |  exclusive with localtime |
+| old (v0.12)        | new (v1)     | note                     |
+|:-------------------|:-------------|:-------------------------|
+| include\_time\_key | time\_key    | if true, set time\_key   |
+| time\_key          | time\_key    |                          |
+| time\_format       | time\_format |                          |
+| timezone           | timezone     |                          |
+| include\_tag\_key  | tag\_key     | if true, set tag\_key    |
+| tag\_key           | tag\_key     |                          |
+| localtime          | localtime    | exclusive with utc       |
+| utc                | localtime    | exclusive with localtime |
 
 This converts following flat configuration:
 
@@ -146,7 +146,7 @@ For more details, see [Inject Plugin Helper API](/articles/api-plugin-helper-inj
 #### extract
 
 | old (v0.12) | new (v1)    | note                     |
-|-------------|-------------|--------------------------|
+|:------------|:------------|:-------------------------|
 | time_key    | time_key    |                          |
 | time_format | time_format |                          |
 | timezone    | timezone    |                          |
@@ -176,7 +176,7 @@ For more details, see [Extract Plugin Helper API](/articles/api-plugin-helper-ex
 #### parser
 
 | old (v0.12)             | new (v1)              | note                     | plugin                                  |
-|-------------------------|-----------------------|--------------------------|-----------------------------------------|
+|:------------------------|:----------------------|:-------------------------|:----------------------------------------|
 | format                  | @type                 |                          |                                         |
 | types                   | types                 | converted to JSON format |                                         |
 | types\_delimiter        | types                 |                          |                                         |
@@ -225,7 +225,7 @@ and [Writing Parser Plugins](/articles/api-plugin-parser.md).
 #### formatter
 
 | old (v0.12)      | new (v1)         | note                     | plugin               |
-|------------------|------------------|--------------------------|----------------------|
+|:-----------------|:-----------------|:-------------------------|:---------------------|
 | format           | @type            |                          |                      |
 | delimiter        | delimiter        |                          |                      |
 | force\_quotes    | force\_quotes    |                          | CsvFormatter         |

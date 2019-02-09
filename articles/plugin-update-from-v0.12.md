@@ -96,10 +96,10 @@ Add requirements section to `README.md` like following:
 ``` {.CodeRay}
 ## Requirements
 
-| fluent-plugin-may_awesome | Fluentd     | Ruby   |
-|---------------------------|-------------|--------|
-| >= 1.0.0                  | >= v0.14.0  | >= 2.1 |
-| < 1.0.0                   | >= v0.12.0  | >= 1.9 |
+| fluent-plugin-may_awesome | Fluentd    | Ruby   |
+|:--------------------------|:-----------|:-------|
+| >= 1.0.0                  | >= v0.14.0 | >= 2.1 |
+| < 1.0.0                   | >= v0.12.0 | >= 1.9 |
 ```
 
 This helps that plugin users can understand plugin requirements.

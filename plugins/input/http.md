@@ -70,54 +70,54 @@ The value must be `http`.
 
 ### port
 
-|	    type |    default |  version	|
-|---------|---------|---------|
-|	   integer | 9880 | 0.14.0	|
+| type    | default | version |
+|:--------|:--------|:--------|
+| integer | 9880    | 0.14.0  |
 
 The port to listen to.
 
 
 ### bind
 
-|	    type |           default |          version	|
-|--------|-------------------------|---------|
-|	   string | 0.0.0.0 (all addresses) | 0.14.0	|
+| type   | default                 | version |
+|:-------|:------------------------|:--------|
+| string | 0.0.0.0 (all addresses) | 0.14.0  |
 
 The bind address to listen to.
 
 
 ### body\_size\_limit
 
-|	   type |  default |  version	|
-|------|---------|---------|
-|	   size | 32MB | 0.14.0	|
+| type | default | version |
+|:-----|:--------|:--------|
+| size | 32MB    | 0.14.0  |
 
 The size limit of the POSTed element.
 
 
 ### keepalive\_timeout
 
-|	   type |    default |     version	|
-|------|--------------|---------|
-|	   size | 10 (seconds) | 0.14.0	|
+| type | default      | version |
+|:-----|:-------------|:--------|
+| size | 10 (seconds) | 0.14.0  |
 
 The timeout limit for keeping the connection alive.
 
 
 ### add\_http\_headers
 
-|	   type |  default |  version	|
-|------|---------|---------|
-|	   bool | false | 0.14.0	|
+| type | default | version |
+|:-----|:--------|:--------|
+| bool | false   | 0.14.0  |
 
 Add `HTTP_` prefix headers to the record.
 
 
 ### add\_remote\_addr
 
-|	   type |  default |  version	|
-|------|---------|---------|
-|	   bool | false | 0.14.0	|
+| type | default | version |
+|:-----|:--------|:--------|
+| bool | false   | 0.14.0  |
 
 Add `REMOTE_ADDR` field to the record. The value of `REMOTE_ADDR` is the
 client's address.
@@ -135,9 +135,9 @@ If send above multiple headers, `REMOTE_ADDR` value is `host1`.
 
 ### cors\_allow\_origins
 
-|	   type |      default |     version	|
-|-------|---------------|---------|
-|	   array | nil(disabled) | 0.14.0	|
+| type  | default       | version |
+|:------|:--------------|:--------|
+| array | nil(disabled) | 0.14.0  |
 
 White list domains for CORS.
 
@@ -157,9 +157,9 @@ the following example).
 
 ### respond\_with\_empty\_img
 
-|	   type |  default |  version	|
-|------|---------|---------|
-|	   bool | false | 0.12.0	|
+| type | default | version |
+|:-----|:--------|:--------|
+| bool | false   | 0.12.0  |
 
 Respond with an empty gif image of 1x1 pixel (rather than an emtpy
 string).
@@ -253,9 +253,9 @@ This significantly improves the throughput since it reduces the number
 of HTTP requests. Here is a simple bechmark result on MacBook Pro with
 ruby 2.3:
 
-|	  json              msgpack           msgpack array(10 items)	|
-|-----------------|-----------------|-------------------------|
-|	  2100 events/sec | 2400 events/sec | 10000 events/sec	|
+| json            | msgpack         | msgpack array(10 items) |
+|:----------------|:----------------|:------------------------|
+| 2100 events/sec | 2400 events/sec | 10000 events/sec        |
 
 Tested configuration and ruby script is
 [here](https://gist.github.com/repeatedly/672ac73abf7cbcb629aaec791838cf6d).

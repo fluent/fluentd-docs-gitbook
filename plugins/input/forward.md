@@ -45,45 +45,45 @@ The value must be `forward`.
 
 ### port
 
-|	    type |    default |  version	|
-|---------|---------|---------|
-|	   integer | 24224 | 0.14.0	|
+| type    | default | version |
+|:--------|:--------|:--------|
+| integer | 24224   | 0.14.0  |
 
 The port to listen to.
 
 
 ### bind
 
-|	    type |           default |          version	|
-|--------|-------------------------|---------|
-|	   string | 0.0.0.0 (all addresses) | 0.14.0	|
+| type   | default                 | version |
+|:-------|:------------------------|:--------|
+| string | 0.0.0.0 (all addresses) | 0.14.0  |
 
 The bind address to listen to.
 
 
 ### linger\_timeout
 
-|	    type |    default |  version	|
-|---------|---------|---------|
-|	   integer | 0 | 0.14.0	|
+| type    | default | version |
+|:--------|:--------|:--------|
+| integer | 0       | 0.14.0  |
 
 The timeout time used to set linger option.
 
 
 ### resolve\_hostname
 
-|	   type |  default |  version	|
-|------|---------|---------|
-|	   bool | false | 0.14.10	|
+| type | default | version |
+|:-----|:--------|:--------|
+| bool | false   | 0.14.10 |
 
 Try to resolve hostname from IP addresses or not.
 
 
 ### deny\_keepalive
 
-|	   type |  default |  version	|
-|------|---------|---------|
-|	   bool | false | 0.14.5	|
+| type | default | version |
+|:-----|:--------|:--------|
+| bool | false   | 0.14.5  |
 
 Connections will be disconnected right after receiving first message if
 this value is true.
@@ -91,9 +91,9 @@ this value is true.
 
 ### chunk\_size\_limit
 
-|	   type |     default |      version	|
-|------|----------------|---------|
-|	   size | nil (no limit) | 0.14.0	|
+| type | default        | version |
+|:-----|:---------------|:--------|
+| size | nil (no limit) | 0.14.0  |
 
 The size limit of the the received chunk. If the chunk size is larger
 than this value, then the received chunk is dropped.
@@ -101,9 +101,9 @@ than this value, then the received chunk is dropped.
 
 ### chunk\_size\_warn\_limit
 
-|	   type |      default |       version	|
-|------|------------------|---------|
-|	   size | nil (no warning) | 0.14.0	|
+| type | default          | version |
+|:-----|:-----------------|:--------|
+| size | nil (no warning) | 0.14.0  |
 
 The warning size limit of the received chunk. If the chunk size is
 larger than this value, a warning message will be sent.
@@ -111,9 +111,9 @@ larger than this value, a warning message will be sent.
 
 ### skip\_invalid\_event
 
-|	   type |  default |  version	|
-|------|---------|---------|
-|	   bool | false | 0.14.0	|
+| type | default | version |
+|:-----|:--------|:--------|
+| bool | false   | 0.14.0  |
 
 Skip an event if incoming event is invalid.
 
@@ -122,9 +122,9 @@ This option is useful at forwarder, not aggragator.
 
 ### source\_address\_key
 
-|	    type |           default |          version	|
-|--------|-------------------------|---------|
-|	   string | nil (no adding address) | 0.14.11	|
+| type   | default                 | version |
+|:-------|:------------------------|:--------|
+| string | nil (no adding address) | 0.14.11 |
 
 The field name of the client's source address. If set the value, the
 client's address will be set to its key.
@@ -132,9 +132,9 @@ client's address will be set to its key.
 
 ### source\_hostname\_key
 
-|	    type |           default |           version	|
-|--------|--------------------------|---------|
-|	   string | nil (no adding hostname) | 0.14.4	|
+| type   | default                  | version |
+|:-------|:-------------------------|:--------|
+| string | nil (no adding hostname) | 0.14.4  |
 
 The field name of the client's hostname. If set the value, the client's
 hostname will be set to its key.
@@ -163,82 +163,82 @@ Without `<transport tls>`, in\_forward uses raw TCP.
 
 ### &lt;security&gt; section
 
-|	   required |  multi |  version	|
-|----------|-------|---------|
-|	    false | false | 0.14.5	|
+| required | multi | version |
+|:---------|:------|:--------|
+| false    | false | 0.14.5  |
 
 This section contains parameters related to authentication.
 
 #### self\_hostname
 
-|	    type |        default |        version	|
-|--------|--------------------|---------|
-|	   string | required parameter | 0.14.5	|
+| type   | default            | version |
+|:-------|:-------------------|:--------|
+| string | required parameter | 0.14.5  |
 
 The hostname.
 
 #### shared\_key
 
-|	    type |        default |        version	|
-|--------|--------------------|---------|
-|	   string | required parameter | 0.14.5	|
+| type   | default            | version |
+|:-------|:-------------------|:--------|
+| string | required parameter | 0.14.5  |
 
 Shared key for authentication.
 
 #### user\_auth
 
-|	   type |  default |  version	|
-|------|---------|---------|
-|	   bool | false | 0.14.5	|
+| type | default | version |
+|:-----|:--------|:--------|
+| bool | false   | 0.14.5  |
 
 If true, use user based authentication.
 
 #### allow\_anonymous\_source
 
-|	   type |  default |  version	|
-|------|---------|---------|
-|	   bool | true | 0.14.5	|
+| type | default | version |
+|:-----|:--------|:--------|
+| bool | true    | 0.14.5  |
 
 Allow anonymous source. `<client>` sections are required if disabled.
 
 #### \<user\> section
 
-|	   required |  multi |  version	|
-|----------|-------|---------|
-|	    false | true | 0.14.5	|
+| required | multi | version |
+|:---------|:------|:--------|
+| false    | true  | 0.14.5  |
 
 This section contains user based authentication.
 
 ##### username
 
-|	    type |        default |        version	|
-|--------|--------------------|---------|
-|	   string | required parameter | 0.14.5	|
+| type   | default            | version |
+|:-------|:-------------------|:--------|
+| string | required parameter | 0.14.5  |
 
 The username for authentication.
 
 ##### password
 
-|	    type |        default |        version	|
-|--------|--------------------|---------|
-|	   string | required parameter | 0.14.5	|
+| type   | default            | version |
+|:-------|:-------------------|:--------|
+| string | required parameter | 0.14.5  |
 
 The password for authentication.
 
 #### \<client\> section
 
-|	   required |  multi |  version	|
-|----------|-------|---------|
-|	    false | true | 0.14.5	|
+| required | multi | version |
+|:---------|:------|:--------|
+| false    | true  | 0.14.5  |
 
 This section contains that client IP/Network authentication and shared
 key per host.
 
 ##### host
 
-|	    type |   default |  version	|
-|--------|---------|---------|
-|	   string | nil | 0.14.5	|
+| type   | default | version |
+|:-------|:--------|:--------|
+| string | nil     | 0.14.5  |
 
 The IP address or host name of the client.
 
@@ -246,9 +246,9 @@ This is exclusive with `network`.
 
 ##### network
 
-|	    type |   default |  version	|
-|--------|---------|---------|
-|	   string | nil | 0.14.5	|
+| type   | default | version |
+|:-------|:--------|:--------|
+| string | nil     | 0.14.5  |
 
 Network address specification.
 
@@ -256,17 +256,17 @@ This is exclusive with `host`.
 
 ##### shared\_key
 
-|	    type |   default |  version	|
-|--------|---------|---------|
-|	   string | nil | 0.14.5	|
+| type   | default | version |
+|:-------|:--------|:--------|
+| string | nil     | 0.14.5  |
 
 Shared key per client.
 
 ##### users
 
-|	   type |   default |  version	|
-|-------|---------|---------|
-|	   array | `[]` | 0.14.5	|
+| type  | default | version |
+|:------|:--------|:--------|
+| array | `[]`    | 0.14.5  |
 
 Array of username.
 

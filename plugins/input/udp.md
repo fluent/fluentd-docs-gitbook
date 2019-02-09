@@ -53,36 +53,36 @@ The value must be `udp`.
 
 ### tag
 
-|	    type |        default |        version	|
-|--------|--------------------|---------|
-|	   string | required parameter | 0.14.0	|
+| type   | default            | version |
+|:-------|:-------------------|:--------|
+| string | required parameter | 0.14.0  |
 
 tag of output events.
 
 
 ### port
 
-|	    type |    default |  version	|
-|---------|---------|---------|
-|	   integer | 5160 | 0.14.0	|
+| type    | default | version |
+|:--------|:--------|:--------|
+| integer | 5160    | 0.14.0  |
 
 The port to listen to. Default Value = 5160
 
 
 ### bind
 
-|	    type |           default |          version	|
-|--------|-------------------------|---------|
-|	   string | 0.0.0.0 (all addresses) | 0.14.0	|
+| type   | default                 | version |
+|:-------|:------------------------|:--------|
+| string | 0.0.0.0 (all addresses) | 0.14.0  |
 
 The bind address to listen to.
 
 
 ### source\_hostname\_key
 
-|	    type |           default |           version	|
-|--------|--------------------------|---------|
-|	   string | nil (no adding hostname) | 0.14.10	|
+| type   | default                  | version |
+|:-------|:-------------------------|:--------|
+| string | nil (no adding hostname) | 0.14.10 |
 
 The field name of the client's hostname. If set the value, the client's
 hostname will be set to its key.
@@ -106,27 +106,27 @@ then the client's hostname is set to `client_host` field.
 
 ### message\_length\_limit
 
-|	   type |  default |  version	|
-|------|---------|---------|
-|	   size | 4096 | 0.14.14	|
+| type | default | version |
+|:-----|:--------|:--------|
+| size | 4096    | 0.14.14 |
 
 The max bytes of message
 
 
 ### remove\_newline
 
-|	   type |  default |  version	|
-|------|---------|---------|
-|	   bool | true | 0.14.23	|
+| type | default | version |
+|:-----|:--------|:--------|
+| bool | true    | 0.14.23 |
 
 Remove newline from the end of incoming payload
 
 
 ### &lt;parse&gt; section
 
-|	   required |  multi |  version	|
-|----------|-------|---------|
-|	     true | false | 0.14.10	|
+| required | multi | version |
+|:---------|:------|:--------|
+| true     | false | 0.14.10 |
 
 `in_tcp` uses parser plugin to parse the payload.
 

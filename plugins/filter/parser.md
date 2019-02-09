@@ -46,9 +46,9 @@ For more details, see [Parse section configurations](/configuration/parse-sectio
 
 ### key\_name
 
-|	    type |        default |        version	|
-|--------|--------------------|---------|
-|	   string | required parameter | 0.14.9	|
+| type   | default            | version |
+|:-------|:-------------------|:--------|
+| string | required parameter | 0.14.9  |
 
 Specify field name in the record to parse.
 
@@ -57,18 +57,18 @@ This parameter supports nested field access via [record\_accessor syntax](/artic
 
 ### reserve\_time
 
-|	   type |  default |  version	|
-|------|---------|---------|
-|	   bool | false | 0.14.9	|
+| type | default | version |
+|:-----|:--------|:--------|
+| bool | false   | 0.14.9  |
 
 Keep original event time in parsed result.
 
 
 ### reserve\_data
 
-|	   type |  default |  version	|
-|------|---------|---------|
-|	   bool | false | 0.14.9	|
+| type | default | version |
+|:-----|:--------|:--------|
+| bool | false   | 0.14.9  |
 
 Keep original key-value pair in parsed result.
 
@@ -100,9 +100,9 @@ Without `reserve_data`, result is below
 
 ### remove\_key\_name\_field
 
-|	   type |  default |  version	|
-|------|---------|---------|
-|	   bool | false | 1.2.2	|
+| type | default | version |
+|:-----|:--------|:--------|
+| bool | false   | 1.2.2   |
 
 Remove `key_name` field when parsing is succeeded.
 
@@ -128,9 +128,9 @@ With above configuration, result is below:
 
 ### replace\_invalid\_sequence
 
-|	   type |  default |  version	|
-|------|---------|---------|
-|	   bool | false | 0.14.9	|
+| type | default | version |
+|:-----|:--------|:--------|
+| bool | false   | 0.14.9  |
 
 If `true`, invalid string is replaced with safe characters and re-parse
 it.
@@ -138,9 +138,9 @@ it.
 
 ### inject\_key\_prefix
 
-|	    type |   default |  version	|
-|--------|---------|---------|
-|	   string | false | 0.14.9	|
+| type   | default | version |
+|:-------|:--------|:--------|
+| string | false   | 0.14.9  |
 
 Store parsed values with specified key name prefix.
 
@@ -166,9 +166,9 @@ With above configuration, result is below:
 
 ### hash\_value\_field
 
-|	    type |   default |  version	|
-|--------|---------|---------|
-|	   string | false | 0.14.9	|
+| type   | default | version |
+|:-------|:--------|:--------|
+| string | false   | 0.14.9  |
 
 Store parsed values as a hash value in a field.
 
@@ -193,9 +193,9 @@ With above configuration, result is below:
 
 ### emit\_invalid\_record\_to\_error
 
-|	   type |  default |  version	|
-|------|---------|---------|
-|	   bool | true | 0.14.0	|
+| type | default | version |
+|:-----|:--------|:--------|
+| bool | true    | 0.14.0  |
 
 Emit invalid record to `@ERROR` label. Invalid cases are
 

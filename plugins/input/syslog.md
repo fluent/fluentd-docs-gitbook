@@ -80,27 +80,27 @@ and [priority](http://en.wikipedia.org/wiki/Syslog#Severity_levels).
 
 ### port
 
-|	    type |    default |  version	|
-|---------|---------|---------|
-|	   integer | 5140 | 0.14.0	|
+| type    | default | version |
+|:--------|:--------|:--------|
+| integer | 5140    | 0.14.0  |
 
 The port to listen to.
 
 
 ### bind
 
-|	    type |           default |          version	|
-|--------|-------------------------|---------|
-|	   string | 0.0.0.0 (all addresses) | 0.14.0	|
+| type   | default                 | version |
+|:-------|:------------------------|:--------|
+| string | 0.0.0.0 (all addresses) | 0.14.0  |
 
 The bind address to listen to.
 
 
 ### protocol\_type
 
-|	   type |  default |  available values|   version	|
-|------|---------|------------------|---------|
-|	enum | udp | udp/tcp | 0.14.0	|
+| type | default | available values | version |
+|:-----|:--------|:-----------------|:--------|
+| enum | udp     | udp/tcp          | 0.14.0  |
 
 The transport protocol used to receive logs. "udp" and "tcp" are
 supported.
@@ -108,9 +108,9 @@ supported.
 
 ### message\_length\_limit
 
-|	   type |  default |  version	|
-|------|---------|---------|
-|	   size | 2048 | 0.14.2	|
+| type | default | version |
+|:-----|:--------|:--------|
+| size | 2048    | 0.14.2  |
 
 The max bytes of syslog message. If you send larger message, change this
 parameter.
@@ -155,9 +155,9 @@ assumed to have the canonical syslog format.
 
 ### message\_format
 
-|	   type |  default |    available values|    version	|
-|------|---------|----------------------|---------|
-|	enum | rfc3164 | rfc3164/rfc5424/auto | 0.14.14	|
+| type | default | available values     | version |
+|:-----|:--------|:---------------------|:--------|
+| enum | rfc3164 | rfc3164/rfc5424/auto | 0.14.14 |
 
 This parameter is used inside `<parse>` directive. The default is
 `rfc3164`
@@ -190,9 +190,9 @@ prefix and parse it.
 
 ### with\_priority
 
-|	   type |  default |  version	|
-|------|---------|---------|
-|	   bool | true | 0.14.0	|
+| type | default | version |
+|:-----|:--------|:--------|
+| bool | true    | 0.14.0  |
 
 This parameter is used inside `<parse>` directive.
 
@@ -217,9 +217,9 @@ If you wish to parse syslog messages of arbitrary formats,
 
 ### source\_hostname\_key
 
-|	    type |       default |      version	|
-|--------|-----------------|---------|
-|	   string | nil (no assign) | 0.14.0	|
+| type   | default         | version |
+|:-------|:----------------|:--------|
+| string | nil (no assign) | 0.14.0  |
 
 The field name of the client's hostname. If set the value, the client's
 hostname will be set to its key.
@@ -227,9 +227,9 @@ hostname will be set to its key.
 
 ### source\_address\_key
 
-|	    type |       default |      version	|
-|--------|-----------------|---------|
-|	   string | nil (no assign) | 0.14.0	|
+| type   | default         | version |
+|:-------|:----------------|:--------|
+| string | nil (no assign) | 0.14.0  |
 
 The field name of the client's address. If set the value, the client's
 address will be set to its key.
@@ -237,9 +237,9 @@ address will be set to its key.
 
 ### priority\_key
 
-|	    type |       default |      version	|
-|--------|-----------------|---------|
-|	   string | nil (no assign) | 0.14.10	|
+| type   | default         | version |
+|:-------|:----------------|:--------|
+| string | nil (no assign) | 0.14.10 |
 
 The field name of the priority. If set the value, the priority will be
 set to its key.
@@ -247,9 +247,9 @@ set to its key.
 
 ### facility\_key
 
-|	    type |       default |      version	|
-|--------|-----------------|---------|
-|	   string | nil (no assign) | 0.14.10	|
+| type   | default         | version |
+|:-------|:----------------|:--------|
+| string | nil (no assign) | 0.14.10 |
 
 The field name of the facility. If set the value, the facility will be
 set to its key.

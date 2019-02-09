@@ -95,27 +95,27 @@ details.
 
 ### geoip\_database
 
-|	    type |   default |  version	|
-|--------|---------|---------|
-|	   string | bundled | 1.0.0	|
+| type   | default | version |
+|:-------|:--------|:--------|
+| string | bundled | 1.0.0   |
 
 Path to GeoIP database file.
 
 
 ### geoip2\_database
 
-|	    type |   default |  version	|
-|--------|---------|---------|
-|	   string | bundled | 1.0.0	|
+| type   | default | version |
+|:-------|:--------|:--------|
+| string | bundled | 1.0.0   |
 
 Path to GeoIP2 database file.
 
 
 ### geoip\_lookup\_key
 
-|	    type |   default |  version	|
-|--------|---------|---------|
-|	   string | host | 1.0.0	|
+| type   | default | version |
+|:-------|:--------|:--------|
+| string | host    | 1.0.0   |
 
 Specify one or more geoip lookup field which has ip address.
 
@@ -125,9 +125,9 @@ In the case of accessing nested value, delimit keys by dot like
 
 ### skip\_adding\_null\_record
 
-|	   type |  default |  version	|
-|------|---------|---------|
-|	   bool | false | 1.0.0	|
+| type | default | version |
+|:-----|:--------|:--------|
+| bool | false   | 1.0.0   |
 
 Set to `true` to skip adding field with `[null, null]` array.
 
@@ -136,9 +136,9 @@ This is useful for elasticsearch.
 
 ### backend\_library
 
-|	   type |   default |           available values|           version	|
-|------|-----------|----------------------------------|---------|
-|	enum | geoip2\_c | geoip, geoip2\_compat, geoip2\_c | 1.0.0	|
+| type | default   | available values                 | version |
+|:-----|:----------|:---------------------------------|:--------|
+| enum | geoip2\_c | geoip, geoip2\_compat, geoip2\_c | 1.0.0   |
 
 Set backend library.
 

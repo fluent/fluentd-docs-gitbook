@@ -52,11 +52,11 @@ The value must be `relabel`.
 
 ### @label
 
-|	The label.
+The label.
 
-    type         default         version	|
-|--------|--------------------|---------|
-|	   string | required parameter | 0.14.0	|
+| type   | default            | version |
+|:-------|:-------------------|:--------|
+| string | required parameter | 0.14.0  |
 
 
 ------------------------------------------------------------------------

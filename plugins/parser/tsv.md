@@ -10,18 +10,18 @@ See [Parse section configurations](/configuration/parse-section.md)
 
 ### keys
 
-|	        type |             default |        version	|
-|-----------------|--------------------|---------|
-|	   array of string | required parameter | 0.14.9	|
+| type            | default            | version |
+|:----------------|:-------------------|:--------|
+| array of string | required parameter | 0.14.9  |
 
 Names of fields included in each lines.
 
 
 ### delimiter
 
-|	    type |   default |  version	|
-|--------|---------|---------|
-|	   string | "\\t" | 0.14.0	|
+| type   | default | version |
+|:-------|:--------|:--------|
+| string | "\\t"   | 0.14.0  |
 
 The delimiter character (or string) of TSV values.
 

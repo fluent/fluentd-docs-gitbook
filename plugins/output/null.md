@@ -40,9 +40,9 @@ The value must be `null`.
 
 ### never\_flush
 
-|	   type |  default |  version	|
-|------|---------|---------|
-|	   bool | false | 0.14.12	|
+| type | default | version |
+|:-----|:--------|:--------|
+| bool | false   | 0.14.12 |
 
 The parameter for testing to simulate output plugin which never succeed
 to flush.
@@ -53,25 +53,25 @@ See [Buffer section configurations](/configuration/buffer-section.md) for more d
 
 #### chunk\_keys
 
-|	   type |   default |  version	|
-|-------|---------|---------|
-|	   array | tag | 0.14.5	|
+| type  | default | version |
+|:------|:--------|:--------|
+| array | tag     | 0.14.5  |
 
 Overwrite default value in this plugin.
 
 #### flush\_at\_shutdown
 
-|	   type |  default |  version	|
-|------|---------|---------|
-|	   bool | true | 0.14.5	|
+| type | default | version |
+|:-----|:--------|:--------|
+| bool | true    | 0.14.5  |
 
 Overwrite default value in this plugin.
 
 #### chunk\_limit\_size
 
-|	   type |  default |  version	|
-|------|---------|---------|
-|	   size | 10240 | 0.14.5	|
+| type | default | version |
+|:-----|:--------|:--------|
+| size | 10240   | 0.14.5  |
 
 Overwrite default value in this plugin.
 

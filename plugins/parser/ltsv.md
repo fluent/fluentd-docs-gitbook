@@ -10,18 +10,18 @@ See [Parse section configurations](/configuration/parse-section.md)
 
 ### delimiter
 
-|	    type |   default |  version	|
-|--------|---------|---------|
-|	   string | "\\t" | 0.14.0	|
+| type   | default | version |
+|:-------|:--------|:--------|
+| string | "\\t"   | 0.14.0  |
 
 The delimiter character (or string) of TSV values
 
 
 ### delimiter\_pattern
 
-|	    type |   default |  version	|
-|--------|---------|---------|
-|	   regexp | nil | 1.2.0	|
+| type   | default | version |
+|:-------|:--------|:--------|
+| regexp | nil     | 1.2.0   |
 
 The delimiter pattern of TSV values. This paramter overwrites
 `delimiter` paramter if specified.
@@ -31,9 +31,9 @@ delimiter\_pattern is string type before 1.2.0.
 
 ### label\_delimiter
 
-|	    type |   default |  version	|
-|--------|---------|---------|
-|	   string | : | 0.14.0	|
+| type   | default | version |
+|:-------|:--------|:--------|
+| string | :       | 0.14.0  |
 
 The delimiter character between field name and value
 
