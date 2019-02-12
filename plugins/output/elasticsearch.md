@@ -1,5 +1,7 @@
 # Elasticsearch Output Plugin
 
+![](/images/plugins/output/elasticsearch.png)
+
 The `out_elasticsearch` Output plugin writes records into Elasticsearch.
 By default, it creates records by bulk write operation. This means that
 when you first import records using the plugin, no record is created
