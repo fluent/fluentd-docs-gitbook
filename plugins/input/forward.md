@@ -4,12 +4,14 @@
 
 The `in_forward` Input plugin listens to a TCP socket to receive the
 event stream. It also listens to an UDP socket to receive heartbeat
-messages.
+messages. See also "protocol" section for implementation details.
 
 This plugin is mainly used to receive event logs from other Fluentd
-instances, the fluent-cat command, or client libraries. This is by far
-the most efficient way to retrieve the records.
+instances, the fluent-cat command, or Fluentd client libraries.
+This is by far the most efficient way to retrieve the records.
 
+If you want to receive events from raw tcp payload, use `in_tcp`
+plugin instead.
 
 ## Example Configuration
 
