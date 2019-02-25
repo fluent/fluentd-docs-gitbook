@@ -133,6 +133,21 @@ For more details about parser plugin, see followings:
 -   [Parse section configurations](/configuration/parse-section.md)
 
 
+## Code example
+
+Here is ruby example to send event to `in_tcp`.
+
+```
+require 'socket'
+
+# This example uses json payload.
+# In in_tcp configuration, need to configure "@type json" in "<parse>"
+TCPSocket.open('127.0.0.1', 5170) do |s|
+  s.write('{"k":"v1"}' + "\n")
+  s.write('{"k":"v2"}' + "\n")
+end
+```
+
 ------------------------------------------------------------------------
 
 If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs/issues?state=open).
