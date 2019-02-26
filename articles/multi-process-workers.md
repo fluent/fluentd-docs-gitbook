@@ -65,6 +65,83 @@ With this directive, you can mix multi-process ready and
 non-multi-process ready plugins in 1 instance.
 
 
+### &lt;worker N-M&gt; directive
+
+As of Fluentd v1.4.0, `<worker N-M>` syntax has been introduced:
+
+    :::text
+    <system>
+      workers 6
+    </system>
+
+    <worker 0-1>
+      <source>
+        @type forward
+      </source>
+
+      <filter test>
+        @type record_transformer
+        enable_ruby
+        <record>
+          worker_id ${ENV['SERVERENGINE_WORKER_ID']}
+        </record>
+      </filter>
+
+      <match test>
+        @type stdout
+      </match>
+    </worker>
+    # work on worker 0 and worker 1.
+
+    <worker 2-3>
+      <source>
+        @type tcp
+        <parse>
+          @type none
+        </parse>
+        tag test
+      </source>
+
+      <filter test>
+        @type record_transformer
+        enable_ruby
+        <record>
+          worker_id ${ENV['SERVERENGINE_WORKER_ID']}
+        </record>
+      </filter>
+
+      <match test>
+        @type stdout
+      </match>
+    </worker>
+    # work on worker 2 and worker 3.
+
+    <worker 4-5>
+      <source>
+        @type udp
+        <parse>
+          @type none
+        </parse>
+        tag test
+      </source>
+
+      <filter test>
+        @type record_transformer
+        enable_ruby
+        <record>
+          worker_id ${ENV['SERVERENGINE_WORKER_ID']}
+        </record>
+      </filter>
+
+      <match test>
+        @type stdout
+      </match>
+    </worker>
+    # work on worker 4 and worker 5.
+
+With this directive, you can specify multiple workers per worker directive.
+
+
 ### root\_dir/@id parameter
 
 These parameters must be specified when you use file buffer.
