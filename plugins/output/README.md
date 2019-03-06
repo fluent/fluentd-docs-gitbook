@@ -80,7 +80,7 @@ Example of v1.0 output plugin configuration:
     timekey     60m
     timekey_wait 1m
   </buffer>
-</source>
+</match>
 ```
 
 For Fluentd v0.12, configuration parameters for buffer plugins were
@@ -94,7 +94,7 @@ written in same section:
   buffer_path /my/buffer/myservice/access.myservice_name.*.log
   time_slice_format %Y-%m-%d.%H%M
   time_slice_wait   1m
-</source>
+</match>
 ```
 
 See buffer section in [Compat Parameters Plugin Helper
