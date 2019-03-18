@@ -184,12 +184,12 @@ destinations. For monitoring, newer events are important than older.
 
 If the bottom chunk write out fails, it will remain in the queue and
 Fluentd will retry after waiting several seconds (`retry_wait`). If the
-retry limit has not been disabled (`retry_forever` is true) and the
-retry count exceeds the specified limit (`retry_max_times`), the chunk
-is trashed. The retry wait time doubles each time (1.0sec, 2.0sec,
-4.0sec, ...) until `retry_max_interval` is reached. If the queue length
-exceeds the specified limit (`queue_limit_length`), new events are
-rejected.
+retry limit has not been disabled (`retry_forever` is false) and the
+retry count exceeds the specified limit (`retry_max_times`), **all chunks
+in the queue are discarded**. The retry wait time doubles each time
+(1.0sec, 2.0sec, 4.0sec, ...) until `retry_max_interval` is reached.
+If the queue length exceeds the specified limit (`queue_limit_length`),
+new events are rejected.
 
 writing out the bottom chunk is considered to be a failure if
 \"Output\#write\" or \`Output\#try\_write\` method throws an exception.
