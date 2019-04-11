@@ -193,7 +193,6 @@ even if td-agent includes them at the first time.
 
 The latest version is used. If command shows following result:
 
-    :::term
     $ fluent-gem list
     ...skip...
     fluent-plugin-record-modifier (2.0.1, 0.6.0, 0.5.0)
