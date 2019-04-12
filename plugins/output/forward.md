@@ -85,8 +85,17 @@ The value must be `forward`.
 |:---------|:------|:--------|
 | true     | true  | 0.14.5  |
 
-The destination servers. Each server must have following information.
+The destination servers. Each server has following parameters.
 
+- host
+- name
+- port
+- shared\_key
+- username
+- password
+- standby
+- weight
+ 
 #### host
 
 | type   | default            | version |
@@ -352,10 +361,33 @@ Verify hostname of servers and certificates or not in TLS transport.
 
 | type            | default | version |
 |:----------------|:--------|:--------|
-| array of string | false   | 0.14.12 |
+| array of string | nil     | 0.14.12 |
 
 The additional CA certificate path for TLS.
 
+### tls\_client\_cert\_pat
+
+| type   | default | version |
+|:------:|:-------:|:-------:|
+| string | nil     | 1.3.2   |
+
+The client certificate path for TLS
+
+### tls\_client\_private\_key\_path
+
+| type   | default | version |
+|:------:|:-------:|:-------:|
+| string | nil     | 1.3.2   |
+
+The client private key path for TLS.
+
+### tls\_client\_private\_key\_passphrase
+
+| type   | default | version |
+|:------:|:-------:|:-------:|
+| string | nil     | 1.3.2   |
+
+The client private key passphrase for TLS.
 
 ### &lt;security&gt; section
 
@@ -364,6 +396,9 @@ The additional CA certificate path for TLS.
 | false    | false | 0.14.5  |
 
 This section contains parameters related to authentication.
+
+- self\_hostname
+- shared\_key
 
 #### self\_hostname
 
@@ -379,8 +414,8 @@ The hostname.
 |:-------|:-------------------|:--------|
 | string | required parameter | 0.14.5  |
 
-Shared key for authentication.
-
+Shared key for authentication. If you want to specify `shared_key`
+for specific server, use `<server>` section.
 
 ### &lt;secondary&gt;
 

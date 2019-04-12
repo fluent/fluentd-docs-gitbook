@@ -80,6 +80,9 @@ plugins.
 -   **time\_key** (string) (optional): Specify time field for event
     time. If the event doesn't have this field, current time is used.
     -   Default: `nil`
+    -   Note that [json](/plugins/parser/json), [ltsv](/plugins/parser/ltsv)
+        and [regexp](/plugins/parser/regexp) override the default value of this
+        parameter and set it to `time` by default.
 -   **null\_value\_pattern** (string) (optional): Specify null value
     pattern.
     -   Default: `nil`
@@ -162,6 +165,8 @@ the value is `"Adam|Alice|Bob"`, `types item_ids:array:|` parses it as
         -   For more details about parsing, see
             [Time.strptime](https://docs.ruby-lang.org/en/2.4.0/Time.html#method-c-strptime)
         -   `%iso8601` (only for parsing)
+        -    Use `%N` to parse/format subsecond, because [strptime](https://github.com/nurse/strptime)
+            does not support `%3N`, `%6N`, `%9N`, and `%L`
 -   **localtime** (bool) (optional): if true, use local time. Otherwise,
     UTC is used. This is exclusive with `utc`.
     -   Default: `true`

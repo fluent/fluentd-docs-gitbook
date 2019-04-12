@@ -16,6 +16,30 @@ for plugins which support injecting values to the event record.
 </match>
 ```
 
+### Example
+
+Here is an example of configuration and event:
+
+```
+# Configuration example
+<inject>
+  time_key fluentd_time
+  time_type string
+  time_format %Y-%m-%dT%H:%M:%S.%NZ
+  tag_key fluentd_tag
+</inject>
+
+# Record example
+tag: test
+time: 1547575563.952259
+record: {"message":"hello"}
+```
+
+Injected record is below:
+
+```
+{"message":"hello","fluetnd_tag":"test","fluentd_time":"2019-01-15T18:06:03.952259000Z"}
+```
 
 ## inject section parameter
 
@@ -56,6 +80,8 @@ for plugins which support injecting values to the event record.
         -   For more details about parsing, see
             [Time.strptime](https://docs.ruby-lang.org/en/2.4.0/Time.html#method-c-strptime)
         -   `%iso8601` (only for parsing)
+        -    Use `%N` to parse/format subsecond, because [strptime](https://github.com/nurse/strptime)
+            does not support `%3N`, `%6N`, `%9N`, and `%L`
 -   **localtime** (bool) (optional): if true, use local time. Otherwise,
     UTC is used. This is exclusive with `utc`.
     -   Default: `true`

@@ -1,7 +1,7 @@
 # parser Filter Plugin
 
-The `filter_parser` filter plugin "parses" string field in event records
-and mutates its event record with parsed result.
+The `parser` filter plugin "parses" string field in event records and
+mutates its event record with parsed result.
 
 
 ## Example Configurations
@@ -11,7 +11,7 @@ and mutates its event record with parsed result.
 ``` {.CodeRay}
 <filter foo.bar>
   @type parser
-  key_name message
+  key_name log
   <parse>
     @type regexp
     expression /^(?<host>[^ ]*) [^ ]* (?<user>[^ ]*) \[(?<time>[^\]]*)\] "(?<method>\S+)(?: +(?<path>[^ ]*) +\S*)?" (?<code>[^ ]*) (?<size>[^ ]*)$/
@@ -21,9 +21,23 @@ and mutates its event record with parsed result.
 ```
 
 `filter_parser` uses built-in parser plugins and your own customized
-parser plugin, so you can re-use pre-defined format like `apache`,
-`json` and etc. See document page for more details: [Parser Plugin Overview](/plugins/parser/README.md)
+parser plugin, so you can re-use pre-defined format like `apache2`,
+`json` and etc. See document page for more details:
+[Parser Plugin Overview](/plugins/parser/README.md)
 
+With this example, if you receive following event:
+
+    time:
+    injested time (depends on your input)
+    record:
+    {"log":"192.168.0.1 - - [05/Feb/2018:12:00:00 +0900] \"GET / HTTP/1.1\" 200 777"}
+
+parsed result is below:
+
+    time
+    05/Feb/2018:12:00:00 +0900
+    record:
+    {"host":"192.168.0.1","user":"-","method":"GET","path":"/","code":"200","size":"777"}
 
 ## Plugin helpers
 
@@ -205,10 +219,19 @@ Emit invalid record to `@ERROR` label. Invalid cases are
 
 You can rescue unexpected format logs in `@ERROR` label.
 
-In v1.0, `emit_invalid_record_to_error` is `true` by default unlike
-v0.12.
+If you want to ignore these errors, set `false`.
 
+## FAQ
 
+### suppress_parse_error_log is missing. What are the alternatives?
+
+Since v1, `parser` filter doesn't support `suppress_parse_error_log`
+parameter because `parser` filter uses `@ERROR` feature instead of
+internal logging to rescue invalid records. If you want to simply
+ignore invalid records, set `emit_invalid_record_to_error false`.
+
+See also `emit_invalid_record_to_error` parameter.
+ 
 ## Learn More
 
 -   [Filter Plugin Overview](/plugins/filter/README.md)

@@ -4,9 +4,8 @@
 
 The `in_tcp` Input plugin enables Fluentd to accept TCP payload.
 
-Don't use this plugin for receiving logs from client libraries. Use
-`in_forward` for such cases.
-
+Don't use this plugin for receiving logs from Fluentd client
+libraries. Use `in_forward` for such cases.
 
 ## Example Configuration
 
@@ -118,6 +117,30 @@ then the client's hostname is set to `client_host` field.
 }
 ```
 
+### source\_address\_key
+
+| type   | default                        | version |
+|:------:|:------------------------------:|:-------:|
+| string | nil (no adding source address) | 1.4.2   |
+
+The field name for the client's IP address. If you set this option, Fluentd automatically adds the remote address to each data record.
+
+For example, if you have the following configuration:
+
+    <source>
+      @type tcp
+      source_address_key client_addr
+      ...
+    </source>
+
+you will get something like below:
+
+    :::text
+    {
+        ...
+        "client_addr": "192.168.10.10"
+        ...
+    }
 
 ### &lt;parse&gt; section
 
@@ -132,6 +155,21 @@ For more details about parser plugin, see followings:
 -   [Parser Plugin Overview](/plugins/parser/README.md)
 -   [Parse section configurations](/configuration/parse-section.md)
 
+
+## Code example
+
+Here is ruby example to send event to `in_tcp`.
+
+```
+require 'socket'
+
+# This example uses json payload.
+# In in_tcp configuration, need to configure "@type json" in "<parse>"
+TCPSocket.open('127.0.0.1', 5170) do |s|
+  s.write('{"k":"v1"}' + "\n")
+  s.write('{"k":"v2"}' + "\n")
+end
+```
 
 ------------------------------------------------------------------------
 

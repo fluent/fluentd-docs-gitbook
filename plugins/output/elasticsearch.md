@@ -150,6 +150,10 @@ logging for each plugin. The supported log levels are: `fatal`, `error`,
 
 Please see the [logging article](/deployment/logging.md) for further details.
 
+### logstash\_prefix (optional)
+
+The logstash prefix index name to write events when specifying
+logstash\_format as true (default: `logstash`).
 
 ## Miscellaneous
 

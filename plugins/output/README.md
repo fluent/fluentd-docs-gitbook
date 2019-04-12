@@ -80,7 +80,7 @@ Example of v1.0 output plugin configuration:
     timekey     60m
     timekey_wait 1m
   </buffer>
-</source>
+</match>
 ```
 
 For Fluentd v0.12, configuration parameters for buffer plugins were
@@ -94,7 +94,7 @@ written in same section:
   buffer_path /my/buffer/myservice/access.myservice_name.*.log
   time_slice_format %Y-%m-%d.%H%M
   time_slice_wait   1m
-</source>
+</match>
 ```
 
 See buffer section in [Compat Parameters Plugin Helper
@@ -150,6 +150,16 @@ The default is 60.
 
 Seconds of timeout for buffer chunks to be committed by plugins later
 
+#### slow\_flush\_log\_threshold
+
+The threshold for chunk flush performance check. The default value is
+`20.0` seconds. Note that parameter type is `float`, not `time`.
+
+If chunk flush takes longer time than this threshold, fluentd logs
+warning message like below:
+
+    2016-12-19 12:00:00 +0000 [warn]: buffer flush took longer time than slow_flush_log_threshold: elapsed_time=15.0031226690043695 slow_flush_log_threshold=10.0 plugin_id="foo"
+
 #### overflow\_action
 
 Control the buffer behaviour when the queue becomes full. 3 modes are
@@ -184,12 +194,12 @@ destinations. For monitoring, newer events are important than older.
 
 If the bottom chunk write out fails, it will remain in the queue and
 Fluentd will retry after waiting several seconds (`retry_wait`). If the
-retry limit has not been disabled (`retry_forever` is true) and the
-retry count exceeds the specified limit (`retry_max_times`), the chunk
-is trashed. The retry wait time doubles each time (1.0sec, 2.0sec,
-4.0sec, ...) until `retry_max_interval` is reached. If the queue length
-exceeds the specified limit (`queue_limit_length`), new events are
-rejected.
+retry limit has not been disabled (`retry_forever` is false) and the
+retry count exceeds the specified limit (`retry_max_times`), **all chunks
+in the queue are discarded**. The retry wait time doubles each time
+(1.0sec, 2.0sec, 4.0sec, ...) until `retry_max_interval` is reached.
+If the queue length exceeds the specified limit (`queue_limit_length`),
+new events are rejected.
 
 writing out the bottom chunk is considered to be a failure if
 \"Output\#write\" or \`Output\#try\_write\` method throws an exception.
@@ -240,7 +250,7 @@ exponential backoff.
 
 The default is 2
 
-The base number of exponencial backoff for retries.
+The base number of exponential backoff for retries.
 
 #### retry\_max\_interval
 

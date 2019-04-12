@@ -25,8 +25,26 @@ See [Parse section configurations](/configuration/parse-section.md) for common p
 |:-------|:-------------------|:--------|
 | regexp | required parameter | 1.2.0   |
 
-Regular expression for matching logs.
+Regular expression for matching logs. Regular expression also supports
+`i` and `m` suffix.
 
+#### i (ignorecase)
+
+Ignore case in matching.
+
+    expression /.../i
+
+#### m (multiline)
+
+Build regular expression as a multiline mode. `.` matches newline. See
+[Ruby's Regexp document](https://ruby-doc.org/core-2.4.1/Regexp.html#class-Regexp-label-Options)
+
+    expression /.../m
+
+#### both
+
+    expression /.../im
+ 
 expression is string type before 1.2.0.
 
 

@@ -187,6 +187,19 @@ NOTE: In this approach, you will download all gems listed in Gemfile
 even if td-agent includes them at the first time.
 
 
+## FAQ
+
+### fluent-gem list shows multiple plugin versions. Which version is used?
+
+The latest version is used. If command shows following result:
+
+    $ fluent-gem list
+    ...skip...
+    fluent-plugin-record-modifier (2.0.1, 0.6.0, 0.5.0)
+
+`2.0.1` version is used.
+
+
 ------------------------------------------------------------------------
 
 If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs/issues?state=open).

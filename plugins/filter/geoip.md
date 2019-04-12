@@ -50,8 +50,7 @@ The configuration shown below adds geolocation information to
   @type geoip
 
   # Specify one or more geoip lookup field which has ip address (default: host)
-  # in the case of accessing nested value, delimit keys by dot like 'host.ip'.
-  geoip_lookup_key  host
+  geoip_lookup_keys  host
 
   # Specify optional geoip database (using bundled GeoLiteCity databse by default)
   # geoip_database    "/path/to/your/GeoIPCity.dat"
@@ -110,6 +109,18 @@ Path to GeoIP database file.
 
 Path to GeoIP2 database file.
 
+### geoip\_lookup\_keys
+
+| type  | default  | version |
+|:-----:|:--------:|:-------:|
+| array | ["host"] | 1.2.0   |
+
+Specify one or more geoip lookup field which has IP address.
+
+See [record\_accessor](/articles/api-plugin-helper-record_accessor)
+about nested attributes.
+
+**NOTE** Since v1.3.0 does not interpret `host.ip` as nested attribute.
 
 ### geoip\_lookup\_key
 
@@ -119,8 +130,7 @@ Path to GeoIP2 database file.
 
 Specify one or more geoip lookup field which has ip address.
 
-In the case of accessing nested value, delimit keys by dot like
-'host.ip'.
++This parameter has been deprecated since v1.2.0.
 
 
 ### skip\_adding\_null\_record
@@ -159,7 +169,7 @@ fluent-plugin-elasticsearch
   backend_library geoip2_c
 
   # Set key name for the client ip address values
-  geoip_lookup_key     host
+  geoip_lookup_keys     host
 
   # Specify key name for the country_code values
   <record>

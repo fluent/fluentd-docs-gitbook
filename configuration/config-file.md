@@ -39,6 +39,16 @@ $ sudo fluentd --setup /etc/fluent
 $ sudo vi /etc/fluent/fluent.conf
 ```
 
+### Docker
+
+If you're using the Docker container, the default location is located at
+/fluentd/etc/fluent.conf To mount a config file from outside of Docker,
+use a bind-mount.
+
+    ::: term
+    docker run -ti --rm -v /path/to/dir:/fluentd/etc fluentd -c /fluentd/etc/<conf-file> -v
+
+
 #### FLUENT\_CONF environment variable
 
 You can change default configuration file location via `FLUENT_CONF`.
@@ -396,6 +406,9 @@ tags.
     -   This can be used in combination with the `*` or `**` patterns.
         Examples include `a.{b,c}.*` and `a.{b,c.**}`
 
+-   `#{...}` evaluates the string inside brackets as a Ruby expression
+    (See the section "Embedding Ruby Expressions" below)
+
 -   When multiple patterns are listed inside a single tag (delimited by
     one or more whitespaces), it matches any of the listed patterns. For
     example:
@@ -460,6 +473,17 @@ for the reason explained above.
 </match>
 ```
 
+### Embedding Ruby Expressions
+
+Since Fluentd v1.4.0, you can use `#{...}` to embed arbitrary Ruby code
+into match patterns. Here is an example.
+
+    <match "app.#{ENV['FLUENTD_TAG']}">
+      @type stdout
+    </match>
+
+If you set the environment variable `FLUENTD_TAG` to `dev`, this
+evaluates to `app.dev`.
 
 ## Supported Data Types for Values
 

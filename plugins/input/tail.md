@@ -447,6 +447,16 @@ several reports in\_tail is stopped when use `*` included `path`, and
 the problem is resolved by disabling inotify events.
 
 
+### Wildcard pattern in path doesn't work on Windows, why?
+
+Backslash(`\`) with `*` doesn't work on Windows by internal limitation.
+To avoid this problm, use slash style instead.
+
+    # good
+    path C:/path/to/*/foo.log
+    # bad
+    path C:\\path\\to\\*\\foo.log
+
 ------------------------------------------------------------------------
 
 If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs/issues?state=open).

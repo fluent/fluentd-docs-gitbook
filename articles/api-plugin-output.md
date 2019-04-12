@@ -369,6 +369,11 @@ buffered output must implement this method.
 
 -   `chunk`: a buffer chunk (Fluent::Plugin::Buffer::Chunk)
 
+This method will be executed in parallel when `flush_thread_count` is
+larger than 1. So if your plugin modifies instance variables in this
+method, you need to protect it with `Mutex` or similar to avoid broken
+state.
+
 Return values will be ignored.
 
 
@@ -378,6 +383,11 @@ The method for async buffered output mode. The plugin which supports
 async buffered output must implement this method.
 
 -   `chunk`: a buffer chunk (Fluent::Plugin::Buffer::Chunk)
+
+This method will be executed in parallel when `flush_thread_count` is
+larger than 1. So if your plugin modifies instance variables in this
+method, you need to protect it with `Mutex` or similar to avoid broken
+state.
 
 Return values will be ignored.
 

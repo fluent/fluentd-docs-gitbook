@@ -116,6 +116,29 @@ The max bytes of syslog message. If you send larger message, change this
 parameter.
 
 
+### frame\_type
+
+| type | default | available values |version |
+|:----:|:-------:|:----------------::-------:|
+| enum | traditional | traditional/octet\_count | 1.3.0 |
+
+Specify framing type in TCP protocol. 
+
+- traditional
+
+Messages are delimited by newline(`\n`)
+
+    <6>Sep 10 00:00:00 localhost logger: hello!\n
+
+- octet\_count
+
+Message has message size prefix to delimite
+
+    44 <6>Sep 10 00:00:00 localhost logger: hello!
+
+See also [rfc6587](https://tools.ietf.org/html/rfc6587#section-3.4).
+
+
 ### format
 
 Deprecated parameter. Use `<parse>` instead.

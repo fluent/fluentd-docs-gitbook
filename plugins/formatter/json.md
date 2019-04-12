@@ -35,11 +35,6 @@ This incoming event is formatted to:
 {"host":"192.168.0.1","size":777,"method":"PUT"}
 ```
 
-With `include_tag_key true` and `tag_key event_tag`, result is:
-
-``` {.CodeRay}
-{"host":"192.168.0.1","size":777,"method":"PUT","event_tag":"app.event"}
-```
 
 
 ------------------------------------------------------------------------
