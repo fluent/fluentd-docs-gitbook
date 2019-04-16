@@ -22,6 +22,7 @@ data sources.
 -   [in\_forward](/plugins/input/forward.md)
 -   [in\_udp](/plugins/input/udp.md)
 -   [in\_tcp](/plugins/input/tcp.md)
+-   [in\_unix](/plugins/input/unix.md)
 -   [in\_http](/plugins/input/http.md)
 -   [in\_syslog](/plugins/input/syslog.md)
 -   [in\_exec](/plugins/input/exec.md)
