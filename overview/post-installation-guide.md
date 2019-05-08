@@ -128,10 +128,12 @@ need to write as below:
 
 ``` {.CodeRay}
 <match debug.log>
-  @type syslog
+  @type kafka2
   port 5140
+  brokers kafka-server:9092
   tag system
-</source>
+  # other parameters...
+</match>
 ```
 
 You can use a wildcard character `*` in the filter expression. For
