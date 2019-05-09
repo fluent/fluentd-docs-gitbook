@@ -9,8 +9,6 @@
   * [Support](/overview/support.md)
   * [FAQ](/overview/faq.md)
 
-
-            
 * [Use Cases]()
   * [Centralized App Logging](/use-cases/logging-from-apps.md)
   * [Monitoring Service Logs](/use-cases/monitoring-service-logs.md)
@@ -18,8 +16,6 @@
   * [Connecting to Data Storages](/use-cases/data-archiving.md)
   * [Stream Processing](/use-cases/stream-processing.md)
 
-
-            
 * [Configuration]()
   * [Config File Syntax](/configuration/config-file.md)
   * [Routing Examples](/configuration/routing-examples.md)
@@ -29,8 +25,6 @@
   * [Config: Format Section](/configuration/format-section.md)
   * [Config: Advanced Sections](/configuration/plugin-advanced-sections.md)
 
-
-            
 * [Deployment]()
   * [System Configuration](/deployment/system-config.md)
   * [Logging](/deployment/logging.md)
@@ -44,7 +38,6 @@
   * [Trouble Shooting](/deployment/trouble-shooting.md)
   * [Fluentd UI](/deployment/fluentd-ui.md)
   * [Command Line Option](/deployment/command-line-option.md)
-
        
 * [Input Plugins](/plugins/input/README.md)
   * [tail](/plugins/input/tail.md)
@@ -112,8 +105,6 @@
 * [Storage Plugins](/plugins/storage/README.md)
   * [local](/plugins/storage/local.md)
 
-
-            
 * [Developer]()
   * [Plugin Development](/developer/plugin-development.md)
   * [Plugin API details](/developer/plugin-apis.md)
@@ -124,7 +115,6 @@
   * [Bug Tracking](/developer/bug-tracking.md)
   * [ChangeLog](/developer/changelog.md)
   * [Logo](/developer/logo.md)
-
 
 - Articles
   * [Apache To Minio](/articles/apache-to-minio.md)
@@ -181,4 +171,3 @@
   * [Scala](/articles/scala.md)
   * [Splunk Like Grep And Alert Email](/articles/splunk-like-grep-and-alert-email.md)
   * [Transport Section](/articles/transport-section.md)
-
