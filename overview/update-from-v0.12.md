@@ -1,7 +1,7 @@
 # Updating Fluentd for v1 from v0.12
 
 This guide is for users to show how to update Fluentd to v1.0 from v0.12
-or earlier. For plugin developer, see [Updating plugin for v1.0 from v0.12](plugin-update-from-v0.12).
+or earlier. For plugin developer, see [Updating plugin for v1.0 from v0.12](/articles/plugin-update-from-v0.12).
 
 There are something to be considered:
 
