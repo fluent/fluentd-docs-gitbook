@@ -2,7 +2,7 @@
 
 `inject` helper injects values to events according to the configuration.
 
-For details about configuration, see [Inject section](/articles/inject-section.md).
+For details about configuration, see [Inject section](/configuration/inject-section.md).
 
 Here is the code example with `inject` helper:
 
@@ -28,7 +28,7 @@ module Fluent::Plugin
 end
 ```
 
-For more details about configuration, see [Inject section](/articles/inject-section.md).
+For more details about configuration, see [Inject section](/configuration/inject-section.md).
 
 
 ## Methods

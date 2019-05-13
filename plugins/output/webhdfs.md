@@ -72,9 +72,9 @@ please check [Buffer section cofiguration](/configuration/buffer-section.md).
 
 ## Plugin helpers
 
--   [inject](/articles/api-plugin-helper-inject.md)
--   [formatter](/articles/api-plugin-helper-formatter.md)
--   [compat\_parameters](/articles/api-plugin-helper-compat_parameters.md)
+-   [inject](/developer/api-plugin-helper-inject.md)
+-   [formatter](/developer/api-plugin-helper-formatter.md)
+-   [compat\_parameters](/developer/api-plugin-helper-compat_parameters.md)
 
 
 ## Parameters

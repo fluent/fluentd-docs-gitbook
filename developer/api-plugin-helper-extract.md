@@ -3,7 +3,7 @@
 `extract` helper extracts tag or time from event record according to the
 configuration.
 
-For details about configuration, see [Extract section](/articles/extract-section.md).
+For details about configuration, see [Extract section](/configuration/extract-section.md).
 
 Here is the code example with `extract` helper:
 
@@ -26,7 +26,7 @@ module Fluent::Plugin
 end
 ```
 
-For more details about configuration, see [Extract section](/articles/extract-section.md).
+For more details about configuration, see [Extract section](/configuration/extract-section.md).
 
 
 ## Methods

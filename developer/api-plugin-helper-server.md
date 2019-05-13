@@ -30,7 +30,7 @@ Launched server is managed by the plugin. No need server shutdown code
 in plugin's `shutdown`. The plugin shutdowns launched servers
 automatically.
 
-For more details about configuration, see [Transport section](/articles/transport-section.md).
+For more details about configuration, see [Transport section](/configuration/transport-section.md).
 
 
 ## Methods

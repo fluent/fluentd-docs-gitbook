@@ -37,10 +37,10 @@ structure and syntax of the configuration file.
 
 ## Plugin helpers
 
--   [compat\_parameters](/articles/api-plugin-helper-compat_parameters.md)
--   [extract](/articles/api-plugin-helper-extract.md)
--   [parser](/articles/api-plugin-helper-parser.md)
--   [child\_process](/articles/api-plugin-helper-child_process.md)
+-   [compat\_parameters](/developer/api-plugin-helper-compat_parameters.md)
+-   [extract](/developer/api-plugin-helper-extract.md)
+-   [parser](/developer/api-plugin-helper-parser.md)
+-   [child\_process](/developer/api-plugin-helper-child_process.md)
 
 
 ## Parameters
@@ -139,7 +139,7 @@ Overwrite default value in this plugin.
 |:---------|:------|:--------|
 | false    | false | 0.14.9  |
 
-See [Extract section configurations](/articles/extract-section.md)
+See [Extract section configurations](/configuration/extract-section.md)
 
 #### time\_type
 
@@ -224,8 +224,8 @@ you are impatient, ctrl-C to flush the stdout buffer)
 
 Of course, you can use Fluentd's many output plugins to store the data
 into various backend systems like
-[Elasticsearch](/articles/free-alternative-to-splunk-by-fluentd.md),
-[HDFS](/articles/http-to-hdfs.md), [MongoDB](/articles/apache-to-mongodb.md), [AWS](/articles/apache-to-s3.md),
+[Elasticsearch](/guides/free-alternative-to-splunk-by-fluentd.md),
+[HDFS](/guides/http-to-hdfs.md), [MongoDB](/guides/apache-to-mongodb.md), [AWS](/guides/apache-to-s3.md),
 etc.
 
 

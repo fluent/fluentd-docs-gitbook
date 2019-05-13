@@ -1,7 +1,7 @@
 # Updating Fluentd for v1 from v0.12
 
 This guide is for users to show how to update Fluentd to v1.0 from v0.12
-or earlier. For plugin developer, see [Updating plugin for v1.0 from v0.12](/articles/plugin-update-from-v0.12).
+or earlier. For plugin developer, see [Updating plugin for v1.0 from v0.12](/developer/plugin-update-from-v0.12).
 
 There are something to be considered:
 
@@ -60,7 +60,7 @@ each section details.
 
 Note that Fluentd v1 automatically converts v0.12 style into v1.0 style
 during startup phase, so you can reuse v0.12 configuration with v1. See
-[compat\_parameters article](/articles/api-plugin-helper-compat_parameters.md) for
+[compat\_parameters article](/developer/api-plugin-helper-compat_parameters.md) for
 correspondence table between v1 and v0.12 parameters.\
 Of course, v1 configuration is better for using full v1 API features.
 
@@ -85,8 +85,8 @@ You can upgrade td-agent 2 to 3 by executing install script for td-agent
 
 For more details about install script see following articles:
 
--   [Installing Fluentd using RPM Package (Redhat Linux)](/articles/install-by-rpm.md)
--   [Installing Fluentd using DEB Package (Debian / Ubuntu Linux)](/articles/install-by-deb.md)
+-   [Installing Fluentd using RPM Package (Redhat Linux)](/install/install-by-rpm.md)
+-   [Installing Fluentd using DEB Package (Debian / Ubuntu Linux)](/install/install-by-deb.md)
 
 And then you must reinstall gem packages that you've ever used with
 td-agent 2.

@@ -32,13 +32,13 @@ structure and syntax of the configuration file.
 
 ## Plugin helpers
 
--   [server](/articles/api-plugin-helper-server.md)
+-   [server](/developer/api-plugin-helper-server.md)
 
 
 ## Parameters
 
 -   [Common Parameters](/configuration/plugin-common-parameters.md)
--   [Transport section](/articles/transport-section.md)
+-   [Transport section](/configuration/transport-section.md)
 
 ### @type
 
@@ -157,7 +157,7 @@ This section is for using SSL transport.
 ```
 
 See "How to Enable TLS Encryption" section for how to use and see
-["Configuration example" in "Server Plugin Helper" article](/articles/api-plugin-helper-server.md/#configuration-example) for
+["Configuration example" in "Server Plugin Helper" article](/developer/api-plugin-helper-server.md#configuration-example) for
 supported parameters
 
 Without `<transport tls>`, in\_forward uses raw TCP.

@@ -38,9 +38,9 @@ tag, and the third part shows the record.
 
 ## Plugin helpers
 
--   [inject](/articles/api-plugin-helper-inject.md)
--   [formatter](/articles/api-plugin-helper-formatter.md)
--   [compat\_parameters](/articles/api-plugin-helper-compat_parameters.md)
+-   [inject](/developer/api-plugin-helper-inject.md)
+-   [formatter](/developer/api-plugin-helper-formatter.md)
+-   [compat\_parameters](/developer/api-plugin-helper-compat_parameters.md)
 
 
 ## Parameters
@@ -103,7 +103,7 @@ This is the option of `stdout` format. Configure the format of record
 
 ### &lt;inject&gt; section
 
-See [Inject section configurations](/articles/inject-section) for more details.
+See [Inject section configurations](/configuration/inject-section) for more details.
 
 ------------------------------------------------------------------------
 

@@ -5,7 +5,7 @@ This article explains how to install Fluentd using Ruby gem.
 
 ## Step 0: Before Installation
 
-Please follow the [Preinstallation Guide](/articles/before-install.md) to configure
+Please follow the [Preinstallation Guide](/install/before-install.md) to configure
 your OS properly. This will prevent many unnecessary problems.
 
 
@@ -51,8 +51,8 @@ invalid timestamps in your logs.
 
 For large deployments, you must use
 [jemalloc](http://www.canonware.com/jemalloc/) to avoid memory
-fragmentation. This is already included in the [rpm](/articles/install-by-rpm.md) and
-[deb](/articles/install-by-deb.md) packages.
+fragmentation. This is already included in the [rpm](/install/install-by-rpm.md) and
+[deb](/install/install-by-deb.md) packages.
 
 The Fluentd gem doesn't come with /etc/init.d/ scripts. You should use
 process management tools such as
@@ -71,12 +71,12 @@ sources.
 -   Basic Configuration
     -   [Config File](/configuration/config-file.md)
 -   Application Logs
-    -   [Ruby](/articles/ruby.md), [Java](/articles/java.md), [Python](/articles/python.md), [PHP](/articles/php.md),
-        [Perl](/articles/perl.md), [Node.js](/articles/nodejs.md), [Scala](/articles/scala.md)
+    -   [Ruby](/language/ruby.md), [Java](/language/java.md), [Python](/language/python.md), [PHP](/language/php.md),
+        [Perl](/language/perl.md), [Node.js](/language/nodejs.md), [Scala](/language/scala.md)
 -   Examples
-    -   [Store Apache Log into Amazon S3](/articles/apache-to-s3.md)
-    -   [Store Apache Log into MongoDB](/articles/apache-to-mongodb.md)
-    -   [Data Collection into HDFS](/articles/http-to-hdfs.md)
+    -   [Store Apache Log into Amazon S3](/guides/apache-to-s3.md)
+    -   [Store Apache Log into MongoDB](/guides/apache-to-mongodb.md)
+    -   [Data Collection into HDFS](/guides/http-to-hdfs.md)
 
 
 ------------------------------------------------------------------------

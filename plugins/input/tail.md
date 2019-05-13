@@ -41,10 +41,10 @@ please check [Parse section cofiguration](/configuration/parse-section.md).
 
 ## Plugin helpers
 
--   [timer](/articles/api-plugin-helper-timer.md)
--   [event\_loop](/articles/api-plugin-helper-event_loop.md)
--   [parser](/articles/api-plugin-helper-parser.md)
--   [compat\_parameters](/articles/api-plugin-helper-compat_parameters.md)
+-   [timer](/developer/api-plugin-helper-timer.md)
+-   [event\_loop](/developer/api-plugin-helper-event_loop.md)
+-   [parser](/developer/api-plugin-helper-parser.md)
+-   [compat\_parameters](/developer/api-plugin-helper-compat_parameters.md)
 
 
 ## Parameters

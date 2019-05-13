@@ -17,19 +17,19 @@ differences between Fluentd and td-agent can be found
 [here](//www.fluentd.org/faqs).
 
 This installation guide is for td-agent v3, the new stable version.
-td-agent v3 uses fluentd v1.0 in the core. See [this page](/articles/td-agent-v2-vs-v3.md) for the comparison between v2 and v3.
+td-agent v3 uses fluentd v1.0 in the core. See [this page](/overview/td-agent-v2-vs-v3.md) for the comparison between v2 and v3.
 
 
 ## Step 0: Before Installation
 
-Please follow the [Preinstallation Guide](/articles/before-install.md) to configure
+Please follow the [Preinstallation Guide](/install/before-install.md) to configure
 your OS properly. This will prevent many unnecessary problems.
 
 
 ## Step 1: Install from rpm Repository
 
 It's HIGHLY recommended that you set up **ntpd** on the node to prevent
-invalid timestamps in your logs. Please check the [Preinstallation Guide](/articles/before-install.md).
+invalid timestamps in your logs. Please check the [Preinstallation Guide](/install/before-install.md).
 
 
 ### Redhat / CentOS
@@ -152,12 +152,12 @@ sources.
 -   Basic Configuration
     -   [Config File](/configuration/config-file.md)
 -   Application Logs
-    -   [Ruby](/articles/ruby.md), [Java](/articles/java.md), [Python](/articles/python.md), [PHP](/articles/php.md),
-        [Perl](/articles/perl.md), [Node.js](/articles/nodejs.md), [Scala](/articles/scala.md)
+    -   [Ruby](/language/ruby.md), [Java](/language/java.md), [Python](/language/python.md), [PHP](/language/php.md),
+        [Perl](/language/perl.md), [Node.js](/language/nodejs.md), [Scala](/language/scala.md)
 -   Examples
-    -   [Store Apache Log into Amazon S3](/articles/apache-to-s3.md)
-    -   [Store Apache Log into MongoDB](/articles/apache-to-mongodb.md)
-    -   [Data Collection into HDFS](/articles/http-to-hdfs.md)
+    -   [Store Apache Log into Amazon S3](/guides/apache-to-s3.md)
+    -   [Store Apache Log into MongoDB](/guides/apache-to-mongodb.md)
+    -   [Data Collection into HDFS](/guides/http-to-hdfs.md)
 
 Please refer to the resources below for further steps.
 

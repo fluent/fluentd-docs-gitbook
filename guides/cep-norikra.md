@@ -56,9 +56,9 @@ configuration. Please install the following on the same node:
 
 Fluentd can be installed through rubygems or via deb/rpm packages.
 
--   [Debian Package](/articles/install-by-deb.md)
--   [RPM Package](/articles/install-by-rpm.md)
--   [Ruby gem](/articles/install-by-gem.md)
+-   [Debian Package](/install/install-by-deb.md)
+-   [RPM Package](/install/install-by-rpm.md)
+-   [Ruby gem](/install/install-by-gem.md)
 
 fluent-plugin-norikra can be installed with the
 `gem install fluent-plugin-norikra` (or fluent-gem) command.

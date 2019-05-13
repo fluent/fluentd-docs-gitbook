@@ -21,20 +21,20 @@ Then, `helpers` method will include `Timer`, `Storage`. and
 
 ## Built-in Plugin Helpers
 
--   [child\_process](/articles/api-plugin-helper-child_process.md)
--   [compat\_parameters](/articles/api-plugin-helper-compat_parameters.md)
--   [event\_emitter](/articles/api-plugin-helper-event_emitter.md)
--   [event\_loop](/articles/api-plugin-helper-event_loop.md)
--   [extract](/articles/api-plugin-helper-extract.md)
--   [formatter](/articles/api-plugin-helper-formatter.md)
--   [inject](/articles/api-plugin-helper-inject.md)
--   [parser](/articles/api-plugin-helper-parser.md)
--   [record\_accessor](/articles/api-plugin-helper-record_accessor.md)
--   [server](/articles/api-plugin-helper-server.md)
--   [socket](/articles/api-plugin-helper-socket.md)
--   [storage](/articles/api-plugin-helper-storage.md)
--   [thread](/articles/api-plugin-helper-thread.md)
--   [timer](/articles/api-plugin-helper-timer.md)
+-   [child\_process](/developer/api-plugin-helper-child_process.md)
+-   [compat\_parameters](/developer/api-plugin-helper-compat_parameters.md)
+-   [event\_emitter](/developer/api-plugin-helper-event_emitter.md)
+-   [event\_loop](/developer/api-plugin-helper-event_loop.md)
+-   [extract](/developer/api-plugin-helper-extract.md)
+-   [formatter](/developer/api-plugin-helper-formatter.md)
+-   [inject](/developer/api-plugin-helper-inject.md)
+-   [parser](/developer/api-plugin-helper-parser.md)
+-   [record\_accessor](/developer/api-plugin-helper-record_accessor.md)
+-   [server](/developer/api-plugin-helper-server.md)
+-   [socket](/developer/api-plugin-helper-socket.md)
+-   [storage](/developer/api-plugin-helper-storage.md)
+-   [thread](/developer/api-plugin-helper-thread.md)
+-   [timer](/developer/api-plugin-helper-timer.md)
 
 
 ------------------------------------------------------------------------

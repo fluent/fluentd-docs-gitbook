@@ -194,7 +194,7 @@ chunks by the value of these fields.
 
 #### Nested field support
 
-You can use [record\_accessor syntax](/articles/api-plugin-helper-record_accessor.md)
+You can use [record\_accessor syntax](/developer/api-plugin-helper-record_accessor.md)
 for using nested field. Here is an example:
 
 ``` {.CodeRay}

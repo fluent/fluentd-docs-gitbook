@@ -95,9 +95,9 @@ Access `http://localhost:5601` in your browser.
 In this guide We'll install td-agent, the stable release of Fluentd.
 Please refer to the guides below for detailed installation steps.
 
--   [Debian Package](/articles/install-by-deb.md)
--   [RPM Package](/articles/install-by-rpm.md)
--   [Ruby gem](/articles/install-by-gem.md)
+-   [Debian Package](/install/install-by-deb.md)
+-   [RPM Package](/install/install-by-rpm.md)
+-   [Ruby gem](/install/install-by-gem.md)
 
 Next, we'll install the Elasticsearch plugin for Fluentd:
 fluent-plugin-elasticsearch. Then, install fluent-plugin-elasticsearch

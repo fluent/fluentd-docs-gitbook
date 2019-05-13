@@ -41,9 +41,9 @@ parsed result is below:
 
 ## Plugin helpers
 
--   [parser](/articles/api-plugin-helper-parser.md)
--   [record\_accessor](/articles/api-plugin-helper-record_accessor.md)
--   [compat\_parameters](/articles/api-plugin-helper-compat_parameters.md)
+-   [parser](/developer/api-plugin-helper-parser.md)
+-   [record\_accessor](/developer/api-plugin-helper-record_accessor.md)
+-   [compat\_parameters](/developer/api-plugin-helper-compat_parameters.md)
 
 
 ## Parameters
@@ -66,7 +66,7 @@ For more details, see [Parse section configurations](/configuration/parse-sectio
 
 Specify field name in the record to parse.
 
-This parameter supports nested field access via [record\_accessor syntax](/articles/api-plugin-helper-record_accessor.md/#syntax).
+This parameter supports nested field access via [record\_accessor syntax](/developer/api-plugin-helper-record_accessor.md/#syntax).
 
 
 ### reserve\_time

@@ -50,8 +50,8 @@ corresponding channel to `channel` field.
 
 ## Plugin helpers
 
--   [timer](/articles/api-plugin-helper-timer.md)
--   [storage](/articles/api-plugin-helper-storage.md)
+-   [timer](/developer/api-plugin-helper-timer.md)
+-   [storage](/developer/api-plugin-helper-storage.md)
 
 
 ## Parameters

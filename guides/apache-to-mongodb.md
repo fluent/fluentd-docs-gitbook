@@ -50,9 +50,9 @@ The MongoDB Output plugin is included in the latest version of Fluentd's
 deb/rpm package. If you want to use Ruby Gems to install the plugin,
 please use `gem install fluent-plugin-mongo`.
 
--   [Debian Package](/articles/install-by-deb.md)
--   [RPM Package](/articles/install-by-rpm.md)
--   [Ruby gem](/articles/install-by-gem.md)
+-   [Debian Package](/install/install-by-deb.md)
+-   [RPM Package](/install/install-by-rpm.md)
+-   [Ruby gem](/install/install-by-gem.md)
 
 For MongoDB, please refer to the following downloads page.
 

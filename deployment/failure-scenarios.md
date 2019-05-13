@@ -12,7 +12,7 @@ to its local Fluentd instance when using logger libraries of various
 languages. Depending on the maturity of each logger library, some clever
 mechanisms have been implemented to prevent data loss.
 
-#### 1) Memory Buffering (available for [Ruby](/articles/ruby.md), [Java](/articles/java.md), [Python](/articles/python.md), [Perl](/articles/perl.md))
+#### 1) Memory Buffering (available for [Ruby](/language/ruby.md), [Java](/language/java.md), [Python](/language/python.md), [Perl](/language/perl.md))
 
 If the destination Fluentd instance dies, certain logger implementations
 will use extra memory to hold incoming logs. When Fluentd comes back,
@@ -21,7 +21,7 @@ again. Once the maximum buffer memory size is reached, most current
 implementations will write the data onto the disk or throw away the
 logs.
 
-#### 2) Exponential Backoff (available for [Ruby](/articles/ruby.md), [Java](/articles/java.md))
+#### 2) Exponential Backoff (available for [Ruby](/language/ruby.md), [Java](/language/java.md))
 
 When trying to resend logs to the local forwarder, some implementations
 will use exponential backoff to prevent excessive re-connect requests.
