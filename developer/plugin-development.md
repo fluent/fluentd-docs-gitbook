@@ -254,7 +254,7 @@ end
 
 Then, run `bundle exec rake test` to run all tests in your test code.
 
-See [Writing Plugin Test Code](/articles/plugin-test-code.md) for more
+See [Writing Plugin Test Code](/developer/plugin-test-code.md) for more
 details about writing tests.
 
 

@@ -148,7 +148,7 @@ Plugins will work well only with changes above.
 
 Moreover, most input plugins create threads, timers, network servers
 and/or parsers. It's better to use plugin helpers to simplify code and
-to make tests stable. For more details, see [Plugin Helper Overview](/articles/plugin-helper-overview.md).
+to make tests stable. For more details, see [Plugin Helper Overview](/developer/plugin-helper-overview.md).
 
 
 ### Filter plugins
@@ -192,7 +192,7 @@ too:
 It's recommended to use plugin helpers if your plugin creates any of
 thread, timer socket, child process and/or parsers/formatters. It's
 better to use plugin helpers to simplify code and to make tests stable.
-For more details, see [Plugin Helper Overview](/articles/plugin-helper-overview.md).
+For more details, see [Plugin Helper Overview](/developer/plugin-helper-overview.md).
 
 Before:
 
@@ -288,7 +288,7 @@ points to be fixed are:
 It's recommended to use plugin helpers if your plugin creates any of
 thread, timer socket, child process and/or parsers/formatters. It's
 better to use plugin helpers to simplify code and to make tests stable.
-For more details, see [Plugin Helper Overview](/articles/plugin-helper-overview.md).
+For more details, see [Plugin Helper Overview](/developer/plugin-helper-overview.md).
 
 Before:
 
@@ -380,7 +380,7 @@ module Fluent
 end
 ```
 
-For more details, see [Writing Buffered Output Plugins](/articles/api-plugin-output.md).
+For more details, see [Writing Buffered Output Plugins](/developer/api-plugin-output.md).
 
 
 ### ObjectBuffered output plugins
@@ -405,7 +405,7 @@ For object buffered output plugins (subclass of
 It's recommended to use plugin helpers if your plugin creates any of
 thread, timer socket, child process and/or parsers/formatters. It's
 better to use plugin helpers to simplify code and to make tests stable.
-For more details, see [Plugin Helper Overview](/articles/plugin-helper-overview.md).
+For more details, see [Plugin Helper Overview](/developer/plugin-helper-overview.md).
 
 Before:
 
@@ -425,7 +425,7 @@ module Fluent
 end
 ```
 
-After: same as buffered output. For more details, see [Writing Buffered Output Plugins](/articles/api-plugin-output.md).
+After: same as buffered output. For more details, see [Writing Buffered Output Plugins](/developer/api-plugin-output.md).
 
 
 ### TimeSliced output plugins
@@ -451,7 +451,7 @@ points to be fixed are:
 It's recommended to use plugin helpers if your plugin creates any of
 thread, timer socket, child process and/or parsers/formatters. It's
 better to use plugin helpers to simplify code and to make tests stable.
-For more details, see [Plugin Helper Overview](/articles/plugin-helper-overview.md).
+For more details, see [Plugin Helper Overview](/developer/plugin-helper-overview.md).
 
 Before (code):
 
@@ -481,7 +481,7 @@ Before (configuration):
 </match>
 ```
 
-After (code): same as buffered output. For more details, see [Writing Buffered Output Plugins](/articles/api-plugin-output.md).
+After (code): same as buffered output. For more details, see [Writing Buffered Output Plugins](/developer/api-plugin-output.md).
 
 After (configuration):
 
@@ -496,7 +496,7 @@ Use `<buffer>` section to customize chunking.
 </match>
 ```
 
-For more details, see [Understanding Chunking and Metadata](/articles/api-plugin-output.md/#understanding-chunking-and-metadata).
+For more details, see [Understanding Chunking and Metadata](/developer/api-plugin-output.md/#understanding-chunking-and-metadata).
 
 
 ### Multi output plugins
@@ -622,7 +622,7 @@ After:
 -   use new test driver API
 
 For example, an output plugin's test code. For more details, see
-[Writing Plugin Test Code](/articles/plugin-test-code.md)
+[Writing Plugin Test Code](/developer/plugin-test-code.md)
 
 Before:
 

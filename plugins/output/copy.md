@@ -70,9 +70,9 @@ details about the respective plugins.)
 
 ## Plugin helpers
 
--   [formatter](/articles/api-plugin-helper-formatter.md)
--   [inject](/articles/api-plugin-helper-inject.md)
--   [compat\_parameters](/articles/api-plugin-helper-compat_parameters.md)
+-   [formatter](/developer/api-plugin-helper-formatter.md)
+-   [inject](/developer/api-plugin-helper-inject.md)
+-   [compat\_parameters](/developer/api-plugin-helper-compat_parameters.md)
 
 -   See also: [Output Plugin Overview](/plugins/output/README.md)
 

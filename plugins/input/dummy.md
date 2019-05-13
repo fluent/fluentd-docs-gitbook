@@ -24,8 +24,8 @@ structure and syntax of the configuration file.
 
 ## Plugin helpers
 
--   [thread](/articles/api-plugin-helper-thread.md)
--   [storage](/articles/api-plugin-helper-storage.md)
+-   [thread](/developer/api-plugin-helper-thread.md)
+-   [storage](/developer/api-plugin-helper-storage.md)
 
 -   See also: [Input Plugin Overview](/plugins/input/README.md)
 

@@ -79,7 +79,7 @@ HTTP.
       http://localhost:8888/td.testdb.raspberrypi
 
 NOTE: If you're using Python, you can use Fluentd's
-[python logger](/articles/python) library.
+[python logger](/language/python) library.
 
 Now, access the databases page to confirm that your data has been
 uploaded to the cloud properly.

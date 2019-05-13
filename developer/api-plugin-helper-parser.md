@@ -43,7 +43,7 @@ end
 For more details about parser plugin, see following articles:
 
 -   [Parser Plugin Overview](/plugins/parser/README.md)
--   [Writing Parser Plugins](/articles/api-plugin-parser.md)
+-   [Writing Parser Plugins](/developer/api-plugin-parser.md)
 -   [Parser plugin](/configuration/parse-section.md)
 
 

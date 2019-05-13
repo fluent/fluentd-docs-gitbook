@@ -83,8 +83,8 @@ details.
 
 ## Plugin helpers
 
--   [compat\_parameters](/articles/api-plugin-helper-compat_parameters.md)
--   [inject](/articles/api-plugin-helper-inject.md)
+-   [compat\_parameters](/developer/api-plugin-helper-compat_parameters.md)
+-   [inject](/developer/api-plugin-helper-inject.md)
 
 
 ## Parameters
@@ -117,7 +117,7 @@ Path to GeoIP2 database file.
 
 Specify one or more geoip lookup field which has IP address.
 
-See [record\_accessor](/articles/api-plugin-helper-record_accessor)
+See [record\_accessor](/developer/api-plugin-helper-record_accessor)
 about nested attributes.
 
 **NOTE** Since v1.3.0 does not interpret `host.ip` as nested attribute.

@@ -11,7 +11,7 @@ feature](performance-tuning-single-process#multi-workers).
 
 ## Check your OS configuration
 
-Please follow the [Preinstallation Guide](/articles/before-install.md) to configure
+Please follow the [Preinstallation Guide](/install/before-install.md) to configure
 your OS properly. This can drastically improve the performance, and
 prevent many unnecessary problems.
 
@@ -133,7 +133,7 @@ recommend using `multi workers` feature.
 </system>
 ```
 
-For the details of this feature, please read [multi process workers](/articles/multi-process-workers.md) article.
+For the details of this feature, please read [multi process workers](/deployment/multi-process-workers.md) article.
 
 
 ------------------------------------------------------------------------

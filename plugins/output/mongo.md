@@ -68,7 +68,7 @@ For more details, see [Plugin Management](/deployment/plugin-management.md).
 </match>
 ```
 
-Please see the [Store Apache Logs into MongoDB](/articles/apache-to-mongodb.md)
+Please see the [Store Apache Logs into MongoDB](/guides/apache-to-mongodb.md)
 article for real-world use cases.
 
 Please see the [Config File](/configuration/config-file.md) article for the basic

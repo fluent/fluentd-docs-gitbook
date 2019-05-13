@@ -156,7 +156,7 @@ Specify time format.
 
 Returns `Fluent::SystemConfig` instance.
 
-For code example, please refer to [api-plugin-base](/articles/api-plugin-base.md)'s
+For code example, please refer to [api-plugin-base](/developer/api-plugin-base.md)'s
 `.system_config` description.
 
 #### .system\_config\_override(options = {})
@@ -165,7 +165,7 @@ Overwrite system config.
 
 This is for internal use and plugin testing.
 
-For code example, please refer to [api-plugin-base](/articles/api-plugin-base.md)'s
+For code example, please refer to [api-plugin-base](/developer/api-plugin-base.md)'s
 `.system_config_override` description.
 
 

@@ -63,11 +63,11 @@ See [Output Plugin Overview](/plugins/output/README.md) for more details.
 
 ## Plugin helpers
 
--   [socket](/articles/api-plugin-helper-socket.md)
--   [server](/articles/api-plugin-helper-server.md)
--   [timer](/articles/api-plugin-helper-timer.md)
--   [thread](/articles/api-plugin-helper-thread.md)
--   [compat\_parameters](/articles/api-plugin-helper-compat_parameters.md)
+-   [socket](/developer/api-plugin-helper-socket.md)
+-   [server](/developer/api-plugin-helper-server.md)
+-   [timer](/developer/api-plugin-helper-timer.md)
+-   [thread](/developer/api-plugin-helper-thread.md)
+-   [compat\_parameters](/developer/api-plugin-helper-compat_parameters.md)
 
 
 ## Parameters

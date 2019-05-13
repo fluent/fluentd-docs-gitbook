@@ -44,15 +44,15 @@ please check [Parse section cofiguration](/configuration/parse-section.md).
 
 We\'ve observed the drastic performance improvements on Linux, with
 proper kernel parameter settings. If you have high-volume TCP traffic,
-please make sure to follow the instruction described at [Before Installing Fluentd](/articles/before-install.md).
+please make sure to follow the instruction described at [Before Installing Fluentd](/install/before-install.md).
 
 
 ## Plugin helpers
 
--   [server](/articles/api-plugin-helper-server.md)
--   [parser](/articles/api-plugin-helper-parser.md)
--   [extract](/articles/api-plugin-helper-extract.md)
--   [compat\_parameters](/articles/api-plugin-helper-compat_parameters.md)
+-   [server](/developer/api-plugin-helper-server.md)
+-   [parser](/developer/api-plugin-helper-parser.md)
+-   [extract](/developer/api-plugin-helper-extract.md)
+-   [compat\_parameters](/developer/api-plugin-helper-compat_parameters.md)
 
 
 ## Parameters

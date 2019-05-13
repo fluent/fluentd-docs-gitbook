@@ -141,7 +141,7 @@ into:
 </inject>
 ```
 
-For more details, see [Inject Plugin Helper API](/articles/api-plugin-helper-inject.md)
+For more details, see [Inject Plugin Helper API](/developer/api-plugin-helper-inject.md)
 
 #### extract
 
@@ -171,7 +171,7 @@ into:
 </extract>
 ```
 
-For more details, see [Extract Plugin Helper API](/articles/api-plugin-helper-extract.md)
+For more details, see [Extract Plugin Helper API](/developer/api-plugin-helper-extract.md)
 
 #### parser
 
@@ -220,7 +220,7 @@ into:
 ```
 
 For more details, see [Parser Plugin Overview](/plugins/parser/README.md)
-and [Writing Parser Plugins](/articles/api-plugin-parser.md).
+and [Writing Parser Plugins](/developer/api-plugin-parser.md).
 
 #### formatter
 
@@ -256,7 +256,7 @@ into:
 </format>
 ```
 
-For more details, see [Formatter Plugin Overview](/plugins/formatter/README.md) and [Writing Formatter Plugins](/articles/api-plugin-formatter.md).
+For more details, see [Formatter Plugin Overview](/plugins/formatter/README.md) and [Writing Formatter Plugins](/developer/api-plugin-formatter.md).
 
 
 ## compat\_parameters used plugins
@@ -273,7 +273,6 @@ For more details, see [Formatter Plugin Overview](/plugins/formatter/README.md) 
 -   [File output](/plugins/output/file.md)
 -   [Forward output](/plugins/output/forward.md)
 -   [Stdout output](/plugins/output/stdout.md)
--   [Stream output](/articles/out_stream.md)
 
 
 ------------------------------------------------------------------------

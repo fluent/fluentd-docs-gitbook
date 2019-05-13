@@ -34,9 +34,9 @@ The TD Output plugin is included in Fluentd's deb/rpm package
 (`td-agent`) by default. If you want to use Ruby Gems to install the
 plugin, please use `gem install fluent-plugin-td`.
 
--   [Debian Package](/articles/install-by-deb.md)
--   [RPM Package](/articles/install-by-rpm.md)
--   [Ruby gem](/articles/install-by-gem.md)
+-   [Debian Package](/install/install-by-deb.md)
+-   [RPM Package](/install/install-by-rpm.md)
+-   [Ruby gem](/install/install-by-gem.md)
 
 
 ## Signup

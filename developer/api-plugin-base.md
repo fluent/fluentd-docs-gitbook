@@ -75,7 +75,7 @@ Define a parameter.
 -   `options`: options for parameter
 -   `block`: if block is given, convert value via given block
 
-About types and options, see [Types of Configuration Parameters](/articles/api-config-types.md).
+About types and options, see [Types of Configuration Parameters](/developer/api-config-types.md).
 
 Code Example:
 

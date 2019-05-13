@@ -56,9 +56,9 @@ parameters.
 
 ## Plugin helpers
 
--   [parser](/articles/api-plugin-helper-parser.md)
--   [compat\_parameters](/articles/api-plugin-helper-compat_parameters.md)
--   [server](/articles/api-plugin-helper-server.md)
+-   [parser](/developer/api-plugin-helper-parser.md)
+-   [compat\_parameters](/developer/api-plugin-helper-compat_parameters.md)
+-   [server](/developer/api-plugin-helper-server.md)
 
 
 ## Parameters

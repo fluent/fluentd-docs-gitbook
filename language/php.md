@@ -17,10 +17,10 @@ This article explains how to use the fluent-logger-php library.
 
 Please refer to the following documents to install fluentd.
 
--   [Install Fluentd with rpm Package](/articles/install-by-rpm.md)
--   [Install Fluentd with deb Package](/articles/install-by-deb.md)
--   [Install Fluentd with Ruby Gem](/articles/install-by-gem.md)
--   [Install Fluentd from source](/articles/install-from-source.md)
+-   [Install Fluentd with rpm Package](/install/install-by-rpm.md)
+-   [Install Fluentd with deb Package](/install/install-by-deb.md)
+-   [Install Fluentd with Ruby Gem](/install/install-by-gem.md)
+-   [Install Fluentd from source](/install/install-from-source.md)
 
 
 ## Modifying the Config File
@@ -88,9 +88,9 @@ Various [output plugins](/plugins/output/README.md) are available for
 writing records to other destinations:
 
 -   Examples
-    -   [Store Apache Logs into Amazon S3](/articles/apache-to-s3.md)
-    -   [Store Apache Logs into MongoDB](/articles/apache-to-mongodb.md)
-    -   [Data Collection into HDFS](/articles/http-to-hdfs.md)
+    -   [Store Apache Logs into Amazon S3](/guides/apache-to-s3.md)
+    -   [Store Apache Logs into MongoDB](/guides/apache-to-mongodb.md)
+    -   [Data Collection into HDFS](/guides/http-to-hdfs.md)
 -   List of Plugin References
     -   [Output to Another Fluentd](/plugins/output/forward.md)
     -   [Output to MongoDB](/plugins/output/mongo.md) or [MongoDB ReplicaSet](/plugins/output/mongo_replset.md)

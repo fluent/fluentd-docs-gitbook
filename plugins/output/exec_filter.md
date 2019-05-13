@@ -50,13 +50,13 @@ so the output isn't always instantaneous.
 
 ## Plugin helpers
 
--   [compat\_parameters](/articles/api-plugin-helper-compat_parameters.md)
--   [inject](/articles/api-plugin-helper-inject.md)
--   [formatter](/articles/api-plugin-helper-formatter.md)
--   [parser](/articles/api-plugin-helper-parser.md)
--   [extract](/articles/api-plugin-helper-extract.md)
--   [child\_process](/articles/api-plugin-helper-child_process.md)
--   [event\_emitter](/articles/api-plugin-helper-event_emitter.md)
+-   [compat\_parameters](/developer/api-plugin-helper-compat_parameters.md)
+-   [inject](/developer/api-plugin-helper-inject.md)
+-   [formatter](/developer/api-plugin-helper-formatter.md)
+-   [parser](/developer/api-plugin-helper-parser.md)
+-   [extract](/developer/api-plugin-helper-extract.md)
+-   [child\_process](/developer/api-plugin-helper-child_process.md)
+-   [event\_emitter](/developer/api-plugin-helper-event_emitter.md)
 
 
 ## Parameters
@@ -209,7 +209,7 @@ Overwrite default value in this plugin.
 
 ### &lt;inject&gt; section
 
-See [Inject section configurations](/articles/inject-section.md) for more details.
+See [Inject section configurations](/conguration/inject-section.md) for more details.
 
 #### time\_type
 
@@ -222,7 +222,7 @@ Overwrite default value in this plugin.
 
 ### &lt;extract&gt; section
 
-See [Extract section configurations](/articles/extract-section.md) for more details.
+See [Extract section configurations](/conguration/extract-section.md) for more details.
 
 #### time\_type
 

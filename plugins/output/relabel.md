@@ -38,7 +38,7 @@ actually does nothing, but supports only `@label` parameter.
 
 ## Plugin helpers
 
--   [event\_emitter](/articles/api-plugin-helper-event_emitter.md)
+-   [event\_emitter](/developer/api-plugin-helper-event_emitter.md)
 
 
 ## Parameters

@@ -35,9 +35,9 @@ please check [Buffer section cofiguration](/configuration/buffer-section.md).
 
 ## Plugin helpers
 
--   [formatter](/articles/api-plugin-helper-formatter.md)
--   [inject](/articles/api-plugin-helper-inject.md)
--   [compat\_parameters](/articles/api-plugin-helper-compat_parameters.md)
+-   [formatter](/developer/api-plugin-helper-formatter.md)
+-   [inject](/developer/api-plugin-helper-inject.md)
+-   [compat\_parameters](/developer/api-plugin-helper-compat_parameters.md)
 
 
 ## Parameters
@@ -68,7 +68,7 @@ path /path/to/${tag}/${key1}/file.%Y%m%d
 </buffer>
 ```
 
-See [Buffer section configurations](http://docs.fluentd.org/v0.14/articles/buffer-section)
+See [Buffer section configurations](/configuration/buffer-section.md)
 for more detail.
 
 The `path` parameter is used as `<buffer>`'s `path` in this plugin.
@@ -131,7 +131,7 @@ Deprecated parameter. Use `<format>` instead.
 
 ### &lt;inject&gt; section
 
-See [Inject section configurations](/articles/inject-section) for more details.
+See [Inject section configurations](/configuration/inject-section) for more details.
 
 
 ### utc

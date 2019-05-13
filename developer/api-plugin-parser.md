@@ -2,7 +2,7 @@
 
 Fluentd supports [pluggable, customizable formats for input
 plugins](parser-plugin-overview). The plugin files whose names start
-with "parser\_" are registered as Parser Plugins. See [Plugin Base Class API](/articles/api-plugin-base.md) to show details of common API for all plugin
+with "parser\_" are registered as Parser Plugins. See [Plugin Base Class API](/developer/api-plugin-base.md) to show details of common API for all plugin
 types.
 
 Here is an example of a custom parser that parses the following
@@ -102,7 +102,7 @@ helpers :parser
 end
 ```
 
-See [Parser Plugin Helper API](/articles/api-plugin-helper-parser.md) for details.
+See [Parser Plugin Helper API](/developer/api-plugin-helper-parser.md) for details.
 
 
 ## Methods
@@ -198,7 +198,7 @@ Lifecycle of plugins and test drivers is:
 3.  Run test code
 4.  Assert results of tests by data provided from driver
 
-Test drivers instantiate the plugin. See [Testing API for plugins](/articles/plugin-test-code.md) for details.
+Test drivers instantiate the plugin. See [Testing API for plugins](/developer/plugin-test-code.md) for details.
 
 For configuration tests, repeat 1-2. For full feature tests, repeat 1-4.
 Test drivers and helper methods will support it.

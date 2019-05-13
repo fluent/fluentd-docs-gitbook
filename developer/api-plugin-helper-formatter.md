@@ -34,7 +34,7 @@ end
 For more details about formatter plugin, see following articles:
 
 -   [Formatter Plugin Overview](/plugins/formatter/README.md)
--   [Writing Formatter Plugins](/articles/api-plugin-formatter.md)
+-   [Writing Formatter Plugins](/developer/api-plugin-formatter.md)
 -   [Format section](/configuration/format-section.md)
 
 
