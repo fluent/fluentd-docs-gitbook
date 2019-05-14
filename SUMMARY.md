@@ -5,6 +5,7 @@
   * [Update from v0.12 to v1](/overview/update-from-v0.12.md)
   * [Support](/overview/support.md)
   * [FAQ](/overview/faq.md)
+  * [Logo](/overview/logo.md)
 
 * [Installation]()
   * [Before Installation](/install/before-install.md)
@@ -146,7 +147,6 @@
   * [How to Write Tests for Plugin](/developer/plugin-test-code.md)
   * [Configuration Parameter Types](/developer/api-config-types.md)
   * [Upgrade Plugin from v0.12](/developer/plugin-update-from-v0.12.md)
-  * [Logo](/developer/logo.md)
 
 * [Plugin Helper API](/developer/plugin-helper-overview.md)
   * [Plugin Helper: Child Process](/developer/api-plugin-helper-child_process.md)
