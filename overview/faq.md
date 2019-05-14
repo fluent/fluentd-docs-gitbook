@@ -3,7 +3,7 @@
 
 ## What version of Ruby does fluentd support?
 
-Fluentd v1.0 works on Ruby 2.1 or later. See [v0.12 document](/v0.12/overview/faq.md/#what-version-of-ruby-does-fluentd-support)
+Fluentd v1.0 works on Ruby 2.1 or later. See [v0.12 document](https://fluentd.gitbook.io/manual/v/0.12/)
 for earlier versions.
 
 
@@ -42,8 +42,7 @@ nodes so that your clocks remain synced with the correct clocks.
 
 ### I installed td-agent and want to add custom plugins. How do I do it?
 
-Use td-agent bundled gem. See [this
-section](/deployment/plugin-management.md/#if-using-td-agent,-use-/usr/sbin/td-agent-gem)
+Use td-agent bundled gem. See [this section](/deployment/plugin-management.md)
 for more information.
 
 
@@ -107,8 +106,7 @@ There are several approaches to avoid this problem.
     -   `tail` input has encoding related parameters to change the log
         encoding
     -   Use `record_modifier` filter to change the encoding. See
-        [fluent-plugin-record-modifier
-        README](https://github.com/repeatedly/fluent-plugin-record-modifier#char_encoding)
+        [fluent-plugin-record-modifier README](https://github.com/repeatedly/fluent-plugin-record-modifier#char_encoding)
 -   Use `yajl` instead of `json` when error happens inside
     `JSON.parse/JSON.dump`
 
@@ -129,7 +127,7 @@ if the warning still shows up.
 
 ### How do I develop a custom plugin?
 
-Please refer to the [Plugin Development Guide](http://docs.fluentd.org/articles/plugin-development).
+Please refer to the [Plugin Development Guide](/developer/plugin-development.md).
 
 
 ## HOWTOs
@@ -137,7 +135,7 @@ Please refer to the [Plugin Development Guide](http://docs.fluentd.org/articles/
 ### How can I parse `<my complex text log>`?
 
 If you are willing to write Regexp, [fluentd-ui's in\_tail
-editor](/deployment/fluentd-ui#intail-setting) or
+editor](/deployment/fluentd-ui.md#intail-setting) or
 [Fluentular](http://fluentular.herokuapp.com) is a great tool to verify
 your Regexps.
 

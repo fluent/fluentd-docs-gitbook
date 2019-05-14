@@ -32,6 +32,8 @@
   * [System Configuration](/deployment/system-config.md)
   * [Logging](/deployment/logging.md)
   * [Monitoring](/deployment/monitoring.md)
+  * [Monitoring by Prometheus](/deployment/monitoring-prometheus.md)
+  * [Monitoring by REST API](/deployment/monitoring-rest-api.md)
   * [Signals](/deployment/signals.md)
   * [RPC](/deployment/rpc.md)
   * [High Availability Config](/deployment/high-availability.md)
@@ -135,7 +137,7 @@
   * [Nodejs](/language/nodejs.md)
   * [Scala](/language/scala.md)
 
-* [Developer](/developer/plugin-development.md)
+* [Plugin Development](/developer/plugin-development.md)
   * [How to Write Input Plugin](/developer/api-plugin-input.md)
   * [How to Write Base Plugin](/developer/api-plugin-base.md)
   * [How to Write Buffer Plugin](/developer/api-plugin-buffer.md)
