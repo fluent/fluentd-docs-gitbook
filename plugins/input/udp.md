@@ -189,7 +189,7 @@ If in\_udp gots lots of packets within 1 sec, some packets are dropped.
 For example, you can see bigger RcvbufErrors number via `netstat -su`.
 
 This means in\_udp with one process can't handle such traffic. Try
-[multi workers](/deployment/performance-tuning.md/#multi-workers).
+[multi workers](/deployment/multi-process-workers.md).
 
 
 ------------------------------------------------------------------------

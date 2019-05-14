@@ -44,8 +44,7 @@ install the plugin, please use `gem install fluent-plugin-webhdfs`.
 
 -   [Debian Package](/install/install-by-deb.md)
 -   [RPM Package](/install/install-by-rpm.md)
--   For CDH, please refer to the [downloads
-    page](https://ccp.cloudera.com/display/SUPPORT/CDH+Downloads)
+-   For CDH, please refer to the [downloads page](https://ccp.cloudera.com/display/SUPPORT/CDH+Downloads)
     (CDH3u5 and CDH4 onwards)
 -   [Ruby gem](/install/install-by-gem.md)
 
