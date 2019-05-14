@@ -109,14 +109,6 @@
 * [Storage Plugins](/plugins/storage/README.md)
   * [local](/plugins/storage/local.md)
 
-* [Developer]()
-  * [Community](/developer/community.md)
-  * [Mailing List](/developer/mailing-list.md)
-  * [Source Code](/developer/source-code.md)
-  * [Bug Tracking](/developer/bug-tracking.md)
-  * [ChangeLog](/developer/changelog.md)
-  * [Logo](/developer/logo.md)
-
 * [How-to Guides]()
   * [Send Apache Logs to S3](/guides/apache-to-s3.md)
   * [Send Apache Logs to Minio](/guides/apache-to-minio.md)
@@ -142,7 +134,7 @@
   * [Nodejs](/language/nodejs.md)
   * [Scala](/language/scala.md)
 
-* [Plugin Development](/developer/plugin-development.md)
+* [Developer](/developer/plugin-development.md)
   * [How to Write Input Plugin](/developer/api-plugin-input.md)
   * [How to Write Base Plugin](/developer/api-plugin-base.md)
   * [How to Write Buffer Plugin](/developer/api-plugin-buffer.md)
@@ -154,6 +146,7 @@
   * [How to Write Tests for Plugin](/developer/plugin-test-code.md)
   * [Configuration Parameter Types](/developer/api-config-types.md)
   * [Upgrade Plugin from v0.12](/developer/plugin-update-from-v0.12.md)
+  * [Logo](/developer/logo.md)
 
 * [Plugin Helper API](/developer/plugin-helper-overview.md)
   * [Plugin Helper: Child Process](/developer/api-plugin-helper-child_process.md)
