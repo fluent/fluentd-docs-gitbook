@@ -101,7 +101,7 @@ When `deep_copy` is true, `out_copy` passes dupped record to each
 ### &lt;store&gt; section
 
 Specifies the storage destinations. The format is the same as the
-\<match\> directive.
+`<match>` directive.
 
 This section is required at least once.
 

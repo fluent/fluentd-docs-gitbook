@@ -66,7 +66,7 @@ cluster.
 Please see the [Fluentd + HDFS: Instant Big Data Collection](http-to-hdfs) article for real-world use cases.
 
 Please see the [Config File](/configuration/config-file.md) article for the basic
-structure and syntax of the configuration file. For \<buffer\> section,
+structure and syntax of the configuration file. For `<buffer>` section,
 please check [Buffer section cofiguration](/configuration/buffer-section.md).
 
 

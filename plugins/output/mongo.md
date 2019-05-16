@@ -72,7 +72,7 @@ Please see the [Store Apache Logs into MongoDB](/guides/apache-to-mongodb.md)
 article for real-world use cases.
 
 Please see the [Config File](/configuration/config-file.md) article for the basic
-structure and syntax of the configuration file. For \<buffer\> section,
+structure and syntax of the configuration file. For `<buffer>` section,
 please check [Buffer section cofiguration](/configuration/buffer-section.md).
 
 

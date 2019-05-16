@@ -55,7 +55,7 @@ The value must be `roundrobin`.
 ### &lt;store&gt;
 
 Specifies the storage destinations. The format is the same as the
-\<match\> directive.
+`<match>` directive.
 
 #### weight
 

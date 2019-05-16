@@ -208,7 +208,7 @@ If true, use user based authentication.
 
 Allow anonymous source. `<client>` sections are required if disabled.
 
-#### \<user\> section
+#### `<user>` section
 
 | required | multi | version |
 |:---------|:------|:--------|
@@ -237,7 +237,7 @@ The username for authentication.
 
 The password for authentication.
 
-#### \<client\> section
+#### `<client>` section
 
 | required | multi | version |
 |:---------|:------|:--------|
