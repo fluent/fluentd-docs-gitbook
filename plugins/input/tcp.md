@@ -39,7 +39,7 @@ Parsed result like below:
 ```
 
 Please see the [Config File](/configuration/config-file.md) article for the basic
-structure and syntax of the configuration file. For \<parse\> section,
+structure and syntax of the configuration file. For `<parse>` section,
 please check [Parse section cofiguration](/configuration/parse-section.md).
 
 We\'ve observed the drastic performance improvements on Linux, with

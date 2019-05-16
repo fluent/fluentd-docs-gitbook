@@ -130,7 +130,7 @@ for further details.
 
 ### rewriteruleN
 
-This is obsoleted since 2.0.0. Use \<rule\> section.
+This is obsoleted since 2.0.0. Use `<rule>` section.
 
 
 ### capitalize\_regex\_backreference

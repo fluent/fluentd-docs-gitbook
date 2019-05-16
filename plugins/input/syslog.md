@@ -230,7 +230,7 @@ This parameter is used inside `<parse>` directive.
 ```
 
 If `with_priority` is true, then syslog messages are assumed to be
-prefixed with a priority tag like "\<3\>". This option exists since some
+prefixed with a priority tag like `<3>`. This option exists since some
 syslog daemons output logs without the priority tag preceding the
 message body.
 

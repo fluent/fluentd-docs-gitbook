@@ -62,8 +62,8 @@ whereas the following examples are filtered out:
 
 ### &lt;and&gt; directive
 
-Specify filtering rule. This directive contains either \<regexp\> or
-\<exclude\> directive. This directive has been added since 1.2.0.
+Specify filtering rule. This directive contains either `<regexp>` or
+`<exclude>` directive. This directive has been added since 1.2.0.
 
 ``` {.CodeRay}
 <and>
@@ -91,7 +91,7 @@ This is same as below:
 </regexp>
 ```
 
-We can also use \<and\> directive with \<exclude\> directive:
+We can also use `<and>` directive with `<exclude>` directive:
 
 ``` {.CodeRay}
 <and>
@@ -109,8 +109,8 @@ We can also use \<and\> directive with \<exclude\> directive:
 
 ### &lt;or&gt; directive
 
-Specify filtering rule. This directive contains either \<regexp\> or
-\<exclude\> directive. This directive has been added since 1.2.0.
+Specify filtering rule. This directive contains either `<regexp>` or
+`<exclude>` directive. This directive has been added since 1.2.0.
 
 ``` {.CodeRay}
 <or>
@@ -138,7 +138,7 @@ This is same as below:
 </exclude>
 ```
 
-We can also use \<or\> directive with \<regexp\> directive:
+We can also use `<or>` directive with `<regexp>` directive:
 
 ``` {.CodeRay}
 <or>

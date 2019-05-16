@@ -1,7 +1,7 @@
 # regexp Parser Plugin
 
 The `regexp` parser plugin parses logs by given regexp pattern. The
-regexp must have at least one named capture (?\<NAME\>PATTERN). If the
+regexp must have at least one named capture (`?<NAME>`PATTERN). If the
 regexp has a capture named `time`, this is configurable via `time_key`
 parameter, it is used as the time of the event. You can specify the time
 format using the time\_format parameter.
