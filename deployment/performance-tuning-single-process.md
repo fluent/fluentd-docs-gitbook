@@ -5,8 +5,8 @@ single process. If your traffic is up to 5,000 messages/sec, the
 following techniques should be enough.
 
 With more traffic, Fluentd tends to be more CPU bound. In such case,
-please consider using ["multi-worker"
-feature](performance-tuning-single-process#multi-workers).
+please consider using
+["multi-worker" feature](/deployment/multi-process-workers.md).
 
 
 ## Check your OS configuration

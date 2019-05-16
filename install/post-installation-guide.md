@@ -32,7 +32,8 @@ By default, td-agent writes its operation logs to the following file:
 /var/log/td-agent/td-agent.log
 ```
 
-If you want to make td-agent more verbose, read the article ["Trouble Shooting"](trouble-shooting).
+If you want to make td-agent more verbose, read the article
+["Trouble Shooting"](/deployment/trouble-shooting.md).
 
 
 ## Connect to Other Services

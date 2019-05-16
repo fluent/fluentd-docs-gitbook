@@ -228,7 +228,7 @@ $ curl -X POST -d '123456:awesome' http://localhost:9880/app.log
 ```
 
 Many other formats (e.g. csv/syslog/nginx) are also supported as well.
-You can find the full list of supported formats in ["Parser Plugin Overview"](parser-plugin-overview).
+You can find the full list of supported formats in ["Parser Plugin Overview"](/plugins/parsers/README.md).
 
 Note that parser plugins do not support [the batch mode](#handle-large-data-with-batch-mode). So if you want to use bulk
 insertion for handling a large data set, please consider to keep using
