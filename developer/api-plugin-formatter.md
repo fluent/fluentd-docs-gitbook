@@ -1,9 +1,9 @@
 # Writing Formatter Plugins
 
-Fluentd supports [pluggable, customizable formats for output
-plugins](formatter-plugin-overview). The plugin files whose names start
-with "formatter\_" are registered as Formatter Plugins. See [Plugin Base Class API](/developer/api-plugin-base.md) to show details of common API for all plugin
-types.
+Fluentd supports [pluggable, customizable formats for output plugins](/plugins/formatter/README.md).
+The plugin files whose names start with "formatter\_" are registered as
+Formatter Plugins. See [Plugin Base Class API](/developer/api-plugin-base.md)
+to show details of common API for all plugin types.
 
 Here is an example of a custom formatter that outputs events as CSVs. It
 takes a required parameter called "csv\_fields" and outputs the fields.
