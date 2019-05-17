@@ -153,7 +153,7 @@ Here is the final configuration.
   key_name message
   <parse>
     @type regexp
-    expresssion /USER=(?<sudoer>[^ ]+) ; COMMAND=(?<command>.*)$/
+    expression /USER=(?<sudoer>[^ ]+) ; COMMAND=(?<command>.*)$/
   </parse>
 </filter>
 

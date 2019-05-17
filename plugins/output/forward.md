@@ -389,6 +389,23 @@ The client private key path for TLS.
 
 The client private key passphrase for TLS.
 
+### keepalive
+
+| type | default | version |
+|:----:|:-------:|:-------:|
+| bool | fales    | 1.4.3  |
+
+Enable keepalive connection.
+
+### keepalive\_timeout
+
+| type | default | version |
+|:----:|:-------:|:-------:|
+| time | nil     | 1.4.3   |
+
+Expired time of keepalive. Default value is nil, which means to keep connection
+as long as possible.
+
 ### &lt;security&gt; section
 
 | required | multi | version |
@@ -427,6 +444,14 @@ The backup destination that is used when all servers are unavailable.
 
 For more details, see [Secondary Output](/plugins/output/README.md/#secondary-output).
 
+### verify\_connection\_at\_startup
+
+| type | default | version |
+|:----:|:-------:|:-------:|
+| bool | false   | 1.3.1   |
+
+Verify that a connection can be made with one of `out_forward` nodes
+at the time of startup.
 
 ## Tips & Tricks
 
