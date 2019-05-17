@@ -122,12 +122,9 @@ key is calculated as `time(unix time) / timekey(seconds)`.
 
 For example:
 
--   timekey 60: `["12:00:00", ..., "12:00:59"]`,
-    `["12:01:00", ..., "12:01:59"]`, ...
--   timekey 180: `["12:00:00", ..., "12:02:59"]`,
-    `["12:03:00", ..., "12:05:59"]`, ...
--   timekey 3600: `["12:00:00", ..., "12:59:59"]`,
-    `["13:00:00", ..., "13:59:59"]`, ...
+-   timekey 60: `["12:00:00", ..., "12:00:59"]`, `["12:01:00", ..., "12:01:59"]`, ...
+-   timekey 180: `["12:00:00", ..., "12:02:59"]`, `["12:03:00", ..., "12:05:59"]`, ...
+-   timekey 3600: `["12:00:00", ..., "12:59:59"]`, `["13:00:00", ..., "13:59:59"]`, ...
 
 So the events will be separated into chunks by time range, and will be
 flushed (to be written) by output plugin after expiration for the time
@@ -339,23 +336,17 @@ When `time` is specified, parameters below are available:
 
 -   `timekey` \[time\]
     -   Required (no default value)
-    -   Output plugin will flush chunks per specified time (enabled when
-        `time` is specified in chunk keys)
+    -   Output plugin will flush chunks per specified time (enabled when `time` is specified in chunk keys)
 -   `timekey_wait` \[time\]
     -   Default: 600 (10m)
-    -   Output plugin writes chunks after `timekey_wait` seconds later
-        after `timekey` expiration
-    -   If an user configures `timekey 60m`, output plugin will wait
-        delayed events for flushed timekey, and write the chunk at 10
-        minutes of each hour
+    -   Output plugin writes chunks after `timekey_wait` seconds later after `timekey` expiration
+    -   If an user configures `timekey 60m`, output plugin will wait delayed events for flushed timekey, and write the chunk at 10 minutes of each hour
 -   `timekey_use_utc` \[bool\]
     -   Default: false (to use local timezone)
-    -   Output plugin decides to use UTC or not to format placeholders
-        using timekey
+    -   Output plugin decides to use UTC or not to format placeholders using timekey
 -   `timekey_zone` \[string\]
     -   Default: local timezone
-    -   The timezone (`-0700` or `Asia/Tokyo`) string for formatting
-        timekey placeholders
+    -   The timezone (`-0700` or `Asia/Tokyo`) string for formatting timekey placeholders
 
 
 ### @type
@@ -379,36 +370,26 @@ These parameters below are to configure buffer plugins and its chunks.
 
 -   `chunk_limit_size` \[size\]
     -   Default: 8MB (memory) / 256MB (file)
-    -   The max size of each chunks: events will be written into chunks
-        until the size of chunks become this size
+    -   The max size of each chunks: events will be written into chunks until the size of chunks become this size
 -   `chunk_limit_records` \[integer\]
     -   Optional
     -   The max number of events that each chunks can store in it
 -   `total_limit_size` \[size\]
     -   Default: 512MB (memory) / 64GB (file)
     -   The size limitation of this buffer plugin instance
-    -   Once the total size of stored buffer reached this threshold, all
-        append operations will fail with error (and data will be lost)
+    -   Once the total size of stored buffer reached this threshold, all append operations will fail with error (and data will be lost)
 -   `chunk_full_threshold` \[float\]
     -   Default: 0.95
     -   The percentage of chunk size threshold for flushing
-    -   output plugin will flush the chunk when actual size reaches
-        `chunk_limit_size * chunk_full_threshold (== 8MB * 0.95 in default)`
+    -   output plugin will flush the chunk when actual size reaches `chunk_limit_size * chunk_full_threshold (== 8MB * 0.95 in default)`
 -   `queued_chunks_limit_size` \[integer\] (since v1.1.3)
     -   Default: nil (No limit)
     -   Limit the number of queued chunks.
-    -   If you set smaller flush\_interval, e.g. 1s, there are lots of
-        small queued chunks in buffer. This is not good with file buffer
-        because it consumes lots of fd resources when output destination
-        has a problem. This parameter mitigates such situations.
+    -   If you set smaller flush\_interval, e.g. 1s, there are lots of small queued chunks in buffer. This is not good with file buffer because it consumes lots of fd resources when output destination has a problem. This parameter mitigates such situations.
 -   `compress` \[enum: text/gzip\]
     -   Default: text
-    -   If you set this option to `gzip`, you can get Fluentd to
-        compress data records before writing to buffer chunks.
-    -   Fluentd will decompress these compressed chunks automatically
-        before passing them to the output plugin (The exceptional case
-        is when the output plugin can transfer data in compressed form.
-        In this case, the data will be passed to the plugin as is).
+    -   If you set this option to `gzip`, you can get Fluentd to compress data records before writing to buffer chunks.
+    -   Fluentd will decompress these compressed chunks automatically before passing them to the output plugin (The exceptional case is when the output plugin can transfer data in compressed form. In this case, the data will be passed to the plugin as is).
     -   The default value is `text` which means no compression applied.
 
 
@@ -418,89 +399,69 @@ These parameters are to configure how to flush chunks to optimize
 performance (latency and throughput).
 
 -   `flush_at_shutdown` \[bool\]
-    -   Default: false for persistent buffers (e.g. buf\_file), true for
-        non-persistent buffers (e.g. buf\_memory).
-    -   The value to specify to flush/write all buffer chunks at
-        shutdown, or not
+    -   Default: false for persistent buffers (e.g. buf\_file), true for non-persistent buffers (e.g. buf\_memory).
+    -   The value to specify to flush/write all buffer chunks at shutdown, or not
 -   `flush_mode` \[enum: default/lazy/interval/immediate\]
-    -   Default: default (equals to `lazy` if `time` is specified as
-        chunk key, `interval` otherwise)
+    -   Default: default (equals to `lazy` if `time` is specified as chunk key, `interval` otherwise)
     -   `lazy`: flush/write chunks once per timekey
-    -   `interval`: flush/write chunks per specified time via
-        `flush_interval`
-    -   `immediate`: flush/write chunks immediately after events are
-        appended into chunks
+    -   `interval`: flush/write chunks per specified time via `flush_interval`
+    -   `immediate`: flush/write chunks immediately after events are appended into chunks
 -   `flush_interval` \[time\]
     -   Default: 60s
 -   `flush_thread_count` \[integer\]
     -   Default: 1
-    -   The number of threads of output plugins, which is used to write
-        chunks in parallel
+    -   The number of threads of output plugins, which is used to write chunks in parallel
 -   `flush_thread_interval` \[float\]
     -   Default: 1.0
-    -   The sleep interval seconds of threads to wait next flush trial
-        (when no chunks are waiting)
+    -   The sleep interval seconds of threads to wait next flush trial (when no chunks are waiting)
 -   `flush_thread_burst_interval` \[float\]
     -   Default: 1.0
-    -   The sleep interval seconds of threads between flushes when
-        output plugin flushes waiting chunks next to next
+    -   The sleep interval seconds of threads between flushes when output plugin flushes waiting chunks next to next
 -   `delayed_commit_timeout` \[time\]
     -   Default: 60
-    -   The timeout seconds until output plugin decides that async write
-        operation fails
+    -   The timeout seconds until output plugin decides that async write operation fails
 -   `overflow_action` \[enum:
     throw\_exception/block/drop\_oldest\_chunk\]
     -   Default: throw\_exception
     -   How output plugin behaves when its buffer queue is full
     -   `throw_exception`: raise exception to show this error in log
-    -   `block`: block processing of input plugin to emit events into
-        that buffer
-    -   `drop_oldest_chunk`: drop/purge oldest chunk to accept newly
-        incoming chunk
+    -   `block`: block processing of input plugin to emit events into that buffer
+    -   `drop_oldest_chunk`: drop/purge oldest chunk to accept newly incoming chunk
 
 
 ### Retries parameters
 
 -   `retry_timeout` \[time\]
     -   Default: 72h
-    -   The maximum seconds to retry to flush while failing, until
-        plugin discards buffer chunks
+    -   The maximum seconds to retry to flush while failing, until plugin discards buffer chunks
 -   `retry_forever` \[bool\]
     -   Default: false
-    -   If true, plugin will ignore retry\_timeout and retry\_max\_times
-        options and retry flushing forever
+    -   If true, plugin will ignore retry\_timeout and retry\_max\_times options and retry flushing forever
 -   `retry_max_times` \[integer\]
     -   Default: none
     -   The maximum number of times to retry to flush while failing
 -   `retry_secondary_threshold` \[float\]
     -   Default: 0.8
-    -   The ratio of retry\_timeout to switch to use secondary while
-        failing (Maximum valid value is 1.0)
+    -   The ratio of retry\_timeout to switch to use secondary while failing (Maximum valid value is 1.0)
 -   `retry_type` \[enum: exponential\_backoff/periodic\]
     -   Default: exponential\_backoff
-    -   `exponential_backoff`: wait seconds will become large
-        exponentially per failures
-    -   `periodic`: output plugin will retry periodically with fixed
-        intervals (configured via `retry_wait`)
+    -   `exponential_backoff`: wait seconds will become large exponentially per failures
+    -   `periodic`: output plugin will retry periodically with fixed intervals (configured via `retry_wait`)
 -   `retry_wait` \[time\]
     -   Default: 1s
-    -   Seconds to wait before next retry to flush, or constant factor
-        of exponential backoff
+    -   Seconds to wait before next retry to flush, or constant factor of exponential backoff
 -   `retry_exponential_backoff_base` \[float\]
     -   Default: 2
     -   The base number of exponential backoff for retries
 -   `retry_max_interval` \[time\]
     -   Default: none
-    -   The maximum interval seconds for exponential backoff between
-        retries while failing
+    -   The maximum interval seconds for exponential backoff between retries while failing
 -   `retry_randomize` \[bool\]
     -   Default: true
-    -   If true, output plugin will retry after randomized interval not
-        to do burst retries
+    -   If true, output plugin will retry after randomized interval not to do burst retries
 -   `disable_chunk_backup` \[bool\]
     -   Default: false
-    -   Instead of storing unrecoverable chunks in the backup directory,
-        just discard them. This option is new in Fluentd v1.2.6.
+    -   Instead of storing unrecoverable chunks in the backup directory, just discard them. This option is new in Fluentd v1.2.6.
 
 With exponential backoff, retry wait interval will be calculated as
 below:

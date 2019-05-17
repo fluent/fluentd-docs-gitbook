@@ -72,29 +72,19 @@ plugins.
 -   **types** (hash) (optional): Specify types for converting field into
     other type. See below "The detail of types parameter" section.
     -   Default: `nil`
-    -   string-based hash:
-        `field1:type, field2:type, field3:type:option, field4:type:option`
-    -   JSON format:
-        `{"field1":"type", "field2":"type", "field3":"type:option", "field4":"type:option"}`
+    -   string-based hash: `field1:type, field2:type, field3:type:option, field4:type:option`
+    -   JSON format: `{"field1":"type", "field2":"type", "field3":"type:option", "field4":"type:option"}`
     -   example: `types user_id:integer,paid:bool,paid_usd_amount:float`
--   **time\_key** (string) (optional): Specify time field for event
-    time. If the event doesn't have this field, current time is used.
+-   **time\_key** (string) (optional): Specify time field for event time. If the event doesn't have this field, current time is used.
     -   Default: `nil`
-    -   Note that [json](/plugins/parser/json), [ltsv](/plugins/parser/ltsv)
-        and [regexp](/plugins/parser/regexp) override the default value of this
-        parameter and set it to `time` by default.
--   **null\_value\_pattern** (string) (optional): Specify null value
-    pattern.
+    -   Note that [json](/plugins/parser/json), [ltsv](/plugins/parser/ltsv) and [regexp](/plugins/parser/regexp) override the default value of this parameter and set it to `time` by default.
+-   **null\_value\_pattern** (string) (optional): Specify null value pattern.
     -   Default: `nil`
--   **null\_empty\_string** (bool) (optional): If `true`, empty string
-    field is replaced with `nil`.
+-   **null\_empty\_string** (bool) (optional): If `true`, empty string field is replaced with `nil`.
     -   Default: `false`
--   **estimate\_current\_event** (bool) (optional): If `true`, use
-    `Fluent::EventTime.now`(current time) as a timestamp when `time_key`
-    is specified.
+-   **estimate\_current\_event** (bool) (optional): If `true`, use `Fluent::EventTime.now`(current time) as a timestamp when `time_key` is specified.
     -   Default: `false`
--   **keep\_time\_key** (bool) (optional): If `true`, keep time field in
-    the record.
+-   **keep\_time\_key** (bool) (optional): If `true`, keep time field in the record.
     -   Default: `false`
 
 #### The detail of types parameter
@@ -147,34 +137,24 @@ the value is `"Adam|Alice|Bob"`, `types item_ids:array:|` parses it as
 
 ### Time parameters
 
--   **time\_type** (enum) (optional): parse/format value according to
-    this type
+-   **time\_type** (enum) (optional): parse/format value according to this type
     -   Default: `float`
     -   Available values: `float`, `unixtime`, `string`
-        -   `float`: seconds from Epoch + nano seconds (e.g.
-            1510544836.154709804)
+        -   `float`: seconds from Epoch + nano seconds (e.g. 1510544836.154709804)
         -   `unixtime`: seconds from Epoch (e.g. 1510544815)
-        -   `string`: use format specified by `time_format`, local time
-            or time zone
--   **time\_format** (string) (optional): process value using specified
-    format. This is available only when `time_type` is `string`
+        -   `string`: use format specified by `time_format`, local time or time zone
+-   **time\_format** (string) (optional): process value using specified format. This is available only when `time_type` is `string`
     -   Default: `nil`
     -   Available time format:
-        -   For more details about formatting, see
-            [Time\#strftime](https://docs.ruby-lang.org/en/2.4.0/Time.html#method-i-strftime)
-        -   For more details about parsing, see
-            [Time.strptime](https://docs.ruby-lang.org/en/2.4.0/Time.html#method-c-strptime)
+        -   For more details about formatting, see [Time\#strftime](https://docs.ruby-lang.org/en/2.4.0/Time.html#method-i-strftime)
+        -   For more details about parsing, see [Time.strptime](https://docs.ruby-lang.org/en/2.4.0/Time.html#method-c-strptime)
         -   `%iso8601` (only for parsing)
-        -    Use `%N` to parse/format subsecond, because [strptime](https://github.com/nurse/strptime)
-            does not support `%3N`, `%6N`, `%9N`, and `%L`
--   **localtime** (bool) (optional): if true, use local time. Otherwise,
-    UTC is used. This is exclusive with `utc`.
+        -    Use `%N` to parse/format subsecond, because [strptime](https://github.com/nurse/strptime) does not support `%3N`, `%6N`, `%9N`, and `%L`
+-   **localtime** (bool) (optional): if true, use local time. Otherwise, UTC is used. This is exclusive with `utc`.
     -   Default: `true`
--   **utc** (bool) (optional): if true, use UTC. Otherwise, local time
-    is used. This is exclusive with `localtime`.
+-   **utc** (bool) (optional): if true, use UTC. Otherwise, local time is used. This is exclusive with `localtime`.
     -   Default: `false`
--   **timezone** (string) (optional): use specified timezone. one can
-    parse/format the time value in the specified timezone.
+-   **timezone** (string) (optional): use specified timezone. one can parse/format the time value in the specified timezone.
     -   Default: `nil`
     -   Available time zone format:
         1.  \[+-\]HH:MM (e.g. "+09:00") **(recommended)**
