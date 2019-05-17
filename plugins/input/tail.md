@@ -30,21 +30,23 @@ please check [Parse section cofiguration](/configuration/parse-section.md).
 
 ### How it Works
 
--   When Fluentd is first configured with `in_tail`, it will start
-    reading from the **tail** of that log, not the beginning.
--   Once the log is rotated, Fluentd starts reading the new file from
-    the beginning. It keeps track of the current inode number.
--   If `td-agent` restarts, it starts reading from the last position
-    td-agent read before the restart. This position is recorded in the
-    position file specified by the pos\_file parameter.
+When Fluentd is first configured with `in_tail`, it will start reading from the
+**tail** of that log, not the beginning.
+
+Once the log is rotated, Fluentd starts reading the new file from the beginning.
+It keeps track of the current inode number.
+
+If td-agent restarts, it starts reading from the last position td-agent read
+before the restart. This position is recorded in the position file specified
+by the `pos_file` parameter.
 
 
 ## Plugin helpers
 
--   [timer](/developer/api-plugin-helper-timer.md)
--   [event\_loop](/developer/api-plugin-helper-event_loop.md)
--   [parser](/developer/api-plugin-helper-parser.md)
--   [compat\_parameters](/developer/api-plugin-helper-compat_parameters.md)
+ - [timer](/developer/api-plugin-helper-timer.md)
+ - [event\_loop](/developer/api-plugin-helper-event_loop.md)
+ - [parser](/developer/api-plugin-helper-parser.md)
+ - [compat\_parameters](/developer/api-plugin-helper-compat_parameters.md)
 
 
 ## Parameters
@@ -74,7 +76,7 @@ path /path/to/file
 tag foo.*
 ```
 
-in\_tail emits the parsed events with the 'foo.path.to.file' tag.
+`in_tail` emits the parsed events with the 'foo.path.to.file' tag.
 
 
 ### path
@@ -102,8 +104,8 @@ path /path/to/a/*,/path/to/b/c.log
 If the date is 20140401, Fluentd starts to watch the files in
 /path/to/2014/04/01 directory. See also `read_from_head` parameter.
 
-You should not use \'\*\' with log rotation because it may cause the log
-duplication. In such case, you should separate in\_tail plugin
+You should not use `*` with log rotation because it may cause the log
+duplication. In such case, you should separate `in_tail` plugin
 configuration.
 
 
@@ -111,7 +113,7 @@ configuration.
 
 | type  | default      | version |
 |:------|:-------------|:--------|
-| array | \[\] (empty) | 0.14.0  |
+| array | `[]` (empty) | 0.14.0  |
 
 The paths to exclude the files from watcher list. For example, if you
 want to remove compressed files, you can use following pattern.
@@ -121,7 +123,7 @@ path /path/to/*
 exclude_path ["/path/to/*.gz", "/path/to/*.zip"]
 ```
 
-\`exclude\_path\` takes its input as an array, unlike \`path\` which
+`exclude_path` takes its input as an array, unlike \`path\` which
 takes it as a string.
 
 
@@ -167,7 +169,7 @@ If you want to tail all contents with `*` or strftime dynamic path, set
 this parameter to `true`. Instead, you should guarantee that log
 rotation will not occur in `*` directory.
 
-When this is true, in\_tail tries to read a file during start up phase.
+When this is true, `in_tail` tries to read a file during start up phase.
 If target file is large, it takes long time and starting other plugins
 isn't executed until reading file is finished.
 
@@ -180,15 +182,13 @@ isn't executed until reading file is finished.
 
 Specify the encoding of reading lines.
 
-By default, in\_tail emits string value as ASCII-8BIT encoding. These
+By default, `in_tai`l emits string value as ASCII-8BIT encoding. These
 options change it.
 
--   If specify only `encoding`, in\_tail changes string to `encoding`.
-    This use ruby's
-    [String\#force\_encoding](https://docs.ruby-lang.org/en/trunk/String.html#method-i-force_encoding)
--   If specify `encoding` and `from_encoding`, in\_tail tries to encode
-    string from `from_encoding` to `encoding`. This uses ruby's
-    [String\#encode](https://docs.ruby-lang.org/en/trunk/String.html#method-i-encode)
+-   If specify only `encoding`, `in_tail` changes string to `encoding`.
+    This uses ruby's [String\#force\_encoding](https://docs.ruby-lang.org/en/trunk/String.html#method-i-force_encoding)
+-   If specify `encoding` and `from_encoding`, `in_tail` tries to encode string from `from_encoding` to `encoding`.
+    This uses ruby's [String\#encode](https://docs.ruby-lang.org/en/trunk/String.html#method-i-encode)
 
 You can get supported encoding list by typing following command:
 
@@ -205,8 +205,8 @@ $ ruby -e 'p Encoding.name_list.sort'
 
 The number of reading lines at each IO.
 
-If you see "Size of the emitted data exceeds buffer\_chunk\_limit." log
-with in\_tail, set smaller value.
+If you see "Size of the emitted data exceeds `buffer_chunk_limit`." log
+with `in_tail`, set smaller value.
 
 
 ### multiline\_flush\_interval
@@ -217,9 +217,9 @@ with in\_tail, set smaller value.
 
 The interval of flushing the buffer for multiline format.
 
-If you set `multiline_flush_interval 5s`, in\_tail flushes buffered
+If you set `multiline_flush_interval 5s`, `in_tail` flushes buffered
 event after 5 seconds from last emit. This option is useful when you use
-`format_firstline` option. Since v0.12.20 or later.
+`format_firstline` option.
 
 
 ### pos\_file (highly recommended)
@@ -238,16 +238,16 @@ pos_file /var/log/td-agent/tmp/access.log.pos
 `pos_file` handles multiple positions in one file so no need multiple
 `pos_file` parameters per `source`.
 
-Don't share pos\_file between in\_tail configurations. It causes
-unexpected behavior, e.g. corrupt pos\_file content.
+Don't share `pos_file` between `in_tail` configurations. It causes
+unexpected behavior, e.g. corrupt `pos_file` content.
 
-in\_tail removes untracked file position during startup phase. It means
-the content of pos\_file is growing until restart when you tails lots of
+`in_tail` removes untracked file position during startup phase. It means
+the content of `pos_file` is growing until restart when you tails lots of
 files with dynamic path setting. I will fix this problem in the future.
 Check [this issue](https://github.com/fluent/fluentd/issues/1126).
 
 
-### &lt;parse&gt; directive (required)
+### `<parse>` directive (required)
 
 The format of the log. `in_tail` uses parser plugin to parse the log.
 See [parser article](/plugins/parser/README.md) for more detail.
@@ -267,7 +267,7 @@ Here are several examples:
 </parse>
 ```
 
-If `@type` contains `multiline`, in\_tail works as multiline mode.
+If `@type` contains `multiline`, `in_tail` works as multiline mode.
 
 
 ### format
@@ -298,16 +298,16 @@ With this config, generated events are like
 |:-----|:------------|:--------|
 | time | 5 (seconds) | 0.14.0  |
 
-in\_tail actually does a bit more than `tail -F` itself. When rotating a
+`in_tail` actually does a bit more than `tail -F` itself. When rotating a
 file, some data may still need to be written to the old file as opposed
 to the new one.
 
-in\_tail takes care of this by keeping a reference to the old file (even
+`in_tail` takes care of this by keeping a reference to the old file (even
 after it has been rotated) for some time before transitioning completely
 to the new file. This helps prevent data designated for the old file
 from getting lost. By default, this time interval is 5 seconds.
 
-The rotate\_wait parameter accepts a single integer representing the
+The `rotate_wait` parameter accepts a single integer representing the
 number of seconds you want this time interval to be.
 
 
@@ -408,14 +408,14 @@ you will see following message in fluentd log.
 See also `emit_unmatched_lines` parameter.
 
 
-### in\_tail doesn't start to read log file, why?
+### `in_tail` doesn't start to read log file, why?
 
 `in_tail` follows `tail -F` command behaviour by default, so `in_tail`
 reads only newer logs. If you want to read existing lines for batch use
 case, set `read_from_head true`.
 
 
-### in\_tail shows '/path/to/file unreadable' log message. Why?
+### `in_tail` shows '/path/to/file unreadable' log message. Why?
 
 If you see "/path/to/file unreadable. It is excluded and would be
 examined next time." message in the log, it means fluentd doesn't have
@@ -433,17 +433,17 @@ This parameter doesn't fit typical application log cases, so check your
 `logrotate` setting which doesn't include `nocreate` parameter.
 
 
-### What happens when in\_tail receives BufferOverflowError?
+### What happens when `in_tail` receives BufferOverflowError?
 
-in\_tail stops reading new lines and pos file update until
+`in_tail` stops reading new lines and pos file update until
 BufferOverflowError is resolved. After resolved BufferOverflowError,
 restart emitting new lines and pos file update.
 
 
-### in\_tail is sometimes stopped when monitor lots of files. How to avoid it?
+### `in_tail` is sometimes stopped when monitor lots of files. How to avoid it?
 
 Try to set `enable_stat_watcher false` in `in_tail` setting. We got
-several reports in\_tail is stopped when use `*` included `path`, and
+several reports `in_tail` is stopped when use `*` included `path`, and
 the problem is resolved by disabling inotify events.
 
 
