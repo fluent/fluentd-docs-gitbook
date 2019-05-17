@@ -31,10 +31,9 @@ please check [Parse section cofiguration](/configuration/parse-section.md).
 ### How it Works
 
 When Fluentd is first configured with `in_tail`, it will start reading from the
-**tail** of that log, not the beginning.
-
-Once the log is rotated, Fluentd starts reading the new file from the beginning.
-It keeps track of the current inode number.
+**tail** of that log, not the beginning. Once the log is rotated, Fluentd starts
+reading the new file from the beginning. It keeps track of the current inode
+number.
 
 If td-agent restarts, it starts reading from the last position td-agent read
 before the restart. This position is recorded in the position file specified
@@ -182,13 +181,13 @@ isn't executed until reading file is finished.
 
 Specify the encoding of reading lines.
 
-By default, `in_tai`l emits string value as ASCII-8BIT encoding. These
+By default, `in_tail` emits string value as ASCII-8BIT encoding. These
 options change it.
 
 -   If specify only `encoding`, `in_tail` changes string to `encoding`.
-    This uses ruby's [String\#force\_encoding](https://docs.ruby-lang.org/en/trunk/String.html#method-i-force_encoding)
+    This uses ruby's [String#force_encoding](https://docs.ruby-lang.org/en/trunk/String.html#method-i-force_encoding)
 -   If specify `encoding` and `from_encoding`, `in_tail` tries to encode string from `from_encoding` to `encoding`.
-    This uses ruby's [String\#encode](https://docs.ruby-lang.org/en/trunk/String.html#method-i-encode)
+    This uses ruby's [String#encode](https://docs.ruby-lang.org/en/trunk/String.html#method-i-encode)
 
 You can get supported encoding list by typing following command:
 
@@ -390,12 +389,12 @@ Please see the [logging article](/deployment/logging.md) for further details.
 
 ## Learn More
 
--   [Input Plugin Overview](/plugins/input/README.md)
+ - [Input Plugin Overview](/plugins/input/README.md)
 
 
 ## FAQ
 
-### What happens when `<parse>` type is not matched for logs.
+### What happens when &lt;parse&gt; type is not matched for logs.
 
 `in_tail` prints warning message. For example, if you specify
 `@type json` in `<parse>` and your log line is `123,456,str,true`, then
@@ -408,14 +407,14 @@ you will see following message in fluentd log.
 See also `emit_unmatched_lines` parameter.
 
 
-### `in_tail` doesn't start to read log file, why?
+### in\_tail doesn't start to read log file, why?
 
 `in_tail` follows `tail -F` command behaviour by default, so `in_tail`
 reads only newer logs. If you want to read existing lines for batch use
 case, set `read_from_head true`.
 
 
-### `in_tail` shows '/path/to/file unreadable' log message. Why?
+### in\_tail shows '/path/to/file unreadable' log message. Why?
 
 If you see "/path/to/file unreadable. It is excluded and would be
 examined next time." message in the log, it means fluentd doesn't have
@@ -433,14 +432,14 @@ This parameter doesn't fit typical application log cases, so check your
 `logrotate` setting which doesn't include `nocreate` parameter.
 
 
-### What happens when `in_tail` receives BufferOverflowError?
+### What happens when in\_tail receives BufferOverflowError?
 
 `in_tail` stops reading new lines and pos file update until
 BufferOverflowError is resolved. After resolved BufferOverflowError,
 restart emitting new lines and pos file update.
 
 
-### `in_tail` is sometimes stopped when monitor lots of files. How to avoid it?
+### in\_tail is sometimes stopped when monitor lots of files. How to avoid it?
 
 Try to set `enable_stat_watcher false` in `in_tail` setting. We got
 several reports `in_tail` is stopped when use `*` included `path`, and
