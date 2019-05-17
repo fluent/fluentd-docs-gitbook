@@ -11,13 +11,13 @@ recommending to use Prometheus by default to monitor Fluentd.
 
 First of all, please install `fluent-plugin-prometheus` gem.
 
-``` {.CodeRay}
+```
 $ fluent-gem install fluent-plugin-prometheus --version='~>1.0.0'
 ```
 
 If you are using td-agent, use `td-agent-gem` for installation.
 
-``` {.CodeRay}
+```
 $ sudo td-agent-gem install fluent-plugin-prometheus --version='~>1.0.0'
 ```
 
@@ -41,7 +41,7 @@ First, please add the `<filter>` section like below, to count the
 incoming records per tag. With this configuration, `prometheus` filter
 starts adding the internal counter as the record comes in.
 
-``` {.CodeRay}
+```
 # source
 <source>
   @type forward
@@ -72,7 +72,7 @@ count the outgoing records per tag. With this configuration,
 `prometheus` output starts adding the internal counter as the record
 goes out.
 
-``` {.CodeRay}
+```
 # count number of outgoing records per tag
 <match company.*>
   @type copy
@@ -106,7 +106,7 @@ goes out.
 Finally, please use `prometheus` input plugin to expose internal counter
 information via HTTP.
 
-``` {.CodeRay}
+```
 # expose metrics in prometheus format
 <source>
   @type prometheus
@@ -128,7 +128,7 @@ information via HTTP.
 
 After you have done 3 changes, please restart fluentd.
 
-``` {.CodeRay}
+```
 # For stand-alone Fluentd installations
 $ fluentd -c fluentd.conf
 # For td-agent users
@@ -137,7 +137,7 @@ $ sudo systemctl restart td-agent
 
 Let's send some records.
 
-``` {.CodeRay}
+```
 $ echo '{"message":"hello"}' | bundle exec fluent-cat company.test1
 $ echo '{"message":"hello"}' | bundle exec fluent-cat company.test1
 $ echo '{"message":"hello"}' | bundle exec fluent-cat company.test1
@@ -147,7 +147,7 @@ $ echo '{"message":"hello"}' | bundle exec fluent-cat company.test2
 Then, please access to `http://localhost:24231/metrics`, which is the
 URL to receive metrics in [Prometheus format](https://prometheus.io/docs/instrumenting/exposition_formats/).
 
-``` {.CodeRay}
+```
 curl http://localhost:24231/metrics
 # TYPE fluentd_input_status_num_records_total counter
 # HELP fluentd_input_status_num_records_total The total number of incoming records
@@ -168,7 +168,7 @@ fluentd_output_status_buffer_queue_length{hostname="KZK.local",plugin_id="object
 
 Please prepare the file below as `prometheus.yml`.
 
-``` {.CodeRay}
+```
 global:
   scrape_interval: 10s # Set the scrape interval to every 10 seconds. Default is every 1 minute.
 
@@ -182,7 +182,7 @@ scrape_configs:
 
 Then, launch `prometheus` process.
 
-``` {.CodeRay}
+```
 $ ./prometheus --config.file="prometheus.yml"
 ```
 
@@ -231,7 +231,7 @@ to make them meaningful.
 
 Here are the example PromQLs for common metrics everyone wants to see.
 
-``` {.CodeRay}
+```
 # number of available nodes
 up
 
@@ -261,7 +261,7 @@ If these values are increasing, it means Fluentd cannot flush the buffer
 to the destination. Thus you will lose the data once the buffer becomes
 full.
 
-``` {.CodeRay}
+```
 # maximum buffer length in last 1min
 max_over_time(fluentd_output_status_buffer_queue_length[1m])
 

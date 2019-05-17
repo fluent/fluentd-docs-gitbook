@@ -4,7 +4,7 @@
 
 Here is the code example with `child_process` helper:
 
-``` {.CodeRay}
+```
 require 'fluent/plugin/output'
 
 module Fluent::Plugin
@@ -61,7 +61,7 @@ This method executes child\_process with given parameters and routine
 
 Code examples:
 
-``` {.CodeRay}
+```
 # Pass block directly. block is executed in 10 second interval.
 child_process_execute(:exec_awesome_command, @command, interval: 10, mode: [:read]) {|io|
   # ...

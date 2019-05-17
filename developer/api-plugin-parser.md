@@ -8,13 +8,13 @@ types.
 Here is an example of a custom parser that parses the following
 newline-delimited log format:
 
-``` {.CodeRay}
+```
 <timestamp><SPACE>key1=value1<DELIMITER>key2=value2<DELIMITER>key3=value...
 ```
 
 e.g., something like this
 
-``` {.CodeRay}
+```
 2014-04-01T00:00:00 name=jake age=100 action=debugging
 ```
 
@@ -26,7 +26,7 @@ Here is the code to parse this custom format (let's call it
 which is the delimiter for key-value pairs. It also takes `time_format`
 to parse the time string.
 
-``` {.CodeRay}
+```
 require 'fluent/plugin/parser'
 
 module Fluent::Plugin
@@ -66,7 +66,7 @@ end
 Then, save this code in `parser_time_key_value.rb` in a loadable plugin
 path. Then, if in\_tail is configured as
 
-``` {.CodeRay}
+```
 # Other lines...
 <source>
   @type tail
@@ -89,7 +89,7 @@ Parser plugins are designed to be used from other plugins, like Input,
 Filter and Output. There is a Parser plugin helper for that purpose
 (v0.14.1 or later):
 
-``` {.CodeRay}
+```
 # in class definition
 helpers :parser
 
@@ -128,7 +128,7 @@ others) are controlled by Fluentd core.
 Fluentd also provides test driver for plugins. You can write tests of
 your own plugins very easily:
 
-``` {.CodeRay}
+```
 ::ruby
 # test/plugin/test_parser_your_own.rb
 

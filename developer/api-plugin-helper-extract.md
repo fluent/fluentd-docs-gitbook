@@ -7,7 +7,7 @@ For details about configuration, see [Extract section](/configuration/extract-se
 
 Here is the code example with `extract` helper:
 
-``` {.CodeRay}
+```
 require 'fluent/plugin/output'
 
 module Fluent::Plugin
@@ -40,7 +40,7 @@ This method extracts tag from given record
 
 Code example:
 
-``` {.CodeRay}
+```
 new_tag = extract_tag_from_record(record)
 ```
 
@@ -53,7 +53,7 @@ This method extracts time from given record
 
 Code example:
 
-``` {.CodeRay}
+```
 new_time = extract_time_from_record(record)
 ```
 

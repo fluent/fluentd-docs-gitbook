@@ -22,13 +22,13 @@ Specify field name to contain logs.
 
 ## Example
 
-``` {.CodeRay}
+```
 Hello world. I am a line of log!
 ```
 
 This incoming event is parsed as:
 
-``` {.CodeRay}
+```
 time:
 1362020400 (current time)
 

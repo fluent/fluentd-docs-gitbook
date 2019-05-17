@@ -4,7 +4,7 @@
 
 Here is the code example with `socket` helper:
 
-``` {.CodeRay}
+```
 require 'fluent/plugin/output'
 
 module Fluent::Plugin
@@ -57,7 +57,7 @@ terminates.
 
 Code example:
 
-``` {.CodeRay}
+```
 # TCP
 socket = socket_create(:tcp, "example.com", 12340)
 socket.write(data)

@@ -9,7 +9,7 @@ metrics by using HTTP API.
 `in_monitor_agent` is included in Fluentd's core. No additional
 installation process is required.
 
-``` {.CodeRay}
+```
 <source>
   @type monitor_agent
   bind 0.0.0.0
@@ -20,13 +20,13 @@ installation process is required.
 This configuration launches HTTP server with 24220 port and get metrics
 like below:
 
-``` {.CodeRay}
+```
 $ curl http://host:24220/api/plugins.json
 ```
 
 Also you can fetch the same data in LTSV format:
 
-``` {.CodeRay}
+```
 $ curl http://host:24220/api/plugins
 ```
 
@@ -106,7 +106,7 @@ response.
 
 Here is a configuration example that uses `in_monitor_agent`.
 
-``` {.CodeRay}
+```
 <source>
   @type monitor_agent
   @id in_monitor_agent
@@ -135,7 +135,7 @@ its `plugin_id` field)
 
 Here is how the output looks like (in JSON format):
 
-``` {.CodeRay}
+```
 {
   "plugins": [
     {
@@ -176,7 +176,7 @@ If the output plugin is in retry status, additional fields are added to
 `retry`. For example, if the elasticsearch plugin fails to flush the
 buffer, response is below:
 
-``` {.CodeRay}
+```
 { 
   "plugin_id": "out_es",
   "plugin_category": "output",
@@ -207,7 +207,7 @@ This plugin supports a number of query parameters with which you can
 customize the output format of HTTP responses. For example, you can
 append `debug=1` to the request URL to get the verbose internal metrics.
 
-``` {.CodeRay}
+```
 $ curl http://localhost:24220/api/plugins.json?debug=1
 ```
 
@@ -229,7 +229,7 @@ The following list shows the available query parameters.
 You can emits the internal metrics as events by setting the option
 `tag`. For example:
 
-``` {.CodeRay}
+```
 <source>
   @type monitor_agent
   tag debug.monitor
@@ -242,7 +242,7 @@ Note that `in_monitor_agent` produces separate records for each plugin.
 Thus, using this configuration, you will receive events like below once
 per minute.
 
-``` {.CodeRay}
+```
 2018-01-30 22:53:29.591560000 +0900 debug.monitor: { "plugin_id":"object:3ffd9988bea0","plugin_category":"input","type":"monitor_agent","output_plugin":false,"retry_count":null}
 2018-01-30 22:53:29.591560000 +0900 debug.monitor: { "plugin_id":"in_forward","plugin_category":"input","type":"forward","output_plugin":false,"retry_count":null}
 2018-01-30 22:53:29.591560000 +0900 debug.monitor: { "plugin_id":"out_out","plugin_category":"output","type":"stdout","output_plugin":true,"retry_count":0}
@@ -255,7 +255,7 @@ If you use this plugin under multi-process environment, HTTP server will
 be launched in each worker. Port is assigned in sequential number. For
 example, with this configuration:
 
-``` {.CodeRay}
+```
 <system>
   workers 3
 </system>

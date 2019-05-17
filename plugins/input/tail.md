@@ -11,7 +11,7 @@ of text files. Its behavior is similar to the `tail -F` command.
 `in_tail` is included in Fluentd's core. No additional installation
 process is required.
 
-``` {.CodeRay}
+```
 <source>
   @type tail
   path /var/log/httpd-access.log
@@ -69,7 +69,7 @@ The tag of the event.
 replacing '/' with '.'. For example, if you have the following
 configuration
 
-``` {.CodeRay}
+```
 path /path/to/file
 tag foo.*
 ```
@@ -89,13 +89,13 @@ The paths to read. Multiple paths can be specified, separated by ','.
 dynamically. At interval of `refresh_interval`, Fluentd refreshes the
 list of watch file.
 
-``` {.CodeRay}
+```
 path /path/to/%Y/%m/%d/*
 ```
 
 For multiple paths:
 
-``` {.CodeRay}
+```
 path /path/to/a/*,/path/to/b/c.log
 ```
 
@@ -116,7 +116,7 @@ configuration.
 The paths to exclude the files from watcher list. For example, if you
 want to remove compressed files, you can use following pattern.
 
-``` {.CodeRay}
+```
 path /path/to/*
 exclude_path ["/path/to/*.gz", "/path/to/*.zip"]
 ```
@@ -192,7 +192,7 @@ options change it.
 
 You can get supported encoding list by typing following command:
 
-``` {.CodeRay}
+```
 $ ruby -e 'p Encoding.name_list.sort'
 ```
 
@@ -231,7 +231,7 @@ event after 5 seconds from last emit. This option is useful when you use
 This parameter is highly recommended. Fluentd will record the position
 it last read into this file.
 
-``` {.CodeRay}
+```
 pos_file /var/log/td-agent/tmp/access.log.pos
 ```
 
@@ -254,7 +254,7 @@ See [parser article](/plugins/parser/README.md) for more detail.
 
 Here are several examples:
 
-``` {.CodeRay}
+```
 # json
 <parse>
   @type json
@@ -283,7 +283,7 @@ Deprecated parameter. Use `<parse>` instead.
 
 Add watching file path to `path_key` field.
 
-``` {.CodeRay}
+```
 path /path/to/access.log
 path_key tailed_path
 ```
@@ -401,7 +401,7 @@ Please see the [logging article](/deployment/logging.md) for further details.
 `@type json` in `<parse>` and your log line is `123,456,str,true`, then
 you will see following message in fluentd log.
 
-``` {.CodeRay}
+```
 2018-04-19 02:23:44 +0900 [warn]: #0 pattern not match: "123,456,str,true"
 ```
 

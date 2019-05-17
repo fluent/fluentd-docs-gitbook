@@ -57,7 +57,7 @@ should use `>= 0.14.0`. Let's think about v2 few years later.
 
 Recommended dependency in gemspec:
 
-``` {.CodeRay}
+```
 # in gemspec
 Gem::Specification.new do |gem|
   gem.name = "fluent-plugin-my_awesome"
@@ -93,7 +93,7 @@ Nov 2017).
 
 Add requirements section to `README.md` like following:
 
-``` {.CodeRay}
+```
 ## Requirements
 
 | fluent-plugin-may_awesome | Fluentd    | Ruby   |
@@ -196,7 +196,7 @@ For more details, see [Plugin Helper Overview](/developer/plugin-helper-overview
 
 Before:
 
-``` {.CodeRay}
+```
 require 'fluent/output'
 
 module Fluent
@@ -230,7 +230,7 @@ end
 
 After:
 
-``` {.CodeRay}
+```
 require 'fluent/plugin/output'
 
 module Fluent
@@ -292,7 +292,7 @@ For more details, see [Plugin Helper Overview](/developer/plugin-helper-overview
 
 Before:
 
-``` {.CodeRay}
+```
 require 'fluent/output'
 
 module Fluent
@@ -336,7 +336,7 @@ end
 
 After:
 
-``` {.CodeRay}
+```
 require 'fluent/plugin/output'
 
 module Fluent
@@ -409,7 +409,7 @@ For more details, see [Plugin Helper Overview](/developer/plugin-helper-overview
 
 Before:
 
-``` {.CodeRay}
+```
 require 'fluent/output'
 
 module Fluent
@@ -455,7 +455,7 @@ For more details, see [Plugin Helper Overview](/developer/plugin-helper-overview
 
 Before (code):
 
-``` {.CodeRay}
+```
 require 'fluent/output'
 
 module Fluent
@@ -474,7 +474,7 @@ end
 
 Before (configuration):
 
-``` {.CodeRay}
+```
 <match *>
   @type ...
   time_slice_format %Y%m%d%H
@@ -487,7 +487,7 @@ After (configuration):
 
 Use `<buffer>` section to customize chunking.
 
-``` {.CodeRay}
+```
 <match *>
   @type ...
   <buffer time>
@@ -531,7 +531,7 @@ to the log.
 
 Before:
 
-``` {.CodeRay}
+```
 <match **>
   @type some_output
   include_tag_key true
@@ -544,7 +544,7 @@ Before:
 
 After:
 
-``` {.CodeRay}
+```
 <match **>
   @type some_output
   <inject>
@@ -570,7 +570,7 @@ Use placeholders `${tag}, ${tag[0]}, ${tag[1]}` in configuration.
 
 Before:
 
-``` {.CodeRay}
+```
 <match input.access>
   @type some_output
   remove_tag_prefix input.
@@ -583,7 +583,7 @@ Before:
 
 After:
 
-``` {.CodeRay}
+```
 <match input.access>
   @type some_output
   tag some.${tag[1]}
@@ -628,7 +628,7 @@ Before:
 
 test/test\_helper.rb
 
-``` {.CodeRay}
+```
 require 'rubygems'
 require 'bundler'
 begin
@@ -659,7 +659,7 @@ end
 
 test/plugin/test\_some\_output.rb
 
-``` {.CodeRay}
+```
 require 'test_helper'
 require 'fluent/plugin/out_some'
 
@@ -682,7 +682,7 @@ After:
 
 test\_helper.rb
 
-``` {.CodeRay}
+```
 require "bundler/setup"
 require "test/unit"
 $LOAD_PATH.unshift(File.join(__dir__, "..", "lib"))
@@ -692,7 +692,7 @@ require "fluent/test"
 
 test/plugin/test\_some\_output.rb
 
-``` {.CodeRay}
+```
 require "test_helper"
 require "fluent/test/driver/output"
 require "fluent/plugin/out_some"

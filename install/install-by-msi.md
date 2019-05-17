@@ -32,7 +32,7 @@ First, please prepare your config file located at
 `C:/opt/td-agent/etc/td-agent/td-agent.conf`. The config below is the
 simplest example to output any incoming records to td-agent's log file.
 
-``` {.CodeRay}
+```
 <source>
   @type forward
 </source>
@@ -50,14 +50,14 @@ the Windows menu (below is how it looks like on Windows Server 2012).
 In the prompt, please execute the command below to launch td-agent
 process.
 
-``` {.CodeRay}
+```
 > fluentd -c etc\td-agent\td-agent.conf
 ```
 
 Then, please launch another `Td-agent Command Prompt` and type the
 command below. This will send a record to td-agent process.
 
-``` {.CodeRay}
+```
 > echo {"message":"hello"} | fluent-cat test.event
 ```
 
@@ -73,7 +73,7 @@ Next, let's register td-agent to Windows service to permanently run as a
 server process. Please execute `Td-agent Command Prompt` again but with
 administrative privilege, and type the two commands below.
 
-``` {.CodeRay}
+```
 > fluentd --reg-winsvc i
 > fluentd --reg-winsvc-fluentdopt '-c C:/opt/td-agent/etc/td-agent/td-agent.conf -o C:/opt/td-agent/td-agent.log'
 ```
@@ -96,7 +96,7 @@ specified in Step 3.
 
 Open `Td-agent Command Prompt` and use `fluent-gem` command.
 
-``` {.CodeRay}
+```
 > fluent-gem install fluent-plugin-xyz --version=1.2.3
 ```
 

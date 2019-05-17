@@ -9,7 +9,7 @@ purposes.
 
 `filter_stdout` is included in Fluentd's core. No installation required.
 
-``` {.CodeRay}
+```
 <filter pattern>
   @type stdout
 </filter>
@@ -17,7 +17,7 @@ purposes.
 
 A sample output is as follows:
 
-``` {.CodeRay}
+```
 2017-11-28 11:43:13.814351757 +0900 tag: {"field1":"value1","field2":"value2"}
 ```
 

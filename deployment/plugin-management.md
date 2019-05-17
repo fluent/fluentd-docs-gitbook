@@ -9,7 +9,7 @@ This article explains how to manage Fluentd plugins, including adding
 The `fluent-gem` command is used to install Fluentd plugins. This is a
 wrapper around the `gem` command.
 
-``` {.CodeRay}
+```
 fluent-gem install fluent-plugin-grep
 ```
 
@@ -34,7 +34,7 @@ install development packages to build it, e.g. gcc, make, autoconf and
 etc. If you see logs like below, install development packages before
 plugin installation.
 
-``` {.CodeRay}
+```
 Building native extensions.  This could take a while...
 ERROR:  Error installing fluent-plugin-twitter:
         ERROR: Failed to build gem native extension.
@@ -64,7 +64,7 @@ load path. For example, if you put the `out_foo.rb` plugin into
 `/path/to/plugin`, you can load the `out_foo.rb` plugin by specifying
 the `-p` option as shown below.
 
-``` {.CodeRay}
+```
 fluentd -p /path/to/plugin
 ```
 
@@ -118,7 +118,7 @@ shared gems.
 
 For example, if you have following Gemfile at /etc/fluent/Gemfile:
 
-``` {.CodeRay}
+```
 source 'https://rubygems.org'
 
 gem 'fluentd', '1.2.1'
@@ -127,7 +127,7 @@ gem 'fluent-plugin-elasticsearch', '2.10.3'
 
 You can pass this Gemfile to Fluentd via the `--gemfile` option.
 
-``` {.CodeRay}
+```
 fluentd --gemfile /etc/fluent/Gemfile
 ```
 
@@ -147,7 +147,7 @@ We can manage Fluentd and its plugins based on Gemfile with td-agent.
 Use following drop-in file
 /etc/systemd/system/td-agent.service.d/override.conf for td-agent 3.1.1:
 
-``` {.CodeRay}
+```
 [Service]
 Environment='TD_AGENT_OPTIONS=--gemfile=/etc/td-agent/Gemfile --gem-path=/var/lib/td-agent/vendor/bundle'
 ExecStart=
@@ -156,13 +156,13 @@ ExecStart=/opt/td-agent/embedded/bin/fluentd --log /var/log/td-agent/td-agent.lo
 
 We can also edit this file by following command:
 
-``` {.CodeRay}
+```
 $ sudo systemctl edit td-agent.service
 ```
 
 And then add /etc/td-agent/Gemfile:
 
-``` {.CodeRay}
+```
 source "https://rubygems.org"
 # You can use fixed version of Fluentd and its plugins
 gem "fluentd", "1.2.1"
@@ -179,7 +179,7 @@ gem "fluent-plugin-geoip", "1.2.0"
 
 Finally, restart td-agent:
 
-``` {.CodeRay}
+```
 $ sudo systemctl restart td-agent.service
 ```
 

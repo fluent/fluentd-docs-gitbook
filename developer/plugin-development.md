@@ -62,7 +62,7 @@ To create a plugin as a ruby script (to put it on `/etc/fluent/plugin`),
 just write a `<TYPE>_<NAME>.rb` file by editor, IDE or anything you
 prefer.
 
-``` {.CodeRay}
+```
 # in_my_awesome.rb
 require 'fluent/plugin/input'
 
@@ -108,7 +108,7 @@ package.
 
 For example generate input http2 plugin project skeleton:
 
-``` {.CodeRay}
+```
 $ fluent-plugin-generate input http2
 License: Apache-2.0
         create Gemfile
@@ -150,7 +150,7 @@ Fluentd plugins.
 
 Run `fluentd` with the `-vv` option to show debug messages:
 
-``` {.CodeRay}
+```
 $ fluentd -vv
 ```
 
@@ -158,7 +158,7 @@ The **stdout** and **copy** output plugins are useful for debugging. The
 **stdout** output plugin dumps matched events to the console. It can be
 used as follows:
 
-``` {.CodeRay}
+```
 # You want to debug this plugin.
 <source>
   @type your_custom_input_plugin
@@ -173,7 +173,7 @@ used as follows:
 The **copy** output plugin copies matched events to multiple output
 plugins. You can use it in conjunction with the stdout plugin:
 
-``` {.CodeRay}
+```
 <source>
   @type forward
 </source>
@@ -198,7 +198,7 @@ plugins. You can use it in conjunction with the stdout plugin:
 You can use **stdout** filter instead of **copy** and **stdout**
 combination. The result is same as above but more simpler.
 
-``` {.CodeRay}
+```
 <source>
   @type forward
 </source>
@@ -217,7 +217,7 @@ combination. The result is same as above but more simpler.
 
 Fluentd provides unit test frameworks for plugins:
 
-``` {.CodeRay}
+```
 Fluent::Test::Driver::Input
   Test driver for input plugins.
 
@@ -234,7 +234,7 @@ Add `test-unit` into the development dependency in your gemspec, add
 Rake task to run tests in your Rakefile and write test code in
 `test/plugin/test_in_my_awesome.rb`.
 
-``` {.CodeRay}
+```
 # in gemspec
 Gem::Specification.new do |gem|
   gem.name = "fluent-plugin-my_awesome"
@@ -265,7 +265,7 @@ You have a snippet of README.md if you generate project skeleton using
 
 For example:
 
-```` {.CodeRay}
+````
 # fluent-plugin-http2
 
 [Fluentd](https://fluentd.org/) input plugin to do something.
@@ -318,7 +318,7 @@ You can generate documents for configuration using
 
 Example (input dummy):
 
-``` {.CodeRay}
+```
 $ fluent-plugin-config-format -c input dummy
 ## Plugin helpers
 

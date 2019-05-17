@@ -22,13 +22,13 @@ In this guide, we assume you are running
 
 Open `/etc/rsyslogd.conf` and append the following line:
 
-``` {.CodeRay}
+```
 *.* @127.0.0.1:5140
 ```
 
 Then restart the rsyslogd service:
 
-``` {.CodeRay}
+```
 $ sudo systemctl restart syslog
 ```
 
@@ -47,7 +47,7 @@ First, let's configure Fluentd to listen to syslog messages.
 
 Open `/etc/td-agent/td-agent.conf` and put the following configuration:
 
-``` {.CodeRay}
+```
 <source>
   @type syslog
   port 5140
@@ -64,13 +64,13 @@ outputs them to stdout.
 
 Now please restart td-agent.
 
-``` {.CodeRay}
+```
 $ sudo systemctl restart td-agent
 ```
 
 Let's confirm data is coming in.
 
-``` {.CodeRay}
+```
 $ less /var/log/td-agent/td-agent.log
 ```
 
@@ -79,7 +79,7 @@ $ less /var/log/td-agent/td-agent.log
 
 Now, let's look at a `sudo` message like this one.
 
-``` {.CodeRay}
+```
 2018-09-27 16:00:01.000000000 +0900 system.authpriv.info: {"host":"localhost",
 "ident":"sudo","message":"pam_unix(sudo:session): session opened for user root
 by admin(uid=0)"}
@@ -95,7 +95,7 @@ examines the fields of events, and filter them based on regular
 expression patterns. In the following example, Fluentd filters out
 events that come from `sudo` and contain command data.
 
-``` {.CodeRay}
+```
 <source>
   @type syslog
   port 42185
@@ -129,7 +129,7 @@ expression.
 
 Here is the final configuration.
 
-``` {.CodeRay}
+```
 <source>
   @type syslog
   port 5140
@@ -164,20 +164,20 @@ Here is the final configuration.
 
 Then restart td-agent.
 
-``` {.CodeRay}
+```
 $ sudo systemctl restart td-agent
 ```
 
 Let's execute some comment with `sudo`. For example:
 
-``` {.CodeRay}
+```
 $ sudo cat /var/log/auth.log
 ```
 
 Now you should have a line looks like below in
 `/var/log/td-agent/td-agent.log`:
 
-``` {.CodeRay}
+```
 2018-09-27 16:00:01.000000000 +0900 system.authpriv.notice: {"sudoer":"root",
 "command":"/bin/cat"}
 ```

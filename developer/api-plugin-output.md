@@ -7,7 +7,7 @@ The exact set of methods to be implemented is dependent on the design of
 your plugin. The following is a general template for writing a custom
 output plugin.
 
-``` {.CodeRay}
+```
 require 'fluent/plugin/output'
 
 module Fluent::Plugin
@@ -188,7 +188,7 @@ be written at once, without any re-chunking in methods to write. In
 Fluentd v1.0, users can specify chunk keys by themselves using
 `<buffer CHUNK_KEYS>` section.
 
-``` {.CodeRay}
+```
 <buffer>         # Use pre-configured chunk keys by plugin
 <buffer []>      # without any chunk keys: all events will be appended into a chunk
 <buffer time>    # events in a time unit will be appended into a chunk
@@ -205,7 +205,7 @@ be in another.
 Users can specify 2 or more chunk keys as a list of items separated by
 comma (',').
 
-``` {.CodeRay}
+```
 <buffer time,tag>
 <buffer time,country>
 <buffer tag,country,item>
@@ -224,7 +224,7 @@ In most cases, plugin authors don't need to consider these values. If
 you want to use these values to generate any paths, keys, table/database
 names or others, you can use `#extract_placeholders` method.
 
-``` {.CodeRay}
+```
 @path = "/mydisk/mydir/${tag}/purchase.%Y-%m-%d.%H.log" # this value might come from configurations
 extract_placeholders(@path, chunk) # => "/mydisk/mydir/service.cart/purshase.2016-06-10.23.log"
 ```
@@ -265,7 +265,7 @@ default values of some parameters in plugins.
 If you want to change the default chunk keys and the limit of buffer
 chunk bytesize for your own plugin, you can do it like this:
 
-``` {.CodeRay}
+```
 class MyAwesomeOutput < Output
   config_section :buffer do
     config_set_default :chunk_keys, ['tag']
@@ -289,7 +289,7 @@ destination side, so `#try_write` should NOT block processing for it.
 The best practice is to create a thread or timer to do it when the
 plugin starts.
 
-``` {.CodeRay}
+```
 class MyAwesomeOutput < Output
   helpers :timer
 
@@ -477,7 +477,7 @@ events in the event stream.
 `EventStream#each` receives a block argument, and call that block for
 each events (time and record).
 
-``` {.CodeRay}
+```
 es.each do |time, record|
   # ...
 end
@@ -534,7 +534,7 @@ this method doesn't get any arguments, unlinke Ruby's IO object.
 `Chunk#open` receives a block, and call it with an IO argument which
 provides reade operations.
 
-``` {.CodeRay}
+```
 chunk.open do |io|
   while data = io.read(100)
     # ...
@@ -557,7 +557,7 @@ end
 This method is available only for standard format buffer chunks, and to
 provide iteration for events in buffer chunks.
 
-``` {.CodeRay}
+```
 chunk.each do |time, record|
   # ...
   # tag is available from chunk.metadata.tag if chunk_key is configured with tag
@@ -581,7 +581,7 @@ To write a test suite, you need to define a class inheriting
 `Test::Unit::TestCase`. The basic structure is mostly same as any other
 Test::Unit-based test codes. Here is a minimum example.
 
-``` {.CodeRay}
+```
 require_relative '../helper'
 require 'fluent/test/driver/output'
 require 'fluent/plugin/out_stdout'
@@ -640,7 +640,7 @@ The following is a more convoluted example involving test drivers. A
 good first step is to modify the following code according to your
 specific needs.
 
-``` {.CodeRay}
+```
 # test/plugin/test_out_your_own.rb
 
 require 'test/unit'

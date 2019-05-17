@@ -7,7 +7,7 @@ types.
 Here is the implementation of the most basic filter that passes through
 all events as-is:
 
-``` {.CodeRay}
+```
 require 'fluent/plugin/filter'
 
 module Fluent::Plugin
@@ -66,7 +66,7 @@ others) are controlled by Fluentd core.
 Fluentd also provides test driver for plugins. You can write tests of
 your own plugins very easily:
 
-``` {.CodeRay}
+```
 # test/plugin/test_filter_your_own.rb
 
 require 'test/unit'

@@ -20,7 +20,7 @@ features, check the Further Reading section.
 Fluentd gem users will have to install the fluent-plugin-webhdfs gem
 using the following command.
 
-``` {.CodeRay}
+```
 $ fluent-gem install fluent-plugin-webhdfs
 ```
 
@@ -31,7 +31,7 @@ Append operations are not enabled by default on CDH. Please put these
 configurations into your hdfs-site.xml file and restart the whole
 cluster.
 
-``` {.CodeRay}
+```
 <property>
   <name>dfs.webhdfs.enabled</name>
   <value>true</value>
@@ -51,7 +51,7 @@ cluster.
 
 ## Example Configuration
 
-``` {.CodeRay}
+```
 <match access.**>
   @type webhdfs
   host namenode.your.cluster.local

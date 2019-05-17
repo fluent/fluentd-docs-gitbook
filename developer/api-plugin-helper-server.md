@@ -4,7 +4,7 @@
 
 Here is the code example with `server` helper:
 
-``` {.CodeRay}
+```
 require 'fluent/plugin/input'
 
 module Fluent::Plugin
@@ -75,7 +75,7 @@ The block will be invoked with connection as a parameter on connection.
 
 Code example:
 
-``` {.CodeRay}
+```
 # TCP
 server_create_connection(:title, @port) do |conn|
   # on connection
@@ -133,7 +133,7 @@ The block will be invoked with parameter(s) on data.
 
 Code example:
 
-``` {.CodeRay}
+```
 # UDP (w/o socket)
 server_create(:title, @port, proto: :udp, max_bytes: 2048) do |data|
   # data is received data
@@ -173,7 +173,7 @@ end
 
 Here is TLS configuration example with server helper used plugin.
 
-``` {.CodeRay}
+```
 <source>
   @type forward
   # other plugin parameters

@@ -10,7 +10,7 @@ buffer plugins.
 Buffer section must be in `<match>` sections. It's enabled for output
 plugins which supports buffered output features.
 
-``` {.CodeRay}
+```
 <match tag.*>
   @type file
 
@@ -30,7 +30,7 @@ plugins which supports buffered output features.
 `<buffer>` section accepts `@type` parameter to specify the type of
 buffer plugin.
 
-``` {.CodeRay}
+```
 <buffer>
   @type file
 </buffer>
@@ -56,7 +56,7 @@ Output plugins create buffer chunks by gathering events. Chunk keys,
 specified as argument of `<buffer>` section, controls how to gather
 events into chunks.
 
-``` {.CodeRay}
+```
 <buffer ARGUMENT_CHUNK_KEYS>
   # ...
 </buffer>
@@ -72,7 +72,7 @@ When the blank chunk keys is specified (and output plugin doesn't
 specify default chunk keys), output plugin writes all matched events
 into a chunk, until its size becomes full.
 
-``` {.CodeRay}
+```
 <match tag.**>
   # ...
   <buffer>
@@ -96,7 +96,7 @@ When `tag` is specified as buffer chunk key, output plugin writes events
 into chunks separately per tags. Events with different tags will be
 written in different chunks.
 
-``` {.CodeRay}
+```
 <match tag.**>
   # ...
   <buffer tag>
@@ -133,7 +133,7 @@ So the events will be separated into chunks by time range, and will be
 flushed (to be written) by output plugin after expiration for the time
 key range.
 
-``` {.CodeRay}
+```
 <match tag.**>
   # ...
   <buffer time>
@@ -159,7 +159,7 @@ the chunks (timekey: 3600) will be flushed actually, for some
 `timekey_wait` values. The default value of `timekey_wait` is 600
 (10minutes).
 
-``` {.CodeRay}
+```
  timekey: 3600
  -------------------------------------------------------
  time range for chunk | timekey_wait | actual flush time
@@ -175,7 +175,7 @@ When the other (non-time/tag) keys are specified, these are handled as
 field names of records. The output plugin will separate events into
 chunks by the value of these fields.
 
-``` {.CodeRay}
+```
 <match tag.**>
   # ...
   <buffer key1>
@@ -197,7 +197,7 @@ chunks by the value of these fields.
 You can use [record\_accessor syntax](/developer/api-plugin-helper-record_accessor.md)
 for using nested field. Here is an example:
 
-``` {.CodeRay}
+```
 <match tag.**>
   # ...
   <buffer $.nest.field> # access record['nest']['field']
@@ -212,7 +212,7 @@ for using nested field. Here is an example:
 Buffer chunk keys can be specified 2 or more keys - events will be
 separated into chunks by the combination of values of chunk keys.
 
-``` {.CodeRay}
+```
 # <buffer tag,time>
 
 11:58:01 ssh.login  {"key1":"yay","key2":100}  ------> CHUNK_A
@@ -235,7 +235,7 @@ total resource usage.
 
 Buffer chunk keys can be empy by specifying `[]` in `buffer` section.
 
-``` {.CodeRay}
+```
 <match tag.**>
   # ...
   <buffer []>
@@ -256,7 +256,7 @@ a method (`extract_placeholders`) on configuration values or not.
 This example is about `file` output plugin (file output plugin applies
 `extract_placeholders` on `path`).
 
-``` {.CodeRay}
+```
 # chunk_key: tag
 # ${tag} will be replaced with actual tag string
 <match log.*>
@@ -272,7 +272,7 @@ For timekey in buffer chunk keys, that time value can be extracted using
 `strptime` placeholders. The extracted time value is the first second of
 the timekey range.
 
-``` {.CodeRay}
+```
 # chunk_key: tag and time
 # ${tag[1]} will be replaced with 2nd part of tag ("map" of "log.map"), zero-origin index
 # %Y, %m, %d, %H, %M, %S: strptime placeholder are available when "time" chunk key specified
@@ -288,7 +288,7 @@ the timekey range.
 Any keys specified in chunk keys are acceptable. If keys not in chunk
 keys were specified, Fluentd raises configuration errors for it.
 
-``` {.CodeRay}
+```
 <match log.*>
   @type file
   path  /data/${tag}/access.${key1}.log #=> "/data/log.map/access.yay.log"
@@ -303,7 +303,7 @@ keys were specified, Fluentd raises configuration errors for it.
 
 Same with chunk keys:
 
-``` {.CodeRay}
+```
 <match log.*>
   @type file
   path  /data/${tag}/access.${$.nest.field}.log #=> "/data/log.map/access.nested_yay.log"
@@ -322,7 +322,7 @@ Same with chunk keys:
 Argument is an array of chunk keys, comma-separated strings. Blank is
 also available.
 
-``` {.CodeRay}
+```
 <buffer>
   # ...
 </buffer>
@@ -365,7 +365,7 @@ When `time` is specified, parameters below are available:
 plugin implementations. For example: the default buffer plugin is `file`
 buffer plugin for `file` output plugin.
 
-``` {.CodeRay}
+```
 <buffer>
   @type file
   # ...

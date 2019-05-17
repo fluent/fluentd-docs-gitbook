@@ -56,7 +56,7 @@ same event to multiple output destinations.
 
 Use `"#{ENV['YOUR_ENV_VARIABLE']}"`. For example,
 
-``` {.CodeRay}
+```
 some_field "#{ENV['FOO_HOME']}"
 ```
 
@@ -117,7 +117,7 @@ If you are using Alpine Linux, you need to install `ruby-bigdecimal` to
 use Oj as the JSON parser. Please Execute the following command and see
 if the warning still shows up.
 
-``` {.CodeRay}
+```
 # apk add --update ruby-bigdecimal
 ```
 

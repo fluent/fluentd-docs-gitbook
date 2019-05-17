@@ -8,7 +8,7 @@ The `relabel` output plugin re-labels events.
 `out_relabel` is included in Fluentd's core. No additional installation
 process is required.
 
-``` {.CodeRay}
+```
 <match pattern>
   @type relabel
   @label @foo

@@ -12,7 +12,7 @@ See [Parse section configurations](/configuration/parse-section.md)
 
 This is regexp pattern of this plugin:
 
-``` {.CodeRay}
+```
 expression /^\[[^ ]* (?<time>[^\]]*)\] \[(?<level>[^\]]*)\](?: \[pid (?<pid>[^\]]*)\])? \[client (?<client>[^\]]*)\] (?<message>.*)$/
 ```
 
@@ -22,13 +22,13 @@ expression /^\[[^ ]* (?<time>[^\]]*)\] \[(?<level>[^\]]*)\](?: \[pid (?<pid>[^\]
 
 ## Example
 
-``` {.CodeRay}
+```
 [Wed Oct 11 14:32:52 2000] [error] [client 127.0.0.1] client denied by server configuration
 ```
 
 This incoming event is parsed as:
 
-``` {.CodeRay}
+```
 time:
 971242372 (Wed Oct 11 14:32:52 2000)
 

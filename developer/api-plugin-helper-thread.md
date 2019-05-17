@@ -5,7 +5,7 @@ plugins. No need manual run / shutdown in the plugin.
 
 Here is the code example with `thread` helper:
 
-``` {.CodeRay}
+```
 require 'fluent/plugin/output'
 
 module Fluent::Plugin
@@ -44,7 +44,7 @@ automatically.
 This method creats thread and run thread with given routine. `title`
 must be unique.
 
-``` {.CodeRay}
+```
 # Pass block directly
 thread_create(:example_plugin_main) {
   # ...
@@ -63,7 +63,7 @@ end
 Check current thread is running or not. This method is available in
 running block.
 
-``` {.CodeRay}
+```
 thread_create(:example_plugin_main) {
   while thread_current_running?
     # ...

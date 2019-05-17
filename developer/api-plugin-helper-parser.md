@@ -4,7 +4,7 @@
 
 Here is the code example with `parser` helper:
 
-``` {.CodeRay}
+```
 require 'fluent/plugin/input'
 
 module Fluent::Plugin
@@ -62,7 +62,7 @@ This method creates parser plugin instance with given parameters.
 
 Code examples:
 
-``` {.CodeRay}
+```
 # Create parser plugin instance using <parse> section in fluent.conf during configure phase
 @parser = parser_create
 @parser.parse(text) do |time, record|

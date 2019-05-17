@@ -9,7 +9,7 @@ Here is an example of a custom formatter that outputs events as CSVs. It
 takes a required parameter called "csv\_fields" and outputs the fields.
 It assumes that the values of the fields are already valid CSV fields.
 
-``` {.CodeRay}
+```
 require 'fluent/plugin/formatter'
 
 module Fluent::Plugin
@@ -48,7 +48,7 @@ end
 Then, save this code in `formatter_my_csv.rb` in a loadable plugin path.
 Then, if out\_file is configured as
 
-``` {.CodeRay}
+```
 # Other lines...
 <match test>
   @type file
@@ -70,7 +70,7 @@ Formatter plugins are designed to be used from other plugins, like
 Input, Filter and Output. There is a Formatter plugin helper for that
 purpose (v0.14.1 or later):
 
-``` {.CodeRay}
+```
 # in class definition
 helpers :formatter
 
@@ -111,7 +111,7 @@ and many others) are controlled by Fluentd core.
 Fluentd also provides test driver for plugins. You can write tests of
 your own plugins very easily:
 
-``` {.CodeRay}
+```
 ::ruby
 # test/plugin/test_formatter_your_own.rb
 

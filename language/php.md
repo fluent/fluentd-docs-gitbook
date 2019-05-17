@@ -27,7 +27,7 @@ Please refer to the following documents to install fluentd.
 
 Next, please configure Fluentd to use the [forward Input plugin](/plugins/input/forward.md) as its data source.
 
-``` {.CodeRay}
+```
 <source>
   @type forward
   port 24224
@@ -39,7 +39,7 @@ Next, please configure Fluentd to use the [forward Input plugin](/plugins/input/
 
 Please restart your agent once these lines are in place.
 
-``` {.CodeRay}
+```
 # for rpm/deb only
 $ sudo /etc/init.d/td-agent restart
 # or systemd
@@ -51,7 +51,7 @@ $ sudo systemctl restart td-agent.service
 
 First, add the 'fluent/logger' package to your composer.json.
 
-``` {.CodeRay}
+```
 {
     "require": {
         "fluent/logger": "1.0.*"
@@ -61,7 +61,7 @@ First, add the 'fluent/logger' package to your composer.json.
 
 Next, create a php file containing the following code:
 
-``` {.CodeRay}
+```
 <?php
 require_once __DIR__.'/vendor/autoload.php';
 use Fluent\Logger\FluentLogger;
@@ -71,7 +71,7 @@ $logger->post("fluentd.test.follow", array("from"=>"userA", "to"=>"userB"));
 
 Executing the script will send the logs to Fluentd.
 
-``` {.CodeRay}
+```
 $ php test.php
 ```
 

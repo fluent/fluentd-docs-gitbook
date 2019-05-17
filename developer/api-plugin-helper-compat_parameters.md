@@ -5,7 +5,7 @@ style.
 
 Here is the code example with `compat_parameters` helper:
 
-``` {.CodeRay}
+```
 require 'fluent/plugin/output'
 
 module Fluent::Plugin
@@ -47,7 +47,7 @@ The important point is you can't mix v1.0 and v0.12 styles in one plugin
 directive. If you mix v1.0 and v0.12 styles, v1.0 style is used and
 v0.12 style is ignored. Here is an example:
 
-``` {.CodeRay}
+```
 <match pattern>
   @type foo
   # This flush_interval is ignored because <buffer> exist. Conversion doesn't happen.
@@ -89,7 +89,7 @@ v0.12 style is ignored. Here is an example:
 
 This converts following flat configuration:
 
-``` {.CodeRay}
+```
 buffer_type file
 buffer_path /path/to/buffer
 retry_limit 10
@@ -99,7 +99,7 @@ buffer_queue_limit 256
 
 into:
 
-``` {.CodeRay}
+```
 <buffer>
   @type file
   path /path/to/buffer
@@ -126,7 +126,7 @@ For more details, see [Buffer section configuration](/configuration/buffer-secti
 
 This converts following flat configuration:
 
-``` {.CodeRay}
+```
 include_time_key
 time_key event_time
 utc
@@ -134,7 +134,7 @@ utc
 
 into:
 
-``` {.CodeRay}
+```
 <inject>
   time_key event_time
   localtime false
@@ -156,7 +156,7 @@ For more details, see [Inject Plugin Helper API](/developer/api-plugin-helper-in
 
 This converts following flat configuration:
 
-``` {.CodeRay}
+```
 include_time_key
 time_key event_time
 utc
@@ -164,7 +164,7 @@ utc
 
 into:
 
-``` {.CodeRay}
+```
 <extract>
   time_key event_time
   localtime false
@@ -200,7 +200,7 @@ For more details, see [Extract Plugin Helper API](/developer/api-plugin-helper-e
 
 This converts following configuration:
 
-``` {.CodeRay}
+```
 format /^(?<log_time>[^ ]*) (?<message>)+*/
 time_key log_time
 time_format %Y%m%d%H%M%S
@@ -209,7 +209,7 @@ keep_time_key
 
 into:
 
-``` {.CodeRay}
+```
 <parse>
   @type regexp
   pattern /^(?<log_time>[^ ]*) (?<message>)+*/
@@ -244,13 +244,13 @@ and [Writing Parser Plugins](/developer/api-plugin-parser.md).
 
 This converts following configuration:
 
-``` {.CodeRay}
+```
 format json
 ```
 
 into:
 
-``` {.CodeRay}
+```
 <format>
   @type json
 </format>

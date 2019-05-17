@@ -4,7 +4,7 @@
 
 Here is the code example with `event_emitter` helper:
 
-``` {.CodeRay}
+```
 require 'fluent/plugin/output'
 
 module Fluent::Plugin
@@ -33,7 +33,7 @@ This method returns `Fluent::EventRouter` instance
 
 Code example:
 
-``` {.CodeRay}
+```
 # emit event
 router.emit(tag, time, record)
 

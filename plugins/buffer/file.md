@@ -29,7 +29,7 @@ the following conf doesn't work well. `/var/log/fluent/foo` resumes
 `/var/log/fluent/foo.bar`'s buffer files during start phase and it
 causes `No such file or directory` in `/var/log/fluent/foo.bar` side.
 
-``` {.CodeRay}
+```
 <match pattern1>
   <buffer>
     @type file
@@ -47,7 +47,7 @@ causes `No such file or directory` in `/var/log/fluent/foo.bar` side.
 
 Here is the correct version to avoid prefix problem.
 
-``` {.CodeRay}
+```
 <match pattern1>
   <buffer>
     @type file
@@ -69,7 +69,7 @@ Running out of disk space is a problem frequently reported by users.
 
 ## Example
 
-``` {.CodeRay}
+```
 <match pattern>
   <buffer>
     @type file

@@ -10,14 +10,14 @@ from the Windows Event Log.
 gem users will need to install the `fluent-plugin-windows-eventlog` gem
 using the following command.
 
-``` {.CodeRay}
+```
 $ fluent-gem install fluent-plugin-windows-eventlog
 ```
 
 
 ## Example Configuration
 
-``` {.CodeRay}
+```
 <source>
   @type windows_eventlog
   @id windows_eventlog
@@ -40,7 +40,7 @@ structure and syntax of the configuration file.
 Here are generated event examples. `in_windows_eventlog` set
 corresponding channel to `channel` field.
 
-``` {.CodeRay}
+```
 # system
 {"channel":"system","record_number":"40432","time_generated":"2017-03-07 09:15:39 +0000","time_written":"2017-03-07 09:15:39 +0000","event_id":"7036","event_type":"information","event_category":"0","source_name":"Service Control Manager","computer_name":"WIN-7IMHK7EQ5T3","user":"","description":"The Windows Installer service entered the stopped state.\r\n"}
 # security
@@ -74,7 +74,7 @@ The tag of the event.
 The event log channels to read. Multiple channels can be specified,
 separated by '\' or array type
 
-``` {.CodeRay}
+```
 # , separated
 channels application,system,security
 # array
@@ -98,7 +98,7 @@ position it last read into this file.
 The default is using local file. If you want to use on memory storage,
 set `persistent false`.
 
-``` {.CodeRay}
+```
 <storage>
   persistent false
 </storage>
@@ -108,7 +108,7 @@ If you set `root_dir` in `<section>` and set `@id` in plugin
 configuration, `path` parameter is automatically generated. If not, you
 need to set `path` in `<storage>` section.
 
-``` {.CodeRay}
+```
 <storage>
   persistent true
   path C:\opt\td-agent\winevt.pos # This is required when persistent is true.

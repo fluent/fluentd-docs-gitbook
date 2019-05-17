@@ -16,7 +16,7 @@ Suppose you are managing a web service, and try to monitor the access
 logs using Fluentd. In this case, an event in the data stream will look
 like:
 
-``` {.CodeRay}
+```
 {
   "host": "192.168.1.1",
   "method": "GET",
@@ -30,7 +30,7 @@ like:
 Let's filter out all the successful responses with 2xx status codes, so
 that we can easily inspect if any error has occurred in the service:
 
-``` {.CodeRay}
+```
 <filter apache.**>
   @type grep
   <exclude>
@@ -44,7 +44,7 @@ You can also filter the data using multiple fields. For example, the
 following example will keep all 5xx server errors, except those coming
 from the test directory:
 
-``` {.CodeRay}
+```
 <filter apache.**>
   @type grep
   <regexp>
@@ -68,7 +68,7 @@ Suppose you are running a web service on multiple web servers, and you
 want to record which server handled each request. This can be
 implemented trivially using this plugin:
 
-``` {.CodeRay}
+```
 <filter apache.**>
   @type record_transformer
   <record>
@@ -79,7 +79,7 @@ implemented trivially using this plugin:
 
 This will produce an event like below:
 
-``` {.CodeRay}
+```
 {
   "host": "192.168.1.1",
   "method": "GET",

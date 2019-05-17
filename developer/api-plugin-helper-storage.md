@@ -4,7 +4,7 @@
 
 Here is the code example with `storage` helper:
 
-``` {.CodeRay}
+```
 require 'fluent/plugin/input'
 
 module Fluent::Plugin

@@ -33,7 +33,7 @@ learn more about Fluentd first.
 
 Please confirm that your Java version is 8 or higher.
 
-``` {.CodeRay}
+```
 $ java -version
 openjdk version "1.8.0_151"
 OpenJDK Runtime Environment (build 1.8.0_151-b12)
@@ -49,7 +49,7 @@ set up the three open source tools.
 To install Elasticsearch, please download and extract the Elasticsearch
 package as shown below.
 
-``` {.CodeRay}
+```
 $ curl -O https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-6.1.0.tar.gz
 $ tar -xf elasticsearch-6.1.0.tar.gz
 $ cd elasticsearch-6.1.0
@@ -57,7 +57,7 @@ $ cd elasticsearch-6.1.0
 
 Once installation is complete, start Elasticsearch.
 
-``` {.CodeRay}
+```
 $ ./bin/elasticsearch
 ```
 
@@ -74,7 +74,7 @@ the binary for 64-bit Linux systems. Download page is
 [here](https://www.elastic.co/downloads/kibana). In this article, we
 download Mac OS X binary.
 
-``` {.CodeRay}
+```
 $ curl -O https://artifacts.elastic.co/downloads/kibana/kibana-6.1.0-linux-x86_64.tar.gz
 $ tar -xf kibana-6.1.0-linux-x86_64.tar.gz
 $ cd kibana-6.1.0-linux-x86_64
@@ -83,7 +83,7 @@ $ cd kibana-6.1.0-linux-x86_64
 Once installation is complete, start Kibana and run `./bin/kibana`. You
 can modify Kibana's configuration via `config/kibana.yml`.
 
-``` {.CodeRay}
+```
 $ ./bin/kibana
 ```
 
@@ -103,7 +103,7 @@ Next, we'll install the Elasticsearch plugin for Fluentd:
 fluent-plugin-elasticsearch. Then, install fluent-plugin-elasticsearch
 as follows.
 
-``` {.CodeRay}
+```
 $ sudo /usr/sbin/td-agent-gem install fluent-plugin-elasticsearch --no-document
 ```
 
@@ -111,7 +111,7 @@ We'll configure td-agent (Fluentd) to interface properly with
 Elasticsearch. Please modify `/etc/td-agent/td-agent.conf` as shown
 below:
 
-``` {.CodeRay}
+```
 # get logs from syslog
 <source>
   @type syslog
@@ -138,7 +138,7 @@ allows Kibana to search stored event logs in Elasticsearch.
 
 Once everything has been set up and configured, we'll start td-agent.
 
-``` {.CodeRay}
+```
 # init
 $ sudo /etc/init.d/td-agent start
 # or systemd
@@ -153,13 +153,13 @@ Please add the following line to your `/etc/rsyslog.conf`, and restart
 rsyslog. This will forward your local syslog to Fluentd, and Fluentd in
 turn will forward the logs to Elasticsearch.
 
-``` {.CodeRay}
+```
 *.* @127.0.0.1:42185
 ```
 
 Please restart the rsyslog service once the modification is complete.
 
-``` {.CodeRay}
+```
 # init
 $ sudo /etc/init.d/rsyslog restart
 # or systemd
@@ -193,7 +193,7 @@ For the detail on how to use Kibana, please read [the official manual](https://w
 
 To manually send logs to Elasticsearch, please use the `logger` command.
 
-``` {.CodeRay}
+```
 $ logger -t test foobar
 ```
 
@@ -201,7 +201,7 @@ When debugging your td-agent configuration, using
 [filter\_stdout](/plugins/filter/stdout.md) will be useful. All the logs including
 errors can be found at `/etc/td-agent/td-agent.log`.
 
-``` {.CodeRay}
+```
 <filter syslog.**>
   @type stdout
 </filter>

@@ -28,7 +28,7 @@ with simple way.
 `<system>` directive has `workers` parameter for specifying the number
 of workers.
 
-``` {.CodeRay}
+```
 <system>
   workers 4
 </system>
@@ -44,7 +44,7 @@ such plugins, we can run any plugins in specific worker with
 `<worker N>`. `N` is 0-origin worker index. For example, if you put
 `<worker 0>`, plugins inside `<worker 0>` run on only worker 0.
 
-``` {.CodeRay}
+```
 <system>
   workers 4
 </system>
@@ -149,7 +149,7 @@ These parameters must be specified when you use file buffer.
 With multi process workers, you can't use fixed `path` configuration for
 file buffer because it conflicts buffer file path between processes.
 
-``` {.CodeRay}
+```
 <system>
   workers 2
 </system>
@@ -167,7 +167,7 @@ Instead of fixed configuration, fluentd provides dynamic buffer path
 based on `root_dir` and `@id` parameters. The stored path is
 `${root_dir}/worker${worker index}/${plugin @id}/buffer` directory.
 
-``` {.CodeRay}
+```
 <system>
   workers 2
   root_dir /var/log/fluentd
@@ -206,7 +206,7 @@ Server plugin helper based plugin can share port between workers. For
 example, `forward` input plugin doesn't need multiple ports on multi
 process workers. `forward` input's port is shared between workers.
 
-``` {.CodeRay}
+```
 <system>
   workers 4
 </system>
@@ -223,7 +223,7 @@ Non server plugin helper based plugin setup socket/server in each
 worker. For example, `monitor_agent` needs multiple ports on multi
 process workers. Basically, port is assigned in sequential number.
 
-``` {.CodeRay}
+```
 <system>
   workers 4
 </system>
@@ -253,7 +253,7 @@ process workers flush events at the same time. the destination path is
 same and it causes data lost. To avoid this problem, an user need to set
 `worker_id` or random string in the configuration.
 
-``` {.CodeRay}
+```
 # s3 plugin example
 <match pattern>
   @type s3
@@ -275,7 +275,7 @@ embbeded Ruby code feature.
 
 You may see following error in fluentd logs.
 
-``` {.CodeRay}
+```
 2018-10-01 10:00:00 +0900 [error]: config error file="/path/to/fluentd.conf" error_class=Fluent::ConfigError error="Plugin 'tail' does not support multi workers configuration (Fluent::Plugin::TailInput)"
 ```
 

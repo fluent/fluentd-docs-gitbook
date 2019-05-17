@@ -28,7 +28,7 @@ The delimiter character (or string) of TSV values.
 
 ## Example
 
-``` {.CodeRay}
+```
 <parse>
   @type tsv
   keys time,host,req_id,user
@@ -38,13 +38,13 @@ The delimiter character (or string) of TSV values.
 
 With this configuration:
 
-``` {.CodeRay}
+```
 2013/02/28 12:00:00\t192.168.0.1\t111\t-
 ```
 
 This incoming event is parsed as:
 
-``` {.CodeRay}
+```
 time:
 1362020400 (2013/02/28/ 12:00:00)
 

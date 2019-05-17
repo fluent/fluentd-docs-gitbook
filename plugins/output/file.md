@@ -15,7 +15,7 @@ change the output frequency, please modify the `timekey` value.
 `out_file` is included in Fluentd's core. No additional installation
 process is required.
 
-``` {.CodeRay}
+```
 <match pattern>
   @type file
   path /var/log/fluent/myapp
@@ -61,7 +61,7 @@ default.\
 The `path` parameter supports placeholders, so you can embed time, tag
 and record fields in the path. Here is an example:
 
-``` {.CodeRay}
+```
 path /path/to/${tag}/${key1}/file.%Y%m%d
 <buffer tag,time,key1>
   # buffer parameters
@@ -91,7 +91,7 @@ The flushed chunk is appended to existence file or not. The default is
 not appended. By default, out\_file flushes each chunk to different
 path.
 
-``` {.CodeRay}
+```
 # append false
 file.20140608.log_0
 file.20140608.log_1
@@ -102,7 +102,7 @@ file.20140609.log_1
 This makes parallel file processing easy. But if you want to disable
 this behaviour, you can disable it by setting `append true`.
 
-``` {.CodeRay}
+```
 # append true
 file.20140608.log
 file.20140609.log
@@ -115,7 +115,7 @@ The format of the file content. The default `@type` is `out_file`.
 
 Here is json example:
 
-``` {.CodeRay}
+```
 <format>
   @type json
 </format>
@@ -204,20 +204,20 @@ You see intermediate buffer file, not output result. The placeholders
 are replaced during flush buffers. For example, if you have this
 setting:
 
-``` {.CodeRay}
+```
 path /path/to/file.${tag}.%Y%m%d
 ```
 
 You see following buffer files first:
 
-``` {.CodeRay}
+```
 /path/to/file.${tag}.%Y%m%d/buffer.b5692238db04045286097f56f361028db.log
 /path/to/file.${tag}.%Y%m%d/buffer.b5692238db04045286097f56f361028db.log.meta
 ```
 
 After flushed, you see actual output result
 
-``` {.CodeRay}
+```
 /path/to/file.test.20180405.log_0 # tag is 'test'
 ```
 

@@ -12,7 +12,7 @@ well (e.g. Windows).
 HTTP RPC is not enabled by default. To use this feature, set the
 `rpc_endpoint` option as follows.
 
-``` {.CodeRay}
+```
 <system>
   rpc_endpoint 127.0.0.1:24444
 </system>
@@ -20,7 +20,7 @@ HTTP RPC is not enabled by default. To use this feature, set the
 
 Now you can manage your Fluentd instance using a HTTP client:
 
-``` {.CodeRay}
+```
 $ curl http://127.0.0.1:24444/api/plugins.flushBuffers
 {"ok":true}
 ```

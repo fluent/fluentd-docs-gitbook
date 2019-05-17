@@ -19,13 +19,13 @@ Set JSON parser.
 
 ## Example
 
-``` {.CodeRay}
+```
 {"time":1362020400,"host":"192.168.0.1","size":777,"method":"PUT"}
 ```
 
 This incoming event is parsed as:
 
-``` {.CodeRay}
+```
 time:
 1362020400 (2013-02-28 12:00:00 +0900)
 

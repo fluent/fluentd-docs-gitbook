@@ -61,7 +61,7 @@ retry attempt. For example, assuming that the initial wait interval is
 set to 1 second and the exponential factor is 2, each attempt occurs at
 the following time points:
 
-``` {.CodeRay}
+```
 1 2   4       8               16
 x-x---x-------x---------------x-------------------------
 │ │   │       │               └─  4th retry (wait = 8s)
@@ -112,7 +112,7 @@ immediately and move it into `secondary` or the backup directory. The
 exact location of the backup directory is determined by the parameter
 `root_dir` in `<system>`:
 
-``` {.CodeRay}
+```
 ${root_dir}/backup/worker${worker_id}/${plugin_id}/{chunk_id}.log
 ```
 
@@ -145,7 +145,7 @@ Here are the patterns when unrecoverable error happens:
 Below is a full configuration example which covers all the parameters
 controlling retry bahaviours.
 
-``` {.CodeRay}
+```
 <system>
   root_dir /var/log/fluentd         # For handling unrecoverable chunks
 </system>

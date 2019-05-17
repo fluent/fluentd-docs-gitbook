@@ -2,7 +2,7 @@
 
 The `csv` formatter plugin output an event as CSV.
 
-``` {.CodeRay}
+```
 "value1"[delimiter]"value2"[delimiter]"value3"\n
 ```
 
@@ -53,7 +53,7 @@ Add `\n` to the result.
 
 ## Example
 
-``` {.CodeRay}
+```
 <format>
   @type csv
   fields host,method
@@ -62,7 +62,7 @@ Add `\n` to the result.
 
 With this configuration:
 
-``` {.CodeRay}
+```
 tag:    app.event
 time:   1362020400
 record: {"host":"192.168.0.1","size":777,"method":"PUT"}
@@ -70,13 +70,13 @@ record: {"host":"192.168.0.1","size":777,"method":"PUT"}
 
 This incoming event is formatted to:
 
-``` {.CodeRay}
+```
 "192.168.0.1","PUT"\n
 ```
 
 With `force_quotes false`, the result is:
 
-``` {.CodeRay}
+```
 192.168.0.1,PUT\n
 ```
 

@@ -60,7 +60,7 @@ Default is `false`.
 
 ### rfc3164 pattern
 
-``` {.CodeRay}
+```
 expression /^\<(?<pri>[0-9]+)\>(?<time>[^ ]* {1,2}[^ ]* [^ ]*) (?<host>[^ ]*) (?<ident>[a-zA-Z0-9_\/\.\-]*)(?:\[(?<pid>[0-9]+)\])?(?:[^\:]*\:)? *(?<message>.*)$/
 time_format "%b %d %H:%M:%S"
 ```
@@ -76,7 +76,7 @@ pattern.
 
 ### rfc5424 pattern
 
-``` {.CodeRay}
+```
 expression /\A^\<(?<pri>[0-9]{1,3})\>[1-9]\d{0,2} (?<time>[^ ]+) (?<host>[^ ]+) (?<ident>[^ ]+) (?<pid>[-0-9]+) (?<msgid>[^ ]+) (?<extradata>(\[(.*)\]|[^ ])) (?<message>.+)$\z/
 time_format "%Y-%m-%dT%H:%M:%S.%L%z"
 ```
@@ -92,13 +92,13 @@ included in the event record. `time` is used for the event time.
 
 ### rfc3164 log
 
-``` {.CodeRay}
+```
 <6>Feb 28 12:00:00 192.168.0.1 fluentd[11111]: [error] Syslog test
 ```
 
 This incoming event is parsed as:
 
-``` {.CodeRay}
+```
 time:
 1362020400 (Feb 28 12:00:00)
 
@@ -115,13 +115,13 @@ record:
 
 ### rfc5424 log
 
-``` {.CodeRay}
+```
 <16>1 2013-02-28T12:00:00.003Z 192.168.0.1 fluentd 11111 ID24224 [exampleSDID@20224 iut="3" eventSource="Application" eventID="11211"] Hi, from Fluentd!
 ```
 
 This incoming event is parsed as:
 
-``` {.CodeRay}
+```
 time:
 1362052800 (2013-02-28T12:00:00.003Z)
 

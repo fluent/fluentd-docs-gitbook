@@ -6,7 +6,7 @@ helper, you can easy to access nested field in the plugin.
 
 Here is the code example with `record_accessor` helper:
 
-``` {.CodeRay}
+```
 require 'fluent/plugin/filter'
 
 module Fluent::Plugin
@@ -61,7 +61,7 @@ plugin behaviour.
 This method returns accessor object for event record. `param` is a
 string and see "Syntax" section for supported syntax.
 
-``` {.CodeRay}
+```
 record_accessor_create("log")
 record_accessor_create("$.key1.key2")
 record_accessor_create("$['key1'][0]['key2']")
@@ -69,7 +69,7 @@ record_accessor_create("$['key1'][0]['key2']")
 
 After create object, call `#call` method with record object.
 
-``` {.CodeRay}
+```
 accessor.call(record) # access record field.
 ```
 

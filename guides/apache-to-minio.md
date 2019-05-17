@@ -15,7 +15,7 @@ This article requires the following services are set up correctly:
 Also, if you have installed Fluentd through ruby gems (without
 td-agent), please install the [out\_s3](/plugins/output/s3.md) plugin manually:
 
-``` {.CodeRay}
+```
 $ sudo fluent-gem install fluent-plugin-s3
 ```
 
@@ -28,7 +28,7 @@ $ sudo fluent-gem install fluent-plugin-s3
 In this example, we use the access log file as an input source, so save
 the following `<source>` settings to `/etc/td-agent/td-agent.conf`:
 
-``` {.CodeRay}
+```
 <source>
   @type tail
   format apache2
@@ -52,7 +52,7 @@ Now let's add settings for storing the incoming data in your Minio
 server. Since Minio is compatible with Amazon Simple Storage Service
 (S3), we can use the [out\_s3](/plugins/output/s3.md) plugin to connect to the server.
 
-``` {.CodeRay}
+```
 <match minio.apache.**>
   @type s3
   aws_key_id ACCESS_KEY   # The access key for Minio
@@ -83,13 +83,13 @@ Fluentd daemon.
 
 Use `curl` to generate some log data for testing:
 
-``` {.CodeRay}
+```
 $ curl http://localhost/
 ```
 
 Or you can use the Apache benchmarking tool for bulk generation:
 
-``` {.CodeRay}
+```
 $ ab -n 100 -c 10 http://localhost/
 ```
 

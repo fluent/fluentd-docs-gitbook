@@ -9,7 +9,7 @@ API.
 Fluentd has a monitoring agent to retrieve internal metrics in JSON via
 HTTP. Please add the following lines to your configuration file.
 
-``` {.CodeRay}
+```
 <source>
   @type monitor_agent
   bind 0.0.0.0
@@ -19,7 +19,7 @@ HTTP. Please add the following lines to your configuration file.
 
 Next, please restart the agent and get the metrics via HTTP.
 
-``` {.CodeRay}
+```
 $ curl http://host:24220/api/plugins.json
 {
   "plugins":[

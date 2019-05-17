@@ -56,7 +56,7 @@ For the input source, we will set up Fluentd to track the recent Apache
 logs (typically found at /var/log/apache2/access\_log) The Fluentd
 configuration file should look like this:
 
-``` {.CodeRay}
+```
 <source>
   @type tail
   path /var/log/apache2/access_log
@@ -92,7 +92,7 @@ for Fluentd to process.
 The output destination will be Amazon S3. The output configuration
 should look like this:
 
-``` {.CodeRay}
+```
 <match s3.*.*>
   @type s3
 
@@ -124,7 +124,7 @@ by `tail`) is always used.
 To test the configuration, just ping the Apache server. This example
 uses the `ab` (Apache Bench) program.
 
-``` {.CodeRay}
+```
 $ ab -n 100 -c 10 http://localhost/
 ```
 

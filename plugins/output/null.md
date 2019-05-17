@@ -10,7 +10,7 @@ The `null` output plugin just throws away events.
 `out_null` is included in Fluentd's core. No additional installation
 process is required.
 
-``` {.CodeRay}
+```
 <match pattern>
   @type null
 </match>

@@ -9,7 +9,7 @@ to parse raw data.
 Parse section can be in `<source>`, `<match>` or `<filter>` sections.
 It's enabled for plugins which support parser plugin features.
 
-``` {.CodeRay}
+```
 <source>
   @type tail
   # parameters for input plugin
@@ -26,7 +26,7 @@ It's enabled for plugins which support parser plugin features.
 parser plugin. Fluentd core bundles [a lot of useful parser plugins](/plugins/parser/README.md). 3rd party plugins are also available
 when installed.
 
-``` {.CodeRay}
+```
 <parse>
   @type apache2
 </parse>
@@ -42,7 +42,7 @@ For more details, see plugins documentation.
 
 `@type` key is to specify the type of parser plugin.
 
-``` {.CodeRay}
+```
 <parse>
   @type regexp
   # ...
@@ -126,7 +126,7 @@ Convert field into Fluent::EventTime type. This uses Fluentd's time
 parser for conversion. For time type, the third field specifies a time
 format you would in `time_format`.
 
-``` {.CodeRay}
+```
 date:time:%d/%b/%Y:%H:%M:%S %z # for string with time format
 date:time:unixtime             # for integer time
 date:time:float                # for float time

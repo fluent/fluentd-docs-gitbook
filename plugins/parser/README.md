@@ -27,7 +27,7 @@ enables the user to create their own parser formats.
 Here is a simple example to read Nginx access logs using `in_tail` and
 `parser_nginx`:
 
-``` {.CodeRay}
+```
 <source>
   @type tail
   path /path/to/input/file

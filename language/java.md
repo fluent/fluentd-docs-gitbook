@@ -27,7 +27,7 @@ Please refer to the following documents to install fluentd.
 
 Next, please configure Fluentd to use the [forward Input plugin](/plugins/input/forward.md) as its data source.
 
-``` {.CodeRay}
+```
 <source>
   @type forward
   port 24224
@@ -39,7 +39,7 @@ Next, please configure Fluentd to use the [forward Input plugin](/plugins/input/
 
 Please restart your agent once these lines are in place.
 
-``` {.CodeRay}
+```
 # for rpm/deb only
 $ sudo /etc/init.d/td-agent restart
 # or systemd
@@ -53,7 +53,7 @@ First, please add the following lines to pom.xml. The logger's revision
 information can be found in
 [CHANGES.txt](https://github.com/fluent/fluent-logger-java/blob/master/CHANGES.txt).
 
-``` {.CodeRay}
+```
 <dependencies>
   ...
   <dependency>
@@ -69,7 +69,7 @@ Next, please insert the following lines into your application. Further
 information regarding the API can be found
 [here](https://github.com/fluent/fluent-logger-java).
 
-``` {.CodeRay}
+```
 import java.util.HashMap;
 import java.util.Map;
 import org.fluentd.logger.FluentLogger;
@@ -90,7 +90,7 @@ public class Main {
 
 Executing the script will send the logs to Fluentd.
 
-``` {.CodeRay}
+```
 $ java -jar test.jar
 ```
 

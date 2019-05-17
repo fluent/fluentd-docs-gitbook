@@ -46,7 +46,7 @@ mode.
 
 ### Rails log
 
-``` {.CodeRay}
+```
 <parse>
   @type multiline
   format_firstline /^Started/
@@ -60,7 +60,7 @@ mode.
 
 With this configuration:
 
-``` {.CodeRay}
+```
 Started GET "/users/123/" for 127.0.0.1 at 2013-06-14 12:00:11 +0900
 Processing by UsersController#show as HTML
   Parameters: {"user_id"=>"123"}
@@ -70,7 +70,7 @@ Completed 200 OK in 4ms (Views: 3.2ms | ActiveRecord: 0.0ms)
 
 This incoming event is parsed as:
 
-``` {.CodeRay}
+```
 time:
 1371178811 (2013-06-14 12:00:11 +0900)
 
@@ -90,7 +90,7 @@ record:
 
 ### Java stacktrace log
 
-``` {.CodeRay}
+```
 <parse>
   @type multiline
   format_firstline /\d{4}-\d{1,2}-\d{1,2}/
@@ -100,7 +100,7 @@ record:
 
 With this configuration:
 
-``` {.CodeRay}
+```
 2013-3-03 14:27:33 [main] INFO  Main - Start
 2013-3-03 14:27:33 [main] ERROR Main - Exception
 javax.management.RuntimeErrorException: null
@@ -110,7 +110,7 @@ javax.management.RuntimeErrorException: null
 
 These incoming events are parsed as:
 
-``` {.CodeRay}
+```
 time:
 2013-03-03 14:27:33 +0900
 record:
