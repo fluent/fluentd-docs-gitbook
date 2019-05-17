@@ -6,7 +6,7 @@ For details about configuration, see [Inject section](/configuration/inject-sect
 
 Here is the code example with `inject` helper:
 
-``` {.CodeRay}
+```
 require 'fluent/plugin/filter'
 
 module Fluent::Plugin
@@ -44,7 +44,7 @@ This method injects values to given record and returns new record
 
 Code example:
 
-``` {.CodeRay}
+```
 def filter(tag, time, record)
   new_record = inject_values_to_record(tag, time, record)
   # edit new_record ...
@@ -63,7 +63,7 @@ stream
 
 Code example:
 
-``` {.CodeRay}
+```
 def process(tag, es)
   new_es = inject_values_to_event_stream(tag, es)
   # do something using new_es

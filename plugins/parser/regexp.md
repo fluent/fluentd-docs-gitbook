@@ -6,7 +6,7 @@ regexp has a capture named `time`, this is configurable via `time_key`
 parameter, it is used as the time of the event. You can specify the time
 format using the time\_format parameter.
 
-``` {.CodeRay}
+```
 <parse>
   @type regexp
   expression /.../
@@ -74,7 +74,7 @@ Deprecated since 1.2.0. Use `expression /pattern/m` instead.
 
 ## Example
 
-``` {.CodeRay}
+```
 <parse>
   @type regexp
   expression /^\[(?<logtime>[^\]]*)\] (?<name>[^ ]*) (?<title>[^ ]*) (?<id>\d*)$/
@@ -86,13 +86,13 @@ Deprecated since 1.2.0. Use `expression /pattern/m` instead.
 
 With this config:
 
-``` {.CodeRay}
+```
 [2013-02-28 12:00:00 +0900] alice engineer 1
 ```
 
 This incoming log is parsed as:
 
-``` {.CodeRay}
+```
 time:
 1362020400 (22013-02-28 12:00:00 +0900)
 

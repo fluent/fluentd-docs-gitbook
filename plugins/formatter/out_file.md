@@ -3,7 +3,7 @@
 The `out_file` formatter plugin outputs time, tag and json record
 separated by a delimiter.
 
-``` {.CodeRay}
+```
 time[delimiter]tag[delimiter]record\n
 ```
 
@@ -63,7 +63,7 @@ Overwrite default value in this plugin.
 
 ## Example
 
-``` {.CodeRay}
+```
 tag:    app.event
 time:   1362020400t
 record: {"host":"192.168.0.1","size":777,"method":"PUT"}
@@ -71,7 +71,7 @@ record: {"host":"192.168.0.1","size":777,"method":"PUT"}
 
 This incoming event is formatted to:
 
-``` {.CodeRay}
+```
 2013-02-28T12:00:00+09:00\tapp.event\t{"host":"192.168.0.1","size":777,"method":"PUT"}
 ```
 

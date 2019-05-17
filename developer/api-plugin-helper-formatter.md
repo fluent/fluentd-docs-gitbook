@@ -4,7 +4,7 @@
 
 Here is the code example with `formatter` helper:
 
-``` {.CodeRay}
+```
 require 'fluent/plugin/output'
 
 module Fluent::Plugin
@@ -51,7 +51,7 @@ For more details about formatter plugin, see following articles:
 
 Code examples:
 
-``` {.CodeRay}
+```
 def configure(conf)
   super
   # Create formatter plugin instance using <format> section in fluent.conf during configure phase
@@ -65,7 +65,7 @@ end
 
 JSON formatter example:
 
-``` {.CodeRay}
+```
 # Create JSON formatter
 def configure(conf)
   super
@@ -79,7 +79,7 @@ end
 
 Msgpack formatter example:
 
-``` {.CodeRay}
+```
 # Create Msgpack formatter
 def configure(conf)
   super

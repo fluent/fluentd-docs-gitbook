@@ -61,7 +61,7 @@ Otherwise, it is located at /etc/fluentd/fluentd.conf.
 For the input source, we will set up Fluentd to accept records from
 HTTP. The Fluentd configuration file should look like this:
 
-``` {.CodeRay}
+```
 <source>
   @type http
   port 8888
@@ -74,7 +74,7 @@ HTTP. The Fluentd configuration file should look like this:
 The output destination will be WebHDFS. The output configuration should
 look like this:
 
-``` {.CodeRay}
+```
 <match hdfs.*.*>
   @type webhdfs
   host namenode.your.cluster.local
@@ -108,7 +108,7 @@ Append operations are not enabled by default. Please put these
 configurations into your hdfs-site.xml file and restart the whole
 cluster.
 
-``` {.CodeRay}
+```
 <property>
   <name>dfs.webhdfs.enabled</name>
   <value>true</value>
@@ -135,7 +135,7 @@ To test the configuration, just post the JSON to Fluentd (we use the
 curl command in this example). Sending a USR1 signal flushes Fluentd's
 buffer into WebHDFS.
 
-``` {.CodeRay}
+```
 $ curl -X POST -d 'json={"action":"login","user":2}' \
   http://localhost:8888/hdfs.access.test
 $ kill -USR1 `cat /var/run/td-agent/td-agent.pid`
@@ -143,7 +143,7 @@ $ kill -USR1 `cat /var/run/td-agent/td-agent.pid`
 
 We can then access HDFS to see the stored data.
 
-``` {.CodeRay}
+```
 $ sudo -u hdfs hadoop fs -lsr /log/
 drwxr-xr-x   - 1 supergroup          0 2012-10-22 09:40 /log/20121022_14/access.log.dev
 ```

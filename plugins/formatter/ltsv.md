@@ -2,7 +2,7 @@
 
 The `ltsv` formatter plugin output an event as [LTSV](http://ltsv.org).
 
-``` {.CodeRay}
+```
 field1[label_delimiter]value1[delimiter]field2[label_delimiter]value2\n
 ```
 
@@ -42,7 +42,7 @@ Add `\n` to the result.
 
 ## Example
 
-``` {.CodeRay}
+```
 tag:    app.event
 time:   1362020400
 record: {"host":"192.168.0.1","size":777,"method":"PUT"}
@@ -50,7 +50,7 @@ record: {"host":"192.168.0.1","size":777,"method":"PUT"}
 
 This incoming event is formatted to:
 
-``` {.CodeRay}
+```
 host:192.168.0.1\tsize:777\tmethod:PUT\n
 ```
 

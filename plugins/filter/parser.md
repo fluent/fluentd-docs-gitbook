@@ -8,7 +8,7 @@ mutates its event record with parsed result.
 
 `filter_parser` is included in Fluentd's core. No installation required.
 
-``` {.CodeRay}
+```
 <filter foo.bar>
   @type parser
   key_name log
@@ -86,7 +86,7 @@ Keep original event time in parsed result.
 
 Keep original key-value pair in parsed result.
 
-``` {.CodeRay}
+```
 <filter foo.bar>
   @type parser
   key_name log
@@ -99,14 +99,14 @@ Keep original key-value pair in parsed result.
 
 With above configuration, result is below:
 
-``` {.CodeRay}
+```
 # input data:  {"key":"value","log":"{\"user\":1,\"num\":2}"}
 # output data: {"key":"value","log":"{\"user\":1,\"num\":2}","user":1,"num":2}
 ```
 
 Without `reserve_data`, result is below
 
-``` {.CodeRay}
+```
 # input data:  {"key":"value","log":"{\"user\":1,\"num\":2}"}
 # output data: {"user":1,"num":2}
 ```
@@ -120,7 +120,7 @@ Without `reserve_data`, result is below
 
 Remove `key_name` field when parsing is succeeded.
 
-``` {.CodeRay}
+```
 <filter foo.bar>
   @type parser
   key_name log
@@ -134,7 +134,7 @@ Remove `key_name` field when parsing is succeeded.
 
 With above configuration, result is below:
 
-``` {.CodeRay}
+```
 # input data:  {"key":"value","log":"{\"user\":1,\"num\":2}"}
 # output data: {"key":"value","user":1,"num":2}
 ```
@@ -158,7 +158,7 @@ it.
 
 Store parsed values with specified key name prefix.
 
-``` {.CodeRay}
+```
 <filter foo.bar>
   @type parser
   key_name log
@@ -172,7 +172,7 @@ Store parsed values with specified key name prefix.
 
 With above configuration, result is below:
 
-``` {.CodeRay}
+```
 # input data:  {"log": "{\"user\":1,\"num\":2}"}
 # output data: {"log":"{\"user\":1,\"num\":2}","data.user":1, "data.num":2}
 ```
@@ -186,7 +186,7 @@ With above configuration, result is below:
 
 Store parsed values as a hash value in a field.
 
-``` {.CodeRay}
+```
 <filter foo.bar>
   @type parser
   key_name log
@@ -199,7 +199,7 @@ Store parsed values as a hash value in a field.
 
 With above configuration, result is below:
 
-``` {.CodeRay}
+```
 # input data:  {"log": "{\"user\":1,\"num\":2}"}
 # output data: {"parsed":{"user":1,"num":2}}
 ```

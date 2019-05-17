@@ -12,7 +12,7 @@ See [Parse section configurations](/configuration/parse-section.md)
 
 This is regexp and time format patterns of this plugin:
 
-``` {.CodeRay}
+```
 expression /^(?<remote>[^ ]*) (?<host>[^ ]*) (?<user>[^ ]*) \[(?<time>[^\]]*)\] "(?<method>\S+)(?: +(?<path>[^\"]*?)(?: +\S*)?)?" (?<code>[^ ]*) (?<size>[^ ]*)(?: "(?<referer>[^\"]*)" "(?<agent>[^\"]*)"(?:\s+(?<http_x_forwarded_for>[^ ]+))?)?$/
 time_format %d/%b/%Y:%H:%M:%S %z
 ```
@@ -24,13 +24,13 @@ used for the event time.
 
 ## Example
 
-``` {.CodeRay}
+```
 127.0.0.1 192.168.0.1 - [28/Feb/2013:12:00:00 +0900] "GET / HTTP/1.1" 200 777 "-" "Opera/12.0" -
 ```
 
 This incoming event is parsed as:
 
-``` {.CodeRay}
+```
 time:
 1362020400 (28/Feb/2013:12:00:00 +0900)
 

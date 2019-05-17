@@ -6,7 +6,7 @@
 Inject section can be in `<match>` or `<filter>` sections. It's enabled
 for plugins which support injecting values to the event record.
 
-``` {.CodeRay}
+```
 <match>
   @type file
   # parameters for output plugin

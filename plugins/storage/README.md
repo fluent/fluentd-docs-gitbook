@@ -25,7 +25,7 @@ key-vaule store such as json file, MongoDB, Redis and so on.
 
 Here is an example with in\_dummy:
 
-``` {.CodeRay}
+```
 <source>
   @type dummy
   tag docs.fluentd.storage

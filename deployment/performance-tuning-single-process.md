@@ -40,7 +40,7 @@ a `flush_thread_count` option will parallelize your outputs (the default
 is 1). Using multiple threads can hide the IO/network latency. This
 parameter is available for all output plugins.
 
-``` {.CodeRay}
+```
 <match test>
   @type output_plugin
   <buffer ...>
@@ -66,7 +66,7 @@ The S3/Treasure Data plugin allows compression outside of the Fluentd
 process, using gzip. This frees up the Ruby interpreter while allowing
 Fluentd to process other tasks.
 
-``` {.CodeRay}
+```
 # S3
 <match ...>
   @type s3
@@ -103,7 +103,7 @@ To reduce memory usage, set `RUBY_GC_HEAP_OLDOBJECT_LIMIT_FACTOR` to
 lower value. `RUBY_GC_HEAP_OLDOBJECT_LIMIT_FACTOR` is used for full GC
 trigger and the default is `2.0`. Quote from documentation.
 
-``` {.CodeRay}
+```
 Do full GC when the number of old objects is more than R * N
   where R is this factor and
   N is the number of old objects just after last full GC.
@@ -127,7 +127,7 @@ The CPU is often the bottleneck for Fluentd instances that handle
 billions of incoming records. To utilize multiple CPU cores, we
 recommend using `multi workers` feature.
 
-``` {.CodeRay}
+```
 <system>
   workers 8
 </system>

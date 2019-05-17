@@ -8,7 +8,7 @@ In most cases, input plugins start timers, threads or network servers to
 listen any ports in `#start`, then call `router.emit` to emit events in
 callbacks of timers, threads or network servers.
 
-``` {.CodeRay}
+```
 require 'fluent/plugin/input'
 
 module Fluent::Plugin
@@ -59,7 +59,7 @@ To submit events, use the `router.emit(tag, time, record)` method, where
 `tag` is the String, `time` is the Fluent::EventTime (or Integer as unix
 time) and `record` is a Hash object.
 
-``` {.CodeRay}
+```
 tag = "myapp.access"
 time = Fluent::Engine.now
 record = {"message"=>"body"}
@@ -69,7 +69,7 @@ router.emit(tag, time, record)
 To submit multiple events in one call, use the
 `router.emit_stream(tag, es)` and `MultiEventStream` combo instead.
 
-``` {.CodeRay}
+```
 es = MultiEventStream.new
 records.each { |record|
   es.add(time, record)
@@ -84,7 +84,7 @@ Fluentd plugins assume the record is a JSON so the key should be the
 String, not Symbol. If you emit a symbol keyed record, it may cause a
 problem.
 
-``` {.CodeRay}
+```
 router.emit(tag, time, {'foo' => 'bar'})  # OK!
 router.emit(tag, time, {:foo => 'bar'})   # NG!
 ```
@@ -104,7 +104,7 @@ others) are controlled by Fluentd core.
 Fluentd also provides test driver for plugins. You can write tests of
 your own plugins very easily:
 
-``` {.CodeRay}
+```
 # test/plugin/test_in_your_own.rb
 
 require 'test/unit'

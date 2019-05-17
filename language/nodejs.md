@@ -27,7 +27,7 @@ Please refer to the following documents to install fluentd.
 
 Next, please configure Fluentd to use the [forward Input plugin](/plugins/input/forward.md) as its data source.
 
-``` {.CodeRay}
+```
 <source>
   @type forward
   port 24224
@@ -39,7 +39,7 @@ Next, please configure Fluentd to use the [forward Input plugin](/plugins/input/
 
 Please restart your agent once these lines are in place.
 
-``` {.CodeRay}
+```
 # for systemd
 $ sudo systemctl restart td-agent.service
 # for init.d
@@ -63,7 +63,7 @@ is shown below.
 
 #### package.json
 
-``` {.CodeRay}
+```
 {
   "name": "node-example",
   "version": "0.0.1",
@@ -76,7 +76,7 @@ is shown below.
 
 Now use *npm* to install your dependencies locally:
 
-``` {.CodeRay}
+```
 $ npm install
 ```
 
@@ -84,7 +84,7 @@ $ npm install
 
 This is the simplest web app.
 
-``` {.CodeRay}
+```
 const express = require('express');
 const logger = require('fluent-logger');
 const app = express();
@@ -110,7 +110,7 @@ app.listen(port, function() {
 Run the app and go to `http://localhost:3000/` in your browser. This
 will send the logs to Fluentd.
 
-``` {.CodeRay}
+```
 $ node index.js
 ```
 

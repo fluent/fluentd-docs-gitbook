@@ -70,7 +70,7 @@ retrying. `<match>` sections are used only for output plugin itself.
 
 Example of v1.0 output plugin configuration:
 
-``` {.CodeRay}
+```
 <match myservice_name>
   @type file
   path /my/data/access.${tag}.%Y-%m-%d.%H%M.log
@@ -86,7 +86,7 @@ Example of v1.0 output plugin configuration:
 For Fluentd v0.12, configuration parameters for buffer plugins were
 written in same section:
 
-``` {.CodeRay}
+```
 <match myservice_name>
   @type file
   path /my/data/access.myservice_name.*.log

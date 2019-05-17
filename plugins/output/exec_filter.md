@@ -13,7 +13,7 @@ TSV from stdout by default.
 `out_exec_filter` is included in Fluentd's core. No additional
 installation process is required.
 
-``` {.CodeRay}
+```
 <match pattern>
   @type exec_filter
   command cmd arg arg
@@ -257,7 +257,7 @@ Overwrite default value in this plugin.
 
 Here is an example writtein in ruby.
 
-``` {.CodeRay}
+```
 require 'json'
 require 'msgpack'
 
@@ -283,7 +283,7 @@ end
 
 Corresponding configuration is below:
 
-``` {.CodeRay}
+```
 <match test.**>
   @type exec_filter
   command ruby /path/to/ruby_script.rb

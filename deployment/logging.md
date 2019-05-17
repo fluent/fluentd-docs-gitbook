@@ -35,7 +35,7 @@ own log levels. The global log level can be adjusted up or down.
 The `-v` option sets the verbosity to `debug` while the `-vv` option
 sets the verbosity to `trace`.
 
-``` {.CodeRay}
+```
 $ fluentd -v  ... # debug level
 $ fluentd -vv ... # trace level
 ```
@@ -47,7 +47,7 @@ These options are useful for debugging purposes.
 The `-q` option sets the verbosity to `warn` while the `-qq` option sets
 the verbosity to `error`.
 
-``` {.CodeRay}
+```
 $ fluentd -q  ... # warn level
 $ fluentd -qq ... # error level
 ```
@@ -58,7 +58,7 @@ $ fluentd -qq ... # error level
 You can also change the logging level with `<system>` section in the
 config file like below.
 
-``` {.CodeRay}
+```
 <system>
   # equal to -qq option
   log_level error
@@ -75,7 +75,7 @@ For example, in order to debug [in\_tail](/plugins/input/tail.md) but suppress a
 fatal log messages for [in\_http](/plugins/input/http.md), their respective
 `@log_level` options should be set as follows:
 
-``` {.CodeRay}
+```
 <source>
   @type tail
   @log_level debug
@@ -97,7 +97,7 @@ global log level.
 `text` and `json` are supported. The default is `text`. The format can
 be changed via `<log>` directive in `<system>`.
 
-``` {.CodeRay}
+```
 <system>
   <log>
     format json
@@ -108,13 +108,13 @@ be changed via `<log>` directive in `<system>`.
 
 With this setting:
 
-``` {.CodeRay}
+```
 2017-07-27 06:44:54 +0900 [info]: #0 fluentd worker is now running worker=0
 ```
 
 This `text` log line is changed to:
 
-``` {.CodeRay}
+```
 {"time":"2017-07-27","level":"info","message":"fluentd worker is now running worker=0","worker_id":0}
 ```
 
@@ -124,7 +124,7 @@ This `text` log line is changed to:
 Fluentd outputs logs to `STDOUT` by default. To output to a file
 instead, please specify the `-o` option.
 
-``` {.CodeRay}
+```
 $ fluentd -o /path/to/log_file
 ```
 
@@ -149,7 +149,7 @@ The byte size to rotate log files. This is applied when
 
 Here is an example:
 
-``` {.CodeRay}
+```
 $ fluentd -c fluent.conf --log-rotate-age 5 --log-rotate-size 104857600
 ```
 
@@ -164,7 +164,7 @@ This is useful for monitoring Fluentd logs.
 
 For example, if you have the following configuration:
 
-``` {.CodeRay}
+```
 # omit other source / match
 <label @FLUENT_LOG>
   <match fluent.*>
@@ -175,7 +175,7 @@ For example, if you have the following configuration:
 
 then Fluentd outputs `fluent.info` logs to stdout like below:
 
-``` {.CodeRay}
+```
 2014-02-27 00:00:00 +0900 [info]: shutting down fluentd
 2014-02-27 00:00:01 +0900 fluent.info: {"message":"shutting down fluentd"} # by <match fluent.*>
 2014-02-27 00:00:01 +0900 [info]: process finished code = 0
@@ -187,7 +187,7 @@ then Fluentd outputs `fluent.info` logs to stdout like below:
 You can send Fluentd logs to a monitoring service by plugins, e.g.
 datadog, sentry, irc, etc.
 
-``` {.CodeRay}
+```
 # Add hostname for identifying the server
 <label @FLUENT_LOG>
   <filter fluent.*>
@@ -213,7 +213,7 @@ logs to your notification system: chat, irc, etc.
 
 Leaf server example:
 
-``` {.CodeRay}
+```
 # Add hostname for identifying the server and tag to filter by log level
 <label @FLUENT_LOG>
   # If you want to capture only error events, use 'fluent.error' instead.
@@ -236,7 +236,7 @@ Leaf server example:
 
 Monitoring server example:
 
-``` {.CodeRay}
+```
 <source>
   @type forward
 </source>
@@ -268,7 +268,7 @@ Monitoring server example:
 If an error occurs, you will get a notification message in your Slack
 `notify` channel.
 
-``` {.CodeRay}
+```
 01:01  fluentd: [11:10:24] notice: fluent.warn [2014/02/27 01:00:00] @leaf.server.domain detached forwarding server 'server.name'
 ```
 

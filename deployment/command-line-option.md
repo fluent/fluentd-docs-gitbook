@@ -7,7 +7,7 @@ This article describes built-in commands and its options
 
 Invoke fluentd. Here is supported options:
 
-``` {.CodeRay}
+```
 Usage: fluentd [options]
     -s, --setup [DIR=/etc/fluent]    install sample configuration file to the directory
     -c, --config PATH                config file path (default: /etc/fluent/fluent.conf)
@@ -87,7 +87,7 @@ file. See [configuration file article](/configuration/config-file.md/#4-set-syst
 Send event to fluentd's `in_forward`/`in_unix` plugin. This is useful
 for testing.
 
-``` {.CodeRay}
+```
 Usage: fluent-cat [options] <tag>
     -p, --port PORT                  fluent tcp port (default: 24224)
     -h, --host HOST                  fluent host (default: 127.0.0.1)
@@ -105,13 +105,13 @@ Usage: fluent-cat [options] <tag>
 
 Send json message with `debug.log` tag to local fluentd:
 
-``` {.CodeRay}
+```
 % echo '{"message":"hello"}' | fluent-cat debug.log
 ```
 
 Send to other machine:
 
-``` {.CodeRay}
+```
 % echo '{"message":"hello"}' | fluent-cat debug.log --host testserver --port 24225
 ```
 
@@ -120,7 +120,7 @@ Send to other machine:
 
 Generate plugin's configuration document with specified format.
 
-``` {.CodeRay}
+```
 Usage: /Users/cosmo/GitHub/fluentd/vendor/bundle/ruby/2.4.0/bin/fluent-plugin-config-format [options] <type> <name>
 
 Output plugin config definitions
@@ -143,13 +143,13 @@ Options:
 
 Generate README style document from plugin's config parameters:
 
-``` {.CodeRay}
+```
 fluent-plugin-config-format output null
 ```
 
 Generate old style output from plugin's config parameters:
 
-``` {.CodeRay}
+```
 fluent-plugin-config-format -f txt output null
 ```
 
@@ -160,7 +160,7 @@ Generate Fluentd plugin project template. It is good for starting to
 Fluentd plugin development for using new API plugin. In more detail,
 please refer to the [Generating plugin project skeleton section](/developer/plugin-development.md/#generating-plugin-project-skeleton).
 
-``` {.CodeRay}
+```
 Usage: fluent-plugin-generate [options] <type> <name>
 
 Generate a project skeleton for creating a Fluentd plugin

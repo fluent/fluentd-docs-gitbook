@@ -10,7 +10,7 @@ The methods listed below are considered as public methods, and will be
 maintained not to break compatibility. Other methods may be changed
 without compatibility consideration.
 
-``` {.CodeRay}
+```
 require 'fluent/plugin/input' # this might be input, filter, output, parser, formatter, storage or buffer
 
 module Fluent::Plugin
@@ -79,7 +79,7 @@ About types and options, see [Types of Configuration Parameters](/developer/api-
 
 Code Example:
 
-``` {.CodeRay}
+```
 config_param :name, :string, default: "John Doe", alias: :full_name
 
 config_param :pattern, do |value|
@@ -105,7 +105,7 @@ existed, raise `ArgumentError`.
 
 Code Example:
 
-``` {.CodeRay}
+```
 # lib/fluent/plugin/buffer.rb
 config_param :chunk_limit_size, :size, default: DEFAULT_CHUNK_LIMIT_SIZE
 
@@ -129,7 +129,7 @@ Set description to immediately following parameter.
 
 Code Example:
 
-``` {.CodeRay}
+```
 desc "description about following parameter"
 config_param :user, :string
 ```
@@ -156,7 +156,7 @@ Define a section to construct structured configuration.
 
 Code Example:
 
-``` {.CodeRay}
+```
 config_section :user, multi: true do
   config_param :name, :string
   config_param :password, :string, secret: true
@@ -175,7 +175,7 @@ end
 
 Configuration Example:
 
-``` {.CodeRay}
+```
 <user>
   name Alice
   password very-secret-password
@@ -210,7 +210,7 @@ For more details, see [System Configuration](/deployment/system-config.md).
 
 Code Example:
 
-``` {.CodeRay}
+```
 def configure(conf)
   super
   root_dir = system_config.root_dir
@@ -229,7 +229,7 @@ For more details, see [System Configuration](/deployment/system-config.md).
 
 Code Example:
 
-``` {.CodeRay}
+```
 test "plugin instance can overwrite system_config if needed" do
   plugin = ExampleInput.new
   plugin.configure(conf)
@@ -249,7 +249,7 @@ Call `super` if the plugin overrides this method.
 
 Code Example:
 
-``` {.CodeRay}
+```
 def initialize
   super
   @internal_counter = 0
@@ -270,7 +270,7 @@ The code to configure the plugin by itself should be after `super`.
 
 Code Example:
 
-``` {.CodeRay}
+```
 def configure(conf)
   super
 
@@ -297,7 +297,7 @@ For more details about Fluentd's logging mechanism, see [Logging of Fluentd](/de
 
 Code Example:
 
-``` {.CodeRay}
+```
 def start
   ...
   log.info("This is info level log")
@@ -328,7 +328,7 @@ provided as plugin helpers. See API details of each plugin helpers.
 
 Code Example:
 
-``` {.CodeRay}
+```
 def start
   super
 
@@ -350,7 +350,7 @@ may raise errors.
 
 Code Example:
 
-``` {.CodeRay}
+```
 def start # example
   super
   @my_thread_running = true
@@ -389,7 +389,7 @@ and cannot emit events after this method is called.
 
 Code Example:
 
-``` {.CodeRay}
+```
 def shutdown
   @server.close
   records = my_convert_method(@server.rest_data)
@@ -433,7 +433,7 @@ with symbol arguments.
 
 Code Example:
 
-``` {.CodeRay}
+```
 module Fluent::Plugin
   class MyPlugin < Input
     Fluent::Plugin.register_input('my_plugin', self)

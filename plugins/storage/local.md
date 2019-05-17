@@ -35,7 +35,7 @@ Output human readable formatted json. Default is `false`.
 Note that `conf.arg` is also to be able to use alternative `path`
 parameter.
 
-``` {.CodeRay}
+```
 <storage awesome_path>
   @type local
 </storage>

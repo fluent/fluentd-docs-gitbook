@@ -4,7 +4,7 @@ The `stdout` formatter plugin converts an event to stdout format.
 
 This plugin is only for [stdout Output Plugin](/plugins/output/stdout.md) and [stdout Filter Plugin](/plugins/filter/stdout.md).
 
-``` {.CodeRay}
+```
 2015-05-02 12:12:17 +0900 tag: {"field1":"value1","field2":"value2"}
 ```
 
@@ -26,7 +26,7 @@ Set sub-formatter type. Any formatter plugins can be specified.
 
 ## Example
 
-``` {.CodeRay}
+```
 <format>
   @type stdout
   output_type json
@@ -35,7 +35,7 @@ Set sub-formatter type. Any formatter plugins can be specified.
 
 with this configuration:
 
-``` {.CodeRay}
+```
 tag:    app.event
 time:   1511156652
 record: {"host":"192.168.0.1","size":777,"method":"PUT"}
@@ -43,7 +43,7 @@ record: {"host":"192.168.0.1","size":777,"method":"PUT"}
 
 This incoming event is formatted to:
 
-``` {.CodeRay}
+```
 2017-11-20 14:44:12 +0900 app.event: {"host":"192.168.0.1","size":777,"method":"PUT"}
 ```
 

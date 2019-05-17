@@ -11,7 +11,7 @@ plugins. This page describes the list of these parameters.
 
 The parameter `@type` is to specify the type of plugin for the section.
 
-``` {.CodeRay}
+```
 <source>
   @type my_plugin_type
 </source>
@@ -28,7 +28,7 @@ The `@id` parameter is used to add the unique name of plugin
 configuration, which is used for paths of buffer/storage, logging and
 other purposes.
 
-``` {.CodeRay}
+```
 <match>
   @type file
   @id   service_www_accesslog
@@ -50,7 +50,7 @@ log level is `info`. Global log level can be specified by `log_level` in
 `<system>`, or `-v/-q` command line options. The `@log_level` parameter
 overwrites logging level only for specified plugin instance.
 
-``` {.CodeRay}
+```
 <system>
   log_level info
 </system>
@@ -77,7 +77,7 @@ Please see the [logging article](/deployment/logging.md) for further details.
 The `@label` parameter is to route input events to `<label>` sections,
 the set of `<filter>` and `<match>` sections.
 
-``` {.CodeRay}
+```
 <source>
   @type  ...
   @label @access_logs

@@ -11,7 +11,7 @@ with daemon mode). This output plugin is useful for debugging purposes.
 `out_stdout` is included in Fluentd's core. No additional installation
 process is required.
 
-``` {.CodeRay}
+```
 <match pattern>
   @type stdout
 </match>
@@ -22,7 +22,7 @@ structure and syntax of the configuration file.
 
 A sample output is as follows:
 
-``` {.CodeRay}
+```
 2017-11-28 11:43:13.814351757 +0900 tag: {"field1":"value1","field2":"value2"}
 ```
 

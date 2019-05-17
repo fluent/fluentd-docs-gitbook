@@ -12,7 +12,7 @@ libraries. Use `in_forward` for such cases.
 `in_tcp` is included in Fluentd's core. No additional installation
 process is required.
 
-``` {.CodeRay}
+```
 <source>
   @type tcp
   tag tcp.events # required
@@ -28,13 +28,13 @@ process is required.
 
 Example input:
 
-``` {.CodeRay}
+```
 $ echo '123456:awesome' | netcat 0.0.0.0 5170
 ```
 
 Parsed result like below:
 
-``` {.CodeRay}
+```
 {"field1":"123456","field2":"awesome}
 ```
 
@@ -103,13 +103,13 @@ hostname).
 
 If you set following configuration:
 
-``` {.CodeRay}
+```
 source_hostname_key client_host
 ```
 
 then the client's hostname is set to `client_host` field.
 
-``` {.CodeRay}
+```
 {
     ...
     "foo": "bar",

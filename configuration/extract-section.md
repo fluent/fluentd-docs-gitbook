@@ -7,7 +7,7 @@ Extract section can be in `<match>`, `<source>`, or `<filter>` sections.
 It's enabled for plugins which support extracting values from the event
 record.
 
-``` {.CodeRay}
+```
 <source>
   @type exec
   # parameters for input plugin

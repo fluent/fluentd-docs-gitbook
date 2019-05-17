@@ -30,7 +30,7 @@ This has the following advantages:
 will need to install the fluent-plugin-mongo gem using the following
 command.
 
-``` {.CodeRay}
+```
 $ fluent-gem install fluent-plugin-mongo
 ```
 
@@ -39,7 +39,7 @@ For more details, see [Plugin Management](/deployment/plugin-management.md).
 
 ## Example Configuration
 
-``` {.CodeRay}
+```
 # Single MongoDB
 <match mongo.**>
   @type mongo
@@ -177,7 +177,7 @@ destination collection. For example, if you generate records with tags
 'mongo.foo', the records will be inserted into the `foo` collection
 within the `fluentd` database.
 
-``` {.CodeRay}
+```
 <match mongo.*>
   @type mongo
   host fluentd

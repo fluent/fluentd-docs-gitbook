@@ -4,7 +4,7 @@
 
 Here is the code example with `timer` helper:
 
-``` {.CodeRay}
+```
 require 'fluent/plugin/input'
 
 module Fluent::Plugin
@@ -46,7 +46,7 @@ This method executes timer with given parameters and routine
 
 Code examples:
 
-``` {.CodeRay}
+```
 # Pass block directly. block is executed in 10 second interval.
 timer_execute(:example_timer, 10) {
   # ...

@@ -21,7 +21,7 @@ semantics. The default is at-most-once.
 `out_forward` is included in Fluentd's core. No additional installation
 process is required.
 
-``` {.CodeRay}
+```
 <match pattern>
   @type forward
   send_timeout 60s
@@ -157,7 +157,7 @@ Fluentd nodes. When an active node goes down, the standby node is
 promoted to an active node. The standby node is not used by the
 `out_forward` plugin until then.
 
-``` {.CodeRay}
+```
 <match pattern>
   @type forward
   ...
@@ -437,7 +437,7 @@ If you've [set up TLS/SSL encryption in the receiving server](/plugins/input/for
 the output forwarder to use encryption by setting the `transport`
 parameter:
 
-``` {.CodeRay}
+```
 <match debug.**>
   @type forward
   transport tls
@@ -451,7 +451,7 @@ parameter:
 If you're using a self-singed certificate, copy the certificate file to
 the forwarding server, then add the following settings:
 
-``` {.CodeRay}
+```
 <match debug.**>
   @type forward
   transport tls
@@ -473,7 +473,7 @@ being received by the destination node properly.
 If you want to connect to [a server that requires password authentication](/plugins/input/forward.md/#how-to-enable-password-authentication), you
 need to set your credentials in the configuration file.
 
-``` {.CodeRay}
+```
 <match debug.**>
   @type forward
   <server>
@@ -500,7 +500,7 @@ use this feature to reduce the transferred payload size.
 
 To enable this feature, set the `compress` option as follows:
 
-``` {.CodeRay}
+```
 <match debug.**>
   @type forward
   compress gzip
@@ -551,7 +551,7 @@ Please make sure that you can communicate with port 24224 using **not
 only TCP, but also UDP**. These commands will be useful for checking the
 network configuration.
 
-``` {.CodeRay}
+```
 $ telnet host 24224
 $ nmap -p 24224 -sU host
 ```

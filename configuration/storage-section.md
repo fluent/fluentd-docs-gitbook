@@ -9,7 +9,7 @@ to handle plugin internal states.
 Storage section can be in `<source>`, `<match>` or `<filter>` sections.
 It's enabled for plugins which support storage plugin features.
 
-``` {.CodeRay}
+```
 <source>
   @type windows_eventlog
   # parameters for input plugin
@@ -26,7 +26,7 @@ It's enabled for plugins which support storage plugin features.
 storage plugin. Fluentd core bundles [a useful storage plugin](/plugins/storage/README.md). 3rd party plugins are also available
 when installed.
 
-``` {.CodeRay}
+```
 <storage>
   @type local
 </storage>
@@ -35,7 +35,7 @@ when installed.
 And some storage plugin can handle attributes in `<storage>` section as
 below:
 
-``` {.CodeRay}
+```
 <storage awesome_path>
   @type local
 </storage>

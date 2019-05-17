@@ -55,7 +55,7 @@ You can install Fluentd via major packaging systems.
 Since Amazon Kinesis plugin is not bundled with td-agent package, plase
 install it manually.
 
-``` {.CodeRay}
+```
 $ sudo /usr/sbin/td-agent-gem install fluent-plugin-kinesis
 ```
 
@@ -73,7 +73,7 @@ For the input source, we will set up Fluentd to track the recent Apache
 logs (typically found at /var/log/apache2/access\_log) The Fluentd
 configuration file should look like this:
 
-``` {.CodeRay}
+```
 <source>
   @type tail
   path /var/log/apache2/access_log
@@ -109,7 +109,7 @@ for Fluentd to process.
 The output destination will be Amazon Kinesis. The output configuration
 should look like this:
 
-``` {.CodeRay}
+```
 <match **>
   # plugin type
   @type kinesis_streams
@@ -167,7 +167,7 @@ is available too for EC2 nodes.
 Please restart td-agent process first, to make the configuration change
 available.
 
-``` {.CodeRay}
+```
 # init
 $ sudo /etc/init.d/td-agent restart
 # systemd
@@ -177,7 +177,7 @@ $ sudo systemctl restart td-agent.service
 To test the configuration, just have a couple of accesses to your Apache
 server. This example uses the `ab` (Apache Bench) program.
 
-``` {.CodeRay}
+```
 $ ab -n 100 -c 10 http://localhost/
 ```
 

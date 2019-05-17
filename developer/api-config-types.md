@@ -25,7 +25,7 @@ Define a string parameter.
 
 Code Example:
 
-``` {.CodeRay}
+```
 config_param :name, :string, default: "John Doe", alias: :full_name
 config_param :password, :string, secret: true
 
@@ -38,7 +38,7 @@ end
 
 Configuration Example:
 
-``` {.CodeRay}
+```
 name John Titor
 passowrd very-secret-password
 ```
@@ -50,7 +50,7 @@ Define a regexp parameter. Since v1.2.0.
 
 Code Example:
 
-``` {.CodeRay}
+```
 config_param :pattern, :regexp, default: /^key_/
 
 def configure(conf)
@@ -69,7 +69,7 @@ end
 
 Configuration Example:
 
-``` {.CodeRay}
+```
 pattern /^name_/
 pattern ^name_    # Also support pattern without slashes
 ```
@@ -81,7 +81,7 @@ Define an integer parameter.
 
 Code Example:
 
-``` {.CodeRay}
+```
 config_param :num_children, :integer, default: 1
 
 def start
@@ -95,7 +95,7 @@ end
 
 Configuration Example:
 
-``` {.CodeRay}
+```
 ::text
 num_children 10
 ```
@@ -107,7 +107,7 @@ Define a float parameter.
 
 Code Example:
 
-``` {.CodeRay}
+```
 helpers :timer
 config_param :interval, :float, default: 0.5
 
@@ -122,7 +122,7 @@ end
 
 Configuration Example:
 
-``` {.CodeRay}
+```
 interval 1.5
 ```
 
@@ -134,7 +134,7 @@ Define a size parameter in bytes. Available suffixes are `k`, `m`, `g`,
 
 Code Example:
 
-``` {.CodeRay}
+```
 config_param :limit, :size
 
 def do_something
@@ -145,7 +145,7 @@ end
 
 Configuration Example:
 
-``` {.CodeRay}
+```
 limit 10  # 10 byte
 limit 10k # 10240 byte
 limit 10m # 10485760 byte
@@ -155,7 +155,7 @@ limit 10t # 10995116277760 byte
 
 Configuration Example:
 
-``` {.CodeRay}
+```
 limit 10m
 ```
 
@@ -168,7 +168,7 @@ convert it to seconds.
 
 Code Example:
 
-``` {.CodeRay}
+```
 config_param :interval, :time
 
 def start
@@ -180,7 +180,7 @@ end
 
 Configuration Example:
 
-``` {.CodeRay}
+```
 ::text
 interval 0.5 # 0.5 seconds
 interval 1s  # 1 second
@@ -191,7 +191,7 @@ interval 1d  # 1 day = 86400 seconds
 
 Configuration Example:
 
-``` {.CodeRay}
+```
 interval 10m
 ```
 
@@ -202,7 +202,7 @@ Define a bool parameter.
 
 Code Example:
 
-``` {.CodeRay}
+```
 config_param :deep_copy, :bool, default: false
 
 def copy(object)
@@ -216,7 +216,7 @@ end
 
 Configuration Example:
 
-``` {.CodeRay}
+```
 deep_copy true
 ```
 
@@ -233,7 +233,7 @@ does not exist in the list, error will occur on boot.
 
 Code Example:
 
-``` {.CodeRay}
+```
 config_param :protocol_type, :enum, list: [:udp, :tcp], default: udp
 
 def send
@@ -248,7 +248,7 @@ end
 
 Configuration Example:
 
-``` {.CodeRay}
+```
 protocol_type tcp
 ```
 
@@ -265,7 +265,7 @@ Users can set array value to the parameter.
 
 Code Example:
 
-``` {.CodeRay}
+```
 config_param :users, :array, default: [], value_type: :string
 
 def available_user?(user)
@@ -275,14 +275,14 @@ end
 
 Configuration Example:
 
-``` {.CodeRay}
+```
 users user1, user2, user3
 users ["user1", "user2", "user3"] # written in JSON
 ```
 
 These configuration will convert to:
 
-``` {.CodeRay}
+```
 ["user1", "user2", "user3"]
 ```
 
@@ -298,7 +298,7 @@ Define a hash type parameter.
 
 Code Example:
 
-``` {.CodeRay}
+```
 config_param :key_values, :hash, default: {}, symbolize_keys: true, value_type: :string
 
 def do_something
@@ -310,14 +310,14 @@ end
 
 Configuration Example:
 
-``` {.CodeRay}
+```
 key_values {"key1": "value1", "key2": "value2"} # written in JSON
 key_values key1:value1,key2:value2
 ```
 
 These configurations will be converted to:
 
-``` {.CodeRay}
+```
 { key1: "value1", key2: "value2" }
 ```
 

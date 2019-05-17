@@ -8,7 +8,7 @@ to format record.
 
 Format section can be in `<match>` or `<filter>` sections.
 
-``` {.CodeRay}
+```
 <match tag.*>
   @type file
   # parameters for output plugin
@@ -25,7 +25,7 @@ Format section can be in `<match>` or `<filter>` sections.
 formatter plugin. Fluentd core bundles [some useful formatter plugins](/plugins/formatter/README.md). 3rd party plugins are also
 available when installed.
 
-``` {.CodeRay}
+```
 <format>
   @type json
 </format>
@@ -51,7 +51,7 @@ For more details, see plugins documentation.
 
 `@type` key is to specify the type of formatter plugin.
 
-``` {.CodeRay}
+```
 <format>
   @type csv
   # ...

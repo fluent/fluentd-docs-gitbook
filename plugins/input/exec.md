@@ -15,7 +15,7 @@ please use the run\_interval parameter.
 `in_exec` is included in Fluentd's core. No additional installation
 process is required.
 
-``` {.CodeRay}
+```
 <source>
   @type exec
   command cmd arg arg
@@ -159,7 +159,7 @@ Here is a simple example to fetch load average stats on Linux systems.
 This configuration instructs Fluentd to read `/proc/loadavg` once per
 minute and emit the file content as events.
 
-``` {.CodeRay}
+```
 <source>
   @type exec
   tag system.loadavg
@@ -175,7 +175,7 @@ minute and emit the file content as events.
 
 This configuration emits events like below:
 
-``` {.CodeRay}
+```
 2018-06-29 17:27:35.115878527 +0900 system.loadavg: {"avg1":"0.30","avg5":"0.20","avg15":"0.05"}
 ```
 
@@ -196,7 +196,7 @@ information about each post:
 Suppose that script is called `hn.rb`. Then, you can run it every 5
 minutes with the following configuration
 
-``` {.CodeRay}
+```
 <source>
   @type exec
   <parse>
@@ -214,7 +214,7 @@ minutes with the following configuration
 And if you run Fluentd with it, you will see the following output (if
 you are impatient, ctrl-C to flush the stdout buffer)
 
-``` {.CodeRay}
+```
 2017-12-08 14:19:33.160567411 +0900 hackernews: {"time":1512710373,"rank":1,"title":"Japan eyes startup visa program","points":160,"user_name":"benguild","duration":"4 hours ago  ","num_comments":0,"unique_id":"item?id=15875627","hiring_notice":false}
 2017-12-08 14:19:33.160735378 +0900 hackernews: {"time":1512710373,"rank":2,"title":"Bookbinding: A Tutorial","points":46,"user_name":"jstrieb","duration":"2 hours ago  ","num_comments":0,"unique_id":"item?id=15876260","hiring_notice":false}
 2017-12-08 14:19:33.160769125 +0900 hackernews: {"time":1512710373,"rank":3,"title":"My Quadriplegic Husband and Me","points":92,"user_name":"mooreds","duration":"4 hours ago  ","num_comments":0,"unique_id":"item?id=15875772","hiring_notice":false}

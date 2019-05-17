@@ -8,7 +8,7 @@ specified fields.
 
 `filter_grep` is included in Fluentd's core. No installation required.
 
-``` {.CodeRay}
+```
 <filter foo.bar>
   @type grep
   <regexp>
@@ -36,14 +36,14 @@ conditions:
 
 Hence, the following events are kept:
 
-``` {.CodeRay}
+```
 {"message":"It's cool outside today", "hostname":"web001.example.com"}
 {"message":"That's not cool", "hostname":"web1337.example.com"}
 ```
 
 whereas the following examples are filtered out:
 
-``` {.CodeRay}
+```
 {"message":"I am cool but you are uncool", "hostname":"db001.example.com"}
 {"hostname":"web001.example.com"}
 {"message":"It's cool outside today"}
@@ -65,7 +65,7 @@ whereas the following examples are filtered out:
 Specify filtering rule. This directive contains either `<regexp>` or
 `<exclude>` directive. This directive has been added since 1.2.0.
 
-``` {.CodeRay}
+```
 <and>
   <regexp>
     key price
@@ -80,7 +80,7 @@ Specify filtering rule. This directive contains either `<regexp>` or
 
 This is same as below:
 
-``` {.CodeRay}
+```
 <regexp>
   key price
   pattern /[1-9]\d*/
@@ -93,7 +93,7 @@ This is same as below:
 
 We can also use `<and>` directive with `<exclude>` directive:
 
-``` {.CodeRay}
+```
 <and>
   <exclude>
     key container_name
@@ -112,7 +112,7 @@ We can also use `<and>` directive with `<exclude>` directive:
 Specify filtering rule. This directive contains either `<regexp>` or
 `<exclude>` directive. This directive has been added since 1.2.0.
 
-``` {.CodeRay}
+```
 <or>
   <exclude>
     key status_code
@@ -127,7 +127,7 @@ Specify filtering rule. This directive contains either `<regexp>` or
 
 This is same as below:
 
-``` {.CodeRay}
+```
 <exclude>
   key status_code
   pattern /^5\d\d$/
@@ -140,7 +140,7 @@ This is same as below:
 
 We can also use `<or>` directive with `<regexp>` directive:
 
-``` {.CodeRay}
+```
 <or>
   <regexp>
     key container_name
@@ -184,7 +184,7 @@ The pattern parameter is string type before 1.2.0.
 For example, the following filters out events unless the field "price"
 is a positive integer.
 
-``` {.CodeRay}
+```
 <regexp>
   key price
   pattern /[1-9]\d*/
@@ -194,7 +194,7 @@ is a positive integer.
 The grep filter filters out UNLESS all `<regexp>`s are matched. Hence,
 if you have
 
-``` {.CodeRay}
+```
 <regexp>
   key price
   pattern /[1-9]\d*/
@@ -211,7 +211,7 @@ unless the event's "item\_name" field starts with "book\_" and the
 For OR condition, you can use `|` operator of regular expressions. For
 example, if you have
 
-``` {.CodeRay}
+```
 <regexp>
   key item_name
   pattern /(^book_|^article)/
@@ -226,7 +226,7 @@ typical case is a file path), you need to escape the leading slash.
 Otherwise, the pattern will not be recognized as expected. Here is a
 simple example:
 
-``` {.CodeRay}
+```
 <regexp>
   key filepath
   pattern \/spool/
@@ -235,7 +235,7 @@ simple example:
 
 You can also write the pattern like below:
 
-``` {.CodeRay}
+```
 <regexp>
   key filepath
   pattern /\/spool\//
@@ -258,7 +258,7 @@ The "N" at the end should be replaced with an integer between 1 and 20
 
 Here is `regexpN` version of `<regexp>` example:
 
-``` {.CodeRay}
+```
 regexp1 price [1-9]\d*
 regexp2 item_name ^book_
 ```
@@ -295,7 +295,7 @@ The pattern parameter is string type before 1.2.0.
 For example, the following filters out events whose "status\_code" field
 is 5xx.
 
-``` {.CodeRay}
+```
 <exclude>
   key status_code
   pattern /^5\d\d$/
@@ -305,7 +305,7 @@ is 5xx.
 The grep filter filters out if any `<exclude>` is matched. Hence, if you
 have
 
-``` {.CodeRay}
+```
 <exclude>
   key status_code
   pattern /^5\d\d$/
@@ -333,7 +333,7 @@ The "N" at the end should be replaced with an integer between 1 and 20
 
 Here is `excludeN` version of `<exclude>` example:
 
-``` {.CodeRay}
+```
 exclude1 status_code ^5\d\d$
 exclude2 url \.css$
 ```

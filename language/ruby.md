@@ -27,7 +27,7 @@ Please refer to the following documents to install fluentd.
 
 Next, please configure Fluentd to use the [forward Input plugin](/plugins/input/forward.md) as its data source.
 
-``` {.CodeRay}
+```
 <source>
   @type forward
   port 24224
@@ -39,7 +39,7 @@ Next, please configure Fluentd to use the [forward Input plugin](/plugins/input/
 
 Please restart your agent once these lines are in place.
 
-``` {.CodeRay}
+```
 # for systemd
 $ sudo systemctl restart td-agent.service
 # for init.d
@@ -51,13 +51,13 @@ $ sudo /etc/init.d/td-agent restart
 
 First, add the 'fluent-logger' gem to your Gemfile.
 
-``` {.CodeRay}
+```
 gem 'fluent-logger', "~> 0.7.1"
 ```
 
 Next, please initialize and post the records as shown below.
 
-``` {.CodeRay}
+```
 require 'fluent-logger'
 Fluent::Logger::FluentLogger.open(nil, :host=>'localhost', :port=>24224)
 Fluent::Logger.post("fluentd.test.follow", {"from"=>"userA", "to"=>"userB"})
@@ -65,7 +65,7 @@ Fluent::Logger.post("fluentd.test.follow", {"from"=>"userA", "to"=>"userB"})
 
 Executing the script will send the logs to Fluentd.
 
-``` {.CodeRay}
+```
 $ ruby test.rb
 ```
 

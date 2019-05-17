@@ -22,7 +22,7 @@ cases are:
 
 It is used with the `<filter>` directive as follows:
 
-``` {.CodeRay}
+```
 <filter foo.bar>
   @type grep
   regexp1 message cool
@@ -39,7 +39,7 @@ proceeds through the configuration top-down. Hence, if there are
 multiple filters for the same tag, they are applied in descending order.
 Hence, in the following example,
 
-``` {.CodeRay}
+```
 <filter foo.bar>
   @type grep
   regexp1 message cool
@@ -67,7 +67,7 @@ is all plugins in the pipeline use `filter` method. If the plugin which
 uses `filter_stream` exists, chain optimization is disabled. If you see
 following message in the log, the optimization is disabled.
 
-``` {.CodeRay}
+```
 disable filter chain optimization because [Fluent::Plugin::XXXFilter] uses `#filter_stream` method
 ```
 

@@ -11,7 +11,7 @@ compatibility.
 To use plugin helpers, it needs to call `helpers(*snake_case_symbols)`
 method with snake case symbols.
 
-``` {.CodeRay}
+```
 helpers :timer, :storage, :compat_parameters
 ```
 

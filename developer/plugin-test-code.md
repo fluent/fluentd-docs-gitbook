@@ -13,7 +13,7 @@ Fluentd provides useful Test Drivers according to plugin type. We can
 write maintainable test code for plugins using them. We can write
 helper.rb for output plugin as follows:
 
-``` {.CodeRay}
+```
 $LOAD_PATH.unshift(File.expand_path("../../", __FILE__))
 require "test-unit"
 require "fluent/test"
@@ -29,7 +29,7 @@ filter, parser, and formatter.
 
 The recommended fluentd plugin project structure is:
 
-``` {.CodeRay}
+```
 .
 ├── Gemfile
 ├── LICENSE
@@ -52,7 +52,7 @@ The recommended fluentd plugin project structure is:
 There are useful Test Drivers for plugin testing. We can write test code
 for plugins as following:
 
-``` {.CodeRay}
+```
 # Load the module that defines common initialization method (Required)
 require 'fluent/test'
 # Load the module that defines helper methods for testing (Required)
@@ -108,7 +108,7 @@ You can get your plugin instance when you call Test Driver instance's
 `#instance` method. If utility methods are private, you can use
 `__send__`.
 
-``` {.CodeRay}
+```
 # ...
 class FileOutputTest < Test::Unit::TestCase
   # ...
@@ -139,7 +139,7 @@ Initialize Test Driver instance.
 
 Code example:
 
-``` {.CodeRay}
+```
 def create_driver(conf={})
   d = Fluent::Test::Driver::Output.new(Fluent::Plugin::MyOutput) do
     attr_accessor :exceptions
@@ -165,7 +165,7 @@ Configure plugin instance managed by this Test Driver.
 
 Code example:
 
-``` {.CodeRay}
+```
 def create_driver(conf={})
   Fluent::Test::Driver::Output.new(Fluent::Plugin::MyOutput).configure(conf)
 end
@@ -214,7 +214,7 @@ This method may be overridden in subclasses.
 
 Code example:
 
-``` {.CodeRay}
+```
 # Run Test Driver and feed an event (output)
 d = create_driver
 d.run do
@@ -264,7 +264,7 @@ This method may be overridden in subclasses.
 
 Code example:
 
-``` {.CodeRay}
+```
 # Run Test Driver and feed an event (owner plugin)
 d = create_driver
 d.run do
@@ -301,7 +301,7 @@ many as you expected, you can use `d.run(expected_emits: n)` instead.
 
 Code example:
 
-``` {.CodeRay}
+```
 d.run do
   d.feed("test", record)
 end
@@ -346,7 +346,7 @@ Run EventFeeder.
 
 Code example:
 
-``` {.CodeRay}
+```
 d.run(default_tag: "test") do
   d.feed(event_time, { "message" => "Hello, Fluentd!!" })
 end
@@ -362,7 +362,7 @@ Feed an event to plugin instance.
 
 Code example:
 
-``` {.CodeRay}
+```
 d.run do
   d.feed("test", event_time, { "message" => "Hello, Fluentd!!" })
 end
@@ -379,7 +379,7 @@ Feed an array of event stream to plugin instance.
 
 Code example:
 
-``` {.CodeRay}
+```
 d.run do
   d.feed("test", [
     [event_time, { "message" => "Hello, user1!!" }],
@@ -397,7 +397,7 @@ Feed an event stream to plugin instance.
 
 Code example:
 
-``` {.CodeRay}
+```
 es = Fluent::OneEventStream.new(event_time, { "message" => "Hello, Fluentd!!" })
 d.run do
   d.feed("test", es)
@@ -412,7 +412,7 @@ Feed an event with default tag to plugin instance.
 
 Code example:
 
-``` {.CodeRay}
+```
 d.run(default_tag: "test") do
   d.feed({ "message" => "Hello, Fluentd!!" })
   # Above is same as below
@@ -429,7 +429,7 @@ Feed an event with default tag to plugin instance.
 
 Code example:
 
-``` {.CodeRay}
+```
 d.run(default_tag: "test") do
   d.feed(event_time, { "message" => "Hello, Fluentd!!" })
 end
@@ -445,7 +445,7 @@ Feed an array of event stream with default tag to plugin instance.
 
 Code example:
 
-``` {.CodeRay}
+```
 d.run(default_tag: "test") do
   d.feed([
     [event_time, { "message" => "Hello, user1!!" }],
@@ -462,7 +462,7 @@ Feed an event stream with default tag to plugin instance.
 
 Code example:
 
-``` {.CodeRay}
+```
 es = Fluent::OneEventStream.new(event_time, { "message" => "Hello, Fluentd!!" })
 d.run(default_tag: "test") do
   d.feed(es)
@@ -476,7 +476,7 @@ end
 
 Collect filtered records.
 
-``` {.CodeRay}
+```
 ::::ruby
 d = create_driver(config)
 d.run do
@@ -501,7 +501,7 @@ Otherwise, you must register conditions to stop running Test Driver.
 
 Code example:
 
-``` {.CodeRay}
+```
 ::::ruby
 d = create_driver(config)
 d.run do
@@ -515,7 +515,7 @@ Returns formatted records.
 
 Code example:
 
-``` {.CodeRay}
+```
 ::::ruby
 d = create_driver(config)
 d.run do
@@ -530,7 +530,7 @@ Flush forcibly.
 
 Code example:
 
-``` {.CodeRay}
+```
 ::::ruby
 d = create_driver(config)
 d.run do
@@ -552,7 +552,7 @@ Assert EventTime instance.
 
 Code example:
 
-``` {.CodeRay}
+```
 parser = create_parser
 parser.parse(text) do |time, record|
   assert_equal_event_time(event_time("2017-12-27 09:43:50.123456789"), time)
@@ -571,7 +571,7 @@ Create `Fluent::Config::Element` instance.
 
 Code example:
 
-``` {.CodeRay}
+```
 conf = config_element('match', '**', {
   'path' => "#{TMP_DIR}/prohibited/${tag}/file.%Y%m%d.log",
 }, [
@@ -594,7 +594,7 @@ Create `Fluent::EventTime` instance.
 
 Code example:
 
-``` {.CodeRay}
+```
 time = event_time
 time = event_time("2016-10-03 23:58:09 UTC")
 time = event_time('2016-04-11 16:40:01 +0000')
@@ -614,7 +614,7 @@ processing block.
 
 Code example:
 
-``` {.CodeRay}
+```
 time = with_timezone("UTC+02") do
   parser = Fluent::TimeParser.new("%Y-%m-%d %H:%M:%S.%N", true)
   parser.parse("2016-09-02 18:42:31.123456789")
@@ -636,7 +636,7 @@ workers.
 
 Code example:
 
-``` {.CodeRay}
+```
 class Dummy < Fluent::Plugin::Output
 end
 d = Dummy.new
@@ -673,7 +673,7 @@ Shorthand for `Fluent::MessagePackFactory.factory`,
 
 Code example:
 
-``` {.CodeRay}
+```
 events = []
 factory = msgpack(:factory)
 factory.unpacker.feed_each(binary) do |obj|
@@ -689,7 +689,7 @@ This is useful for testing Fluentd utility commands.
 
 Code example:
 
-``` {.CodeRay}
+```
 captured_string = capture_stdout do
   # Print something to STDOUT
   puts "Hello!"
@@ -708,7 +708,7 @@ You can write input plugins test like below.
 
 Code example:
 
-``` {.CodeRay}
+```
 require 'fluent/test'
 require 'fluent/test/driver/input'
 require 'fluent/test/helpers'
@@ -749,7 +749,7 @@ You can write filter plugins test like below.
 
 Code example:
 
-``` {.CodeRay}
+```
 require 'fluent/test'
 require 'fluent/test/driver/filter'
 require 'fluent/test/helpers'
@@ -789,7 +789,7 @@ You can write output plugins test like below.
 
 Code example:
 
-``` {.CodeRay}
+```
 require 'fluent/test'
 require 'fluent/test/driver/output'
 require 'fluent/test/helpers'
@@ -827,7 +827,7 @@ You can write parser plugins test like below.
 
 Code example:
 
-``` {.CodeRay}
+```
 require 'fluent/test'
 require 'fluent/test/driver/parser'
 require 'fluent/test/helpers'
@@ -867,7 +867,7 @@ You can write formatter plugins test like below.
 
 Code example:
 
-``` {.CodeRay}
+```
 require 'fluent/test'
 require 'fluent/test/driver/formatter'
 require 'fluent/test/helpers'
@@ -903,7 +903,7 @@ Testing log is very easy.
 
 Code example:
 
-``` {.CodeRay}
+```
 # d is a Test Driver instance
 assert_equal(1, d.logs.size)
 logs = d.logs

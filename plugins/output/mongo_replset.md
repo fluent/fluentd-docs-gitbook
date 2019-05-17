@@ -31,14 +31,14 @@ This has the following advantages:
 users will need to install the fluent-plugin-mongo gem using the
 following command.
 
-``` {.CodeRay}
+```
 $ fluent-gem install fluent-plugin-mongo
 ```
 
 
 ## Example Configuration
 
-``` {.CodeRay}
+```
 # Single MongoDB
 <match mongo.**>
   @type mongo_replset
@@ -151,7 +151,7 @@ For example, if you generate records with tags 'mongo.foo', the records
 will be inserted into the `foo` collection within the `fluentd`
 database.
 
-``` {.CodeRay}
+```
 <match mongo.*>
   @type mongo_replset
   database fluentd

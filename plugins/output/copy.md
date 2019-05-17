@@ -10,7 +10,7 @@ The `copy` output plugin copies events to multiple outputs.
 `out_copy` is included in Fluentd's core. No additional installation
 process is required.
 
-``` {.CodeRay}
+```
 <match pattern>
   @type copy
   <store>
@@ -36,7 +36,7 @@ Elasticsearch instance (Please see the [out\_file](/plugins/output/file.md)
 and [out\_elasticsearch](/plugins/output/elasticsearch.md) articles for more
 details about the respective plugins.)
 
-``` {.CodeRay}
+```
 <match myevent.file_and_elasticsearch>
   @type copy
   <store>
@@ -109,7 +109,7 @@ This section is required at least once.
 
 If one `store` raises an error, it affects other `<store>`. For example,
 
-``` {.CodeRay}
+```
 <match app.**>
   @type copy
   <store>
@@ -125,7 +125,7 @@ if plugin1's emit/format raises an error, plugin2 is not executed. If
 you want to ignore an error from less important `<store>`, you can
 specify `ignore_error` in `<store>`.
 
-``` {.CodeRay}
+```
 <match app.**>
   @type copy
   <store ignore_error>

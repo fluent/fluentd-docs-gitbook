@@ -32,7 +32,7 @@ The delimiter character (or string) of CSV values.
 
 ## Example
 
-``` {.CodeRay}
+```
 <parse>
   @type csv
   keys time,host,req_id,user
@@ -42,13 +42,13 @@ The delimiter character (or string) of CSV values.
 
 With this configuration:
 
-``` {.CodeRay}
+```
 2013/02/28 12:00:00,192.168.0.1,111,-
 ```
 
 This incoming event is parsed as:
 
-``` {.CodeRay}
+```
 time:
 1362020400 (2013/02/28/ 12:00:00)
 

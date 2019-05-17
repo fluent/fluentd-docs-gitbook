@@ -11,7 +11,7 @@ features, check the Further Reading section.
 
 The GeoIP library.
 
-``` {.CodeRay}
+```
 # for RHEL/CentOS
 $ sudo yum group install "Development Tools"
 $ sudo yum install geoip-devel --enablerepo=epel
@@ -32,7 +32,7 @@ libmaxminddb for GeoIP2 is bundled to geoip2\_c.
 `filter_geoip` is not included in td-agent. All users must install the
 fluent-plugin-geoip gem using the following command.
 
-``` {.CodeRay}
+```
 $ fluent-gem install fluent-plugin-geoip
 $ sudo /usr/sbin/td-agent-gem install fluent-plugin-geoip
 ```
@@ -45,7 +45,7 @@ For more details, see [Plugin Management](/deployment/plugin-management.md).
 The configuration shown below adds geolocation information to
 `apache.access`.
 
-``` {.CodeRay}
+```
 <filter access.apache>
   @type geoip
 
@@ -163,7 +163,7 @@ world map using [Kibana](http://www.elasticsearch.org/overview/kibana/).
 Note: The following plugins are required: \* fluent-plugin-geoip \*
 fluent-plugin-elasticsearch
 
-``` {.CodeRay}
+```
 <filter apache.access>
   @type geoip
   backend_library geoip2_c

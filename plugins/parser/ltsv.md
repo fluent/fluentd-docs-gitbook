@@ -40,13 +40,13 @@ The delimiter character between field name and value
 
 ## Example for LTSV
 
-``` {.CodeRay}
+```
 time:2013/02/28 12:00:00\thost:192.168.0.1\treq_id:111\tuser:-
 ```
 
 This incoming event is parsed as:
 
-``` {.CodeRay}
+```
 time:
 1362020400 (2013/02/28/ 12:00:00)
 
@@ -66,13 +66,13 @@ becomes `nil` instead of `"-"`.
 
 Incoming event:
 
-``` {.CodeRay}
+```
 timestamp=1362020400 host=192.168.0.1  req_id=111 user=-
 ```
 
 Configuration to parse above incoming event:
 
-``` {.CodeRay}
+```
 <parse>
   @type ltsv
   delimiter_pattern /\s+/
@@ -82,7 +82,7 @@ Configuration to parse above incoming event:
 
 The incoming event is parsed as:
 
-``` {.CodeRay}
+```
 record:
 {
   "timestamp": "1362020400",

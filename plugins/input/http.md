@@ -11,7 +11,7 @@ gather data.
 
 The following snippet shows an example configuration.
 
-``` {.CodeRay}
+```
 <source>
   @type http
   port 9880
@@ -28,7 +28,7 @@ For the full list of the configurable options, see [the "Parameters" section](#p
 
 Here is a simple example to post a record using `curl`.
 
-``` {.CodeRay}
+```
 # Post a record with the tag "app.log"
 $ curl -X POST -d 'json={"foo":"bar"}' http://localhost:9880/app.log
 ```
@@ -36,7 +36,7 @@ $ curl -X POST -d 'json={"foo":"bar"}' http://localhost:9880/app.log
 By default, timestamps are assigned to each record on arrival. You can
 override the timestamp using the `time` parameter.
 
-``` {.CodeRay}
+```
 # Overwrite the timestamp to 2018-02-16 04:40:37.3137116
 $ curl -X POST -d 'json={"foo":"bar"}' \
   http://localhost:9880/test.tag?time=1518756037.3137116
@@ -44,7 +44,7 @@ $ curl -X POST -d 'json={"foo":"bar"}' \
 
 Here is another example in JavaScript.
 
-``` {.CodeRay}
+```
 // Post a record using XMLHttpRequest
 var form = new FormData();
 form.set('json', JSON.stringify({"foo": "bar"}));
@@ -125,7 +125,7 @@ client's address.
 If your system set multiple `X-Forwarded-For` headers in the request,
 `in_http` uses first one. For example:
 
-``` {.CodeRay}
+```
 X-Forwarded-For: host1, host2
 X-Forwarded-For: host3
 ```
@@ -146,7 +146,7 @@ returns `403` to access from other domains. Since Fluentd v1.2.6, you
 can use a wildcard character `*` to allow requests from any origins (see
 the following example).
 
-``` {.CodeRay}
+```
 <source>
   @type http
   port 9880
@@ -177,7 +177,7 @@ Deprecated parameter. Use the `<parse>` directive [as explained below](#handle-v
 
 You can post data in MessagePack format by adding the `msgpack=` prefix.
 
-``` {.CodeRay}
+```
 # Send data in msgpack format
 $ msgpack=`echo -e "\x81\xa3foo\xa3bar"`
 $ curl -X POST -d "msgpack=$msgpack" http://localhost:9880/app.log
@@ -190,14 +190,14 @@ $ curl -X POST -d "msgpack=$msgpack" http://localhost:9880/app.log
 requests. For example, you can send a JSON payload without the `json=`
 prefix.
 
-``` {.CodeRay}
+```
 $ curl -X POST -d '{"foo":"bar"}' -H 'Content-Type: application/json' \
   http://localhost:9880/app.log
 ```
 
 To use MessagePack, set the content type to `application/msgpack`.
 
-``` {.CodeRay}
+```
 $ msgpack=`echo -e "\x81\xa3foo\xa3bar"`
 $ curl -X POST -d "$msgpack" -H 'Content-Type: application/msgpack' \
   http://localhost:9880/app.log
@@ -209,7 +209,7 @@ $ curl -X POST -d "$msgpack" -H 'Content-Type: application/msgpack' \
 You can handle various input formats by using the `<parser>` directive.
 For example, add the following settings to the configuration file:
 
-``` {.CodeRay}
+```
 <source>
   @type http
   port 9880
@@ -222,7 +222,7 @@ For example, add the following settings to the configuration file:
 
 Now you can post custom-format records as below:
 
-``` {.CodeRay}
+```
 # This will be parsed into {"field1":"123456","field2":"awesome"}
 $ curl -X POST -d '123456:awesome' http://localhost:9880/app.log
 ```
@@ -243,7 +243,7 @@ the default JSON (or MessagePack) format.
 You can post multiple records with a single request by packing data into
 a JSON/MessagePack array.
 
-``` {.CodeRay}
+```
 # Send multiple events as a JSON array
 $ curl -X POST -d "json=[{"foo":"bar"},{"abc":"def"},{"xyz":"123"}]" \
   http://localhost:9880/app.log
@@ -267,7 +267,7 @@ Since v1.2.3, Fluentd can handle gzip-compressed payloads. To enable
 this feature, you need to add the 'Content-Encoding' header to your
 requests.
 
-``` {.CodeRay}
+```
 # Send gzip-compressed payload
 $ echo 'json={"foo":"bar"}' | gzip > json.gz
 $ curl --data-binary @json.gz -H "Content-Encoding: gzip" \
@@ -282,7 +282,7 @@ You do not need any configuration to enable this feature.
 If you use this plugin under multi-process environment, port will be
 shared.
 
-``` {.CodeRay}
+```
 <system>
   workers 3
 </system>
@@ -304,7 +304,7 @@ port. Incoming data will be routed to 3 workers automatically.
 This is HTTP spec, not fluentd problem. You need to encode your payload
 properly or use multipart request. Here is ruby example:
 
-``` {.CodeRay}
+```
 # OK
 URI.encode_www_form({json: {"message" => "foo+bar"}.to_json})
 
@@ -314,7 +314,7 @@ URI.encode_www_form({json: {"message" => "foo+bar"}.to_json})
 
 curl command example:
 
-``` {.CodeRay}
+```
 # OK
 curl -X POST -H 'Content-Type: multipart/form-data' -F 'json={"message":"foo+bar"}' http://localhost:9880/app.log
 

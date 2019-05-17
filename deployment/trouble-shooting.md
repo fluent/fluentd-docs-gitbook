@@ -23,7 +23,7 @@ Set `log_level trace`. See also [logging article](/deployment/logging.md/#by-con
 Put your unit file into `/etc/systemd/system/td-agent`. This overwrites
 existing behaviour of `/usr/lib/systemd/system/td-agent`.
 
-``` {.CodeRay}
+```
 [Service]
 ExecStart=...existing options... -vv
 ```
@@ -35,7 +35,7 @@ ExecStart=...existing options... -vv
 2.  add `-vv` to TD\_AGENT\_OPTIONS
 3.  restart td-agent
 
-    ``` {.CodeRay}
+    ```
     # at /etc/init.d/td-agent
     ...
     TD_AGENT_OPTIONS="... -vv"
@@ -50,7 +50,7 @@ init.d's start routine and ignore options.
 
 Please add `-vv` to your command line.
 
-``` {.CodeRay}
+```
 $ fluentd .. -vv
 ```
 
@@ -85,7 +85,7 @@ useful.
 You sometimes hit unexpected shutdown with non-zero exit status like
 below.
 
-``` {.CodeRay}
+```
 2016-01-01 00:00:00 +0800 [info]: starting fluentd-0.12.28
 2016-01-01 00:00:00 +0800 [info]: reading config file path="/etc/td-agent/td-agent.conf"
 [...snip...]
@@ -98,7 +98,7 @@ For example, td-agent launches fluentd with `--daemon` option. In
 td-agent case, you can get entire log using following command to
 simulate `/etc/init.d/td-agent start` without daemonize.
 
-``` {.CodeRay}
+```
 $ sudo LD_PRELOAD=/opt/td-agent/embedded/lib/libjemalloc.so /usr/sbin/td-agent -c /etc/td-agent/td-agent.conf --user td-agent --group td-agent
 ```
 

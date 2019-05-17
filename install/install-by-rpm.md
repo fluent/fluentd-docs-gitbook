@@ -42,7 +42,7 @@ will automatically install td-agent on your machine. This shell script
 registers a new rpm repository at `/etc/yum.repos.d/td.repo` and
 installs the `td-agent` rpm package.
 
-``` {.CodeRay}
+```
 $ curl -L https://toolbelt.treasuredata.com/sh/install-redhat-td-agent3.sh | sh
 ```
 
@@ -58,7 +58,7 @@ Mainly for Amazon Linux 2. Recent two 64bit versions are supported for
 amazon linux 1. This means if latest version is `2018.03`, rpm is
 provided for `2018.03` and `2017.09`.
 
-``` {.CodeRay}
+```
 # Amazon Linux 2
 $ curl -L https://toolbelt.treasuredata.com/sh/install-amazon2-td-agent3.sh | sh
 # Amazon Linux 1
@@ -86,7 +86,7 @@ td-agent provides 2 scripts:
 The `/usr/lib/systemd/system/td-agent` script is provided to start,
 stop, or restart the agent.
 
-``` {.CodeRay}
+```
 $ sudo systemctl start td-agent.service
 $ sudo systemctl status td-agent.service
 ● td-agent.service - td-agent: Fluentd based data collector for Treasure Data
@@ -112,7 +112,7 @@ into `/etc/systemd/system`
 The `/etc/init.d/td-agent` script is provided to start, stop, or restart
 the agent.
 
-``` {.CodeRay}
+```
 $ sudo /etc/init.d/td-agent start
 Starting td-agent: [  OK  ]
 $ sudo /etc/init.d/td-agent status
@@ -121,7 +121,7 @@ td-agent (pid  21678) is running...
 
 The following commands are supported:
 
-``` {.CodeRay}
+```
 $ sudo /etc/init.d/td-agent start
 $ sudo /etc/init.d/td-agent stop
 $ sudo /etc/init.d/td-agent restart
@@ -138,7 +138,7 @@ By default, `/etc/td-agent/td-agent.conf` is configured to take logs
 from HTTP and route them to stdout (`/var/log/td-agent/td-agent.log`).
 You can post sample log records using the curl command.
 
-``` {.CodeRay}
+```
 $ curl -X POST -d 'json={"json":"message"}' http://localhost:8888/debug.test
 ```
 

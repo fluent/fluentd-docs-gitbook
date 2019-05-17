@@ -13,13 +13,13 @@ through td-agent package.
 A clean installation leaves you a td-agent instance running on a sample
 configuration file. You can edit the configuration file located at:
 
-``` {.CodeRay}
+```
 /etc/td-agent/td-agent.conf
 ```
 
 After editing this file, you need to restart td-agent using `systemctl`:
 
-``` {.CodeRay}
+```
 $ sudo systemctl restart td-agent
 ```
 
@@ -28,7 +28,7 @@ $ sudo systemctl restart td-agent
 
 By default, td-agent writes its operation logs to the following file:
 
-``` {.CodeRay}
+```
 /var/log/td-agent/td-agent.log
 ```
 
@@ -53,7 +53,7 @@ The following snippet is an example configuration, which uses
 `in_forward` plugin as an input source and `out_file` plugin as an
 output endpoint.
 
-``` {.CodeRay}
+```
 <source>
   @type forward
   port 9999
@@ -76,7 +76,7 @@ Fluentd plugins. For example, the following command allows you to
 install the plugin to connect S3 (which contains both `in_s3` and
 `out_s3`)
 
-``` {.CodeRay}
+```
  $ sudo /usr/sbin/td-agent-gem install fluent-plugin-s3
 ```
 
@@ -103,7 +103,7 @@ For example, if you want to create an endpoint to receive data from
 [syslog](/plugins/input/syslog.md), you need to add a `<source>` block and set up its
 settings as follows.
 
-``` {.CodeRay}
+```
 <source>
   @type syslog
   port 5140
@@ -126,7 +126,7 @@ argument.
 For example, If you want to output events tagged with `debug.log`, you
 need to write as below:
 
-``` {.CodeRay}
+```
 <match debug.log>
   @type kafka2
   port 5140

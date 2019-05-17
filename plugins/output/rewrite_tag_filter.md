@@ -21,7 +21,7 @@ This in an example on how to use this plugin to re-write tags. In the
 example, records tagged with 'app.component' will have their tag
 prefixed with the value of the key 'message':
 
-``` {.CodeRay}
+```
 # Configuration
 <match app.component>
   @type rewrite_tag_filter
@@ -35,7 +35,7 @@ prefixed with the value of the key 'message':
 
 Sample data:
 
-``` {.CodeRay}
+```
 +------------------------------------------+        +------------------------------------------------+
 | original record                          |        | rewritten tag record                           |
 |------------------------------------------|        |------------------------------------------------|
@@ -53,7 +53,7 @@ Sample data:
 later). Fluentd gem users will have to install the
 fluent-plugin-rewrite-tag-filter gem using the following command.
 
-``` {.CodeRay}
+```
 $ fluent-gem install fluent-plugin-rewrite-tag-filter
 ```
 
@@ -71,7 +71,7 @@ depending on the regular expression configured in each rule.
 The tag value is later used to decide whether the log event shall be
 dropped or not.
 
-``` {.CodeRay}
+```
 <match apache.access>
   @type rewrite_tag_filter
   capitalize_regex_backreference yes
@@ -223,7 +223,7 @@ fluent-plugin-rewrite-tag-filter \* fluent-plugin-mongo
 
 ##### \[Config1\] Application Servers
 
-``` {.CodeRay}
+```
 # Input access log to fluentd with embedded in_tail plugin
 <source>
   @type tail
@@ -249,7 +249,7 @@ fluent-plugin-rewrite-tag-filter \* fluent-plugin-mongo
 
 ##### \[Config2\] Monitoring Server
 
-``` {.CodeRay}
+```
 # built-in TCP input
 <source>
   @type forward
@@ -299,7 +299,7 @@ fluent-plugin-irc
 
 ##### \[Config1\] Application Servers
 
-``` {.CodeRay}
+```
 # Input access log to fluentd with embedded in_tail plugin
 # sample results: {"host":"127.0.0.1","user":null,"method":"GET","path":"/","code":500,"size":5039,"referer":null,"agent":"Mozilla"}
 <source>
@@ -326,7 +326,7 @@ fluent-plugin-irc
 
 ##### \[Config2\] Monitoring Server
 
-``` {.CodeRay}
+```
 # built-in TCP input
 <source>
   @type forward
@@ -443,7 +443,7 @@ fluent-plugin-irc
 
 If you have following configuration, it doesn't work:
 
-``` {.CodeRay}
+```
 <match app.**>
   @type rewrite_tag_filter
   <rule>
@@ -463,7 +463,7 @@ In this case, `rewrite_tag_filter` causes infinite loop because
 fluentd's routing is executed from top to bottom. So you need to change
 tag like below:
 
-``` {.CodeRay}
+```
 <match app.**>
   @type rewrite_tag_filter
   <rule>

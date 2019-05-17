@@ -18,7 +18,7 @@ plugin instead.
 `in_forward` is included in Fluentd's core. No additional installation
 process is required.
 
-``` {.CodeRay}
+```
 <source>
   @type forward
   port 24224
@@ -149,7 +149,7 @@ This iterates incoming events. So if you sends larger chunks to
 
 This section is for using SSL transport.
 
-``` {.CodeRay}
+```
 <transport tls>
   cert_path /path/to/fluentd.crt
   # other parameters
@@ -302,7 +302,7 @@ and MAC systems, this is the number of seconds since 1970.
 
 Multiple messages may be sent in the same connection.
 
-``` {.CodeRay}
+```
 stream:
   message...
 
@@ -329,7 +329,7 @@ a quick tutorial for setting up TLS encryption:
 
 First, generate a self-signed certificate using the following command:
 
-``` {.CodeRay}
+```
 $ openssl req -new -x509 -sha256 -days 1095 -newkey rsa:2048 \
               -keyout fluentd.key -out fluentd.crt
 # Note that during the generation, you will be asked for:
@@ -340,7 +340,7 @@ $ openssl req -new -x509 -sha256 -days 1095 -newkey rsa:2048 \
 Move the generated certificate and private key to a safer place. For
 example:
 
-``` {.CodeRay}
+```
 # Move files into /etc/td-agent
 $ sudo mkdir -p /etc/td-agent/certs
 $ sudo mv fluentd.key fluentd.crt /etc/td-agent/certs
@@ -354,7 +354,7 @@ $ sudo chmod 400 /etc/td-agent/certs/fluentd.key
 Then add the following settings to `td-agent.conf`, and then restart the
 service:
 
-``` {.CodeRay}
+```
 <source>
   @type forward
   <transport tls>
@@ -372,7 +372,7 @@ To test your encryption settings, execute the following command in your
 terminal. If the encryption is working properly, you should see a line
 containing `{"foo":"bar"}` in the log file:
 
-``` {.CodeRay}
+```
 $ echo -e '\x93\xa9debug.tls\xceZr\xbc1\x81\xa3foo\xa3bar' | \
   openssl s_client -connect localhost:24224
 ```
@@ -386,7 +386,7 @@ Since v1.1.1, Fluentd supports [TLS mutual authentication](https://en.wikipedia.
 (a.k.a. client certificate auth). If you want to use this feature,
 please set the `client_cert_auth` and `ca_path` options as follows.
 
-``` {.CodeRay}
+```
 <source>
   @type forward
   <transport tls>
@@ -404,7 +404,7 @@ supply a valid client certificate will fail.
 To check if mutual authentication is working properly, issue the
 following command:
 
-``` {.CodeRay}
+```
 $ openssl s_client -connect localhost:24224 \
   -key path/to/client.key \
   -cert path/to/client.crt \
@@ -426,7 +426,7 @@ secret key.
 To enable this feature, you need to add a `<security>` section to your
 configuration file as below.
 
-``` {.CodeRay}
+```
 <source>
   @type forward
   <security>
@@ -446,7 +446,7 @@ on another server, please [configure it following the instruction](/plugins/outp
 If you use this plugin under multi-process environment, port will be
 shared.
 
-``` {.CodeRay}
+```
 <system>
   workers 3
 </system>

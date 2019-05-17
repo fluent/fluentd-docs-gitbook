@@ -17,7 +17,7 @@ first.
 
 To install v1, type `gem install` command. Now v1 will be installed:
 
-``` {.CodeRay}
+```
 $ gem install fluentd
 ```
 
@@ -28,7 +28,7 @@ Configuration style is same but Fluentd v1 adds several sections for
 core features. For example, v1 uses `<buffer>` section for output's
 buffer parameters.
 
-``` {.CodeRay}
+```
 # v1
 <match pattern>
   @type foo

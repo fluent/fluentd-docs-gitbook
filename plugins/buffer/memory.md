@@ -15,7 +15,7 @@ logs that can't be written quickly are deleted.
 
 ## Example
 
-``` {.CodeRay}
+```
 <match pattern>
   <buffer>
     @type memory

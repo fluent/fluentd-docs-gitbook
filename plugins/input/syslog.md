@@ -11,7 +11,7 @@ syslog protocol on UDP or TCP.
 `in_syslog` is included in Fluentd's core. No additional installation
 process is required.
 
-``` {.CodeRay}
+```
 <source>
   @type syslog
   port 5140
@@ -25,7 +25,7 @@ to set up your syslog daemon to send messages to the socket. For
 example, if you're using rsyslogd, add the following lines to
 `/etc/rsyslog.conf`.
 
-``` {.CodeRay}
+```
 # Send log messages to Fluentd
 *.* @127.0.0.1:5140
 ```
@@ -39,7 +39,7 @@ by the `tag` parameter (tag prefix), [facility level](http://en.wikipedia.org/wi
 record is parsed by the regexp
 [here](https://github.com/fluent/fluentd/blob/master/lib/fluent/plugin/parser_syslog.rb#L23).
 
-``` {.CodeRay}
+```
 tag = "#{@tag}.#{facility}.#{priority}"
 time = 1353436518,
 record = {
@@ -149,7 +149,7 @@ Deprecated parameter. Use `<parse>` instead.
 The format of the log. This option is used to parse non-standard syslog
 formats using [parser plugins](/plugins/parser/README.md).
 
-``` {.CodeRay}
+```
 <source>
   @type syslog
   tag system
@@ -162,13 +162,13 @@ formats using [parser plugins](/plugins/parser/README.md).
 Your `<parse>` regexp should not consider the 'priority' prefix of the
 log. For example, if in\_syslog receives the log below:
 
-``` {.CodeRay}
+```
  <1>Feb 20 00:00:00 192.168.0.1 fluentd[11111]: [error] hogehoge
 ```
 
 then the format parser receives the following log:
 
-``` {.CodeRay}
+```
  Feb 20 00:00:00 192.168.0.1 fluentd[11111]: [error] hogehoge
 ```
 
@@ -185,7 +185,7 @@ assumed to have the canonical syslog format.
 This parameter is used inside `<parse>` directive. The default is
 `rfc3164`
 
-``` {.CodeRay}
+```
 <source>
   @type syslog
   tag system
@@ -199,7 +199,7 @@ Specify protocol format. Supported values are `rfc3164`, `rfc5424` and
 `auto`. If your syslog uses `rfc5424`, use `rfc5424` instead.\
 Here is an example of message:
 
-``` {.CodeRay}
+```
 # rfc3164
 <6>Feb 28 12:00:00 192.168.0.1 fluentd[11111]: [error] Hello!
 # rfc5424
@@ -219,7 +219,7 @@ prefix and parse it.
 
 This parameter is used inside `<parse>` directive.
 
-``` {.CodeRay}
+```
 <source>
   @type syslog
   tag system
@@ -302,7 +302,7 @@ See also [rfc6587](https://tools.ietf.org/html/rfc6587#section-3.4.2).
 If you use this plugin under multi-process environment, port will be
 shared.
 
-``` {.CodeRay}
+```
 <system>
   workers 3
 </system>
