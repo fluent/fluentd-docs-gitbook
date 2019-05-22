@@ -6,4 +6,4 @@ structure:
 
 redirects:
   v1.0/articles/quickstart: README.md
-  v1.0/articles/quickstart: guides/apache-to-mongo.md
+  v1.0/articles/apache-to-mongo: guides/apache-to-mongo.md
