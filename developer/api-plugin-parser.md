@@ -46,7 +46,7 @@ module Fluent::Plugin
 
       # TimeParser class is already given. It takes a single argument as the time format
       # to parse the time string with.
-      @time_parser = TimeParser.new(@time_format)
+      @time_parser = Fluent::TimeParser.new(@time_format)
     end
 
     def parse(text)
