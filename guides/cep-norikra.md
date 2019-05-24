@@ -1,14 +1,14 @@
 # Fluentd and Norikra: Complex Event Processing
 
-This article explains how to use [Fluentd](http://fluentd.org/) and
-[Norikra](http://norikra.github.io) to create a SQL-based real-time
+This article explains how to use [Fluentd](https://www.fluentd.org/) and
+[Norikra](https://norikra.github.io) to create a SQL-based real-time
 complex event processing platform.
 
 
 ## Background
 
-[Fluentd](http://fluentd.org/) is an advanced open-source log collector
-originally developed at [Treasure Data, Inc](http://www.treasuredata.com/). Fluentd is not only a log collector,
+[Fluentd](https://www.fluentd.org/) is an advanced open-source log collector
+originally developed at [Treasure Data, Inc](https://www.treasuredata.com/). Fluentd is not only a log collector,
 but also an all-purpose stream processing platform. Plugins can be
 written to handle many kinds of events.
 
@@ -21,16 +21,16 @@ all existing internal statuses of short and long span calculations are
 lost. For large scale stream processing platforms, code/processes must
 be added/removed without any such losses.
 
-[Norikra](http://norikra.github.io/) is an open-source stream processing
-server based on [Esper](http://esper.codehaus.org/) by
+[Norikra](https://norikra.github.io/) is an open-source stream processing
+server based on [Esper](https://github.com/espertechinc/esper) by
 [EsperTech](http://www.espertech.com). It allows you to
 subscribe/unsubscribe to data streams anytime and add/remove SQL queries
-anytime. [Norikra](http://norikra.github.io/) is written by
-[@tagomoris](http://github.com/tagomoris), a committer of the Fluentd
+anytime. [Norikra](https://norikra.github.io/) is written by
+[@tagomoris](https://github.com/tagomoris), a committer of the Fluentd
 project.
 
 This article will show you how to integrate
-[Fluentd](http://fluentd.org/), [Norikra](http://norikra.github.io/),
+[Fluentd](https://fluentd.org/), [Norikra](https://norikra.github.io/),
 and the [Fluentd norikra plugin](https://github.com/norikra/fluent-plugin-norikra) to create a
 robust stream data processing platform.
 
@@ -47,9 +47,9 @@ The figure below shows the high-level architecture.
 For the sake of simplicity, this guide will set up a one-node
 configuration. Please install the following on the same node:
 
--   [Fluentd](http://fluentd.org/)
+-   [Fluentd](https://fluentd.org/)
 -   [Fluentd Norikra Plugin](https://github.com/norikra/fluent-plugin-norikra/)
--   [Norikra](http://norikra.github.io/)
+-   [Norikra](https://norikra.github.io/)
 
 
 ### Installing Fluentd and fluentd-plugin-norikra
@@ -67,7 +67,7 @@ fluent-plugin-norikra can be installed with the
 ### Installing Norikra
 
 Norikra requires JRuby. You can download the JRuby binary directly from
-the [official site](http://www.jruby.org/download) and export the PATH
+the [official site](https://www.jruby.org/download) and export the PATH
 of `JRUBY_INSTALL_DIRECTORY/bin`.
 
 Once JRuby has been installed, simply entering `jgem install norikra`
@@ -258,11 +258,11 @@ stream processing environment that can handle real workloads.
 
 ## Learn More
 
--   [Fluentd Architecture](//www.fluentd.org/architecture)
+-   [Fluentd Architecture](https://www.fluentd.org/architecture)
 -   [Fluentd Get Started](/overview/quickstart.md)
--   [Norikra: Query Syntax](http://norikra.github.io/query.html)
--   [Norikra: Query Examples](http://norikra.github.io/examples.html)
--   [Slides: fluent-plugin-norikra](http://www.slideshare.net/tagomoris/fluentpluginnorikra-fluentdcasual)
+-   [Norikra: Query Syntax](https://norikra.github.io/query.html)
+-   [Norikra: Query Examples](https://norikra.github.io/examples.html)
+-   [Slides: fluent-plugin-norikra](https://www.slideshare.net/tagomoris/fluentpluginnorikra-fluentdcasual)
 
 
 ------------------------------------------------------------------------
