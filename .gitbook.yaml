@@ -109,7 +109,7 @@ redirects:
   v1.0/articles/storage_local: plugins/storage/local.md
   v1.0/articles/buf_file: plugins/buffer/file.md
   v1.0/articles/buf_memory: plugins/buffer/memory.md
-  v1.0/articles/out_null: plugins/output/null.md
+  v1.0/articles/out_null: 'plugins/output/null.md'
   v1.0/articles/out_file: plugins/output/file.md
   v1.0/articles/out_elasticsearch: plugins/output/elasticsearch.md
   v1.0/articles/out_s3: plugins/output/s3.md
