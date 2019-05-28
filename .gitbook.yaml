@@ -6,6 +6,37 @@ structure:
 
 redirects:
   v1.0/articles/quickstart: README.md
+
+  # Overview
+  v1.0/articles/support: overview/support.md
+  v1.0/articles/update-from-v0.12: overview/update-from-v0.12.md
+  v1.0/articles/life-of-a-fluentd-event: overview/life-of-a-fluentd-event.md
+  v1.0/articles/logo: overview/logo.md
+  v1.0/articles/faq: overview/faq.md
+
+  # Install
+  v1.0/articles/install-by-dmg: install/install-by-dmg.md
+  v1.0/articles/post-installation-guide: install/post-installation-guide.md
+  v1.0/articles/install-by-msi: install/install-by-msi.md
+  v1.0/articles/install-from-source: install/install-from-source.md
+  v1.0/articles/install-by-rpm: install/install-by-rpm.md
+  v1.0/articles/before-install: install/before-install.md
+  v1.0/articles/install-by-gem: install/install-by-gem.md
+  v1.0/articles/install-by-deb: install/install-by-deb.md
+
+  # Configuration
+  v1.0/articles/extract-section: configuration/extract-section.md
+  v1.0/articles/routing-examples: configuration/routing-examples.md
+  v1.0/articles/buffer-section: configuration/buffer-section.md
+  v1.0/articles/transport-section: configuration/transport-section.md
+  v1.0/articles/plugin-common-parameters: configuration/plugin-common-parameters.md
+  v1.0/articles/inject-section: configuration/inject-section.md
+  v1.0/articles/format-section: configuration/format-section.md
+  v1.0/articles/parse-section: configuration/parse-section.md
+  v1.0/articles/config-file: configuration/config-file.md
+  v1.0/articles/storage-section: configuration/storage-section.md
+
+  # Deployment
   v1.0/articles/multi-process-workers: deployment/multi-process-workers.md
   v1.0/articles/rpc: deployment/rpc.md
   v1.0/articles/plugin-management: deployment/plugin-management.md
@@ -21,73 +52,9 @@ redirects:
   v1.0/articles/trouble-shooting: deployment/trouble-shooting.md
   v1.0/articles/performance-tuning-single-process: deployment/performance-tuning-single-process.md
   v1.0/articles/command-line-option: deployment/command-line-option.md
-  v1.0/articles/extract-section: configuration/extract-section.md
-  v1.0/articles/routing-examples: configuration/routing-examples.md
-  v1.0/articles/buffer-section: configuration/buffer-section.md
-  v1.0/articles/transport-section: configuration/transport-section.md
-  v1.0/articles/plugin-common-parameters: configuration/plugin-common-parameters.md
-  v1.0/articles/inject-section: configuration/inject-section.md
-  v1.0/articles/format-section: configuration/format-section.md
-  v1.0/articles/parse-section: configuration/parse-section.md
-  v1.0/articles/config-file: configuration/config-file.md
-  v1.0/articles/storage-section: configuration/storage-section.md
-  v1.0/articles/ruby: language/ruby.md
-  v1.0/articles/nodejs: language/nodejs.md
-  v1.0/articles/perl: language/perl.md
-  v1.0/articles/java: language/java.md
-  v1.0/articles/python: language/python.md
-  v1.0/articles/php: language/php.md
-  v1.0/articles/scala: language/scala.md
-  v1.0/articles/api-plugin-helper-inject: developer/api-plugin-helper-inject.md
-  v1.0/articles/plugin-test-code: developer/plugin-test-code.md
-  v1.0/articles/api-plugin-helper-thread: developer/api-plugin-helper-thread.md
-  v1.0/articles/api-plugin-storage: developer/api-plugin-storage.md
-  v1.0/articles/api-plugin-helper-compat_parameters: developer/api-plugin-helper-compat_parameters.md
-  v1.0/articles/api-plugin-helper-timer: developer/api-plugin-helper-timer.md
-  v1.0/articles/api-plugin-helper-event_loop: developer/api-plugin-helper-event_loop.md
-  v1.0/articles/api-plugin-base: developer/api-plugin-base.md
-  v1.0/articles/api-plugin-buffer: developer/api-plugin-buffer.md
-  v1.0/articles/api-plugin-helper-record_accessor: developer/api-plugin-helper-record_accessor.md
-  v1.0/articles/api-plugin-formatter: developer/api-plugin-formatter.md
-  v1.0/articles/api-plugin-helper-parser: developer/api-plugin-helper-parser.md
-  v1.0/articles/api-plugin-helper-formatter: developer/api-plugin-helper-formatter.md
-  v1.0/articles/api-config-types: developer/api-config-types.md
-  v1.0/articles/api-plugin-filter: developer/api-plugin-filter.md
-  v1.0/articles/api-plugin-helper-child_process: developer/api-plugin-helper-child_process.md
-  v1.0/articles/plugin-development: developer/plugin-development.md
-  v1.0/articles/api-plugin-helper-event_emitter: developer/api-plugin-helper-event_emitter.md
-  v1.0/articles/api-plugin-helper-server: developer/api-plugin-helper-server.md
-  v1.0/articles/api-plugin-helper-extract: developer/api-plugin-helper-extract.md
-  v1.0/articles/api-plugin-input: developer/api-plugin-input.md
-  v1.0/articles/api-plugin-helper-storage: developer/api-plugin-helper-storage.md
-  v1.0/articles/api-plugin-helper-socket: developer/api-plugin-helper-socket.md
-  v1.0/articles/api-plugin-output: developer/api-plugin-output.md
-  v1.0/articles/plugin-update-from-v12: developer/plugin-update-from-v0.12.md
-  v1.0/articles/api-plugin-parser: developer/api-plugin-parser.md
-  v1.0/articles/plugin-helper-overview: developer/plugin-helper-overview.md
-  v1.0/articles/support: overview/support.md
-  v1.0/articles/update-from-v0.12: overview/update-from-v0.12.md
-  v1.0/articles/life-of-a-fluentd-event: overview/life-of-a-fluentd-event.md
-  v1.0/articles/logo: overview/logo.md
-  v1.0/articles/faq: overview/faq.md
-  v1.0/articles/buffer-plugin-overview: plugins/buffer/README.md
+
+  # Plugin/Input
   v1.0/articles/input-plugin-overview: plugins/input/README.md
-  v1.0/articles/output-plugin-overview: plugins/output/README.md
-  v1.0/articles/parser-plugin-overview: plugins/parser/README.md
-  v1.0/articles/storage-plugin-overview: plugins/storage/README.md
-  v1.0/articles/filter_geoip: plugins/filter/geoip.md
-  v1.0/articles/filter_parser: plugins/filter/parser.md
-  v1.0/articles/filter_record_transformer: plugins/filter/record_transformer.md
-  v1.0/articles/filter_stdout: plugins/filter/stdout.md
-  v1.0/articles/filter_grep: plugins/filter/grep.md
-  v1.0/articles/formatter_ltsv: plugins/formatter/ltsv.md
-  v1.0/articles/formatter_hash: plugins/formatter/hash.md
-  v1.0/articles/formatter_out_file: plugins/formatter/out_file.md
-  v1.0/articles/formatter_csv: plugins/formatter/csv.md
-  v1.0/articles/formatter_msgpack: plugins/formatter/msgpack.md
-  v1.0/articles/formatter_single_value: plugins/formatter/single_value.md
-  v1.0/articles/formatter_json: plugins/formatter/json.md
-  v1.0/articles/formatter_stdout: plugins/formatter/stdout.md
   v1.0/articles/in_http: plugins/input/http.md
   v1.0/articles/in_monitor_agent: plugins/input/monitor_agent.md
   v1.0/articles/in_windows_eventlog: plugins/input/windows_eventlog.md
@@ -99,20 +66,9 @@ redirects:
   v1.0/articles/in_syslog: plugins/input/syslog.md
   v1.0/articles/in_unix: plugins/input/unix.md
   v1.0/articles/in_dummy: plugins/input/dummy.md
-  v1.0/articles/parser_multiline: plugins/parser/multiline.md
-  v1.0/articles/parser_tsv: plugins/parser/tsv.md
-  v1.0/articles/parser_ltsv: plugins/parser/ltsv.md
-  v1.0/articles/parser_none: plugins/parser/none.md
-  v1.0/articles/parser_apache2: plugins/parser/apache2.md
-  v1.0/articles/parser_regexp: plugins/parser/regexp.md
-  v1.0/articles/parser_csv: plugins/parser/csv.md
-  v1.0/articles/parser_nginx: plugins/parser/nginx.md
-  v1.0/articles/parser_apache_error: plugins/parser/apache_error.md
-  v1.0/articles/parser_json: plugins/parser/json.md
-  v1.0/articles/parser_syslog: plugins/parser/syslog.md
-  v1.0/articles/storage_local: plugins/storage/local.md
-  v1.0/articles/buf_file: plugins/buffer/file.md
-  v1.0/articles/buf_memory: plugins/buffer/memory.md
+
+  # Plugin/Output
+  v1.0/articles/output-plugin-overview: plugins/output/README.md
   v1.0/articles/out_null: 'plugins/output/null.md'
   v1.0/articles/out_file: plugins/output/file.md
   v1.0/articles/out_elasticsearch: plugins/output/elasticsearch.md
@@ -128,14 +84,48 @@ redirects:
   v1.0/articles/out_exec: plugins/output/exec.md
   v1.0/articles/out_mongo_replset: plugins/output/mongo_replset.md
   v1.0/articles/out_relabel: plugins/output/relabel.md
-  v1.0/articles/install-by-dmg: install/install-by-dmg.md
-  v1.0/articles/post-installation-guide: install/post-installation-guide.md
-  v1.0/articles/install-by-msi: install/install-by-msi.md
-  v1.0/articles/install-from-source: install/install-from-source.md
-  v1.0/articles/install-by-rpm: install/install-by-rpm.md
-  v1.0/articles/before-install: install/before-install.md
-  v1.0/articles/install-by-gem: install/install-by-gem.md
-  v1.0/articles/install-by-deb: install/install-by-deb.md
+
+  # Plugin/Filter
+  v1.0/articles/filter_geoip: plugins/filter/geoip.md
+  v1.0/articles/filter_parser: plugins/filter/parser.md
+  v1.0/articles/filter_record_transformer: plugins/filter/record_transformer.md
+  v1.0/articles/filter_stdout: plugins/filter/stdout.md
+  v1.0/articles/filter_grep: plugins/filter/grep.md
+
+  # Plugin/Parser
+  v1.0/articles/storage-plugin-overview: plugins/storage/README.md
+  v1.0/articles/parser-plugin-overview: plugins/parser/README.md
+  v1.0/articles/parser_multiline: plugins/parser/multiline.md
+  v1.0/articles/parser_tsv: plugins/parser/tsv.md
+  v1.0/articles/parser_ltsv: plugins/parser/ltsv.md
+  v1.0/articles/parser_none: plugins/parser/none.md
+  v1.0/articles/parser_apache2: plugins/parser/apache2.md
+  v1.0/articles/parser_regexp: plugins/parser/regexp.md
+  v1.0/articles/parser_csv: plugins/parser/csv.md
+  v1.0/articles/parser_nginx: plugins/parser/nginx.md
+  v1.0/articles/parser_apache_error: plugins/parser/apache_error.md
+  v1.0/articles/parser_json: plugins/parser/json.md
+  v1.0/articles/parser_syslog: plugins/parser/syslog.md
+
+  # Plugin/Formatter
+  v1.0/articles/formatter_ltsv: plugins/formatter/ltsv.md
+  v1.0/articles/formatter_hash: plugins/formatter/hash.md
+  v1.0/articles/formatter_out_file: plugins/formatter/out_file.md
+  v1.0/articles/formatter_csv: plugins/formatter/csv.md
+  v1.0/articles/formatter_msgpack: plugins/formatter/msgpack.md
+  v1.0/articles/formatter_single_value: plugins/formatter/single_value.md
+  v1.0/articles/formatter_json: plugins/formatter/json.md
+  v1.0/articles/formatter_stdout: plugins/formatter/stdout.md
+
+  # Plugin/Buffer
+  v1.0/articles/buffer-plugin-overview: plugins/buffer/README.md
+  v1.0/articles/buf_file: plugins/buffer/file.md
+  v1.0/articles/buf_memory: plugins/buffer/memory.md
+
+  # Plugin/Storage
+  v1.0/articles/storage_local: plugins/storage/local.md
+
+  # Guides
   v1.0/articles/apache-to-mongodb: guides/apache-to-mongodb.md
   v1.0/articles/filter-modify-apache: guides/filter-modify-apache.md
   v1.0/articles/free-alternative-to-splunk-by-fluentd: guides/free-alternative-to-splunk-by-fluentd.md
@@ -151,7 +141,47 @@ redirects:
   v1.0/articles/cep-norikra: guides/cep-norikra.md
   v1.0/articles/apache-to-minio: guides/apache-to-minio.md
 
-  # Obsolete pages
+  # Language Bindings
+  v1.0/articles/ruby: language/ruby.md
+  v1.0/articles/nodejs: language/nodejs.md
+  v1.0/articles/perl: language/perl.md
+  v1.0/articles/java: language/java.md
+  v1.0/articles/python: language/python.md
+  v1.0/articles/php: language/php.md
+  v1.0/articles/scala: language/scala.md
+
+  # Plugin Development
+  v1.0/articles/plugin-test-code: developer/plugin-test-code.md
+  v1.0/articles/api-plugin-storage: developer/api-plugin-storage.md
+  v1.0/articles/api-plugin-base: developer/api-plugin-base.md
+  v1.0/articles/api-plugin-buffer: developer/api-plugin-buffer.md
+  v1.0/articles/api-plugin-formatter: developer/api-plugin-formatter.md
+  v1.0/articles/api-config-types: developer/api-config-types.md
+  v1.0/articles/api-plugin-filter: developer/api-plugin-filter.md
+  v1.0/articles/plugin-development: developer/plugin-development.md
+  v1.0/articles/api-plugin-input: developer/api-plugin-input.md
+  v1.0/articles/api-plugin-output: developer/api-plugin-output.md
+  v1.0/articles/plugin-update-from-v12: developer/plugin-update-from-v0.12.md
+  v1.0/articles/api-plugin-parser: developer/api-plugin-parser.md
+
+  # Plugin Helper API
+  v1.0/articles/plugin-helper-overview: developer/plugin-helper-overview.md
+  v1.0/articles/api-plugin-helper-inject: developer/api-plugin-helper-inject.md
+  v1.0/articles/api-plugin-helper-thread: developer/api-plugin-helper-thread.md
+  v1.0/articles/api-plugin-helper-compat_parameters: developer/api-plugin-helper-compat_parameters.md
+  v1.0/articles/api-plugin-helper-timer: developer/api-plugin-helper-timer.md
+  v1.0/articles/api-plugin-helper-event_loop: developer/api-plugin-helper-event_loop.md
+  v1.0/articles/api-plugin-helper-record_accessor: developer/api-plugin-helper-record_accessor.md
+  v1.0/articles/api-plugin-helper-parser: developer/api-plugin-helper-parser.md
+  v1.0/articles/api-plugin-helper-formatter: developer/api-plugin-helper-formatter.md
+  v1.0/articles/api-plugin-helper-child_process: developer/api-plugin-helper-child_process.md
+  v1.0/articles/api-plugin-helper-event_emitter: developer/api-plugin-helper-event_emitter.md
+  v1.0/articles/api-plugin-helper-server: developer/api-plugin-helper-server.md
+  v1.0/articles/api-plugin-helper-extract: developer/api-plugin-helper-extract.md
+  v1.0/articles/api-plugin-helper-storage: developer/api-plugin-helper-storage.md
+  v1.0/articles/api-plugin-helper-socket: developer/api-plugin-helper-socket.md
+
+  # Obsolete Pages
   v1.0/categories/data-analytics: README.md
   v1.0/categories/data-archiving: README.md
   v1.0/categories/installation: README.md
