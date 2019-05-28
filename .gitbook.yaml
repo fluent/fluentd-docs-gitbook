@@ -62,7 +62,7 @@ redirects:
   v1.0/articles/api-plugin-helper-storage: developer/api-plugin-helper-storage.md
   v1.0/articles/api-plugin-helper-socket: developer/api-plugin-helper-socket.md
   v1.0/articles/api-plugin-output: developer/api-plugin-output.md
-  v1.0/articles/plugin-update-from-v0.12: developer/plugin-update-from-v0.12.md
+  v1.0/articles/plugin-update-from-v12: developer/plugin-update-from-v0.12.md
   v1.0/articles/api-plugin-parser: developer/api-plugin-parser.md
   v1.0/articles/plugin-helper-overview: developer/plugin-helper-overview.md
   v1.0/articles/support: overview/support.md
@@ -70,6 +70,11 @@ redirects:
   v1.0/articles/life-of-a-fluentd-event: overview/life-of-a-fluentd-event.md
   v1.0/articles/logo: overview/logo.md
   v1.0/articles/faq: overview/faq.md
+  v1.0/articles/buffer-plugin-overview: plugins/buffer/README.md
+  v1.0/articles/input-plugin-overview: plugins/input/README.md
+  v1.0/articles/output-plugin-overview: plugins/output/README.md
+  v1.0/articles/parser-plugin-overview: plugins/parser/README.md
+  v1.0/articles/storage-plugin-overview: plugins/storage/README.md
   v1.0/articles/filter_geoip: plugins/filter/geoip.md
   v1.0/articles/filter_parser: plugins/filter/parser.md
   v1.0/articles/filter_record_transformer: plugins/filter/record_transformer.md
@@ -145,3 +150,15 @@ redirects:
   v1.0/articles/raspberrypi-cloud-data-logger: guides/raspberrypi-cloud-data-logger.md
   v1.0/articles/cep-norikra: guides/cep-norikra.md
   v1.0/articles/apache-to-minio: guides/apache-to-minio.md
+
+  # Obsolete pages
+  v1.0/categories/data-analytics: README.md
+  v1.0/categories/data-archiving: README.md
+  v1.0/categories/installation: README.md
+  v1.0/categories/log-management-and-search: README.md
+  v1.0/categories/logging-from-apps: README.md
+  v1.0/categories/monitoring-service-logs: README.md
+  v1.0/categories/plugin-advanced-sections: README.md
+  v1.0/categories/plugin-apis: README.md
+  v1.0/categories/plugin-development: README.md
+  v1.0/categories/stream-processing: README.md
