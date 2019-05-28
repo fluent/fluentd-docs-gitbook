@@ -13,6 +13,7 @@ redirects:
   v1.0/articles/life-of-a-fluentd-event: overview/life-of-a-fluentd-event.md
   v1.0/articles/logo: overview/logo.md
   v1.0/articles/faq: overview/faq.md
+  v1.0/articles/td-agent-v2-vs-v3: overview/td-agent-v2-vs-v3.md
 
   # Install
   v1.0/articles/install-by-dmg: install/install-by-dmg.md
