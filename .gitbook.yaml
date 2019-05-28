@@ -66,7 +66,6 @@ redirects:
   v1.0/articles/api-plugin-parser: developer/api-plugin-parser.md
   v1.0/articles/plugin-helper-overview: developer/plugin-helper-overview.md
   v1.0/articles/support: overview/support.md
-  v1.0/articles/quickstart: overview/quickstart.md
   v1.0/articles/update-from-v0.12: overview/update-from-v0.12.md
   v1.0/articles/life-of-a-fluentd-event: overview/life-of-a-fluentd-event.md
   v1.0/articles/logo: overview/logo.md
