@@ -7,4 +7,4 @@ structure:
 redirects:
   v1.0/articles/quickstart: README.md
   v1.0/articles/rpc: deployment/rpc.md
-
+  v1.0/articles/apache-to-minio: guides/apache-to-minio.md
