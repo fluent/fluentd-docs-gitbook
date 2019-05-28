@@ -27,6 +27,7 @@
   * [Config: Extract Section](/configuration/extract-section.md)
   * [Config: Inject Section](/configuration/inject-section.md)
   * [Config: Transport Section](/configuration/transport-section.md)
+  * [Config: Storage Section](/configuration/storage-section.md)
 
 * [Deployment]()
   * [System Configuration](/deployment/system-config.md)
