@@ -330,7 +330,7 @@ this label when emit related error, e.g. buffer is full or invalid
 record.
 
 
-(6) Re-use your config: the "@## include" directive
+## (6) Re-use your config: the "@include" directive
 
 Directives in separate configuration files can be imported using the
 **@include** directive:
