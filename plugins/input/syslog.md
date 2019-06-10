@@ -105,6 +105,25 @@ The bind address to listen to.
 The transport protocol used to receive logs. "udp" and "tcp" are
 supported.
 
+This parameter is deprecated since v1.5. Use `<transport>` instead.
+
+### &lt;transport&gt; directive
+
+| type | default | available values | version |
+|:-----|:--------|:-----------------|:--------|
+| enum | udp     | udp/tcp/tls      | 1.5.0  |
+
+The protocol of the syslog transport.
+
+```
+<source>
+  @type syslog
+  tag system
+  <transport tcp>
+  </transport>
+  # other parameters
+</source>
+```
 
 ### message\_length\_limit
 
@@ -289,12 +308,44 @@ Please see the [logging article](/deployment/logging.md) for further details.
 ## TCP protocol and message delimiter
 
 This plugin assumes `\n` for delimiter character between syslog messages
-in one TCP connection. If you use syslog library in your application
-with `protocol_type tcp`, add `\n` to your syslog message.\
-See also [rfc6587](https://tools.ietf.org/html/rfc6587#section-3.4.2).
+in one TCP connection by default. If you use syslog library in your application with `<transport tcp>`, add `\n` to your syslog message. See also [rfc6587](https://tools.ietf.org/html/rfc6587#section-3.4.2).
+
+If your syslog uses octet counting mode, set `frame_type octet_count` in `in_syslog` configuration. See also `frame_type` parameter.
 
 
 ## Tips
+
+
+### How to Enable TLS Encryption
+
+Since v1.5.0, `in_syslog` support TLS tranport. Here is configuration example with rsyslog.
+
+- in_syslog
+
+```
+<source>
+  @type syslog
+  port 5140
+  bind 0.0.0.0
+  <transport tls>
+    ca_path /etc/pki/ca.pem
+    cert_path /etc/pki/cert.pem
+    private_key_path /etc/pki/key.pem
+    private_key_passphrase PASSPHRASE
+  </transport>
+  tag system
+</source>
+```
+
+- rsyslog
+
+```
+$DefaultNetstreamDriverCAFile /etc/pki/ca.pem
+$DefaultNetstreamDriver gtls
+$ActionSendStreamDriverMode 1
+$ActionSendStreamDriverAuthMode anon
+*.* @@127.0.0.1:5140
+```
 
 
 ### Multi-process environment
