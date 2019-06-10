@@ -6,15 +6,37 @@
 -   default: Specify default value for this parameter. If omit this
     option, this parameter is required. Fluentd will check this value on
     boot when this option is omitted.
--   secret: If true, mask this parameter when Fluentd dumps
-    configuration.
--   alias: Alias of this parameter as symbol
+
+```
+# Required parameter. The configuration must have this parameter like 'param1 10'
+config_param :param1, :integer
+# Optional parameter. If the configuration doesn't have 'param2', 100 is used
+config_param :param2, :integer, default: 100
+```
+
+-   secret: If true, mask this parameter when Fluentd dumps the configuration.
+
+```
+config_param :secret_param, :string, secret: true
+```
+
 -   deprecated: Specify deprecation warning message. If users use this
     parameter in their config, they will see deprecation warning on
     boot.
+
+```
+config_param :old_param, :string, deprecated: "Use new_param instead"
+```
+
 -   obsoleted: Specify obsolete error message. If users use this
     parameter in their config, Fluentd raises `Fluent::ConfigError` and
     stop.
+
+```
+config_param :dead_param, :string, obsoleted: "This parameter doesn't work anymore"
+```
+
+-   alias: Alias of this parameter as symbol
 -   skip\_accessor: If true, skip adding accessor to the plugin. Only
     for internal use.
 
