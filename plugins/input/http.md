@@ -164,6 +164,27 @@ the following example).
 Respond with an empty gif image of 1x1 pixel (rather than an emtpy
 string).
 
+### &lt;transport&gt; section
+
+| type | default | available values | version |
+|:-----|:--------|:-----------------|:--------|
+| enum | tcp     | tls      | 1.5.0  |
+
+This section is for using SSL transport.
+
+```
+<transport tls>
+  cert_path /path/to/fluentd.crt
+  # other parameters
+</transport>
+```
+
+See "How to Enable TLS Encryption" section for how to use and see
+["Configuration example" in "Server Plugin Helper" article](/developer/api-plugin-helper-server.md#configuration-example) for
+supported parameters
+
+Without `<transport tls>`, in\_http uses HTTP.
+
 
 ### format (deprecated)
 
@@ -327,6 +348,45 @@ curl -X POST -F 'json={"message":"foo+bar"}' http://localhost:9880/app.log
 
 -   [Input Plugin Overview](/plugins/input/README.md)
 
+## Tips
+
+
+### How to Enable TLS Encryption
+
+Since v1.5.0, `in_http` support TLS tranport. Here is configuration example with HTTPS client.
+
+- in_tcp
+
+```
+<source>
+  @type http
+  bind 0.0.0.0
+  <transport tls>
+    insecure true
+  </transport>
+</source>
+```
+
+- https client
+
+```
+require 'net/http'
+require 'net/https'
+require 'msgpack'
+
+record = { 'msgpack' => { 'k' => 'hello', 'k1' => 1234}.to_msgpack }
+
+def post(path, params)
+  http = Net::HTTP.new('127.0.0.1', 9880)
+  http.use_ssl = true
+  http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+  req = Net::HTTP::Post.new(path, {})
+  req.set_form_data(params)
+  http.request(req)
+end
+
+puts post("/test.http?time=#{Time.now.to_i}", record).body
+```
 
 ------------------------------------------------------------------------
 
