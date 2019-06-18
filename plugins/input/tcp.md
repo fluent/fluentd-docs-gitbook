@@ -142,6 +142,23 @@ you will get something like below:
         ...
     }
 
+### &lt;transport&gt; section
+
+| type | default | available values | version |
+|:-----|:--------|:-----------------|:--------|
+| enum | udp     | tls      | 0.14.12  |
+
+This section is for using SSL transport.
+
+```
+<transport tls>
+  cert_path /path/to/fluentd.crt
+  # other parameters
+</transport>
+```
+
+Without `<transport tls>`, in\_tcp uses raw TCP.
+
 ### &lt;parse&gt; section
 
 | required | multi | version |
@@ -169,6 +186,26 @@ TCPSocket.open('127.0.0.1', 5170) do |s|
   s.write('{"k":"v1"}' + "\n")
   s.write('{"k":"v2"}' + "\n")
 end
+```
+## Tips
+
+### How to Enable TLS Encryption
+
+Since v1.5.0, `in_tcp` support TLS tranport. Here is configuration example.
+
+```
+<source>
+  @type tcp
+  port 5140
+  bind 0.0.0.0
+  <transport tls>
+    ca_path /etc/pki/ca.pem
+    cert_path /etc/pki/cert.pem
+    private_key_path /etc/pki/key.pem
+    private_key_passphrase PASSPHRASE
+  </transport>
+  tag tcp
+</source>
 ```
 
 ------------------------------------------------------------------------
