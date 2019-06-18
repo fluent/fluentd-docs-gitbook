@@ -107,7 +107,7 @@ supported.
 
 This parameter is deprecated since v1.5. Use `<transport>` instead.
 
-### &lt;transport&gt; directive
+### &lt;transport&gt; section
 
 | type | default | available values | version |
 |:-----|:--------|:-----------------|:--------|
@@ -124,6 +124,10 @@ The protocol of the syslog transport.
   # other parameters
 </source>
 ```
+
+See "How to Enable TLS Encryption" section for how to use and see
+["Configuration example" in "Server Plugin Helper" article](/developer/api-plugin-helper-server.md#configuration-example) for
+supported parameters
 
 ### message\_length\_limit
 
