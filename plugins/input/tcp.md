@@ -191,7 +191,7 @@ end
 
 ### How to Enable TLS Encryption
 
-Since v1.5.0, `in_tcp` support TLS tranport. Here is configuration example.
+`in_tcp` support TLS tranport. Here is configuration example.
 
 ```
 <source>
