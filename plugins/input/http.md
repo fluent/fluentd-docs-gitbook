@@ -362,7 +362,10 @@ Since v1.5.0, `in_http` support TLS tranport. Here is configuration example with
   @type http
   bind 0.0.0.0
   <transport tls>
-    insecure true
+    ca_path /etc/pki/ca.pem
+    cert_path /etc/pki/cert.pem
+    private_key_path /etc/pki/key.pem
+    private_key_passphrase PASSPHRASE
   </transport>
 </source>
 ```
