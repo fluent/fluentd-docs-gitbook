@@ -170,7 +170,7 @@ string).
 |:-----|:--------|:-----------------|:--------|
 | enum | tcp     | tls      | 1.5.0  |
 
-This section is for using SSL transport.
+This section is for using TLS transport.
 
 ```
 <transport tls>

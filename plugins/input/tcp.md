@@ -148,7 +148,7 @@ you will get something like below:
 |:-----|:--------|:-----------------|:--------|
 | enum | udp     | tls      | 0.14.12  |
 
-This section is for using SSL transport.
+This section is for using TLS transport.
 
 ```
 <transport tls>
