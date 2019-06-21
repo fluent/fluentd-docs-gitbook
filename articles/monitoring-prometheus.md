@@ -27,7 +27,7 @@ To expose the Fluentd metrics to Prometheus, we need to configure 3
 parts:
 
 -   Step 1: Prometheus Filter Plugin to count Incoming Records
--   Step 2: Prometheus Output Plugih to count Outgoing Records
+-   Step 2: Prometheus Output Plugin to count Outgoing Records
 -   Step 3: Prometheus Input Plugin to expose metrics via HTTP
 
 ### Step 1: Counting Incoming Records by Prometheus Filter Plugin
