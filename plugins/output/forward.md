@@ -218,6 +218,13 @@ If set `0`, this plugin doesn't wait the ack response.
 
 The timeout time when sending event logs.
 
+### connect\_timeout
+
+| type | default | version |
+|:-----|:--------|:--------|
+| time | nil(no timeout) | 1.6.0 |
+
+The timeout time for socket connect. When the connection timed out during establishment, Errno::ETIMEDOUT is raised.
 
 ### recover\_wait
 

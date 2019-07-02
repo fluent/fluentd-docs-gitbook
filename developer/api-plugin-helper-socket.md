@@ -99,7 +99,7 @@ terminates.
         `SO_RECVTIMEO`
     -   `send_timeout`: the timeout time in seconds used to set
         `SO_SNDTIMEO`
-
+    -   `connect_timeout`: the timeout time for socket connect. When the connection timed out during establishment, `Errno::ETIMEDOUT` is raised.
 
 ### socket\_create\_udp(host, port, \*\*kwargs, &block)
 
@@ -146,7 +146,7 @@ terminates.
         store
     -   `allow_self_signed_cert`: if true, allow self signed certificate
     -   `cert_paths`: files contain PEM-encoded certificates
-
+    -   Support more parameters same as socket_create_tcp's kwargs
 
 ## socket used plugins
 
