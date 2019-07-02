@@ -103,7 +103,7 @@ This is the option of `stdout` format. Configure the format of record
 
 ### &lt;inject&gt; section
 
-See [Inject section configurations](/configuration/inject-section) for more details.
+See [Inject section configurations](/configuration/inject-section.md) for more details.
 
 ------------------------------------------------------------------------
 
