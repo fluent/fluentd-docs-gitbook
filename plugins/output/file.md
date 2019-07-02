@@ -131,7 +131,7 @@ Deprecated parameter. Use `<format>` instead.
 
 ### &lt;inject&gt; section
 
-See [Inject section configurations](/configuration/inject-section) for more details.
+See [Inject section configurations](/configuration/inject-section.md) for more details.
 
 
 ### utc
