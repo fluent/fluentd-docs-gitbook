@@ -35,6 +35,7 @@ Then, `helpers` method will include `Timer`, `Storage`. and
 -   [storage](/developer/api-plugin-helper-storage.md)
 -   [thread](/developer/api-plugin-helper-thread.md)
 -   [timer](/developer/api-plugin-helper-timer.md)
+-   [http\_server](/developer/api-plugin-helper-http_server.md)
 
 
 ------------------------------------------------------------------------
