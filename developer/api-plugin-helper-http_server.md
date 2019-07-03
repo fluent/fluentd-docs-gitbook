@@ -14,7 +14,7 @@ module Fluent::Plugin
     # 1. load http_server helper
     helpers :http_server
 
-    config_param :host, :string
+    config_param :bind, :string
     config_param :port, :integer
 
     def start
