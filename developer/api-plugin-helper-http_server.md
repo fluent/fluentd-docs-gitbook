@@ -45,9 +45,9 @@ This method creats and runs http server with given routes which are defined in `
 - `logger`: Logger which is used in server helper
 - `default_app`: Use this object when server received a request whose path is not registered. This object must have `#call` or be a `Proc` object.
 
-** Define other HTTP methods
+## Define other HTTP methods
 
-```
+```rb
 create_http_server(addr: @bind, port: @port, logger: log) do |serv|
   # define POST method `/hello`
   serv.post('/hello') { [200, { 'Content-Type' => 'text/plain' }, 'hello!'] }
