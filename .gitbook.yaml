@@ -181,6 +181,7 @@ redirects:
   v1.0/articles/api-plugin-helper-extract: developer/api-plugin-helper-extract.md
   v1.0/articles/api-plugin-helper-storage: developer/api-plugin-helper-storage.md
   v1.0/articles/api-plugin-helper-socket: developer/api-plugin-helper-socket.md
+  v1.0/articles/api-plugin-helper-http_server: developer/api-plugin-helper-http_server.md
 
   # Obsolete Pages
   v1.0/categories/data-analytics: README.md
