@@ -1,8 +1,8 @@
 # Http Server Plugin Helper API
 
-`server_http` helper creates http server.
+`http_server` helper creates http server.
 
-Here is the code example with `server_http` helper:
+Here is the code example with `http_server` helper:
 
 ```rb
 require 'fluent/plugin/input'
