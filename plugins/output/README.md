@@ -167,8 +167,8 @@ supported:
 
 -   throw\_exception
 
-This is default mode. This mode raises `BufferQueueLimitError` exception
-to input plugin. How handle `BufferQueueLimitError` depends on input
+This is default mode. This mode raises `BufferOverflowError` exception
+to input plugin. How handle `BufferOverflowError` depends on input
 plugins, e.g. tail input stops reading new lines, forward input returns
 an error to forward output. This action fits for streaming manner.
 
@@ -178,10 +178,10 @@ This mode stops input plugin thread until buffer full is resolved. This
 action is good for batch-like use-case.
 
 We don't recommend to use `block` action to avoid
-`BufferQueueLimitError`. Please consider improving destination setting
-to resolve `BufferQueueLimitError` or use `@ERROR` label for routing
+`BufferOverflowError`. Please consider improving destination setting
+to resolve `BufferOverflowError` or use `@ERROR` label for routing
 overflowed events to another backup destination(or `secondary` with
-lower `retry_limit`). If you hit `BufferQueueLimitError` frequently, it
+lower `retry_limit`). If you hit `BufferOverflowError` frequently, it
 means your destination capacity is insufficient for your traffic.
 
 -   drop\_oldest\_chunk
