@@ -1,0 +1,101 @@
+# Http Server Plugin Helper API
+
+`http_server` helper creates http server.
+This helper was introduced since v1.6.0.
+
+Here is the code example with `http_server` helper:
+
+```rb
+require 'fluent/plugin/input'
+
+module Fluent::Plugin
+  class ExampleInput < Input
+    Fluent::Plugin.register_output('example', self)
+
+    # 1. load http_server helper
+    helpers :http_server
+
+    config_param :bind, :string
+    config_param :port, :integer
+
+    def start
+      super
+
+      # 2. create and start http server
+      create_http_server(addr: @bind, port: @port, logger: log) do |serv|
+        # define endpoint `/hello` with GET method
+        serv.get('/hello') { [200, { 'Content-Type' => 'text/plain' }, 'hello!'] }
+      end
+    end
+  end
+end
+```
+
+Launched http server is managed by the helper. No need to stop http server
+in plugin's `stop` method. The plugin stops launched http server automatically.
+
+## Methods
+
+### create\_http\_server(addr:, port:, logger:, default_app: nil, &block)
+
+This method creats and runs http server with given routes which are defined in `&block`.
+
+- `addr`: Adderess to listen to
+- `port`: Port to listen to
+- `logger`: Logger which is used in server helper
+- `default_app`: Use this object when server received a request whose path is not registered. This object must have `#call` or be a `Proc` object.
+
+## Define other HTTP methods
+
+```rb
+create_http_server(addr: @bind, port: @port, logger: log) do |serv|
+  # define POST method `/hello`
+  serv.post('/hello') { [200, { 'Content-Type' => 'text/plain' }, 'hello!'] }
+
+  # define HEAD method `/hello`
+  serv.head('/hello') { [200, { 'Content-Type' => 'text/plain' }, nil] }
+end
+```
+
+## Detail of request and send response
+
+#### Request
+
+request has following methods.
+
+* `query_string`: query string like `hoge=v1&fuga=v2`
+* `query`: query which is `query_string` parsed with `CGI.parse`
+* `body`: request body
+* `path`: request path
+
+#### Response
+
+http server helper expects an array as return value like below.
+
+`[${response_status}, ${headers}, ${body}]`
+
+* `${response_status}` should be an Integer
+* `${headers}` should be a Hash
+* `${body}` should be a String or nil
+
+#### Example of recieving json request and return json response
+
+```rb
+create_http_server(addr: @bind, port: @port, logger: log) do |serv|
+  serv.post('/hello.json') do |req|
+    body = JSON.parse(req.body)
+    log.info(body)
+
+    [code, { 'Content-Type' => 'application/json' }, { 'status' => 'success' }.to_json]
+  end
+end
+```
+
+## http_server used plugins
+
+-   [Monitor Agent input](/plugins/input/monitor_agent.md)
+
+------------------------------------------------------------------------
+
+If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open).
+[Fluentd](http://www.fluentd.org/) is a open source project under [Cloud Native Computing Foundation (CNCF)](https://cncf.io/). All components are available under the Apache 2 License.
