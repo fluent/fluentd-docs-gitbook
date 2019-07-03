@@ -167,3 +167,4 @@
   * [Plugin Helper: Storage](/developer/api-plugin-helper-storage.md)
   * [Plugin Helper: Thread](/developer/api-plugin-helper-thread.md)
   * [Plugin Helper: Timer](/developer/api-plugin-helper-timer.md)
+  * [Plugin Helper: Http Server](/developer/api-plugin-helper-http_server.md)
