@@ -57,6 +57,40 @@ create_http_server(addr: @bind, port: @port, logger: log) do |serv|
 end
 ```
 
+## Detail of request and send response
+
+#### Request
+
+request has following methods.
+
+* `query_string`: query string like `hoge=v1&fuga=v2`
+* `query`: query which is `query_string` parsed with `CGI.parse`
+* `body`: request body
+* `path`: request path
+
+#### Response
+
+http server helper expects an array as return value like below.
+
+`[${response_status}, ${headers}, ${body}]`
+
+* `${response_status}` should be an Integer
+* `${headers}` should be a Hash
+* `${body}` should be a String or nil
+
+#### Example of recieving json request and return json response
+
+```rb
+create_http_server(addr: @bind, port: @port, logger: log) do |serv|
+  serv.post('/hello.json') do |req|
+    body = JSON.parse(req.body)
+    log.info(body)
+
+    [code, { 'Content-Type' => 'application/json' }, { 'status' => 'success' }.to_json]
+  end
+end
+```
+
 ## http_server used plugins
 
 -   [Monitor Agent input](/plugins/input/monitor_agent.md)
