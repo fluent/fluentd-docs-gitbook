@@ -36,7 +36,7 @@ in plugin's `stop` method. The plugin stops launched http server automatically.
 
 ## Methods
 
-### create\_http\_server(addr:, port:, logger:, default_app: nil, &block)
+### create\_http\_server(addr:, port:, logger:, default\_app: nil, &block)
 
 This method creats and runs http server with given routes which are defined in `&block`.
 
@@ -91,7 +91,7 @@ create_http_server(addr: @bind, port: @port, logger: log) do |serv|
 end
 ```
 
-## http_server used plugins
+## http\_server used plugins
 
 -   [Monitor Agent input](/plugins/input/monitor_agent.md)
 
