@@ -1,6 +1,7 @@
 # Http Server Plugin Helper API
 
 `http_server` helper creates http server.
+This helper was introduced since v1.6.0.
 
 Here is the code example with `http_server` helper:
 
