@@ -138,7 +138,7 @@ the value is `"Adam|Alice|Bob"`, `types item_ids:array:|` parses it as
 ### Time parameters
 
 -   **time\_type** (enum) (optional): parse/format value according to this type
-    -   Default: `float`
+    -   Default: `string`
     -   Available values: `float`, `unixtime`, `string`
         -   `float`: seconds from Epoch + nano seconds (e.g. 1510544836.154709804)
         -   `unixtime`: seconds from Epoch (e.g. 1510544815)
