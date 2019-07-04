@@ -99,7 +99,20 @@ terminates.
         `SO_RECVTIMEO`
     -   `send_timeout`: the timeout time in seconds used to set
         `SO_SNDTIMEO`
+    -   `send_keepalive_packet`: if true, enable TCP keepalive via `SO_KEEPALIVE`
     -   `connect_timeout`: the timeout time for socket connect. When the connection timed out during establishment, `Errno::ETIMEDOUT` is raised.
+
+#### send_keepalive_packet usecase
+
+If you set `true` to `send_keepavlie_packet`, you also need to configure keepalive related kernel parameters like below:
+
+```
+net.ipv4.tcp_keepalive_intvl = 75
+net.ipv4.tcp_keepalive_probes = 5
+net.ipv4.tcp_keepalive_time = 7200
+```
+
+This parameter mitigates half-open connection issue with load balancers. Check also [this issue](https://github.com/fluent/fluentd/pull/2352) for AWS NLB case.
 
 ### socket\_create\_udp(host, port, \*\*kwargs, &block)
 

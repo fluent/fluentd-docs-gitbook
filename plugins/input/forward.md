@@ -91,6 +91,15 @@ Connections will be disconnected right after receiving first message if
 this value is true.
 
 
+### send\_keepalive\_packet
+
+| type | default | version |
+|:-----|:--------|:--------|
+| bool | false   | 1.4.2   |
+
+Enable TCP keepalive of sockets. See [socket article](/plugin-helper-overview/api-plugin-helper-socket.md#send_keepalive_packet_usecase) for more details.
+
+
 ### chunk\_size\_limit
 
 | type | default        | version |
