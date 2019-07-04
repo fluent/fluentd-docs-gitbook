@@ -2,7 +2,7 @@
 
 Let's get started with **Fluentd**! **Fluentd** is a fully free and
 fully open-source log collector that instantly enables you to have a
-'**Log Everything**' architecture with [125+ types of systems](https://fluentd.org/plugin/).
+'**Log Everything**' architecture with [125+ types of systems](https://www.fluentd.org/plugins).
 
 ![](/images/fluentd-architecture.png)
 
