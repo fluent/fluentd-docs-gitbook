@@ -372,7 +372,7 @@ Verify hostname of servers and certificates or not in TLS transport.
 
 The additional CA certificate path for TLS.
 
-### tls\_client\_cert\_pat
+### tls\_client\_cert\_path
 
 | type   | default | version |
 |:------:|:-------:|:-------:|
