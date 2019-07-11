@@ -14,7 +14,7 @@ and operating a Ruby daemon.
 That's why [Treasure Data, Inc](http://www.treasuredata.com/) is
 providing **the stable distribution of Fluentd**, called `td-agent`. The
 differences between Fluentd and td-agent can be found
-[here](//www.fluentd.org/faqs).
+[here](https://www.fluentd.org/faqs).
 
 This installation guide is for td-agent v3, the new stable version.
 td-agent v3 uses fluentd v1.0 in the core. See [this page](/overview/td-agent-v2-vs-v3.md) for the comparison between v2 and v3.

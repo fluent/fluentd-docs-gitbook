@@ -159,7 +159,7 @@ major problems for several months now.
 
 ## Learn More
 
--   [Fluentd Architecture](//www.fluentd.org/architecture)
+-   [Fluentd Architecture](https://www.fluentd.org/architecture)
 -   [Fluentd Get Started](/overview/quickstart.md)
 -   [WebHDFS Output Plugin](/plugins/output/webhdfs.md)
 -   [Slides: Fluentd and WebHDFS](http://www.slideshare.net/tagomoris/fluentd-and-webhdfs)
