@@ -478,9 +478,11 @@ for the reason explained above.
 Since Fluentd v1.4.0, you can use `#{...}` to embed arbitrary Ruby code
 into match patterns. Here is an example.
 
-    <match "app.#{ENV['FLUENTD_TAG']}">
-      @type stdout
-    </match>
+```
+<match "app.#{ENV['FLUENTD_TAG']}">
+  @type stdout
+</match>
+```
 
 If you set the environment variable `FLUENTD_TAG` to `dev`, this
 evaluates to `app.dev`.
