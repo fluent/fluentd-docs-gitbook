@@ -22,7 +22,7 @@ module Fluent::Plugin
       super
 
       # 2. create and start http server
-      create_http_server(title: :example_http_server, addr: @bind, port: @port, logger: log) do |serv|
+      create_http_server(:example_http_server, addr: @bind, port: @port, logger: log) do |serv|
         # define endpoint `/hello` with GET method
         serv.get('/hello') { [200, { 'Content-Type' => 'text/plain' }, 'hello!'] }
       end
@@ -36,7 +36,7 @@ in plugin's `stop` method. The plugin stops launched http server automatically.
 
 ## Methods
 
-### create\_http\_server(addr:, port:, logger:, default\_app: nil, &block)
+### create\_http\_server(title, addr:, port:, logger:, default\_app: nil, &block)
 
 This method creats and runs http server with given routes which are defined in `&block`.
 
@@ -49,7 +49,7 @@ This method creats and runs http server with given routes which are defined in `
 ## Define other HTTP methods
 
 ```rb
-create_http_server(title: :example_http_server, addr: @bind, port: @port, logger: log) do |serv|
+create_http_server(:example_http_server, addr: @bind, port: @port, logger: log) do |serv|
   # define POST method `/hello`
   serv.post('/hello') { [200, { 'Content-Type' => 'text/plain' }, 'hello!'] }
 
@@ -82,7 +82,7 @@ http server helper expects an array as return value like below.
 #### Example of recieving json request and return json response
 
 ```rb
-create_http_server(title: :example_json_http_server, addr: @bind, port: @port, logger: log) do |serv|
+create_http_server(:example_json_http_server, addr: @bind, port: @port, logger: log) do |serv|
   serv.post('/hello.json') do |req|
     body = JSON.parse(req.body)
     log.info(body)
