@@ -48,8 +48,8 @@ For more details on each option, read [the section on Parameters](#parameters).
 
 ## Plugin helpers
 
--   [event\_emitter](/guides/api-plugin-helper-event_emitter.md)
--   [compat\_parameters](/guides/api-plugin-helper-compat_parameters.md)
+-   [event\_emitter](/developer/api-plugin-helper-event_emitter.md)
+-   [compat\_parameters](/developer/api-plugin-helper-compat_parameters.md)
 
 
 ## Parameters
