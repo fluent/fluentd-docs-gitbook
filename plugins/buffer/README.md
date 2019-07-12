@@ -39,11 +39,7 @@ where chunks wait before the transportation. Every newly-created chunk
 starts from *stage*, then proceeds to *queue* in time (and subsequently
 gets transferred to the destination).
 
-<div>
-
 [![](/images/fluentd-v0.14-plugin-api-overview.png)](/images/fluentd-v0.14-plugin-api-overview.png)
-
-</div>
 
 
 ## Control Retry Behaviour
