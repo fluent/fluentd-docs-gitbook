@@ -38,7 +38,7 @@ record: {"message":"hello"}
 Injected record is below:
 
 ```
-{"message":"hello","fluetnd_tag":"test","fluentd_time":"2019-01-15T18:06:03.952259000Z"}
+{"message":"hello","fluentd_tag":"test","fluentd_time":"2019-01-15T18:06:03.952259000Z"}
 ```
 
 ## inject section parameter
