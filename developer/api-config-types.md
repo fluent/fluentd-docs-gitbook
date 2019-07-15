@@ -256,7 +256,7 @@ does not exist in the list, error will occur on boot.
 Code Example:
 
 ```
-config_param :protocol_type, :enum, list: [:udp, :tcp], default: udp
+config_param :protocol_type, :enum, list: [:udp, :tcp], default: :udp
 
 def send
   case @protocol_type
