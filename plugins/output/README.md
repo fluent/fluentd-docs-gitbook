@@ -281,8 +281,26 @@ plugins will delegate to write the buffer chunk to secondary plugin.
 unavailable, e.g. forward, mongo and other plugins. We strongly
 recommend `out_secondary_file` plugin for `<secondary>`.
 
-TODO: add examples for secondary output
+The example below sends logs to Elasticsearch using a file buffer
+`/var/log/td-agent/buffer/elasticsearch`, and any failures will be sent to
+`/var/log/td-agent/error/` using `my.logs` for file names.
 
+```
+<match my.logs>
+  @type elasticsearch
+  host localhost
+  port 9200
+  logstash_format true
+  <buffer>
+    @type file
+    path /var/log/td-agent/buffer/elasticsearch
+  </buffer>
+  <secondary>
+    @type file
+    path /var/log/td-agent/error/my.logs
+  </secondary>
+</match>
+```
 
 ------------------------------------------------------------------------
 
