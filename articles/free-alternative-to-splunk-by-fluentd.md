@@ -26,7 +26,7 @@ Mountain Lion. **If you're not familiar with Fluentd**, please learn
 more about Fluentd first.
 
 
-[What is Fluentd?](//www.fluentd.org/architecture)
+[What is Fluentd?](https://www.fluentd.org/architecture)
 
 
 ## Prerequisites
@@ -195,7 +195,7 @@ buffer, etc.) according to your needs.
 
 ## Learn More
 
--   [Fluentd Architecture](//www.fluentd.org/architecture)
+-   [Fluentd Architecture](https://www.fluentd.org/architecture)
 -   [Fluentd Get Started](/articles/quickstart.md)
 -   [Downloading Fluentd](http://www.fluentd.org/download)
 

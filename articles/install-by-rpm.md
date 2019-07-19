@@ -14,7 +14,7 @@ and operating a Ruby daemon.
 That's why [Treasure Data, Inc](http://www.treasuredata.com/) is
 providing **the stable community distribution of Fluentd**, called
 `td-agent`. The differences between Fluentd and td-agent can be found
-[here](//www.fluentd.org/faqs).
+[here](https://www.fluentd.org/faqs).
 
 Currently, td-agent 2 rpm has two versions, td-agent 2.5 / td-agent 2.3.
 The different point is bundled ruby version. td-agent 2.5 or later uses
