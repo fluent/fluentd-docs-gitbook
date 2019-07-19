@@ -378,6 +378,10 @@ These parameters below are to configure buffer plugins and its chunks.
     -   Default: 512MB (memory) / 64GB (file)
     -   The size limitation of this buffer plugin instance
     -   Once the total size of stored buffer reached this threshold, all append operations will fail with error (and data will be lost)
+-   `queue_limit_length` \[integer\]
+    -   Default: nil
+    -   The queue length limitation of this buffer plugin instance
+    -   This parameter is for [v0.12 compatibility](/plugin-helper-overview/api-plugin-helper-compat_parameters.md). Use `total_limit_size` instead for v1 configuration.
 -   `chunk_full_threshold` \[float\]
     -   Default: 0.95
     -   The percentage of chunk size threshold for flushing
