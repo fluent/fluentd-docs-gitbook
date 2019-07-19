@@ -20,7 +20,7 @@ record: {"host":"192.168.0.1","size":777,"method":"PUT"}
 This incoming event is formatted to:
 
 ```
-{"host":"192.168.0.1","size":777,"method":"PUT"}
+\x83\xA4host\xAB192.168.0.1\xA4size\xCD\x03\t\xA6method\xA3PUT
 ```
 
 
