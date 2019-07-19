@@ -29,7 +29,7 @@ modes. Fluentd choose appropriate mode automatically if there are no
 section for output plugins which doesn't support buffering, Fluentd will
 stop with configuration errors.
 
-Output plugins in v0.14 can control keys of buffer chunking by
+Output plugins in v1 can control keys of buffer chunking by
 configurations, dynamically. Users can configure buffer chunk keys as
 time (any unit specified by user), tag and any key name of records.
 Output plugin will split events into chunks: events in a chunk have same
@@ -98,7 +98,7 @@ written in same section:
 ```
 
 See buffer section in [Compat Parameters Plugin Helper
-API](https://docs.fluentd.org/articles/api-plugin-helper-compat_parameters#compat_parameters_convert(conf,-*types,-**kwargs))
+API](/plugin-helper-overview/api-plugin-helper-compat_parameters.md)
 for parameter name changes between v1 and v0.12.
 
 
