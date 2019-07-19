@@ -187,7 +187,7 @@ and robust.
 
 ## Learn More
 
--   [Fluentd Architecture](//www.fluentd.org/architecture)
+-   [Fluentd Architecture](https://www.fluentd.org/architecture)
 -   [Fluentd Get Started](/articles/quickstart.md)
 -   [Amazon Kinesis](https://aws.amazon.com/kinesis/)
 -   [Amazon Kinesis Output Plugin](https://github.com/awslabs/aws-fluent-plugin-kinesis) (Made
