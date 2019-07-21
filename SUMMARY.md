@@ -63,7 +63,7 @@
 * [Output Plugins](/plugins/output/README.md)
   * [file](/plugins/output/file.md)
   * [s3](/plugins/output/s3.md)
-  * [s3](/plugins/output/kafka.md)
+  * [kafka](/plugins/output/kafka.md)
   * [elasticsearch](/plugins/output/elasticsearch.md)
   * [forward](/plugins/output/forward.md)
   * [exec](/plugins/output/exec.md)
