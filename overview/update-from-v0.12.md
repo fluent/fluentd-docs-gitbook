@@ -100,7 +100,7 @@ soon as possible. For more details see [Configuration style](#configuration-styl
 
 ### Buffer file changes
 
-Fluentd v1 changes buffer mechanizm for the flexibility. New buffer
+Fluentd v1 changes buffer mechanism for the flexibility. New buffer
 consists of buffer content and metadata. v0.12 buffer doesn't have
 metadata so new API based plugin can't handle old buffer files. You need
 to flush existing buffer files before update fluentd.
