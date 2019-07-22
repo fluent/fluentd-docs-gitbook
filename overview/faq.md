@@ -24,7 +24,7 @@ installation. We use v1.0/v1.x on our document.
 ### Zlib::DataError happens when Output plugin uses gzip compression
 
 This is caused by thread handling mismatch between output thread and
-gzip library. Output's retry mechanizm automatically recovers this
+gzip library. Output's retry mechanism automatically recovers this
 error.
 
 We will fix this problem in fluentd v1.3
