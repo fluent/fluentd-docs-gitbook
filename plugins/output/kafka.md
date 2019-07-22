@@ -7,7 +7,7 @@ The `out_kafka2` Output plugin writes records into [Apache Kafka](https://kafka.
 >## Installation
 
 `out_kafka2` is included in td-agent3. Fluentd gem users will
-eed to install the fluent-plugin-kafka gem using the following command.
+need to install the fluent-plugin-kafka gem using the following command.
 
 ``` {.CodeRay}
 $ fluent-gem install fluent-plugin-kafka
