@@ -7,39 +7,39 @@ Feel free to use these logos on your slides, blog posts, etc.!
 
 
 
-[![](https://raw.githubusercontent.com/fluent/fluentd-docs/master/public/logo/Fluentd_square.png)](https://raw.githubusercontent.com/fluent/fluentd-docs/master/public/logo/Fluentd_square.png)
+[![](/images/logo/Fluentd_square.png)](/images/logo/Fluentd_square.png)
 
 
 
 
-[\[PNG\]](https://raw.githubusercontent.com/fluent/fluentd-docs/master/public/logo/Fluentd_square.png)
-[\[SVG\]](https://raw.githubusercontent.com/fluent/fluentd-docs/master/public/logo/Fluentd_square.svg)
+[\[PNG\]](/images/logo/Fluentd_square.png)
+[\[SVG\]](/images/logo/Fluentd_square.svg)
 
 
 ## Horizontal
 
-[![](https://raw.githubusercontent.com/fluent/fluentd-docs/master/public/logo/Fluentd_horizontal.png)](https://raw.githubusercontent.com/fluent/fluentd-docs/master/public/logo/Fluentd_horizontal.png)
+[![](/images/logo/Fluentd_horizontal.png)](/images/logo/Fluentd_horizontal.png)
 
 
-[\[PNG\]](https://raw.githubusercontent.com/fluent/fluentd-docs/master/public/logo/Fluentd_horizontal.png)
-[\[SVG\]](https://raw.githubusercontent.com/fluent/fluentd-docs/master/public/logo/Fluentd_horizontal.svg)
+[\[PNG\]](/images/logo/Fluentd_horizontal.png)
+[\[SVG\]](/images/logo/Fluentd_horizontal.svg)
 
 
 ## Icon
 
-[![](https://raw.githubusercontent.com/fluent/fluentd-docs/master/public/logo/Fluentd_icon.png)](https://raw.githubusercontent.com/fluent/fluentd-docs/master/public/logo/Fluentd_icon.png)
+[![](/images/logo/Fluentd_icon.png)](/images/logo/Fluentd_icon.png)
 
 
 
-[\[PNG\]](https://raw.githubusercontent.com/fluent/fluentd-docs/master/public/logo/Fluentd_icon.png)
-[\[SVG\]](https://raw.githubusercontent.com/fluent/fluentd-docs/master/public/logo/Fluentd_icon.svg)
+[\[PNG\]](/images/logo/Fluentd_icon.png)
+[\[SVG\]](/images/logo/Fluentd_icon.svg)
 
 
 
 ## Links
 
--   [Fluentd.ai](https://raw.githubusercontent.com/fluent/fluentd-docs/master/public/logo/Fluentd.ai)
--   [Full list of files](https://github.com/fluent/fluentd-docs-gitbook/tree/master/public/logo)
+-   [Fluentd.ai](/images/logo/Fluentd.ai)
+-   [Full list of files](https://github.com/fluent/fluentd-docs-gitbook/tree/0.12/images/public/logo)
 
 
 ------------------------------------------------------------------------
