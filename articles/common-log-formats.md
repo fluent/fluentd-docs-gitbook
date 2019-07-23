@@ -101,13 +101,13 @@ the [Tail input plugin](/plugins/input/tail.md).
 ### Do you not see what you are looking for?
 
 Give us a shout on
-[GitHub](https://github.com/fluent/fluentd-docs/issues?state=open),
+[GitHub](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open),
 [Twitter](http://twitter.com/fluentd) or [the mailing
 list](https://groups.google.com/forum/#!forum/fluentd). Better yet, we
-always welcome a [pull request](https://github.com/fluent/fluentd-docs/pulls)!
+always welcome a [pull request](https://github.com/fluent/fluentd-docs-gitbook/pulls)!
 
 
 ------------------------------------------------------------------------
 
-If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs/issues?state=open).
+If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open).
 [Fluentd](http://www.fluentd.org/) is a open source project under [Cloud Native Computing Foundation (CNCF)](https://cncf.io/). All components are available under the Apache 2 License.

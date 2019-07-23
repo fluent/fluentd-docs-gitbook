@@ -48,10 +48,10 @@ and issue list, and consider submitting a patch.
 We run the documentation as an open source project as well. We encourage
 and appreciate any improvements, big or small. Make a pull request!
 
--   [Documentation Source Code](http://github.com/fluent/fluentd-docs)
+-   [Documentation Source Code](http://github.com/fluent/fluentd-docs-gitbook)
 
 
 ------------------------------------------------------------------------
 
-If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs/issues?state=open).
+If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open).
 [Fluentd](http://www.fluentd.org/) is a open source project under [Cloud Native Computing Foundation (CNCF)](https://cncf.io/). All components are available under the Apache 2 License.
