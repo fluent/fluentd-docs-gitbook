@@ -50,13 +50,13 @@ entries:
 
 ``` {.CodeRay}
 <source>
-  type forward
+  @type forward
   port 24224
   bind 0.0.0.0
 </source>
 
-<match *.*>
-  type stdout
+<match *>
+  @type stdout
 </match>
 ```
 
@@ -72,23 +72,25 @@ If the service started you should see an output like this:
 
 ``` {.CodeRay}
 $ fluentd -c in_docker.conf
-2015-09-01 15:07:12 -0600 [info]: reading config file path="in_docker.conf"
-2015-09-01 15:07:12 -0600 [info]: starting fluentd-0.12.15
-2015-09-01 15:07:12 -0600 [info]: gem 'fluent-plugin-mongo' version '0.7.10'
-2015-09-01 15:07:12 -0600 [info]: gem 'fluentd' version '0.12.15'
-2015-09-01 15:07:12 -0600 [info]: adding match pattern="*.*" type="stdout"
-2015-09-01 15:07:12 -0600 [info]: adding source type="forward"
-2015-09-01 15:07:12 -0600 [info]: using configuration file: <ROOT>
+2019-07-22 12:20:36 +0900 [info]: parsing config file is succeeded path="in_docker.conf"
+2019-07-22 12:20:36 +0900 [info]: using configuration file: <ROOT>
   <source>
     @type forward
     port 24224
-    bind 0.0.0.0
+    bind "0.0.0.0"
   </source>
-  <match docker.*>
+  <match *>
     @type stdout
   </match>
 </ROOT>
-2015-09-01 15:07:12 -0600 [info]: listening fluent socket on 0.0.0.0:24224
+2019-07-22 12:20:36 +0900 [info]: starting fluentd-1.4.2 pid=91035 ruby="2.6.3"
+2019-07-22 12:20:36 +0900 [info]: spawn command to main:  cmdline=["/Users/yuta.iwama/.rbenv/versions/2.6.3/bin/ruby", "-Eascii-8bit:ascii-8bit", "-rbundler/setup", "/Users/yuta.iwama/src/github.com/ganmacs/fluentd-confs/vendor/bundle/ruby/2.6.0/bin/fluentd", "-c", "in_docker.conf", "--under-supervisor"]
+2019-07-22 12:20:36 +0900 [info]: gem 'fluentd' version '1.4.2'
+2019-07-22 12:20:36 +0900 [info]: adding match pattern="*.*" type="stdout"
+2019-07-22 12:20:36 +0900 [info]: adding source type="forward"
+2019-07-22 12:20:36 +0900 [info]: #0 starting fluentd worker pid=91048 ppid=91035 worker=0
+2019-07-22 12:20:36 +0900 [info]: #0 listening port port=24224 bind="0.0.0.0"
+2019-07-22 12:20:36 +0900 [info]: #0 fluentd worker is now running worker=0
 ```
 
 ### Step 3: Start Docker container with Fluentd driver
@@ -115,7 +117,7 @@ Now on the Fluentd output, you will see the incoming message from the
 container, e.g:
 
 ``` {.CodeRay}
-2015-09-01 15:10:40 -0600 docker.3fd8678d487e: {"source":"stdout","log":"Hello Fluentd!","container_id":"3fd8678d487e540c7a303e1613101e746c5012f3317434eda93f24351c1928f7","container_name":"/angry_kalam"}
+2019-07-22 03:32:42.000000000 +0000 499e83386347: {"source":"stdout","log":"Hello Fluentd!","container_id":"499e833863479de2c4a3639d0cf5aeb36333d438a42bb0959f6ed104e41354b1","container_name":"/kind_lamarr"}
 ```
 
 At this point you will notice something interesting, the incoming
@@ -142,13 +144,13 @@ before send to destinations.
 Original event:
 
 ``` {.CodeRay}
-2015-09-01 15:10:40 -0600 docker.3fd8678d487e: {"source":"stdout","log":"{\"key\":\"value\"}","container_id":"3fd8678d487e540c7a303e1613101e746c5012f3317434eda93f24351c1928f7","container_name":"/angry_kalam"}
+2019-07-22 03:36:39.000000000 +0000 6e8a14315069: {"log":"{\"key\":\"value\"}","container_id":"6e8a1431506936b8568a284f2b0dd4853c250ad85ab7a497f05c4d371f6c3ae6","container_name":"/laughing_beaver","source":"stdout"}
 ```
 
 Filtered event:
 
 ``` {.CodeRay}
-2015-09-01 15:10:40 -0600 docker.3fd8678d487e: {"source":"stdout","log":"{\"key\":\"value\"}","container_id":"3fd8678d487e540c7a303e1613101e746c5012f3317434eda93f24351c1928f7","container_name":"/angry_kalam","key":"value"}
+2019-07-22 03:35:59.395952500 +0000 bac5426337a6: {"container_id":"bac5426337a611fc3b7a0b318c3c45981d2acd80f5c5651088bebb8f1f962583","container_name":"/nostalgic_euler","source":"stdout","log":"{\"key\":\"value\"}","key":"value"}
 ```
 
 ### Additional Step 2: Concatenate multiple lines log messages
@@ -246,5 +248,5 @@ tools as well.
 
 ------------------------------------------------------------------------
 
-If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs/issues?state=open).
+If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open).
 [Fluentd](http://www.fluentd.org/) is a open source project under [Cloud Native Computing Foundation (CNCF)](https://cncf.io/). All components are available under the Apache 2 License.
