@@ -13,9 +13,8 @@ solve the big-data log collection problem. A lot of users are using
 Fluentd with MongoDB, and have found that it doesn't scale well for now.
 
 HDFS (Hadoop) is a natural alternative for storing and processing a huge
-amount of data, but it didn't have an accessible API other than its Java
-library until recently. From Apache 1.0.0, CDH3u5, or CDH4 onwards, HDFS
-supports an HTTP interface called WebHDFS.
+amount of data. It supports an HTTP interface called WebHDFS in addition to its Java
+library.
 
 This article will show you how to use [Fluentd](http://fluentd.org/) to
 receive data from HTTP and stream it into HDFS.
@@ -36,7 +35,7 @@ configuration. Please install the following software on the same node.
 -   [Fluentd](http://fluentd.org/)
 -   [WebHDFS Output Plugin](https://github.com/fluent/fluent-plugin-webhdfs/)
     ([out\_webhdfs](/plugins/output/webhdfs.md))
--   HDFS (Apache 1.0.0, CDH3u5 or CDH4 onwards)
+-   Apache HDFS
 
 The WebHDFS Output plugin is included in the latest version of Fluentd's
 deb/rpm package (v1.1.10 or later). If you want to use Ruby Gems to
@@ -44,8 +43,7 @@ install the plugin, please use `gem install fluent-plugin-webhdfs`.
 
 -   [Debian Package](/install/install-by-deb.md)
 -   [RPM Package](/install/install-by-rpm.md)
--   For CDH, please refer to the [downloads page](https://ccp.cloudera.com/display/SUPPORT/CDH+Downloads)
-    (CDH3u5 and CDH4 onwards)
+-   For CDH, please refer to the [downloads page](https://www.cloudera.com/downloads.html)
 -   [Ruby gem](/install/install-by-gem.md)
 
 
