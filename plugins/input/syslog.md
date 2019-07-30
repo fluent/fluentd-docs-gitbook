@@ -260,6 +260,16 @@ message body.
 If you wish to parse syslog messages of arbitrary formats,
 [in\_tcp](/plugins/input/tcp.md) or [in\_udp](/plugins/input/udp.md) are recommended.
 
+### emit\_unmatched\_lines
+
+| type | default | version |
+|:-----|:--------|:--------|
+| bool | false   | 1.6.3   |
+
+Emit unmatched lines when `<parse>` format is not matched for incoming logs.
+
+Emitted record is `{"unmatched_line" : "incoming line"}` with `${tag parameter}.unmatched` tag.
+
 
 ### source\_hostname\_key
 
