@@ -17,7 +17,7 @@ uses files to store buffer chunks on disk.
 | string |     ✔    |         |   0.9.0 |
 
 The path where buffer chunks are stored. The '\*' is replaced with
-random characters. This parameter is require
+random characters. This parameter is required.
 
 This parameter must be unique to avoid race condition problem. For
 example, you can't use fixed path parameter in fluent-plugin-forest.
@@ -66,6 +66,24 @@ Here is the correct version to avoid prefix problem.
 Please make sure that you have **enough space in the path directory**.
 Running out of disk space is a problem frequently reported by users.
 
+### path_suffix
+
+| type   | default | version |
+|:-------|:--------|:--------|
+| string | .log    | 1.6.3   |
+
+Change the suffix of buffer file.
+
+```
+# default 
+/var/log/fluentd/buf/buffer.b58eec11d08ca8143b40e4d303510e0bb.log
+/var/log/fluentd/buf/buffer.b58eec11d08ca8143b40e4d303510e0bb.log.meta
+# with 'path_suffix .buf'
+/var/log/fluentd/buf/buffer.b58eec11d08ca8143b40e4d303510e0bb.buf
+/var/log/fluentd/buf/buffer.b58eec11d08ca8143b40e4d303510e0bb.buf.meta
+```
+
+This parameter is useful when `.log` is not fit for your environment. See also [this issue comment](https://github.com/fluent/fluentd/issues/2236#issuecomment-514733974).
 
 ## Example
 
