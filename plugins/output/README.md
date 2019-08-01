@@ -202,7 +202,7 @@ If the queue length exceeds the specified limit (`queue_limit_length`),
 new events are rejected.
 
 writing out the bottom chunk is considered to be a failure if
-\"Output\#write\" or \`Output\#try\_write\` method throws an exception.
+`Output#write` or `Output#try_write` method throws an exception.
 
 #### retry\_type
 

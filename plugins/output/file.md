@@ -74,9 +74,9 @@ for more detail.
 The `path` parameter is used as `<buffer>`'s `path` in this plugin.
 
 Initially, you may see a file which looks like
-\"/path/to/file.%Y%m%d/buffer.b5692238db04045286097f56f361028db.log\".
+`/path/to/file.%Y%m%d/buffer.b5692238db04045286097f56f361028db.log`.
 This is an intermediate buffer file
-(\"b5692238db04045286097f56f361028db\" identifies the buffer). Once the
+(`b5692238db04045286097f56f361028db` identifies the buffer). Once the
 content of the buffer has been completely [flushed](/plugins/buffer/file.md), you will
 see the output file without the trailing identifier.
 

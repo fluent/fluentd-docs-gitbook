@@ -36,7 +36,7 @@ structure and syntax of the configuration file.
 This example illustrates how to run FizzBuzz with out\_exec.
 
 We assume that the input file is specified by the last argument in the
-command line ("ARGV\[-1\]"). The following script `fizzbuzz.py` runs
+command line (`ARGV[-1]`). The following script `fizzbuzz.py` runs
 [FizzBuzz](http://en.wikipedia.org/wiki/Fizz_buzz) against the new-line
 delimited sequence of natural numbers (1, 2, 3...) and writes the output
 to "foobar.out".
@@ -85,10 +85,10 @@ Then, configure Fluentd as follows
 </match>
 ```
 
-The "@type tsv" and "keys fizzbuzz" in `<format>` tells Fluentd to
-extract the "fizzbuzz" field and output it as TSV. This simple example
+The `@type tsv` and `keys fizzbuzz` in `<format>` tells Fluentd to
+extract the `fizzbuzz` field and output it as TSV. This simple example
 has a single key, but you can of course extract multiple fields and use
-"format json" to output newline-delimited JSONs.
+`format json` to output newline-delimited JSONs.
 
 The intermediary TSV is at `/path/to/buffer_path`, and the command
 `python /path/to/fizzbuzz.py /path/to/buffer_path` is run. This is why
@@ -167,8 +167,8 @@ actual command execution is:
 cmd arg arg /path/to/file
 ```
 
-If \"cmd\" doesn't exist in PATH, you need to specify absolute path,
-e.g. \"/path/to/cmd\".
+If `cmd` doesn't exist in PATH, you need to specify absolute path,
+e.g. `/path/to/cmd`.
 
 
 ### command\_timeout
