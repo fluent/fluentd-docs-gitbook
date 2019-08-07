@@ -54,26 +54,12 @@ repository manually.
 
 ### Amazon Linux
 
-Mainly for Amazon Linux 2. Recent two 64bit versions are supported for
-amazon linux 1. This means if latest version is `2018.03`, rpm is
-provided for `2018.03` and `2017.09`.
+For Amazon Linux 2.
 
 ```
 # Amazon Linux 2
 $ curl -L https://toolbelt.treasuredata.com/sh/install-amazon2-td-agent3.sh | sh
-# Amazon Linux 1
-$ curl -L https://toolbelt.treasuredata.com/sh/install-amazon1-td-agent3.sh | sh
 ```
-
-Newer td-agent 3 no longer support Amazon Linux 1. If you want to use
-latest td-agent 3, please upgrade your Amazon Linux 1 to Amazon Linux 2.
-
-We use \$releasever for repository path in the script and \$releasever
-should be \"year.month\" format like \"2017.09\". On AWS, some services
-modify \$releasever to own format and it will cause installation
-failure. If your environment's \$releasever is non-\"year.month\"
-format, change it to \"year.month\" format or setup TD repository
-manually.
 
 
 ## Step 2: Launch Daemon
