@@ -97,7 +97,7 @@ this value is true.
 |:-----|:--------|:--------|
 | bool | false   | 1.4.2   |
 
-Enable TCP keepalive of sockets. See [socket article](/plugin-helper-overview/api-plugin-helper-socket.md#send_keepalive_packet_usecase) for more details.
+Enable TCP keepalive of sockets. See [socket article](/plugin-helper-overview/api-plugin-helper-socket.md/#send_keepalive_packet_usecase) for more details.
 
 
 ### chunk\_size\_limit
