@@ -400,7 +400,7 @@ The client private key passphrase for TLS.
 
 | type | default | version |
 |:----:|:-------:|:-------:|
-| bool | fales    | 1.4.3  |
+| bool | fales    | 1.5.0  |
 
 Enable keepalive connection.
 
@@ -408,7 +408,7 @@ Enable keepalive connection.
 
 | type | default | version |
 |:----:|:-------:|:-------:|
-| time | nil     | 1.4.3   |
+| time | nil     | 1.5.0   |
 
 Expired time of keepalive. Default value is nil, which means to keep connection
 as long as possible.
