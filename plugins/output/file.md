@@ -131,6 +131,8 @@ Deprecated parameter. Use `<format>` instead.
 
 ### &lt;inject&gt; section
 
+Add event `time` and event `tag` to record.
+
 See [Inject section configurations](/configuration/inject-section.md) for more details.
 
 
