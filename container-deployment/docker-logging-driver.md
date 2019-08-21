@@ -45,7 +45,7 @@ will instruct Fluentd to write the messages to the standard output; In a
 later step you will find how to accomplish the same aggregating the logs
 into a MongoDB instance.
 
-Create a simple file called in\_docker.conf which contains the following
+Create a simple file called demo.conf which contains the following
 entries:
 
 ``` {.CodeRay}
@@ -65,15 +65,14 @@ entries:
 With this simple command start an instance of Fluentd:
 
 ``` {.CodeRay}
-$ fluentd -c in_docker.conf
+$ docker run -it -p 24224:24224 -v $(pwd)/demo.conf:/fluentd/etc/demo.conf -e FLUENTD_CONF=demo.conf fluent/fluentd:latest
 ```
 
 If the service started you should see an output like this:
 
 ``` {.CodeRay}
-$ fluentd -c in_docker.conf
-2019-07-22 12:20:36 +0900 [info]: parsing config file is succeeded path="in_docker.conf"
-2019-07-22 12:20:36 +0900 [info]: using configuration file: <ROOT>
+2019-08-21 00:51:02 +0000 [info]: parsing config file is succeeded path="/fluentd/etc/demo.conf"
+2019-08-21 00:51:02 +0000 [info]: using configuration file: <ROOT>
   <source>
     @type forward
     port 24224
@@ -83,14 +82,15 @@ $ fluentd -c in_docker.conf
     @type stdout
   </match>
 </ROOT>
-2019-07-22 12:20:36 +0900 [info]: starting fluentd-1.4.2 pid=91035 ruby="2.6.3"
-2019-07-22 12:20:36 +0900 [info]: spawn command to main:  cmdline=["/Users/yuta.iwama/.rbenv/versions/2.6.3/bin/ruby", "-Eascii-8bit:ascii-8bit", "-rbundler/setup", "/Users/yuta.iwama/src/github.com/ganmacs/fluentd-confs/vendor/bundle/ruby/2.6.0/bin/fluentd", "-c", "in_docker.conf", "--under-supervisor"]
-2019-07-22 12:20:36 +0900 [info]: gem 'fluentd' version '1.4.2'
-2019-07-22 12:20:36 +0900 [info]: adding match pattern="*.*" type="stdout"
-2019-07-22 12:20:36 +0900 [info]: adding source type="forward"
-2019-07-22 12:20:36 +0900 [info]: #0 starting fluentd worker pid=91048 ppid=91035 worker=0
-2019-07-22 12:20:36 +0900 [info]: #0 listening port port=24224 bind="0.0.0.0"
-2019-07-22 12:20:36 +0900 [info]: #0 fluentd worker is now running worker=0
+2019-08-21 00:51:02 +0000 [info]: starting fluentd-1.3.2 pid=6 ruby="2.5.2"
+2019-08-21 00:51:02 +0000 [info]: spawn command to main:  cmdline=["/usr/bin/ruby", "-Eascii-8bit:ascii-8bit", "/usr/bin/fluentd", "-c", "/fluentd/etc/demo.conf", "-p", "/fluentd/plugins", "--under-supervisor"]
+2019-08-21 00:51:02 +0000 [info]: gem 'fluentd' version '1.3.2'
+2019-08-21 00:51:02 +0000 [info]: adding match pattern="*" type="stdout"
+2019-08-21 00:51:02 +0000 [info]: adding source type="forward"
+2019-08-21 00:51:02 +0000 [info]: #0 starting fluentd worker pid=16 ppid=6 worker=0
+2019-08-21 00:51:02 +0000 [info]: #0 listening port port=24224 bind="0.0.0.0"
+2019-08-21 00:51:02 +0000 [info]: #0 fluentd worker is now running worker=0
+
 ```
 
 ### Step 3: Start Docker container with Fluentd driver
@@ -117,7 +117,7 @@ Now on the Fluentd output, you will see the incoming message from the
 container, e.g:
 
 ``` {.CodeRay}
-2019-07-22 03:32:42.000000000 +0000 499e83386347: {"source":"stdout","log":"Hello Fluentd!","container_id":"499e833863479de2c4a3639d0cf5aeb36333d438a42bb0959f6ed104e41354b1","container_name":"/kind_lamarr"}
+2019-08-21 00:52:28.000000000 +0000 ece4524df531: {"source":"stdout","log":"Hello Fluentd!","container_id":"ece4524df531ed6ded4253c145a53bead9b049241aa12c5a59ab83e3a14a96b4","container_name":"/inspiring_montalcini"}
 ```
 
 At this point you will notice something interesting, the incoming
