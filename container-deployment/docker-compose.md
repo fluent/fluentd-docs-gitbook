@@ -5,7 +5,7 @@ logs to EFK (Elasticsearch + Fluentd + Kibana) stack. The example uses
 [Docker Compose](https://docs.docker.com/compose/) for setting up
 multiple containers.
 
-![](/images/kibana5-screenshot.png)
+![](/images/7.2_kibana-homepage.png)
 
 
 [Elasticsearch](https://www.elastic.co/products/elasticsearch) is an
