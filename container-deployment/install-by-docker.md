@@ -15,10 +15,10 @@ Please download and install [Docker](https://www.docker.com/) from here.
 
 ## Step 1: Pull Fluentd's Docker image
 
-Then, please download Fluentd v0.12's image by `docker pull` command.
+Then, please download Fluentd vv1.6-debian-1's image by `docker pull` command.
 
 ``` {.CodeRay}
-$ docker pull fluent/fluentd:v0.12-debian
+$ docker pull fluent/fluentd:v1.6-debian-1
 ```
 Debian and Alpine Linux version is available for Fluentd image. Debian
 version is recommended officially since it has jemalloc support, however
@@ -45,24 +45,26 @@ to stdout.
 Finally, you can run Fluentd with `docker run` command.
 
 ``` {.CodeRay}
-$ docker run -d \
-  -p 9880:9880 -v /tmp:/fluentd/etc -e FLUENTD_CONF=fluentd.conf \
-  fluent/fluentd
-2017-01-30 11:52:23 +0000 [info]: reading config file path="/fluentd/etc/fluentd.conf"
-2017-01-30 11:52:23 +0000 [info]: starting fluentd-0.12.31
-2017-01-30 11:52:23 +0000 [info]: gem 'fluentd' version '0.12.31'
-2017-01-30 11:52:23 +0000 [info]: adding match pattern="**" type="stdout"
-2017-01-30 11:52:23 +0000 [info]: adding source type="http"
-2017-01-30 11:52:23 +0000 [info]: using configuration file: <ROOT>
+$ docker run -p 9880:9880 -v $(pwd)/tmp:/fluentd/etc -e FLUENTD_CONF=fluentd.conf fluent/fluentd:v1.6-debian-1 
+2019-08-21 00:30:37 +0000 [info]: parsing config file is succeeded path="/fluentd/etc/fluentd.conf"
+2019-08-21 00:30:37 +0000 [info]: using configuration file: <ROOT>
   <source>
     @type http
     port 9880
-    bind 0.0.0.0
+    bind "0.0.0.0"
   </source>
   <match **>
     @type stdout
   </match>
 </ROOT>
+2019-08-21 00:30:37 +0000 [info]: starting fluentd-1.6.3 pid=6 ruby="2.6.3"
+2019-08-21 00:30:37 +0000 [info]: spawn command to main:  cmdline=["/usr/local/bin/ruby", "-Eascii-8bit:ascii-8bit", "/usr/local/bundle/bin/fluentd", "-c", "/fluentd/etc/fluentd.conf", "-p", "/fluentd/plugins", "--under-supervisor"]
+2019-08-21 00:30:38 +0000 [info]: gem 'fluentd' version '1.6.3'
+2019-08-21 00:30:38 +0000 [info]: adding match pattern="**" type="stdout"
+2019-08-21 00:30:38 +0000 [info]: adding source type="http"
+2019-08-21 00:30:38 +0000 [info]: #0 starting fluentd worker pid=13 ppid=6 worker=0
+2019-08-21 00:30:38 +0000 [info]: #0 fluentd worker is now running worker=0
+2019-08-21 00:30:38.332472611 +0000 fluent.info: {"worker":0,"message":"fluentd worker is now running worker=0"}
 ```
 
 ## Step3: Post Sample Logs via HTTP
@@ -78,11 +80,12 @@ Use `docker ps` command to retrieve container ID, and use `docker logs`
 command to check the specific container's log.
 
 ``` {.CodeRay}
-$ docker ps
-CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                                         NAMES
-b495e527850c        fluent/fluentd      "/bin/sh -c 'exec ..."   2 hours ago         Up 2 hours          5140/tcp, 24224/tcp, 0.0.0.0:9880->9880/tcp   awesome_mcnulty
-$ docker logs b495e527850c | tail -n 1
-2017-01-30 14:04:37 +0000 sample.test: {"json":"message"}
+$ docker ps -a
+CONTAINER ID        IMAGE                          COMMAND                  CREATED              STATUS              PORTS                                         NAMES
+775a8e192f2b        fluent/fluentd:v1.6-debian-1   "tini -- /bin/entryp…"   About a minute ago   Up About a minute   5140/tcp, 24224/tcp, 0.0.0.0:9880->9880/tcp   tender_leakey
+
+$ docker logs 775a8e192f2b | tail -n 1
+2019-08-21 00:33:00.570707843 +0000 sample.test: {"json":"message"}
 ```
 
 ## Next Steps
