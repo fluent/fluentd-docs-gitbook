@@ -191,7 +191,7 @@ are properly collected into Elasticsearch + Kibana, via Fluentd.
 This article explains how to collect logs from Apache to EFK
 (Elasticsearch + Fluentd + Kibana). The example code is available in
 this repository.
-
+-   <https://github.com/digikin/fluentd-elastic-kibana>
 -   <https://github.com/kzk/docker-compose-efk>
 
 ## Learn More
