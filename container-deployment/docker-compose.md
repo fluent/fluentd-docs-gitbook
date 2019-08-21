@@ -159,7 +159,7 @@ Let's access to `httpd` to generate some access logs. `curl` command is
 always your friend.
 
 ``` {.CodeRay}
-$ repeat 10 curl http://localhost:80/
+$ curl http://localhost:80/[1-10]
 <html><body><h1>It works!</h1></body></html>
 <html><body><h1>It works!</h1></body></html>
 <html><body><h1>It works!</h1></body></html>
