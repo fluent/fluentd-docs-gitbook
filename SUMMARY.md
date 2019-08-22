@@ -111,7 +111,8 @@
 * [Buffer Plugins](/plugins/buffer/README.md)
   * [memory](/plugins/buffer/memory.md)
   * [file](/plugins/buffer/file.md)
-            
+  * [file](/plugins/buffer/file_single.md)
+
 * [Storage Plugins](/plugins/storage/README.md)
   * [local](/plugins/storage/local.md)
 
