@@ -66,6 +66,7 @@
   * [kafka](/plugins/output/kafka.md)
   * [elasticsearch](/plugins/output/elasticsearch.md)
   * [forward](/plugins/output/forward.md)
+  * [http](/plugins/output/http.md)
   * [exec](/plugins/output/exec.md)
   * [exec_filter](/plugins/output/exec_filter.md)
   * [copy](/plugins/output/copy.md)
