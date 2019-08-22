@@ -179,27 +179,27 @@ The default version of TLS
 
 ### tls_ciphers
 
-| type   | default  | version |
-|:-------|:---------|:--------|
-| string | ALL:!aNULL:!eNULL:!SSLv2 | 1.7.0 |
+| type   | default                  | version |
+|:-------|:-------------------------|:--------|
+| string | ALL:!aNULL:!eNULL:!SSLv2 | 1.7.0   |
 
-The cipher configuration of TLS
+The cipher suites configuration of TLS.
 
-### error_response_as_unrecoverable (bool) (optional)
+### error_response_as_unrecoverable
 
 | type   | default | version |
 |:-------|:--------|:--------|
-| string | true    | 1.7.0   |
+| bool   | true    | 1.7.0   |
 
 Raise `UnrecoverableError` when the response code is non success, 1xx/3xx/4xx/5xx. If `false`, `out_http` logs error message instead of raising `UnrecoverableError`.
 
 See also [Handling Unrecoverable Errors](/buffer/README.md#handling-unrecoverable-errors)
 
-### retryable_response_codes (array) (optional)
+### retryable_response_codes
 
-| type   | default | version |
-|:-------|:--------|:--------|
-| array of int | [503] | 1.7.0   |
+| type         | default | version |
+|:-------------|:--------|:--------|
+| array of int | [503]   | 1.7.0   |
 
 The list of retryable response code. If the response code is included in this list, `out_http` retries the buffer flush.
 
