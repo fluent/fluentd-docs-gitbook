@@ -66,7 +66,7 @@ Running out of disk space is a problem frequently reported by users.
 
 | type   | required | default | version |
 |:-------|:--------:|:--------|:--------|
-| string |          |   true  |   1.7.0 |
+| bool   |          |   true  |   1.7.0 |
 
 Calculate the number of records, chunk size, during chunk resume.
 
@@ -88,7 +88,7 @@ This option is mainly for `out_forward`.
 
 Specify chunk content for `calc_num_records`.
 
-With `auto`, the plugin decide chunk format by `formatted_to_msgpack_binary?`. This option is useful whne the output plugin doesn't implement `formatted_to_msgpack_binary?` correctly.
+With `auto`, the plugin decide chunk format by `formatted_to_msgpack_binary?`. This option is useful when the output plugin doesn't implement `formatted_to_msgpack_binary?` correctly.
 
 
 ## Limitation
