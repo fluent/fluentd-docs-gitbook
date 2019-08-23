@@ -51,6 +51,17 @@ endpoint http://example.com/api
 endpoint https://example.com/api
 ```
 
+The `endpoint` parameter supports placeholders, so you can embed time, tag and record fields in the endpoint. Here is an example:
+
+```
+endpoint http://example.com/api/${tag}-${key}
+<buffer tag,key>
+  # buffer parameters
+</buffer>
+```
+
+See [Buffer section configurations](/configuration/buffer-section.md) for more details.
+
 ### http_method
 
 | type | default | available values | version |
