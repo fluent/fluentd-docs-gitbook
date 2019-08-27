@@ -46,6 +46,12 @@
   * [Trouble Shooting](/deployment/trouble-shooting.md)
   * [Fluentd UI](/deployment/fluentd-ui.md)
   * [Command Line Option](/deployment/command-line-option.md)
+
+* [Container Deployment]()
+  * [Docker Image](/container-deployment/install-by-docker.md)
+  * [Docker Logging Driver](/container-deployment/docker-logging-driver.md)
+  * [Docker Compose](/container-deployment/docker-compose.md)
+  * [Kubernetes](/container-deployment/kubernetes.md)
        
 * [Input Plugins](/plugins/input/README.md)
   * [tail](/plugins/input/tail.md)
