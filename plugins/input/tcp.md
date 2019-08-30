@@ -208,6 +208,41 @@ end
 </source>
 ```
 
+### How to Enable TLS Mutual Authentication
+
+Fluentd supports [TLS mutual authentication](https://en.wikipedia.org/wiki/Mutual_authentication)
+(a.k.a. client certificate auth). If you want to use this feature,
+please set the `client_cert_auth` and `ca_path` options as follows.
+
+```
+<source>
+  @type tcp
+  port 20001
+  <transport tls>
+    ...
+    client_cert_auth true
+    ca_path /path/to/ca/cert
+  </transport>
+</source>
+```
+
+When this feature is enabled, Fluentd will check all incoming requests
+for a client certificate signed by the trusted CA. Requests that don't
+supply a valid client certificate will fail.
+
+To check if mutual authentication is working properly, issue the
+following command:
+
+```
+$ openssl s_client -connect localhost:20001 \
+  -key path/to/client.key \
+  -cert path/to/client.crt \
+  -CAfile path/to/ca.crt
+```
+
+If the connection gets established successfully, your setup is working
+fine.
+
 ------------------------------------------------------------------------
 
 If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open).
