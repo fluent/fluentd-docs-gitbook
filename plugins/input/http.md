@@ -390,6 +390,26 @@ end
 
 puts post("/test.http?time=#{Time.now.to_i}", record).body
 ```
+### How to Enable TLS Mutual Authentication
+
+Fluentd supports [TLS mutual authentication](https://en.wikipedia.org/wiki/Mutual_authentication)
+(a.k.a. client certificate auth). If you want to use this feature,
+please set the `client_cert_auth` and `ca_path` options as follows.
+
+```
+<source>
+  @type http
+  <transport tls>
+    ...
+    client_cert_auth true
+    ca_path /path/to/ca/cert
+  </transport>
+</source>
+```
+
+When this feature is enabled, Fluentd will check all incoming requests
+for a client certificate signed by the trusted CA. Requests that don't
+supply a valid client certificate will fail.
 
 ------------------------------------------------------------------------
 
