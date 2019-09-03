@@ -396,6 +396,33 @@ The client private key path for TLS.
 
 The client private key passphrase for TLS.
 
+### tls\_cert\_thumbprint
+
+| type   | default | version |
+|:------:|:-------:|:-------:|
+| string | nil     | 1.7.1   |
+
+The certificate thumbprint for searching from Windows system certstore
+This parameter is for Windows only.
+
+### tls\_cert\_logical\_store\_name,
+
+| type   | default | version |
+|:------:|:-------:|:-------:|
+| string | nil     | 1.7.1   |
+
+The certificate logical store name on Windows system certstore.
+This parameter is for Windows only.
+
+### tls\_cert\_use\_enterprise\_store
+
+| type   | default | version |
+|:------:|:-------:|:-------:|
+| string | true    | 1.7.1   |
+
+Enable to use certificate enterprise store on Windows system certstore.
+This parameter is for Windows only.
+
 ### keepalive
 
 | type | default | version |
@@ -499,6 +526,68 @@ the forwarding server, then add the following settings:
 After updating the settings, please confirm that the forwarded data is
 being received by the destination node properly.
 
+### How to connect to a TLS/SSL enabled server with Windows Certstore Certificate
+
+If you've [set up TLS/SSL encryption in the receiving server](/plugins/input/forward.md/#how-to-enable-tls/ssl-encryption), you need to tell
+the output forwarder to use encryption by setting the `transport`
+parameter.
+
+Valid logical store name are:
+
+* MY
+* CA
+* ROOT
+* AUTHROOT
+* DISALLOWED
+* SPC
+* TRUST
+* TRUSTEDPEOPLE
+* TRUSTEDPUBLISHER
+* CLIENTAUTHISSUER
+* TRUSTEDDEVICES
+* SMARTCARDROOT
+* WEBHOSTING
+* REMOTE DESKTOP
+
+Logical store name is case-insensitive.
+Note that this section configurations work on only Windows.
+
+```
+<match debug.**>
+  @type forward
+  transport tls
+  # Set valid logical store name.
+  tls_cert_logical_store_name Trust
+  tls_verify_hostname true # Set false to ignore cert hostname.
+  <server>
+    host 192.168.1.2
+    port 24224
+  </server>
+</match>
+```
+
+If you're using a self-signed certificate, export the certificate file
+from Windows Certstore and copy to the forwarding server,
+then add the following settings:
+
+```
+<match debug.**>
+  @type forward
+  transport tls
+  # Set certificate SHA1 hash which is usually called as thumbprint.
+  tls_cert_thumbprint <YOUR CERTIFICATE THUMBPRINT>
+  tls_cert_logical_store_name Trust
+  tls_verify_hostname true # Set false to ignore cert hostname.
+  tls_cert_use_enterprise_store true # Set false to use non-enterprise certificate.
+  <server>
+    host 192.168.1.2
+    port 24224
+  </server>
+</match>
+```
+
+Note that these configuration works for root certificate which is put in Windows Certstore.
+Currently, chained certificate is not supported.
 
 ### How to Enable Password Authentication
 
