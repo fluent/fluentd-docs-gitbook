@@ -161,6 +161,9 @@ terminates.
     -   `cert_paths`: files contain PEM-encoded certificates
     -   `private_key_path`: set the client private key path
     -   `private_key_passphrase`: set the client private key passphrase
+    -   `cert_thumbprint`: set the certificate thumbprint for searching from Windows system certstore
+    -   `cert_logical_store_name`: set The certificate logical store name on Windows system certstore
+    -   `cert_use_enterprise_store`: if true, enable to use certificate enterprise store on Windows system certstore
     -   Support more parameters same as socket_create_tcp's kwargs
 
 ## socket used plugins
