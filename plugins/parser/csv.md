@@ -2,10 +2,6 @@
 
 The `csv` parser plugin parses CSV format.
 
-This plugin uses
-[CSV.parse\_line](http://ruby-doc.org/stdlib-2.4.1/libdoc/csv/rdoc/CSV.html#method-c-parse_line)
-method.
-
 
 ## Parameters
 
@@ -29,6 +25,32 @@ Names of fields included in each lines.
 
 The delimiter character (or string) of CSV values.
 
+
+### parser_type
+
+| type | default | available values | version |
+|:-----|:--------|:-----------------|:--------|
+| enum | normal  | normal/fast      | 1.7.0   |
+
+The parser type used to parse log line.
+
+- `normal` uses ruby's [CSV.parse\_line](http://ruby-doc.org/stdlib-2.4.1/libdoc/csv/rdoc/CSV.html#method-c-parse_line) method.
+- `fast` uses own light-weight implementation. This parser is several times faster than `normal` but it supports only typical patterns.
+
+Here are `fast` supported CSV formats:
+
+```
+# non-quoted
+value1,value2,value3,value4,value5
+# quoted
+"value1","val,ue2","va,lu,e3","val ue4",""
+# escaped
+"message","mes""sage","""message""",,""""""
+# mixed
+message,"mes,sage","me,ssa,ge",mess age,""
+```
+
+If your CSV format is not matched with above patterns, use `normal` parser instead.
 
 ## Example
 
