@@ -159,6 +159,8 @@ terminates.
         store
     -   `allow_self_signed_cert`: if true, allow self signed certificate
     -   `cert_paths`: files contain PEM-encoded certificates
+    -   `private_key_path`: set the client private key path
+    -   `private_key_passphrase`: set the client private key passphrase
     -   Support more parameters same as socket_create_tcp's kwargs
 
 ## socket used plugins
