@@ -63,6 +63,35 @@ The port to listen to.
 The bind address to listen to.
 
 
+### tag
+
+| type   | default | version |
+|:-------|:--------|:--------|
+| string | nil     | 1.5.0  |
+
+`in_forward` uses incoming event's tag by default(See "Protocol" section).
+If set `tag` parameter, use its value instead.
+
+
+### add_tag_prefix
+
+| type   | default | version |
+|:-------|:--------|:--------|
+| string | nil     | 1.5.0  |
+
+Add prefix to incoming event's tag.
+Here is an example:
+
+```
+<source>
+  @type forward
+  add_tag_prefix prod
+</source>
+```
+
+With this configuration, the emitted tag is `prod.INCOMING_TAG`, e.g. `prod.app.log`.
+
+
 ### linger\_timeout
 
 | type    | default | version |
@@ -471,12 +500,6 @@ port. Incoming data will be routed to 3 workers automatically.
 
 
 ## FAQ
-
-
-### Why in\_forward doesn't have tag parameter?
-
-`in_forward` uses `tag` of incoming events so no fixed `tag` parameter.
-See above "Protocol" section.
 
 
 ### How to parse incoming events?
