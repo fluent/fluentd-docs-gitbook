@@ -196,7 +196,14 @@ then the format parser receives the following log:
 ```
 
 If the `<parse>/@type` parameter is missing, then the log data is
-assumed to have the canonical syslog format.
+assumed to have the canonical syslog format. It is same with following configuration:
+
+```
+<parse>
+  @type syslog
+  with_priority true
+</parse>
+```
 
 
 ### message\_format
