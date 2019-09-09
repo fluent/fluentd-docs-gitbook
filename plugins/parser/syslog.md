@@ -16,7 +16,7 @@ See [Parse section configurations](/configuration/parse-section.md)
 | string | %b %d %H:%M:%S  | 0.14.10 |
 
 Specify time format for event time. Default is "%b %d %H:%M:%S" for
-rfc3164 protocol.
+rfc3164 protocol. If your log uses sub-second timestamp, change this parameter to like "%b %d %H:%M:%S.%N".
 
 
 ### rfc5424\_time\_format
@@ -30,9 +30,9 @@ Specify time format for event time for rfc5424 protocol.
 
 ### message\_format
 
-| type   | default | version |
-|:-------|:--------|:--------|
-| string | rfc3164 | 0.14.14 |
+| type | default | available values     | version |
+|:-----|:--------|:---------------------|:--------|
+| enum | rfc3164 | rfc3164/rfc5424/auto | 0.14.14 |
 
 Specify protocol format. Supported values are `rfc3164`, `rfc5424` and
 `auto`. Default is `rfc3164`. If your syslog uses `rfc5424`, use
@@ -40,9 +40,6 @@ Specify protocol format. Supported values are `rfc3164`, `rfc5424` and
 
 `auto` is useful when this parser receives both `rfc3164` and `rfc5424`
 message. `syslog` parser detects message format by using message prefix.
-
-This parameter is used inside `in_syslog` plugin because the file logs
-via syslog don't have `<9>` like priority prefix.
 
 
 ### with\_priority
@@ -53,6 +50,40 @@ via syslog don't have `<9>` like priority prefix.
 
 If the incoming logs have priority prefix, e.g. `<9>`, set `true`.
 Default is `false`.
+
+This parameter is used inside `in_syslog` plugin because the file logs
+via syslog don't have `<9>` like priority prefix.
+
+
+### parser\_type
+
+| type | default | available values | version |
+|:-----|:--------|:-----------------|:--------|
+| enum | regexp  | regexp/string    | 1.7.1   |
+
+Specify internal parser type for `rfc3164` format. Supported values are `regexp` and `string`. Both parsers generate same record for standard format.
+
+We recommend to use `string` parser because it is 2x faster than `regexp`. The default is `regexp` for existing users, but fluentd v2 will change the default to `string` parser.
+
+
+### support\_colonless\_ident
+
+| type | default | version |
+|:-----|:--------|:--------|
+| bool | true    | 1.7.1   |
+
+This parameter is used when `parser_type` is `string`. If your message doesn't contain ident field, set `false` to avoid ident mismatch.
+
+```
+# No ident field log
+Feb  5 17:32:18 10.0.0.99 Use the BFG!
+
+# generated record with true is wrong
+{"host":"10.0.0.99","ident":"Use","message":"the BFG!"}
+
+# generated record with false is correct
+{"host":"10.0.0.99","message":"Use the BFG!"}
+```
 
 
 ## Regexp patterns
