@@ -86,6 +86,8 @@ plugins.
     -   Default: `false`
 -   **keep\_time\_key** (bool) (optional): If `true`, keep time field in the record.
     -   Default: `false`
+- **timeout** (time) (optional): Specify timeout for `parse` processing. This is mainly for detecting wrong regexp pattern.
+    -   Default: `nil`    
 
 #### The detail of types parameter
 
