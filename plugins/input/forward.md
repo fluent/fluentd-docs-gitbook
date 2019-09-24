@@ -26,7 +26,7 @@ process is required.
 </source>
 ```
 
-Please see the [Config FIle](/configuration/config-file.md) article for the basic
+Please see the [Config File](/configuration/config-file.md) article for the basic
 structure and syntax of the configuration file.
 
 
