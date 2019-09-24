@@ -81,12 +81,31 @@ administrative privilege, and type the two commands below.
 
 ## Step 4: Run td-agent as Windows service
 
+### Using GUI
+
 Please guide yourself to
 `Control Panel -> System and Security -> Administrative Tools -> Services`,
 and you'll see `Fluentd Windows Service` is listed.
 
 Please double click `Fluentd Window Service`, and click `Start` button.
 Then the process will be executed as Windows Service.
+
+### Using net.exe
+
+```
+> net start fluentdwinsvc
+The Fluentd Windows Service service is starting..
+The Fluentd Windows Service service was started successfully.
+```
+
+### Using Powershell Cmdlet
+
+```
+PS> Start-Service fluentdwinsvc
+```
+
+Note that using `fluentdwinsvc` is needed to start Fluentd service in commandline.
+Because `fluentdwinsvc` is service name and it should be passed in `net.exe` or `Start-Service` Cmdlet.
 
 The log file will be located at `C:/opt/td-agent/td-agent.log` as we
 specified in Step 3.
