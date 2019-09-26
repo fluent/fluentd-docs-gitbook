@@ -30,8 +30,11 @@ your OS properly. This will prevent many unnecessary problems.
 
 For Ubuntu, we currently support "Ubuntu 18.04 LTS / Bionic 64bit",
 "Ubuntu 16.04 LTS / Xenial 64bit", "Ubuntu 14.04 LTS / Trusty 64bit".
-For Debian, we currently support "Debian 10 Buster 64bit", "Debian 9 Stretch 64bit",
+For Debian, we currently provide "Debian 10 Buster 64bit", "Debian 9 Stretch 64bit",
 "Debian 8 Jessie 64bit".
+
+Note: treasure data doesn't verify debian packages. If you have a problem with debian packages,
+send a patch to [omnibus-td-agent repository](https://github.com/treasure-data/omnibus-td-agent).
 
 A shell script is provided to automate the installation process for each
 version. The shell script registers a new apt repository at
