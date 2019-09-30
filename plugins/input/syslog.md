@@ -304,9 +304,11 @@ address will be set to its key.
 |:-------|:----------------|:--------|
 | string | nil (no assign) | 0.14.10 |
 
-The field name of the priority. If set the value, the priority will be
+The field name of the severity. If set the value, the severity will be
 set to its key.
 
+If you set `priority_key severity` and got `<6>` started syslog message,
+`severity` field is `info`
 
 ### facility\_key
 
@@ -316,6 +318,9 @@ set to its key.
 
 The field name of the facility. If set the value, the facility will be
 set to its key.
+
+If you set `facility_key facility` and got `<6>` started syslog message,
+`facility` field is `kern`.
 
 #### @log\_level option
 
