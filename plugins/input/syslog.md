@@ -298,17 +298,25 @@ The field name of the client's address. If set the value, the client's
 address will be set to its key.
 
 
+### severity\_key
+
+| type   | default         | version |
+|:-------|:----------------|:--------|
+| string | nil (no assign) | 1.7.3   |
+
+The field name of the severity. If set the value, the severity will be
+set to its key.
+
+If you set `severity_key severity` and got `<6>` started syslog message,
+`severity` field is `info`
+
 ### priority\_key
 
 | type   | default         | version |
 |:-------|:----------------|:--------|
 | string | nil (no assign) | 0.14.10 |
 
-The field name of the severity. If set the value, the severity will be
-set to its key.
-
-If you set `priority_key severity` and got `<6>` started syslog message,
-`severity` field is `info`
+This is deprecated and will be removed at fluentd v2. Use `severity_key` instead.
 
 ### facility\_key
 
