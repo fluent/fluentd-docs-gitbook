@@ -148,7 +148,7 @@ The format used to map the incoming event to the program input.
 
 ### out\_format
 
-**This parameter is deprecated.** Use `<format>` section.
+**This parameter is deprecated.** Use `<parse>` section.
 
 The format used to process the program output.
 
