@@ -316,7 +316,9 @@ If you set `severity_key severity` and got `<6>` started syslog message,
 |:-------|:----------------|:--------|
 | string | nil (no assign) | 0.14.10 |
 
-This is deprecated and will be removed at fluentd v2. Use `severity_key` instead.
+This parameter is deprecated due to misleading name. This sets severity, not priority value. 
+
+This parameter will be removed at fluentd v2. Use `severity_key` instead.
 
 ### facility\_key
 
