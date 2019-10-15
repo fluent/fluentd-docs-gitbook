@@ -95,8 +95,8 @@ related documentations for Fluentd.
 
 -   [Fluentd's official Docker image](https://hub.docker.com/r/fluent/fluentd/)
 -   [Fluentd's official Docker image (Source)](https://github.com/fluent/fluentd-docker-image)
--   [Docker Logging Driver and Fluentd](/articles/docker-logging.md)
--   [Docker Logging via EFK (Elasticsearch + Fluentd + Kibana) Stack with Docker Compose](/articles/docker-logging-efk-compose.md)
+-   [Docker Logging Driver and Fluentd](/container-deployment/docker-logging-driver.md)
+-   [Docker Logging via EFK (Elasticsearch + Fluentd + Kibana) Stack with Docker Compose](/container-deployment/docker-compose.md)
 
 Also, please see the following tutorials to learn how to collect your
 data from various data sources.
@@ -104,13 +104,12 @@ data from various data sources.
 -   Basic Configuration
     -   [Config File](/configuration/config-file.md)
 -   Application Logs
-    -   [Ruby](/articles/ruby.md), [Java](/articles/java.md), [Python](/articles/python.md), [PHP](/articles/php.md),
-        [Perl](/articles/perl.md), [Node.js](/articles/nodejs.md), [Scala](/articles/scala.md)
+    -   [Ruby](/language/ruby.md), [Java](/language/java.md), [Python](/language/python.md), [PHP](/language/php.md),
+        [Perl](/language/perl.md), [Node.js](/language/nodejs.md), [Scala](/language/scala.md)
 -   Examples
-    -   [Store Apache Log into Amazon S3](/articles/apache-to-s3.md)
-    -   [Store Apache Log into MongoDB](/articles/apache-to-mongodb.md)
-    -   [Data Collection into HDFS](/articles/http-to-hdfs.md)
-
+    -   [Store Apache Log into Amazon S3](/guides/apache-to-s3.md)
+    -   [Store Apache Log into MongoDB](/guides/apache-to-mongodb.md)
+    -   [Data Collection into HDFS](/guides/http-to-hdfs.md)
 
 ------------------------------------------------------------------------
 
