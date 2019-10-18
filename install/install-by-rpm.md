@@ -31,6 +31,7 @@ your OS properly. This will prevent many unnecessary problems.
 It's HIGHLY recommended that you set up **ntpd** on the node to prevent
 invalid timestamps in your logs. Please check the [Preinstallation Guide](/install/before-install.md).
 
+Note: If td-agent doesn't support your OS, consider [gem installation](/install/install-by-gem.md) instead.
 
 ### Redhat / CentOS
 

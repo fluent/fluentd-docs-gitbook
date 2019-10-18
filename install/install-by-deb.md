@@ -33,6 +33,8 @@ For Ubuntu, we currently support "Ubuntu 18.04 LTS / Bionic 64bit",
 For Debian, we currently provide "Debian 10 Buster 64bit", "Debian 9 Stretch 64bit",
 "Debian 8 Jessie 64bit".
 
+Note: If td-agent doesn't support your OS, consider [gem installation](/install/install-by-gem.md) instead.
+
 Note: treasure data doesn't verify debian packages. If you have a problem with debian packages,
 send a patch to [omnibus-td-agent repository](https://github.com/treasure-data/omnibus-td-agent).
 

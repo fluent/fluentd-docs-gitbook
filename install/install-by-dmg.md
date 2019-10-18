@@ -25,6 +25,7 @@ Please download the `.dmg` file from here, and install the software.
 
 -   [Download](https://td-agent-package-browser.herokuapp.com/3/macosx)
 
+Note: If td-agent doesn't support your OS, consider [gem installation](/install/install-by-gem.md) instead.
 
 ## Step2: Launch td-agent
 
