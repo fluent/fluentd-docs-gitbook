@@ -375,6 +375,39 @@ prone. Please separate `@include` for safety.
 @include z.conf
 ```
 
+### Share same parameters
+
+`@include` can be used under sections to share same parameters:
+
+```
+# config file
+<match pattern>
+  @type forward
+  # other parameters...
+  <buffer>
+    @type file
+    path /path/to/buffer/forward
+    @include /path/to/out_buf_params.conf
+  </buffer>
+</match>
+
+<match pattern>
+  @type elasticsearch
+  # other parameters...
+  <buffer>
+    @type file
+    path /path/to/buffer/es
+    @include /path/to/out_buf_params.conf
+  </buffer>
+</match>
+
+
+# /path/to/out_buf_params.conf
+flush_interval 5s
+total_limit_size 100m
+chunk_limit_size 1m
+```
+
 
 ## How match patterns work
 
