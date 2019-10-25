@@ -142,6 +142,8 @@ AGE is integer or string:
 -   string: frequency of rotation. `daily`, `weekly` and `monthly` are
     supported
 
+NOTE: When `--log-rotate-age` specified on Windows, log files are separated into log-supervisor-0.log, log-0.log, ..., log-N.log where N is `generation - 1` due to system limitation. Windows does not permit delete and rename files which are owned by another process.
+
 #### --log-rotate-size BYTES
 
 The byte size to rotate log files. This is applied when
@@ -153,6 +155,7 @@ Here is an example:
 $ fluentd -c fluent.conf --log-rotate-age 5 --log-rotate-size 104857600
 ```
 
+NOTE: When `--log-rotate-size` specified on Windows, log files are separated into log-supervisor-0.log, log-0.log, ..., log-N.log where N is `generation - 1` due to system limitation. Windows does not permit delete and rename files which are owned by another process.
 
 ## Capture Fluentd logs
 
