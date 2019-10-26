@@ -140,7 +140,7 @@ Use
   <rule>
     key message
     pattern ^\[(\w+)\]
-    tag $1.${ tag}
+    tag $1.${tag}
   </rule>
   # you can put more <rule>
 </match>
