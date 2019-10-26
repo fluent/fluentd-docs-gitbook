@@ -137,7 +137,12 @@ Use
 # event example: app.logs {"message":"[info]: ..."}
 <match app.**>
   @type rewrite_tag_filter
-  rewriterule1 message ^\[(\w+)\] $1.${tag}
+  <rule>
+    key message
+    pattern ^\[(\w+)\]
+    tag $1.${ tag}
+  </rule>
+  # you can put more <rule>
 </match>
 
 # send mail when receives alert level logs
