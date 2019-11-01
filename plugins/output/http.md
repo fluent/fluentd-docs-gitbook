@@ -122,7 +122,7 @@ headers {"key1":"value1", "key2":"value2"}
 |:-------|:--------|:--------|
 | integer| nil     | 1.7.0   |
 
-The connection open timeout in seconds. See also [Ruby document](https://docs.ruby-lang.org/en/trunk/Net/HTTP.html#attribute-i-open_timeout)
+The connection open timeout in seconds. See also [Ruby document](https://docs.ruby-lang.org/en/master/Net/HTTP.html#attribute-i-open_timeout)
 
 ### read_timeout
 
@@ -130,7 +130,7 @@ The connection open timeout in seconds. See also [Ruby document](https://docs.ru
 |:-------|:--------|:--------|
 | integer| nil     | 1.7.0   |
 
-The read timeout in seconds. See also [Ruby document](https://docs.ruby-lang.org/en/trunk/Net/HTTP.html#attribute-i-read_timeout)
+The read timeout in seconds. See also [Ruby document](https://docs.ruby-lang.org/en/master/Net/HTTP.html#attribute-i-read_timeout)
 
 ### ssl_timeout
 
