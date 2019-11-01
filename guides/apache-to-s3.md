@@ -104,6 +104,7 @@ should look like this:
   <buffer>
     @type file
     path /var/log/td-agent/s3
+    timekey 3600  # 1 hour
     timekey_wait 10m
     chunk_limit_size 256m
   </buffer>
@@ -134,9 +135,9 @@ bucket.
 WARNING: By default, files are created on an hourly basis (around
 xx:10). This means that when you first import records using the plugin,
 no file is created immediately. The file will be created when the
-`time_slice_format` condition has been met. To change the output
-frequency, please modify the `time_slice_format` value. To write files
-every minute, please use `%Y%m%d%H%M` for the `time_slice_format`.
+`timekey` condition has been met. To change the output
+frequency, please modify the `timekey` value. To write objects
+every minute, please use `timekey 60` with smaller `timekey_wait` like `timekey_wait 10s`.
 
 
 ## Conclusion
