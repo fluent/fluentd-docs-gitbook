@@ -268,15 +268,16 @@ Monitoring server example:
 </label>
 ```
 
-If an error occurs, you will get a notification message in your Slack
-`notify` channel.
+If an error occurs, you will get a notification message in your Slack `notify` channel.
 
 ```
 01:01  fluentd: [11:10:24] notice: fluent.warn [2014/02/27 01:00:00] @leaf.server.domain detached forwarding server 'server.name'
 ```
 
-You can still use [v0.12 way](/v0.12/deployment/logging.md/#capture-fluentd-logs) without
-`<label @FLUENT_LOG>`.
+### Deprecate top-level match
+
+You can still use [v0.12 way](/v0.12/deployment/logging.md/#capture-fluentd-logs) without `<label @FLUENT_LOG>` but
+this feature is deprecated. This feature will be removed at fluentd v2.
 
 
 ------------------------------------------------------------------------
