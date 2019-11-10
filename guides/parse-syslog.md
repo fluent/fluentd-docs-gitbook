@@ -90,7 +90,7 @@ For security reasons, it's worth knowing which user performed what using
 words, we need to extract syslog messages from `sudo` and handle them
 differently.
 
-For this purpose, we can use [the grep plugin](/plugins/filter/filter-grep.md). This plugin
+For this purpose, we can use [the grep plugin](/plugins/filter/grep.md). This plugin
 examines the fields of events, and filter them based on regular
 expression patterns. In the following example, Fluentd filters out
 events that come from `sudo` and contain command data.
