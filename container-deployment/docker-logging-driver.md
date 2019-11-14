@@ -129,7 +129,7 @@ message, everything in JSON format.
 
 Application log is stored into `"log"` field in the record. You can
 parse this log by using
-[filter\_parser](http://docs.fluentd.org/articles/filter_parser) filter
+[filter\_parser](/plugins/filter/parser.md) filter
 before send to destinations.
 
 ``` {.CodeRay}
@@ -234,7 +234,7 @@ This document describes how to set up multi-container logging
 environment via EFK (Elasticsearch, Fluentd, Kibana) with Docker
 Compose.
 
--   [Docker Logging via EFK (Elasticsearch + Fluentd + Kibana) Stack with Docker Compose](/articles/docker-logging-efk-compose.md)
+-   [Docker Logging via EFK (Elasticsearch + Fluentd + Kibana) Stack with Docker Compose](/container-deployment/docker-compose.md)
 
 ## Production Environments
 
