@@ -276,7 +276,7 @@ If an error occurs, you will get a notification message in your Slack `notify` c
 
 ### Deprecate top-level match
 
-You can still use [v0.12 way](/v/0.12/deployment/logging.md/#capture-fluentd-logs) without `<label @FLUENT_LOG>` but
+You can still use [v0.12 way](https://fluentd.gitbook.io/manual/v/0.12/deployment/logging.md/#capture-fluentd-logs) without `<label @FLUENT_LOG>` but
 this feature is deprecated. This feature will be removed at fluentd v2.
 
 
