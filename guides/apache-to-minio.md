@@ -97,7 +97,6 @@ Wait until the data gets flushed from the buffer (you can adjust the
 flush interval using the `timekey` and `timekey_wait` options above).
 Then you will see the aggregated log data on Minio:
 
-::: {style="text-align: center; margin: 2em 0;"}
 ![](/images/minio-screenshot.png)
 
 
