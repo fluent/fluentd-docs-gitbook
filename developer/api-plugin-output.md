@@ -148,10 +148,8 @@ unavailable.
 It's a bit complex from viewpoint of plugin developers. Here's full
 chart how Fluentd decides the mode:
 
-::: {style="margin-bottom:5px"}
-**[Fluentd v0.14 Plugin API
-Details](//www.slideshare.net/tagomoris/fluentd-v014-plugin-api-details "Fluentd v0.14 Plugin API Details")**
-from **[SATOSHI TAGOMORI](//www.slideshare.net/tagomoris)**
+**[Fluentd v0.14 Plugin API Details](https://www.slideshare.net/tagomoris/fluentd-v014-plugin-api-details "Fluentd v0.14 Plugin API Details")**
+from **[SATOSHI TAGOMORI](https://www.slideshare.net/tagomoris)**
 
 Simply speaking, this is the rule:
 
