@@ -118,16 +118,22 @@ spec:
             value: "elasticsearch-logging"
           - name:  FLUENT_ELASTICSEARCH_PORT
             value: "9200"
+          - name:  FLUENT_ELASTICSEARCH_SSL_VERIFY
+            value: "true"
+          - name:  FLUENT_ELASTICSEARCH_SSL_VERSION
+            value: "TLSv1_2"
         ...
 ```
 
 The Yaml file have two relevant environment variables that are used by
 Fluentd when the container starts:
 
-| Environment Variable        | Description                          | Default               |
-|-----------------------------|--------------------------------------|-----------------------|
-| FLUENT\_ELASTICSEARCH\_HOST | Specify the host name or IP address. | elasticsearch-logging |
-| FLUENT\_ELASTICSEARCH\_PORT | Elasticsearch TCP port               | 9200                  |
+| Environment Variable                | Description                            | Default               |
+|-------------------------------------|----------------------------------------|-----------------------|
+| FLUENT\_ELASTICSEARCH\_HOST         | Specify the host name or IP address.   | elasticsearch-logging |
+| FLUENT\_ELASTICSEARCH\_PORT         | Elasticsearch TCP port                 | 9200                  |
+| FLUENT\_ELASTICSEARCH\_SSL\_VERIFY  | Whether verify SSL certificates or not.| true                  |
+| FLUENT\_ELASTICSEARCH\_SSL\_VERSION | Specify the version of TLS.            | TLSv1_2               |
 
 Any relevant change needs to be done to the Yaml file before to deploy
 it. Using the default values assumes that at least an Elasticsearch Pod
