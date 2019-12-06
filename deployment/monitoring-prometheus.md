@@ -12,13 +12,13 @@ recommending to use Prometheus by default to monitor Fluentd.
 First of all, please install `fluent-plugin-prometheus` gem.
 
 ```
-$ fluent-gem install fluent-plugin-prometheus --version='~>1.0.0'
+$ fluent-gem install fluent-plugin-prometheus --version='~>1.6.1'
 ```
 
 If you are using td-agent, use `td-agent-gem` for installation.
 
 ```
-$ sudo td-agent-gem install fluent-plugin-prometheus --version='~>1.0.0'
+$ sudo td-agent-gem install fluent-plugin-prometheus --version='~>1.6.1'
 ```
 
 [This GitHub repository](https://github.com/kzk/fluentd-prometheus-config-example)
