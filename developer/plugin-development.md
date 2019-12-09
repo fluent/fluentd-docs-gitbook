@@ -84,8 +84,7 @@ module Fluent
 end
 ```
 
-See the [Plugin API details](/developer/plugin-apis.md) for what
-should be written / API details of each plugin types.
+See each plugin development article, "How to write XXX plugin", for API details.
 
 Single ruby script is easy to write, but hard to test, to manage
 versions and to publish it. If you want to publish a plugin under
