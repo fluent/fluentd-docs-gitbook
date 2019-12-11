@@ -77,7 +77,7 @@ plugins.
     -   example: `types user_id:integer,paid:bool,paid_usd_amount:float`
 -   **time\_key** (string) (optional): Specify time field for event time. If the event doesn't have this field, current time is used.
     -   Default: `nil`
-    -   Note that [json](/plugins/parser/json), [ltsv](/plugins/parser/ltsv) and [regexp](/plugins/parser/regexp) override the default value of this parameter and set it to `time` by default.
+    -   Note that [json](/plugins/parser/json.md), [ltsv](/plugins/parser/ltsv.md) and [regexp](/plugins/parser/regexp.md) override the default value of this parameter and set it to `time` by default.
 -   **null\_value\_pattern** (string) (optional): Specify null value pattern.
     -   Default: `nil`
 -   **null\_empty\_string** (bool) (optional): If `true`, empty string field is replaced with `nil`.
