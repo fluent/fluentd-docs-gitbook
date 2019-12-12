@@ -45,6 +45,7 @@ For more details, see plugins documentation.
 </service_discovery>
 ```
 
+
 ------------------------------------------------------------------------
 
 If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open).
