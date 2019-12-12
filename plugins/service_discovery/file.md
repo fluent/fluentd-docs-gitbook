@@ -14,7 +14,7 @@ It udpates targets to send data by out_forward.
 
   <service_discovery>
     @type file
-     path "/etc/fluentd/sd.yaml"
+    path "/etc/fluentd/sd.yaml"
   </service_discovery>
 </source>
 ```
@@ -42,7 +42,7 @@ The value must be `file`.
 
 | type   | default                 | version |
 |:-------|:------------------------|:--------|
-| string | `'/etc/fluent/sd.yaml'` | 0.17.0  |
+| string | `'/etc/fluent/sd.yaml'` | 1.8.0  |
 
 The path of target list.
 
@@ -50,7 +50,7 @@ The path of target list.
 
 | type   | default   | version |
 |:-------|:----------|:--------|
-| string | `'utf-8'` | 0.17.0  |
+| string | `'utf-8'` | 1.8.0  |
 
 The encoding of config file.
 
@@ -71,7 +71,7 @@ Each target has following parameters.
 
 | type   | default            | version |
 |:-------|:-------------------|:--------|
-| string | required parameter | 1.7.0  |
+| string | required parameter | 1.8.0  |
 
 The IP address or host name of the server.
 
@@ -79,7 +79,7 @@ The IP address or host name of the server.
 
 | type    | default            | version |
 |:--------|:-------------------|:--------|
-| integer | required parameter | 1.7.0  |
+| integer | required parameter | 1.8.0  |
 
 The port number of the host.
 
@@ -87,7 +87,7 @@ The port number of the host.
 
 | type   | default | version |
 |:-------|:--------|:--------|
-| string | nil     | 1.7.0  |
+| string | nil     | 1.8.0  |
 
 The name of the server.
 
@@ -95,7 +95,7 @@ The name of the server.
 
 | type   | default | version |
 |:-------|:--------|:--------|
-| string | nil     | 1.7.0  |
+| string | nil     | 1.8.0  |
 
 The shared key per server.
 
@@ -103,7 +103,7 @@ The shared key per server.
 
 | type   | default  | version |
 |:-------|:---------|:--------|
-| string | nil      | 1.7.0  |
+| string | nil      | 1.8.0  |
 
 The username for authentication.
 
@@ -111,7 +111,7 @@ The username for authentication.
 
 | type   | default | version |
 |:-------|:--------|:--------|
-| string | nil     | 1.7.0  |
+| string | nil     | 1.8.0  |
 
 The password for authentication.
 
@@ -119,13 +119,13 @@ The password for authentication.
 
 | type | default | version |
 |:-----|:--------|:--------|
-| bool | nil     | 1.7.0  |
+| bool | nil     | 1.8.0  |
 
 #### weight
 
 | type    | default | version |
 |:--------|:--------|:--------|
-| integer | 60      | 1.7.0  |
+| integer | 60      | 1.8.0  |
 
 
 ------------------------------------------------------------------------

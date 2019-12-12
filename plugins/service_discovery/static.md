@@ -5,7 +5,7 @@ The `static` service discovery plugin set the list of targets.
 ## Example Configuration
 
 This is the exmple with out_forward.
-It define the list of targets. it is similer to the server directive in out_forward.
+It defines the list of targets. it is similer to the server directive in out_forward.
 
 ```
 <source>
@@ -28,7 +28,7 @@ The value must be `static`.
 
 | type   | default            | version |
 |:-------|:-------------------|:--------|
-| string | required parameter | 1.7.0  |
+| string | required parameter | 1.8.0  |
 
 The IP address or host name of the server.
 
@@ -36,7 +36,7 @@ The IP address or host name of the server.
 
 | type    | default | version |
 |:--------|:--------|:--------|
-| integer | 24224   | 1.7.0  |
+| integer | 24224   | 1.8.0  |
 
 The port number of the host.
 
@@ -44,7 +44,7 @@ The port number of the host.
 
 | type   | default | version |
 |:-------|:--------|:--------|
-| string | nil     | 1.7.0  |
+| string | nil     | 1.8.0  |
 
 The name of the server.
 
@@ -52,7 +52,7 @@ The name of the server.
 
 | type   | default | version |
 |:-------|:--------|:--------|
-| string | nil     | 1.7.0  |
+| string | nil     | 1.8.0  |
 
 The shared key per server.
 
@@ -60,7 +60,7 @@ The shared key per server.
 
 | type   | default  | version |
 |:-------|:---------|:--------|
-| string | nil      | 1.7.0  |
+| string | nil      | 1.8.0  |
 
 The username for authentication.
 
@@ -68,7 +68,7 @@ The username for authentication.
 
 | type   | default                | version |
 |:-------|:-----------------------|:--------|
-| string | `''`(empty string)     | 1.7.0  |
+| string | `''`(empty string)     | 1.8.0  |
 
 The password for authentication.
 
@@ -76,13 +76,13 @@ The password for authentication.
 
 | type | default | version |
 |:-----|:--------|:--------|
-| bool | false   | 1.7.0  |
+| bool | false   | 1.8.0  |
 
 #### weight
 
 | type    | default | version |
 |:--------|:--------|:--------|
-| integer | 60      | 1.7.0  |
+| integer | 60      | 1.8.0  |
 
 
 ------------------------------------------------------------------------

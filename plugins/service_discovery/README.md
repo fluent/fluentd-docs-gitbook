@@ -27,7 +27,7 @@ Here is a simple example to update target by reading file(`/etc/fluentd/sd.yaml`
 
   <service_discovery>
     @type file
-     path "/etc/fluentd/sd.yaml"
+    path "/etc/fluentd/sd.yaml"
   </service_discovery>
 </source>
 ```
@@ -38,9 +38,7 @@ Here is a simple example to update target by reading file(`/etc/fluentd/sd.yaml`
 -   [static](/plugins/service_discovery/static.md)
 -   [file](/plugins/service_discovery/file.md)
 
-## List of Core Input Plugins with Parser support
-
-with `<service_discovery>` directive.
+## List of Core Output Plugins with Service Discovery support
 
 -   [out\_forward](/plugins/output/forward.md)
 
