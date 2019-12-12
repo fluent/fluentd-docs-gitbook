@@ -16,6 +16,7 @@ Alternatively, you can create a Ruby Gem package that includes a
 -   `formatter` for formatter plugins
 -   `storage` for storage plugins
 -   `buf` for buffer plugins
+-   `sd` for service discovery
 
 For example, an email Output plugin would have the path:
 `lib/fluent/plugin/out_mail.rb`. The packaged gem can be distributed and

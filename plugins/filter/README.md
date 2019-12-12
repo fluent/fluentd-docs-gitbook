@@ -1,10 +1,11 @@
 # Filter Plugin Overview
 
-Fluentd has 7 types of plugins: [Input](/plugins/input/README.md),
+Fluentd has 8 types of plugins: [Input](/plugins/input/README.md),
 [Parser](/plugins/parser/README.md), [Filter](/plugins/filter/README.md),
 [Output](/plugins/output/README.md),
 [Formatter](/plugins/formatter/README.md),
-[Storage](/plugins/storage/README.md) and [Buffer](/plugins/buffer/README.md).
+[Storage](/plugins/storage/README.md),
+[Service Discovery](/plugins/service_discovery/README.md) and [Buffer](/plugins/buffer/README.md).
 This article gives an overview of Filter Plugin.
 
 
