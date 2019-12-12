@@ -29,6 +29,7 @@
   * [Config: Inject Section](/configuration/inject-section.md)
   * [Config: Transport Section](/configuration/transport-section.md)
   * [Config: Storage Section](/configuration/storage-section.md)
+  * [Config: Service Discovery Section](/configuration/service_discovery-section.md)
 
 * [Deployment]()
   * [System Configuration](/deployment/system-config.md)
@@ -123,6 +124,10 @@
 * [Storage Plugins](/plugins/storage/README.md)
   * [local](/plugins/storage/local.md)
 
+* [Service Discovery Plugins](/plugins/service_discovery/README.md)
+  * [static](/plugins/service_discovery/static.md)
+  * [file](/plugins/service_discovery/file.md)
+
 * [How-to Guides]()
   * [Send Apache Logs to S3](/guides/apache-to-s3.md)
   * [Send Apache Logs to Minio](/guides/apache-to-minio.md)
@@ -157,6 +162,7 @@
   * [How to Write Output Plugin](/developer/api-plugin-output.md)
   * [How to Write Parser Plugin](/developer/api-plugin-parser.md)
   * [How to Write Storage Plugin](/developer/api-plugin-storage.md)
+  * [How to Write Service Discovery Plugin](/developer/api-plugin-service_discovery.md)
   * [How to Write Tests for Plugin](/developer/plugin-test-code.md)
   * [Configuration Parameter Types](/developer/api-config-types.md)
   * [Upgrade Plugin from v0.12](/developer/plugin-update-from-v0.12.md)
