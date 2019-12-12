@@ -3,16 +3,18 @@
 
 ## What version of Ruby does fluentd support?
 
-Fluentd v1.0 works on Ruby 2.1 or later. See [v0.12 document](https://fluentd.gitbook.io/manual/v/0.12/)
+Fluentd v1 works on Ruby 2.1 or later. See [v0.12 document](https://fluentd.gitbook.io/manual/v/0.12/)
 for earlier versions.
 
+Fluentd will drop ruby 2.1, 2.2 and 2.3 support in the end of 2019.
+See [Drop schedule announcement in 2019](https://www.fluentd.org/blog/drop-schedule-announcement-in-2019) article.
 
-### When will td-agent be released with Fluentd v1.0?
+### When will td-agent be released with Fluentd v1?
 
-Use td-agent 3. It includes v1.0.
+Use td-agent 3. It includes v1.
 
 
-## What is the differences between v1.0 or v0.14?
+## What is the differences between v1 or v0.14?
 
 No differences. v1.0 is built on top of v0.14. Use v1.0 for newer
 installation. We use v1.0/v1.x on our document.
@@ -27,7 +29,7 @@ This is caused by thread handling mismatch between output thread and
 gzip library. Output's retry mechanism automatically recovers this
 error.
 
-We will fix this problem in fluentd v1.3
+Fluentd v1.3 has already fixed this problem.
 
 
 ## Operations
@@ -87,8 +89,7 @@ See also: [Life of a Fluentd event](/overview/life-of-a-fluentd-event.md) or [Co
 
 ### File buffer doesn't work properly, why?
 
-`file` buffer has limitations. Check [`buf_file`
-article](buf_file#limitation).
+`file` buffer has limitations. Check [buf_file article](/plugins/buffer/file.md#limitation).
 
 
 ### I got enconding error inside plugin. How to fix it?
@@ -134,10 +135,8 @@ Please refer to the [Plugin Development Guide](/developer/plugin-development.md)
 
 ### How can I parse `<my complex text log>`?
 
-If you are willing to write Regexp, [fluentd-ui's in\_tail
-editor](/deployment/fluentd-ui.md#intail-setting) or
-[Fluentular](http://fluentular.herokuapp.com) is a great tool to verify
-your Regexps.
+If you are willing to write Regexp, [fluentd-ui's in\_tail editor](/deployment/fluentd-ui.md#in_tail-setting) or
+[Fluentular](http://fluentular.herokuapp.com) is a great tool to verify your Regexps.
 
 If you do NOT want to write any Regexp, look at [the Grok parser](https://github.com/kiyoto/fluent-plugin-grok-parser).
 
