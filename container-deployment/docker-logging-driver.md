@@ -8,16 +8,16 @@ during runtime.
 The old fashion way is to write these messages to a log file, but that
 inherits certain problems specifically when we try to perform some
 analysis over the registers, or in the other side, if the application
-have multiple instances running, the escenario becomes even more
+have multiple instances running, the scenario becomes even more
 complex.
 
 On Docker v1.6, the concept of **[logging drivers](https://docs.docker.com/engine/admin/logging/overview/)** was
-introduced, basically the Docker engine is aware about output interfaces
+introduced, which means that the Docker engine is aware about output interfaces
 that manage the application messages.
 
 ![](http://www.fluentd.org/assets/img/recipes/fluentd_docker.png)
 
-For Docker v1.8, we have implemented a native **[Fluentd Docker logging driver](https://docs.docker.com/engine/admin/logging/fluentd/)**, now
+For Docker v1.8, we have implemented a native **[Fluentd Docker logging driver](https://docs.docker.com/engine/admin/logging/fluentd/)**, so now
 you are able to have an unified and structured logging system with the
 simplicity and high performance [Fluentd](http://fluentd.org).
 
@@ -31,7 +31,7 @@ Using the Docker logging mechanism with
 started make sure you have the following prerequisites:
 
 -   A basic understanding of [Fluentd](http://www.fluentd.org)
--   A basic undersatnding of Docker
+-   A basic understanding of Docker
 -   A basic understanding of [Docker logging drivers](https://docs.docker.com/engine/admin/logging/overview/)
 -   Docker v1.8+
 
