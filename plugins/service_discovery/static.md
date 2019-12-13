@@ -13,7 +13,9 @@ It defines the list of targets. it is similer to the server directive in out_for
 
   <service_discovery>
     @type static
-    host 127.0.0.1
+    <server>
+      host 127.0.0.1
+    </server>
   </service_discovery>
 </source>
 ```
