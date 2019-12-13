@@ -183,3 +183,4 @@
   * [Plugin Helper: Thread](/developer/api-plugin-helper-thread.md)
   * [Plugin Helper: Timer](/developer/api-plugin-helper-timer.md)
   * [Plugin Helper: Http Server](/developer/api-plugin-helper-http_server.md)
+  * [Plugin Helper: Service Discovery](/developer/api-plugin-helper-service_discovery.md)
