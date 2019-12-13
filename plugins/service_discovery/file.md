@@ -46,6 +46,11 @@ The value must be `file`.
 
 The path of target list.
 
+Content type is determined by file extension.
+
+- yaml, yml: YAML format
+- json: JSON format
+
 ### conf_encoding
 
 | type   | default   | version |
