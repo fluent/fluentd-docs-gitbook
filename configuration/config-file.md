@@ -226,8 +226,9 @@ information regarding Fluentd's filter destinations, please refer to the
 
 ## (4) Set system wide configuration: the "system" directive
 
-Following configurations are set by *system* directive. You can set same
-configurations by fluentd options:
+System-wide configurations are set by "system" directive. Most of them
+are also available via command line options. For example following
+configurations are avalilable:
 
 -   log\_level
 -   suppress\_repeated\_stacktrace
@@ -248,6 +249,9 @@ Here is an example:
   # ...
 </system>
 ```
+
+See also [System Configuration](/deployment/system-config.md) article
+for more detail.
 
 
 ### process\_name
@@ -666,6 +670,20 @@ host_param "#{hostname}"  # This is same with Socket.gethostname
 `worker_id` short-cut is useful under multiple workers. For example,
 separate plugin id, add worker\_id to stored path in s3 to avoid file
 conflict.
+
+Since v1.8.0, helper methods `use_nil` and `use_default` are available:
+
+```
+some_param "#{ENV["FOOBAR"] || use_nil}"     # Replace with nil if ENV["FOOBAR"] isn't set
+some_param "#{ENV["FOOBAR"] || use_default}" # Replace with the default value if ENV["FOOBAR"] isn't set
+```
+
+Note that these methods replace not only an embedded ruby code but
+whole of a string with `nil` or a default value.
+
+```
+some_path "#{use_nil}/some/path" # some_path is nil, not "/some/path"
+```
 
 config-xxx mixins use \"\${}\", not \"\#{}\". These embedded
 configurations are two different things.
