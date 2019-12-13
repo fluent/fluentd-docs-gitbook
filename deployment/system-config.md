@@ -131,6 +131,17 @@ Specify file permission with octal.
 Specify directory permission with octal.
 
 
+### strict\_config\_value
+
+| type | default | version |
+|:-----|:--------|:--------|
+| bool | nil     | 1.8.0   |
+
+Parse config values strictly. Invalid numerical or boolean values
+aren't allowed. Fluentd raises configuration error instead of
+replacing them with `0` or `true` implicitly.
+
+
 ### &lt;log&gt; section
 
 #### format
@@ -285,6 +296,13 @@ Use v1 configuration format (default).
 ### \--use-v0-config
 
 Use v0 configuration format.
+
+
+### \--strict-config-value
+
+Parse config values strictly. Invalid numerical or boolean values
+aren't allowed. Fluentd raises configuration error instead of
+replacing them with `0` or `true` implicitly.
 
 
 ### -v, \--verbose
