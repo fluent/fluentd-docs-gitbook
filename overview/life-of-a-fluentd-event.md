@@ -54,22 +54,26 @@ On the [Fluentd](http://fluentd.org) server side the output should look
 like this:
 
 ```
-$ bin/fluentd -c in_http.conf
-2015-01-19 12:37:41 -0600 [info]: reading config file path="in_http.conf"
-2015-01-19 12:37:41 -0600 [info]: starting fluentd-0.12.3
-2015-01-19 12:37:41 -0600 [info]: using configuration file: <ROOT>
+$ fluentd -c in_http.conf
+2019-12-16 18:58:15 +0900 [info]: parsing config file is succeeded path="in_http.conf"
+2019-12-16 18:58:15 +0900 [info]: gem 'fluentd' version '1.8.0'
+2019-12-16 18:58:15 +0900 [info]: using configuration file: <ROOT>
   <source>
     @type http
-    bind 0.0.0.0
     port 8888
+    bind "0.0.0.0"
   </source>
   <match test.cycle>
     @type stdout
   </match>
 </ROOT>
-2015-01-19 12:37:41 -0600 [info]: adding match pattern="test.cycle" type="stdout"
-2015-01-19 12:37:41 -0600 [info]: adding source type="http"
-2015-01-19 12:39:57 -0600 test.cycle: {"action":"login","user":2}
+2019-12-16 18:58:15 +0900 [info]: starting fluentd-1.8.0 pid=44323 ruby="2.4.6"
+2019-12-16 18:58:15 +0900 [info]: spawn command to main:  cmdline=["/path/to/ruby", "-Eascii-8bit:ascii-8bit", "/path/to/fluentd", "-c", "in_http.conf", "--under-supervisor"]
+2019-12-16 18:58:16 +0900 [info]: adding match pattern="test.cycle" type="stdout"
+2019-12-16 18:58:16 +0900 [info]: adding source type="http"
+2019-12-16 18:58:16 +0900 [info]: #0 starting fluentd worker pid=44336 ppid=44323 worker=0
+2019-12-16 18:58:16 +0900 [info]: #0 fluentd worker is now running worker=0
+2019-12-16 18:58:27.888557000 +0900 test.cycle: {"action":"login","user":2}
 ```
 
 
@@ -78,7 +82,7 @@ $ bin/fluentd -c in_http.conf
 Fluentd event consists of tag, time and record.
 
 -   tag: Where an event comes from. For message routing
--   time: When an event happens. Epoch time
+-   time: When an event happens. Nanosecond resolution
 -   record: Actual log content. JSON object
 
 The input plugin has responsibility for generating Fluentd event from
@@ -93,8 +97,8 @@ following line in apache logs:
 you got following event:
 
 ```
-tag: apache.access # set by configuration
-time: 1362020400   # 28/Feb/2013:12:00:00 +0900
+tag: apache.access         # set by configuration
+time: 1362020400.000000000 # 28/Feb/2013:12:00:00 +0900
 record: {"user":"-","method":"GET","code":200,"size":777,"host":"192.168.0.1","path":"/"}
 ```
 
@@ -165,30 +169,34 @@ realize that just the one with the *action* equals to *login* just
 matched. The *logout* *Event* was discarded:
 
 ```
-$ bin/fluentd -c in_http.conf
-2015-01-19 12:37:41 -0600 [info]: reading config file path="in_http.conf"
-2015-01-19 12:37:41 -0600 [info]: starting fluentd-0.12.4
-2015-01-19 12:37:41 -0600 [info]: using configuration file: <ROOT>
-<source>
-  @type http
-  bind 0.0.0.0
-  port 8888
-</source>
-<filter test.cycle>
-  @type grep
-  <exclude>
-    key action
-    pattern ^logout$
-  </exclude>
-</filter>
-<match test.cycle>
-  @type stdout
-</match>
+$ fluentd -c in_http.conf
+2019-12-16 19:07:39 +0900 [info]: parsing config file is succeeded path="in_http.conf"
+2019-12-16 19:07:39 +0900 [info]: gem 'fluentd' version '1.8.0'
+2019-12-16 19:07:39 +0900 [info]: using configuration file: <ROOT>
+  <source>
+    @type http
+    port 8888
+    bind "0.0.0.0"
+  </source>
+  <filter test.cycle>
+    @type grep
+    <exclude>
+      key "action"
+      pattern ^logout$
+    </exclude>
+  </filter>
+  <match test.cycle>
+    @type stdout
+  </match>
 </ROOT>
-2015-01-19 12:37:41 -0600 [info]: adding filter pattern="test.cycle" type="grep"
-2015-01-19 12:37:41 -0600 [info]: adding match pattern="test.cycle" type="stdout"
-2015-01-19 12:37:41 -0600 [info]: adding source type="http"
-2015-01-27 01:27:11 -0600 test.cycle: {"action":"login","user":2}
+2019-12-16 19:07:39 +0900 [info]: starting fluentd-1.8.0 pid=44435 ruby="2.4.6"
+2019-12-16 19:07:39 +0900 [info]: spawn command to main:  cmdline=["/path/to/ruby", "-Eascii-8bit:ascii-8bit", "/path/to/fluentd", "-c", "in_http.conf", "--under-supervisor"]
+2019-12-16 19:07:40 +0900 [info]: adding filter pattern="test.cycle" type="grep"
+2019-12-16 19:07:40 +0900 [info]: adding match pattern="test.cycle" type="stdout"
+2019-12-16 19:07:40 +0900 [info]: adding source type="http"
+2019-12-16 19:07:40 +0900 [info]: #0 starting fluentd worker pid=44448 ppid=44435 worker=0
+2019-12-16 19:07:40 +0900 [info]: #0 fluentd worker is now running worker = 0
+2019-12-16 19:08:06.934660000 +0900 test.cycle: {"action":"login","user":2}
 ```
 
 As you can see, the *Events* follow a *step by step cycle* where they
