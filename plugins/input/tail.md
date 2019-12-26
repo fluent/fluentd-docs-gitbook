@@ -86,7 +86,7 @@ tag foo.*
 
 The paths to read. Multiple paths can be specified, separated by ','.
 
-`*` and strftime format can be included to add/remove watch file
+`*` and `strftime` format can be included to add/remove watch file
 dynamically. At interval of `refresh_interval`, Fluentd refreshes the
 list of watch file.
 
@@ -107,6 +107,21 @@ You should not use `*` with log rotation because it may cause the log
 duplication. In such case, you should separate `in_tail` plugin
 configuration.
 
+### path_timezone
+
+| type   | default | version |
+|:-------|:--------|:--------|
+| string | nil     | 1.8.1   |
+
+This parameter is for `strftime` formatted path like `/path/to/%Y/%m/%d/`.
+
+`in_tail` uses system timezone by default. This parameter changes it.
+
+```
+path_timezone "+00"
+```
+
+For timezone format, see timezone section in [this artilce](/configuration/format-section.md/#time-parameters).
 
 ### exclude\_path
 
