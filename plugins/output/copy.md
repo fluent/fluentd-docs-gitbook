@@ -86,16 +86,46 @@ details about the respective plugins.)
 The value must be `copy`.
 
 
+### copy_mode
+
+| type | default | available                       | version |
+|:-----|:--------|:--------------------------------|:--------|
+| enum | no_copy | no_copy, shallow, deep, marshal | 1.8.1   |
+
+Choose "How to pass the events to <store> plugins".
+
+- `no_copy`
+
+Share events between `store` plugins. This is default mode.
+
+- `shallow`
+
+Pass shallow copied events to each `store` plugin. This mode uses ruby's `dup` method.
+This mode is useful when you don't modify nested fields after `out_copy`, e.g. remove top-level fields.
+
+- `deep`
+
+Pass deep copied events to each `store` plugin. This mode uses `msgpack-ruby` internally.
+This mode is useful when you modify nested field after `out_copy`, e.g. kubernetes related fields.
+
+- `marshal`
+
+Pass deep copied events to each `store` plugin. This mode uses ruby's `marshal` internally.
+This mode is useful when `msgpack-ruby` can't process your events. This mode is very slow.
+
+
 ### deep\_copy
 
 | type | default | version |
 |:-----|:--------|:--------|
 | bool | false   | 0.14.0  |
 
+This parameter is deprecated since v1.8.1. Use `copy_mode` instead.
+
 `out_copy` shares a record between `store` plugins by default.
 
-When `deep_copy` is true, `out_copy` passes dupped record to each
-`store` plugin.
+When `deep_copy` is true, `out_copy` passes dupped record to each `store` plugin.
+This is same behaviour with `copy_mode shallow`.
 
 
 ### &lt;store&gt; section
