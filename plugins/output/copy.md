@@ -92,7 +92,7 @@ The value must be `copy`.
 |:-----|:--------|:--------------------------------|:--------|
 | enum | no_copy | no_copy, shallow, deep, marshal | 1.8.1   |
 
-Choose "How to pass the events to <store> plugins".
+Choose "How to pass the events to `<store>` plugins".
 
 - `no_copy`
 
