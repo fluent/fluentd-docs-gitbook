@@ -35,7 +35,7 @@ Specify root directory.
 
 | type | default | version |
 |:-----|:--------|:--------|
-| enum | nil     | 0.14.0  |
+| enum | "info"  | 0.14.0  |
 
 Specify log\_level. Users can choose `trace`, `debug`, `info`, `warn`,
 `error`, and `fatal` level.
