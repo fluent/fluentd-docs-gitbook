@@ -451,7 +451,7 @@ If you have following configuration, it doesn't work:
     pattern /(.+)/
     tag     app.$1
   </rule>
-<match>
+</match>
 
 <match app.**>
   @type forward
@@ -471,7 +471,7 @@ tag like below:
     pattern /(.+)/
     tag     level.app.$1
   </rule>
-<match>
+</match>
 
 <match level.app.**>
   @type forward
