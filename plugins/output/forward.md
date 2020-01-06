@@ -667,7 +667,7 @@ destination node.
 Fluentd implements an adaptive failure detection mechanism called "Phi
 accrual failure detector". Here is how it works:
 
-1.  Each `in_forward` node sends heartbeat packets to its `out_foward`
+1.  Each `in_forward` node sends heartbeat packets to its `out_forward`
     server at a regular interval.
 2.  The `out_forward` server records the arrival time of heartbeat
     packets sent by each node.
