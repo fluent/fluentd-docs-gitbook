@@ -83,7 +83,7 @@ plugins.
 -   **null\_empty\_string** (bool) (optional): If `true`, empty string field is replaced with `nil`.
     -   Default: `false`
 -   **estimate\_current\_event** (bool) (optional): If `true`, use `Fluent::EventTime.now`(current time) as a timestamp when `time_key` is specified.
-    -   Default: `false`
+    -   Default: `true`
 -   **keep\_time\_key** (bool) (optional): If `true`, keep time field in the record.
     -   Default: `false`
 - **timeout** (time) (optional): Specify timeout for `parse` processing. This is mainly for detecting wrong regexp pattern.
