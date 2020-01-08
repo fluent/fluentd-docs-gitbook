@@ -427,7 +427,7 @@ This parameter is for Windows only.
 
 | type | default | version |
 |:----:|:-------:|:-------:|
-| bool | fales    | 1.5.0  |
+| bool | false   | 1.5.0   |
 
 Enable keepalive connection.
 
