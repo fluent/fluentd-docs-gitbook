@@ -297,11 +297,14 @@ The example below sends logs to Elasticsearch using a file buffer
     path /var/log/td-agent/buffer/elasticsearch
   </buffer>
   <secondary>
-    @type file
-    path /var/log/td-agent/error/my.logs
+    @type secondary_file
+    directory /var/log/td-agent/logs/backup
   </secondary>
 </match>
 ```
+
+Note: `<secondary>` plugin receives primary's buffer chunk directly.
+So you need to check your secondary plugin works with primary setting.
 
 ------------------------------------------------------------------------
 
