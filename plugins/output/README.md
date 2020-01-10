@@ -298,7 +298,8 @@ The example below sends logs to Elasticsearch using a file buffer
   </buffer>
   <secondary>
     @type secondary_file
-    directory /var/log/td-agent/logs/backup
+    directory /var/log/td-agent/error
+    basename my.logs
   </secondary>
 </match>
 ```
