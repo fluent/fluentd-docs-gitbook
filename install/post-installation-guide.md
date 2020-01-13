@@ -46,7 +46,7 @@ plugins. Each plugin knows how to interface with a external endpoint and
 is responsible for managing a pipeline to convey data streams.
 
 Plugins are named with a certain convention. For example, if it receives
-data and interfacing with Aapche Kafka, it's called `in_kafka`. In the
+data and interfacing with Apache Kafka, it's called `in_kafka`. In the
 same way, if it publishes data and connects to MongoDB, it's called
 `out_mongo`.
 
