@@ -107,6 +107,7 @@ Configure `/etc/td-agent/td-agent.conf` as follows.
       type gelf
       host 127.0.0.1
       port 12201
+      protocol udp
       <buffer>
         flush_interval 5s
       </buffer>
