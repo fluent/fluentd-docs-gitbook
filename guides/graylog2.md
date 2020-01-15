@@ -98,12 +98,14 @@ Configure `/etc/td-agent/td-agent.conf` as follows.
 ```
     <source>
       type syslog
+      bind 0.0.0.0
+      port 5140
       tag graylog2
     </source>
 
     <match graylog2.**>
       type gelf
-      host 0.0.0.0
+      host 127.0.0.1
       port 12201
       <buffer>
         flush_interval 5s
