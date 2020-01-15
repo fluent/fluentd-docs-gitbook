@@ -26,9 +26,7 @@ With this configuration, failed buffer chunks are saved into `/var/log/fluentd/e
 `N` is 0-origin incremental number.
 
 Please see the [Config File](/configuration/config-file.md) article for the basic
-structure and syntax of the configuration file. For `<buffer>` section,
-please check [Buffer section cofiguration](/configuration/buffer-section.md).
-
+structure and syntax of the configuration file. 
 
 ## Plugin helpers
 
