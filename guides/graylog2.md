@@ -95,7 +95,7 @@ We also need to gem-install GELF's Ruby client.
     $ sudo /usr/sbin/td-agent-gem install gelf
 
 Configure `/etc/td-agent/td-agent.conf` as follows.
-
+```
     <source>
       type syslog
       tag graylog2
@@ -109,7 +109,7 @@ Configure `/etc/td-agent/td-agent.conf` as follows.
         flush_interval 5s
       </buffer>
     </match>
-
+```
 Open `/etc/rsyslog.conf` and add the following line to the file:
 
     *.* @127.0.0.1:5140
