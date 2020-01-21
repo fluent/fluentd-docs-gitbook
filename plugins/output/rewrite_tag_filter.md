@@ -27,7 +27,7 @@ prefixed with the value of the key 'message':
   @type rewrite_tag_filter
   <rule>
     key message
-    pattern /^\[(\w+)\]/
+    pattern /^(w+)$/
     tag $1.${tag}
   </rule>
 </match>
