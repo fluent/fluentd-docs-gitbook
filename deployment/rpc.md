@@ -57,6 +57,11 @@ Replacement of signal's [SIGUSR1](/deployment/signals.md/#sigusr1). Flush the bu
 messages.
 
 
+### /api/config.gracefulReload
+
+Replacement of signal's [SIGUSR2](/deployment/signals.md/#sigusr2). Reload configuration.
+
+
 ### /api/config.reload
 
 Replacement of signal's [SIGHUP](/deployment/signals.md/#sighup). Reload configuration.
