@@ -15,7 +15,7 @@ Please download and install [Docker](https://www.docker.com/) from here.
 
 ## Step 1: Pull Fluentd's Docker image
 
-Then, please download Fluentd vv1.6-debian-1's image by `docker pull` command.
+Then, please download Fluentd v1.6-debian-1's image by `docker pull` command.
 
 ``` {.CodeRay}
 $ docker pull fluent/fluentd:v1.6-debian-1
@@ -67,7 +67,7 @@ $ docker run -p 9880:9880 -v $(pwd)/tmp:/fluentd/etc -e FLUENTD_CONF=fluentd.con
 2019-08-21 00:30:38.332472611 +0000 fluent.info: {"worker":0,"message":"fluentd worker is now running worker=0"}
 ```
 
-## Step3: Post Sample Logs via HTTP
+## Step 3: Post Sample Logs via HTTP
 
 Let's post sample logs via HTTP and confirm it's working. `curl` command
 is always your friend.
