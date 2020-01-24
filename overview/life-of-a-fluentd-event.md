@@ -107,7 +107,7 @@ record: {"user":"-","method":"GET","code":200,"size":777,"host":"192.168.0.1","p
 
 When a *Setup* is defined, the *Router Engine* already contains several
 rules to apply for different input data. Internally an *Event* will to
-pass through a chain of procedures that may alter it cycle.
+pass through a chain of procedures that may alter its cycle.
 
 Now we will expand our previous basic example and we will add more steps
 in our *Setup* to demonstrate how the *Events* cycle can be altered. We
