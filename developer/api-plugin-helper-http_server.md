@@ -38,6 +38,22 @@ in plugin's `stop` method. The plugin stops launched http server automatically.
 
 ### create\_http\_server(title, addr:, port:, logger:, default\_app: nil, &block)
 
+__this method is deprecated. Use http\_server\_create\_http\_server method instead__
+
+### http\_server\_create\_http\_server(title, addr:, port:, logger:, default\_app: nil, proto: nil, tls_opts: nil, &block)
+
+This method creats and runs http server with given routes which are defined in `&block`.
+
+- `title`: the name of listen thread. this name must be unique
+- `addr`: Adderess to listen to
+- `port`: Port to listen to.
+- `logger`: Logger which is used in server helper
+- `default_app`: Use this object when server received a request whose path is not registered. This object must have `#call` or be a `Proc` object.
+- `proto`: protocol type. `:tcp`, `:tls`.  default value is tcp
+- `tls_opts`: options for TLS. same as the [Server Helper's  server_create_connection tls_options](/developer/api-plugin-helper-server)
+
+### http\_server\_create\_https\_server(title, addr:, port:, logger:, default\_app: nil, tls_opts: nil, &block)
+
 This method creats and runs http server with given routes which are defined in `&block`.
 
 - `title`: the name of listen thread. this name must be unique
@@ -45,6 +61,8 @@ This method creats and runs http server with given routes which are defined in `
 - `port`: Port to listen to
 - `logger`: Logger which is used in server helper
 - `default_app`: Use this object when server received a request whose path is not registered. This object must have `#call` or be a `Proc` object.
+- `tls_opts`: options for TLS. same as the [Server Helper's  server_create_connection tls_options](/developer/api-plugin-helper-server)
+
 
 ## Define other HTTP methods
 
