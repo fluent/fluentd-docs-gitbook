@@ -123,11 +123,8 @@ The following is the current list of exceptions considered
   | Exception                    | The typical cause of this error |
   | ---------------------------- | --- |
   |`Fluent::UnrecoverableError`  | Output plugin can use this exception to suppress further retry attempts for plugin specific unrecoverable error. |
-  | ---------------------------- | --- |
   |`TypeError`                   | Occurs when an event has unexpected type in its target field. |
-  | ---------------------------- | --- |
   |`ArgumentError`               | Occurs when the plugin uses the library wrongly. |
-  | ---------------------------- | --- |
   |`NoMethodError`               | Occurs when events and configuration are mismatched. |
 
 Here are the patterns when unrecoverable error happens:
