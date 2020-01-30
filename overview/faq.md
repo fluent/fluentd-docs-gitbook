@@ -3,11 +3,10 @@
 
 ## What version of Ruby does fluentd support?
 
-Fluentd v1 works on Ruby 2.1 or later. See [v0.12 document](https://fluentd.gitbook.io/manual/v/0.12/)
-for earlier versions.
+Latest fluentd works on Ruby 2.4 or later.
 
-Fluentd will drop ruby 2.1, 2.2 and 2.3 support in the end of 2019.
-See [Drop schedule announcement in 2019](https://www.fluentd.org/blog/drop-schedule-announcement-in-2019) article.
+If you want to run fluentd on ruby 2.3 or earlier, use fluentd 1.8 or earlier versions.
+
 
 ### When will td-agent be released with Fluentd v1?
 
@@ -94,7 +93,7 @@ See also: [Life of a Fluentd event](/overview/life-of-a-fluentd-event.md) or [Co
 
 ### I got enconding error inside plugin. How to fix it?
 
-You may hit `"\xC3" from ASCII-8BIT to UTF-8"` like
+You may hit `"\xC3" from ASCII-8BIT to UTF-8` like
 `UndefinedConversionError` in the plugin. This error happens when string
 encoding is set to `ASCII-8BIT` but actual content is `UTF-8`. Fluentd
 and almost plugins treat the logs as a `ASCII-8BIT` by default but some
