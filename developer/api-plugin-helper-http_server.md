@@ -45,7 +45,7 @@ __this method is deprecated. Use http\_server\_create\_http\_server method inste
 This method creats and runs http server with given routes which are defined in `&block`.
 
 - `title`: the name of listen thread. this name must be unique
-- `addr`: Adderess to listen to
+- `addr`: Address to listen to
 - `port`: Port to listen to.
 - `logger`: Logger which is used in server helper
 - `default_app`: Use this object when server received a request whose path is not registered. This object must have `#call` or be a `Proc` object.
@@ -57,7 +57,7 @@ This method creats and runs http server with given routes which are defined in `
 This method creats and runs http server with given routes which are defined in `&block`.
 
 - `title`: the name of listen thread. this name must be unique
-- `addr`: Adderess to listen to
+- `addr`: Address to listen to
 - `port`: Port to listen to
 - `logger`: Logger which is used in server helper
 - `default_app`: Use this object when server received a request whose path is not registered. This object must have `#call` or be a `Proc` object.
