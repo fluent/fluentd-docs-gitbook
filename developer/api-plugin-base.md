@@ -1,6 +1,6 @@
 # Plugin Base API
 
-All plugin types are subclass of `Fluent::Plugin::Base` in Fluentd v0.14
+All plugin types are subclass of `Fluent::Plugin::Base` in Fluentd v1
 or later. Base class has some features and methods which provides basic
 mechanism as plugins. This page shows these methods provided by
 `Fluent::Plugin::Base`, and other methods provided commonly in some type

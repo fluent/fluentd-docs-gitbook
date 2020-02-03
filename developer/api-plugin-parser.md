@@ -86,8 +86,7 @@ For more details about `<parse>` section, see [Parse section configurations](/co
 ## How To Use Parsers From Plugins
 
 Parser plugins are designed to be used from other plugins, like Input,
-Filter and Output. There is a Parser plugin helper for that purpose
-(v0.14.1 or later):
+Filter and Output. There is a Parser plugin helper for that purpose:
 
 ```
 # in class definition

@@ -1,4 +1,4 @@
-# Updating plugin for v1.0 from v0.12
+# Updating plugin for v1 from v0.12
 
 This guide is for plugin authors to show how to update
 input/output/filter plugins written for Fluentd v0.12 or earlier.
@@ -6,13 +6,13 @@ input/output/filter plugins written for Fluentd v0.12 or earlier.
 There are something to be considered (see following "Updating Plugins
 Overview" section for details):
 
--   Plugins which use v0.12 API will be supported between Fluentd v0.14
-    and v1 (will be obsoleted at v2).
--   Users can use new features of Fluentd v1.0 only with plugins using
+-   Plugins which use v0.12 API will be supported in Fluentd v1
+    (will be obsoleted at v2).
+-   Users can use new features of Fluentd v1 only with plugins using
     new API.
 -   Plugins which use new API don't work on Fluentd v0.12.x.
 
-Fluentd core team strongly recommend to use v1.0 API to make your
+Fluentd core team strongly recommend to use v1 API to make your
 plugins stable, consistent and easy to test.
 
 
@@ -24,7 +24,7 @@ These are steps to update your plugins safely.
 2.  update dependency
 3.  update code and tests
 4.  update CI environments
-5.  release the newer version for Fluentd v0.14.x and later
+5.  release the newer version for Fluentd v1 and later
 
 
 ### 1. release a latest version
@@ -46,14 +46,10 @@ newer versions for Fluentd v0.12 users without breaking anything.
 ### 2. update dependency
 
 Following updates are on master branch. You should update dependency in
-gemspec at first to depend on Fluentd v0.14.
+gemspec at first to depend on Fluentd v1.
 
--   fix dependency about `Fluentd` to `[">= 0.14.0", "< 2"]`
+-   fix dependency about `Fluentd` to `[">= 1", "< 2"]`
 -   execute `bundle install`
-
-Is it correct to use `>= 0.14.0` instead of `~> 0.14.0`? Yes. Fluentd v1
-will be compatible with v0.14.0 (especially for plugin APIs), so you
-should use `>= 0.14.0`. Let's think about v2 few years later.
 
 Recommended dependency in gemspec:
 
@@ -62,7 +58,7 @@ Recommended dependency in gemspec:
 Gem::Specification.new do |gem|
   gem.name = "fluent-plugin-my_awesome"
   # ...
-  gem.add_runtime_dependency "fluentd", [">= 0.14.0", "< 2"]
+  gem.add_runtime_dependency "fluentd", [">= 1", "< 2"]
 end
 ```
 
@@ -80,12 +76,10 @@ plugins.
 ### 4. update CI environments
 
 If you have CI configurations like `.travis.yml` and `appvayor.yml`,
-these should be updated to support Fluentd v0.14/v1.0. Fluentd
-v0.14/v1.0 supports Ruby 2.1 or later. CI environments should not
-include Ruby 2.0 or earlier. It's good idea to add latest Ruby (2.4 at
-Nov 2017).
+these should be updated to support Fluentd v1. Fluentd v1 supports Ruby 2.4 or later.
+CI environments should not include Ruby 2.3 or earlier.
 
--   remove Ruby 2.0 or earlier from CI environments
+-   remove Ruby 2.3 or earlier from CI environments
 -   add Ruby 2.4 (or other latest version) to CI environments
 
 
@@ -98,8 +92,8 @@ Add requirements section to `README.md` like following:
 
 | fluent-plugin-may_awesome | Fluentd    | Ruby   |
 |:--------------------------|:-----------|:-------|
-| >= 1.0.0                  | >= v0.14.0 | >= 2.1 |
-| < 1.0.0                   | >= v0.12.0 | >= 1.9 |
+| >= 1.0.0                  | >= v1      | >= 2.4 |
+| < 1.0.0                   | >= v0.12.0 | >= 2.1 |
 ```
 
 This helps that plugin users can understand plugin requirements.
@@ -112,7 +106,7 @@ not patch version up. If the current major version of your gem is equal
 or larger than 1, you should bump major version up (e.g., from 1 to 2).
 If the current major version is 0, you should bump minor version up
 (e.g., from `0.4.2` to `0.5.0`). Then, you can publish a new release
-which is available with Fluentd v0.14/v1.0.
+which is available with Fluentd v1.
 
 -   bump the version up
 -   release it to rubygems.org

@@ -33,20 +33,19 @@ before they dive into writing their own plugins.
 [RubyKaigi 2014 talk](http://rubykaigi.org/2014/presentation/S-NaotoshiSeo/).)
 
 This slide is based on Fluentd v0.12. There are many difference between
-v0.12 and v0.14/v1.0 API, but it may help our understanding about
-Fluent's total design.
+v0.12 and v1 API, but it may help our understanding about Fluent's total design.
 
 
 ### Fluentd version and Plugin API
 
-Fluentd now has two active versions, v1.0 and v0.12. v1.0 is current
-stable and v1.0 has brand-new Plugin API. v0.12 is old stable and v0.12
+Fluentd now has two active versions, v1 and v0.12. v1 is current
+stable and v1 has brand-new Plugin API. v0.12 is old stable and v0.12
 has old Plugin API.
 
-The important point is v1.0 supports v1.0 and v0.12 APIs. It means the
-plugin for v0.12 works with v1.0.
+The important point is v1 supports v1 and v0.12 APIs. It means the
+plugin for v0.12 works with v1.
 
-We recommend to use new v1.0 plugin API for new plugins.
+We recommend to use new v1 plugin API for new plugins.
 
 
 ### Send a patch or fork?

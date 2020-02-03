@@ -68,7 +68,7 @@ should look like `100,200`
 
 Formatter plugins are designed to be used from other plugins, like
 Input, Filter and Output. There is a Formatter plugin helper for that
-purpose (v0.14.1 or later):
+purpose:
 
 ```
 # in class definition

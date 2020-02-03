@@ -15,8 +15,8 @@ Use td-agent 3. It includes v1.
 
 ## What is the differences between v1 or v0.14?
 
-No differences. v1.0 is built on top of v0.14. Use v1.0 for newer
-installation. We use v1.0/v1.x on our document.
+No differences. v1 is built on top of v0.14. Use v1 for newer
+installation. We use v1 or v1.x on our document.
 
 
 ## Known Issue
