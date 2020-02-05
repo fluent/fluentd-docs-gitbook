@@ -261,6 +261,21 @@ files with dynamic path setting. I will fix this problem in the future.
 Check [this issue](https://github.com/fluent/fluentd/issues/1126).
 
 
+### pos\_file\_compaction\_interval
+
+| type   | default | version |
+|:-------|:--------|:--------|
+| time   | nil     | 1.9.2   |
+
+The interval of doing compaction of pos file.
+The targets of compaction are unwatch file's line, unparsable file's line and duplicated line.
+You can use this value when pos\_file option is set.
+
+```
+pos_file /var/log/td-agent/tmp/access.log.pos
+pos_file_compaction_interval 72h
+```
+
 ### `<parse>` directive (required)
 
 The format of the log. `in_tail` uses parser plugin to parse the log.
