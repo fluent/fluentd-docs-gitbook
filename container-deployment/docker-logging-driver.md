@@ -5,10 +5,10 @@ system for your [Docker](http://www.docker.com) containers. Any
 production application requires to register certain events or problems
 during runtime.
 
-The old fashion way is to write these messages to a log file, but that
+The old fashioned way is to write these messages to a log file, but that
 inherits certain problems specifically when we try to perform some
 analysis over the registers, or in the other side, if the application
-have multiple instances running, the escenario becomes even more
+has multiple instances running, the scenario becomes even more
 complex.
 
 On Docker v1.6, the concept of **[logging drivers](https://docs.docker.com/engine/admin/logging/overview/)** was
@@ -19,28 +19,30 @@ that manage the application messages.
 
 For Docker v1.8, we have implemented a native **[Fluentd Docker logging driver](https://docs.docker.com/engine/admin/logging/fluentd/)**, now
 you are able to have an unified and structured logging system with the
-simplicity and high performance [Fluentd](http://fluentd.org).
+simplicity and high performance of [Fluentd](http://fluentd.org).
 
-Currently, fluentd logging driver doesn't support sub-second precision.
+Currently, Fluentd logging driver doesn't support sub-second precision.
 
 
 ## Getting Started
 
 Using the Docker logging mechanism with
-[Fluentd](http://www.fluentd.org) is a straighforward step, to get
+[Fluentd](http://www.fluentd.org) is a straightforward step, to get
 started make sure you have the following prerequisites:
 
 -   A basic understanding of [Fluentd](http://www.fluentd.org)
--   A basic undersatnding of Docker
+-   A basic understanding of Docker
 -   A basic understanding of [Docker logging drivers](https://docs.docker.com/engine/admin/logging/overview/)
 -   Docker v1.8+
 
-This article launches Fluentd as standard process, not a container. Please refer [Docker Logging via EFK (Elasticsearch + Fluentd + Kibana) Stack with Docker Compose](/articles/docker-logging-efk-compose.md) for fully containerized environment tutorial.
+This article launches Fluentd as standard process, not a container. Please refer
+to [Docker Logging via EFK (Elasticsearch + Fluentd + Kibana) Stack with Docker Compose](/articles/docker-logging-efk-compose.md)
+for a fully containerized environment tutorial.
 
 ### Step 1: Create the Fluentd configuration file
 
 The first step is to prepare Fluentd to listen for the messsages that
-will receive from the Docker containers, for a demonstration purposes we
+it will receive from the Docker containers. For demonstration purposes, we
 will instruct Fluentd to write the messages to the standard output; In a
 later step you will find how to accomplish the same aggregating the logs
 into a MongoDB instance.
@@ -96,14 +98,14 @@ If the service started you should see an output like this:
 ### Step 3: Start Docker container with Fluentd driver
 
 By default, the Fluentd logging driver will try to find a local Fluentd
-instance (step \#2) listening for connections on the TCP port 24224,
-note that the container will not start if it cannot connect to the
+instance (step \#2) listening for connections on the TCP port 24224.
+Note that the container will not start if it cannot connect to the
 Fluentd instance.
 
 ![](https://www.fluentd.org/assets/img/recipes/fluentd_docker_integrated.png)
 
 The following command will run a base Ubuntu container and print some
-messages to the standard output, note that we have launched the
+messages to the standard output. Note that we have launched the
 container specifying the Fluentd logging driver:
 
 ``` {.CodeRay}
@@ -113,8 +115,8 @@ Hello Fluentd!
 
 ### Step 4: Confirm
 
-Now on the Fluentd output, you will see the incoming message from the
-container, e.g:
+Now, in the Fluentd output, you will see the incoming message from the
+container, i.e:
 
 ``` {.CodeRay}
 2019-08-21 00:52:28.000000000 +0000 ece4524df531: {"source":"stdout","log":"Hello Fluentd!","container_id":"ece4524df531ed6ded4253c145a53bead9b049241aa12c5a59ab83e3a14a96b4","container_name":"/inspiring_montalcini"}
@@ -122,15 +124,15 @@ container, e.g:
 
 At this point you will notice something interesting, the incoming
 messages have a timestamp, are tagged with the container\_id and
-contains general information from the source container along the
+contain general information from the source container along with the
 message, everything in JSON format.
 
 ### Additional Step 1: Parse log message
 
-Application log is stored into `"log"` field in the record. You can
+Application log is stored in the `"log"` field in the record. You can
 parse this log by using
 [filter\_parser](/plugins/filter/parser.md) filter
-before send to destinations.
+before sending it to destinations.
 
 ``` {.CodeRay}
 <filter docker.**>
@@ -155,10 +157,10 @@ Filtered event:
 
 ### Additional Step 2: Concatenate multiple lines log messages
 
-Application log is stored into `"log"` field in the records. You can
+Application log is stored in the `"log"` field in the records. You can
 concatenate these logs by using
 [fluent-plugin-concat](https://github.com/fluent-plugins-nursery/fluent-plugin-concat)
-filter before send to destinations.
+filter before sending it to destinations.
 
 ``` {.CodeRay}
 <filter docker.**>
@@ -184,12 +186,12 @@ Filtered events:
 2016-04-13 14:45:55 +0900 docker.28cf38e21204: {"container_id":"28cf38e212042225f5f80a56fac08f34c8f0b235e738900c4e0abcf39253a702","container_name":"/romantic_dubinsky","source":"stdout","log":"-e:2:in `/'\n-e:2:in `do_division_by_zero'\n-e:4:in `<main>'"}
 ```
 
-If the logs are typical stacktraces, consider [detect-exceptions plugin](https://github.com/GoogleCloudPlatform/fluent-plugin-detect-exceptions)
+If the logs are typical stacktraces, consider using [detect-exceptions plugin](https://github.com/GoogleCloudPlatform/fluent-plugin-detect-exceptions)
 instead.
 
 ## Driver options
 
-The [Fluentd logging driver](https://docs.docker.com/engine/admin/logging/fluentd/) support
+The [Fluentd logging driver](https://docs.docker.com/engine/admin/logging/fluentd/) supports
 more options through the *--log-opt* Docker command line argument:
 
 -   fluentd-address
@@ -197,7 +199,7 @@ more options through the *--log-opt* Docker command line argument:
 
 #### fluentd-address
 
-Specify an optional address for Fluentd, it allows to set the host and
+Specify an optional address for Fluentd. It allows setting the host and
 TCP port, e.g:
 
 ``` {.CodeRay}
@@ -206,17 +208,17 @@ $ docker run --log-driver=fluentd --log-opt fluentd-address=192.168.2.4:24225 ub
 
 #### tag
 
-[Tags](https://docs.docker.com/engine/admin/logging/log_tags/) are a
-major requirement on Fluentd, they allows to identify the incoming data
-and take routing decisions. By default the Fluentd logging driver uses
-the container\_id as a tag (64 character ID), you can change it value
-with the *tag* option as follows:
+[Log tags](https://docs.docker.com/engine/admin/logging/log_tags/) are a
+major requirement for Fluentd, as they allow for identifying the source of
+incoming data and take routing decisions. By default, the Fluentd logging
+driver uses the container\_id as a tag (64 character ID). You can change
+it value with the *tag* option as follows:
 
 ``` {.CodeRay}
 $ docker run --log-driver=fluentd --log-opt tag=docker.my_new_tag ubuntu echo "..."
 ```
 
-Additionally this option allows to specify some internal variables:
+Additionally, this option allows specifying some internal variables:
 \{\{.ID\}\}, \{\{.FullID\}\} or \{\{.Name\}\}. e.g:
 
 ``` {.CodeRay}
@@ -226,11 +228,11 @@ $ docker run --log-driver=fluentd --log-opt tag=docker.{{.ID}} ubuntu echo "..."
 ## Development Environments
 
 In a more real-world use case, you would want to use something other
-than the Fluentd standard output to store Docker containers messages,
+than the Fluentd standard output to store Docker container messages,
 such as Elasticsearch, MongoDB, HDFS, S3, Google Cloud Storage and so
 on.
 
-This document describes how to set up multi-container logging
+This document describes how to set up a multi-container logging
 environment via EFK (Elasticsearch, Fluentd, Kibana) with Docker
 Compose.
 
@@ -238,7 +240,7 @@ Compose.
 
 ## Production Environments
 
-In production environment, you must use one of the container
+In a production environment, you must use one of the container
 orchestration tools. Currently, Kubernetes has better integration with
 Fluentd, and we're working on making better integrations with other
 tools as well.
