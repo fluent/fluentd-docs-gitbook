@@ -118,7 +118,7 @@ Label.
 <label @BACKUP>
   <match metrics.event.**>
     @type file
-    path /var/log/fluent/bakcup
+    path /var/log/fluent/backup
   </match>
 </label>
 ```
