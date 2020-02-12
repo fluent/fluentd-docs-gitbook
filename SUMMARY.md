@@ -1,4 +1,4 @@
-# Fluentd v1.0 Documentation
+# Fluentd v1 Documentation
             
 * [Overview](/overview/quickstart.md)
   * [Life of a Fluentd event](/overview/life-of-a-fluentd-event.md)
