@@ -7,7 +7,6 @@
   * [FAQ](/overview/faq.md)
   * [Logo](/overview/logo.md)
   * [td-agent v2 vs v3](/overview/td-agent-v2-vs-v3.md)
-
 * [Installation]()
   * [Before Installation](/install/before-install.md)
   * [Install by RPM Package (Redhat Linux)](/install/install-by-rpm.md)
@@ -17,7 +16,6 @@
   * [Install by Ruby Gem](/install/install-by-gem.md)
   * [Install from Source](/install/install-from-source.md)
   * [Post Installation Guide](/install/post-installation-guide.md)
-
 * [Configuration]()
   * [Config File Syntax](/configuration/config-file.md)
   * [Routing Examples](/configuration/routing-examples.md)
@@ -30,7 +28,6 @@
   * [Config: Transport Section](/configuration/transport-section.md)
   * [Config: Storage Section](/configuration/storage-section.md)
   * [Config: Service Discovery Section](/configuration/service_discovery-section.md)
-
 * [Deployment]()
   * [System Configuration](/deployment/system-config.md)
   * [Logging](/deployment/logging.md)
@@ -47,13 +44,11 @@
   * [Trouble Shooting](/deployment/trouble-shooting.md)
   * [Fluentd UI](/deployment/fluentd-ui.md)
   * [Command Line Option](/deployment/command-line-option.md)
-
 * [Container Deployment]()
   * [Docker Image](/container-deployment/install-by-docker.md)
   * [Docker Logging Driver](/container-deployment/docker-logging-driver.md)
   * [Docker Compose](/container-deployment/docker-compose.md)
   * [Kubernetes](/container-deployment/kubernetes.md)
-       
 * [Input Plugins](/plugins/input/README.md)
   * [tail](/plugins/input/tail.md)
   * [forward](/plugins/input/forward.md)
@@ -66,7 +61,6 @@
   * [dummy](/plugins/input/dummy.md)
   * [monitor_agent](/plugins/input/monitor_agent.md)
   * [windows_eventlog](/plugins/input/windows_eventlog.md)
-            
 * [Output Plugins](/plugins/output/README.md)
   * [file](/plugins/output/file.md)
   * [forward](/plugins/output/forward.md)
@@ -86,14 +80,12 @@
   * [mongo_replset](/plugins/output/mongo_replset.md)
   * [rewrite_tag_filter](/plugins/output/rewrite_tag_filter.md)
   * [webhdfs](/plugins/output/webhdfs.md)
-            
 * [Filter Plugins](/plugins/filter/README.md)
   * [record_transformer](/plugins/filter/record_transformer.md)
   * [grep](/plugins/filter/grep.md)
   * [parser](/plugins/filter/parser.md)
   * [geoip](/plugins/filter/geoip.md)
   * [stdout](/plugins/filter/stdout.md)
-            
 * [Parser Plugins](/plugins/parser/README.md)
   * [regexp](/plugins/parser/regexp.md)
   * [apache2](/plugins/parser/apache2.md)
@@ -106,7 +98,6 @@
   * [json](/plugins/parser/json.md)
   * [multiline](/plugins/parser/multiline.md)
   * [none](/plugins/parser/none.md)
-            
 * [Formatter Plugins](/plugins/formatter/README.md)
   * [out_file](/plugins/formatter/out_file.md)
   * [json](/plugins/formatter/json.md)
@@ -116,19 +107,15 @@
   * [hash](/plugins/formatter/hash.md)
   * [single_value](/plugins/formatter/single_value.md)
   * [stdout](/plugins/formatter/stdout.md)
-            
 * [Buffer Plugins](/plugins/buffer/README.md)
   * [memory](/plugins/buffer/memory.md)
   * [file](/plugins/buffer/file.md)
   * [file_single](/plugins/buffer/file_single.md)
-
 * [Storage Plugins](/plugins/storage/README.md)
   * [local](/plugins/storage/local.md)
-
 * [Service Discovery Plugins](/plugins/service_discovery/README.md)
   * [static](/plugins/service_discovery/static.md)
   * [file](/plugins/service_discovery/file.md)
-
 * [How-to Guides]()
   * [Send Apache Logs to S3](/guides/apache-to-s3.md)
   * [Send Apache Logs to Minio](/guides/apache-to-minio.md)
@@ -144,7 +131,6 @@
   * [Email Alerting like Splunk](/guides/splunk-like-grep-and-alert-email.md)
   * [How to Parse Syslog Messages](/guides/parse-syslog.md)
   * [Cloud Data Logging with Raspberry Pi](/guides/raspberrypi-cloud-data-logger.md)
-
 * [Language Bindings]()
   * [Java](/language/java.md)
   * [Ruby](/language/ruby.md)
@@ -153,7 +139,6 @@
   * [PHP](/language/php.md)
   * [Nodejs](/language/nodejs.md)
   * [Scala](/language/scala.md)
-
 * [Plugin Development](/developer/plugin-development.md)
   * [How to Write Input Plugin](/developer/api-plugin-input.md)
   * [How to Write Base Plugin](/developer/api-plugin-base.md)
@@ -167,7 +152,6 @@
   * [How to Write Tests for Plugin](/developer/plugin-test-code.md)
   * [Configuration Parameter Types](/developer/api-config-types.md)
   * [Upgrade Plugin from v0.12](/developer/plugin-update-from-v0.12.md)
-
 * [Plugin Helper API](/developer/plugin-helper-overview.md)
   * [Plugin Helper: Child Process](/developer/api-plugin-helper-child_process.md)
   * [Plugin Helper: Compat Parameters](/developer/api-plugin-helper-compat_parameters.md)
