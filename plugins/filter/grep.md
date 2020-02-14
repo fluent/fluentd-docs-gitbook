@@ -165,7 +165,7 @@ Specify filtering rule. This directive contains two parameters.
 
 | type   | default            | version |
 |:-------|:-------------------|:--------|
-| string | required parameter | 0.14.19 |
+| string | required parameter | 1.0.0   |
 
 The field name to which the regular expression is applied.
 
@@ -247,9 +247,9 @@ Learn regular expressions for more patterns.
 
 ### regexpN
 
-    type    version
-  -------- ---------
-   string   0.14.0
+| type   | version |
+|:-------|:--------|
+| string | 1.0.0   |
 
 This is deprecated parameter. Use `<regexp>` instead.
 
@@ -276,7 +276,7 @@ parameters.
 
 | type   | default            | version |
 |:-------|:-------------------|:--------|
-| string | required parameter | 0.14.19 |
+| string | required parameter | 1.0.0   |
 
 The field name to which the regular expression is applied.
 
@@ -322,9 +322,9 @@ filtered out.
 
 ### excludeN
 
-    type    version
-  -------- ---------
-   string   0.14.0
+| type   | version |
+|:-------|:--------|
+| string | 1.0.0   |
 
 This is deprecated parameter. Use `<exclude>` instead.
 
