@@ -91,7 +91,7 @@ See also: [Life of a Fluentd event](/overview/life-of-a-fluentd-event.md) or [Co
 `file` buffer has limitations. Check [buf_file article](/plugins/buffer/file.md#limitation).
 
 
-### I got enconding error inside plugin. How to fix it?
+### I got encoding error inside plugin. How to fix it?
 
 You may hit `"\xC3" from ASCII-8BIT to UTF-8` like
 `UndefinedConversionError` in the plugin. This error happens when string
