@@ -99,7 +99,7 @@ written in same section:
 ```
 
 See buffer section in [Compat Parameters Plugin Helper
-API](/plugin-helper-overview/api-plugin-helper-compat_parameters.md)
+API](/developer/api-plugin-helper-compat_parameters.md)
 for parameter name changes between v1 and v0.12.
 
 

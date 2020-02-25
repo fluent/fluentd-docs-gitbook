@@ -196,7 +196,7 @@ this repository.
 ## Learn More
 
 -   [Fluentd Architecture](https://www.fluentd.org/architecture)
--   [Fluentd Get Started](/articles/quickstart.md)
+-   [Fluentd Get Started](/overview/quickstart.md)
 -   [Downloading Fluentd](http://www.fluentd.org/download)
 
 

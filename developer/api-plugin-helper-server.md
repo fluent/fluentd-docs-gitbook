@@ -72,7 +72,7 @@ The block will be invoked with connection as a parameter on connection.
         `SO_RECVTIMEO`
     -   `send_timeout`: the timeout time in seconds used to set
         `SO_SNDTIMEO`
-    -   `send_keepalive_packet`: if true, enable TCP keepalive via `SO_KEEPALIVE`. See also [socket article](/plugin-helper-overview/api-plugin-helper-socket.md#send_keepalive_packet_usecase)
+    -   `send_keepalive_packet`: if true, enable TCP keepalive via `SO_KEEPALIVE`. See also [socket article](/developer/api-plugin-helper-socket.md#send_keepalive_packet-usecase)
 
 Code example:
 
@@ -131,7 +131,7 @@ The block will be invoked with parameter(s) on data.
         `SO_RECVTIMEO`
     -   `send_timeout`: the timeout time in seconds used to set
         `SO_SNDTIMEO`
-    -   `send_keepalive_packet`: if true, enable TCP keepalive via `SO_KEEPALIVE`. See also [socket article](/plugin-helper-overview/api-plugin-helper-socket.md#send_keepalive_packet_usecase)
+    -   `send_keepalive_packet`: if true, enable TCP keepalive via `SO_KEEPALIVE`. See also [socket article](/developer/api-plugin-helper-socket.md#send_keepalive_packet-usecase)
 
 Code example:
 
