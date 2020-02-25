@@ -11,7 +11,7 @@ your OS properly. This will prevent many unnecessary problems.
 
 ## Step 1: Install Ruby interpreter
 
-Please install Ruby \>= 2.1 on your local environment. In addition,
+Please install Ruby \>= 2.4 on your local environment. In addition,
 install ruby-dev package via package manager to build native extension
 gems.
 
