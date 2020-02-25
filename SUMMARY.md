@@ -96,6 +96,7 @@
   * [csv](/plugins/parser/csv.md)
   * [tsv](/plugins/parser/tsv.md)
   * [json](/plugins/parser/json.md)
+  * [msgpack](/plugins/parser/msgpack.md)
   * [multiline](/plugins/parser/multiline.md)
   * [none](/plugins/parser/none.md)
 * [Formatter Plugins](/plugins/formatter/README.md)

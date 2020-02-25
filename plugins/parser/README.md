@@ -51,6 +51,7 @@ Here is a simple example to read Nginx access logs using `in_tail` and
 -   [tsv](/plugins/parser/tsv.md)
 -   [ltsv](/plugins/parser/ltsv.md)
 -   [json](/plugins/parser/json.md)
+-   [msgpack](/plugins/parser/msgpack.md)
 -   [multiline](/plugins/parser/multiline.md)
 -   [none](/plugins/parser/none.md)
 
