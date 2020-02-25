@@ -63,6 +63,8 @@ via syslog don't have `<9>` like priority prefix.
 
 Specify internal parser type for `rfc3164` format. Supported values are `regexp` and `string`. Both parsers generate same record for standard format.
 
+If `regexp` doesn't fit your logs, consider `string` type instead.
+
 We recommend to use `string` parser because it is 2x faster than `regexp`. The default is `regexp` for existing users, but fluentd v2 will change the default to `string` parser.
 
 
@@ -88,11 +90,12 @@ Feb  5 17:32:18 10.0.0.99 Use the BFG!
 
 ## Regexp patterns
 
+Show regexp patterns for parsing logs.
 
 ### rfc3164 pattern
 
 ```
-expression /^\<(?<pri>[0-9]+)\>(?<time>[^ ]* {1,2}[^ ]* [^ ]*) (?<host>[^ ]*) (?<ident>[a-zA-Z0-9_\/\.\-]*)(?:\[(?<pid>[0-9]+)\])?(?:[^\:]*\:)? *(?<message>.*)$/
+expression /^\<(?<pri>[0-9]+)\>(?<time>[^ ]* {1,2}[^ ]* [^ ]*) (?<host>[^ ]*) (?<ident>[^ :\[]*)(?:\[(?<pid>[0-9]+)\])?(?:[^\:]*\:)? *(?<message>.*)$/
 time_format "%b %d %H:%M:%S"
 ```
 
@@ -101,14 +104,13 @@ record. `time` is used for the event time.
 
 `pri` value is converted into integer type.
 
-If `with_priority` is `false`, `^\<(?<pri>[0-9]+)\>` is removed from the
-pattern.
+If `with_priority` is `false`, `^\<(?<pri>[0-9]+)\>` is removed from the pattern.
 
 
 ### rfc5424 pattern
 
 ```
-expression /\A^\<(?<pri>[0-9]{1,3})\>[1-9]\d{0,2} (?<time>[^ ]+) (?<host>[^ ]+) (?<ident>[^ ]+) (?<pid>[-0-9]+) (?<msgid>[^ ]+) (?<extradata>(\[(.*)\]|[^ ])) (?<message>.+)$\z/
+expression /\A\<(?<pri>[0-9]{1,3})\>[1-9]\d{0,2} (?<time>[^ ]+) (?<host>[!-~]{1,255}) (?<ident>[!-~]{1,48}) (?<pid>[!-~]{1,128}) (?<msgid>[!-~]{1,32}) (?<extradata>(?:\-|(?:\[.*?(?<!\\)\])+))(?: (?<message>.+))?\z/
 time_format "%Y-%m-%dT%H:%M:%S.%L%z"
 ```
 
@@ -116,6 +118,8 @@ time_format "%Y-%m-%dT%H:%M:%S.%L%z"
 included in the event record. `time` is used for the event time.
 
 `pri` value is converted into integer type.
+
+If `with_priority` is `false`, `\<(?<pri>[0-9]{1,3})\>[1-9]\d{0,2}` is removed from the pattern.
 
 
 ## Example
