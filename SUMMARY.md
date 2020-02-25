@@ -1,13 +1,11 @@
-
-            
+# Fluentd v0.12 documentation
+           
 * [Overview](/articles/quickstart.md)
   * [Getting Started](/overview/getting-started.md)
   * [Installation](/overview/installation.md)
   * [Life of a Fluentd event](/overview/life-of-a-fluentd-event.md)
   * [Support](/overview/support.md)
-  * [FAQ](/overview/faq.md)
-
-            
+  * [FAQ](/overview/faq.md)            
 * [Use Cases]()
   * [Centralized App Logging](/use-cases/logging-from-apps.md)
   * [Monitoring Service Logs](/use-cases/monitoring-service-logs.md)
@@ -16,14 +14,10 @@
   * [Stream Processing](/use-cases/stream-processing.md)
   * [Windows Event Collection](/use-cases/windows.md)
   * [IoT Data Logger](/use-cases/iot.md)
-
-            
 * [Configuration]()
   * [Config File Syntax](/configuration/config-file.md)
   * [Routing Examples](/configuration/routing-examples.md)
   * [Recipes](/configuration/recipes.md)
-
-            
 * [Deployment]()
   * [Logging](/deployment/logging.md)
   * [Monitoring](/deployment/monitoring.md)
@@ -37,15 +31,11 @@
   * [Secure Forwarding](/deployment/secure-forwarder.md)
   * [Fluentd UI](/deployment/fluentd-ui.md)
   * [Command Line Option](/deployment/command-line-option.md)
-
-            
 * [Container Deployment]()
   * [Docker Image](/container-deployment/install-by-docker.md)
   * [Docker Logging Driver](/container-deployment/docker-logging-driver.md)
   * [Docker Compose](/container-deployment/docker-compose.md)
   * [Kubernetes](/container-deployment/kubernetes.md)
-
-
 * [Input Plugins](/plugins/input/README.md)
   * [tail](/plugins/input/tail.md)
   * [forward](/plugins/input/forward.md)
@@ -60,7 +50,6 @@
   * [multiprocess](/plugins/input/multiprocess.md)
   * [dummy](/plugins/input/dummy.md)
   * [Others](/plugins/input/others.md)
-
 * [Output Plugins](/plugins/output/README.md)
   * [file](/plugins/output/file.md)
   * [s3](/plugins/output/s3.md)
@@ -81,17 +70,14 @@
   * [relabel](/plugins/output/relabel.md)
   * [rewrite_tag_filter](/plugins/output/rewrite_tag_filter.md)
   * [Others](/plugins/output/others.md)
-
 * [Buffer Plugins](/plugins/buffer/README.md)
   * [memory](/plugins/buffer/memory.md)
   * [file](/plugins/buffer/file.md)
-
 * [Filter Plugins](/plugins/filter/README.md)
   * [record_transformer](/plugins/filter/record_transformer.md)
   * [grep](/plugins/filter/grep.md)
   * [parser](/plugins/filter/parser.md)
   * [stdout](/plugins/filter/stdout.md)
-
 * [Parser Plugins](/plugins/parser/README.md)
   * [regexp](/plugins/parser/regexp.md)
   * [apache2](/plugins/parser/apache2.md)
@@ -104,7 +90,6 @@
   * [json](/plugins/parser/json.md)
   * [multiline](/plugins/parser/multiline.md)
   * [none](/plugins/parser/none.md)
-
 * [Formatter Plugins](/plugins/formatter/README.md)
   * [out_file](/plugins/formatter/out_file.md)
   * [json](/plugins/formatter/json.md)
@@ -113,8 +98,6 @@
   * [msgpack](/plugins/formatter/msgpack.md)
   * [hash](/plugins/formatter/hash.md)
   * [single_value](/plugins/formatter/single_value.md)
-
-            
 * [Developer]()
   * [Plugin Development](/developer/plugin-development.md)
   * [Community](/developer/community.md)
@@ -123,9 +106,7 @@
   * [Bug Tracking](/developer/bug-tracking.md)
   * [ChangeLog](/developer/changelog.md)
   * [Logo](/developer/logo.md)
-
-
-- Articles
+* Articles
   * [Store Apache Logs into MongoDB](/articles/apache-to-mongodb.md)
   * [Apache To Riak](/articles/apache-to-riak.md)
   * [Store Apache Logs into Amazon S3](/articles/apache-to-s3.md)
