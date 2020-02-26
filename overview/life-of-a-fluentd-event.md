@@ -50,7 +50,7 @@ Connection: Keep-Alive
 Content-length: 0
 ```
 
-On the [Fluentd](http://fluentd.org) server side the output should look
+On the Fluentd server side the output should look
 like this:
 
 ``` {.CodeRay}
