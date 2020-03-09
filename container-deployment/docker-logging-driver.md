@@ -137,9 +137,11 @@ before sending it to destinations.
 ``` {.CodeRay}
 <filter docker.**>
   @type parser
-  format json # apache2, nginx, etc...
   key_name log
   reserve_data true
+  <parse>
+    @type json # apache2, nginx, etc...
+  </parse>
 </filter>
 ```
 
