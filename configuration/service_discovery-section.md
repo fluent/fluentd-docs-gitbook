@@ -29,8 +29,9 @@ service_discovery plugin. Fluentd core bundles [some useful service discovery pl
 
 These are the list of built-in service discovery plugins.
 
--   [static](/plugins/service_discovery/static.md)
--   [file](/plugins/service_discovery/file.md)
+- [static](/plugins/service_discovery/static.md)
+- [file](/plugins/service_discovery/file.md)
+- [srv](/plugins/service_discovery/srv.md)
 
 For more details, see plugins documentation.
 
