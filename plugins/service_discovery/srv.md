@@ -71,7 +71,7 @@ Interval of requesting to DNS server
 
 | type   | default | version |
 |:-------|:------------------------|:--------|
-| integer | 60     | 1.10.0  |
+| bool   | true     | 1.10.0  |
 
 Resolve hostname to IP addr of SRV's Target
 
@@ -79,7 +79,7 @@ Resolve hostname to IP addr of SRV's Target
 
 | type   | default | version |
 |:-------|:--------|:--------|
-| string | nil     | 1.8.0  |
+| string | nil     | 1.10.0  |
 
 The shared key per server.
 
@@ -87,7 +87,7 @@ The shared key per server.
 
 | type   | default  | version |
 |:-------|:---------|:--------|
-| string | nil      | 1.8.0  |
+| string | nil      | 1.10.0  |
 
 The username for authentication.
 
@@ -95,7 +95,7 @@ The username for authentication.
 
 | type   | default | version |
 |:-------|:--------|:--------|
-| string | nil     | 1.8.0  |
+| string | nil     | 1.10.0  |
 
 The password for authentication.
 
