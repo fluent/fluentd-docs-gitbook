@@ -28,25 +28,25 @@ The value must be `srv`.
 
 ### service
 
-| type   | default                 | version |
-|:-------|:------------------------|:--------|
-| string | required parameters     | 1.10.0  |
+| type   | default             | version |
+|:-------|:--------------------|:--------|
+| string | required parameters | 1.10.0  |
 
 Service without underscore in [RFC2782](https://tools.ietf.org/html/rfc2782)
 
 ### proto
 
-| type   | default                 | version |
-|:-------|:------------------------|:--------|
-| string | required parameters     | 1.10.0  |
+| type   | default            | version |
+|:-------|:--------------------|:--------|
+| string | required parameters | 1.10.0  |
 
 Proto without underscore in [RFC2782](https://tools.ietf.org/html/rfc2782)
 
 ### hostname
 
-| type   | default                 | version |
-|:-------|:------------------------|:--------|
-| string | required parameters     | 1.10.0  |
+| type   | default             | version |
+|:-------|:--------------------|:--------|
+| string | required parameters | 1.10.0  |
 
 Name in [RFC2782](https://tools.ietf.org/html/rfc2782)
 
@@ -54,24 +54,24 @@ Name in [RFC2782](https://tools.ietf.org/html/rfc2782)
 ### dns\_server\_host
 
 | type   | default | version |
-|:-------|:------------------------|:--------|
+|:-------|:--------|:--------|
 | string | nil     | 1.10.0  |
 
 Hostname of DNS server to request the SRV record
 
 ### interval
 
-| type   | default | version |
-|:-------|:--------|:--------|
-| integer | 60     | 1.10.0  |
+| type    | default | version |
+|:--------|:--------|:--------|
+| integer | 60      | 1.10.0  |
 
 Interval of requesting to DNS server
 
 ### dns\_lookup
 
 | type   | default | version |
-|:-------|:------------------------|:--------|
-| bool   | true     | 1.10.0  |
+|:-------|:--------|:--------|
+| bool   | true    | 1.10.0  |
 
 Resolve hostname to IP addr of SRV's Target
 
