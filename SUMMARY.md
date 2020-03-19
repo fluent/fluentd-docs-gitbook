@@ -117,6 +117,7 @@
 * [Service Discovery Plugins](/plugins/service_discovery/README.md)
   * [static](/plugins/service_discovery/static.md)
   * [file](/plugins/service_discovery/file.md)
+  * [srv](/plugins/service_discovery/srv.md)
 * [How-to Guides]()
   * [Send Apache Logs to S3](/guides/apache-to-s3.md)
   * [Send Apache Logs to Minio](/guides/apache-to-minio.md)

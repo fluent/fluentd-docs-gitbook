@@ -37,6 +37,7 @@ Here is a simple example to update target by reading file(`/etc/fluentd/sd.yaml`
 
 -   [static](/plugins/service_discovery/static.md)
 -   [file](/plugins/service_discovery/file.md)
+-   [srv](/plugins/service_discovery/srv.md)
 
 ## List of Core Output Plugins with Service Discovery support
 
