@@ -506,7 +506,7 @@ port. Incoming data will be routed to 3 workers automatically.
 
 `in_forward` doesn't provide parsing mechanism unlike `in_tail` or
 `in_tcp` because `in_forward` is mainly for efficient log transfer. If
-you want to parse incoming event, use [parser filter](https://github.com/tagomoris/fluent-plugin-parser) in your
+you want to parse incoming event, use [parser filter](/plugins/filter/parser.md) in your
 pipeline.\
 See Docker logging driver usecase: [Docker Logging](http://www.fluentd.org/guides/recipes/docker-logging)
 
