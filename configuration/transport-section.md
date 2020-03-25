@@ -24,7 +24,6 @@ certificates.
 -   `insecure` \[bool\]
     -   Default: false (use secure connection when use tls)
 
-
 ### Signed public CA parameters
 
 -   `ca_path`: \[string\]
@@ -44,6 +43,9 @@ certificates.
     -   When this is set Fluentd will check all incoming HTTPS requests
         for a client certificate signed by the trusted CA, requests that
         don't supply a valid client certificate will fail.
+-   `cert_verifier `[string\]
+    -   Default: nil
+    -   Specify code path for cert verification. See also [server article](/developer/api-plugin-helper-server.md#cert_verifier-example)
 
 
 ### Generated and signed by private CA parameters

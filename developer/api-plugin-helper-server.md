@@ -55,6 +55,7 @@ The block will be invoked with connection as a parameter on connection.
     -   `ciphers`: set the list of available cpher suites. Default:
         `"ALL:!aNULL:!eNULL:!SSLv2"`
     -   `insecure`: if true, set TLS verify mode NONE
+    -   `cert_verifier`: if specified, pass evaluated object to openssl's [verify_callback](https://ruby-doc.org/stdlib-2.7.0/libdoc/openssl/rdoc/OpenSSL/X509/Store.html#verify_callback-attribute-method). See also "cert\_verifier example" section.
     -   `verify_fqdn`: if true, check the server certificate is valid
         for the hostname
     -   `fqdn`: set FQDN
@@ -110,6 +111,7 @@ The block will be invoked with parameter(s) on data.
     -   `ciphers`: set the list of available cpher suites. Default:
         `"ALL:!aNULL:!eNULL:!SSLv2"`
     -   `insecure`: if true, set TLS verify mode NONE
+    -   `cert_verifier`: if specified, pass evaluated object to openssl's [verify_callback](https://ruby-doc.org/stdlib-2.7.0/libdoc/openssl/rdoc/OpenSSL/X509/Store.html#verify_callback-attribute-method). See also "cert\_verifier example" section.
     -   `verify_fqdn`: if true, check the server certificate is valid
         for the hostname
     -   `fqdn`: set FQDN
@@ -208,6 +210,68 @@ Here is TLS configuration example with server helper used plugin.
 <source>
 ```
 
+### cert_verifier example
+
+`cert_verifier` is supported since v1.10.0.
+
+- Configuration example
+
+```
+<source>
+  @type forward
+  <transport tls>
+    # other parameters
+    client_cert_auth true
+    cert_verifier /path/to/my_verifier.rb
+  </transport>
+</source>
+```
+
+- my_verifier.rb example
+
+Code must be return callable object which has `call` method with 2 arguments. This object is used as openssl's [verify_callback](https://ruby-doc.org/stdlib-2.7.0/libdoc/openssl/rdoc/OpenSSL/X509/Store.html#verify_callback-attribute-method)
+
+#### Proc or lambda object for simple case
+
+```
+Proc.new { |ok, ctx|
+  # check code
+
+  if cond
+    true
+  else
+    false
+  end
+}
+```
+
+#### Use class for complicated case
+
+This is CN check example..
+
+```
+module Fluent
+  module Plugin
+    class InForwardCNChecker
+      def initialize
+        # Modify for actual common names
+        @allow_list = ['fluentd', 'fluentd-client', 'other-org']
+      end
+
+      def call(ok, ctx)
+        subject = ctx.chain.first.subject.to_a.find { |entry| entry.first == 'CN' }
+        if subject
+          @allow_list.include?(subject[1])
+        else
+          false
+        end
+      end
+    end
+  end
+end
+
+Fluent::Plugin::InForwardCNChecker.new
+```
 
 ## server used plugins
 
