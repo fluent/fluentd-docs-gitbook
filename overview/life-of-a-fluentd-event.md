@@ -8,10 +8,10 @@ complete cycle including *Setup*, *Inputs*, *Filters*, *Matches* and
 
 ## Basic Setup
 
-The configuration file is the fundamental piece to connect all things
-together, as it allows to define which *Inputs* or listeners
-[Fluentd](http://fluentd.org) will have and setup common matching rules
-to route the *Event* data to a specific *Output*.
+The configuration file contains the information that connect together all the components. 
+It contains the collection of *Inputs* or listeners
+[Fluentd](http://fluentd.org) to configure and allows setting of matching rules
+to route the *Event* data to one or more *Output*s.
 
 We will use the [in\_http](/plugins/input/http.md) and the [out\_stdout](/plugins/output/stdout.md)
 plugins as examples to describe the events cycle. The following is a
