@@ -90,7 +90,7 @@ events look like:
 |:-----|:--------|:--------|
 | bool | false   | 0.14.2  |
 
-The boolean to suspend-and-resume incremental value after restart.
+This parameter is removed since v1.10.0. This feature is automatically handled in the core.
 
 
 ### dummy
