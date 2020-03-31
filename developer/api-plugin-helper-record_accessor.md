@@ -2,7 +2,7 @@
 
 `record_accessor` helper provides the unified access for event record.
 `record_accessor` uses jsonpath like syntax for target field. With this
-helper, you can easy to access nested field in the plugin.
+helper, you can easy to access/delete nested field in the plugin.
 
 Here is the code example with `record_accessor` helper:
 
@@ -67,10 +67,11 @@ record_accessor_create("$.key1.key2")
 record_accessor_create("$['key1'][0]['key2']")
 ```
 
-After create object, call `#call` method with record object.
+After create object, call `call`/`delete` method with record object.
 
 ```
-accessor.call(record) # access record field.
+accessor.call(record)   # get record field
+accessor.delete(record) # delete record field
 ```
 
 
@@ -78,7 +79,7 @@ accessor.call(record) # access record field.
 
 -   [grep filter](/plugins/filter/grep.md)
 -   [parser filter](/plugins/filter/parser.md)
-
+-   [record_transformer filter](/plugins/filter/record_transformer.md)
 
 ------------------------------------------------------------------------
 
