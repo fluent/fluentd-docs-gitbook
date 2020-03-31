@@ -59,40 +59,6 @@ into
 {"total":100, "count":10, "avg":"10"}
 ```
 
-This filter can be also used to remove fields through the `remove_keys`
-parameter (including nested keys, by means of `jsonpath` syntax)
-
-Given the filter:
-
-```
-<filter foo.bar>
-  @type record_transformer
-  remove_keys hostname,$.kubernetes.pod_id
-</filter>
-```
-
-And a message:
-
-```
-{
-  "hostname":"db001.internal.example.com",
-  "kubernetes":{
-    "pod_name":"mypod-8f6bb798b-xxddw",
-    "pod_id":"b1187408-729a-11ea-9a13-fa163e3bcef1"
-  }
-}
-```
-
-The output would be:
-
-```
-{
-  "kubernetes":{
-    "pod_name":"mypod-8f6bb798b-xxddw"
-  }
-}
-```
-
 With the `enable_ruby` option, an arbitrary Ruby expression can be used
 inside `${...}`. Note that the "avg" field is typed as string in this
 example. You may use `auto_typecast true` option to treat the field as a
@@ -289,6 +255,38 @@ A list of keys to delete.
 
 This parameter supports nested field via [record\_accessor syntax](/developer/api-plugin-helper-record_accessor.md/#syntax) since v1.1.0.
 
+Example:
+
+Given the filter:
+
+```
+<filter foo.bar>
+  @type record_transformer
+  remove_keys hostname,$.kubernetes.pod_id
+</filter>
+```
+
+And a message:
+
+```
+{
+  "hostname":"db001.internal.example.com",
+  "kubernetes":{
+    "pod_name":"mypod-8f6bb798b-xxddw",
+    "pod_id":"b1187408-729a-11ea-9a13-fa163e3bcef1"
+  }
+}
+```
+
+The output would be:
+
+```
+{
+  "kubernetes":{
+    "pod_name":"mypod-8f6bb798b-xxddw"
+  }
+}
+```
 
 ## Need more performance?
 
