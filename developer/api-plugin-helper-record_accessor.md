@@ -45,7 +45,7 @@ This is simple syntax. For example, `$.event.level` for
 
 -   bracket notation: `$[` started parameter. Chain fields by `[]`
 
-Useful for special characters, `.`, `` and etc:
+Useful for special characters, `.`, white space and etc:
 `$['dot.key'][0]['space key']` for `record["dot.key"][0]["space key"]`
 
 If you set non `$.` or `$[` started value, e.g. `key log`, it is same as
