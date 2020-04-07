@@ -404,6 +404,22 @@ With this configuration, 3 workers share 5140 port. No need additional
 port. Incoming data will be routed to 3 workers automatically.
 
 
+## FAQ
+
+### Our system sends RFC3164/RFC5424 message but parse failure happens
+
+First, check your message format follows RFC3164/RFC5424 or not.
+Some systems say RFC3164/RFC5424 but it sends non-RFC3164/RFC5424 message, e.g. invalid priority, different timestamp, lack/add fields.
+
+If only timestamp is different, configure `time_format` in `<parse>` may help.
+
+If other parts are different, syslog parser can't parse your message.
+To resolve the problem, there are several approaches:
+
+- Use regex parser or write your parser
+- Use in_udp/in_tcp with other parsers
+
+
 ## Learn More
 
 -   [Input Plugin Overview](/plugins/input/README.md)
