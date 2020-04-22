@@ -9,7 +9,7 @@ This is the exmple with out_forward.
 It udpates targets to send data by out_forward.
 
 ```
-<source>
+<match pattern>
   @type forward
 
   <service_discovery>

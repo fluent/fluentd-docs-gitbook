@@ -8,7 +8,7 @@ This is an exmple with out\_forward.
 It udpates targets to get SRV record from `_fluentd._tcp.exmaple.com`.
 
 ```
-<source>
+<match pattern>
   @type forward
 
   <service_discovery>
