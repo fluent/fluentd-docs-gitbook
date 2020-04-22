@@ -5,7 +5,7 @@ an alternative to Splunk, but with cheaper and more flexible [pricing](https://s
 In this article, we present an alternative to Splunk by combining Fluentd with
 the Sematext open Elasticsearch API.
 
-![](/images/kibana6-screenshot-visualize.png)
+![](/images/sematext-dashboard.png)
 
 
 [Elasticsearch](https://www.elastic.co/products/elasticsearch) is an
@@ -19,9 +19,6 @@ By combining Fluentd and Sematext's managed Elasticsearch + Kibana we get
 a scalable, flexible, easy to use log search engine with a great Native Web UI.
 You also get Kibana, if you want to use it. This provides a managed Splunk alternative,
 for a fraction of the cost.
-
-![](/images/fluentd-elasticsearch-kibana.png)
-
 
 In this guide, we will go over installation, setup, and basic use of
 this combined log search solution. This article was tested on Ubuntu
@@ -120,7 +117,7 @@ Dashboards or Kibana.
 First of all, open up the Seamtext UI and access your App. You'll se prebuilt
 dashboards with full-text search and alerts out-of-the-box.
 
-![](/images/kibana6-screenshot-topmenu.png)
+![](/images/sematext-configure-logs.png)
 
 
 Sematext will automatically figure out hosts, idents, pids, timestamps,
@@ -133,7 +130,7 @@ and alerts to fine-tune your own personal use-case.
 If you're used to Kibana, you can still use it as well.
 For the detail on how to use Kibana, please read [the official manual](https://www.elastic.co/guide/en/kibana/current/index.html).
 
-![](/images/kibana6-screenshot.png)
+![](/images/sematext-logs-overview.png)
 
 
 ### Debugging
