@@ -1,4 +1,4 @@
-# Send Server Logs to Sematext
+# Send Logs to Sematext
 
 [Sematext](https://sematext.com/) is a tool for managing logs, and considered
 an alternative to Splunk, but with cheaper and more flexible [pricing](https://sematext.com/pricing).
