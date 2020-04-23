@@ -16,12 +16,12 @@ alongside the dashboards in the Sematext UI.
 
 
 By combining Fluentd and Sematext's managed Elasticsearch + Kibana you get
-a scalable, flexible, easy to use log search engine with a great Native Web UI.
+a scalable, flexible, easy to use log management tool and search engine with an intuitive native web UI.
 You also get Kibana, if you want to use it. This provides a managed Splunk alternative,
 for a fraction of the cost.
 
-In this guide, we will go over installation, setup, and basic use of
-this combined log search solution. This article was tested on Ubuntu
+In this guide, we'll cover the installation, setup, and basic use of
+this log management solution. This article was tested on Ubuntu
 18.04. **If you're not familiar with Fluentd**, please
 learn more about Fluentd first.
 
@@ -52,7 +52,6 @@ Elasticsearch. Please edit `/etc/td-agent/td-agent.conf` as shown
 below:
 
 ```
-Switch to debug if you need to debug
 # Switch to debug if you need to debug
 <system>
   log_level debug
@@ -82,10 +81,6 @@ Switch to debug if you need to debug
   port 443
   scheme https
   index_name <LOGS_TOKEN>
-  reload_connections false
-  reconnect_on_error true
-  reload_on_failure true
-  default_elasticsearch_version 6
   <buffer>
     @type file
     path /tmp/fluent/es-buffer/es.all.*.buffer
@@ -103,18 +98,20 @@ Once everything has been set up and configured, start the `td-agent`.
 ```
 # init
 $ sudo /etc/init.d/td-agent start
+
 # or systemd
 $ sudo systemctl start td-agent.service
 ```
 
 ## Store and Search Logs
 
-Once Fluentd receives some logs from rsyslog and ships them
-to Sematext, you can view, search and visualize the log data using
-Dashboards or Kibana.
+Once Fluentd receives logs from rsyslog and ships them
+to Sematext, you can view, search and visualize the log
+data using prebuilt Dashboards, by creating custom Dashboards,
+or with Kibana.
 
 First of all, open up the Seamtext UI and access your App. You'll see prebuilt
-dashboards with full-text search and alerts out-of-the-box.
+dashboards with full-text search, filters, and alerts out-of-the-box.
 
 ![](/images/sematext-configure-logs.png)
 
@@ -125,12 +122,10 @@ and the origin of the logs. In this case the origin is Fluentd.
 After you start receiving logs, you can create custom charts, reports,
 and alerts to fine-tune your own personal use-case.
 
-
 If you're used to Kibana, you can still use it as well.
 For more details on how to use Kibana, please read [the official manual](https://www.elastic.co/guide/en/kibana/current/index.html).
 
 ![](/images/sematext-logs-overview.png)
-
 
 ### Debugging
 
@@ -140,7 +135,7 @@ To manually send logs to Elasticsearch, please use the `logger` command.
 $ logger -t test foobar
 ```
 
-When debugging your td-agent configuration, using
+When debugging your `td-agent` configuration, using
 [filter\_stdout](/plugins/filter/stdout.md) will be useful. All the logs including
 errors can be found at `/etc/td-agent/td-agent.log`.
 
