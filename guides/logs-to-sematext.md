@@ -15,7 +15,7 @@ in the cloud. You also have the option to use [Kibana](https://www.elastic.co/pr
 alongside the dashboards in the Sematext UI.
 
 
-By combining Fluentd and Sematext's managed Elasticsearch + Kibana we get
+By combining Fluentd and Sematext's managed Elasticsearch + Kibana you get
 a scalable, flexible, easy to use log search engine with a great Native Web UI.
 You also get Kibana, if you want to use it. This provides a managed Splunk alternative,
 for a fraction of the cost.
@@ -29,27 +29,26 @@ learn more about Fluentd first.
 
 ### Set Up Sematext
 
-You need to sign up and create an App. Read more in the docs [here](https://sematext.com/docs/).
+You need to [sign up](https://apps.sematext.com/ui/registration) and create an App. Read more in the docs [here](https://sematext.com/docs/).
 
 ### Set Up Fluentd (td-agent)
 
-In this guide We'll install td-agent, the stable release of Fluentd.
+In this guide you'll install td-agent, the stable release of Fluentd.
 Please refer to the guides below for detailed installation steps.
 
 -   [Debian Package](/install/install-by-deb.md)
 -   [RPM Package](/install/install-by-rpm.md)
 -   [Ruby gem](/install/install-by-gem.md)
 
-Next, we'll install the Elasticsearch plugin for Fluentd:
-fluent-plugin-elasticsearch. Then, install fluent-plugin-elasticsearch
-as follows.
+Next, install the Elasticsearch plugin for Fluentd:
+`fluent-plugin-elasticsearch`.
 
 ```
 $ sudo /usr/sbin/td-agent-gem install fluent-plugin-elasticsearch --no-document
 ```
 
-We'll configure td-agent (Fluentd) to interface properly with
-Elasticsearch. Please modify `/etc/td-agent/td-agent.conf` as shown
+Now you'll configure the `td-agent` (Fluentd) to interface properly with
+Elasticsearch. Please edit `/etc/td-agent/td-agent.conf` as shown
 below:
 
 ```
@@ -99,7 +98,7 @@ Switch to debug if you need to debug
 </match>
 ```
 
-Once everything has been set up and configured, we'll start td-agent.
+Once everything has been set up and configured, start the `td-agent`.
 
 ```
 # init
@@ -108,27 +107,27 @@ $ sudo /etc/init.d/td-agent start
 $ sudo systemctl start td-agent.service
 ```
 
-## Store and Search Event Logs
+## Store and Search Logs
 
 Once Fluentd receives some logs from rsyslog and ships them
 to Sematext, you can view, search and visualize the log data using
 Dashboards or Kibana.
 
-First of all, open up the Seamtext UI and access your App. You'll se prebuilt
+First of all, open up the Seamtext UI and access your App. You'll see prebuilt
 dashboards with full-text search and alerts out-of-the-box.
 
 ![](/images/sematext-configure-logs.png)
 
 
 Sematext will automatically figure out hosts, idents, pids, timestamps,
-and the origin of the logs. In this case the origing is Fluentd.
+and the origin of the logs. In this case the origin is Fluentd.
 
 After you start receiving logs, you can create custom charts, reports,
 and alerts to fine-tune your own personal use-case.
 
 
 If you're used to Kibana, you can still use it as well.
-For the detail on how to use Kibana, please read [the official manual](https://www.elastic.co/guide/en/kibana/current/index.html).
+For more details on how to use Kibana, please read [the official manual](https://www.elastic.co/guide/en/kibana/current/index.html).
 
 ![](/images/sematext-logs-overview.png)
 
@@ -172,15 +171,15 @@ gives you tooling you're used to, with the added benefit of not having to manage
 an Elasticsearch cluster.
 
 You'll get access to storing and searching logs from infrastructure,
-apps, and software. The example provided in this article had been
-tested for the current production env of Sematext
+apps, and software. The example provided in this article has been
+tested for the current production environments of Sematext.
 
 ## Learn More
 
 -   [Fluentd Architecture](https://www.fluentd.org/architecture)
 -   [Fluentd Get Started](/overview/quickstart.md)
 -   [Downloading Fluentd](http://www.fluentd.org/download)
-
+-   [Set up Fluentd with Sematext](https://apps.sematext.com/ui/howto/Logsene/fluentd?activeSection=fluentd)
 
 ------------------------------------------------------------------------
 
