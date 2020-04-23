@@ -22,16 +22,16 @@ for a fraction of the cost.
 
 In this guide, we will go over installation, setup, and basic use of
 this combined log search solution. This article was tested on Ubuntu
-18.04 and CentOS 7.4. **If you're not familiar with Fluentd**, please
+18.04. **If you're not familiar with Fluentd**, please
 learn more about Fluentd first.
 
 ## Prerequisites
 
-## Set Up Sematext
+### Set Up Sematext
 
 You need to sign up and create an App. Read more in the docs [here](https://sematext.com/docs/).
 
-## Set Up Fluentd (td-agent)
+### Set Up Fluentd (td-agent)
 
 In this guide We'll install td-agent, the stable release of Fluentd.
 Please refer to the guides below for detailed installation steps.
