@@ -124,6 +124,7 @@
   * [Send Apache Logs to Mongodb](/guides/apache-to-mongodb.md)
   * [Send Syslog Data to Graylog](/guides/graylog2.md)
   * [Send Syslog Data to InfluxDB](/guides/syslog-influxdb.md)
+  * [Send Syslog Data to Sematext](/guides/logs-to-sematext.md)
   * [Data Analytics with Treasure Data](/guides/http-to-td.md)
   * [Data Collection with Hadoop (HDFS)](/guides/http-to-hdfs.md)
   * [Simple Stream Processing with Fluentd](/guides/filter-modify-apache.md)
