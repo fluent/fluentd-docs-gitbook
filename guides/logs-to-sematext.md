@@ -21,7 +21,7 @@ You also get Kibana, if you want to use it. This provides a managed Splunk alter
 for a fraction of the cost.
 
 In this guide, we'll cover the installation, setup, and basic use of
-this log management solution. This article was tested on Ubuntu
+this log management solution. This setup was tested on Ubuntu
 18.04. **If you're not familiar with Fluentd**, please
 learn more about Fluentd first.
 
