@@ -107,8 +107,8 @@ There are several approaches to avoid this problem.
         encoding
     -   Use `record_modifier` filter to change the encoding. See
         [fluent-plugin-record-modifier README](https://github.com/repeatedly/fluent-plugin-record-modifier#char_encoding)
--   Use `yajl` instead of `json` when error happens inside
-    `JSON.parse/JSON.dump`
+-   Use `yajl`(`Yajl.load`/`Yajl.dump`) instead of `json` when error happens inside
+    `JSON.parse/JSON.dump/to_json`
 
 
 ### Fluentd warns "Oj is not installed, and failing back to Yajl for json parser"
