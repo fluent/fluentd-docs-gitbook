@@ -112,6 +112,14 @@ Enabling to get dump.
 
 Specify process name.
 
+### enable_msgpack_time_support
+
+| type   | default | version |
+|:-------|:--------|:--------|
+| bool   | false   | 1.9.0   |
+
+Allow `Time` object in buffer's MessagePack serde. This is useful when your log contains multiple time fields.
+
 
 ### file\_permission
 
