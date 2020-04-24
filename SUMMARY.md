@@ -118,6 +118,7 @@
   * [Docker Logging](/articles/docker-logging.md)
   * [Filter Modify Apache](/articles/filter-modify-apache.md)
   * [Forwarding Over Ssl](/articles/forwarding-over-ssl.md)
+  * [Alternative To Splunk By Fluentd + Sematext](/articles/logs-to-sematext.md)
   * [Free Alternative To Splunk By Fluentd](/articles/free-alternative-to-splunk-by-fluentd.md)
   * [Data Collection to Hadoop (HDFS)](/articles/http-to-hdfs.md)
   * [Data Analytics with Treasure Data](/articles/http-to-td.md)
