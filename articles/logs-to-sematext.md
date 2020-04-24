@@ -105,7 +105,7 @@ $ sudo systemctl start td-agent.service
 
 ## Set Up rsyslogd
 
-In the final step, configure forwarding the logs from your rsyslogd to Fluentd.
+Finally, configure forwarding logs from your rsyslogd to Fluentd.
 Please add the following line to your `/etc/rsyslog.conf`, and restart
 `rsyslog`. This will forward your local syslog to Fluentd, and Fluentd will
 forward the logs to Sematext.
