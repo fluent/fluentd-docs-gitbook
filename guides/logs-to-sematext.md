@@ -89,7 +89,7 @@ below:
     retry_limit 5
     retry_wait 60
   </buffer>
-  num_threads 1
+  flush_thread_count 1
 </match>
 ```
 
@@ -129,7 +129,7 @@ For more details on how to use Kibana, please read [the official manual](https:/
 
 ### Debugging
 
-To manually send logs to Elasticsearch, please use the `logger` command.
+To manually send logs to Sematext, please use the `logger` command.
 
 ```
 $ logger -t test foobar
