@@ -86,10 +86,10 @@ below:
     path /tmp/fluent/es-buffer/es.all.*.buffer
     chunk_limit_size 250k
     flush_interval 50s
+    flush_thread_count 1
     retry_limit 5
     retry_wait 60
   </buffer>
-  flush_thread_count 1
 </match>
 ```
 
