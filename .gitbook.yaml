@@ -130,6 +130,7 @@ redirects:
   v1.0/articles/apache-to-mongodb: guides/apache-to-mongodb.md
   v1.0/articles/filter-modify-apache: guides/filter-modify-apache.md
   v1.0/articles/free-alternative-to-splunk-by-fluentd: guides/free-alternative-to-splunk-by-fluentd.md
+  v1.0/articles/logs-to-sematext: guides/logs-to-sematext.md
   v1.0/articles/http-to-td: guides/http-to-td.md
   v1.0/articles/parse-syslog: guides/parse-syslog.md
   v1.0/articles/http-to-hdfs: guides/http-to-hdfs.md
