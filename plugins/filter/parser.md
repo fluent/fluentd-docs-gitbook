@@ -28,7 +28,7 @@ parser plugin, so you can re-use pre-defined format like `apache2`,
 With this example, if you receive following event:
 
     time:
-    injested time (depends on your input)
+    injected time (depends on your input)
     record:
     {"log":"192.168.0.1 - - [05/Feb/2018:12:00:00 +0900] \"GET / HTTP/1.1\" 200 777"}
 
