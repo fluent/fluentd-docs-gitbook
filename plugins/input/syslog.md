@@ -157,7 +157,7 @@ Messages are delimited by newline(`\n`)
 
 Message has message size prefix to delimite
 
-    44 <6>Sep 10 00:00:00 localhost logger: hello!
+    43 <6>Sep 10 00:00:00 localhost logger: hello!
 
 See also [rfc6587](https://tools.ietf.org/html/rfc6587#section-3.4).
 
