@@ -5,8 +5,8 @@ YAML and JSON are allowed as the file formats.
 
 ## Example Configuration
 
-This is the exmple with out_forward.
-It udpates targets to send data by out_forward.
+This is the example with out_forward.
+It updates targets to send data by out_forward.
 
 ```
 <match pattern>

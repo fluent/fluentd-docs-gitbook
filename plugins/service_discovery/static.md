@@ -4,7 +4,7 @@ The `static` service discovery plugin set the list of targets.
 
 ## Example Configuration
 
-This is the exmple with out_forward.
+This is the example with out_forward.
 It defines the list of targets. it is similer to the server directive in out_forward.
 
 ```
