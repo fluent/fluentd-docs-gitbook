@@ -14,8 +14,31 @@ See [Parse section configurations](/configuration/parse-section.md)
 |:-----|:--------|:---------------|:--------|
 | enum | oj      | oj, yajl, json | 0.14.0  |
 
-Set JSON parser.
+Set JSON parser. If you have a problem with configured parser,
+check other parser type.
 
+Here is simple comparison:
+
+- oj: Faster json parser
+- yajl: Mainly for streaming parsing
+- json: Standard bundled library.
+
+### time_type
+
+json parser changes the default value of `time_type` to `float`.
+If you want to parse string field, set `time_type` and `time_format` like below.
+
+```
+# conf
+@type json
+time_type string
+time_format %d/%b/%Y:%H:%M:%S %z
+
+# record example
+{"key":"value","time":"28/Feb/2013:12:00:00 +0900"}
+```
+
+See also [parse section article](/configuration/parse-section.md#time-parameters).
 
 ## Example
 
