@@ -23,7 +23,7 @@ Here is simple comparison:
 - yajl: Mainly for streaming parsing
 - json: Standard bundled library.
 
-### time_type
+### time\_type
 
 json parser changes the default value of `time_type` to `float`.
 If you want to parse string field, set `time_type` and `time_format` like below.
