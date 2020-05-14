@@ -176,7 +176,7 @@ fluent-plugin-elasticsearch
     country_code ${country.iso_code["host"]}
     country_name ${country.names.en["host"]}
   </record>
-</match>
+</filter>
 
 <match apache.access>
   @type           elasticsearch
