@@ -22,7 +22,7 @@ process is required.
   </parse>
   port 20001   # optional. 5170 by default
   bind 0.0.0.0 # optional. 0.0.0.0 by default
-  delimiter \n # optional. \n (newline) by default
+  delimiter "\n" # optional. "\n" (newline) by default
 </source>
 ```
 
