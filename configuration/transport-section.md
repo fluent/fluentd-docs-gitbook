@@ -1,6 +1,6 @@
 # Transport section configurations
 
-Fluentd's input, output, and filter plugins which use `server` plugin
+Fluentd's input, output, and filter plugins which use `server`/`http_server` plugin
 helper support the `<transport>` section to specify how to handle
 connection.
 
@@ -11,20 +11,54 @@ Transport section must be in `<match>`, `<source>`, and `<filter>`
 sections. It's specifying transport protocol, its version, and
 certificates.
 
+```
+# tcp
+<transport tcp>
+</transport>
+
+# udp
+<transport udp>
+</transport>
+
+# tls
+<transport tls>
+  cert_path /path/to/fluentd.crt
+  private_key_path /path/to/fluentd.key
+  private_key_passphrase YOUR_PASSPHRASE
+  # ... other parameters ...
+</transport>
+```
 
 ## Parameters
 
 -   `protocol` \[enum\]
     -   Default: :tcp
+    -   Specify like `<transport tls>`. Supported values are `tcp`, `udp` and `tls`
+
+### TLS setting
+
 -   `version` \[enum\]
     -   Default: `'TLSv1_2'`
+-   `min_version` \[enum\]
+    -   Default: nil
+    -   Specify the lower bound of the supported SSL/TLS protocol. Supported values are `TLS1_1`, `TLS1_2` and `TLS1_3`
+-   `max_version` \[enum\]
+    -   Default: nil
+    -   Specify the upper bound of the supported SSL/TLS protocol. Supported values are `TLS1_1`, `TLS1_2` and `TLS1_3`
 -   `ciphers` \[string\]
     -   Default: `"ALL:!aNULL:!eNULL:!SSLv2"`
     -   OpenSSL 1.0.0 or higher default.
 -   `insecure` \[bool\]
     -   Default: false (use secure connection when use tls)
 
+If you want to accept multiple TLS protocols, use `min_version`/`max_version` instead of `version`.
+To support old style, fluentd accepts `TLS1_1` and `TLSv1_1` value.
+
+NOTE: `TLS1_3` is available when your system supports TLS 1.3.
+
 ### Signed public CA parameters
+
+For `<transport tls>`:
 
 -   `ca_path`: \[string\]
     -   Default: nil
@@ -50,6 +84,8 @@ certificates.
 
 ### Generated and signed by private CA parameters
 
+For `<transport tls>`:
+
 -   `ca_cert_path`: \[string\]
     -   Default: nil
     -   Specify private CA contained path
@@ -62,6 +98,8 @@ certificates.
 
 
 ### Generated and signed by private CA certs or self-signed parameters
+
+For `<transport tls>`:
 
 -   `generate_private_key_length`: \[integer\]
     -   Default: 2048
@@ -79,9 +117,11 @@ certificates.
 
 ## Cert digest algorithm parameter
 
+For `<transport tls>`:
+
 -   `generate_cert_digest`: \[enum\]
     -   Default: :sha256
-
+    -   Supported values are `sha1`, `sha256`, `sha384` and `sha512`
 
 ------------------------------------------------------------------------
 
