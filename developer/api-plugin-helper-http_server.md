@@ -1,7 +1,9 @@
 # Http Server Plugin Helper API
 
-`http_server` helper creates http server.
-This helper was introduced since v1.6.0.
+`http_server` helper creates http server. This helper was introduced since v1.6.0.
+
+`http_server` helper supports [async-http](https://github.com/socketry/async-http) based server to improve the performance.
+If you install `async-http` gem, `http_server` helper uses it instead of standard [webrick](https://github.com/ruby/webrick) server.
 
 Here is the code example with `http_server` helper:
 
