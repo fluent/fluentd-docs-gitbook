@@ -185,10 +185,14 @@ supported parameters
 
 Without `<transport tls>`, in\_http uses HTTP.
 
+### `<parse>` directive
+
+Use parser plugin to parse incoming data. See also [Handle other formats using parser plugins](#handle-other-formats-using-parser-plugins) section.
+
 
 ### format (deprecated)
 
-Deprecated parameter. Use the `<parse>` directive [as explained below](#handle-various-formats-using-parser-plugins) instead.
+Deprecated parameter. Use `<parse>` directive instead.
 
 
 ## Tips & Tricks
@@ -227,7 +231,7 @@ $ curl -X POST -d "$msgpack" -H 'Content-Type: application/msgpack' \
 
 ### Handle other formats using parser plugins
 
-You can handle various input formats by using the `<parser>` directive.
+You can handle various input formats by using the `<parse>` directive.
 For example, add the following settings to the configuration file:
 
 ```
@@ -251,9 +255,9 @@ $ curl -X POST -d '123456:awesome' http://localhost:9880/app.log
 Many other formats (e.g. csv/syslog/nginx) are also supported as well.
 You can find the full list of supported formats in ["Parser Plugin Overview"](/plugins/parser/README.md).
 
-Note that parser plugins do not support [the batch mode](#handle-large-data-with-batch-mode). So if you want to use bulk
+Note: Some parser plugins do not support [the batch mode](#handle-large-data-with-batch-mode). So if you want to use bulk
 insertion for handling a large data set, please consider to keep using
-the default JSON (or MessagePack) format.
+the default JSON (or MessagePack) format or write batch mode supported parser(return array object).
 
 
 ## Enhance Performance
@@ -266,7 +270,7 @@ a JSON/MessagePack array.
 
 ```
 # Send multiple events as a JSON array
-$ curl -X POST -d "json=[{"foo":"bar"},{"abc":"def"},{"xyz":"123"}]" \
+$ curl -X POST -d 'json=[{"foo":"bar"},{"abc":"def"},{"xyz":"123"}]' \
   http://localhost:9880/app.log
 ```
 
