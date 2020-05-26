@@ -219,7 +219,7 @@ $ ruby -e 'p Encoding.name_list.sort'
 
 The number of reading lines at each IO.
 
-If you see "chunk bytes limit exceeds for an emitted event stream" log
+If you see `chunk bytes limit exceeds for an emitted event stream` or similar log
 with `in_tail`, set smaller value.
 
 
