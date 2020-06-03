@@ -176,7 +176,7 @@ an error to forward output. This action fits for streaming manner.
 -   block
 
 This mode stops input plugin thread until buffer full is resolved. This
-action is good for batch-like use-case.
+action is good for batch-like use-case. This is mainly for `in_tail` plugin. Other input plugins, e.g. socket based plugin, don't assume this action.
 
 We don't recommend to use `block` action to avoid
 `BufferOverflowError`. Please consider improving destination setting
