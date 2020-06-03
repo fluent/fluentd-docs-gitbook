@@ -63,6 +63,14 @@ Here is a simple example to read Nginx access logs using `in_tail` and
 If you are familiar with grok patterns, grok-parser plugin is useful.
 Use `> 1.0.0` versions for fluentd v0.14/v1.0.
 
+-   [multi-format-parser](https://github.com/repeatedly/fluent-plugin-multi-format-parser)
+
+If you need to parse multiple formats in one data stream, `multi-format-parser` is useful.
+
+-   [protobuf](https://github.com/fluent-plugins-nursery/fluent-plugin-parser-protobuf)
+
+For protocol buffers.
+
 
 ## List of Core Input Plugins with Parser support
 
