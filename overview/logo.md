@@ -39,7 +39,7 @@ Feel free to use these logos on your slides, blog posts, etc.!
 ## Links
 
 -   [Fluentd.ai](/images/logo/Fluentd.ai)
--   [Full list of files](https://github.com/fluent/fluentd-docs-gitbook/tree/1.0/images/public/logo)
+-   [Full list of files](https://github.com/fluent/fluentd-docs-gitbook/tree/1.0/images/logo)
 
 
 ------------------------------------------------------------------------
