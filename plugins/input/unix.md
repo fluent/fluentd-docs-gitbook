@@ -44,6 +44,14 @@ Fluentd will use the environment variable `FLUENT_SOCKET` if defined.
 
 The backlog of Unix Domain Socket.
 
+### tag
+
+| type   | default | version |
+|:-------|:--------|:--------|
+| string | nil     | 1.11.0  |
+
+`in_unix` uses incoming event's tag by default. If set `tag` parameter, use its value instead.
+
 ------------------------------------------------------------------------
 
 If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open).
