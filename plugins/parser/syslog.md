@@ -59,13 +59,15 @@ via syslog don't have `<9>` like priority prefix.
 
 | type | default | available values | version |
 |:-----|:--------|:-----------------|:--------|
-| enum | regexp  | regexp/string    | 1.7.1   |
+| enum | regexp  | regexp/string    | 1.7.1(for rfc3164)/1.11.0(for rfc5424) |
 
-Specify internal parser type for `rfc3164` format. Supported values are `regexp` and `string`. Both parsers generate same record for standard format.
+Specify internal parser type for `rfc3164`/`rfc5424` format. Supported values are `regexp` and `string`.
+Both parsers generate same record for standard format.
 
 If `regexp` doesn't fit your logs, consider `string` type instead.
 
-We recommend to use `string` parser because it is 2x faster than `regexp`. The default is `regexp` for existing users, but fluentd v2 will change the default to `string` parser.
+We recommend to use `string` parser because it is 2x faster than `regexp`. The default is `regexp` for existing users.
+Fluentd v2 will change the default to `string` parser.
 
 
 ### support\_colonless\_ident
