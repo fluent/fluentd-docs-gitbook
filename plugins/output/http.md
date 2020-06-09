@@ -86,11 +86,21 @@ The proxy for HTTP request
 
 Content-Type for HTTP request. `out_http` automatically set `Content-Type` for built-in formatters when this parameter is not specified. Here is a table:
 
-* `json`: `application/x-ndjson`
+* `json(json_array: false)`: `application/x-ndjson`
+* `json(json_array: true)`: `application/json`
 * `csv`: `text/csv`
 * `tsv`, `ltsv`: `text/tab-separated-values`
 * `msgpack`: `application/x-msgpack`
 * `out_file`, `single_value`, `stdout`, `hash`: `text/plain`
+
+### json_array
+
+| type   | default | version |
+|:-------|:--------|:--------|
+| bool   | false   | 1.10.4  |
+
+Using array format of JSON. This parameter is used and valid only for json format.
+When `json_array` as true, Content-Type should be `application/json` and be able to use JSON data for the HTTP request body.
 
 ### &lt;format&gt; directive
 
@@ -281,6 +291,79 @@ log line3\n
 log line4\n
 ...
 ```
+
+## Troubleshooting
+
+### 400 Bad request between out\_http and in\_http
+
+When getting the following error:
+
+```
+#0 got unrecoverable error in primary and no secondary error_class=Fluent::UnrecoverableError error="400 Bad Request 400 Bad Request\n'json' or 'msgpack' parameter is required\n"
+#0 bad chunk is moved to /tmp/fluent/backup/worker0/object_3ff8a73edae8/5a71a08ca19b1b343c8dce1b74c9a963.log
+```
+
+Users should be specify `json` format with `json_array` as true for out\_http configuration:
+
+```
+<match **>
+  @type http
+  endpoint http://some.your.http.endpoint:9811/your-awesome-path
+  <format>
+    @type json
+  </format>
+  json_array true
+  <buffer>
+    flush_interval 2s
+  </buffer>
+</match>
+```
+
+And receiver in\_http configuration should be:
+
+```
+<source>
+  @type http
+  port 9811
+  bind 0.0.0.0
+  <parse>
+    @type json
+  </parse>
+</source>
+```
+
+Or specify msgpack format:
+
+```
+<match **>
+  @type http
+  endpoint http://some.your.http.endpoint:9882/your-awesome-path
+  <format>
+    @type msgpack
+  </format>
+  <buffer>
+    flush_interval 2s
+  </buffer>
+</match>
+```
+
+And receiver in\_http configuration should be:
+
+```
+<source>
+  @type http
+  port 9882
+  bind 0.0.0.0
+  <parse>
+    @type msgpack
+  </parse>
+  <format>
+    @type json
+  </format>
+</source>
+```
+
+But, we recommend to use in/out [`forward`](forward.md) plugin to communicate with two Fluentds due to at-most-once and at-least-once semantics for rigidty.
 
 ------------------------------------------------------------------------
 
