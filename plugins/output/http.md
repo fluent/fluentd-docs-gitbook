@@ -86,11 +86,21 @@ The proxy for HTTP request
 
 Content-Type for HTTP request. `out_http` automatically set `Content-Type` for built-in formatters when this parameter is not specified. Here is a table:
 
-* `json`: `application/x-ndjson`
+* `json(json_array: false)`: `application/x-ndjson`
+* `json(json_array: true)`: `application/json`
 * `csv`: `text/csv`
 * `tsv`, `ltsv`: `text/tab-separated-values`
 * `msgpack`: `application/x-msgpack`
 * `out_file`, `single_value`, `stdout`, `hash`: `text/plain`
+
+### json_array
+
+| type   | default | version |
+|:-------|:--------|:--------|
+| bool   | false   | 1.10.4  |
+
+Using array format of JSON. This parameter is used and valid only for json format.
+When `json_array` as true, Content-Type should be `application/json` and be able to use JSON data for the HTTP request body.
 
 ### &lt;format&gt; directive
 
