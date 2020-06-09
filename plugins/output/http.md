@@ -363,7 +363,7 @@ And receiver in\_http configuration should be:
 </source>
 ```
 
-But, we recomment to use in/out [`forward`](forward.md) plugin to communicate with two Fluentds due to at-most-once and at-least-once semantics for rigidty.
+But, we recommend to use in/out [`forward`](forward.md) plugin to communicate with two Fluentds due to at-most-once and at-least-once semantics for rigidty.
 
 ------------------------------------------------------------------------
 
