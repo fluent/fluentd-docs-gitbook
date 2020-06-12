@@ -35,7 +35,7 @@ $ echo '123456:awesome' | netcat 0.0.0.0 5170
 Parsed result like below:
 
 ```
-{"field1":"123456","field2":"awesome}
+{"field1":"123456","field2":"awesome"}
 ```
 
 Please see the [Config File](/configuration/config-file.md) article for the basic
