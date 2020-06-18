@@ -35,7 +35,7 @@ $ echo '123456:awesome' | netcat 0.0.0.0 5170
 Parsed result like below:
 
 ```
-{"field1":"123456","field2":"awesome}
+{"field1":"123456","field2":"awesome"}
 ```
 
 Please see the [Config File](/configuration/config-file.md) article for the basic
@@ -158,6 +158,36 @@ This section is for using TLS transport.
 ```
 
 Without `<transport tls>`, in\_tcp uses raw TCP.
+
+### &lt;security&gt; section
+
+| required | multi | version |
+|:---------|:------|:--------|
+| false    | false |  1.7.2  |
+
+Add `<security>/<client>` section to allow access by Host/IP/Network
+
+#### `<client>` section
+
+##### host
+
+| type   | default | version |
+|:-------|:--------|:--------|
+| string | nil     | 1.7.2   |
+
+The IP address or host name of the client.
+
+This is exclusive with `network`.
+
+##### network
+
+| type   | default | version |
+|:-------|:--------|:--------|
+| string | nil     | 1.7.2   |
+
+Network address specification.
+
+This is exclusive with `host`.
 
 ### &lt;parse&gt; section
 
