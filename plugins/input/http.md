@@ -34,12 +34,17 @@ $ curl -X POST -d 'json={"foo":"bar"}' http://localhost:9880/app.log
 ```
 
 By default, timestamps are assigned to each record on arrival. You can
-override the timestamp using the `time` parameter.
+override the timestamp using the `time` parameter, either as a query
+parameter or in the payload.  It is an offset in seconds since Jan 1, 1970
+UTC.
 
 ```
 # Overwrite the timestamp to 2018-02-16 04:40:37.3137116
 $ curl -X POST -d 'json={"foo":"bar"}' \
   http://localhost:9880/test.tag?time=1518756037.3137116
+# Same using time in the JSON payload
+$ curl -X POST -d 'json={"foo":"bar", "time":1518756037.3137116}' \
+  http://localhost:9880/test.tag
 ```
 
 Here is another example in JavaScript.
@@ -47,12 +52,16 @@ Here is another example in JavaScript.
 ```
 // Post a record using XMLHttpRequest
 var form = new FormData();
-form.set('json', JSON.stringify({"foo": "bar"}));
+form.set('json', JSON.stringify({"foo": "bar", "time": Date.now() * 0.001}));
 
 var req = new XMLHttpRequest();
 req.open('POST', 'http://localhost:9880/debug.log');
 req.send(form);
 ```
+
+Note that you should be careful to avoid accidentally providing a `time` value that
+is not in the expected format, or you may get records with incorrect timestamps
+associated, or internal errors on submission.
 
 For more advanced usage, please read [the "Tips & Tricks"
 section](#tips-&-tricks).
