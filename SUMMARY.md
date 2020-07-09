@@ -6,7 +6,7 @@
   * [Support](/overview/support.md)
   * [FAQ](/overview/faq.md)
   * [Logo](/overview/logo.md)
-  * [td-agent v2 vs v3](/overview/td-agent-v2-vs-v3.md)
+  * [td-agent v2 vs v3 vs v4](/overview/td-agent-v2-vs-v3-vs-v4.md)
 * [Installation]()
   * [Before Installation](/install/before-install.md)
   * [Install by RPM Package (Redhat Linux)](/install/install-by-rpm.md)

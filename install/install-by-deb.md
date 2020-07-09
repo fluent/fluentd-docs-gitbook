@@ -16,8 +16,8 @@ providing **the stable distribution of Fluentd**, called `td-agent`. The
 differences between Fluentd and td-agent can be found
 [here](https://www.fluentd.org/faqs).
 
-This installation guide is for td-agent v3, the new stable version.
-td-agent v3 uses fluentd v1.0 in the core. See [this page](/overview/td-agent-v2-vs-v3.md) for the comparison between v2 and v3.
+This installation guide is for td-agent v3/td-agent v4.
+td-agent v3/v4 uses fluentd v1 in the core. See [this page](/overview/td-agent-v2-vs-v3-vs-v4.md) for the comparison and supported OS.
 
 
 ## Step 0: Before Installation
@@ -28,60 +28,73 @@ your OS properly. This will prevent many unnecessary problems.
 
 ## Step 1: Install from Apt Repository
 
-For Ubuntu, we currently support "Ubuntu 18.04 LTS / Bionic 64bit",
-"Ubuntu 16.04 LTS / Xenial 64bit", "Ubuntu 14.04 LTS / Trusty 64bit".
-For Debian, we currently provide "Debian 10 Buster 64bit", "Debian 9 Stretch 64bit",
-"Debian 8 Jessie 64bit".
+It's HIGHLY recommended that you set up **ntpd** on the node to prevent
+invalid timestamps in your logs. Please check the [Preinstallation Guide](/install/before-install.md).
 
 Note: If td-agent doesn't support your OS, consider [gem installation](/install/install-by-gem.md) instead.
 
 Note: treasure data doesn't verify debian packages. If you have a problem with debian packages,
-send a patch to [omnibus-td-agent repository](https://github.com/treasure-data/omnibus-td-agent).
+send a patch to [omnibus-td-agent repository](https://github.com/treasure-data/omnibus-td-agent) or [td-agent-builder repository](https://github.com/fluent-plugins-nursery/td-agent-builder).
 
 A shell script is provided to automate the installation process for each
 version. The shell script registers a new apt repository at
 `/etc/apt/sources.list.d/treasure-data.list` and installs the `td-agent`
 deb package.
 
+For Ubuntu Focal,
+
+```
+# td-agent 4
+curl -L https://toolbelt.treasuredata.com/sh/install-ubuntu-focal-td-agent4.sh | sh
+```
+
 For Ubuntu Bionic,
 
 ```
+# td-agent 4
+curl -L https://toolbelt.treasuredata.com/sh/install-ubuntu-bionic-td-agent4.sh | sh
+# td-agent 3
 curl -L https://toolbelt.treasuredata.com/sh/install-ubuntu-bionic-td-agent3.sh | sh
 ```
 
 For Ubuntu Xenial,
 
 ```
+# td-agent 4
+curl -L https://toolbelt.treasuredata.com/sh/install-ubuntu-xenial-td-agent4.sh | sh
+# td-agent 3
 curl -L https://toolbelt.treasuredata.com/sh/install-ubuntu-xenial-td-agent3.sh | sh
 ```
 
 For Ubuntu Trusty,
 
 ```
+# td-agent 3
 curl -L https://toolbelt.treasuredata.com/sh/install-ubuntu-trusty-td-agent3.sh | sh
 ```
 
 For Debian Buster,
 
 ```
+# td-agent 4
+curl -L https://toolbelt.treasuredata.com/sh/install-debian-buster-td-agent4.sh | sh
+# td-agent 3
 curl -L https://toolbelt.treasuredata.com/sh/install-debian-buster-td-agent3.sh | sh
 ```
 
 For Debian Stretch,
 
 ```
+# td-agent 3
 curl -L https://toolbelt.treasuredata.com/sh/install-debian-stretch-td-agent3.sh | sh
 ```
 
 For Debian Jessie,
 
 ```
+# td-agent 3
 curl -L https://toolbelt.treasuredata.com/sh/install-debian-jessie-td-agent3.sh | sh
 ```
-
-It's HIGHLY recommended that you set up **ntpd** on the node to prevent
-invalid timestamps in your logs. Please check the [Preinstallation Guide](/install/before-install.md).
-
 
 ## Step 2: Launch Daemon
 
@@ -111,8 +124,11 @@ Dec 07 15:12:27 ubuntu systemd[1]: Started td-agent: Fluentd based data collecto
 If you want to customize systemd behaviour, put your `td-agent.service`
 into `/etc/systemd/system`
 
+NOTE: In td-agent 4, path is different. `/opt/td-agent/bin` instead of `/opt/td-agent/embedded/bin`
 
 ### init.d
+
+This is for non systemd based system.
 
 The `/etc/init.d/td-agent` script is provided to start, stop, or restart
 the agent.
