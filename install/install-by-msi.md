@@ -18,15 +18,19 @@ differences between Fluentd and td-agent can be found
 For Windows, we're using the OS native .msi Installer to distribute
 td-agent.
 
+* [Td Agent 4 (fluentd 1.11.x)](#td-agent-4)
+* [Td Agent 3 (fluentd 1.10.x)](#td-agent-3)
 
-## Step 1: Install td-agent
+## Td Agent 4
+
+### Step 1: Install td-agent
 
 Please download the `.msi` file from here, and install the software.
 
--   [Download](https://td-agent-package-browser.herokuapp.com/3/windows)
+-   [Download](https://td-agent-package-browser.herokuapp.com/4/windows)
 
 
-## Step 2: Run td-agent from Command Prompt
+### Step 2: Run td-agent from Command Prompt
 
 First, please prepare your config file located at
 `C:/opt/td-agent/etc/td-agent/td-agent.conf`. The config below is the
@@ -67,21 +71,13 @@ It's working properly if td-agent process outputs the message
 [![](/images/td-agent-windows-prompt.png)](/images/td-agent-windows-prompt.png)
 
 
-## Step 3: Register td-agent to Windows service
+### Step 3: Run td-agent as Windows service
 
-Next, let's register td-agent to Windows service to permanently run as a
-server process. Please execute `Td-agent Command Prompt` again but with
-administrative privilege, and type the two commands below.
+Since version 4.0.0, Td-agent is registered as Windows service
+permanently by msi installer.
+You can start Td-agent service by manually.
 
-```
-> fluentd --reg-winsvc i
-> fluentd --reg-winsvc-fluentdopt '-c C:/opt/td-agent/etc/td-agent/td-agent.conf -o C:/opt/td-agent/td-agent.log'
-```
-
-
-## Step 4: Run td-agent as Windows service
-
-### Using GUI
+#### Using GUI
 
 Please guide yourself to
 `Control Panel -> System and Security -> Administrative Tools -> Services`,
@@ -90,7 +86,7 @@ and you'll see `Fluentd Windows Service` is listed.
 Please double click `Fluentd Window Service`, and click `Start` button.
 Then the process will be executed as Windows Service.
 
-### Using net.exe
+#### Using net.exe
 
 ```
 > net start fluentdwinsvc
@@ -98,7 +94,7 @@ The Fluentd Windows Service service is starting..
 The Fluentd Windows Service service was started successfully.
 ```
 
-### Using Powershell Cmdlet
+#### Using Powershell Cmdlet
 
 ```
 PS> Start-Service fluentdwinsvc
@@ -111,7 +107,7 @@ The log file will be located at `C:/opt/td-agent/td-agent.log` as we
 specified in Step 3.
 
 
-## Step 5: Install Plugins
+### Step 4: Install Plugins
 
 Open `Td-agent Command Prompt` and use `fluent-gem` command.
 
@@ -119,6 +115,104 @@ Open `Td-agent Command Prompt` and use `fluent-gem` command.
 > fluent-gem install fluent-plugin-xyz --version=1.2.3
 ```
 
+## Td Agent 3
+
+
+### Step 1: Install td-agent
+
+Please download the `.msi` file from here, and install the software.
+
+-   [Download](https://td-agent-package-browser.herokuapp.com/3/windows)
+
+
+### Step 2: Run td-agent from Command Prompt
+
+First, please prepare your config file located at
+`C:/opt/td-agent/etc/td-agent/td-agent.conf`. The config below is the
+simplest example to output any incoming records to td-agent's log file.
+
+```
+<source>
+  @type forward
+</source>
+<match test.**>
+  @type stdout
+</match>
+```
+
+After you've installed .msi package, you'll see the program called
+`Td-agent Command Prompt` installed. Please double click this icon in
+the Windows menu (below is how it looks like on Windows Server 2012).
+
+![](/images/msi-td-agent-command-prompt.png)
+
+In the prompt, please execute the command below to launch td-agent
+process.
+
+```
+> fluentd -c etc\td-agent\td-agent.conf
+```
+
+Then, please launch another `Td-agent Command Prompt` and type the
+command below. This will send a record to td-agent process.
+
+```
+> echo {"message":"hello"} | fluent-cat test.event
+```
+
+It's working properly if td-agent process outputs the message
+`test.event: {"k", "v"}`.
+
+[![](/images/td-agent-windows-prompt.png)](/images/td-agent-windows-prompt.png)
+
+### Step 3: Register td-agent to Windows service
+
+Next, let's register td-agent to Windows service to permanently run as a
+server process. Please execute `Td-agent Command Prompt` again but with
+administrative privilege, and type the two commands below.
+
+```                                                                                                                                                > fluentd --reg-winsvc i
+> fluentd --reg-winsvc-fluentdopt '-c C:/opt/td-agent/etc/td-agent/td-agent.conf -o C:/opt/td-agent/td-agent.log'
+```
+
+### Step 4: Run td-agent as Windows service
+
+#### Using GUI
+
+Please guide yourself to
+`Control Panel -> System and Security -> Administrative Tools -> Services`,
+and you'll see `Fluentd Windows Service` is listed.
+
+Please double click `Fluentd Window Service`, and click `Start` button.
+Then the process will be executed as Windows Service.
+
+#### Using net.exe
+
+```
+> net start fluentdwinsvc
+The Fluentd Windows Service service is starting..
+The Fluentd Windows Service service was started successfully.
+```
+
+#### Using Powershell Cmdlet
+
+```
+PS> Start-Service fluentdwinsvc
+```
+
+Note that using `fluentdwinsvc` is needed to start Fluentd service in commandline.
+Because `fluentdwinsvc` is service name and it should be passed in `net.exe` or `Start-Service` Cmdlet.
+
+The log file will be located at `C:/opt/td-agent/td-agent.log` as we
+specified in Step 3.
+
+### Step 4: Install Plugins
+
+Open `Td-agent Command Prompt` and use `fluent-gem` command.
+
+```
+> fluent-gem install fluent-plugin-xyz --version=1.2.3
+```
 
 ## Next Steps
 
