@@ -1,11 +1,14 @@
 # Transport Section Configurations
 
-Some Fluentd input, output, and filter plugins, that use `server`/`http_server` plugin helper, also support the `<transport>` section to specify how to handle the connections.
+Some Fluentd input, output, and filter plugins, that use `server`/`http_server`
+plugin helper, also support the `<transport>` section to specify how to handle
+the connections.
 
 
 ## Transport Section Overview
 
-The **`transport`** section must be under `<match>`, `<source>`, and `<filter>` sections. It specifies the transport protocol, version, and certificates.
+The **`transport`** section must be under `<match>`, `<source>`, and `<filter>`
+sections. It specifies the transport protocol, version, and certificates.
 
 ```
 # tcp
@@ -46,7 +49,9 @@ The **`transport`** section must be under `<match>`, `<source>`, and `<filter>` 
 -   `insecure` \[bool\]
     -   Default: `false` (uses secure connection with `tls`)
 
-If you want to accept multiple TLS protocols, use `min_version`/`max_version` instead of `version`. To support old style, fluentd accepts `TLS1_1` and `TLSv1_1` values.
+If you want to accept multiple TLS protocols, use `min_version`/`max_version`
+instead of `version`. To support old style, fluentd accepts `TLS1_1` and
+`TLSv1_1` values.
 
 NOTE: `TLS1_3` is available when your system supports TLS 1.3.
 
@@ -69,10 +74,13 @@ For `<transport tls>`:
     -   Specifies the public CA private key passphrase
 -   `client_cert_auth`: \[bool\]
     -   Default: `false`
-    -   If `true`, Fluentd will check all the incoming HTTPS requests for a client certificate signed by the trusted CA. The requests that don't supply a valid client certificate will fail.
+    -   If `true`, Fluentd will check all the incoming HTTPS requests for a
+        client certificate signed by the trusted CA. The requests that don't
+        supply a valid client certificate will fail.
 -   `cert_verifier`: \[string\]
     -   Default: `nil`
-    -   Specifies the code path for cert verification. See also [server article](/developer/api-plugin-helper-server.md#cert_verifier-example).
+    -   Specifies the code path for cert verification. See also [server
+        article](/developer/api-plugin-helper-server.md#cert_verifier-example).
 
 
 ### Generated and Signed by Private CA Parameters
@@ -118,4 +126,8 @@ For `<transport tls>`:
 
 ------------------------------------------------------------------------
 
-If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open). [Fluentd](http://www.fluentd.org/) is an open-source project under [Cloud Native Computing Foundation (CNCF)](https://cncf.io/). All components are available under the Apache 2 License.
+If this article is incorrect or outdated, or omits critical information, please
+[let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open).
+[Fluentd](http://www.fluentd.org/) is an open-source project under [Cloud Native
+Computing Foundation (CNCF)](https://cncf.io/). All components are available
+under the Apache 2 License.

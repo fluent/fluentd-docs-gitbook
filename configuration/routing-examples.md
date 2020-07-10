@@ -91,7 +91,8 @@ Label reduces complex `tag` handling by separating data pipelines.
 
 ## Reroute Event by Tag
 
-Use [fluent-plugin-route](https://github.com/tagomoris/fluent-plugin-route) plugin. This plugin rewrites `tag` and re-emit events to other match or Label.
+Use [fluent-plugin-route](https://github.com/tagomoris/fluent-plugin-route)
+plugin. This plugin rewrites `tag` and re-emit events to other match or Label.
 
 ```
 <match worker.**>
@@ -123,7 +124,8 @@ Use [fluent-plugin-route](https://github.com/tagomoris/fluent-plugin-route) plug
 
 ## Re-route Event by Record Content
 
-Use [fluent-plugin-rewrite-tag-filter](https://github.com/fluent/fluent-plugin-rewrite-tag-filter).
+Use
+[fluent-plugin-rewrite-tag-filter](https://github.com/fluent/fluent-plugin-rewrite-tag-filter).
 
 ```
 <source>
@@ -159,7 +161,8 @@ See also: [out\_rewrite\_tag\_filter](/plugins/output/rewrite_tag_filter.md)
 
 ## Re-route Event to Other Label
 
-Use [out\_relabel](/plugins/output/relabel.md) plugin. This plugin simply emits events to Label without rewriting the `tag`.
+Use [out\_relabel](/plugins/output/relabel.md) plugin. This plugin simply emits
+events to Label without rewriting the `tag`.
 
 ```
 <source>
@@ -193,4 +196,8 @@ Use [out\_relabel](/plugins/output/relabel.md) plugin. This plugin simply emits 
 
 ------------------------------------------------------------------------
 
-If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open). [Fluentd](http://www.fluentd.org/) is an open-source project under [Cloud Native Computing Foundation (CNCF)](https://cncf.io/). All components are available under the Apache 2 License.
+If this article is incorrect or outdated, or omits critical information, please
+[let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open).
+[Fluentd](http://www.fluentd.org/) is an open-source project under [Cloud Native
+Computing Foundation (CNCF)](https://cncf.io/). All components are available
+under the Apache 2 License.
