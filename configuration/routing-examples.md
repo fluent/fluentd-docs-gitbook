@@ -1,196 +1,191 @@
 # Routing Examples
 
-This article shows typical routing examples.
+This article shows configuration samples for typical routing scenarios.
 
 
-## Simple Input -\> Filter -\> Output
+## Simple: `Input -> Filter -> Output`
 
 ```
 <source>
-  @type forward
+  @type         forward
 </source>
 
 <filter app.**>
-  @type record_transformer
+  @type         record_transformer
   <record>
-    hostname "#{Socket.gethostname}"
+    hostname    "#{Socket.gethostname}"
   </record>
 </filter>
 
 <match app.**>
-  @type file
+  @type         file
   # ...
 </match>
 ```
 
 
-### Two input cases
+## Two Inputs: `forward` and `tail`
 
 ```
 <source>
-  @type forward
+  @type         forward
 </source>
 
 <source>
-  @type tail
-  tag system.logs
+  @type         tail
+  tag           system.logs
   # ...
 </source>
 
 <filter app.**>
-  @type record_transformer
+  @type         record_transformer
   <record>
-    hostname "#{Socket.gethostname}"
+    hostname    "#{Socket.gethostname}"
   </record>
 </filter>
 
 <match {app.**,system.logs}>
-  @type file
+  @type         file
   # ...
 </match>
 ```
 
-If you want to separate data pipeline for each sources, use Label.
+If you want to separate the data pipelines for each source, use Label.
 
 
-## Input -\> Filter -\> Output with Label
+## With Label: `Input -> Filter -> Output`
 
-Label reduces complex tag handling by separating data pipeline.
+Label reduces complex `tag` handling by separating data pipelines.
 
 ```
 <source>
-  @type forward
+  @type         forward
 </source>
 
 <source>
-  @type dstat
-  @label @METRICS # dstat events are routed to <label @METRICS>
+  @type         dstat
+  @label        @METRICS # dstat events are routed to <label @METRICS>
   # ...
 </source>
 
 <filter app.**>
-  @type record_transformer
+  @type         record_transformer
   <record>
     # ...
   </record>
 </filter>
 
 <match app.**>
-  @type file
+  @type         file
   # ...
 </match>
 
 <label @METRICS>
   <match **>
-    @type elasticsearch
+    @type       elasticsearch
     # ...
   </match>
 </label>
 ```
 
 
-## Re-route event by tag
+## Reroute Event by Tag
 
-Use
-[fluent-plugin-route](https://github.com/tagomoris/fluent-plugin-route)
-plugin. `route` plugin rewrites tag and re-emit events to other match or
-Label.
+Use [fluent-plugin-route](https://github.com/tagomoris/fluent-plugin-route) plugin. This plugin rewrites `tag` and re-emit events to other match or Label.
 
 ```
 <match worker.**>
-  @type route
-  remove_tag_prefix worker
-  add_tag_prefix metrics.event
+  @type               route
+  remove_tag_prefix   worker
+  add_tag_prefix      metrics.event
 
   <route **>
     copy # For fall-through. Without copy, routing is stopped here. 
   </route>
   <route **>
     copy
-    @label @BACKUP
+    @label      @BACKUP
   </route>
 </match>
 
 <match metrics.event.**>
-  @type stdout
+  @type         stdout
 </match>
 
 <label @BACKUP>
   <match metrics.event.**>
-    @type file
-    path /var/log/fluent/backup
+    @type       file
+    path        /var/log/fluent/backup
   </match>
 </label>
 ```
 
 
-## Re-route event by record content
+## Re-route Event by Record Content
 
-Use
-[fluent-plugin-rewrite-tag-filter](https://github.com/fluent/fluent-plugin-rewrite-tag-filter).
+Use [fluent-plugin-rewrite-tag-filter](https://github.com/fluent/fluent-plugin-rewrite-tag-filter).
 
 ```
 <source>
-  @type forward
+  @type         forward
 </source>
 
 # event example: app.logs {"message":"[info]: ..."}
 <match app.**>
-  @type rewrite_tag_filter
+  @type         rewrite_tag_filter
   <rule>
     key message
-    pattern ^\[(\w+)\]
-    tag $1.${tag}
+    pattern     ^\[(\w+)\]
+    tag         $1.${tag}
   </rule>
-  # you can put more <rule>
+  # more rules
 </match>
 
 # send mail when receives alert level logs
 <match alert.app.**>
-  @type mail
+  @type         mail
   # ...
 </match>
 
-# other logs are stored into file
+# other logs are stored into a file
 <match *.app.**>
-  @type file
+  @type         file
   # ...
 </match>
 ```
 
-See also [out\_rewrite\_tag\_filter](/plugins/output/rewrite_tag_filter.md) article.
+See also: [out\_rewrite\_tag\_filter](/plugins/output/rewrite_tag_filter.md)
 
 
-## Re-route event to other Label
+## Re-route Event to Other Label
 
-Use [out\_relabel](/plugins/output/relabel.md) plugin. `relabel` plugin simply emits
-events to Label. No tag rewrite.
+Use [out\_relabel](/plugins/output/relabel.md) plugin. This plugin simply emits events to Label without rewriting the `tag`.
 
 ```
 <source>
-  @type forward
+  @type         forward
 </source>
 
 <match app.**>
-  @type copy
+  @type         copy
   <store>
-    @type forward
+    @type       forward
     # ...
   </store>
   <store>
-    @type relabel
-    @label @NOTIFICATION
+    @type       relabel
+    @label      @NOTIFICATION
   </store>
 </match>
 
 <label @NOTIFICATION>
   <filter app.**>
-    @type grep
-    regexp1 message ERROR
+    @type       grep
+    regexp1     message ERROR
   </filter>
 
   <match app.**>
-    @type mail
+    @type       mail
   </match>
 </label>
 ```
@@ -198,5 +193,4 @@ events to Label. No tag rewrite.
 
 ------------------------------------------------------------------------
 
-If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open).
-[Fluentd](http://www.fluentd.org/) is a open source project under [Cloud Native Computing Foundation (CNCF)](https://cncf.io/). All components are available under the Apache 2 License.
+If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open). [Fluentd](http://www.fluentd.org/) is an open-source project under [Cloud Native Computing Foundation (CNCF)](https://cncf.io/). All components are available under the Apache 2 License.
