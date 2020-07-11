@@ -1,9 +1,9 @@
 # Centralize Logs from Java Applications
 
-The '[fluent-logger-java](http://github.com/fluent/fluent-logger-java)'
+The [`fluent-logger-java`](http://github.com/fluent/fluent-logger-java)
 library is used to post records from Java applications to Fluentd.
 
-This article explains how to use the fluent-logger-java library.
+This article explains how to use it.
 
 
 ## Prerequisites
@@ -15,7 +15,7 @@ This article explains how to use the fluent-logger-java library.
 
 ## Installing Fluentd
 
-Please refer to the following documents to install fluentd.
+Please refer to the following documents to install fluentd:
 
 -   [Install Fluentd with rpm Package](/install/install-by-rpm.md)
 -   [Install Fluentd with deb Package](/install/install-by-deb.md)
@@ -25,33 +25,35 @@ Please refer to the following documents to install fluentd.
 
 ## Modifying the Config File
 
-Next, please configure Fluentd to use the [forward Input plugin](/plugins/input/forward.md) as its data source.
+Configure Fluentd to use the [`forward`](/plugins/input/forward.md) input plugin
+as its data source:
 
 ```
 <source>
-  @type forward
-  port 24224
+  @type           forward
+  port            24224
 </source>
 <match fluentd.test.**>
-  @type stdout
+  @type           stdout
 </match>
 ```
 
-Please restart your agent once these lines are in place.
+Restart agent after configuring.
 
 ```
 # for rpm/deb only
 $ sudo /etc/init.d/td-agent restart
+
 # or systemd
 $ sudo systemctl restart td-agent.service
 ```
 
 
-## Using fluent-logger-java
+## Using `fluent-logger-java`
 
-First, please add the following lines to pom.xml. The logger's revision
+Add the following dependency configuration to `pom.xml`. The logger's revision
 information can be found in
-[CHANGES.txt](https://github.com/fluent/fluent-logger-java/blob/master/CHANGES.txt).
+[CHANGES.txt](https://github.com/fluent/fluent-logger-java/blob/master/CHANGES.txt):
 
 ```
 <dependencies>
@@ -65,9 +67,7 @@ information can be found in
 </dependencies>
 ```
 
-Next, please insert the following lines into your application. Further
-information regarding the API can be found
-[here](https://github.com/fluent/fluent-logger-java).
+Here's a sample Java test application:
 
 ```
 import java.util.HashMap;
@@ -88,14 +88,18 @@ public class Main {
 }
 ```
 
-Executing the script will send the logs to Fluentd.
+More information on the Java API can be found 
+[here](https://github.com/fluent/fluent-logger-java).
+
+Executing the above program will send the logs to Fluentd:
 
 ```
 $ java -jar test.jar
 ```
 
-The logs should be output to `/var/log/td-agent/td-agent.log` or stdout
-of the Fluentd process via the [stdout Output plugin](/plugins/output/stdout.md).
+The logs should be output to `/var/log/td-agent/td-agent.log` or the standard
+output of the Fluentd process via [`stdout`](/plugins/output/stdout.md) output
+plugin.
 
 
 ## Production Deployments
@@ -103,8 +107,8 @@ of the Fluentd process via the [stdout Output plugin](/plugins/output/stdout.md)
 
 ### Output Plugins
 
-Various [output plugins](/plugins/output/README.md) are available for
-writing records to other destinations:
+Various [output plugins](/plugins/output/README.md) are available for writing
+records to other destinations:
 
 -   Examples
     -   [Store Apache Logs into Amazon S3](/guides/apache-to-s3.md)
@@ -120,9 +124,9 @@ writing records to other destinations:
 
 ### High-Availability Configurations of Fluentd
 
-For high-traffic websites (more than 5 application nodes), we recommend
-using a high availability configuration of td-agent. This will improve
-data transfer reliability and query performance.
+For high-traffic websites (more than 5 application nodes), we recommend using
+high-availability configuration for `td-agent`. This will improve the
+reliability of data transfer and query performance.
 
 -   [High-Availability Configurations of Fluentd](/deployment/high-availability.md)
 
@@ -130,12 +134,15 @@ data transfer reliability and query performance.
 ### Monitoring
 
 Monitoring Fluentd itself is also important. The article below describes
-general monitoring methods for td-agent.
+general monitoring methods for `td-agent`:
 
 -   [Monitoring Fluentd](/deployment/monitoring.md)
 
 
 ------------------------------------------------------------------------
 
-If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open).
-[Fluentd](http://www.fluentd.org/) is a open source project under [Cloud Native Computing Foundation (CNCF)](https://cncf.io/). All components are available under the Apache 2 License.
+If this article is incorrect or outdated, or omits critical information, please
+[let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open).
+[Fluentd](http://www.fluentd.org/) is an open-source project under [Cloud Native
+Computing Foundation (CNCF)](https://cncf.io/). All components are available
+under the Apache 2 License.

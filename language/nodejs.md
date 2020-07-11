@@ -1,9 +1,9 @@
 # Centralize Logs from Node.js Applications
 
-The '[fluent-logger-node](https://github.com/fluent/fluent-logger-node)'
+The [`fluent-logger-node`](https://github.com/fluent/fluent-logger-node)
 library is used to post records from Node.js applications to Fluentd.
 
-This article explains how to use the fluent-logger-node library.
+This article explains how to use it.
 
 
 ## Prerequisites
@@ -15,7 +15,7 @@ This article explains how to use the fluent-logger-node library.
 
 ## Installing Fluentd
 
-Please refer to the following documents to install fluentd.
+Please refer to the following documents to install fluentd:
 
 -   [Install Fluentd with rpm Package](/install/install-by-rpm.md)
 -   [Install Fluentd with deb Package](/install/install-by-deb.md)
@@ -25,43 +25,44 @@ Please refer to the following documents to install fluentd.
 
 ## Modifying the Config File
 
-Next, please configure Fluentd to use the [forward Input plugin](/plugins/input/forward.md) as its data source.
+Configure Fluentd to use the [`forward`](/plugins/input/forward.md) input plugin
+as its data source:
 
 ```
 <source>
-  @type forward
-  port 24224
+  @type           forward
+  port            24224
 </source>
 <match fluentd.test.**>
-  @type stdout
+  @type           stdout
 </match>
 ```
 
-Please restart your agent once these lines are in place.
+Restart agent after configuring.
 
 ```
-# for systemd
-$ sudo systemctl restart td-agent.service
-# for init.d
+# for rpm/deb only
 $ sudo /etc/init.d/td-agent restart
+
+# or systemd
+$ sudo systemctl restart td-agent.service
 ```
 
 
-## Using fluent-logger-node
+## Using `fluent-logger-node`
 
 
 ### Obtaining the Most Recent Version
 
-The most recent version of fluent-logger-node can be found
+The most recent version of `fluent-logger-node` can be found
 [here](https://www.npmjs.com/package/fluent-logger).
 
 
 ### A Sample Application
 
-A sample [Express](http://expressjs.com/) app using fluent-logger-node
-is shown below.
+Here is a sample [Express](http://expressjs.com/) app using `fluent-logger-node`:
 
-#### package.json
+#### `package.json`
 
 ```
 {
@@ -74,15 +75,16 @@ is shown below.
 }
 ```
 
-Now use *npm* to install your dependencies locally:
+Use `npm` to install dependencies locally:
 
 ```
 $ npm install
 ```
 
-#### index.js
 
-This is the simplest web app.
+#### `index.js`
+
+This is a simple web app:
 
 ```
 const express = require('express');
@@ -107,15 +109,16 @@ app.listen(port, function() {
 });
 ```
 
-Run the app and go to `http://localhost:3000/` in your browser. This
-will send the logs to Fluentd.
+Run the app and go to `http://localhost:3000/` in your browser to send
+the logs to Fluentd:
 
 ```
 $ node index.js
 ```
 
-The logs should be output to `/var/log/td-agent/td-agent.log` or stdout
-of the Fluentd process via the [stdout Output plugin](/plugins/output/stdout.md).
+The logs should be output to `/var/log/td-agent/td-agent.log` or the standard
+output of the Fluentd process via [`stdout`](/plugins/output/stdout.md) output
+plugin.
 
 
 ## Production Deployments
@@ -140,9 +143,9 @@ writing records to other destinations:
 
 ### High-Availability Configurations of Fluentd
 
-For high-traffic websites (more than 5 application nodes), we recommend
-using a high availability configuration of td-agent. This will improve
-data transfer reliability and query performance.
+For high-traffic websites (more than 5 application nodes), we recommend using
+high-availability configuration for `td-agent`. This will improve the
+reliability of data transfer and query performance.
 
 -   [High-Availability Configurations of Fluentd](/deployment/high-availability.md)
 
@@ -150,12 +153,15 @@ data transfer reliability and query performance.
 ### Monitoring
 
 Monitoring Fluentd itself is also important. The article below describes
-general monitoring methods for td-agent.
+general monitoring methods for `td-agent`.
 
 -   [Monitoring Fluentd](/deployment/monitoring.md)
 
 
 ------------------------------------------------------------------------
 
-If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open).
-[Fluentd](http://www.fluentd.org/) is a open source project under [Cloud Native Computing Foundation (CNCF)](https://cncf.io/). All components are available under the Apache 2 License.
+If this article is incorrect or outdated, or omits critical information, please
+[let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open).
+[Fluentd](http://www.fluentd.org/) is an open-source project under [Cloud Native
+Computing Foundation (CNCF)](https://cncf.io/). All components are available
+under the Apache 2 License.
