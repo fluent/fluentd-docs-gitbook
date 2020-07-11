@@ -1,77 +1,77 @@
-# Installing Fluentd Using rpm Package
+# Installing Fluentd Using `rpm` Package
 
-This article explains how to install the
-[td-agent](https://docs.treasuredata.com/articles/td-agent) rpm package,
-the stable Fluentd distribution package maintained by [Treasure Data, Inc](http://www.treasuredata.com/).
+This article explains how to install the `td-agent` rpm package, the stable
+Fluentd distribution package maintained by [Treasure Data,
+Inc](http://www.treasuredata.com/).
 
 
-## What is td-agent?
+## What is `td-agent`?
 
-Fluentd is written in Ruby for flexibility, with performance sensitive
-parts written in C. However, some users may have difficulty installing
-and operating a Ruby daemon.
+Fluentd is written in Ruby for flexibility, with performance-sensitive parts in
+C. However, some users may have difficulty installing and operating a Ruby
+daemon.
 
-That's why [Treasure Data, Inc](http://www.treasuredata.com/) is
-providing **the stable distribution of Fluentd**, called `td-agent`. The
-differences between Fluentd and td-agent can be found
-[here](https://www.fluentd.org/faqs).
+That is why [Treasure Data, Inc](http://www.treasuredata.com/) provides **the
+stable distribution of Fluentd**, called `td-agent`. The differences between
+Fluentd and `td-agent` can be found [here](https://www.fluentd.org/faqs).
 
-This installation guide is for td-agent v3, the new stable version.
-td-agent v3 uses fluentd v1.0 in the core. See [this page](/overview/td-agent-v2-vs-v3.md) for the comparison between v2 and v3.
+This installation guide is for `td-agent` v3, the new stable version. The
+`td-agent` v3 uses fluentd v1.0 in the core. See [this
+page](/overview/td-agent-v2-vs-v3.md) for the comparison between v2 and v3.
 
 
 ## Step 0: Before Installation
 
-Please follow the [Preinstallation Guide](/install/before-install.md) to configure
-your OS properly. This will prevent many unnecessary problems.
+Please follow the [Pre-installation Guide](/install/before-install.md) to
+configure your OS properly.
 
 
-## Step 1: Install from rpm Repository
+## Step 1: Install from `rpm` Repository
 
-It's HIGHLY recommended that you set up **ntpd** on the node to prevent
-invalid timestamps in your logs. Please check the [Preinstallation Guide](/install/before-install.md).
+It is highly recommended to set up `ntpd` on the node to prevent invalid
+timestamps in the logs. See [Pre-installation Guide](/install/before-install.md).
 
-Note: If td-agent doesn't support your OS, consider [gem installation](/install/install-by-gem.md) instead.
+NOTE: If your OS is not supported, consider [gem
+installation](/install/install-by-gem.md) instead.
 
-### Redhat / CentOS
+### Red Hat / CentOS
 
-CentOS and RHEL 6, 7 64bit are currently supported.
+Support: CentOS, RHEL 6, 7 64bit
 
-Executing
-[install-redhat-td-agent3.sh](https://toolbelt.treasuredata.com/sh/install-redhat-td-agent3.sh)
-will automatically install td-agent on your machine. This shell script
-registers a new rpm repository at `/etc/yum.repos.d/td.repo` and
-installs the `td-agent` rpm package.
+Download and execute [`install-redhat-td-agent3.sh`](https://toolbelt.treasuredata.com/sh/install-redhat-td-agent3.sh) script with `curl`:
 
 ```
 $ curl -L https://toolbelt.treasuredata.com/sh/install-redhat-td-agent3.sh | sh
 ```
 
-We use \$releasever for repository path in the script and \$releasever
-should be only major version like \"7\". If your environment uses other
-format like \"7.2\", change it to only major version or setup TD
-repository manually.
+Executing this script will automatically install `td-agent` on your machine.
+This shell script registers a new `rpm` repository at `/etc/yum.repos.d/td.repo`
+and installs `td-agent`.
+
+We use `$releasever` for repository path in the script and `$releasever` should
+be the major version only like `"7"`. If your environment uses some other format
+like `"7.2"`, change it to the major version only or set up TD repository
+manually.
 
 
 ### Amazon Linux
 
-For Amazon Linux 2.
+For Amazon Linux 2:
 
 ```
-# Amazon Linux 2
 $ curl -L https://toolbelt.treasuredata.com/sh/install-amazon2-td-agent3.sh | sh
 ```
 
 
 ## Step 2: Launch Daemon
 
-td-agent provides 2 scripts:
+`td-agent` provides two (2) scripts:
 
 
-### systemd
+### `systemd`
 
-The `/usr/lib/systemd/system/td-agent` script is provided to start,
-stop, or restart the agent.
+Use `/usr/lib/systemd/system/td-agent` script to `start`, `stop`, or `restart`
+the agent:
 
 ```
 $ sudo systemctl start td-agent.service
@@ -90,14 +90,13 @@ Dec 07 15:12:27 ubuntu systemd[1]: Starting td-agent: Fluentd based data collect
 Dec 07 15:12:27 ubuntu systemd[1]: Started td-agent: Fluentd based data collector for Treasure Data.
 ```
 
-If you want to customize systemd behaviour, put your `td-agent.service`
-into `/etc/systemd/system`
+To customize `systemd` behavior, put your `td-agent.service` in
+`/etc/systemd/system`.
 
 
-### init.d
+### `init.d`
 
-The `/etc/init.d/td-agent` script is provided to start, stop, or restart
-the agent.
+Use `/etc/init.d/td-agent` script to `start`, `stop`, or `restart` the agent:
 
 ```
 $ sudo /etc/init.d/td-agent start
@@ -115,26 +114,32 @@ $ sudo /etc/init.d/td-agent restart
 $ sudo /etc/init.d/td-agent status
 ```
 
-Please make sure **your configuration file** is located at
-`/etc/td-agent/td-agent.conf`.
+Please make sure your configuration file path is:
+
+```
+/etc/td-agent/td-agent.conf
+```
 
 
 ## Step 3: Post Sample Logs via HTTP
 
-By default, `/etc/td-agent/td-agent.conf` is configured to take logs
-from HTTP and route them to stdout (`/var/log/td-agent/td-agent.log`).
-You can post sample log records using the curl command.
+The default configuration (`/etc/td-agent/td-agent.conf`) is to receive logs at
+an HTTP endpoint and route them to `stdout`. For `td-agent` logs, see
+`/var/log/td-agent/td-agent.log`.
+
+You can post sample log records with `curl` command:
 
 ```
 $ curl -X POST -d 'json={"json":"message"}' http://localhost:8888/debug.test
+$ tail -n 1 /var/log/td-agent/td-agent.log
+2018-01-01 17:51:47 -0700 debug.test: {"json":"message"}
 ```
 
 
 ## Next Steps
 
-You're now ready to collect your real logs using Fluentd. Please see the
-following tutorials to learn how to collect your data from various data
-sources.
+You are now ready to collect real logs with Fluentd. Refer to the following
+tutorials on how to collect data from various sources:
 
 -   Basic Configuration
     -   [Config File](/configuration/config-file.md)
@@ -146,7 +151,7 @@ sources.
     -   [Store Apache Log into MongoDB](/guides/apache-to-mongodb.md)
     -   [Data Collection into HDFS](/guides/http-to-hdfs.md)
 
-Please refer to the resources below for further steps.
+For further steps, follow these:
 
 -   [ChangeLog of td-agent](http://docs.treasuredata.com/articles/td-agent-changelog)
 -   [Chef Cookbook](https://github.com/treasure-data/chef-td-agent/)
@@ -154,5 +159,8 @@ Please refer to the resources below for further steps.
 
 ------------------------------------------------------------------------
 
-If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open).
-[Fluentd](http://www.fluentd.org/) is a open source project under [Cloud Native Computing Foundation (CNCF)](https://cncf.io/). All components are available under the Apache 2 License.
+If this article is incorrect or outdated, or omits critical information, please
+[let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open).
+[Fluentd](http://www.fluentd.org/) is an open-source project under [Cloud Native
+Computing Foundation (CNCF)](https://cncf.io/). All components are available
+under the Apache 2 License.
