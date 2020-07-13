@@ -11,7 +11,7 @@ It is enabled for the plugins that support parser plugin features.
 
 ```
 <source>
-  @type           tail
+  @type tail
   # ...
   <parse>
     # ...
@@ -28,7 +28,7 @@ plugins](/plugins/parser/README.md).
 
 ```
 <parse>
-  @type           apache2
+  @type apache2
 </parse>
 ```
 
@@ -46,7 +46,7 @@ The `@type` parameter specifies the type of the parser plugin.
 
 ```
 <parse>
-  @type           regexp
+  @type regexp
   # ...
 </parse>
 ```

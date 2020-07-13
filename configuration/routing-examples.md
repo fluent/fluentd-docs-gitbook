@@ -7,18 +7,18 @@ This article shows configuration samples for typical routing scenarios.
 
 ```
 <source>
-  @type         forward
+  @type forward
 </source>
 
 <filter app.**>
-  @type         record_transformer
+  @type record_transformer
   <record>
-    hostname    "#{Socket.gethostname}"
+    hostname "#{Socket.gethostname}"
   </record>
 </filter>
 
 <match app.**>
-  @type         file
+  @type file
   # ...
 </match>
 ```
@@ -28,24 +28,24 @@ This article shows configuration samples for typical routing scenarios.
 
 ```
 <source>
-  @type         forward
+  @type forward
 </source>
 
 <source>
-  @type         tail
-  tag           system.logs
+  @type tail
+  tag system.logs
   # ...
 </source>
 
 <filter app.**>
-  @type         record_transformer
+  @type record_transformer
   <record>
-    hostname    "#{Socket.gethostname}"
+    hostname "#{Socket.gethostname}"
   </record>
 </filter>
 
 <match {app.**,system.logs}>
-  @type         file
+  @type file
   # ...
 </match>
 ```
@@ -59,30 +59,30 @@ Label reduces complex `tag` handling by separating data pipelines.
 
 ```
 <source>
-  @type         forward
+  @type forward
 </source>
 
 <source>
-  @type         dstat
-  @label        @METRICS # dstat events are routed to <label @METRICS>
+  @type dstat
+  @label @METRICS # dstat events are routed to <label @METRICS>
   # ...
 </source>
 
 <filter app.**>
-  @type         record_transformer
+  @type record_transformer
   <record>
     # ...
   </record>
 </filter>
 
 <match app.**>
-  @type         file
+  @type file
   # ...
 </match>
 
 <label @METRICS>
   <match **>
-    @type       elasticsearch
+    @type elasticsearch
     # ...
   </match>
 </label>
@@ -96,27 +96,27 @@ plugin. This plugin rewrites `tag` and re-emit events to other match or Label.
 
 ```
 <match worker.**>
-  @type               route
-  remove_tag_prefix   worker
-  add_tag_prefix      metrics.event
+  @type route
+  remove_tag_prefix worker
+  add_tag_prefix metrics.event
 
   <route **>
     copy # For fall-through. Without copy, routing is stopped here. 
   </route>
   <route **>
     copy
-    @label      @BACKUP
+    @label @BACKUP
   </route>
 </match>
 
 <match metrics.event.**>
-  @type         stdout
+  @type stdout
 </match>
 
 <label @BACKUP>
   <match metrics.event.**>
-    @type       file
-    path        /var/log/fluent/backup
+    @type file
+    path /var/log/fluent/backup
   </match>
 </label>
 ```
@@ -129,29 +129,29 @@ Use
 
 ```
 <source>
-  @type         forward
+  @type forward
 </source>
 
 # event example: app.logs {"message":"[info]: ..."}
 <match app.**>
-  @type         rewrite_tag_filter
+  @type rewrite_tag_filter
   <rule>
     key message
-    pattern     ^\[(\w+)\]
-    tag         $1.${tag}
+    pattern ^\[(\w+)\]
+    tag $1.${tag}
   </rule>
   # more rules
 </match>
 
 # send mail when receives alert level logs
 <match alert.app.**>
-  @type         mail
+  @type mail
   # ...
 </match>
 
 # other logs are stored into a file
 <match *.app.**>
-  @type         file
+  @type file
   # ...
 </match>
 ```
@@ -166,29 +166,29 @@ events to Label without rewriting the `tag`.
 
 ```
 <source>
-  @type         forward
+  @type forward
 </source>
 
 <match app.**>
-  @type         copy
+  @type copy
   <store>
-    @type       forward
+    @type forward
     # ...
   </store>
   <store>
-    @type       relabel
-    @label      @NOTIFICATION
+    @type relabel
+    @label @NOTIFICATION
   </store>
 </match>
 
 <label @NOTIFICATION>
   <filter app.**>
-    @type       grep
-    regexp1     message ERROR
+    @type grep
+    regexp1 message ERROR
   </filter>
 
   <match app.**>
-    @type       mail
+    @type mail
   </match>
 </label>
 ```

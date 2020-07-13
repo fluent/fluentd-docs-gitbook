@@ -21,8 +21,8 @@ sections. It specifies the transport protocol, version, and certificates.
 
 # tls
 <transport tls>
-  cert_path         /path/to/fluentd.crt
-  private_key_path  /path/to/fluentd.key
+  cert_path /path/to/fluentd.crt
+  private_key_path /path/to/fluentd.key
   private_key_passphrase YOUR_PASSPHRASE
   # ...
 </transport>

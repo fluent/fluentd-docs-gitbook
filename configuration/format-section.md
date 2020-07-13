@@ -10,7 +10,7 @@ The **format** section can be under `<match>` or `<filter>` section.
 
 ```
 <match tag.*>
-  @type           file
+  @type file
   # ...
   <format>
     # ...
@@ -27,7 +27,7 @@ plugins](/plugins/formatter/README.md).
 
 ```
 <format>
-  @type           json
+  @type json
 </format>
 ```
 
@@ -55,7 +55,7 @@ The `@type` parameter specifies the type of the formatter plugin.
 
 ```
 <format>
-  @type           csv
+  @type csv
   # ...
 </format>
 ```

@@ -13,11 +13,11 @@ The `@type` parameter specifies the type of the plugin.
 
 ```
 <source>
-  @type           my_plugin_type
+  @type my_plugin_type
 </source>
 
 <filter>
-  @type           my_filter
+  @type my_filter
 </filter>
 ```
 
@@ -29,9 +29,9 @@ paths for buffer, storage, logging and for other purposes.
 
 ```
 <match>
-  @type           file
-  @id             service_www_accesslog
-  path            /path/to/my/access.log
+  @type file
+  @id service_www_accesslog
+  path /path/to/my/access.log
   # ...
 </match>
 ```
@@ -51,12 +51,12 @@ parameter overrides the logging level only for the specified plugin instance.
 
 ```
 <system>
-  log_level       info
+  log_level info
 </system>
 
 <source>
   # ...
-  @log_level      debug  # shows debug log only for this plugin
+  @log_level debug # shows debug log only for this plugin
 </source>
 ```
 
@@ -78,28 +78,28 @@ set of the `<filter>` and `<match>` subsections under `<label>`.
 
 ```
 <source>
-  @type           ...
-  @label          @access_logs
+  @type ...
+  @label @access_logs
   # ...
 </source>
 
 <source>
-  @type           ...
-  @label          @system_metrics
+  @type ...
+  @label @system_metrics
   # ...
 </source>
 
 <label @access_log>
   <match **>
-    @type         file
-    path          ...
+    @type file
+    path ...
   </match>
 </label>
 
 <label @system_metrics>
   <match **>
-    @type         file
-    path          ...
+    @type file
+    path ...
   </match>
 </label>
 ```

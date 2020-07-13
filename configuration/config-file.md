@@ -91,14 +91,14 @@ configurations as required.
 # Receive events from 24224/tcp
 # This is used by log forwarding and the fluent-cat command
 <source>
-  @type         forward
-  port          24224
+  @type forward
+  port 24224
 </source>
 
 # http://<ip>:9880/myapp.access?json={"event":"data"}
 <source>
-  @type         http
-  port          9880
+  @type http
+  port 9880
 </source>
 ```
 
@@ -147,14 +147,14 @@ and `forward`. Let's add those to our configuration file.
 # Receive events from 24224/tcp
 # This is used by log forwarding and the fluent-cat command
 <source>
-  @type         forward
-  port          24224
+  @type forward
+  port 24224
 </source>
 
 # http://<ip>:9880/myapp.access?json={"event":"data"}
 <source>
-  @type         http
-  port          9880
+  @type http
+  port 9880
 </source>
 
 # Match events tagged with "myapp.access" and
@@ -162,8 +162,8 @@ and `forward`. Let's add those to our configuration file.
 # Of course, you can control how you partition your data
 # with the time_slice_format option.
 <match myapp.access>
-  @type       file
-  path        /var/log/fluent/access
+  @type file
+  path /var/log/fluent/access
 </match>
 ```
 
@@ -193,20 +193,20 @@ Let's add standard `record_transformer` filter to `match` example.
 ```
 # http://this.host:9880/myapp.access?json={"event":"data"}
 <source>
-  @type         http
-  port          9880
+  @type http
+  port 9880
 </source>
 
 <filter myapp.access>
-  @type         record_transformer
+  @type record_transformer
   <record>
-    host_param  "#{Socket.gethostname}"
+    host_param "#{Socket.gethostname}"
   </record>
 </filter>
 
 <match myapp.access>
-  @type         file
-  path          /var/log/fluent/access
+  @type file
+  path /var/log/fluent/access
 </match>
 ```
 
@@ -238,7 +238,7 @@ Example:
 ```
 <system>
   # equal to -qq option
-  log_level     error
+  log_level error
   # equal to --without-source option
   without_source
   # ...
@@ -256,7 +256,7 @@ changed.
 
 ```
 <system>
-  process_name  fluentd1
+  process_name fluentd1
 </system>
 ```
 
@@ -282,32 +282,32 @@ Here is a configuration example:
 
 ```
 <source>
-  @type         forward
+  @type forward
 </source>
 
 <source>
-  @type         tail
-  @label        @SYSTEM
+  @type tail
+  @label @SYSTEM
 </source>
 
 <filter access.**>
-  @type         record_transformer
+  @type record_transformer
   <record>
     # ...
   </record>
 </filter>
 <match **>
-  @type         elasticsearch
+  @type elasticsearch
   # ...
 </match>
 
 <label @SYSTEM>
   <filter var.log.middleware.**>
-    @type       grep
+    @type grep
     # ...
   </filter>
   <match **>
-    @type       s3
+    @type s3
     # ...
   </match>
 </label>
@@ -382,22 +382,22 @@ parameters:
 ```
 # config file
 <match pattern>
-  @type         forward
+  @type forward
   # ...
   <buffer>
-    @type       file
-    path        /path/to/buffer/forward
-    @include    /path/to/out_buf_params.conf
+    @type file
+    path /path/to/buffer/forward
+    @include /path/to/out_buf_params.conf
   </buffer>
 </match>
 
 <match pattern>
-  @type         elasticsearch
+  @type elasticsearch
   # ...
   <buffer>
-    @type       file
-    path        /path/to/buffer/es
-    @include    /path/to/out_buf_params.conf
+    @type file
+    path /path/to/buffer/es
+    @include /path/to/out_buf_params.conf
   </buffer>
 </match>
 
@@ -455,12 +455,12 @@ So, if you have the following configuration:
 ```
 # ** matches all tags. Bad :(
 <match **>
-  @type         blackhole_plugin
+  @type blackhole_plugin
 </match>
 
 <match myapp.access>
-  @type         file
-  path          /var/log/fluent/access
+  @type file
+  path /var/log/fluent/access
 </match>
 ```
 
@@ -469,13 +469,13 @@ after tight match patterns.
 
 ```
 <match myapp.access>
-  @type         file
-  path          /var/log/fluent/access
+  @type file
+  path /var/log/fluent/access
 </match>
 
 # Capture all unmatched tags. Good :)
 <match **>
-  @type         blackhole_plugin
+  @type blackhole_plugin
 </match>
 ```
 
@@ -492,13 +492,13 @@ above.
 # If you do, Fluentd will just emit events without applying the filter.
 
 <filter myapp.access>
-  @type         record_transformer
+  @type record_transformer
   ...
 </filter>
 
 <match myapp.access>
-  @type         file
-  path          /var/log/fluent/access
+  @type file
+  path /var/log/fluent/access
 </match>
 ```
 
@@ -510,7 +510,7 @@ match patterns. Here is an example:
 
 ```
 <match "app.#{ENV['FLUENTD_TAG']}">
-  @type         stdout
+  @type stdout
 </match>
 ```    
 
@@ -621,8 +621,8 @@ Example # 1: mail plugin
 
 ```
 <match **>
-  @type         mail
-  subject       "[CRITICAL] foo's alert system"
+  @type mail
+  subject "[CRITICAL] foo's alert system"
 </match>
 ```
 
@@ -630,9 +630,9 @@ Example # 2: map plugin
 
 ```
 <match tag>
-  @type         map
-  map           '[["code." + tag, time, { "code" => record["code"].to_i}], ["time." + tag, time, { "time" => record["time"].to_i}]]'
-  multi         true
+  @type map
+  map '[["code." + tag, time, { "code" => record["code"].to_i}], ["time." + tag, time, { "time" => record["time"].to_i}]]'
+  multi true
 </match>
 ```
 

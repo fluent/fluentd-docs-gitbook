@@ -8,7 +8,7 @@ enabled for the plugins that support injecting values to the event record.
 
 ```
 <match>
-  @type           file
+  @type file
   # ...
   <inject>
     # ...
@@ -22,10 +22,10 @@ Configuration:
 
 ```
 <inject>
-  time_key        fluentd_time
-  time_type       string
-  time_format     %Y-%m-%dT%H:%M:%S.%NZ
-  tag_key         fluentd_tag
+  time_key fluentd_time
+  time_type string
+  time_format %Y-%m-%dT%H:%M:%S.%NZ
+  tag_key fluentd_tag
 </inject>
 ```
 

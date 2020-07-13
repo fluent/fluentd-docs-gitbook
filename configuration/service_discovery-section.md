@@ -9,7 +9,7 @@ The **`service_discovery`** section comes under `<match>`.
 
 ```
 <match tag.*>
-  @type         forward
+  @type forward
   # ...
   <service_discovery>
     # ...
@@ -25,7 +25,7 @@ plugins](/plugins/service_discovery/README.md) e.g. `file`.
 
 ```
 <service_discovery>
-  @type         file
+  @type file
   # ...
 </service_discovery>
 ```
@@ -44,7 +44,7 @@ The `@type` parameter specifies the type of the service discovery plugin.
 
 ```
 <service_discovery>
-  @type         static
+  @type static
   # ...
 </service_discovery>
 ```

@@ -11,7 +11,7 @@ plugins that support buffered output features.
 
 ```
 <match tag.*>
-  @type         file
+  @type file
   # ...
   <buffer>
     # ...
@@ -29,7 +29,7 @@ plugin:
 
 ```
 <buffer>
-  @type         file
+  @type file
 </buffer>
 ```
 
@@ -262,8 +262,8 @@ The following configuration shows `file` output plugin that applies
 # chunk_key: tag
 # ${tag} will be replaced with actual tag string
 <match log.*>
-  @type         file
-  path          /data/${tag}/access.log  #=> "/data/log.map/access.log"
+  @type file
+  path /data/${tag}/access.log  #=> "/data/log.map/access.log"
   <buffer tag>
     # ...
   </buffer>
@@ -281,11 +281,11 @@ Example:
 # %Y, %m, %d, %H, %M, %S: strptime placeholder are available when "time" chunk key specified
 
 <match log.*>
-  @type         file
-  path          /data/${tag[1]}/access.%Y-%m-%d.%H%M.log #=> "/data/map/access.2017-02-28.20:48.log"
+  @type file
+  path /data/${tag[1]}/access.%Y-%m-%d.%H%M.log #=> "/data/map/access.2017-02-28.20:48.log"
 
   <buffer tag,time>
-    timekey     1m
+    timekey 1m
   </buffer>
 </match>
 ```
@@ -295,8 +295,8 @@ keys is referenced, Fluentd raises configuration errors.
 
 ```
 <match log.*>
-  @type         file
-  path          /data/${tag}/access.${key1}.log #=> "/data/log.map/access.yay.log"
+  @type file
+  path /data/${tag}/access.${key1}.log #=> "/data/log.map/access.yay.log"
   <buffer tag,key1>
     # ...
   </buffer>
@@ -310,8 +310,8 @@ Same with chunk keys:
 
 ```
 <match log.*>
-  @type         file
-  path          /data/${tag}/access.${$.nest.field}.log #=> "/data/log.map/access.nested_yay.log"
+  @type file
+  path /data/${tag}/access.${$.nest.field}.log #=> "/data/log.map/access.nested_yay.log"
   <buffer tag,$.nest.field> # access record['nest']['field']
     # ...
   </buffer>
@@ -373,7 +373,7 @@ For example, the default is `file` buffer plugin for the `file` output plugin:
 
 ```
 <buffer>
-  @type         file
+  @type file
   # ...
 </buffer>
 ```

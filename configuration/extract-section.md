@@ -9,7 +9,7 @@ event record e.g. `exec`.
 
 ```
 <source>
-  @type             exec
+  @type exec
   # ...
   <extract>
     # ...

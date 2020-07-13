@@ -11,7 +11,7 @@ section. It is enabled for the plugins that support storage plugin features.
 
 ```
 <source>
-  @type         windows_eventlog
+  @type windows_eventlog
   # ...
   <storage>
     # ...
@@ -28,7 +28,7 @@ plugin](/plugins/storage/README.md).
 
 ```
 <storage>
-  @type         local
+  @type local
 </storage>
 ```
 
@@ -36,7 +36,7 @@ Some `storage` plugins may have argument(s) in `<storage>` section:
 
 ```
 <storage awesome_path>
-  @type         local
+  @type local
 </storage>
 ```
 
