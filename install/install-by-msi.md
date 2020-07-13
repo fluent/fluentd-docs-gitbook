@@ -32,10 +32,10 @@ is to dump any incoming records to `td-agent`'s log file:
 
 ```
 <source>
-  @type           forward
+  @type forward
 </source>
 <match test.**>
-  @type           stdout
+  @type stdout
 </match>
 ```
 

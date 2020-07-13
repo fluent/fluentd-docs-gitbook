@@ -57,13 +57,13 @@ The following configuration uses the `in_forward` plugin as an input source and
 
 ```
 <source>
-  @type           forward
-  port            9999
+  @type forward
+  port 9999
 </source>
 <match app.**>
-  @type           file
-  path            /var/log/app/data.log
-  compress        gzip
+  @type file
+  path /var/log/app/data.log
+  compress gzip
 </match>
 ```
 
@@ -105,9 +105,9 @@ up its settings like this:
 
 ```
 <source>
-  @type           syslog
-  port            5140
-  tag             system
+  @type syslog
+  port 5140
+  tag system
 </source>
 ```
 
@@ -127,10 +127,10 @@ mention this tag as an argument in `<match>` like this:
 
 ```
 <match debug.log>
-  @type           kafka2
-  port            5140
-  brokers         kafka-server:9092
-  tag             system
+  @type kafka2
+  port 5140
+  brokers kafka-server:9092
+  tag system
   # ...
 </match>
 ```
