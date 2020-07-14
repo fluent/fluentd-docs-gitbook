@@ -169,15 +169,14 @@ $ sudo systemctl restart rsyslog
 
 ## Store and Search Event Logs
 
-Once Fluentd receives some event logs from rsyslog and has flushed them
+Once Fluentd receives some event logs from `rsyslog` and has flushed them
 to Elasticsearch, you can view, search and visualize the log data using
 Kibana.
 
-For starters, let's access to `http://localhost:5601` and click the "Set
-up index patters" button in the upper-right corner of the screen.
+For starters, let's access `http://localhost:5601` and click the `Set
+up index patters` button in the upper-right corner of the screen.
 
-![](/images/kibana6-screenshot-topmenu.png)
-
+![kibana6-screenshot-topmenu.png](/images/kibana6-screenshot-topmenu.png)
 
 Kibana will start a wizard that guides you through configuring the data
 sets to visualize. If you want a quick start, use `logstash-*` as the
@@ -186,20 +185,20 @@ index pattern, and select `@timestamp` as the time-filter field.
 After setting up an index pattern, you can view the system logs as they
 flow in:
 
-![](/images/kibana6-screenshot.png)
+![kibana6-screenshot.png](/images/kibana6-screenshot.png)
 
+For more detail on how to use Kibana, please read the official
+[manual](https://www.elastic.co/guide/en/kibana/current/index.html).
 
-For the detail on how to use Kibana, please read [the official manual](https://www.elastic.co/guide/en/kibana/current/index.html).
-
-To manually send logs to Elasticsearch, please use the `logger` command.
+To manually send logs to Elasticsearch, please use the `logger` command:
 
 ```
 $ logger -t test foobar
 ```
 
-When debugging your td-agent configuration, using
-[filter\_stdout](/plugins/filter/stdout.md) will be useful. All the logs including
-errors can be found at `/etc/td-agent/td-agent.log`.
+When debugging your `td-agent` configuration, using
+[`filter_stdout`](/plugins/filter/stdout.md) will be useful. All the logs
+including errors can be found at `/etc/td-agent/td-agent.log`.
 
 ```
 <filter syslog.**>
@@ -238,4 +237,4 @@ buffer, etc.) according to your needs.
 ------------------------------------------------------------------------
 
 If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open).
-[Fluentd](http://www.fluentd.org/) is a open source project under [Cloud Native Computing Foundation (CNCF)](https://cncf.io/). All components are available under the Apache 2 License.
+[Fluentd](http://www.fluentd.org/) is an open-source project under [Cloud Native Computing Foundation (CNCF)](https://cncf.io/). All components are available under the Apache 2 License.

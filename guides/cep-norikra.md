@@ -1,16 +1,16 @@
 # Fluentd and Norikra: Complex Event Processing
 
 This article explains how to use [Fluentd](https://www.fluentd.org/) and
-[Norikra](https://norikra.github.io) to create a SQL-based real-time
+[Norikra](https://norikra.github.io) to create a SQL-based realtime
 complex event processing platform.
 
 
 ## Background
 
 [Fluentd](https://www.fluentd.org/) is an advanced open-source log collector
-originally developed at [Treasure Data, Inc](https://www.treasuredata.com/). Fluentd is not only a log collector,
-but also an all-purpose stream processing platform. Plugins can be
-written to handle many kinds of events.
+originally developed at [Treasure Data, Inc](https://www.treasuredata.com/).
+Fluentd is not only a log collector, but also an all-purpose stream processing
+platform. Plugins can be written to handle many kinds of events.
 
 However, Fluentd is not primarily designed for stream processing. We
 must restart Fluentd after making modifications to its
@@ -31,15 +31,14 @@ project.
 
 This article will show you how to integrate
 [Fluentd](https://fluentd.org/), [Norikra](https://norikra.github.io/),
-and the [Fluentd norikra plugin](https://github.com/norikra/fluent-plugin-norikra) to create a
-robust stream data processing platform.
+and the [Fluentd norikra plugin](https://github.com/norikra/fluent-plugin-norikra) to create a robust stream data processing platform.
 
 
 ## Architecture
 
-The figure below shows the high-level architecture.
+The figure below shows the high-level architecture:
 
-![](/images/fluentd-norikra-overview.png)
+![fluentd-norikra-overview.png](/images/fluentd-norikra-overview.png)
 
 
 ## Installation
@@ -54,14 +53,14 @@ configuration. Please install the following on the same node:
 
 ### Installing Fluentd and fluentd-plugin-norikra
 
-Fluentd can be installed through rubygems or via deb/rpm packages.
+Fluentd can be installed through RubyGems or via deb/rpm packages.
 
 -   [Debian Package](/install/install-by-deb.md)
 -   [RPM Package](/install/install-by-rpm.md)
 -   [Ruby gem](/install/install-by-gem.md)
 
-fluent-plugin-norikra can be installed with the
-`gem install fluent-plugin-norikra` (or fluent-gem) command.
+`fluent-plugin-norikra` can be installed with the
+`gem install fluent-plugin-norikra` (or `fluent-gem`) command.
 
 
 ### Installing Norikra
@@ -94,8 +93,8 @@ You can also check the current Norikra's status via the WebUI
 ## Fluentd Configuration
 
 We'll now configure Fluentd. If you used the deb/rpm package, Fluentd's
-config file is located at /etc/td-agent/td-agent.conf. Otherwise, it is
-located at /etc/fluentd/fluentd.conf.
+config file is located at `/etc/td-agent/td-agent.conf`. Otherwise, it is
+located at `/etc/fluentd/fluentd.conf`.
 
 
 ### HTTP Input
@@ -120,7 +119,7 @@ look like this:
 <match data.*>
   @type norikra
   norikra localhost:26571
-  target_map_tag    true
+  target_map_tag true
   remove_tag_prefix data
 
   <default>
@@ -137,8 +136,8 @@ config inside).
 
 The **norikra** attribute specifies the Norikra server's RPC host and
 port ('26571' is the default port of Norikra RPC protocol). By
-**target\_map\_tag true** and **remove\_tag\_prefix data**, out\_norikra
-handle the rest of tags (ex: 'foo' for 'data.foo') as target, which is a
+**`target_map_tag true`** and **`remove_tag_prefix data`**, `out_norikra`
+handle the rest of tags (e.g. `foo` for `data.foo`) as target, which is a
 name of set of events as same as table name of RDBMS.
 
 The `<default>...</default>` section specifies which fields are sent to
@@ -150,7 +149,7 @@ available, please refer to the [fluent-plugin-norikra documentation](https://git
 ## Test
 
 To test the configuration, just post the JSON to Fluentd (we use the
-curl command in this example).
+`curl` command in this example):
 
 ```
 $ curl -X POST -d 'json={"action":"login","user":2}' \
@@ -186,7 +185,7 @@ user    integer false
 
 We can add queries on opened targets via the WebUI or CLI. The following
 query (just SQL!) counts the number of events with a non-zero `user` per
-10 second interval, with a 'group by' `action`.
+10 second interval, with a 'group by' `action`:
 
 ```
 SELECT
@@ -197,7 +196,7 @@ WHERE user != 0
 GROUP BY action
 ```
 
-To register a query, issue `norikra-client query add` on the CLI.
+To register a query, issue `norikra-client query add` on the CLI:
 
 ```
 $ norikra-client query add test_query "SELECT action, count(*) AS c FROM access.win:time_batch(10 sec) WHERE user != 0 GROUP BY action"
@@ -207,7 +206,7 @@ test_query  default access  SELECT action, count(*) AS c FROM access.win:time_ba
 1 queries found.
 ```
 
-Once the query has been registered, post the events that you want.
+Once the query has been registered, post the events that you want:
 
 ```
 $ curl -X POST -d 'json={"action":"login","user":2}' \
@@ -226,7 +225,7 @@ $ curl -X POST -d 'json={"action":"login","user":2}' \
   http://localhost:8888/data.access
 ```
 
-And fetch output events from this `test_query` query.
+And fetch output events from this `test_query` query:
 
 ```
 $ norikra-client event fetch test_query
@@ -245,7 +244,7 @@ If posts are done in 10 seconds, this query calculates all events in
 first 10 seconds, and counts events per `action` for events with
 `user != 0` only, and outputs events at "2014/05/20 21:00:24". At
 "2014/05/20 21:00:34", just after next 10 seconds, this query reports
-that no events arrived (This is teardown records, and reported only
+that no events arrived (These are teardown records, and reported only
 once).
 
 
@@ -268,4 +267,4 @@ stream processing environment that can handle real workloads.
 ------------------------------------------------------------------------
 
 If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open).
-[Fluentd](http://www.fluentd.org/) is a open source project under [Cloud Native Computing Foundation (CNCF)](https://cncf.io/). All components are available under the Apache 2 License.
+[Fluentd](http://www.fluentd.org/) is an open-source project under [Cloud Native Computing Foundation (CNCF)](https://cncf.io/). All components are available under the Apache 2 License.

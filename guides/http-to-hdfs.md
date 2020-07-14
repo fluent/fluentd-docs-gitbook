@@ -8,9 +8,10 @@ to aggregate semi-structured logs into Hadoop HDFS.
 ## Background
 
 [Fluentd](http://fluentd.org/) is an advanced open-source log collector
-originally developed at [Treasure Data, Inc](http://www.treasuredata.com/). Fluentd is specifically designed to
-solve the big-data log collection problem. A lot of users are using
-Fluentd with MongoDB, and have found that it doesn't scale well for now.
+originally developed at [Treasure Data, Inc](http://www.treasuredata.com/).
+Fluentd is specifically designed to solve the big-data log collection problem. A
+lot of users are using Fluentd with MongoDB, and have found that it doesn't
+scale well for now.
 
 HDFS (Hadoop) is a natural alternative for storing and processing a huge
 amount of data. It supports an HTTP interface called WebHDFS in addition to its Java
@@ -22,15 +23,15 @@ receive data from HTTP and stream it into HDFS.
 
 ## Architecture
 
-The figure below shows the high-level architecture.
+The figure below shows the high-level architecture:
 
-![](/images/http-to-hdfs.png)
+![http-to-hdfs.png](/images/http-to-hdfs.png)
 
 
 ## Install
 
-For simplicity, this article will describe how to set up an one-node
-configuration. Please install the following software on the same node.
+For simplicity, this article will describe how to set up a one-node
+configuration. Please install the following software on the same node:
 
 -   [Fluentd](http://fluentd.org/)
 -   [WebHDFS Output Plugin](https://github.com/fluent/fluent-plugin-webhdfs/)
@@ -38,7 +39,7 @@ configuration. Please install the following software on the same node.
 -   Apache HDFS
 
 The WebHDFS Output plugin is included in the latest version of Fluentd's
-deb/rpm package (v1.1.10 or later). If you want to use Ruby Gems to
+deb/rpm package (v1.1.10 or later). If you want to use RubyGems to
 install the plugin, please use `gem install fluent-plugin-webhdfs`.
 
 -   [Debian Package](/install/install-by-deb.md)
@@ -50,8 +51,8 @@ install the plugin, please use `gem install fluent-plugin-webhdfs`.
 ## Fluentd Configuration
 
 Let's start configuring Fluentd. If you used the deb/rpm package,
-Fluentd's config file is located at /etc/td-agent/td-agent.conf.
-Otherwise, it is located at /etc/fluentd/fluentd.conf.
+Fluentd's config file is located at `/etc/td-agent/td-agent.conf`.
+Otherwise, it is located at `/etc/fluentd/fluentd.conf`.
 
 
 ### HTTP Input
@@ -84,16 +85,16 @@ look like this:
 </match>
 ```
 
-The match section specifies the regexp used to look for matching tags.
+The `match` section specifies the regexp used to look for matching tags.
 If a matching tag is found in a log, then the config inside
 `<match>...</match>` is used (i.e. the log is routed according to the
 config inside).
 
-**flush\_interval** specifies how often the data is written to HDFS. An
-append operation is used to append the incoming data to the file
-specified by the **path** parameter.
+The `flush_interval` parameter specifies how often the data is written to HDFS.
+An append operation is used to append the incoming data to the file specified by
+the `path` parameter.
 
-Placeholders for both time and hostname can be used with the **path**
+Placeholders for both time and hostname can be used with the `path`
 parameter. This prevents multiple Fluentd instances from appending data
 to the same file, which must be avoided for append operations.
 
@@ -103,8 +104,8 @@ Other options specify HDFS's NameNode host and port.
 ## HDFS Configuration
 
 Append operations are not enabled by default. Please put these
-configurations into your hdfs-site.xml file and restart the whole
-cluster.
+configurations into your `hdfs-site.xml` file and restart the whole
+cluster:
 
 ```
 <property>
@@ -123,15 +124,15 @@ cluster.
 </property>
 ```
 
-Please confirm that the HDFS user has write access to the *path*
+Please confirm that the HDFS user has write access to the `path`
 specified as the WebHDFS output.
 
 
 ## Test
 
 To test the configuration, just post the JSON to Fluentd (we use the
-curl command in this example). Sending a USR1 signal flushes Fluentd's
-buffer into WebHDFS.
+`curl` command in this example). Sending a `USR1` signal flushes Fluentd's
+buffer into WebHDFS:
 
 ```
 $ curl -X POST -d 'json={"action":"login","user":2}' \
@@ -139,7 +140,7 @@ $ curl -X POST -d 'json={"action":"login","user":2}' \
 $ kill -USR1 `cat /var/run/td-agent/td-agent.pid`
 ```
 
-We can then access HDFS to see the stored data.
+We can then access HDFS to see the stored data:
 
 ```
 $ sudo -u hdfs hadoop fs -lsr /log/
@@ -149,7 +150,7 @@ drwxr-xr-x   - 1 supergroup          0 2012-10-22 09:40 /log/20121022_14/access.
 
 ## Conclusion
 
-Fluentd + WebHDFS make real-time log collection simple, robust and
+Fluentd + WebHDFS make realtime log collection simple, robust and
 scalable! [@tagomoris](http://github.com/tagomoris) has already been
 using this plugin to collect 20,000 msgs/sec, 1.5 TB/day without any
 major problems for several months now.
@@ -166,4 +167,4 @@ major problems for several months now.
 ------------------------------------------------------------------------
 
 If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open).
-[Fluentd](http://www.fluentd.org/) is a open source project under [Cloud Native Computing Foundation (CNCF)](https://cncf.io/). All components are available under the Apache 2 License.
+[Fluentd](http://www.fluentd.org/) is an open-source project under [Cloud Native Computing Foundation (CNCF)](https://cncf.io/). All components are available under the Apache 2 License.

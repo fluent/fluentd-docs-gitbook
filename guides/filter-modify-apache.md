@@ -1,16 +1,16 @@
 # Easy Data Stream Manipulation using Fluentd
 
 Sometimes, you need to transform the data stream in a certain way. For
-example, you might want to extract a potion of data for error reporting,
+example, you might want to extract a portion of data for error reporting,
 or need to append additional information to events for later inspection.
 
-This article explains common data-manipulation techniques in details.
+This article explains common data manipulation techniques in details.
 
 
 ## How to Filter Events by Fields
 
-[filter\_grep](/plugins/filter/grep.md) is a built-in plugin that allows to filter
-the data stream using regular expressions.
+[`filter_grep`](/plugins/filter/grep.md) is a built-in plugin that allows to
+filter the data stream using regular expressions.
 
 Suppose you are managing a web service, and try to monitor the access
 logs using Fluentd. In this case, an event in the data stream will look
@@ -61,8 +61,8 @@ from the test directory:
 
 ## How to Inject Custom Fields into Events
 
-[filter\_record\_transformer](/plugins/filter/record_transformer.md) is a built-in
-plugin that enables to inject arbitrary data into events.
+[`filter_record_transformer`](/plugins/filter/record_transformer.md) is a
+built-in plugin that enables it to inject arbitrary data into events.
 
 Suppose you are running a web service on multiple web servers, and you
 want to record which server handled each request. This can be
@@ -77,7 +77,7 @@ implemented trivially using this plugin:
 </filter>
 ```
 
-This will produce an event like below:
+This will produce an event like this:
 
 ```
 {
@@ -91,12 +91,13 @@ This will produce an event like below:
 }
 ```
 
-Note that `${hostname}` is a pre-defined variable supplied by the
+Note that `${hostname}` is a predefined variable supplied by the
 plugin. You can also define a custom variable, or even evaluate
-arbitrary ruby expressions. For details, please read [the manual page of this plugin](/plugins/filter/record_transformer.md).
+arbitrary ruby expressions. For details, please read
+[`record_transformer`](/plugins/filter/record_transformer.md)'s manual.
 
 
 ------------------------------------------------------------------------
 
 If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open).
-[Fluentd](http://www.fluentd.org/) is a open source project under [Cloud Native Computing Foundation (CNCF)](https://cncf.io/). All components are available under the Apache 2 License.
+[Fluentd](http://www.fluentd.org/) is an open-source project under [Cloud Native Computing Foundation (CNCF)](https://cncf.io/). All components are available under the Apache 2 License.
