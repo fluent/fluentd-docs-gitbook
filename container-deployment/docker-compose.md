@@ -1,29 +1,28 @@
 # Docker Logging via EFK (Elasticsearch + Fluentd + Kibana) Stack with Docker Compose
 
-This article explains how to collect [Docker](https://www.docker.com/)
-logs to EFK (Elasticsearch + Fluentd + Kibana) stack. The example uses
-[Docker Compose](https://docs.docker.com/compose/) for setting up
-multiple containers.
+This article explains how to collect [Docker](https://www.docker.com/) logs and
+propagate them to EFK (Elasticsearch + Fluentd + Kibana) stack. The example uses
+[Docker Compose](https://docs.docker.com/compose/) for setting up multiple
+containers.
 
-![](/images/7.2_kibana-homepage.png)
+![Kibana](/images/7.2_kibana-homepage.png)
 
+[Elasticsearch](https://www.elastic.co/products/elasticsearch) is an open-source
+search engine known for its ease of use.
+[Kibana](https://www.elastic.co/products/kibana) is an open-source Web UI that
+makes Elasticsearch user-friendly for marketers, engineers and data scientists
+alike.
 
-[Elasticsearch](https://www.elastic.co/products/elasticsearch) is an
-open source search engine known for its ease of use.
-[Kibana](https://www.elastic.co/products/kibana) is an open source Web
-UI that makes Elasticsearch user friendly for marketers, engineers and
-data scientists alike.
-
-By combining these three tools EFK (Elasticsearch + Fluentd + Kibana) we
-get a scalable, flexible, easy to use log collection and analytics
-pipeline. In this article, we will set up 4 containers, each includes:
+By combining these three tools EFK (Elasticsearch + Fluentd + Kibana) we get a
+scalable, flexible, easy to use log collection and analytics pipeline. In this
+article, we will set up four (4) containers, each includes:
 
 -   [Apache HTTP Server](https://hub.docker.com/_/httpd/)
 -   [Fluentd](https://hub.docker.com/r/fluent/fluentd/)
 -   [Elasticsearch](https://hub.docker.com/_/elasticsearch/)
 -   [Kibana](https://hub.docker.com/_/kibana/)
 
-All of `httpd`'s logs will be ingested into Elasticsearch + Kibana, via
+All the logs of `httpd` will be ingested into Elasticsearch + Kibana, via
 Fluentd.
 
 
@@ -33,13 +32,15 @@ Please download and install Docker / Docker Compose. Well, that's it :)
 
 -   [Docker Installation](https://docs.docker.com/engine/installation/)
 
-## Step 0: prepare docker-compose.yml
 
-First, please prepare `docker-compose.yml` for [Docker Compose](https://docs.docker.com/compose/overview/). Docker Compose is a
-tool for defining and running multi-container Docker applications.
+## Step 0: Create `docker-compose.yml`
 
-With the YAML file below, you can create and start all the services (in
-this case, Apache, Fluentd, Elasticsearch, Kibana) by one command.
+Create `docker-compose.yml` for [Docker
+Compose](https://docs.docker.com/compose/overview/). Docker Compose is a tool
+for defining and running multi-container Docker applications.
+
+With the YAML file below, you can create and start all the services (in this
+case, Apache, Fluentd, Elasticsearch, Kibana) by one command:
 
 ``` {.CodeRay}
 version: '3'
@@ -83,40 +84,46 @@ services:
       - "5601:5601"
 ```
 
-`logging` section (check [Docker Compose documentation](https://docs.docker.com/compose/compose-file/#/logging))
-of `web` container specifies [Docker Fluentd Logging Driver](https://docs.docker.com/engine/admin/logging/fluentd/) as a
-default container logging driver. All of the logs from `web` container
-will be automatically forwarded to host:port specified by
-`fluentd-address`.
+The `logging` section (check [Docker Compose
+documentation](https://docs.docker.com/compose/compose-file/#/logging)) of `web`
+container specifies [Docker Fluentd Logging
+Driver](https://docs.docker.com/engine/admin/logging/fluentd/) as a default
+container logging driver. All the logs from `web` container will automatically
+be forwarded to `host:port` specified by `fluentd-address`.
 
-## Step 1: Prepare Fluentd image with your Config + Plugin
 
-Then, please prepare `fluentd/Dockerfile` with the following content, to
-use Fluentd's [official Docker image](https://hub.docker.com/r/fluent/fluentd/) and additionally
-install Elasticsearch plugin.
+## Step 1: Create Fluentd Image with your Config + Plugin
+
+Create `fluentd/Dockerfile` with the following content using the Fluentd
+[official Docker image](https://hub.docker.com/r/fluent/fluentd/); and then,
+install the Elasticsearch plugin:
 
 ``` {.CodeRay}
 # fluentd/Dockerfile
+
 FROM fluent/fluentd:v1.6-debian-1
 USER root
 RUN ["gem", "install", "fluent-plugin-elasticsearch", "--no-document", "--version", "3.5.2"]
 USER fluent
 ```
 
-Then, please prepare Fluentd's configuration file
-`fluentd/conf/fluent.conf`. [in\_forward](/plugins/input/forward.md) plugin is used for
-receive logs from Docker logging driver, and out\_elasticsearch is for
-forwarding logs to Elasticsearch.
+Then, create the Fluentd configuration file `fluentd/conf/fluent.conf`. The
+[`forward`](/plugins/input/forward.md) input plugin receives logs from the
+Docker logging driver and `elasticsearch` output plugin forwards these logs to
+Elasticsearch.
 
 ``` {.CodeRay}
 # fluentd/conf/fluent.conf
+
 <source>
   @type forward
   port 24224
   bind 0.0.0.0
 </source>
+
 <match *.**>
   @type copy
+
   <store>
     @type elasticsearch
     host elasticsearch
@@ -129,21 +136,24 @@ forwarding logs to Elasticsearch.
     tag_key @log_name
     flush_interval 1s
   </store>
+
   <store>
     @type stdout
   </store>
 </match>
 ```
 
-## Step 2: Start Containers
 
-Let's start all of the containers, with just one command.
+## Step 2: Start the Containers
+
+Let's start the containers:
 
 ``` {.CodeRay}
 $ docker-compose up
 ```
 
-You can check to see if 4 containers are running by `docker ps` command.
+Use `docker ps` command to verify that the four (4) containers are up and
+running:
 
 ``` {.CodeRay}
 $ docker ps
@@ -153,10 +163,10 @@ bc5bcaedb282        kibana:7.2.0                                          "/usr/
 9fe2d02cff41        docker.elastic.co/elasticsearch/elasticsearch:7.2.0   "/usr/local/bin/dock…"   20 seconds ago      Up 18 seconds       0.0.0.0:9200->9200/tcp, 9300/tcp   docker_elasticsearch_1
 ```
 
-## Step 3: Generate httpd Access Logs
 
-Let's access to `httpd` to generate some access logs. `curl` command is
-always your friend.
+## Step 3: Generate `httpd` Access Logs
+
+Use `curl` command to generate some access logs like this:
 
 ``` {.CodeRay}
 $ curl http://localhost:80/[1-10]
@@ -172,35 +182,35 @@ $ curl http://localhost:80/[1-10]
 <html><body><h1>It works!</h1></body></html>
 ```
 
+
 ## Step 4: Confirm Logs from Kibana
 
-Please go to `http://localhost:5601/` with your browser. Then, you need
-to set up the index name pattern for Kibana. Please specify `fluentd-*`
-to `Index name or pattern` and press `Create` button.
+Browse to `http://localhost:5601/` and set up the index name pattern for Kibana.
+Specify `fluentd-*` to `Index name or pattern` and click `Create`.
 
-![](/images/7.2_efk-kibana-index.png)
-![](/images/7.2_efk-kibana-timestamp.png)
+![Kibana Index](/images/7.2_efk-kibana-index.png) ![Kibana
+Timestamp](/images/7.2_efk-kibana-timestamp.png)
 
-Then, go to `Discover` tab to seek for the logs. As you can see, logs
-are properly collected into Elasticsearch + Kibana, via Fluentd.
+Then, go to `Discover` tab to check the logs. As you can see, logs are properly
+collected into Elasticsearch + Kibana, via Fluentd.
 
-![](/images/7.2_efk-kibana-discover.png)
+![Kibana Discover](/images/7.2_efk-kibana-discover.png)
 
-## Conclusion
+## Code
 
-This article explains how to collect logs from Apache to EFK
-(Elasticsearch + Fluentd + Kibana). The example code is available in
-this repository.
--   <https://github.com/digikin/fluentd-elastic-kibana>
+The code is available at https://github.com/digikin/fluentd-elastic-kibana.
 
 ## Learn More
 
--   [Fluentd Architecture](https://www.fluentd.org/architecture)
--   [Fluentd Get Started](/overview/quickstart.md)
+-   [Fluentd: Architecture](https://www.fluentd.org/architecture)
+-   [Fluentd: Get Started](/overview/quickstart.md)
 -   [Downloading Fluentd](http://www.fluentd.org/download)
 
 
 ------------------------------------------------------------------------
 
-If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open).
-[Fluentd](http://www.fluentd.org/) is a open source project under [Cloud Native Computing Foundation (CNCF)](https://cncf.io/). All components are available under the Apache 2 License.
+If this article is incorrect or outdated, or omits critical information, please
+[let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open).
+[Fluentd](http://www.fluentd.org/) is an open-source project under [Cloud Native
+Computing Foundation (CNCF)](https://cncf.io/). All components are available
+under the Apache 2 License.
