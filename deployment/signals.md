@@ -7,7 +7,7 @@ This article explains how `Fluentd` handles UNIX signals.
 
 When you launch Fluentd, it creates two processes: supervisor and
 worker. The supervisor process controls the life cycle of the worker
-process. Please make sure to send any signals to the supervisor process.
+process. Make sure to send signals to the supervisor process only.
 
 
 ## Signals
@@ -26,14 +26,16 @@ Forces the buffered messages to be flushed and reopens Fluentd's log.
 Fluentd will try to flush the current buffer (both memory and file)
 immediately, and keep flushing at `flush_interval`.
 
+
 ### SIGUSR2
 
-Reloads the configuration file by gracefully re-constructing data pipeline.
-Fluentd will try to flush the entire memory buffer at once, but
-will not retry if the flush fails. Fluentd will not flush the file
-buffer; the logs are persisted on the disk by default.
+Reloads the configuration file by gracefully re-constructing the data pipeline.
+Fluentd will try to flush the entire memory buffer at once, but will not retry
+if the flush fails. Fluentd will not flush the file buffer; the logs are
+persisted on the disk by default.
 
 This signal has been supported since v1.9.0.
+
 
 ### SIGHUP
 
@@ -44,14 +46,14 @@ buffer; the logs are persisted on the disk by default.
 
 If you use fluentd v1.9.0 or later, use `SIGUSR2` instead.
 
+
 ### SIGCONT
 
-Call sigdump to dump fluentd internal status. See
-[trouble-shooting](/deployment/trouble-shooting.md/#dump-fluentd-internal-information)
-article.
+Calls SIGDUMP to dump fluentd internal status. See
+[troubleshooting](/deployment/trouble-shooting.md/#dump-fluentd-internal-information) article.
 
 
 ------------------------------------------------------------------------
 
 If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open).
-[Fluentd](http://www.fluentd.org/) is a open source project under [Cloud Native Computing Foundation (CNCF)](https://cncf.io/). All components are available under the Apache 2 License.
+[Fluentd](http://www.fluentd.org/) is an open-source project under [Cloud Native Computing Foundation (CNCF)](https://cncf.io/). All components are available under the Apache 2 License.
