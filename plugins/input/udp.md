@@ -1,14 +1,13 @@
 # UDP Input Plugin
 
-![](/images/plugins/input/udp.png)
+![udp.png](/images/plugins/input/udp.png)
 
 The `in_udp` Input plugin enables Fluentd to accept UDP payload.
 
+It is included in Fluentd's core.
+
 
 ## Example Configuration
-
-`in_udp` is included in Fluentd's core. No additional installation
-process is required.
 
 ```
 <source>
@@ -24,52 +23,54 @@ process is required.
 </source>
 ```
 
-Please see the [Config File](/configuration/config-file.md) article for the basic
-structure and syntax of the configuration file. For `<parse>` section,
-please check [Parse section cofiguration](/configuration/parse-section.md).
+Refer to the [Configuration File](/configuration/config-file.md) article for the
+basic structure and syntax of the configuration file.
 
-We've observed the drastic performance improvements on Linux, with
+For `<parse>`, refer to [Parse Section](/configuration/parse-section.md).
+
+We have observed drastic performance improvements on Linux, with
 proper kernel parameter settings (e.g. `net.core.rmem_max`
 parameter). If you have high-volume UDP traffic, please make sure to
-follow the instruction described at [Before Installing Fluentd](/install/before-install.md).
+follow [Before Installing Fluentd](/install/before-install.md) instructions.
 
 
-## Plugin helpers
+## Plugin Helpers
 
--   [server](/developer/api-plugin-helper-server.md)
--   [parser](/developer/api-plugin-helper-parser.md)
--   [extract](/developer/api-plugin-helper-extract.md)
--   [compat\_parameters](/developer/api-plugin-helper-compat_parameters.md)
+-   [`server`](/developer/api-plugin-helper-server.md)
+-   [`parser`](/developer/api-plugin-helper-parser.md)
+-   [`extract`](/developer/api-plugin-helper-extract.md)
+-   [`compat_parameters`](/developer/api-plugin-helper-compat_parameters.md)
 
 
 ## Parameters
 
-[Common Parameters](/configuration/plugin-common-parameters.md)
+See [Common Parameters](/configuration/plugin-common-parameters.md).
 
-### @type
+
+### `@type`
 
 The value must be `udp`.
 
 
-### tag
+### `tag`
 
 | type   | default            | version |
 |:-------|:-------------------|:--------|
 | string | required parameter | 0.14.0  |
 
-tag of output events.
+The tag of the output events.
 
 
-### port
+### `port`
 
 | type    | default | version |
 |:--------|:--------|:--------|
 | integer | 5160    | 0.14.0  |
 
-The port to listen to. Default Value = 5160
+The port to listen to. (default: `5160`)
 
 
-### bind
+### `bind`
 
 | type   | default                 | version |
 |:-------|:------------------------|:--------|
@@ -78,22 +79,22 @@ The port to listen to. Default Value = 5160
 The bind address to listen to.
 
 
-### source\_hostname\_key
+### `source_hostname_key`
 
 | type   | default                  | version |
 |:-------|:-------------------------|:--------|
 | string | nil (no adding hostname) | 0.14.10 |
 
-The field name of the client's hostname. If set the value, the client's
-hostname will be set to its key.
+The field name of the client's hostname. If it is set, the client's hostname
+will be set to its key.
 
-If you set following configuration:
+If you set the following configuration:
 
 ```
 source_hostname_key client_host
 ```
 
-then the client's hostname is set to `client_host` field.
+then the client's hostname is set to `client_host` field i.e.:
 
 ```
 {
@@ -103,7 +104,8 @@ then the client's hostname is set to `client_host` field.
 }
 ```
 
-### source\_address\_key
+
+### `source_address_key`
 
 | type   | default                        | version |
 |:------:|:------------------------------:|:-------:|
@@ -114,41 +116,44 @@ Fluentd automatically adds the remote address to each data record.
 
 For example, if you have the following configuration:
 
-    <source>
-      @type udp
-      source_address_key client_addr
-      ...
-    </source>
+```
+<source>
+  @type udp
+  source_address_key client_addr
+  # ...
+</source>
+```
 
-you will get something like below:
+You will get something like this:
 
-    :::text
-    {
-        ...
-        "client_addr": "192.168.10.10"
-        ...
-    }
+```
+{
+    ...
+    "client_addr": "192.168.10.10"
+    ...
+}
+```
 
 
-### message\_length\_limit
+### `message_length_limit`
 
 | type | default | version |
 |:-----|:--------|:--------|
 | size | 4096    | 0.14.14 |
 
-The max bytes of message
+The maximum number of bytes for message.
 
 
-### remove\_newline
+### `remove_newline`
 
 | type | default | version |
 |:-----|:--------|:--------|
 | bool | true    | 0.14.23 |
 
-Remove newline from the end of incoming payload
+Removes newline from the end of incoming payload.
 
 
-### &lt;parse&gt; section
+### `<parse>` Section
 
 | required | multi | version |
 |:---------|:------|:--------|
@@ -156,15 +161,15 @@ Remove newline from the end of incoming payload
 
 `in_tcp` uses parser plugin to parse the payload.
 
-For more details about parser plugin, see followings:
+For more details:
 
 -   [Parser Plugin Overview](/plugins/parser/README.md)
--   [Parse section configurations](/configuration/parse-section.md)
+-   [Parse Section Configurations](/configuration/parse-section.md)
 
 
-## Code example
+## Code Example
 
-Here is ruby example to send event to `in_udp`.
+Here is a Ruby example to send event to `in_udp`:
 
 ```
 require 'socket'
@@ -185,14 +190,17 @@ us.close
 
 ### How to prevent request drop?
 
-If in\_udp gots lots of packets within 1 sec, some packets are dropped.
-For example, you can see bigger RcvbufErrors number via `netstat -su`.
+If `in_udp` gets lots of packets within 1 sec, some packets are dropped.
+For example, you can see bigger `RcvbufErrors` number via `netstat -su`.
 
-This means in\_udp with one process can't handle such traffic. Try
+This means that `in_udp` with one process cannot handle such traffic loads. Try
 [multi workers](/deployment/multi-process-workers.md).
 
 
 ------------------------------------------------------------------------
 
-If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open).
-[Fluentd](http://www.fluentd.org/) is a open source project under [Cloud Native Computing Foundation (CNCF)](https://cncf.io/). All components are available under the Apache 2 License.
+If this article is incorrect or outdated, or omits critical information, please
+[let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open).
+[Fluentd](http://www.fluentd.org/) is an open-source project under [Cloud Native
+Computing Foundation (CNCF)](https://cncf.io/). All components are available
+under the Apache 2 License.

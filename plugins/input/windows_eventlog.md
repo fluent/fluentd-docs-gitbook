@@ -1,4 +1,4 @@
-# windows\_eventlog Input Plugin
+# `windows_eventlog` Input Plugin
 
 The `in_windows_eventlog` Input plugin allows Fluentd to read events
 from the Windows Event Log.
@@ -6,9 +6,9 @@ from the Windows Event Log.
 
 ## Installation
 
-`in_windows_eventlog` is included in td-agent 3 msi by default. Fluentd
+`in_windows_eventlog` is included in `td-agent` 3 MSI by default. Fluentd
 gem users will need to install the `fluent-plugin-windows-eventlog` gem
-using the following command.
+using the following command:
 
 ```
 $ fluent-gem install fluent-plugin-windows-eventlog
@@ -31,14 +31,15 @@ $ fluent-gem install fluent-plugin-windows-eventlog
 </source>
 ```
 
-Please see the [Config File](/configuration/config-file.md) article for the basic
-structure and syntax of the configuration file.
+Refer to the [Configuration File](/configuration/config-file.md) article for the
+basic structure and syntax of the configuration file.
 
 
-### Event example
+### Event Example
 
-Here are generated event examples. `in_windows_eventlog` set
-corresponding channel to `channel` field.
+`in_windows_eventlog` sets corresponding channel to `channel` field.
+
+Here are some generated events:
 
 ```
 # system
@@ -48,35 +49,37 @@ corresponding channel to `channel` field.
 ```
 
 
-## Plugin helpers
+## Plugin Helpers
 
--   [timer](/developer/api-plugin-helper-timer.md)
--   [storage](/developer/api-plugin-helper-storage.md)
+-   [`timer`](/developer/api-plugin-helper-timer.md)
+-   [`storage`](/developer/api-plugin-helper-storage.md)
 
 
 ## Parameters
 
-[Common Parameters](/configuration/plugin-common-parameters.md)
+See [Common Parameters](/configuration/plugin-common-parameters.md).
 
 
-### @type (required)
+### `@type` (required)
 
 The value must be `windows_eventlog`.
 
 
-### tag (required)
+### `tag` (required)
 
 The tag of the event.
 
 
-### channels
+### `channels`
 
-The event log channels to read. Multiple channels can be specified,
-separated by '\' or array type
+The event log channels to read.
+
+Multiple channels can be specified, separated by comma `,` or array type:
 
 ```
 # , separated
 channels application,system,security
+
 # array
 channels ["application", "system", "security"]
 ```
@@ -84,16 +87,16 @@ channels ["application", "system", "security"]
 Default is `["application"]`.
 
 
-### read\_interval
+### `read_interval`
 
-The interval of reading windowd event log. Default is `2` seconds.
+The interval of reading Windows Event log. Default is `2` seconds.
 
 
-### &lt;storage&gt;
+### `<storage>`
 
 `<storage>` section is the configuration for storage plugin.
 `in_windows_eventlog` plugin uses storage plugin for recording the
-position it last read into this file.
+position it last read from.
 
 The default is using local file. If you want to use on memory storage,
 set `persistent false`.
@@ -124,21 +127,25 @@ need to set `path` in `<storage>` section.
 
 ## FAQ
 
-### in\_windows\_eventlog can't read `setup` or `security` events, why?
 
-You need administrator privilege to read these channels. Launch
-fluentd/td-agent as an administrator.
+### `in_windows_eventlog` can't read `setup` or `security` events, why?
+
+You need administrator privileges to read these channels. Launch
+`fluentd`/`td-agent` as an administrator.
 
 
 ## Further Reading
 
-This page doesn't describe all the possible configurations. If you want
-to know about other configurations, please check the link below.
+This page does not describe all the possible configurations. If you want
+to know about other configurations, please check the link below:
 
--   [fluent-plugin-windows-eventlog repository](https://github.com/fluent/fluent-plugin-windows-eventlog)
+-   [`fluent-plugin-windows-eventlog`](https://github.com/fluent/fluent-plugin-windows-eventlog)
 
 
 ------------------------------------------------------------------------
 
-If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open).
-[Fluentd](http://www.fluentd.org/) is a open source project under [Cloud Native Computing Foundation (CNCF)](https://cncf.io/). All components are available under the Apache 2 License.
+If this article is incorrect or outdated, or omits critical information, please
+[let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open).
+[Fluentd](http://www.fluentd.org/) is an open-source project under [Cloud Native
+Computing Foundation (CNCF)](https://cncf.io/). All components are available
+under the Apache 2 License.

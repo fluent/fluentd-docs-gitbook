@@ -1,22 +1,21 @@
-# forward Input Plugin
+# `forward` Input Plugin
 
-![](/images/plugins/input/forward.png)
+![forward.png](/images/plugins/input/forward.png)
 
 The `in_forward` Input plugin listens to a TCP socket to receive the
-event stream. It also listens to an UDP socket to receive heartbeat
-messages. See also "protocol" section for implementation details.
+event stream. It also listens to a UDP socket to receive heartbeat
+messages. See also the **protocol** section for implementation details.
 
 This plugin is mainly used to receive event logs from other Fluentd
-instances, the fluent-cat command, or Fluentd client libraries.
+instances, the `fluent-cat` command, or Fluentd client libraries.
 This is by far the most efficient way to retrieve the records.
 
-If you want to receive events from raw tcp payload, use `in_tcp`
-plugin instead.
+If you want to receive events from raw TCP payload, use `in_tcp` plugin instead.
+
+It is included in Fluentd's core.
+
 
 ## Example Configuration
-
-`in_forward` is included in Fluentd's core. No additional installation
-process is required.
 
 ```
 <source>
@@ -26,26 +25,27 @@ process is required.
 </source>
 ```
 
-Please see the [Config File](/configuration/config-file.md) article for the basic
-structure and syntax of the configuration file.
+Refer to the [Configuration File](/configuration/config-file.md) article for the
+basic structure and syntax of the configuration file.
 
 
-## Plugin helpers
+## Plugin Helpers
 
--   [server](/developer/api-plugin-helper-server.md)
+-   [`server`](/developer/api-plugin-helper-server.md)
 
 
 ## Parameters
 
 -   [Common Parameters](/configuration/plugin-common-parameters.md)
--   [Transport section](/configuration/transport-section.md)
+-   [Transport Section](/configuration/transport-section.md)
 
-### @type
+
+### `@type`
 
 The value must be `forward`.
 
 
-### port
+### `port`
 
 | type    | default | version |
 |:--------|:--------|:--------|
@@ -54,7 +54,7 @@ The value must be `forward`.
 The port to listen to.
 
 
-### bind
+### `bind`
 
 | type   | default                 | version |
 |:-------|:------------------------|:--------|
@@ -63,23 +63,24 @@ The port to listen to.
 The bind address to listen to.
 
 
-### tag
+### `tag`
 
 | type   | default | version |
 |:-------|:--------|:--------|
 | string | nil     | 1.5.0  |
 
-`in_forward` uses incoming event's tag by default(See "Protocol" section).
-If set `tag` parameter, use its value instead.
+`in_forward` uses incoming event's tag by default (See Protocol Section).
+If `tag` parameter is set, its value is used instead.
 
 
-### add_tag_prefix
+### `add_tag_prefix`
 
 | type   | default | version |
 |:-------|:--------|:--------|
 | string | nil     | 1.5.0  |
 
-Add prefix to incoming event's tag.
+Adds prefix to the incoming event's tag.
+
 Here is an example:
 
 ```
@@ -92,54 +93,54 @@ Here is an example:
 With this configuration, the emitted tag is `prod.INCOMING_TAG`, e.g. `prod.app.log`.
 
 
-### linger\_timeout
+### `linger_timeout`
 
 | type    | default | version |
 |:--------|:--------|:--------|
 | integer | 0       | 0.14.0  |
 
-The timeout time used to set linger option.
+The timeout used to set linger option.
 
 
-### resolve\_hostname
+### `resolve_hostname`
 
 | type | default | version |
 |:-----|:--------|:--------|
 | bool | false   | 0.14.10 |
 
-Try to resolve hostname from IP addresses or not.
+Tries to resolve hostname from IP addresses or not.
 
 
-### deny\_keepalive
+### `deny_keepalive`
 
 | type | default | version |
 |:-----|:--------|:--------|
 | bool | false   | 0.14.5  |
 
-Connections will be disconnected right after receiving first message if
-this value is true.
+Connections will be disconnected right after receiving a message if
+this value is `true`.
 
 
-### send\_keepalive\_packet
+### `send_keepalive_packet`
 
 | type | default | version |
 |:-----|:--------|:--------|
 | bool | false   | 1.4.2   |
 
-Enable TCP keepalive of sockets. See [socket article](/developer/api-plugin-helper-socket.md/#send_keepalive_packet-usecase) for more details.
+Enables the TCP keepalive for sockets. See [socket article](/developer/api-plugin-helper-socket.md/#send_keepalive_packet-usecase) for more details.
 
 
-### chunk\_size\_limit
+### `chunk_size_limit`
 
 | type | default        | version |
 |:-----|:---------------|:--------|
 | size | nil (no limit) | 0.14.0  |
 
 The size limit of the the received chunk. If the chunk size is larger
-than this value, then the received chunk is dropped.
+than this value, the received chunk is dropped.
 
 
-### chunk\_size\_warn\_limit
+### `chunk_size_warn_limit`
 
 | type | default          | version |
 |:-----|:-----------------|:--------|
@@ -149,43 +150,43 @@ The warning size limit of the received chunk. If the chunk size is
 larger than this value, a warning message will be sent.
 
 
-### skip\_invalid\_event
+### `skip_invalid_event`
 
 | type | default | version |
 |:-----|:--------|:--------|
 | bool | false   | 0.14.0  |
 
-Skip an event if incoming event is invalid.
+Skips the invalid incoming event.
 
-This option is useful at forwarder, not aggragator.
+This option is useful at forwarder, not aggregator.
 
 
-### source\_address\_key
+### `source_address_key`
 
 | type   | default                 | version |
 |:-------|:------------------------|:--------|
 | string | nil (no adding address) | 0.14.11 |
 
-The field name of the client's source address. If set the value, the
+The field name of the client's source address. If set, the
 client's address will be set to its key.
 
 
-### source\_hostname\_key
+### `source_hostname_key`
 
 | type   | default                  | version |
 |:-------|:-------------------------|:--------|
 | string | nil (no adding hostname) | 0.14.4  |
 
-The field name of the client's hostname. If set the value, the client's
+The field name of the client's hostname. If set, the client's
 hostname will be set to its key.
 
-This iterates incoming events. So if you sends larger chunks to
+This iterates incoming events. So, if you send larger chunks to
 `in_forward`, it needs additional processing time.
 
 
-### &lt;transport&gt; section
+### `<transport>` Section
 
-This section is for using SSL transport.
+This section is for using SSL transport:
 
 ```
 <transport tls>
@@ -194,27 +195,27 @@ This section is for using SSL transport.
 </transport>
 ```
 
-See "How to Enable TLS Encryption" section for how to use and see
-["Configuration example" in "Server Plugin Helper" article](/developer/api-plugin-helper-server.md#configuration-example) for
-supported parameters
+See **How to Enable TLS Encryption** section for how to use and see
+[Configuration Example](/developer/api-plugin-helper-server.md#configuration-example) for all supported parameters.
 
-Without `<transport tls>`, in\_forward uses raw TCP.
+Without `<transport tls>`, `in_forward` uses raw TCP.
 
 
-### &lt;security&gt; section
+### `<security>` Section
 
 | required | multi | version |
 |:---------|:------|:--------|
 | false    | false | 0.14.5  |
 
-This section contains parameters related to authentication.
+This section contains parameters related to authentication:
 
-- self\_hostname
-- shared\_key
-- user\_auth
-- allow\_anonymous\_source
+-   `self_hostname`
+-   `shared_key`
+-   `user_auth`
+-   `allow_anonymous_source`
 
-#### self\_hostname
+
+#### `self_hostname`
 
 | type   | default            | version |
 |:-------|:-------------------|:--------|
@@ -222,7 +223,8 @@ This section contains parameters related to authentication.
 
 The hostname.
 
-#### shared\_key
+
+#### `shared_key`
 
 | type   | default            | version |
 |:-------|:-------------------|:--------|
@@ -230,21 +232,24 @@ The hostname.
 
 Shared key for authentication.
 
-#### user\_auth
+
+#### `user_auth`
 
 | type | default | version |
 |:-----|:--------|:--------|
 | bool | false   | 0.14.5  |
 
-If true, use user based authentication.
+If `true`, user-based authentication is used.
 
-#### allow\_anonymous\_source
+
+#### `allow_anonymous_source`
 
 | type | default | version |
 |:-----|:--------|:--------|
 | bool | true    | 0.14.5  |
 
-Allow anonymous source. `<client>` sections are required if disabled.
+Allows anonymous source. `<client>` sections are required if disabled.
+
 
 #### `<user>` section
 
@@ -252,14 +257,15 @@ Allow anonymous source. `<client>` sections are required if disabled.
 |:---------|:------|:--------|
 | false    | true  | 0.14.5  |
 
-This section contains user based authentication.
+This section contains user based authentication:
 
-- username
-- password
+-   `username`
+-   `password`
 
 This section can be used in `<security>`.
 
-##### username
+
+##### `username`
 
 | type   | default            | version |
 |:-------|:-------------------|:--------|
@@ -267,7 +273,8 @@ This section can be used in `<security>`.
 
 The username for authentication.
 
-##### password
+
+##### `password`
 
 | type   | default            | version |
 |:-------|:-------------------|:--------|
@@ -275,23 +282,24 @@ The username for authentication.
 
 The password for authentication.
 
+
 #### `<client>` section
 
 | required | multi | version |
 |:---------|:------|:--------|
 | false    | true  | 0.14.5  |
 
-This section contains that client IP/Network authentication and shared
-key per host.
+This section contains client IP/Network authentication and shared key per host:
 
-- host
-- network
-- shared\_key
-- users
+-   `host`
+-   `network`
+-   `shared_key`
+-   `users`
 
 This section can be used in `<security>`
 
-##### host
+
+##### `host`
 
 | type   | default | version |
 |:-------|:--------|:--------|
@@ -301,7 +309,8 @@ The IP address or host name of the client.
 
 This is exclusive with `network`.
 
-##### network
+
+##### `network`
 
 | type   | default | version |
 |:-------|:--------|:--------|
@@ -311,7 +320,8 @@ Network address specification.
 
 This is exclusive with `host`.
 
-##### shared\_key
+
+##### `shared_key`
 
 | type   | default | version |
 |:-------|:--------|:--------|
@@ -319,26 +329,27 @@ This is exclusive with `host`.
 
 Shared key per client.
 
-##### users
+
+##### `users`
 
 | type  | default | version |
 |:------|:--------|:--------|
 | array | `[]`    | 0.14.5  |
 
-Array of username.
+Array of username(s).
 
 
 ## Protocol
 
 This plugin accepts both JSON or [MessagePack](http://msgpack.org/)
-messages and automatically detects which is used. Internally, Fluent
+messages and automatically detects which one is used. Internally, Fluentd
 uses MessagePack as it is more efficient than JSON.
 
-The time value is a EventTime or a platform specific integer and is
+The time value is a `EventTime` or a platform-specific integer and is
 based on the output of Ruby's `Time.now.to_i` function. On Linux, BSD
 and MAC systems, this is the number of seconds since 1970.
 
-Multiple messages may be sent in the same connection.
+Multiple messages may be sent on the same connection:
 
 ```
 stream:
@@ -357,7 +368,7 @@ example:
 For more details, see [Fluentd Forward Protocol Specification (v1)](https://github.com/fluent/fluentd/wiki/Forward-Protocol-Specification-v1).
 
 
-## Tips & Tricks
+## Tips and Tricks
 
 
 ### How to Enable TLS Encryption
@@ -375,8 +386,7 @@ $ openssl req -new -x509 -sha256 -days 1095 -newkey rsa:2048 \
 #  - subject information (to be included in the certificate)
 ```
 
-Move the generated certificate and private key to a safer place. For
-example:
+Move the generated certificate and private key to a safer place. For example:
 
 ```
 # Move files into /etc/td-agent
@@ -389,8 +399,7 @@ $ sudo chmod 700 /etc/td-agent/certs/
 $ sudo chmod 400 /etc/td-agent/certs/fluentd.key
 ```
 
-Then add the following settings to `td-agent.conf`, and then restart the
-service:
+Then, add the following settings to `td-agent.conf` and restart the service:
 
 ```
 <source>
@@ -415,14 +424,15 @@ $ echo -e '\x93\xa9debug.tls\xceZr\xbc1\x81\xa3foo\xa3bar' | \
   openssl s_client -connect localhost:24224
 ```
 
-If you can confirm TLS encryption has been set up correctly, please proceed to [the configuration of the out\_forward server](/plugins/output/forward.md/#how-to-connect-to-a-tls/ssl-enabled-server).
+If you can confirm TLS encryption has been set up correctly, please proceed to
+the configuration of the [`out_forward`](/plugins/output/forward.md/#how-to-connect-to-a-tls/ssl-enabled-server) server.
 
 
 ### How to Enable TLS Mutual Authentication
 
 Since v1.1.1, Fluentd supports [TLS mutual authentication](https://en.wikipedia.org/wiki/Mutual_authentication)
-(a.k.a. client certificate auth). If you want to use this feature,
-please set the `client_cert_auth` and `ca_path` options as follows.
+(i.e. client certificate auth). If you want to use this feature,
+please set the `client_cert_auth` and `ca_path` options like this:
 
 ```
 <source>
@@ -435,9 +445,9 @@ please set the `client_cert_auth` and `ca_path` options as follows.
 </source>
 ```
 
-When this feature is enabled, Fluentd will check all incoming requests
-for a client certificate signed by the trusted CA. Requests that don't
-supply a valid client certificate will fail.
+When this feature is enabled, Fluentd will check all the incoming requests for a
+client certificate signed by the trusted CA. Requests with an invalid client
+certificate will fail.
 
 To check if mutual authentication is working properly, issue the
 following command:
@@ -449,11 +459,11 @@ $ openssl s_client -connect localhost:24224 \
   -CAfile path/to/ca.crt
 ```
 
-If the connection gets established successfully, your setup is working
-fine.
+If the connection gets established successfully, your setup is working fine.
 
-+For fluentd and fluent-bit combination, see Banzai Cloud article:
-[Secure logging on Kubernetes with Fluentd and Fluent Bit](https://banzaicloud.com/blog/k8s-logging-tls/)
++For `fluentd` and `fluent-bit` combination, see Banzai Cloud article:
+[Secure logging on Kubernetes with Fluentd and Fluent Bit](https://banzaicloud.com/blog/k8s-logging-tls/).
+
 
 ### How to Enable Password Authentication
 
@@ -462,7 +472,7 @@ which allows you to verify the identity of each client using a shared
 secret key.
 
 To enable this feature, you need to add a `<security>` section to your
-configuration file as below.
+configuration file like this:
 
 ```
 <source>
@@ -474,12 +484,12 @@ configuration file as below.
 </source>
 ```
 
-Once you've done the setup, you have to configure your clients
+Once the setup is complete, you have to configure your clients
 accordingly. For example, if you have an `out_forward` instance running
-on another server, please [configure it following the instruction](/plugins/output/forward.md/#how-to-enable-password-authentication).
+on another server, configure it by following these [instructions](/plugins/output/forward.md/#how-to-enable-password-authentication).
 
 
-### Multi-process environment
+### Multi-process Environment
 
 If you use this plugin under multi-process environment, port will be
 shared.
@@ -495,8 +505,8 @@ shared.
 </source>
 ```
 
-With this configuration, 3 workers share 24224 port. No need additional
-port. Incoming data will be routed to 3 workers automatically.
+With this configuration, three (3) workers share 24224 port. No need for an
+additional port. Incoming data will be routed to the workers automatically.
 
 
 ## FAQ
@@ -504,15 +514,20 @@ port. Incoming data will be routed to 3 workers automatically.
 
 ### How to parse incoming events?
 
-`in_forward` doesn't provide parsing mechanism unlike `in_tail` or
-`in_tcp` because `in_forward` is mainly for efficient log transfer. If
-you want to parse incoming event, use [parser filter](/plugins/filter/parser.md) in your
-pipeline.\
-See Docker logging driver usecase: [Docker Logging](http://www.fluentd.org/guides/recipes/docker-logging)
+`in_forward` does not provide parsing mechanism unlike `in_tail` or `in_tcp`
+because `in_forward` is mainly for efficient log transfer. If you want to parse
+an incoming event, use [parser filter](/plugins/filter/parser.md) in your
+pipeline.
+
+See [Docker Logging](http://www.fluentd.org/guides/recipes/docker-logging)
+driver use case.
 
 
 ------------------------------------------------------------------------
 
-If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open).
-[Fluentd](http://www.fluentd.org/) is a open source project under [Cloud Native Computing Foundation (CNCF)](https://cncf.io/). All components are available under the Apache 2 License.
+If this article is incorrect or outdated, or omits critical information, please
+[let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open).
+[Fluentd](http://www.fluentd.org/) is an open-source project under [Cloud Native
+Computing Foundation (CNCF)](https://cncf.io/). All components are available
+under the Apache 2 License.
 

@@ -1,16 +1,16 @@
 # TCP Input Plugin
 
-![](/images/plugins/input/tcp.png)
+![tcp.png](/images/plugins/input/tcp.png)
 
 The `in_tcp` Input plugin enables Fluentd to accept TCP payload.
+
+It is included in Fluentd's core.
 
 Don't use this plugin for receiving logs from Fluentd client
 libraries. Use `in_forward` for such cases.
 
-## Example Configuration
 
-`in_tcp` is included in Fluentd's core. No additional installation
-process is required.
+## Example Configuration
 
 ```
 <source>
@@ -32,48 +32,48 @@ Example input:
 $ echo '123456:awesome' | netcat 0.0.0.0 5170
 ```
 
-Parsed result like below:
+Parsed result:
 
 ```
 {"field1":"123456","field2":"awesome"}
 ```
 
-Please see the [Config File](/configuration/config-file.md) article for the basic
-structure and syntax of the configuration file. For `<parse>` section,
-please check [Parse section cofiguration](/configuration/parse-section.md).
+Refer to the [Configuration File](/configuration/config-file.md) article for the
+basic structure and syntax of the configuration file.
 
-We\'ve observed the drastic performance improvements on Linux, with
-proper kernel parameter settings. If you have high-volume TCP traffic,
-please make sure to follow the instruction described at [Before Installing Fluentd](/install/before-install.md).
+For `<parse>`, see [Parse Section](/configuration/parse-section.md).
+
+We have observed drastic performance improvements on Linux, with
+proper kernel parameter settings. If you have high-volume TCP traffic, follow [Before Installing Fluentd](/install/before-install.md) instructions.
 
 
-## Plugin helpers
+## Plugin Helpers
 
--   [server](/developer/api-plugin-helper-server.md)
--   [parser](/developer/api-plugin-helper-parser.md)
--   [extract](/developer/api-plugin-helper-extract.md)
--   [compat\_parameters](/developer/api-plugin-helper-compat_parameters.md)
+-   [`server`](/developer/api-plugin-helper-server.md)
+-   [`parser`](/developer/api-plugin-helper-parser.md)
+-   [`extract`](/developer/api-plugin-helper-extract.md)
+-   [`compat_parameters`](/developer/api-plugin-helper-compat_parameters.md)
 
 
 ## Parameters
 
-[Common Parameters](/configuration/plugin-common-parameters.md)
+See [Common Parameters](/configuration/plugin-common-parameters.md).
 
-### @type
+### `@type`
 
 The value must be `tcp`.
 
 
-### tag
+### `tag`
 
 | type   | default            | version |
 |:-------|:-------------------|:--------|
 | string | required parameter | 0.14.0  |
 
-tag of output events.
+The tag of output events.
 
 
-### port
+### `port`
 
 | type    | default | version |
 |:--------|:--------|:--------|
@@ -82,7 +82,7 @@ tag of output events.
 The port to listen to.
 
 
-### bind
+### `bind`
 
 | type   | default                 | version |
 |:-------|:------------------------|:--------|
@@ -91,23 +91,22 @@ The port to listen to.
 The bind address to listen to.
 
 
-### source\_hostname\_key
+### `source_hostname_key`
 
 | type   | default                  | version |
 |:-------|:-------------------------|:--------|
 | string | nil (no adding hostname) | 0.14.10 |
 
-The field name of the client's hostname. If set the value, the client's
-hostname will be set to its key. The default is nil (no adding
-hostname).
+The field name of the client's hostname. If set, the client's hostname will be
+set to its key. The default is `nil` (no adding hostname).
 
-If you set following configuration:
+With this configuration:
 
 ```
 source_hostname_key client_host
 ```
 
-then the client's hostname is set to `client_host` field.
+The client's hostname is set to `client_host` field:
 
 ```
 {
@@ -117,59 +116,68 @@ then the client's hostname is set to `client_host` field.
 }
 ```
 
-### source\_address\_key
+
+### `source_address_key`
 
 | type   | default                        | version |
 |:------:|:------------------------------:|:-------:|
 | string | nil (no adding source address) | 1.4.2   |
 
-The field name for the client's IP address. If you set this option, Fluentd automatically adds the remote address to each data record.
+The field name for the client's IP address. If set, Fluentd automatically adds
+the remote address to each data record.
 
 For example, if you have the following configuration:
 
-    <source>
-      @type tcp
-      source_address_key client_addr
-      ...
-    </source>
+```
+<source>
+  @type tcp
+  source_address_key client_addr
+  # ...
+</source>
+```
 
-you will get something like below:
+You will get something like below:
 
-    :::text
-    {
-        ...
-        "client_addr": "192.168.10.10"
-        ...
-    }
+```
+{
+    ...
+    "client_addr": "192.168.10.10"
+    ...
+}
+```
 
-### &lt;transport&gt; section
+
+### `<transport>` Section
 
 | type | default | available values | version |
 |:-----|:--------|:-----------------|:--------|
-| enum | udp     | tls      | 0.14.12  |
+| enum | udp     | tls              | 0.14.12 |
 
 This section is for using TLS transport.
 
 ```
 <transport tls>
   cert_path /path/to/fluentd.crt
-  # other parameters
+  # ...
 </transport>
 ```
 
-Without `<transport tls>`, in\_tcp uses raw TCP.
+Without `<transport tls>`, `in_tcp` uses raw TCP.
 
-### &lt;security&gt; section
+
+### `<security>` Section
 
 | required | multi | version |
 |:---------|:------|:--------|
 | false    | false |  1.7.2  |
 
-Add `<security>/<client>` section to allow access by Host/IP/Network
+Adds `<security>/<client>` section to allow access by Host/IP/Network.
 
-#### `<client>` section
 
-##### host
+#### `<client>` Section
+
+
+##### `host`
 
 | type   | default | version |
 |:-------|:--------|:--------|
@@ -179,7 +187,8 @@ The IP address or host name of the client.
 
 This is exclusive with `network`.
 
-##### network
+
+##### `network`
 
 | type   | default | version |
 |:-------|:--------|:--------|
@@ -189,7 +198,8 @@ Network address specification.
 
 This is exclusive with `host`.
 
-### &lt;parse&gt; section
+
+### `<parse>` Section
 
 | required | multi | version |
 |:---------|:------|:--------|
@@ -197,15 +207,15 @@ This is exclusive with `host`.
 
 `in_tcp` uses parser plugin to parse the payload.
 
-For more details about parser plugin, see followings:
+For more details:
 
 -   [Parser Plugin Overview](/plugins/parser/README.md)
--   [Parse section configurations](/configuration/parse-section.md)
+-   [Parse Section Configurations](/configuration/parse-section.md)
 
 
-## Code example
+## Code Example
 
-Here is ruby example to send event to `in_tcp`.
+Here is a Ruby example to send event to `in_tcp`:
 
 ```
 require 'socket'
@@ -217,11 +227,16 @@ TCPSocket.open('127.0.0.1', 5170) do |s|
   s.write('{"k":"v2"}' + "\n")
 end
 ```
+
+
 ## Tips
+
 
 ### How to Enable TLS Encryption
 
-`in_tcp` support TLS tranport. Here is configuration example.
+`in_tcp` supports TLS transport.
+
+Example:
 
 ```
 <source>
@@ -238,30 +253,30 @@ end
 </source>
 ```
 
+
 ### How to Enable TLS Mutual Authentication
 
 Fluentd supports [TLS mutual authentication](https://en.wikipedia.org/wiki/Mutual_authentication)
-(a.k.a. client certificate auth). If you want to use this feature,
-please set the `client_cert_auth` and `ca_path` options as follows.
+(i.e. client certificate auth). If you want to use this feature,
+please set the `client_cert_auth` and `ca_path` options like this:
 
 ```
 <source>
   @type tcp
   port 20001
   <transport tls>
-    ...
+    # ...
     client_cert_auth true
     ca_path /path/to/ca/cert
   </transport>
 </source>
 ```
 
-When this feature is enabled, Fluentd will check all incoming requests
-for a client certificate signed by the trusted CA. Requests that don't
-supply a valid client certificate will fail.
+When this feature is enabled, Fluentd will check all the incoming requests for a
+client certificate signed by the trusted CA. Requests with an invalid client
+certificate will fail.
 
-To check if mutual authentication is working properly, issue the
-following command:
+To check if mutual authentication is working properly, issue these commands:
 
 ```
 $ openssl s_client -connect localhost:20001 \
@@ -270,10 +285,13 @@ $ openssl s_client -connect localhost:20001 \
   -CAfile path/to/ca.crt
 ```
 
-If the connection gets established successfully, your setup is working
-fine.
+If the connection gets established successfully, your setup is working fine.
+
 
 ------------------------------------------------------------------------
 
-If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open).
-[Fluentd](http://www.fluentd.org/) is a open source project under [Cloud Native Computing Foundation (CNCF)](https://cncf.io/). All components are available under the Apache 2 License.
+If this article is incorrect or outdated, or omits critical information, please
+[let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open).
+[Fluentd](http://www.fluentd.org/) is an open-source project under [Cloud Native
+Computing Foundation (CNCF)](https://cncf.io/). All components are available
+under the Apache 2 License.
