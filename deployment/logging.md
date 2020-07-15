@@ -1,15 +1,14 @@
 # Logging of Fluentd
 
-This article describes Fluentd's logging mechanism.
+This article describes Fluentd logging mechanism.
 
-Fluentd has two log layers: global and per plugin. Different log levels
+Fluentd has two logging layers: global and per plugin. Different log levels
 can be set for global logging and plugin level logging.
 
 
 ## Log Level
 
-Shown below is the list of supported values, in increasing order of
-verbosity:
+Here is the list of supported levels in increasing order of verbosity:
 
 -   `fatal`
 -   `error`
@@ -18,13 +17,13 @@ verbosity:
 -   `debug`
 -   `trace`
 
-The default log level is `info`, and Fluentd outputs `info`, `warn`,
-`error` and `fatal` logs by default.
+The default log level is `info`, and Fluentd outputs `info`, `warn`, `error` and
+`fatal` logs by default.
 
 
 ## Global Logs
 
-Global logging is used by Fluentd core and plugins that don't set their
+Global logging is used by Fluentd core and plugins that do not set their
 own log levels. The global log level can be adjusted up or down.
 
 
@@ -36,31 +35,32 @@ The `-v` option sets the verbosity to `debug` while the `-vv` option
 sets the verbosity to `trace`.
 
 ```
-$ fluentd -v  ... # debug level
-$ fluentd -vv ... # trace level
+$ fluentd -v  ... # debug log level
+$ fluentd -vv ... # trace log level
 ```
 
 These options are useful for debugging purposes.
 
+
 #### Decrease Verbosity Level
 
 The `-q` option sets the verbosity to `warn` while the `-qq` option sets
-the verbosity to `error`.
+the verbosity to `error`:
 
 ```
-$ fluentd -q  ... # warn level
-$ fluentd -qq ... # error level
+$ fluentd -q  ... # warn log level
+$ fluentd -qq ... # error log level
 ```
 
 
 ### By Config File
 
-You can also change the logging level with `<system>` section in the
-config file like below.
+You can also change the logging level with `<system>` section in the config file:
 
 ```
+# same as -qq command line option
+
 <system>
-  # equal to -qq option
   log_level error
 </system>
 ```
@@ -71,31 +71,35 @@ config file like below.
 The `@log_level` option sets different levels of logging for each
 plugin. It can be set in each plugin's configuration file.
 
-For example, in order to debug [in\_tail](/plugins/input/tail.md) but suppress all but
-fatal log messages for [in\_http](/plugins/input/http.md), their respective
-`@log_level` options should be set as follows:
+For example, in order to debug [`in_tail`](/plugins/input/tail.md) and to
+suppress all but fatal log messages for [`in_http`](/plugins/input/http.md),
+their respective `@log_level` options should be set as follows:
 
 ```
 <source>
   @type tail
   @log_level debug
   path /var/log/data.log
-  ...
+  # ...
 </source>
+
 <source>
   @type http
   @log_level fatal
 </source>
 ```
 
-If you don't specify the `@log_level` parameter, the plugin will use the
-global log level.
+If you do not specify the `@log_level` parameter, the plugin will use the global
+log level.
 
 
-## Log format
+## Log Format
 
-`text` and `json` are supported. The default is `text`. The format can
-be changed via `<log>` directive in `<system>`.
+Following format are supported:
+-   `text` (default)
+-   `json`
+
+The format can be configured through `<log>` directive under `<system>`:
 
 ```
 <system>
@@ -106,48 +110,51 @@ be changed via `<log>` directive in `<system>`.
 </system>
 ```
 
-With this setting:
+With this setting, the following log line:
 
 ```
 2017-07-27 06:44:54 +0900 [info]: #0 fluentd worker is now running worker=0
 ```
 
-This `text` log line is changed to:
+is changed to:
 
 ```
 {"time":"2017-07-27","level":"info","message":"fluentd worker is now running worker=0","worker_id":0}
 ```
 
 
-## Output to log file
+## Output to Log File
 
-Fluentd outputs logs to `STDOUT` by default. To output to a file
-instead, please specify the `-o` option.
+By default, Fluentd outputs to the standard output. Use `-o` command line option
+to specify the file instead:
 
 ```
 $ fluentd -o /path/to/log_file
 ```
 
 
-### Log rotation setting
+### Log Rotation Setting
 
-Fluentd doesn't rotate logs by default. You can configure this behaviour
+By default, Fluentd does not rotate log files. You can configure this behavior
 via command line options:
 
-#### --log-rotate-age AGE
+#### `--log-rotate-age AGE`
 
-AGE is integer or string:
+`AGE` is an integer or a string:
 
 -   integer: Generations to keep rotated log files.
--   string: frequency of rotation. `daily`, `weekly` and `monthly` are
-    supported
+-   string: frequency of rotation. (Supported: `daily`, `weekly`, `monthly`)
 
-NOTE: When `--log-rotate-age` specified on Windows, log files are separated into log-supervisor-0.log, log-0.log, ..., log-N.log where N is `generation - 1` due to system limitation. Windows does not permit delete and rename files which are owned by another process.
+NOTE: When `--log-rotate-age` is specified on Windows, log files are separated
+into `log-supervisor-0.log`, `log-0.log`, ..., `log-N.log` where `N` is
+`generation - 1` due to the system limitation. Windows does not permit delete
+and rename files simultaneously owned by another process.
 
-#### --log-rotate-size BYTES
 
-The byte size to rotate log files. This is applied when
-`--log-rotate-age` is specified with integer.
+#### `--log-rotate-size BYTES`
+
+The byte size to rotate log files. This is applied when `--log-rotate-age` is
+specified with integer:
 
 Here is an example:
 
@@ -155,7 +162,11 @@ Here is an example:
 $ fluentd -c fluent.conf --log-rotate-age 5 --log-rotate-size 104857600
 ```
 
-NOTE: When `--log-rotate-size` specified on Windows, log files are separated into log-supervisor-0.log, log-0.log, ..., log-N.log where N is `generation - 1` due to system limitation. Windows does not permit delete and rename files which are owned by another process.
+NOTE: When `--log-rotate-size` is specified on Windows, log files are separated
+into `log-supervisor-0.log`, `log-0.log`, ..., `log-N.log` where `N` is
+`generation - 1` due to the system limitation. Windows does not permit delete
+and rename files simultaneously owned by another process.
+
 
 ## Capture Fluentd logs
 
@@ -169,6 +180,7 @@ For example, if you have the following configuration:
 
 ```
 # omit other source / match
+
 <label @FLUENT_LOG>
   <match fluent.*>
     @type stdout
@@ -176,7 +188,7 @@ For example, if you have the following configuration:
 </label>
 ```
 
-then Fluentd outputs `fluent.info` logs to stdout like below:
+Then, Fluentd outputs `fluent.info` logs to stdout like this:
 
 ```
 2014-02-27 00:00:00 +0900 [info]: shutting down fluentd
@@ -185,13 +197,14 @@ then Fluentd outputs `fluent.info` logs to stdout like below:
 ```
 
 
-### Case1: Send Fluentd logs to monitoring service
+### Case 1: Send Fluentd Logs to Monitoring Service
 
-You can send Fluentd logs to a monitoring service by plugins, e.g.
-datadog, sentry, irc, etc.
+You can send Fluentd logs to a monitoring service by plugins e.g. datadog,
+sentry, irc, etc.
 
 ```
 # Add hostname for identifying the server
+
 <label @FLUENT_LOG>
   <filter fluent.*>
     @type record_transformer
@@ -202,24 +215,26 @@ datadog, sentry, irc, etc.
 
   <match fluent.*>
     @type monitoring_plugin
-    # parameters...
+    # ...
   </match>
 <label>
 ```
 
 
-### Case2: Use aggregation/monitoring server
+### Case 2: Use Aggregation/Monitoring Server
 
-You can use [out\_forward](/plugins/output/forward.md) to send Fluentd logs to a
+You can use [`out_forward`](/plugins/output/forward.md) to send Fluentd logs to a
 monitoring server. The monitoring server can then filter and send the
-logs to your notification system: chat, irc, etc.
+logs to your notification system e.g. chat, irc, etc.
 
-Leaf server example:
+Leaf Server Example:
 
 ```
 # Add hostname for identifying the server and tag to filter by log level
+
 <label @FLUENT_LOG>
   # If you want to capture only error events, use 'fluent.error' instead.
+
   <filter fluent.*>
     @type record_transformer
     <record>
@@ -237,14 +252,16 @@ Leaf server example:
 <label>
 ```
 
-Monitoring server example:
+Monitoring Server Example:
 
 ```
 <source>
   @type forward
 </source>
 
-# Ignore trace, debug and info log. Of course, you can use strict matching like `<filter fluent.{warn,error,fatal}>` without grep filter.
+# Ignore trace, debug and info log. Of course, you can use strict matching
+# like `<filter fluent.{warn,error,fatal}>` without grep filter.
+
 <filter fluent.*>
   @type grep
   <regexp>
@@ -253,8 +270,8 @@ Monitoring server example:
   </regexp>
 </filter>
 
+# your notification setup. This example uses irc plugin
 <match fluent.*>
-  # your notification setup. This example uses irc plugin
   @type irc
   host irc.domain
   channel notify
@@ -262,25 +279,27 @@ Monitoring server example:
   out_keys original_tag,time,host,message
 </match>
 
-# Unlike v0.12, if `<label @FLUENT_LOG>` is defiend, `<match fluent.*>` in root is not used for log capturing.
+# Unlike v0.12, if `<label @FLUENT_LOG>` is defined,
+# `<match fluent.*>` in root is not used for log capturing.
+
 <label @FLUENT_LOG>
   # Monitoring server's internal log
 </label>
 ```
 
-If an error occurs, you will get a notification message in your Slack `notify` channel.
+If an error occurs, you will get a notification message in your Slack `notify` channel:
 
 ```
 01:01  fluentd: [11:10:24] notice: fluent.warn [2014/02/27 01:00:00] @leaf.server.domain detached forwarding server 'server.name'
 ```
 
-### Deprecate top-level match
+### Deprecate Top-Level Match
 
 You can still use [v0.12 way](https://fluentd.gitbook.io/manual/v/0.12/deployment/logging#capture-fluentd-logs) without `<label @FLUENT_LOG>` but
-this feature is deprecated. This feature will be removed at fluentd v2.
+this feature is deprecated. This feature will be removed in fluentd v2.
 
 
 ------------------------------------------------------------------------
 
 If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open).
-[Fluentd](http://www.fluentd.org/) is a open source project under [Cloud Native Computing Foundation (CNCF)](https://cncf.io/). All components are available under the Apache 2 License.
+[Fluentd](http://www.fluentd.org/) is an open-source project under [Cloud Native Computing Foundation (CNCF)](https://cncf.io/). All components are available under the Apache 2 License.

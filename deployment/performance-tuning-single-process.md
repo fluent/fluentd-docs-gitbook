@@ -1,39 +1,37 @@
 # Performance Tuning (Single Process)
 
-This article describes how to optimize Fluentd's performance within
+This article describes how to optimize Fluentd performance within
 single process. If your traffic is up to 5,000 messages/sec, the
 following techniques should be enough.
 
-With more traffic, Fluentd tends to be more CPU bound. In such case,
-please consider using
-["multi-worker" feature](/deployment/multi-process-workers.md).
+With more traffic, Fluentd tends to be more CPU bound. In this case, consider
+using [`multi-worker`](/deployment/multi-process-workers.md) feature.
 
 
-## Check your OS configuration
+## Check your OS Configuration
 
-Please follow the [Preinstallation Guide](/install/before-install.md) to configure
+Follow the [Pre-installation Guide](/install/before-install.md) to configure
 your OS properly. This can drastically improve the performance, and
 prevent many unnecessary problems.
 
 
-## Check top command
+## Check `top` Command
 
-If Fluentd doesn't perform as well as you had expected, please check the
-`top` command first. You need to identify which part of your system is
-the bottleneck (CPU? Memory? Disk I/O? etc).
-
-
-## Avoid extra computations
-
-This is more like a general recommendation, but it's always better **NOT
-TO HAVE** extra computation inside Fluentd. Fluentd is flexible to do
-quite a bit internally, but adding too much logic to Fluentd's
-configuration file makes it difficult to read and maintain, while making
-it also less robust. The configuration file should be as simple as
-possible.
+If Fluentd does not perform well as expected, check with the `top` command
+first. Try to identify which part of your system is becoming a bottleneck (CPU,
+Memory, Disk I/O, etc.).
 
 
-## Use flush\_thread\_count parameter
+## Avoid Extra Computations
+
+This is a general recommendation. It is suggested **NOT TO HAVE** extra
+computations inside Fluentd. Fluentd is flexible to do quite a bit internally,
+but adding too much logic to configuration file makes it difficult to read and
+maintain, while making it less robust. The configuration file should be as
+simple as possible.
+
+
+## Use `flush_thread_count` Parameter
 
 If the destination for your logs is a remote storage or service, adding
 a `flush_thread_count` option will parallelize your outputs (the default
@@ -45,17 +43,17 @@ parameter is available for all output plugins.
   @type output_plugin
   <buffer ...>
     flush_thread_count 8
-    ...
+    # ...
   </buffer>
-  ...
+  # ...
 </match>
 ```
 
-The important point is this option doesn't improve the processing
-performance, e.g. numerical computation, mutating record, etc.
+Note that this option does not improve the processing performance e.g. numerical
+computation, mutating record, etc.
 
 
-## Use external gzip command for S3/TD
+## Use External `gzip` Command for S3/TD
 
 Ruby has GIL (Global Interpreter Lock), which allows only one thread to
 execute at a time. While I/O tasks can be multiplexed, CPU-intensive
@@ -63,7 +61,7 @@ tasks will block other jobs. One of the CPU-intensive tasks in Fluentd
 is compression.
 
 The S3/Treasure Data plugin allows compression outside of the Fluentd
-process, using gzip. This frees up the Ruby interpreter while allowing
+process, using `gzip`. This frees up the Ruby interpreter while allowing
 Fluentd to process other tasks.
 
 ```
@@ -73,9 +71,9 @@ Fluentd to process other tasks.
   store_as gzip_command
   <buffer ...>
     flush_thread_count 8
-    ...
+    # ...
   </buffer>
-  ...
+  # ...
 </match>
 
 # Treasure Data
@@ -84,9 +82,9 @@ Fluentd to process other tasks.
   use_gzip_command
   <buffer ...>
     flush_thread_count 8
-    ...
+    # ...
   </buffer>
-  ...
+  # ...
 </match>
 ```
 
@@ -95,13 +93,15 @@ effective for most Fluentd deployments. As before, you can run this with
 `flush_thread_count` option as well.
 
 
-## Reduce memory usage
+## Reduce Memory Usage
 
 Ruby has several GC parameters to tune GC performance and you can
-configure these parameters via environment variable([Parameter list is here](https://github.com/ruby/ruby/blob/61701ae1675f790ee3f59207283642dbe64c2d37/gc.c#L7417)).
-To reduce memory usage, set `RUBY_GC_HEAP_OLDOBJECT_LIMIT_FACTOR` to
+configure these parameters via environment variable([Parameter list](https://github.com/ruby/ruby/blob/61701ae1675f790ee3f59207283642dbe64c2d37/gc.c#L7417)).
+To reduce memory usage, set `RUBY_GC_HEAP_OLDOBJECT_LIMIT_FACTOR` to a
 lower value. `RUBY_GC_HEAP_OLDOBJECT_LIMIT_FACTOR` is used for full GC
-trigger and the default is `2.0`. Quote from documentation.
+trigger and the default is `2.0`.
+
+Here's a quote from the documentation:
 
 ```
 Do full GC when the number of old objects is more than R * N
@@ -109,16 +109,16 @@ Do full GC when the number of old objects is more than R * N
   N is the number of old objects just after last full GC.
 ```
 
-So default GC behaviour doesn't call full GC until the number of old
+So, the default GC behavior does not call full GC until the number of old
 objects reaches `2.0 * before old objects`. This improves the throughput
 but it grows the total memory usage. This setting is not good for low
-resource environment, e.g. small container. For such cases, try
+resource environment e.g. a small container. For such cases, try
 `RUBY_GC_HEAP_OLDOBJECT_LIMIT_FACTOR=0.9` or
 `RUBY_GC_HEAP_OLDOBJECT_LIMIT_FACTOR=1.2`.
 
 See [Ruby 2.1 Garbage Collection: ready for production](https://samsaffron.com/archive/2014/04/08/ruby-2-1-garbage-collection-ready-for-production)
 and [Watching and Understanding the Ruby 2.1 Garbage Collector at Work](https://thorstenball.com/blog/2014/03/12/watching-understanding-ruby-2.1-garbage-collector/)
-article for more detail.
+articles for more detail.
 
 
 ## Multi-workers
@@ -133,10 +133,10 @@ recommend using `multi workers` feature.
 </system>
 ```
 
-For the details of this feature, please read [multi process workers](/deployment/multi-process-workers.md) article.
+For more details on this feature, please read [multi process workers](/deployment/multi-process-workers.md) article.
 
 
 ------------------------------------------------------------------------
 
 If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open).
-[Fluentd](http://www.fluentd.org/) is a open source project under [Cloud Native Computing Foundation (CNCF)](https://cncf.io/). All components are available under the Apache 2 License.
+[Fluentd](http://www.fluentd.org/) is an open-source project under [Cloud Native Computing Foundation (CNCF)](https://cncf.io/). All components are available under the Apache 2 License.
