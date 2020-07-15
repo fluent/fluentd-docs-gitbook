@@ -1,9 +1,9 @@
 # Centralize Logs from Perl Applications
 
-The '[Fluent::Logger](http://github.com/fluent/fluent-logger-perl)'
-library is used to post records from Perl applications to Fluentd.
+The [`Fluent::Logger`](http://github.com/fluent/fluent-logger-perl) library is
+used to post records from Perl applications to Fluentd.
 
-This article explains how to use the Fluent::Logger library.
+This article explains how to use it.
 
 
 ## Prerequisites
@@ -15,7 +15,7 @@ This article explains how to use the Fluent::Logger library.
 
 ## Installing Fluentd
 
-Please refer to the following documents to install fluentd.
+Please refer to the following documents to install fluentd:
 
 -   [Install Fluentd with rpm Package](/install/install-by-rpm.md)
 -   [Install Fluentd with deb Package](/install/install-by-deb.md)
@@ -25,7 +25,8 @@ Please refer to the following documents to install fluentd.
 
 ## Modifying the Config File
 
-Next, please configure Fluentd to use the [forward Input plugin](/plugins/input/forward.md) as its data source.
+Configure Fluentd to use the [`forward`](/plugins/input/forward.md) input plugin
+as its data source:
 
 ```
 <source>
@@ -37,28 +38,28 @@ Next, please configure Fluentd to use the [forward Input plugin](/plugins/input/
 </match>
 ```
 
-Please restart your agent once these lines are in place.
+Restart agent after configuring.
 
 ```
 # for rpm/deb only
 $ sudo /etc/init.d/td-agent restart
+
 # or systemd
 $ sudo systemctl restart td-agent.service
 ```
 
 
-## Using Fluent::Logger
+## Using `Fluent::Logger`
 
-First, install the
-*[Fluent::Logger](http://search.cpan.org/dist/Fluent-Logger/)* library
-via CPAN.
+Install [`Fluent::Logger`](http://search.cpan.org/dist/Fluent-Logger/) library
+via CPAN:
 
 ```
 $ cpan
 cpan[1]> install Fluent::Logger
 ```
 
-Next, initialize and post the records as shown below.
+Create a script to post the records:
 
 ```
 # test.pl
@@ -71,14 +72,15 @@ my $logger = Fluent::Logger->new(
 $logger->post("follow", { "entry1" => "value1", "entry2" => 2 });
 ```
 
-Executing the script will send the logs to Fluentd.
+Executing the script will send the logs to Fluentd:
 
 ```
 $ perl test.pl
 ```
 
-The logs should be output to `/var/log/td-agent/td-agent.log` or stdout
-of the Fluentd process via the [stdout Output plugin](/plugins/output/stdout.md).
+The logs should be output to `/var/log/td-agent/td-agent.log` or the standard
+output of the Fluentd process via [`stdout`](/plugins/output/stdout.md) output
+plugin.
 
 
 ## Production Deployments
@@ -103,9 +105,9 @@ writing records to other destinations:
 
 ### High-Availability Configurations of Fluentd
 
-For high-traffic websites (more than 5 application nodes), we recommend
-using a high availability configuration of td-agent. This will improve
-data transfer reliability and query performance.
+For high-traffic websites (more than 5 application nodes), we recommend using
+high-availability configuration for `td-agent`. This will improve the
+reliability of data transfer and query performance.
 
 -   [High-Availability Configurations of Fluentd](/deployment/high-availability.md)
 
@@ -113,12 +115,15 @@ data transfer reliability and query performance.
 ### Monitoring
 
 Monitoring Fluentd itself is also important. The article below describes
-general monitoring methods for td-agent.
+general monitoring methods for `td-agent`.
 
 -   [Monitoring Fluentd](/deployment/monitoring.md)
 
 
 ------------------------------------------------------------------------
 
-If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open).
-[Fluentd](http://www.fluentd.org/) is a open source project under [Cloud Native Computing Foundation (CNCF)](https://cncf.io/). All components are available under the Apache 2 License.
+If this article is incorrect or outdated, or omits critical information, please
+[let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open).
+[Fluentd](http://www.fluentd.org/) is an open-source project under [Cloud Native
+Computing Foundation (CNCF)](https://cncf.io/). All components are available
+under the Apache 2 License.
