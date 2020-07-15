@@ -1,9 +1,8 @@
-# file_single Buffer Plugin
+# `file_single` Buffer Plugin
 
-The `file_single` buffer plugin provides a persistent buffer implementation. It
-uses files to store buffer chunks on disk.
+The `file_single` buffer plugin provides a persistent buffer implementation. It uses files to store buffer chunks on disk.
 
-`file_single` is similar to `file_file` but this plugin doesn't have metadata file.
+`file_single` is similar to `file_file` but this plugin does not have metadata file.
 
 
 ## Example Configuration
@@ -23,10 +22,10 @@ uses files to store buffer chunks on disk.
 ## Parameters
 
 -   [Common Parameters](/configuration/plugin-common-parameters.md)
--   [Buffer section configurations](/configuration/buffer-section.md)
+-   [Buffer Section Configurations](/configuration/buffer-section.md)
 
 
-### path
+### `path`
 
 | type   | required | default | version |
 |:-------|:--------:|:--------|:--------|
@@ -37,7 +36,7 @@ The directory path where buffer chunks are stored. This parameter is required.
 This parameter must be unique to avoid race condition problem between output plugins.
 Of course, this parameter must also be unique between fluentd instances.
 
-The actual path consists of 5 parts:
+The actual path consists of five (5) parts:
 
 - `path` parameter
 - `fsb` prefix
@@ -48,11 +47,12 @@ The actual path consists of 5 parts:
 ```
 # Example with <buffer tag> and tag is test.log
 /path/to/buffer/fsb.test.log.b513b61c9791029c2513b61c9791029c2.buf
+
 # Example with <buffer key> and record is {"key":"hello"}
 /path/to/buffer/fsb.hello.b513b61c9791029c2513b61c9791029c2.buf
 ```
 
-Under multi worker environment, worker_id and plugin id are added.
+Under multi worker environment, `worker_id` and plugin `id` are added.
 
 ```
 /path/to/buffer/worker1/out_fwd/fsb.test.log.b513b61c9791029c2513b61c9791029c2.buf
@@ -62,7 +62,7 @@ Please make sure that you have **enough space in the path directory**.
 Running out of disk space is a problem frequently reported by users.
 
 
-### calc_num_records
+### `calc_num_records`
 
 | type   | required | default | version |
 |:-------|:--------:|:--------|:--------|
@@ -70,33 +70,36 @@ Running out of disk space is a problem frequently reported by users.
 
 Calculate the number of records, chunk size, during chunk resume.
 
-`buf_file_single` doesn't have metadata file, so
-this plugin can't keep the chunk size accross fluentd restart.
-If `true`, calculate the chunk size by reading file at start phase.
+The `buf_file_single` plugin does not have metadata file, so
+this plugin cannot keep the chunk size across fluentd restarts.
+If `true`, it calculates the chunk size by reading file at startup.
 
-If your plugin don't need the chunk size,
-you can set `false` to speed-up fluentd start time.
+If your plugin does not need the chunk size,
+you can set `false` to speed-up the fluentd startup time.
 
 This option is mainly for `out_forward`.
 
 
-### chunk\_format
+### `chunk_format`
 
 | type | default | available values  | version |
 |:-----|:--------|:------------------|:--------|
 | enum | auto    | msgpack/text/auto | 1.7.0   |
 
-Specify chunk content for `calc_num_records`.
+Specifies the chunk format for `calc_num_records`.
 
-With `auto`, the plugin decide chunk format by `formatted_to_msgpack_binary?`. This option is useful when the output plugin doesn't implement `formatted_to_msgpack_binary?` correctly.
+With `auto`, the plugin decides the chunk format by
+`formatted_to_msgpack_binary?`. This option is useful when the output plugin
+does not implement `formatted_to_msgpack_binary?` correctly.
 
 
 ## Limitation
 
+
 ### chunk keys
 
-`buf_file_single` doesn't have metadata file, so `buf_file_single` can't use rich metadata.
-chunk keys must be only tag or one field key for now.
+`buf_file_single` does not have metadata file, so `buf_file_single` cannot use
+rich metadata. The chunk keys must be the only tag or one field key for now.
 
 ```
 <buffer>           # OK. Same as <buffer tag>
@@ -108,15 +111,19 @@ chunk keys must be only tag or one field key for now.
 
 This limitation will be removed by adding metadata header in the file.
 
-### Remote file system is not supported
 
-Caution, `file_single` buffer implementation depends on the characteristics of
-local file system. Don't use `file_single` buffer on remote file system, e.g.
+### Remote File System is Not Supported
+
+Caution: `file_single` buffer implementation depends on the characteristics of
+the local file system. Don't use `file_single` buffer on remote file systems e.g.
 NFS, GlusterFS, HDFS and etc. We observed major data loss by using
 remote file system.
 
 
 ------------------------------------------------------------------------
 
-If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open).
-[Fluentd](http://www.fluentd.org/) is a open source project under [Cloud Native Computing Foundation (CNCF)](https://cncf.io/). All components are available under the Apache 2 License.
+If this article is incorrect or outdated, or omits critical information, please
+[let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open).
+[Fluentd](http://www.fluentd.org/) is an open-source project under [Cloud Native
+Computing Foundation (CNCF)](https://cncf.io/). All components are available
+under the Apache 2 License.
