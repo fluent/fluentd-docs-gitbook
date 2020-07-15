@@ -1,12 +1,12 @@
-# parser Filter Plugin
+# `parser` Filter Plugin
 
-The `parser` filter plugin "parses" string field in event records and
-mutates its event record with parsed result.
+The `parser` filter plugin "parses" string field in event records and mutates
+its event record with parsed result.
+
+It is included in the Fluentd's core.
 
 
 ## Example Configurations
-
-`filter_parser` is included in Fluentd's core. No installation required.
 
 ```
 <filter foo.bar>
@@ -20,71 +20,77 @@ mutates its event record with parsed result.
 </filter>
 ```
 
-`filter_parser` uses built-in parser plugins and your own customized
-parser plugin, so you can re-use pre-defined format like `apache2`,
-`json` and etc. See document page for more details:
-[Parser Plugin Overview](/plugins/parser/README.md)
+`filter_parser` uses built-in parser plugins and your own customized parser
+plugin, so you can reuse the predefined formats like `apache2`, `json`, etc. See
+[Parser Plugin Overview](/plugins/parser/README.md) for more details
 
-With this example, if you receive following event:
+With this example, if you receive this event:
 
-    time:
-    injected time (depends on your input)
-    record:
-    {"log":"192.168.0.1 - - [05/Feb/2018:12:00:00 +0900] \"GET / HTTP/1.1\" 200 777"}
+```
+time:
+injected time (depends on your input)
+record:
+{"log":"192.168.0.1 - - [05/Feb/2018:12:00:00 +0900] \"GET / HTTP/1.1\" 200 777"}
+```
 
-parsed result is below:
+The parsed result will be:
 
-    time
-    05/Feb/2018:12:00:00 +0900
-    record:
-    {"host":"192.168.0.1","user":"-","method":"GET","path":"/","code":"200","size":"777"}
+```
+time
+05/Feb/2018:12:00:00 +0900
+record:
+{"host":"192.168.0.1","user":"-","method":"GET","path":"/","code":"200","size":"777"}
+```
 
-## Plugin helpers
 
--   [parser](/developer/api-plugin-helper-parser.md)
--   [record\_accessor](/developer/api-plugin-helper-record_accessor.md)
--   [compat\_parameters](/developer/api-plugin-helper-compat_parameters.md)
+## Plugin Helpers
+
+-   [`parser`](/developer/api-plugin-helper-parser.md)
+-   [`record_accessor`](/developer/api-plugin-helper-record_accessor.md)
+-   [`compat_parameters`](/developer/api-plugin-helper-compat_parameters.md)
 
 
 ## Parameters
 
-[Common Parameters](/configuration/plugin-common-parameters.md)
+See [Common Parameters](/configuration/plugin-common-parameters.md).
 
 
-### &lt;parse&gt; section
+### `<parse>` Section
 
-This is required sub section. Specify parser type and related parameter.
+This is a required subsection. Specifies the parser type and related parameter.
 
-For more details, see [Parse section configurations](/configuration/parse-section.md).
+For more details, see [Parse Section
+Configurations](/configuration/parse-section.md).
 
 
-### key\_name
+### `key_name`
 
 | type   | default            | version |
 |:-------|:-------------------|:--------|
 | string | required parameter | 0.14.9  |
 
-Specify field name in the record to parse.
+Specifies the field name in the record to parse.
 
-This parameter supports nested field access via [record\_accessor syntax](/developer/api-plugin-helper-record_accessor.md/#syntax).
-
-
-### reserve\_time
-
-| type | default | version |
-|:-----|:--------|:--------|
-| bool | false   | 0.14.9  |
-
-Keep original event time in parsed result.
+This parameter supports nested field access via [`record_accessor`
+syntax](/developer/api-plugin-helper-record_accessor.md/#syntax).
 
 
-### reserve\_data
+### `reserve_time`
 
 | type | default | version |
 |:-----|:--------|:--------|
 | bool | false   | 0.14.9  |
 
-Keep original key-value pair in parsed result.
+Keeps the original event time in the parsed result.
+
+
+### `reserve_data`
+
+| type | default | version |
+|:-----|:--------|:--------|
+| bool | false   | 0.14.9  |
+
+Keeps the original key-value pair in the parsed result.
 
 ```
 <filter foo.bar>
@@ -97,14 +103,14 @@ Keep original key-value pair in parsed result.
 </filter>
 ```
 
-With above configuration, result is below:
+With above configuration, here is the result:
 
 ```
 # input data:  {"key":"value","log":"{\"user\":1,\"num\":2}"}
 # output data: {"key":"value","log":"{\"user\":1,\"num\":2}","user":1,"num":2}
 ```
 
-Without `reserve_data`, result is below
+Without `reserve_data`, the result is:
 
 ```
 # input data:  {"key":"value","log":"{\"user\":1,\"num\":2}"}
@@ -118,7 +124,7 @@ Without `reserve_data`, result is below
 |:-----|:--------|:--------|
 | bool | false   | 1.2.2   |
 
-Remove `key_name` field when parsing is succeeded.
+Removes `key_name` field when parsing is succeeded.
 
 ```
 <filter foo.bar>
@@ -132,7 +138,7 @@ Remove `key_name` field when parsing is succeeded.
 </filter>
 ```
 
-With above configuration, result is below:
+With above configuration, here is the result:
 
 ```
 # input data:  {"key":"value","log":"{\"user\":1,\"num\":2}"}
@@ -140,23 +146,21 @@ With above configuration, result is below:
 ```
 
 
-### replace\_invalid\_sequence
+### `replace_invalid_sequence`
 
 | type | default | version |
-|:-----|:--------|:--------|
-| bool | false   | 0.14.9  |
+|:-----|:--------|:--------||bool | false   | 0.14.9  |
 
-If `true`, invalid string is replaced with safe characters and re-parse
-it.
+If `true`, invalid string is replaced with safe characters and re-parse it.
 
 
-### inject\_key\_prefix
+### `inject_key_prefix`
 
 | type   | default | version |
 |:-------|:--------|:--------|
 | string | false   | 0.14.9  |
 
-Store parsed values with specified key name prefix.
+Stores the parsed values with the specified key name prefix.
 
 ```
 <filter foo.bar>
@@ -170,7 +174,7 @@ Store parsed values with specified key name prefix.
 </filter>
 ```
 
-With above configuration, result is below:
+With above configuration, here is the result:
 
 ```
 # input data:  {"log": "{\"user\":1,\"num\":2}"}
@@ -178,13 +182,13 @@ With above configuration, result is below:
 ```
 
 
-### hash\_value\_field
+### `hash_value_field`
 
 | type   | default | version |
 |:-------|:--------|:--------|
 | string | false   | 0.14.9  |
 
-Store parsed values as a hash value in a field.
+Stores the parsed values as a hash value in a field.
 
 ```
 <filter foo.bar>
@@ -205,13 +209,13 @@ With above configuration, result is below:
 ```
 
 
-### emit\_invalid\_record\_to\_error
+### `emit_invalid_record_to_error`
 
 | type | default | version |
 |:-----|:--------|:--------|
 | bool | true    | 0.14.0  |
 
-Emit invalid record to `@ERROR` label. Invalid cases are
+Emits invalid record to `@ERROR` label. Invalid cases are:
 
 -   key not exist
 -   format is not matched
@@ -221,17 +225,20 @@ You can rescue unexpected format logs in `@ERROR` label.
 
 If you want to ignore these errors, set `false`.
 
+
 ## FAQ
 
-### suppress_parse_error_log is missing. What are the alternatives?
 
-Since v1, `parser` filter doesn't support `suppress_parse_error_log`
+### `suppress_parse_error_log` is missing. What are the alternatives?
+
+Since v1, `parser` filter does not support `suppress_parse_error_log`
 parameter because `parser` filter uses `@ERROR` feature instead of
 internal logging to rescue invalid records. If you want to simply
 ignore invalid records, set `emit_invalid_record_to_error false`.
 
 See also `emit_invalid_record_to_error` parameter.
- 
+
+
 ## Learn More
 
 -   [Filter Plugin Overview](/plugins/filter/README.md)
@@ -239,5 +246,8 @@ See also `emit_invalid_record_to_error` parameter.
 
 ------------------------------------------------------------------------
 
-If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open).
-[Fluentd](http://www.fluentd.org/) is a open source project under [Cloud Native Computing Foundation (CNCF)](https://cncf.io/). All components are available under the Apache 2 License.
+If this article is incorrect or outdated, or omits critical information, please
+[let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open).
+[Fluentd](http://www.fluentd.org/) is an open-source project under [Cloud Native
+Computing Foundation (CNCF)](https://cncf.io/). All components are available
+under the Apache 2 License.

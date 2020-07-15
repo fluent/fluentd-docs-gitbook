@@ -1,14 +1,13 @@
-# record\_transformer Filter Plugin
+# `record_transformer` Filter Plugin
 
 The `filter_record_transformer` filter plugin mutates/transforms
 incoming event streams in a versatile manner. If there is a need to
 add/delete/modify events, this plugin is the first filter to try.
 
+It is included in the Fluentd's core.
+
 
 ## Example Configurations
-
-`filter_record_transformer` is included in Fluentd's core. No
-installation required.
 
 ```
 <filter foo.bar>
@@ -20,9 +19,11 @@ installation required.
 </filter>
 ```
 
-The above filter adds the new field "hostname" with the server's
+The above filter adds the new field `hostname` with the server's
 hostname as its value (It is taking advantage of Ruby's string
-interpolation) and the new field "tag" with tag value. So, an input like
+interpolation) and the new field `tag` with tag value.
+
+So, an input like:
 
 ```
 {"message":"hello world!"}
@@ -34,8 +35,8 @@ is transformed into
 {"message":"hello world!", "hostname":"db001.internal.example.com", "tag":"foo.bar"}
 ```
 
-Here is another example where the field "total" is divided by the field
-"count" to create a new field "avg":
+Here is another example where the field `total` is divided by the field `count`
+to create a new field `avg`:
 
 ```
 <filter foo.bar>
@@ -60,11 +61,11 @@ into
 ```
 
 With the `enable_ruby` option, an arbitrary Ruby expression can be used
-inside `${...}`. Note that the "avg" field is typed as string in this
+inside `${...}`. Note that the `avg` field is typed as string in this
 example. You may use `auto_typecast true` option to treat the field as a
 float.
 
-You can also use this plugin to modify your existing fields as
+You can also use this plugin to modify your existing fields as:
 
 ```
 <filter foo.bar>
@@ -87,9 +88,9 @@ is transformed into
 {"message":"yay, hello world!"}
 ```
 
-Finally, this configuration embeds the value of the second part of the
-tag in the field "service\_name". It might come in handy when
-aggregating data across many services.
+Finally, this configuration embeds the value of the second part of the tag in
+the field `service_name`. It might come in handy when aggregating data across
+many services.
 
 ```
 <filter web.*>
@@ -100,24 +101,25 @@ aggregating data across many services.
 </filter>
 ```
 
-So, if an event with the tag "web.auth" and record
+So, if an event with the tag `web.auth` and record
 `{"user_id":1, "status":"ok"}` comes in, it transforms it into
 `{"user_id":1, "status":"ok", "service_name":"auth"}`.
 
 
 ## Parameters
 
-[Common Parameters](/configuration/plugin-common-parameters.md)
+See [Common Parameters](/configuration/plugin-common-parameters.md).
 
-### @type
+
+### `@type`
 
 The value must be `record_transformer`.
 
 
-### &lt;record&gt; directive
+### `<record>` directive
 
-Parameters inside `<record>` directives are considered to be new
-key-value pairs:
+The parameters inside `<record>` directives are considered to be new key-value
+pairs:
 
 ```
 <record>
@@ -125,7 +127,7 @@ key-value pairs:
 </record>
 ```
 
-For NEW\_FIELD and NEW\_VALUE, a special syntax `${}` allows the user to
+For `NEW_FIELD` and `NEW_VALUE`, a special syntax `${}` allows the user to
 generate a new field dynamically. Inside the curly braces, the following
 variables are available:
 
@@ -133,20 +135,18 @@ variables are available:
     names. So, if the record is `{"total":100, "count":10}`, then
     `record["total"]=100` and `record["count"]=10`.
 -   `tag` refers to the whole tag.
--   `time` refers to stringanized event time.
--   `hostname` refers to machine's hostname. The actual value is result
-    of
-    [Socket.gethostname](https://docs.ruby-lang.org/en/trunk/Socket.html#method-c-gethostname).
+-   `time` refers to stringified event time.
+-   `hostname` refers to machine's hostname. The actual value is result of
+    [`Socket.gethostname`](https://docs.ruby-lang.org/en/trunk/Socket.html#method-c-gethostname).
 
-You can also access to a certain potion of a tag using the following
-notations:
+You can also access to a certain portion of a tag using the following notations:
 
--   `tag_parts[N]` refers to the Nth part of the tag.
--   `tag_prefix[N]` refers to the \[0..N\] part of the tag.
--   `tag_suffix[N]` refers to the \[N..\] part of the tag.
+-   `tag_parts[N]` refers to the `Nth` part of the tag.
+-   `tag_prefix[N]` refers to the `[0..N]` part of the tag.
+-   `tag_suffix[N]` refers to the `[N..]` part of the tag.
 
 All indices are zero-based. For example, if you have an incoming event
-tagged `debug.my.app`, then `tag_parts[1]` will represent "my". Also in
+tagged `debug.my.app`, then `tag_parts[1]` will represent `my`. Also in
 this case, `tag_prefix[N]` and `tag_suffix[N]` will work as follows:
 
 ```
@@ -156,22 +156,21 @@ tag_prefix[2] = debug.my.app   tag_suffix[2] = app
 ```
 
 
-### enable\_ruby
+### `enable_ruby`
 
 | type | default | version |
 |:-----|:--------|:--------|
 | bool | false   | 0.14.0  |
 
-When set to true, the full Ruby syntax is enabled in the `${...}`
-expression. The default value is false.
+When set to `true`, the full Ruby syntax is enabled in the `${...}` expression.
+The default value is `false`.
 
-With `true`, additional variables could be used inside `${}`.
+With `true`, additional variables could be used inside `${}`:
 
 -   `record` refers to the whole record.
--   `time` refers to event time as Time object, not stringanized event
-    time.
+-   `time` refers to event time as Time object, not stringified event time.
 
-Here is the examples:
+Here is an example:
 
 ```
 jsonized_record ${record.to_json}
@@ -184,24 +183,24 @@ nested_value ${record["payload"]["key"]}
 ```
 
 
-### auto\_typecast
+### `auto_typecast`
 
 | type | default | version |
 |:-----|:--------|:--------|
 | bool | false   | 0.14.0  |
 
-Automatically cast the field types. Default is false.
+Automatically casts the field types. Default is `false`.
 
 LIMITATION: This option is effective only for field values comprised of
 a single placeholder.
 
-Effective Examples:
+Effective examples:
 
 ```
 foo ${record["foo"]}
 ```
 
-Non-Effective Examples:
+Non-Effective examples:
 
 ```
 foo ${record["foo"]}${record["bar"]}
@@ -213,39 +212,38 @@ Internally, this keeps the original value type only when a single
 placeholder is used.
 
 
-### renew\_record
+### `renew_record`
 
 | type | default | version |
 |:-----|:--------|:--------|
 | bool | false   | 0.14.0  |
 
-By default, the record transformer filter mutates the incoming data.
-However, if this parameter is set to true, it modifies a new empty hash
-instead.
+By default, the record transformer filter mutates the incoming data. However, if
+this parameter is set to `true`, it modifies a new empty hash instead.
 
 
-### renew\_time\_key
+### `renew_time_key`
 
 | type   | default | version |
 |:-------|:--------|:--------|
 | string | nil     | 0.14.0  |
 
 `renew_time_key foo` overwrites the time of events with a value of the
-record field `foo` if exists. The value of `foo` must be a unix time.
+record field `foo` if exists. The value of `foo` must be a Unix timestamp.
 
 
-### keep\_keys
+### `keep_keys`
 
 | type  | default | version |
 |:------|:--------|:--------|
 | array | nil     | 0.14.0  |
 
-A list of keys to keep. Only relevant if `renew_record` is set to true.
+A list of keys to keep. Only relevant if `renew_record` is set to `true`.
 
-keep\_keys has been supported since 0.14.0
+`keep_keys` has been supported since 0.14.0.
 
 
-### remove\_keys
+### `remove_keys`
 
 | type  | default | version |
 |:------|:--------|:--------|
@@ -257,7 +255,7 @@ This parameter supports nested field via [record\_accessor syntax](/developer/ap
 
 Example:
 
-Given the filter:
+Given the configuration:
 
 ```
 <filter foo.bar>
@@ -288,49 +286,59 @@ The output would be:
 }
 ```
 
+
 ## Need more performance?
 
-[filter\_record\_modifier](https://github.com/repeatedly/fluent-plugin-record-modifier)
-is light-weight and faster version of `filter_record_transformer`.
-`filter_record_modifier` doesn't provide several
-`filter_record_transformer` features, but it covers popular cases. If
-you need better performace for mutating records, consider
-`filter_record_modifier` instead.
+[`filter_record_modifier`](https://github.com/repeatedly/fluent-plugin-record-modifier)
+is lightweight and faster version of `filter_record_transformer`.
+`filter_record_modifier` does not provide several `filter_record_transformer`
+features, but it covers popular cases. If you need better performance for
+mutating records, consider `filter_record_modifier` instead.
 
 ## Tips
 
-### Use dig method for nested field
 
-Users sometimes need to access nested field. In this case, you can use `[]`
-chain like below.
+### Use `dig` Method for Nested Field
 
-    ${record["top"]["nest1"]["nest2"]}
+Users sometimes need to access a nested field. In this case, you can use `[]`
+chain like this:
 
-But this approach has a problem. When `record["top"]` or
-`record["top"]["nest1"]` doesn't exist, you hit unexpected error.
-Here is log example:
+```
+${record["top"]["nest1"]["nest2"]}
+```
 
-    error_class=RuntimeError error="failed to expand `record[\"top\"][\"nest1\"][\"nest2\"]` : error = undefined method `[]' for nil:NilClass
+But, this approach has a problem. When `record["top"]` or
+`record["top"]["nest1"]` does not exist, you hit an unexpected error.
 
-`dig` method resolves this problem. If field not found, it return `nil`
-instead of raising error.
+Here is the log example:
 
-    ${record.dig("top", "nest1", "nest2")}
+```
+error_class=RuntimeError error="failed to expand `record[\"top\"][\"nest1\"][\"nest2\"]` : error = undefined method `[]' for nil:NilClass
+```
+
+`dig` method resolves this problem. If field is not found, it returns `nil`
+instead of raising error:
+
+```
+${record.dig("top", "nest1", "nest2")}
+```
 
 
 ## FAQ
 
+
 ### What are the differences between `${record["key"]}` and `${key}`?
 
-`${key}` was short-cut for `${record["key"]}`. This is error prone
+`${key}` was a shortcut for `${record["key"]}`. This is error prone
 because `${tag}` is unclear, event tag or `record["tag"]`. So the
 `${key}` syntax was removed since v0.14. v0.12 still supports `${key}`
 but it is not recommended.
 
+
 ### I got `unknown placeholder ${record['msg']} found` error, why?
 
 Without `enable_ruby`, `${}` placeholder supports only double quoted
-string for record field access. So use `${record["key"]}` instead of
+string for record field access. So, use `${record["key"]}` instead of
 `${record['key']}`.
 
 
@@ -341,5 +349,8 @@ string for record field access. So use `${record["key"]}` instead of
 
 ------------------------------------------------------------------------
 
-If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open).
-[Fluentd](http://www.fluentd.org/) is a open source project under [Cloud Native Computing Foundation (CNCF)](https://cncf.io/). All components are available under the Apache 2 License.
+If this article is incorrect or outdated, or omits critical information, please
+[let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open).
+[Fluentd](http://www.fluentd.org/) is an open-source project under [Cloud Native
+Computing Foundation (CNCF)](https://cncf.io/). All components are available
+under the Apache 2 License.
