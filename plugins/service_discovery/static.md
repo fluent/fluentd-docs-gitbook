@@ -2,10 +2,10 @@
 
 The `static` service discovery plugin set the list of targets.
 
+
 ## Example Configuration
 
-This is the example with out_forward.
-It defines the list of targets. it is similer to the server directive in out_forward.
+Here is an example with `out_forward` that defines the list of targets similar to the `server` directive:
 
 ```
 <source>
@@ -22,11 +22,13 @@ It defines the list of targets. it is similer to the server directive in out_for
 
 ## Parameters
 
-### @type
+
+### `@type`
 
 The value must be `static`.
 
-#### host
+
+#### `host`
 
 | type   | default            | version |
 |:-------|:-------------------|:--------|
@@ -34,7 +36,8 @@ The value must be `static`.
 
 The IP address or host name of the server.
 
-#### port
+
+#### `port`
 
 | type    | default | version |
 |:--------|:--------|:--------|
@@ -42,7 +45,8 @@ The IP address or host name of the server.
 
 The port number of the host.
 
-#### name
+
+#### `name`
 
 | type   | default | version |
 |:-------|:--------|:--------|
@@ -50,7 +54,8 @@ The port number of the host.
 
 The name of the server.
 
-#### shared\_key
+
+#### `shared_key`
 
 | type   | default | version |
 |:-------|:--------|:--------|
@@ -58,7 +63,8 @@ The name of the server.
 
 The shared key per server.
 
-#### username
+
+#### `username`
 
 | type   | default  | version |
 |:-------|:---------|:--------|
@@ -66,7 +72,8 @@ The shared key per server.
 
 The username for authentication.
 
-#### password
+
+#### `password`
 
 | type   | default                | version |
 |:-------|:-----------------------|:--------|
@@ -74,13 +81,15 @@ The username for authentication.
 
 The password for authentication.
 
-#### standby
+
+#### `standby`
 
 | type | default | version |
 |:-----|:--------|:--------|
 | bool | false   | 1.8.0  |
 
-#### weight
+
+#### `weight`
 
 | type    | default | version |
 |:--------|:--------|:--------|
@@ -89,6 +98,9 @@ The password for authentication.
 
 ------------------------------------------------------------------------
 
-If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open).
-[Fluentd](http://www.fluentd.org/) is a open source project under [Cloud Native Computing Foundation (CNCF)](https://cncf.io/). All components are available under the Apache 2 License.
+If this article is incorrect or outdated, or omits critical information, please
+[let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open).
+[Fluentd](http://www.fluentd.org/) is an open-source project under [Cloud Native
+Computing Foundation (CNCF)](https://cncf.io/). All components are available
+under the Apache 2 License.
 
