@@ -1,12 +1,12 @@
 # File Service Discovery Plugin
 
-The `file` serivce discovery plugin updates targets by reading local file.
-YAML and JSON are allowed as the file formats.
+The `file` service discovery plugin updates targets by reading the local file.
+YAML and JSON are the allowed file formats.
+
 
 ## Example Configuration
 
-This is the example with out_forward.
-It updates targets to send data by out_forward.
+Here is an example with `out_forward` updating targets by sending data:
 
 ```
 <match pattern>
@@ -19,7 +19,7 @@ It updates targets to send data by out_forward.
 </source>
 ```
 
-Here is the example of target list file(`/etc/fluentd/sd.yaml`).
+Here is an example of target list file (`/etc/fluentd/sd.yaml`):
 
 ```
 - 'host': 127.0.0.1
@@ -34,11 +34,13 @@ Here is the example of target list file(`/etc/fluentd/sd.yaml`).
 
 ## Parameters
 
-### @type
+
+### `@type`
 
 The value must be `file`.
 
-### path
+
+### `path`
 
 | type   | default                 | version |
 |:-------|:------------------------|:--------|
@@ -46,12 +48,13 @@ The value must be `file`.
 
 The path of target list.
 
-Content type is determined by file extension.
+The Content Type is determined by file extension i.e.:
 
-- yaml, yml: YAML format
-- json: JSON format
+- YAML: yaml, yml
+- JSON: json
 
-### conf_encoding
+
+### `conf_encoding`
 
 | type   | default   | version |
 |:-------|:----------|:--------|
@@ -59,20 +62,22 @@ Content type is determined by file extension.
 
 The encoding of config file.
 
-### Parameters in target list file
 
-Each target has following parameters.
+### Parameters in Target List File
 
-- host
-- name
-- port
-- shared\_key
-- username
-- password
-- standby
-- weight
+Each target has following parameters:
 
-#### host
+-   `host`
+-   `name`
+-   `port`
+-   `shared_key`
+-   `username`
+-   `password`
+-   `standby`
+-   `weight`
+
+
+#### `host`
 
 | type   | default            | version |
 |:-------|:-------------------|:--------|
@@ -80,7 +85,8 @@ Each target has following parameters.
 
 The IP address or host name of the server.
 
-#### port
+
+#### `port`
 
 | type    | default            | version |
 |:--------|:-------------------|:--------|
@@ -88,7 +94,8 @@ The IP address or host name of the server.
 
 The port number of the host.
 
-#### name
+
+#### `name`
 
 | type   | default | version |
 |:-------|:--------|:--------|
@@ -96,7 +103,8 @@ The port number of the host.
 
 The name of the server.
 
-#### shared\_key
+
+#### `shared_key`
 
 | type   | default | version |
 |:-------|:--------|:--------|
@@ -104,7 +112,8 @@ The name of the server.
 
 The shared key per server.
 
-#### username
+
+#### `username`
 
 | type   | default  | version |
 |:-------|:---------|:--------|
@@ -112,7 +121,8 @@ The shared key per server.
 
 The username for authentication.
 
-#### password
+
+#### `password`
 
 | type   | default | version |
 |:-------|:--------|:--------|
@@ -120,13 +130,15 @@ The username for authentication.
 
 The password for authentication.
 
-#### standby
+
+#### `standby`
 
 | type | default | version |
 |:-----|:--------|:--------|
 | bool | nil     | 1.8.0  |
 
-#### weight
+
+#### `weight`
 
 | type    | default | version |
 |:--------|:--------|:--------|
@@ -135,5 +147,8 @@ The password for authentication.
 
 ------------------------------------------------------------------------
 
-If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open).
-[Fluentd](http://www.fluentd.org/) is a open source project under [Cloud Native Computing Foundation (CNCF)](https://cncf.io/). All components are available under the Apache 2 License.
+If this article is incorrect or outdated, or omits critical information, please
+[let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open).
+[Fluentd](http://www.fluentd.org/) is an open-source project under [Cloud Native
+Computing Foundation (CNCF)](https://cncf.io/). All components are available
+under the Apache 2 License.
