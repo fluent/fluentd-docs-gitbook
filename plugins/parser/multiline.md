@@ -1,27 +1,26 @@
-# multiline Parser Plugin
+# `multiline` Parser Plugin
 
-The `multiline` parser plugin parses multiline logs. This plugin is
+The `multiline` parser plugin parses multiline logs. This plugin is a
 multiline version of `regexp` parser.
 
 The `multiline` parser parses log with `formatN` and `format_firstline`
-parameters. `format_firstline` is for detecting start line of multiline
-log. `formatN`, N's range is 1..20, is the list of Regexp format for
+parameters. `format_firstline` is for detecting the start line of multiline log.
+`formatN`, where N's range is [1..20], is the list of Regexp format for
 multiline log.
 
 Unlike other parser plugins, this plugin needs special code in input
-plugin, e.g. handle format\_firstline. So currently, in\_tail plugin
-works with \`multiline\` but other input plugins don't work with
-\`multiline\`.
+plugin e.g. handle `format_firstline`. So, currently, `in_tail` plugin
+works with `multiline` but other input plugins do not work with it.
 
 
 ## Parameters
 
-See [Parse section configurations](/configuration/parse-section.md)
+See [Parse Section Configurations](/configuration/parse-section.md).
 
 
-### format\_firstline
+### `format_firstline`
 
-Specify regexp pattern for start line of multiple lines. Input plugin
+Specifies the regexp pattern for the start line of multiple lines. Input plugin
 can skip the logs until `format_firstline` is matched. Default is `nil`.
 
 If `format_firstline` is not specified, input plugin should store
@@ -29,22 +28,23 @@ unmatched new lines in temporary buffer and try to match buffered logs
 with each new line.
 
 
-### formatN
+### `formatN`
 
 | type   | default            | version |
 |:-------|:-------------------|:--------|
 | string | required parameter | 0.14.0  |
 
-Specify regexp patterns. For readability, you can separate regexp
-patterns into multiple regexpN parameters, See "Rails log" example.
-These patterns are joined and constructs regexp pattern with multiline
-mode.
+Specifies the regexp patterns. For readability, you can separate regexp patterns
+into multiple `regexpN` parameters, See Rails Log example below. These patterns
+are joined and construct a regexp pattern with multiline mode.
 
 
 ## Example
 
 
-### Rails log
+### Rails Log
+
+With this configuration:
 
 ```
 <parse>
@@ -58,7 +58,7 @@ mode.
 </parse>
 ```
 
-With this configuration:
+This incoming event:
 
 ```
 Started GET "/users/123/" for 127.0.0.1 at 2013-06-14 12:00:11 +0900
@@ -68,7 +68,7 @@ Processing by UsersController#show as HTML
 Completed 200 OK in 4ms (Views: 3.2ms | ActiveRecord: 0.0ms)
 ```
 
-This incoming event is parsed as:
+is parsed as:
 
 ```
 time:
@@ -88,7 +88,9 @@ record:
 ```
 
 
-### Java stacktrace log
+### Java Stacktrace Log
+
+With this configuration:
 
 ```
 <parse>
@@ -98,7 +100,7 @@ record:
 </parse>
 ```
 
-With this configuration:
+These incoming events:
 
 ```
 2013-3-03 14:27:33 [main] INFO  Main - Start
@@ -108,7 +110,7 @@ javax.management.RuntimeErrorException: null
 2013-3-03 14:27:33 [main] INFO  Main - End
 ```
 
-These incoming events are parsed as:
+are parsed as:
 
 ```
 time:
@@ -142,5 +144,8 @@ record:
 
 ------------------------------------------------------------------------
 
-If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open).
-[Fluentd](http://www.fluentd.org/) is a open source project under [Cloud Native Computing Foundation (CNCF)](https://cncf.io/). All components are available under the Apache 2 License.
+If this article is incorrect or outdated, or omits critical information, please
+[let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open).
+[Fluentd](http://www.fluentd.org/) is an open-source project under
+[Cloud Native Computing Foundation (CNCF)](https://cncf.io/). All components are
+available under the Apache 2 License.
