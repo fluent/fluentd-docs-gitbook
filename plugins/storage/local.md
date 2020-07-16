@@ -1,57 +1,60 @@
-# local Storage Plugin
+# `local` Storage Plugin
 
-The `local` storage plugin stores the key-value into json file in local
+The `local` storage plugin stores the key-value pair into JSON file on local
 storage.
 
 
 ## Parameters
 
 
-### path
+### `path`
 
-Specify path name to save key-value pair. Default is `nil`.
-
-
-### mode
-
-Specify file access mode. Default is `0644`.
+Specifies the path name to save key-value pair. (default: `nil`)
 
 
-### dir\_mode
+### `mode`
 
-Specify directory access mode. Default is `0755`.
+Specifies the file access mode. (default: `0644`)
 
 
-### pretty\_print
+### `dir_mode`
 
-Output human readable formatted json. Default is `false`.
+Specifies the directory access mode. (default: `0755`)
+
+
+### `pretty_print`
+
+Output human readable formatted JSON. (default: `false`)
 
 
 ## Attributes
 
 
-### conf.arg
+### `conf.arg`
 
-Note that `conf.arg` is also to be able to use alternative `path`
-parameter.
+Note that `conf.arg` provides an alternative `path` parameter.
 
 ```
 <storage awesome_path>
   @type local
 </storage>
+
 <system>
   root_dir tmp
 </system>
 ```
 
-will save internal states, which are handled by storage\_local, under
-`tmp` directory.
+The above configuration will save the internal states, which are handled by
+`storage_local` under `tmp` directory.
 
-Note: Specifying filepath in path parameter does not support
-multiworkers feature. Instead, you should specify directory there.
+NOTE: Specifying filepath in `path` parameter does not support multi workers
+feature. Instead, you should specify directory there.
 
 
 ------------------------------------------------------------------------
 
-If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open).
-[Fluentd](http://www.fluentd.org/) is a open source project under [Cloud Native Computing Foundation (CNCF)](https://cncf.io/). All components are available under the Apache 2 License.
+If this article is incorrect or outdated, or omits critical information, please
+[let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open).
+[Fluentd](http://www.fluentd.org/) is an open-source project under [Cloud Native
+Computing Foundation (CNCF)](https://cncf.io/). All components are available
+under the Apache 2 License.
