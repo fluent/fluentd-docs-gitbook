@@ -1,13 +1,13 @@
-# rewrite\_tag\_filter Output Plugin
+# `rewrite_tag_filter` Output Plugin
 
 The `out_rewrite_tag_filter` Output plugin provides a rule-based
 mechanism for rewriting tags.
 
 
-## How it works
+## How It Works
 
 The plugin is configured by defining a list of rules containing
-conditional statements and information on how to rewrite matching tags.
+conditional statements and information on how to rewrite the matching tags.
 
 When a message is handled by the plugin, the rules are tested one by one
 in order. If a matching rule is found, the message tag will be rewritten
@@ -17,12 +17,11 @@ again with the new tag.
 
 ### Example
 
-This in an example on how to use this plugin to re-write tags. In the
-example, records tagged with 'app.component' will have their tag
-prefixed with the value of the key 'message':
+This in an example of how to use this plugin to rewrite tags. In the
+example, records tagged with `app.component` will have their tag
+prefixed with the value of the key `message`:
 
 ```
-# Configuration
 <match app.component>
   @type rewrite_tag_filter
   <rule>
@@ -49,9 +48,9 @@ Sample data:
 
 ## Installation
 
-`out_rewrite_tag_filter` is included in td-agent by default (v3.0.1 or
+`out_rewrite_tag_filter` is included in `td-agent` by default (v3.0.1 or
 later). Fluentd gem users will have to install the
-fluent-plugin-rewrite-tag-filter gem using the following command.
+`fluent-plugin-rewrite-tag-filter` gem using the following command:
 
 ```
 $ fluent-gem install fluent-plugin-rewrite-tag-filter
@@ -60,12 +59,12 @@ $ fluent-gem install fluent-plugin-rewrite-tag-filter
 For more details, see [Plugin Management](/deployment/plugin-management.md).
 
 
-## Configuration example
+## Configuration Example
 
 Configuration design is dropping some pattern record first, then re-emit
 other matched record as new tag name. The example configuration shown
 below gives an example on how the plugin can be used to define a number
-of rules that examines values from different keys and sets the tag
+of rules that examine values from different keys and sets the tag
 depending on the regular expression configured in each rule.
 
 The tag value is later used to decide whether the log event shall be
@@ -120,108 +119,117 @@ dropped or not.
 </match>
 ```
 
-Please see the
-[README.md](https://github.com/fluent/fluent-plugin-rewrite-tag-filter)
+Please see
+[`fluent-plugin-rewrite-tag-filter`](https://github.com/fluent/fluent-plugin-rewrite-tag-filter)
 for further details.
 
 
 ## Parameters
 
 
-### rewriteruleN
+### `rewriteruleN`
 
 This is obsoleted since 2.0.0. Use `<rule>` section.
 
 
-### capitalize\_regex\_backreference
+### `capitalize_regex_backreference`
 
 | type | default | version |
 |:-----|:--------|:--------|
 | bool | false   | 2.0.0   |
 
-Capitalize letter for every matched regex backreference. (ex: maps -\>
-Maps)
+Capitalizes letter for every matched regex backreference. (e.g. `maps -> Maps`)
 
 
-### hostname\_command
+### `hostname_command`
 
 | type   | default  | version |
 |:-------|:---------|:--------|
 | string | hostname | 2.0.0   |
 
-Override hostname command for placeholder. (default setting is long
-hostname)
+Overrides hostname command for placeholder. (default setting is long hostname)
 
 
-### &lt;rule&gt; section
+### `<rule>` Section
 
-It works with the order of appearance, regexp matching `rule/pattern`
-for the values of `rule/key` from each record, re-emit with `rule/tag`.
+It works in the order of appearance, regexp matching `rule/pattern`
+for the values of `rule/key` from each record, re-emits with `rule/tag`.
 
-#### key
+
+#### `key`
 
 | type   | default            | version |
 |:-------|:-------------------|:--------|
 | string | required parameter | 2.0.0   |
 
-The field name to which the regular expression is applied
+The field name to which the regular expression is applied.
 
-#### pattern
+
+#### `pattern`
 
 | type   | default            | version |
 |:-------|:-------------------|:--------|
 | regexp | required parameter | 2.1.0   |
 
-The regular expression which is applied on the field value
+The regular expression which is applied on the field value.
 
 The type of pattern is string before 2.1.0.
 
-#### tag
+
+#### `tag`
 
 | type   | default            | version |
 |:-------|:-------------------|:--------|
 | string | required parameter | 2.0.0   |
 
-New tag
+New tag.
 
-#### invert\*\* (bool) (optional):
+
+#### `invert**` (bool) (optional):
 
 | type | default | version |
 |:-----|:--------|:--------|
 | bool | false   | 2.0.0   |
 
-If true, rewrite tag when unmatch pattern
+If `true`, rewrite tag when unmatch pattern.
 
 
 ## Placeholders
 
 The following variable can be used when specifying the name of the
-rewritten tag. See more details at
-[README.md](https://github.com/fluent/fluent-plugin-rewrite-tag-filter#tag-placeholder).
+rewritten tag:
 
--   \${tag}
--   \_\_TAG\_\_
--   \${tag\_parts\[n\]}
--   \_\_TAG\_PARTS\[n\]\_\_
--   \${hostname}
--   \_\_HOSTNAME\_\_
+-   `${tag}`
+-   `__TAG__`
+-   `${tag_parts[n]}`
+-   `__TAG_PARTS[n]__`
+-   `${hostname}`
+-   `__HOSTNAME__`
+
+See more details at
+[`tag-placeholder`](https://github.com/fluent/fluent-plugin-rewrite-tag-filter#tag-placeholder).
 
 
-## Use cases
+## Use Cases
 
 -   Aggregate + display 404 status pages by URL and referrer to find and
     fix dead links.
 -   Send an IRC alert for 5xx status codes on exceeding thresholds.
 
+
 #### Aggregate + display 404 status pages by URL and referrer to find and fix dead links.
 
--   Collect access log from multiple application servers (config1)
--   Sum up the 404 error and output to mongoDB (config2)
+-   Collect access log from multiple application servers (`config1`)
+-   Sum up the 404 error and output to mongoDB (`config2`)
 
-Note: These plugins are required to be installed. \*
-fluent-plugin-rewrite-tag-filter \* fluent-plugin-mongo
+**IMPORTANT**
 
-##### \[Config1\] Application Servers
+The plugins are required to be installed:
+-   `fluent-plugin-rewrite-tag-filter`
+-   `fluent-plugin-mongo`
+
+
+##### `[Config1]` Application Servers
 
 ```
 # Input access log to fluentd with embedded in_tail plugin
@@ -247,7 +255,7 @@ fluent-plugin-rewrite-tag-filter \* fluent-plugin-mongo
 </match>
 ```
 
-##### \[Config2\] Monitoring Server
+##### `[Config2]` Monitoring Server
 
 ```
 # built-in TCP input
@@ -288,16 +296,22 @@ fluent-plugin-rewrite-tag-filter \* fluent-plugin-mongo
 
 #### Send an IRC alert for 5xx status codes on exceeding thresholds.
 
--   Collect access log from multiple application servers (config1)
+-   Collect access log from multiple application servers (`config1`)
 -   Sum up the 500 error and notify IRC and logging details to mongoDB
-    (config2)
+    (`config2`)
 
-Note: These plugins are required to be installed. \*
-fluent-plugin-rewrite-tag-filter \* fluent-plugin-datacounter \*
-fluent-plugin-notifier \* fluent-plugin-parser \* fluent-plugin-mongo \*
-fluent-plugin-irc
+**IMPORTANT**
 
-##### \[Config1\] Application Servers
+The plugins are required to be installed:
+-   `fluent-plugin-rewrite-tag-filter`
+-   `fluent-plugin-mongo`
+-   `fluent-plugin-datacounter`
+-   `fluent-plugin-notifier`
+-   `fluent-plugin-parser`
+-   `fluent-plugin-irc`
+
+
+##### `[Config1]` Application Servers
 
 ```
 # Input access log to fluentd with embedded in_tail plugin
@@ -324,7 +338,8 @@ fluent-plugin-irc
 </match>
 ```
 
-##### \[Config2\] Monitoring Server
+
+##### `[Config2]` Monitoring Server
 
 ```
 # built-in TCP input
@@ -371,6 +386,7 @@ fluent-plugin-irc
 
 # Count by status code
 # sample results: {"unmatched_count":0,"unmatched_rate":0.0,"unmatched_percentage":0.0,"200_count":0,"200_rate":0.0,"200_percentage":0.0,"2xx_count":0,"2xx_rate":0.0,"2xx_percentage":0.0,"301_count":0,"301_rate":0.0,"301_percentage":0.0,"302_count":0,"302_rate":0.0,"302_percentage":0.0,"3xx_count":0,"3xx_rate":0.0,"3xx_percentage":0.0,"403_count":0,"403_rate":0.0,"403_percentage":0.0,"404_count":0,"404_rate":0.0,"404_percentage":0.0,"410_count":0,"410_rate":0.0,"410_percentage":0.0,"4xx_count":0,"4xx_rate":0.0,"4xx_percentage":0.0,"5xx_count":1,"5xx_rate":0.01,"5xx_percentage":100.0}
+
 <match count.apache.access>
   @type datacounter
   unit minute
@@ -392,6 +408,7 @@ fluent-plugin-irc
 
 # Determine threshold
 # sample results: {"pattern":"code_500","target_tag":"apache.access","target_key":"5xx_count","check_type":"numeric_upward","level":"warn","threshold":1.0,"value":1.0,"message_time":"2014-01-28 16:47:39 +0900"}
+
 <match threshold.apache.access>
   @type notifier
   input_tag_remove_prefix threshold
@@ -439,9 +456,9 @@ fluent-plugin-irc
 ## FAQ
 
 
-### With rewrite-tag-filter, logs are not forwarded. Why?
+### With `rewrite-tag-filter`, logs are not forwarded. Why?
 
-If you have following configuration, it doesn't work:
+If you have the following configuration, it doesn't work:
 
 ```
 <match app.**>
@@ -461,7 +478,7 @@ If you have following configuration, it doesn't work:
 
 In this case, `rewrite_tag_filter` causes infinite loop because
 fluentd's routing is executed from top to bottom. So you need to change
-tag like below:
+tag like this:
 
 ```
 <match app.**>
@@ -482,5 +499,8 @@ tag like below:
 
 ------------------------------------------------------------------------
 
-If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open).
-[Fluentd](http://www.fluentd.org/) is a open source project under [Cloud Native Computing Foundation (CNCF)](https://cncf.io/). All components are available under the Apache 2 License.
+If this article is incorrect or outdated, or omits critical information, please
+[let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open).
+[Fluentd](http://www.fluentd.org/) is an open-source project under
+[Cloud Native Computing Foundation (CNCF)](https://cncf.io/). All components are
+available under the Apache 2 License.

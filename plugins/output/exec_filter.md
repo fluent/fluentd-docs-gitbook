@@ -1,17 +1,17 @@
-# exec\_filter Output Plugin
+# `exec_filter` Output Plugin
 
-![](/images/plugins/output/exec_filter.png)
+![exec_filter.png](/images/plugins/output/exec_filter.png)
 
-The `out_exec_filter` Buffered Output plugin (1) executes an external
-program using an event as input and (2) reads a new event from the
-program output. It passes tab-separated values (TSV) to stdin and reads
-TSV from stdout by default.
+The `out_exec_filter` Buffered Output plugin 1) executes an external program
+using an event as input; and, 2) reads a new event from the program output.
+
+By default, it passes tab-separated values (TSV) to the standard input and reads
+TSV from the standard output.
+
+It is included in Fluentd's core.
 
 
 ## Example Configuration
-
-`out_exec_filter` is included in Fluentd's core. No additional
-installation process is required.
 
 ```
 <match pattern>
@@ -33,40 +33,40 @@ installation process is required.
 </match>
 ```
 
-Please see the [Config File](/configuration/config-file.md) article for the basic
-structure and syntax of the configuration file.
+Please see the [Configuration File](/configuration/config-file.md) article for
+the basic structure and syntax of the configuration file.
 
-When using the json format in `<parse>` section, this plugin uses the
-Yajl library to parse the program output. Yajl buffers data internally
-so the output isn't always instantaneous.
+When using the JSON format in `<parse>` section, this plugin uses the `Yajl`
+library to parse the program output. `Yajl` buffers data internally so the
+output is not always instantaneous.
 
 
-## Supported modes
+## Supported Modes
 
 -   Synchronous
-
 -   See also: [Output Plugin Overview](/plugins/output/README.md)
 
 
-## Plugin helpers
+## Plugin Helpers
 
--   [compat\_parameters](/developer/api-plugin-helper-compat_parameters.md)
--   [inject](/developer/api-plugin-helper-inject.md)
--   [formatter](/developer/api-plugin-helper-formatter.md)
--   [parser](/developer/api-plugin-helper-parser.md)
--   [extract](/developer/api-plugin-helper-extract.md)
--   [child\_process](/developer/api-plugin-helper-child_process.md)
--   [event\_emitter](/developer/api-plugin-helper-event_emitter.md)
+-   [`compat_parameters`](/developer/api-plugin-helper-compat_parameters.md)
+-   [`inject`](/developer/api-plugin-helper-inject.md)
+-   [`formatter`](/developer/api-plugin-helper-formatter.md)
+-   [`parser`](/developer/api-plugin-helper-parser.md)
+-   [`extract`](/developer/api-plugin-helper-extract.md)
+-   [`child_process`](/developer/api-plugin-helper-child_process.md)
+-   [`event_emitter`](/developer/api-plugin-helper-event_emitter.md)
 
 
 ## Parameters
 
-### @type
+
+### `@type`
 
 The value must be `exec_filter`.
 
 
-### command
+### `command`
 
 | type   | default            | version |
 |:-------|:-------------------|:--------|
@@ -77,7 +77,7 @@ the incoming event to the program input and receives the filtered event
 from the program output.
 
 
-### num\_children
+### `num_children`
 
 | type    | default | version |
 |:--------|:--------|:--------|
@@ -89,7 +89,7 @@ If the number is larger than 2, fluentd uses spawned processes by round
 robin fashion.
 
 
-### child\_respawn
+### `child_respawn`
 
 | type   | default | version |
 |:-------|:--------|:--------|
@@ -97,11 +97,11 @@ robin fashion.
 
 Respawn command when command exit. Default is disabled.
 
-If you specify a positive number, try to respawn until specified times.
-If you specify `inf` or `-1`, try to respawn forever.
+If you specify a positive number, it tries to respawn until specified times.
+If you specify `inf` or `-1`, it tries to respawn forever.
 
 
-### tag
+### `tag`
 
 | type   | default | version |
 |:-------|:--------|:--------|
@@ -110,7 +110,7 @@ If you specify `inf` or `-1`, try to respawn forever.
 The tag of the event.
 
 
-### read\_block\_size
+### `read_block_size`
 
 | type | default | version |
 |:-----|:--------|:--------|
@@ -119,16 +119,7 @@ The tag of the event.
 The default block size to read if parser requires partial read.
 
 
-### num\_children
-
-| type    | default | version |
-|:--------|:--------|:--------|
-| integer | 1       | 0.14.0  |
-
-The number of spawned process for command.
-
-
-### suppress\_error\_log\_interval
+### `suppress_error_log_interval`
 
 | type | default | version |
 |:-----|:--------|:--------|
@@ -139,79 +130,98 @@ Suppress error logs during this interval.
 Output logs for all of messages to emit by default.
 
 
-### in\_format
+### `in_format`
 
 **This parameter is deprecated.** Use `<format>` section.
 
 The format used to map the incoming event to the program input.
 
 
-### out\_format
+### `out_format`
 
 **This parameter is deprecated.** Use `<parse>` section.
 
 The format used to process the program output.
 
 
-### &lt;format&gt; section
+### `<format>` Section
 
 The format used to map the incoming events to the program input.
 
-See [Format section configurations](/configuration/format-section.md) for more details.
+See [Format Section Configurations](/configuration/format-section.md) for more details.
 
-#### @type
+
+#### `@type`
 
 | type   | default | version |
 |:-------|:--------|:--------|
 | string | tsv     | 0.14.9  |
 
-Overwrite default value in this plugin.
+Overwrites the default value in this plugin.
 
 
-### &lt;parse&gt; section
+### `<parse>` Section
 
 The format used to process the program output.
 
-See [Parse section configurations](/configuration/parse-section.md) for more details.
+See [Parse Section Configurations](/configuration/parse-section.md) for more details.
 
-#### @type
+
+#### `@type`
 
 | type   | default | version |
 |:-------|:--------|:--------|
 | string | tsv     | 0.14.9  |
 
-Overwrite default value in this plugin.
+Overwrites the default value in this plugin.
 
-#### time\_key
 
-| type   | default | version |
-|:-------|:--------|:--------|
-| string | nil     | 0.14.9  |
-
-Overwrite default value in this plugin.
-
-#### time\_format
+#### `time_key`
 
 | type   | default | version |
 |:-------|:--------|:--------|
 | string | nil     | 0.14.9  |
 
-Overwrite default value in this plugin.
+Overwrites the default value in this plugin.
 
-#### localtime
+
+#### `time_format`
+
+| type   | default | version |
+|:-------|:--------|:--------|
+| string | nil     | 0.14.9  |
+
+Overwrites the default value in this plugin.
+
+
+#### `localtime`
 
 | type | default | version |
 |:-----|:--------|:--------|
 | bool | false   | 0.14.9  |
 
-Overwrite default value in this plugin.
+Overwrites the default value in this plugin.
 
 
-### &lt;inject&gt; section
+### `<inject>` Section
 
-See [Inject section configurations](/conguration/inject-section.md) for more details.
+See [Inject Section Configurations](/conguration/inject-section.md) for more details.
 
-#### time\_type
+#### `time_type`
+
+| type | default | version |
+|:-----|:--------|:--------|
+| enum | float   | 0.14.9  |
+
+Overwrites the default value in this plugin.
+
+
+### `<extract>` Section
+
+See [Extract Section Configurations](/conguration/extract-section.md) for more details.
+
+
+#### `time_type`
 
 | type | default | version |
 |:-----|:--------|:--------|
@@ -219,43 +229,32 @@ See [Inject section configurations](/conguration/inject-section.md) for more det
 
 Overwrite default value in this plugin.
 
+### `<buffer>` Section
 
-### &lt;extract&gt; section
+See [Buffer Section Configurations](/configuration/buffer-section.md) for more details.
 
-See [Extract section configurations](/conguration/extract-section.md) for more details.
 
-#### time\_type
-
-| type | default | version |
-|:-----|:--------|:--------|
-| enum | float   | 0.14.9  |
-
-Overwrite default value in this plugin.
-
-### &lt;buffer&gt; section
-
-See [Buffer section configurations](/configuration/buffer-section.md) for more details.
-
-#### flush\_mode
+#### `flush_mode`
 
 | type | default  | version |
 |:-----|:---------|:--------|
 | enum | interval | 0.14.9  |
 
-Overwrite default value in this plugin.
+Overwrites the default value in this plugin.
 
-#### flush\_interval
+
+#### `flush_interval`
 
 | type    | default | version |
 |:--------|:--------|:--------|
 | integer | 1       | 0.14.9  |
 
-Overwrite default value in this plugin.
+Overwrites the default value in this plugin.
 
 
-## Script example
+## Script Example
 
-Here is an example writtein in ruby.
+Here is an example written in Ruby:
 
 ```
 require 'json'
@@ -281,7 +280,7 @@ rescue Interrupt # Ignore Interrupt exception because it happens during exec_fil
 end
 ```
 
-Corresponding configuration is below:
+Corresponding configuration:
 
 ```
 <match test.**>
@@ -300,11 +299,13 @@ Corresponding configuration is below:
 </match>
 ```
 
-If you want to use other language, translate above script example into
-your language.
+You may convert this script into your preferred language accordingly.
 
 
 ------------------------------------------------------------------------
 
-If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open).
-[Fluentd](http://www.fluentd.org/) is a open source project under [Cloud Native Computing Foundation (CNCF)](https://cncf.io/). All components are available under the Apache 2 License.
+If this article is incorrect or outdated, or omits critical information, please
+[let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open).
+[Fluentd](http://www.fluentd.org/) is an open-source project under
+[Cloud Native Computing Foundation (CNCF)](https://cncf.io/). All components are
+available under the Apache 2 License.

@@ -1,13 +1,14 @@
 # Apache Kafka Output Plugin
 
-![](/images/plugins/output/kafka.png)
+![kafka.png](/images/plugins/output/kafka.png)
 
 The `out_kafka2` Output plugin writes records into [Apache Kafka](https://kafka.apache.org/).
 
->## Installation
 
-`out_kafka2` is included in td-agent3. Fluentd gem users will
-need to install the fluent-plugin-kafka gem using the following command.
+## Installation
+
+`out_kafka2` is included in `td-agent`. Fluentd gem users will
+need to install the `fluent-plugin-kafka` gem using the following command:
 
 ``` {.CodeRay}
 $ fluent-gem install fluent-plugin-kafka
@@ -45,31 +46,34 @@ $ fluent-gem install fluent-plugin-kafka
 </match>
 ```
 
-Please see the [Config File](/configuration/config-file.md) article for the basic
-structure and syntax of the configuration file.
+Please see the [Configuration File](/configuration/config-file.md) article for
+the basic structure and syntax of the configuration file.
 
-Please make sure that you have **enough space in the buffer path
-directory**. Running out of disk space is a problem frequently reported
-by users.
+Please make sure that you have **enough space in the buffer path directory**.
+Running out of disk space is a problem frequently reported by users.
+
 
 ## Parameters
 
-### type (required)
+
+### `@type` (required)
 
 The value must be `kafka2`.
 
-### brokers (required/optional)
+
+### `brokers` (required/optional)
 
 The list of all seed brokers, with their host and port information.
 
-The default is `localhost:9092`.
+Default: `localhost:9092`
 
-### topic\_key
+
+### `topic_key`
 
 The field name for target topic. If the field value is `app`,
 this plugin write events to `app` topic.
 
-In addition, this field name must be included in buffer chunk keys.
+In addition, this field name must be included in buffer chunk keys:
 
 ```
 topic_key category
@@ -78,19 +82,22 @@ topic_key category
 </buffer>
 ```
 
-The default is `topic.`
+Default: `topic`
 
-### default\_topic
 
-The name of default topic (default: nil).
-This value will be used when `topic_key` field is missing
+### `default_topic`
 
-### &lt;format&gt; directive
+The name of default topic. (default: `nil`)
+
+This value will be used when `topic_key` field is missing.
+
+
+### `<format>` Directive
 
 The format of each message. The available options are `json`, `ltsv`,
 and formatter plugins.
 
-Here is `json` example:
+Here is the `json` example:
 
 ```
 <format>
@@ -98,36 +105,48 @@ Here is `json` example:
 </format>
 ```
 
-See [formatter article](/plugins/formatter/README.md) for more detail.
+See [`formatter`](/plugins/formatter/README.md) article for more detail.
 
-### use_event_time
+
+### `use_event_time`
 
 Set fluentd event time to kafka's CreateTime.
 
-The default is `false`. This means use current time.
+Default: `false` (This means use current time.)
 
-### required\_acks
 
-The number of acks required per request (default: -1).
+### `required_acks`
 
-### compression\_codec
+The number of acks required per request.
 
-The codec the producer uses to compress messages (default: nil). The
-available options are `gzip` and `snappy`. When you use `snappy`, you
-need to install `snappy` gem by `td-agent-gem` command.
+Default: `-1`
 
-#### @log\_level option
+
+### `compression_codec`
+
+The codec the producer uses to compress messages (default: `nil`). 
+
+Default: `nil`
+
+Available options: `gzip`, `snappy`
+
+For `snappy`, you need to install `snappy` gem by `td-agent-gem` command.
+
+
+#### `@log_level`
 
 The `@log_level` option allows the user to set different levels of
-logging for each plugin. The supported log levels are: `fatal`, `error`,
-`warn`, `info`, `debug`, and `trace`.
+logging for each plugin. 
 
-Please see the [logging article](/deployment/logging.md) for further details.
+Supported log levels: `fatal`, `error`, `warn`, `info`, `debug`, `trace`.
+
+Please see the [logging](/deployment/logging.md) article for further details.
+
 
 ## Common Output / Buffer parameters
 
 For common output / buffer parameters, please check the following
-articles.
+articles:
 
 -   [Output Plugin Overview](/plugins/output/README.md)
 -   [Buffer Section Configuration](/configuration/buffer-section.md)
@@ -135,13 +154,16 @@ articles.
 
 ## Further Reading
 
-This page doesn't describe all the possible configurations. If you want
-to know about other configurations, please check the link below.
+This page does not describe all the possible configurations. If you want
+to know about other configurations, please check the link below:
 
--   [fluent-plugin-kafka repository](https://github.com/fluent/fluent-plugin-kafka)
+-   [`fluent-plugin-kafka`](https://github.com/fluent/fluent-plugin-kafka)
 
 
 ------------------------------------------------------------------------
 
-If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs/issues?state=open).
-[Fluentd](http://www.fluentd.org/) is a open source project under [Cloud Native Computing Foundation (CNCF)](https://cncf.io/). All components are available under the Apache 2 License.
+If this article is incorrect or outdated, or omits critical information, please
+[let us know](https://github.com/fluent/fluentd-docs/issues?state=open).
+[Fluentd](http://www.fluentd.org/) is an open-source project under
+[Cloud Native Computing Foundation (CNCF)](https://cncf.io/). All components are
+available under the Apache 2 License.

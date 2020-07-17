@@ -1,12 +1,11 @@
-# relabel Output Plugin
+# `relabel` Output Plugin
 
 The `relabel` output plugin re-labels events.
 
+It is included in Fluentd's core.
+
 
 ## Example Configuration
-
-`out_relabel` is included in Fluentd's core. No additional installation
-process is required.
 
 ```
 <match pattern>
@@ -16,7 +15,7 @@ process is required.
 
 <label @foo>
   <match pattern>
-    ...
+  # ...
   </match>
 </label>
 ```
@@ -24,33 +23,34 @@ process is required.
 The above example puts a label `@foo` to matched events, and the `label`
 directive can take care of these events.
 
-FYI: All of input and output plugins also have `@label` parameter
+**FYI**: All of input and output plugins also have `@label` parameter
 provided by Fluentd core. The `relabel` plugin is a plugin which
 actually does nothing, but supports only `@label` parameter.
 
 
-## Supported modes
+## Supported Modes
 
 -   Non-Buffered
 
 -   See also: [Output Plugin Overview](/plugins/output/README.md)
 
 
-## Plugin helpers
+## Plugin Helpers
 
--   [event\_emitter](/developer/api-plugin-helper-event_emitter.md)
+-   [`event_emitter`](/developer/api-plugin-helper-event_emitter.md)
 
 
 ## Parameters
 
 [Common Parameters](/configuration/plugin-common-parameters.md)
 
-### @type
+
+### `@type`
 
 The value must be `relabel`.
 
 
-### @label
+### `@label`
 
 The label.
 
@@ -61,5 +61,8 @@ The label.
 
 ------------------------------------------------------------------------
 
-If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open).
-[Fluentd](http://www.fluentd.org/) is a open source project under [Cloud Native Computing Foundation (CNCF)](https://cncf.io/). All components are available under the Apache 2 License.
+If this article is incorrect or outdated, or omits critical information, please
+[let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open).
+[Fluentd](http://www.fluentd.org/) is an open-source project under
+[Cloud Native Computing Foundation (CNCF)](https://cncf.io/). All components are
+available under the Apache 2 License.

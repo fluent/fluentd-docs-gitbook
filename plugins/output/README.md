@@ -1,34 +1,39 @@
 # Output Plugin Overview
 
-Fluentd has 8 types of plugins: [Input](/plugins/input/README.md),
-[Parser](/plugins/parser/README.md), [Filter](/plugins/filter/README.md),
-[Output](/plugins/output/README.md),
-[Formatter](/plugins/formatter/README.md),
-[Storage](/plugins/storage/README.md),
-[Service Discovery](/plugins/service_discovery/README.md) and [Buffer](/plugins/buffer/README.md).
+Fluentd has eight (8) types of plugins:
+
+-   [Input](/plugins/input/README.md)
+-   [Parser](/plugins/parser/README.md)
+-   [Filter](/plugins/filter/README.md)
+-   [Output](/plugins/output/README.md)
+-   [Formatter](/plugins/formatter/README.md)
+-   [Storage](/plugins/storage/README.md)
+-   [Service Discovery](/plugins/service_discovery/README.md)
+-   [Buffer](/plugins/buffer/README.md)
+
 This article gives an overview of Output Plugin.
 
 
 ## Overview
 
-Fluentd v1.0 output plugins have 3 modes about buffering and flushing.
+Fluentd v1.0 output plugins have three (3) buffering and flushing modes:
 
--   *Non-Buffered* mode doesn't buffer data and write out results
+-   **Non-Buffered** mode does not buffer data and write out results
     immediately.
--   *Synchronous Buffered* mode has "staged" buffer chunks (a chunk is a
+-   **Synchronous Buffered** mode has "staged" buffer chunks (a chunk is a
     collection of events) and a queue of chunks, and its behavior can be
     controlled by `<buffer>` section (See the diagram below).
--   *Asynchronous Buffered* mode also has "stage" and "queue", but
+-   **Asynchronous Buffered** mode also has "stage" and "queue", but
     output plugin will not commit writing chunks in methods
     synchronously, but commit later.
 
 ![Fluentd v1.0 Plugin API Overview](/images/fluentd-v0.14-plugin-api-overview.png)
 
-Output plugins can support all modes, but may support just one of these
-modes. Fluentd choose appropriate mode automatically if there are no
-`<buffer>` sections in configuration. If users specify `<buffer>`
-section for output plugins which doesn't support buffering, Fluentd will
-stop with configuration errors.
+Output plugins can support all the modes, but may support just one of these
+modes. Fluentd chooses appropriate mode automatically if there are no
+`<buffer>` sections in the configuration. If the users specify `<buffer>`
+section for the output plugins that do not support buffering, Fluentd will
+raise configuration errors.
 
 Output plugins in v1 can control keys of buffer chunking by
 configurations, dynamically. Users can configure buffer chunk keys as
@@ -41,33 +46,32 @@ buffer plugins can be chosen for each output plugin.
 
 ## List of Output Plugins
 
--   [out\_copy](/plugins/output/copy.md)
--   [out\_null](/plugins/output/null.md)
--   [out\_roundrobin](/plugins/output/roundrobin.md)
--   [out\_stdout](/plugins/output/stdout.md)
--   [out\_exec\_filter](/plugins/output/exec_filter.md)
--   [out\_forward](/plugins/output/forward.md)
--   [out\_mongo](/plugins/output/mongo.md) or [out\_mongo\_replset](/plugins/output/mongo_replset.md)
--   [out\_exec](/plugins/output/exec.md)
--   [out\_file](/plugins/output/file.md)
--   [out\_s3](/plugins/output/s3.md)
--   [out\_webhdfs](/plugins/output/webhdfs.md)
+-   [`out_copy`](/plugins/output/copy.md)
+-   [`out_null`](/plugins/output/null.md)
+-   [`out_roundrobin`](/plugins/output/roundrobin.md)
+-   [`out_stdout`](/plugins/output/stdout.md)
+-   [`out_exec_filter`](/plugins/output/exec_filter.md)
+-   [`out_forward`](/plugins/output/forward.md)
+-   [`out_mongo`](/plugins/output/mongo.md) / [`out_mongo_replset`](/plugins/output/mongo_replset.md)
+-   [`out_exec`](/plugins/output/exec.md)
+-   [`out_file`](/plugins/output/file.md)
+-   [`out_s3`](/plugins/output/s3.md)
+-   [`out_webhdfs`](/plugins/output/webhdfs.md)
 
 
 ## Other Plugins
 
-Please refer to this list of available plugins to find out about other
-Output plugins.
+See this list of available plugins to find out more about other Output plugins:
 
--   [others](http://fluentd.org/plugin/)
+-   [other plugins](http://fluentd.org/plugin/)
 
 
 ## Difference between v1.0 and v0.12
 
-Fluentd v0.12 uses only `<match>` section for both of configuration
-parameters of output plugin and buffer plugin. Fluentd v1.0 uses
-`<buffer>` subsection to write parameters for buffering, flushing and
-retrying. `<match>` sections are used only for output plugin itself.
+Fluentd v0.12 uses only `<match>` section for both the configuration parameters
+of output and buffer plugins. Fluentd v1.0 uses `<buffer>` subsection to write
+parameters for buffering, flushing and retrying. `<match>` sections are used
+only for the output plugin itself.
 
 Example of v1.0 output plugin configuration:
 
@@ -78,14 +82,14 @@ Example of v1.0 output plugin configuration:
   <buffer tag,time>
     @type file
     path /my/buffer/myservice
-    timekey     60m
+    timekey 60m
     timekey_wait 1m
   </buffer>
 </match>
 ```
 
-For Fluentd v0.12, configuration parameters for buffer plugins were
-written in same section:
+For Fluentd v0.12, configuration parameters for buffer plugins are
+written in the same section:
 
 ```
 <match myservice_name>
@@ -94,7 +98,7 @@ written in same section:
   buffer_type file
   buffer_path /my/buffer/myservice/access.myservice_name.*.log
   time_slice_format %Y-%m-%d.%H%M
-  time_slice_wait   1m
+  time_slice_wait 1m
 </match>
 ```
 
@@ -105,186 +109,211 @@ for parameter name changes between v1 and v0.12.
 
 ## Buffering/Retrying Parameters
 
-See [Buffer section configurations](/configuration/buffer-section.md).
+See [Buffer Section Configurations](/configuration/buffer-section.md).
 
 
 ### Control Flushing
 
 See [Buffer Plugin Overview](/plugins/buffer/README.md) for the basic
-behaviour of buffer.
+behavior of buffer.
 
-#### flush\_mode
 
-The default is `default`. Supported types are `default`, `lazy`,
-`interval` or `immediate`
+#### `flush_mode`
 
-How to enqueue chunks to be flushed. "interval" flushes per
-flush\_interval, "immediate" flushes just after event arrival.
+Default: `default`
 
-#### flush\_interval
+Supported types: `default`, `lazy`, `interval`, `immediate`
+- `interval` flushes per `flush_interval`
+- `immediate` flushes just after event arrives
 
-the default is 60
+
+#### `flush_interval`
 
 The interval between buffer chunk flushes.
 
-#### flush\_thread\_count
+Default: `60`
 
-The default is 1.
+
+#### `flush_thread_count`
 
 The number of threads to flush the buffer.
 
-#### flush\_thread\_interval
+Default: `1`
 
-The default is `1.0`
+
+#### `flush_thread_interval`
 
 Seconds to sleep between checks for buffer flushes in flush threads.
 
-#### flush\_thread\_burst\_interval
+Default: `1.0`
 
-The default is `1.0`
+
+#### `flush_thread_burst_interval`
 
 Seconds to sleep between flushes when many buffer chunks are queued.
 
-#### delayed\_commit\_timeout
+Default: `1.0`
 
-The default is 60.
 
-Seconds of timeout for buffer chunks to be committed by plugins later
+#### `delayed_commit_timeout`
 
-#### slow\_flush\_log\_threshold
+Seconds of timeout for buffer chunks to be committed by plugins later.
 
-The threshold for chunk flush performance check. The default value is
-`20.0` seconds. Note that parameter type is `float`, not `time`.
+Default: `60`
 
-If chunk flush takes longer time than this threshold, fluentd logs
-warning message like below:
 
-    2016-12-19 12:00:00 +0000 [warn]: buffer flush took longer time than slow_flush_log_threshold: elapsed_time=15.0031226690043695 slow_flush_log_threshold=10.0 plugin_id="foo"
+#### `slow_flush_log_threshold`
 
-#### overflow\_action
+The threshold for chunk flush performance check.
 
-Control the buffer behaviour when the queue becomes full. 3 modes are
-supported:
+Default: `20.0` (seconds)
 
--   throw\_exception
+Note that the parameter type is `float`, not `time`.
 
-This is default mode. This mode raises `BufferOverflowError` exception
-to input plugin. How handle `BufferOverflowError` depends on input
-plugins, e.g. tail input stops reading new lines, forward input returns
-an error to forward output. This action fits for streaming manner.
+If chunk flush takes longer time than this threshold, fluentd logs warning
+message like this:
 
--   block
+```
+2016-12-19 12:00:00 +0000 [warn]: buffer flush took longer time than slow_flush_log_threshold: elapsed_time=15.0031226690043695 slow_flush_log_threshold=10.0 plugin_id="foo"
+```
 
-This mode stops input plugin thread until buffer full is resolved. This
-action is good for batch-like use-case. This is mainly for `in_tail` plugin. Other input plugins, e.g. socket based plugin, don't assume this action.
 
-We don't recommend to use `block` action to avoid
-`BufferOverflowError`. Please consider improving destination setting
-to resolve `BufferOverflowError` or use `@ERROR` label for routing
-overflowed events to another backup destination(or `secondary` with
-lower `retry_limit`). If you hit `BufferOverflowError` frequently, it
-means your destination capacity is insufficient for your traffic.
+#### `overflow_action`
 
--   drop\_oldest\_chunk
+Controls the buffer behavior when the queue becomes full. 
 
-This mode drops oldest chunks. This mode is useful for monitoring system
-destinations. For monitoring, newer events are important than older.
+Supported modes:
+
+-   `throw_exception` (default)
+
+    This mode throws `BufferOverflowError` exception to the input plugin. How
+    `BufferOverflowError` is handled depends on the input plugins, e.g. tail
+    input stops reading new lines, forward input returns an error to forward
+    output. This action fits for streaming manner.
+
+-   `block`
+
+    This mode stops input plugin thread until buffer full issue is resolved.
+    This action is good for batch-like use-cases. This is mainly for `in_tail`
+    plugin. Other input plugins, e.g. socket based plugin, don't assume this
+    action.
+
+    We do not recommend using `block` action to avoid `BufferOverflowError`.
+    Please consider improving destination settings to resolve
+    `BufferOverflowError` or use `@ERROR` label for routing overflowed events to
+    another backup destination (or `secondary` with lower `retry_limit`). If you
+    hit `BufferOverflowError` frequently, it means your destination capacity is
+    insufficient for your traffic.
+
+-   `drop_oldest_chunk`
+
+    This mode drops oldest chunks. This mode is useful for monitoring system
+    destinations. For monitoring, newer events are important than older.
 
 
 ### Control Retrying
 
-If the bottom chunk write out fails, it will remain in the queue and
-Fluentd will retry after waiting several seconds (`retry_wait`). If the
-retry limit has not been disabled (`retry_forever` is false) and the
-retry count exceeds the specified limit (`retry_max_times`), **all chunks
-in the queue are discarded**. The retry wait time doubles each time
-(1.0sec, 2.0sec, 4.0sec, ...) until `retry_max_interval` is reached.
-If the queue length exceeds the specified limit (`queue_limit_length`),
-new events are rejected.
+If the bottom chunk write out fails, it will remain in the queue and Fluentd
+will retry after waiting for several seconds (`retry_wait`). If the retry limit
+has not been disabled (`retry_forever` is `false`) and the retry count exceeds
+the specified limit (`retry_max_times`), **all chunks in the queue are
+discarded**. The retry wait time doubles each time (1.0sec, 2.0sec, 4.0sec, ...)
+until `retry_max_interval` is reached. If the queue length exceeds the specified
+limit (`queue_limit_length`), new events are rejected.
 
-writing out the bottom chunk is considered to be a failure if
-`Output#write` or `Output#try_write` method throws an exception.
+Writing out the bottom chunk is considered to be a failure if `Output#write` or
+`Output#try_write` method throws an exception.
 
-#### retry\_type
 
-The default is `exponential_backoff`.
+#### `retry_type`
 
-How to wait next retry to flush buffer. Supported types are
-`exponential_backoff` or `periodic`
+Specifies how to wait for next retry to flush buffer.
 
-#### retry\_forever
+Supported types:
 
-The default is false.
+- `exponential_backoff` (default)
+- `periodic`
 
-If true, plugin will ignore retry\_timeout and retry\_max\_times options
+
+#### `retry_forever`
+
+If `true`, plugin will ignore `retry_timeout` and `retry_max_times` options
 and retry flushing forever.
 
-#### retry\_timeout
+Default: `false`
 
-The default is 72 hours.
+
+#### `retry_timeout`
 
 The maximum seconds to retry to flush while failing, until plugin
 discards buffer chunks.
 
-#### retry\_max\_times
+Default: `72` (hours)
 
-The default is `nil`
 
-The maximum number of times to retry to flush while failing. If
-`retry_timeout` is the default, the number is 17 with exponential
-backoff.
+#### `retry_max_times`
 
-#### retry\_secondary\_threshold
+The maximum number of times to retry to flush while failing. If `retry_timeout`
+is the default, the number is 17 with exponential backoff.
 
-The default is `0.8`
+Default: `nil`
 
-The ratio of retry\_timeout to switch to use secondary while failing.
 
-#### retry\_wait
+#### `retry_secondary_threshold`
 
-The default is 1
+The ratio of `retry_timeout` to switch to use secondary while failing.
 
-Seconds to wait before next retry to flush, or constant factor of
+Default: `0.8`
+
+
+#### `retry_wait`
+
+Seconds to wait before the next retry to flush, or constant factor of
 exponential backoff.
 
-#### retry\_exponential\_backoff\_base
+Default: `1`
 
-The default is 2
+
+#### `retry_exponential_backoff_base`
 
 The base number of exponential backoff for retries.
 
-#### retry\_max\_interval
+Default: `2`
 
-The default is `nil`.
 
-The maximum interval seconds for exponential backoff between retries
-while failing.
+#### `retry_max_interval`
 
-#### retry\_randomize, :bool, default: true
+The maximum interval (seconds) for exponential backoff between retries while
+failing.
 
-The default is `true`.
+Default: `nil`
+
+
+#### `retry_randomize`
 
 If true, output plugin will retry after randomized interval not to do
 burst retries.
 
-For other configuration parameters available in `<buffer>` sections, see
-[Buffer plugin overview](/plugins/buffer/README.md) and each plugins.
+Default: `true`
+
+For other configuration parameters available in `<buffer>` section, see
+[Buffer Plugin Overview](/plugins/buffer/README.md).
 
 
 ## Secondary Output
 
-In buffered mode, the user can specify `<secondary>` with any output
-plugin in `<match>` configuration. If plugins continue to fail writing
-buffer chunks and exceeds the timeout threshold for retries, then output
-plugins will delegate to write the buffer chunk to secondary plugin.
+In `buffered` mode, the user can specify `<secondary>` with any output plugin in
+`<match>` configuration. If plugins continue to fail writing buffer chunks and
+exceeds the timeout threshold for retries, then output plugins will delegate the
+writing of the buffer chunk to  the secondary plugin.
 
-`<secondary>` is useful for backup when destination servers are
-unavailable, e.g. forward, mongo and other plugins. We strongly
-recommend `out_secondary_file` plugin for `<secondary>`.
+`<secondary>` is useful for backup when destination servers are unavailable,
+e.g. `forward`, `mongo`, etc. We strongly recommend `out_secondary_file` plugin
+for `<secondary>`.
 
-The example below sends logs to Elasticsearch using a file buffer
-`/var/log/td-agent/buffer/elasticsearch`, and any failures will be sent to
-`/var/log/td-agent/error/` using `my.logs` for file names.
+This example sends logs to Elasticsearch using a file buffer
+`/var/log/td-agent/buffer/elasticsearch`, and any failure will be sent to
+`/var/log/td-agent/error/` using `my.logs` for file names:
 
 ```
 <match my.logs>
@@ -304,10 +333,14 @@ The example below sends logs to Elasticsearch using a file buffer
 </match>
 ```
 
-Note: `<secondary>` plugin receives primary's buffer chunk directly.
-So you need to check your secondary plugin works with primary setting.
+NOTE: `<secondary>` plugin receives the primary's buffer chunk directly.
+So, you need to check if your secondary plugin works with primary setting.
+
 
 ------------------------------------------------------------------------
 
-If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open).
-[Fluentd](http://www.fluentd.org/) is a open source project under [Cloud Native Computing Foundation (CNCF)](https://cncf.io/). All components are available under the Apache 2 License.
+If this article is incorrect or outdated, or omits critical information, please
+[let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open).
+[Fluentd](http://www.fluentd.org/) is an open-source project under
+[Cloud Native Computing Foundation (CNCF)](https://cncf.io/). All components are
+available under the Apache 2 License.
