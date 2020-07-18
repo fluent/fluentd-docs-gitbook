@@ -86,8 +86,7 @@ Kubernetes node's environment and append the proper metadata to the logs.
 
 This repository has several presets for alpine/debian with popular outputs:
 
-- [DaemonSet preset
-  settings](https://github.com/fluent/fluentd-kubernetes-daemonset/tree/master/docker-image/v0.12)
+- [DaemonSet preset settings](https://github.com/fluent/fluentd-kubernetes-daemonset/tree/master/docker-image/v0.12)
 
 
 ## Logging to Elasticsearch
@@ -145,6 +144,6 @@ exists in the cluster.
 
 If this article is incorrect or outdated, or omits critical information, please
 [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open).
-[Fluentd](http://www.fluentd.org/) is an open-source project under [Cloud Native
-Computing Foundation (CNCF)](https://cncf.io/). All components are available
-under the Apache 2 License.
+[Fluentd](http://www.fluentd.org/) is an open-source project under
+[Cloud Native Computing Foundation (CNCF)](https://cncf.io/). All components are
+available under the Apache 2 License.

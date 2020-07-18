@@ -84,12 +84,10 @@ services:
       - "5601:5601"
 ```
 
-The `logging` section (check [Docker Compose
-documentation](https://docs.docker.com/compose/compose-file/#/logging)) of `web`
-container specifies [Docker Fluentd Logging
-Driver](https://docs.docker.com/engine/admin/logging/fluentd/) as a default
-container logging driver. All the logs from `web` container will automatically
-be forwarded to `host:port` specified by `fluentd-address`.
+The `logging` section (check [Docker Compose documentation](https://docs.docker.com/compose/compose-file/#/logging))
+of `web` container specifies [Docker Fluentd Logging Driver](https://docs.docker.com/engine/admin/logging/fluentd/)
+as a default container logging driver. All the logs from `web` container will
+automatically be forwarded to `host:port` specified by `fluentd-address`.
 
 
 ## Step 1: Create Fluentd Image with your Config + Plugin
@@ -211,6 +209,6 @@ The code is available at https://github.com/digikin/fluentd-elastic-kibana.
 
 If this article is incorrect or outdated, or omits critical information, please
 [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open).
-[Fluentd](http://www.fluentd.org/) is an open-source project under [Cloud Native
-Computing Foundation (CNCF)](https://cncf.io/). All components are available
-under the Apache 2 License.
+[Fluentd](http://www.fluentd.org/) is an open-source project under
+[Cloud Native Computing Foundation (CNCF)](https://cncf.io/). All components are
+available under the Apache 2 License.

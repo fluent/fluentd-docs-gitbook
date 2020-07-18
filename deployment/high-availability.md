@@ -178,12 +178,15 @@ $ telnet host 24224
 $ nmap -p 24224 -sU host
 ```
 
-Please note that there is one [known issue](http://kb.vmware.com/selfservice/microsites/search.do?language=en_US&cmd=displayKC&externalId=2019944)
-where VMware will occasionally lose small UDP packages used for
-heartbeat.
+Please note that there is one
+[known issue](http://kb.vmware.com/selfservice/microsites/search.do?language=en_US&cmd=displayKC&externalId=2019944)
+where VMware will occasionally lose small UDP packages used for heartbeat.
 
 
 ------------------------------------------------------------------------
 
-If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open).
-[Fluentd](http://www.fluentd.org/) is an open-source project under [Cloud Native Computing Foundation (CNCF)](https://cncf.io/). All components are available under the Apache 2 License.
+If this article is incorrect or outdated, or omits critical information, please
+[let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open).
+[Fluentd](http://www.fluentd.org/) is an open-source project under
+[Cloud Native Computing Foundation (CNCF)](https://cncf.io/). All components are
+available under the Apache 2 License.

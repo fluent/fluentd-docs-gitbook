@@ -1,8 +1,9 @@
 # Failure Scenarios
 
-This article describes various Fluentd failure scenarios. We will assume
-that you have configured Fluentd for [High Availability](/deployment/high-availability.md), so that each app node has its own local
-**forwarders** and all logs are aggregated into multiple **aggregators**.
+This article describes various Fluentd failure scenarios. We will assume that
+you have configured Fluentd for [High Availability](/deployment/high-availability.md),
+so that each app node has its own local **forwarders** and all logs are
+aggregated into multiple **aggregators**.
 
 
 ## Apps Cannot Post Records to Forwarder
@@ -63,5 +64,8 @@ logs until they run out of disk space.
 
 ------------------------------------------------------------------------
 
-If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open).
-[Fluentd](http://www.fluentd.org/) is an open-source project under [Cloud Native Computing Foundation (CNCF)](https://cncf.io/). All components are available under the Apache 2 License.
+If this article is incorrect or outdated, or omits critical information, please
+[let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open).
+[Fluentd](http://www.fluentd.org/) is an open-source project under
+[Cloud Native Computing Foundation (CNCF)](https://cncf.io/). All components are
+available under the Apache 2 License.

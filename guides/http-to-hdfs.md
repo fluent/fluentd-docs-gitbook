@@ -35,7 +35,7 @@ configuration. Please install the following software on the same node:
 
 -   [Fluentd](http://fluentd.org/)
 -   [WebHDFS Output Plugin](https://github.com/fluent/fluent-plugin-webhdfs/)
-    ([out\_webhdfs](/plugins/output/webhdfs.md))
+    ([`out_webhdfs`](/plugins/output/webhdfs.md))
 -   Apache HDFS
 
 The WebHDFS Output plugin is included in the latest version of Fluentd's
@@ -45,7 +45,7 @@ install the plugin, please use `gem install fluent-plugin-webhdfs`.
 -   [Debian Package](/install/install-by-deb.md)
 -   [RPM Package](/install/install-by-rpm.md)
 -   For CDH, please refer to the [downloads page](https://www.cloudera.com/downloads.html)
--   [Ruby gem](/install/install-by-gem.md)
+-   [Ruby gem](/install/install-by-gem.md).
 
 
 ## Fluentd Configuration
@@ -166,5 +166,8 @@ major problems for several months now.
 
 ------------------------------------------------------------------------
 
-If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open).
-[Fluentd](http://www.fluentd.org/) is an open-source project under [Cloud Native Computing Foundation (CNCF)](https://cncf.io/). All components are available under the Apache 2 License.
+If this article is incorrect or outdated, or omits critical information, please
+[let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open).
+[Fluentd](http://www.fluentd.org/) is an open-source project under
+[Cloud Native Computing Foundation (CNCF)](https://cncf.io/). All components are
+available under the Apache 2 License.

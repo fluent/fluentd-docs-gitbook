@@ -398,9 +398,8 @@ Following are the configuration parameters for buffer plugin and its chunks:
 -   `queue_limit_length` \[integer\]
     -   Default: `nil`
     -   The queue length limitation of this buffer plugin instance
-    -   This parameter is for [v0.12
-        compatibility](/developer/api-plugin-helper-compat_parameters.md). Use
-        `total_limit_size` instead for v1 configuration.
+    -   This parameter is for [v0.12 compatibility](/developer/api-plugin-helper-compat_parameters.md).
+        Use `total_limit_size` instead for v1 configuration.
 -   `chunk_full_threshold` \[float\]
     -   Default: 0.95
     -   The percentage of chunk size threshold for flushing
@@ -525,6 +524,6 @@ With `exponential_backoff`, `retry_wait` interval will be calculated as below:
 
 If this article is incorrect or outdated, or omits critical information, please
 [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open).
-[Fluentd](http://www.fluentd.org/) is an open-source project under [Cloud Native
-Computing Foundation (CNCF)](https://cncf.io/). All components are available
-under the Apache 2 License.
+[Fluentd](http://www.fluentd.org/) is an open-source project under
+[Cloud Native Computing Foundation (CNCF)](https://cncf.io/). All components are
+available under the Apache 2 License.

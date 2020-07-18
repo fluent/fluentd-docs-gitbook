@@ -9,17 +9,16 @@ inherits certain problems. Specifically, when we try to perform some analysis
 over the registers, or on the other hand, if the application has multiple
 instances running, the scenario becomes even more complex.
 
-On Docker v1.6, the concept of **[logging
-drivers](https://docs.docker.com/engine/admin/logging/overview/)** was
-introduced. Basically, the Docker engine is aware about the output interfaces
-that manage the application messages.
+On Docker v1.6, the concept of **[logging drivers](https://docs.docker.com/engine/admin/logging/overview/)**
+was introduced. Basically, the Docker engine is aware about the output
+interfaces that manage the application messages.
 
 ![Fluentd Docker](https://www.fluentd.org/assets/img/recipes/fluentd_docker.png)
 
-For Docker v1.8, we have implemented a native **[Fluentd Docker logging
-driver](https://docs.docker.com/engine/admin/logging/fluentd/)**. Now, you are
-able to have a unified and structured logging system with the simplicity and
-high performance of [Fluentd](http://fluentd.org).
+For Docker v1.8, we have implemented a native
+**[Fluentd Docker logging driver](https://docs.docker.com/engine/admin/logging/fluentd/)**.
+Now, you are able to have a unified and structured logging system with the
+simplicity and high performance of [Fluentd](http://fluentd.org).
 
 NOTE: Currently, Fluentd logging driver doesn't support sub-second precision.
 
@@ -32,16 +31,15 @@ prerequisites:
 
 -   A basic understanding of [Fluentd](http://www.fluentd.org)
 -   A basic understanding of Docker
--   A basic understanding of [Docker logging
-    drivers](https://docs.docker.com/engine/admin/logging/overview/)
+-   A basic understanding of [Docker logging drivers](https://docs.docker.com/engine/admin/logging/overview/)
 -   Docker v1.8+
 
 For simplicity, the Fluentd is launched as a standard process, not as a
 container.
 
-Please refer to [Docker Logging via EFK (Elasticsearch + Fluentd + Kibana) Stack
-with Docker Compose](/articles/docker-logging-efk-compose.md) for a fully
-containerized tutorial.
+Please refer to
+[Docker Logging via EFK (Elasticsearch + Fluentd + Kibana) Stack with Docker Compose](/articles/docker-logging-efk-compose.md)
+for a fully containerized tutorial.
 
 ### Step 1: Create the Fluentd Configuration File
 
@@ -190,9 +188,9 @@ Filtered Events:
 2016-04-13 14:45:55 +0900 docker.28cf38e21204: {"container_id":"28cf38e212042225f5f80a56fac08f34c8f0b235e738900c4e0abcf39253a702","container_name":"/romantic_dubinsky","source":"stdout","log":"-e:2:in `/'\n-e:2:in `do_division_by_zero'\n-e:4:in `<main>'"}
 ```
 
-If the logs are typical stacktraces, consider using [`detect-exceptions
-plugin`](https://github.com/GoogleCloudPlatform/fluent-plugin-detect-exceptions)
-instead.
+If the logs are typical stacktraces, consider using
+[`detect-exceptions`](https://github.com/GoogleCloudPlatform/fluent-plugin-detect-exceptions)
+plugin instead.
 
 
 ## Driver Options
@@ -245,8 +243,7 @@ Elasticsearch, MongoDB, HDFS, S3, Google Cloud Storage and so on.
 This document describes how to set up a multi-container logging environment via
 EFK (Elasticsearch, Fluentd, Kibana) with Docker Compose.
 
-- [Docker Logging via EFK (Elasticsearch + Fluentd + Kibana) Stack with Docker
-  Compose](/container-deployment/docker-compose.md)
+- [Docker Logging via EFK (Elasticsearch + Fluentd + Kibana) Stack with Docker Compose](/container-deployment/docker-compose.md)
 
 
 ## Production Environments
@@ -255,14 +252,13 @@ In a production environment, you must use one of the container orchestration
 tools. Currently, Kubernetes has better integration with Fluentd, and we're
 working on making better integrations with other tools as well.
 
-- [Kubernetes Logging
-  Overview](https://kubernetes.io/docs/user-guide/logging/overview/)
+- [Kubernetes Logging Overview](https://kubernetes.io/docs/user-guide/logging/overview/)
 
 
 ------------------------------------------------------------------------
 
 If this article is incorrect or outdated, or omits critical information, please
 [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open).
-[Fluentd](http://www.fluentd.org/) is an open-source project under [Cloud Native
-Computing Foundation (CNCF)](https://cncf.io/). All components are available
-under the Apache 2 License.
+[Fluentd](http://www.fluentd.org/) is an open-source project under
+[Cloud Native Computing Foundation (CNCF)](https://cncf.io/). All components are
+available under the Apache 2 License.
