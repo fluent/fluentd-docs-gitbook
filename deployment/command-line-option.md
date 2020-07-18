@@ -1,11 +1,11 @@
-# Fluentd command line option
+# Fluentd Command Line Options
 
-This article describes built-in commands and its options
+This article describes the `fluentd` command line options.
 
 
-## fluentd
+## `fluentd`
 
-Invoke fluentd. Here is supported options:
+Following are the fluentd command line options (`fluentd -h`):
 
 ```
 Usage: fluentd [options]
@@ -43,49 +43,40 @@ Usage: fluentd [options]
 ```
 
 
-### Important options
+### Important Options
 
-#### -g, --gemfile
+-   `-g`, `--gemfile`: Fluentd starts with bundler-managed dependent plugins.
 
-Fluentd starts with bundler managed dependent plugins.
+-   `--suppress-config-dump`: Fluentd starts without configuration dump. If you
+    do not want to show the configuration in fluentd logs, e.g. it contains
+    private keys, then this options is useful.
 
-#### --suppress-config-dump
+-   `--suppress-repeated-stacktrace`: If `true`, suppresses the stacktrace in
+    fluentd logs. Since v0.12, this option is `true` by default.
 
-Fluentd starts without configuration dump. If you don't want to show
-configuration in fluentd logs, e.g. don't show private keys, this
-options is useful.
+-   `--without-source`: Fluentd starts without input plugins. This option is
+    useful for flushing buffers with no new incoming events.
 
-#### --suppress-repeated-stacktrace
+-   `-i`, `--inline-config`: If fluentd is used on XaaS which does not support
+    persistent disks, this option is useful.
 
-If set true, suppress stacktrace in fluentd logs. Since v0.12, this
-option is true by default.
-
-#### --without-source
-
-Fluentd starts without input plugins. This option is useful for flushing
-buffers with no new incoming events.
-
-#### -i, --inline-config
-
-If you use fluentd on XaaS which doesn't support persistent disks, this
-option is useful.
-
-#### --no-supervisor
-
-If you want to use your supervisor tools, this option avoids double
-supervisor.
+-   `--no-supervisor`: If you want to use your supervisor tools, this option
+    avoids double supervisor.
 
 
-### Set via configuration file
+### Set via Configuration File
 
-Several options could be set via `<system>` directive configuration
-file. See [configuration file article](/configuration/config-file.md/#4-set-system-wide-configuration-the-ldquosystemrdquo-directive).
+Some options can be set via `<system>` directive via configuration file. See
+[configuration file](/configuration/config-file.md) article for more on
+`<system>` directive.
 
 
-## fluent-cat
+## `fluent-cat`
 
-Send event to fluentd's `in_forward`/`in_unix` plugin. This is useful
-for testing.
+The `fluent-cat` command sends an event to fluentd `in_forward`/`in_unix`
+plugin. This is particularly useful for testing.
+
+Here is its usage (`fluent-cat --help`):
 
 ```
 Usage: fluent-cat [options] <tag>
@@ -101,27 +92,30 @@ Usage: fluent-cat [options] <tag>
 ```
 
 
-### example
+### Example
 
-Send json message with `debug.log` tag to local fluentd:
-
-```
-% echo '{"message":"hello"}' | fluent-cat debug.log
-```
-
-Send to other machine:
+Send JSON message with `debug.log` tag to the local fluentd instance:
 
 ```
-% echo '{"message":"hello"}' | fluent-cat debug.log --host testserver --port 24225
+echo '{"message":"hello"}' | fluent-cat debug.log
+```
+
+Send JSON message to an instance of fluentd on another machine on the network:
+
+```
+echo '{"message":"hello"}' | fluent-cat debug.log --host testserver --port 24225
 ```
 
 
-## fluent-plugin-config-format
+## `fluent-plugin-config-format`
 
-Generate plugin's configuration document with specified format.
+It generates the formatted configuration document with the specified format for
+a plugin.
+
+Here is its usage (`fluent-plugin-config-format -h`):
 
 ```
-Usage: /Users/cosmo/GitHub/fluentd/vendor/bundle/ruby/2.4.0/bin/fluent-plugin-config-format [options] <type> <name>
+Usage: fluent-plugin-config-format [options] <type> <name>
 
 Output plugin config definitions
 
@@ -139,26 +133,28 @@ Options:
 ```
 
 
-### example
+### Example
 
-Generate README style document from plugin's config parameters:
+Generate a README style document from plugin's config parameters:
 
 ```
 fluent-plugin-config-format output null
 ```
 
-Generate old style output from plugin's config parameters:
+Generate an old style output from plugin's config parameters:
 
 ```
 fluent-plugin-config-format -f txt output null
 ```
 
 
-## fluent-plugin-generate
+## `fluent-plugin-generate`
 
-Generate Fluentd plugin project template. It is good for starting to
-Fluentd plugin development for using new API plugin. In more detail,
-please refer to the [Generating plugin project skeleton section](/developer/plugin-development.md/#generating-plugin-project-skeleton).
+It generates Fluentd plugin project template. It is good for starting to
+Fluentd plugin development for using new API plugin. For more details,
+refer to the [Generating plugin project skeleton section](/developer/plugin-development.md/#generating-plugin-project-skeleton).
+
+Here is its usage (`fluent-plugin-generate -h`);
 
 ```
 Usage: fluent-plugin-generate [options] <type> <name>
@@ -177,4 +173,4 @@ Options:
 ------------------------------------------------------------------------
 
 If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open).
-[Fluentd](http://www.fluentd.org/) is a open source project under [Cloud Native Computing Foundation (CNCF)](https://cncf.io/). All components are available under the Apache 2 License.
+[Fluentd](http://www.fluentd.org/) is an open-source project under [Cloud Native Computing Foundation (CNCF)](https://cncf.io/). All components are available under the Apache 2 License.

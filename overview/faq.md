@@ -110,7 +110,6 @@ There are several approaches to avoid this problem.
 -   Use `yajl`(`Yajl.load`/`Yajl.dump`) instead of `json` when error happens inside
     `JSON.parse/JSON.dump/to_json`
 
-
 ### Fluentd warns "Oj is not installed, and failing back to Yajl for json parser"
 
 If you are using Alpine Linux, you need to install `ruby-bigdecimal` to

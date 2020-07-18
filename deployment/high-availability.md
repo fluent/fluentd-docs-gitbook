@@ -1,7 +1,7 @@
 # Fluentd High Availability Configuration
 
-For high-traffic websites, we recommend using a high availability
-configuration of `Fluentd`.
+For high-traffic websites, we recommend using a high-availability configuration
+for `Fluentd`.
 
 
 ## Message Delivery Semantics
@@ -10,56 +10,55 @@ Fluentd is designed primarily for event-log delivery systems.
 
 In such systems, several delivery guarantees are possible:
 
--   *At most once*: Messages are immediately transferred. If the
+-   **At most once**: Messages are immediately transferred. If the
     transfer succeeds, the message is never sent out again. However,
-    many failure scenarios can cause lost messages (ex: no more write
-    capacity)
--   *At least once*: Each message is delivered at least once. In failure
+    many failure scenarios can cause lost messages (e.g. no more write
+    capacity).
+-   **At least once**: Each message is delivered at least once. In failure
     cases, messages may be delivered twice.
--   *Exactly once*: Each message is delivered once and only once. This
-    is what people want.
+-   **Exactly once**: Each message is delivered once and only once. This
+    is the most desirable.
 
-If the system "can't lose a single event", and must also transfer
-"*exactly once*", then the system must stop ingesting events when it
+If the system "**can't lose a single event**", and must also transfer
+"**exactly once**", then the system must stop ingesting events when it
 runs out of write capacity. The proper approach would be to use
 synchronous logging and return errors when the event cannot be accepted.
 
-That's why *Fluentd provides 'At most once' and 'At least once'
-transfers*. In order to collect massive amounts of data without
+That's why Fluentd provides '**at most once**' and '**at least once**'
+transfers. In order to collect massive amounts of data without
 impacting application performance, a data logger must transfer data
 asynchronously. This improves performance at the cost of potential
 delivery failures.
 
 However, most failure scenarios are preventable. The following sections
-describe how to set up Fluentd's topology for high availability.
+describe how to set up Fluentd's topology for high-availability.
 
 
 ## Network Topology
 
-To configure Fluentd for high availability, we assume that your network
-consists of '*log forwarders*' and '*log aggregators*'.
+To configure Fluentd for high-availability, we assume that your network
+consists of **log forwarders** and **log aggregators**.
 
-![](/images/fluentd_ha.png)
+![fluentd_ha.png](/images/fluentd_ha.png)
 
-'*log forwarders*' are typically installed on every node to receive
+'**log forwarders**' are typically installed on every node to receive
 local events. Once an event is received, they forward it to the 'log
 aggregators' through the network.
 
-'*log aggregators*' are daemons that continuously receive events from
+'**log aggregators**' are daemons that continuously receive events from
 the log forwarders. They buffer the events and periodically upload the
 data into the cloud.
 
 Fluentd can act as either a log forwarder or a log aggregator, depending
-on its configuration. The next sections describes the respective setups.
-We assume that the active log aggregator has ip '192.168.0.1' and that
-the backup has ip '192.168.0.2'.
+on its configuration. The next sections describe the respective setups.
+We assume that the active log aggregator has an IP **192.168.0.1** and
+the backup has IP **192.168.0.2**.
 
 
 ## Log Forwarder Configuration
 
-Please add the following lines to your config file for log forwarders.
-This will configure your log forwarders to transfer logs to log
-aggregators.
+Use the following configuration to configure **log forwarders** to transfer logs
+to **log aggregators**:
 
 ```
 # TCP input
@@ -105,8 +104,8 @@ logs are buffered on-disk at the corresponding forwarder nodes.
 
 ## Log Aggregator Configuration
 
-Please add the following lines to the config file for log aggregators.
-The input source for the log transfer is TCP.
+Use the following configuration for **log aggregators** to configure the input
+source for the log transfer as TCP:
 
 ```
 # Input
@@ -117,11 +116,11 @@ The input source for the log transfer is TCP.
 
 # Output
 <match mytag.**>
-  ...
+  # ...
 </match>
 ```
 
-The incoming logs are buffered, then periodically uploaded into the
+The incoming logs are buffered, then periodically uploaded to the
 cloud. If upload fails, the logs are stored on the local disk until the
 retransmission succeeds.
 
@@ -132,14 +131,13 @@ retransmission succeeds.
 ### Forwarder Failure
 
 When a log forwarder receives events from applications, the events are
-first written into a disk buffer (specified by buffer\_path). After
-every flush\_interval, the buffered data is forwarded to aggregators.
+first written into a disk buffer (specified by `buffer_path`). After
+every `flush_interval`, the buffered data is forwarded to aggregators.
 
-This process is inherently robust against data loss. If a log
-forwarder's fluentd process dies, the buffered data is properly
-transferred to its aggregator after it restarts. If the network between
-forwarders and aggregators breaks, the data transfer is automatically
-retried.
+This process is inherently robust against data loss. If a log forwarder's
+fluentd process dies then on its restart the buffered data is properly
+transferred to its aggregator. If the network between forwarders and aggregators
+breaks, the data transfer is automatically retried.
 
 However, possible message loss scenarios do exist:
 
@@ -151,14 +149,13 @@ However, possible message loss scenarios do exist:
 ### Aggregator Failure
 
 When log aggregators receive events from log forwarders, the events are
-first written into a disk buffer (specified by buffer\_path). After
-every flush\_interval, the buffered data is uploaded into the cloud.
+first written into a disk buffer (specified by `buffer_path`). After
+every `flush_interval`, the buffered data is uploaded to the cloud.
 
-This process is inherently robust against data loss. If a log
-aggregator's fluentd process dies, the data from the log forwarder is
-properly retransferred after it restarts. If the network between
-aggregators and the cloud breaks, the data transfer is automatically
-retried.
+This process is inherently robust against data loss. If a log aggregator's
+fluentd process dies then on its restart the data from the log forwarder is
+properly retransferred. If the network between aggregators and the cloud breaks,
+the data transfer is automatically retried.
 
 However, possible message loss scenarios do exist:
 
@@ -167,14 +164,14 @@ However, possible message loss scenarios do exist:
 -   The aggregator's disk is broken, and the file buffer is lost.
 
 
-## Trouble Shooting
+## Troubleshooting
 
 
 ### "no nodes are available"
 
 Please make sure that you can communicate with port 24224 using **not
 only TCP, but also UDP**. These commands will be useful for checking the
-network configuration.
+network configuration:
 
 ```
 $ telnet host 24224
@@ -189,4 +186,4 @@ heartbeat.
 ------------------------------------------------------------------------
 
 If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open).
-[Fluentd](http://www.fluentd.org/) is a open source project under [Cloud Native Computing Foundation (CNCF)](https://cncf.io/). All components are available under the Apache 2 License.
+[Fluentd](http://www.fluentd.org/) is an open-source project under [Cloud Native Computing Foundation (CNCF)](https://cncf.io/). All components are available under the Apache 2 License.

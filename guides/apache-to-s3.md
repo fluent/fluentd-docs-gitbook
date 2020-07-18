@@ -1,8 +1,8 @@
 # Store Apache Logs into Amazon S3
 
-This article explains how to use [Fluentd](http://fluentd.org/)'s Amazon
-S3 Output plugin ([out\_s3](/plugins/output/s3.md)) to aggregate semi-structured logs
-in real-time.
+This article explains how to use [Fluentd](http://fluentd.org/)'s Amazon S3
+Output plugin ([`out_s3`](/plugins/output/s3.md)) to aggregate semi-structured
+logs in realtime.
 
 
 ## Background
@@ -16,7 +16,7 @@ import Apache logs into Amazon S3.
 
 ## Mechanism
 
-Fluentd does 3 things:
+Fluentd does three (3) things:
 
 1.  It continuously "tails" the access log file.
 2.  It parses the incoming log entries into meaningful fields (such as
@@ -27,7 +27,7 @@ Fluentd does 3 things:
 ## Install
 
 For simplicity, this article will describe how to set up an one-node
-configuration. Please install the following software on the same node.
+configuration. Please install the following software on the same node:
 
 -   [Fluentd](http://fluentd.org/)
 -   [Amazon S3 Output Plugin](/plugins/output/s3.md)
@@ -35,7 +35,7 @@ configuration. Please install the following software on the same node.
 -   Apache (with the Combined Log Format)
 
 The Amazon S3 Output plugin is included in the latest version of
-Fluentd's deb/rpm package. If you want to use Ruby Gems to install the
+Fluentd's deb/rpm package. If you want to use RubyGems to install the
 plugin, please use `gem install fluent-plugin-s3`.
 
 -   [Debian Package](/install/install-by-deb.md)
@@ -46,14 +46,14 @@ plugin, please use `gem install fluent-plugin-s3`.
 ## Configuration
 
 Let's start configuring Fluentd. If you used the deb/rpm package,
-Fluentd's config file is located at /etc/td-agent/td-agent.conf.
-Otherwise, it is located at /etc/fluentd/fluentd.conf.
+Fluentd's config file is located at `/etc/td-agent/td-agent.conf`.
+Otherwise, it is located at `/etc/fluentd/fluentd.conf`.
 
 
 ### Tail Input
 
 For the input source, we will set up Fluentd to track the recent Apache
-logs (typically found at /var/log/apache2/access\_log) The Fluentd
+logs (typically found at `/var/log/apache2/access_log`). The Fluentd
 configuration file should look like this:
 
 ```
@@ -69,10 +69,10 @@ configuration file should look like this:
 ```
 
 Please make sure that your Apache outputs are in the default
-\'combined\' format. \`format apache2\` cannot parse custom log formats.
-Please see the [in\_tail](/plugins/input/tail.md) article for more information.
+**combined** format. `format apache2` cannot parse custom log formats.
+Please see the [`in_tail`](/plugins/input/tail.md) article for more information.
 
-Let's go through the configuration line by line.
+Let's go through the configuration line by line:
 
 1.  `type tail`: The tail Input plugin continuously tracks the log file.
     This handy plugin is included in Fluentd's core.
@@ -123,14 +123,14 @@ by `tail`) is always used.
 ## Test
 
 To test the configuration, just ping the Apache server. This example
-uses the `ab` (Apache Bench) program.
+uses the `ab` (Apache Bench) program:
 
 ```
 $ ab -n 100 -c 10 http://localhost/
 ```
 
-Then, log into your [AWS Console](https://console.aws.amazon.com/s3/home) and look at your
-bucket.
+Then, log into your [AWS Console](https://console.aws.amazon.com/s3/home) and
+look at your bucket.
 
 WARNING: By default, files are created on an hourly basis (around
 xx:10). This means that when you first import records using the plugin,
@@ -155,4 +155,4 @@ Fluentd + Amazon S3 makes real-time log archiving simple.
 ------------------------------------------------------------------------
 
 If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open).
-[Fluentd](http://www.fluentd.org/) is a open source project under [Cloud Native Computing Foundation (CNCF)](https://cncf.io/). All components are available under the Apache 2 License.
+[Fluentd](http://www.fluentd.org/) is an open-source project under [Cloud Native Computing Foundation (CNCF)](https://cncf.io/). All components are available under the Apache 2 License.

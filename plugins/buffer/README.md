@@ -1,11 +1,16 @@
 # Buffer Plugin Overview
 
-Fluentd has 8 types of plugins: [Input](/plugins/input/README.md),
-[Parser](/plugins/parser/README.md), [Filter](/plugins/filter/README.md),
-[Output](/plugins/output/README.md),
-[Formatter](/plugins/formatter/README.md),
-[Storage](/plugins/storage/README.md),
-[Service Discovery](/plugins/service_discovery/README.md) and [Buffer](/plugins/buffer/README.md).
+Fluentd has eight (8) types of plugins:
+
+-   [Input](/plugins/input/README.md)
+-   [Parser](/plugins/parser/README.md)
+-   [Filter](/plugins/filter/README.md)
+-   [Output](/plugins/output/README.md)
+-   [Formatter](/plugins/formatter/README.md)
+-   [Storage](/plugins/storage/README.md)
+-   [Service Discovery](/plugins/service_discovery/README.md)
+-   [Buffer](/plugins/buffer/README.md)
+
 This article gives an overview of Buffer Plugin.
 
 
@@ -21,10 +26,10 @@ choose a suitable backend based on your system requirements.
 
 ## How Buffer Works
 
-A buffer is essentially a set of "chunks". A chunk is a collection of
-events concatenated into a single blob. Each chunk is managed one by one
-in the form of files ([buf\_file](/plugins/buffer/file.md)) or continuous memory blocks
-([buf\_memory](/plugins/buffer/memory.md)).
+A buffer is essentially a set of "chunks". A chunk is a collection of events
+concatenated into a single blob. Each chunk is managed one by one in the form of
+files ([`buf_file`](/plugins/buffer/file.md)) or continuous memory blocks
+([`buf_memory`](/plugins/buffer/memory.md)).
 
 
 ### The Lifecycle of Chunks
@@ -40,10 +45,10 @@ where chunks wait before the transportation. Every newly-created chunk
 starts from *stage*, then proceeds to *queue* in time (and subsequently
 gets transferred to the destination).
 
-[![](/images/fluentd-v0.14-plugin-api-overview.png)](/images/fluentd-v0.14-plugin-api-overview.png)
+[![fluentd-v0.14-plugin-api-overview.png](/images/fluentd-v0.14-plugin-api-overview.png)](/images/fluentd-v0.14-plugin-api-overview.png)
 
 
-## Control Retry Behaviour
+## Control Retry Behavior
 
 A chunk can fail to be written out to the destination for a number of
 reasons. The network can go down, or the traffic volumes can exceed the
@@ -72,14 +77,14 @@ Note that, in practice, Fluentd tweaks this algorithm in a few aspects:
 
 -   Wait intervals are **randomized** by default. That is, Fluentd
     diversifies the wait interval by multiplying by a randomly-chosen
-    number between 0.875 and 1.125. You can turn off this behaviour by
-    setting `retry_randomize` to false.
--   Wait intervals *can* be **capped** to a certain limit. For example,
+    number between 0.875 and 1.125. You can turn off this behavior by
+    setting `retry_randomize` to `false`.
+-   Wait intervals can be **capped** to a certain limit. For example,
     if you set `retry_max_interval` to 5 seconds in the example above,
     the 4th retry will wait for 5 seconds, instead of 8 seconds.
 
 If you want to disable the exponential backoff, set the `retry_type`
-option to "periodic".
+option to `periodic`.
 
 
 ### Handling Successive Failures
@@ -87,9 +92,9 @@ option to "periodic".
 Fluentd will abort the attempt to transfer the failing chunks on the
 following conditions:
 
-1.  The number of retries exceeds `retry_max_times` (default: none)
+1.  The number of retries exceeds `retry_max_times` (default: `none`)
 2.  The seconds elapsed since the first retry exceeds `retry_timeout`
-    (default: 72h)
+    (default: `72h`)
 
 In these events, **all chunks in the queue are discarded.** If you want
 to avoid this, you can enable `retry_forever` to make Fluentd retry
@@ -113,12 +118,11 @@ exact location of the backup directory is determined by the parameter
 ${root_dir}/backup/worker${worker_id}/${plugin_id}/{chunk_id}.log
 ```
 
-If you don't need to back up chunks, you can enable
+If you do not need to back up chunks, you can enable
 `disable_chunk_backup` (available since v1.2.6) in the `<buffer>`
 section.
 
-The following is the current list of exceptions considered
-"unrecoverable":
+The following is the current list of exceptions considered **unrecoverable**:
 
   | Exception                    | The typical cause of this error |
   | ---------------------------- | --- |
@@ -129,9 +133,9 @@ The following is the current list of exceptions considered
 
 Here are the patterns when unrecoverable error happens:
 
--   If the plugin doesn't have `secondary`, the chunk is moved to backup
+-   If the plugin does not have a `secondary`, the chunk is moved to the backup
     directory.
--   If the plugin has `secondary` which is different type from primary,
+-   If the plugin has a `secondary` which is of different type from primary,
     the chunk is moved to `secondary`.
 -   If the unrecoverable error happens inside `secondary`, the chunk is
     moved to backup directory.
@@ -139,8 +143,8 @@ Here are the patterns when unrecoverable error happens:
 
 ### Configuration Example
 
-Below is a full configuration example which covers all the parameters
-controlling retry bahaviours.
+Following is a complete configuration that covers all the parameters controlling
+the retry behaviors:
 
 ```
 <system>
@@ -149,18 +153,20 @@ controlling retry bahaviours.
 
 <buffer>
   retry_wait 1                      # The wait interval for the first retry.
-  retry_exponential_backoff_base 2  # Inclease the wait time by a factor of N.
+  retry_exponential_backoff_base 2  # Increase the wait time by a factor of N.
   retry_type exponential_backoff    # Set 'periodic' for constant intervals.
+
   # retry_max_interval 1h           # Cap the wait interval. (see above)
   retry_randomize true              # Apply randomization. (see above)
   retry_timeout 72h                 # Maximum duration before giving up.
+
   # retry_max_times 17              # Maximum retry count before giving up.
   retry_forever false               # Set 'true' for infinite retry loops.
   retry_secondary_threshold 0.8     # See the "Secondary Output" section in
 </buffer>                           # 'Output Plugins' > 'Overview'.
 ```
 
-Normally, you don't need to specify every option as in this example,
+Normally, you do not need to specify every option as in this example,
 because these options are, in fact, optional. As for the detail of each
 option, please read [this article](/configuration/buffer-section.md/#retries-parameters).
 
@@ -168,7 +174,7 @@ option, please read [this article](/configuration/buffer-section.md/#retries-par
 ## Parameters
 
 -   [Common Parameters](/configuration/plugin-common-parameters.md)
--   [Buffer section configurations](/configuration/buffer-section.md)
+-   [Buffer Section Configurations](/configuration/buffer-section.md)
 
 
 ## FAQ
@@ -180,24 +186,27 @@ Because the format of buffer chunk is different from output's payload.
 Let's use elasticsearch output plugin, `out_elasticsearch`, for the
 detailed explanation.
 
-`out_elasticsearch` uses MessagePack for buffer's serialization(NOTE
-that this depends on plugin). On the other hand, [Elasticsearch's bulk API](https://www.elastic.co/guide/en/elasticsearch/reference/current/docs-bulk.html)
-requires json based payload. It means one MessagePack-ed record is
-converted into 2 json lines. So the payload size is larger than buffer's
+`out_elasticsearch` uses MessagePack for buffer's serialization (NOTE
+that this depends on the plugin). On the other hand, [Elasticsearch's Bulk API](https://www.elastic.co/guide/en/elasticsearch/reference/current/docs-bulk.html)
+requires JSON-based payload. It means that one MessagePack-ed record is
+converted into 2 JSON lines. So, the payload size is larger than buffer's
 chunk size.
 
-This sometimes causes the problem when output destination has the
+This sometimes causes a problem when output destination has the
 payload size limitation. If you have a problem with payload size issue,
 check chunk size configuration and API spec.
 
 
 ## List of Buffer Plugins
 
--   [buf\_memory](/plugins/buffer/memory.md)
--   [buf\_file](/plugins/buffer/file.md)
+-   [`buf_memory`](/plugins/buffer/memory.md)
+-   [`buf_file`](/plugins/buffer/file.md)
 
 
 ------------------------------------------------------------------------
 
-If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open).
-[Fluentd](http://www.fluentd.org/) is a open source project under [Cloud Native Computing Foundation (CNCF)](https://cncf.io/). All components are available under the Apache 2 License.
+If this article is incorrect or outdated, or omits critical information, please
+[let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open).
+[Fluentd](http://www.fluentd.org/) is an open-source project under [Cloud Native
+Computing Foundation (CNCF)](https://cncf.io/). All components are available
+under the Apache 2 License.

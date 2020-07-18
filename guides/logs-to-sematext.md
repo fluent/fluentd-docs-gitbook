@@ -5,51 +5,47 @@ an alternative to Splunk, but with cheaper and more flexible [pricing](https://s
 In this article, we present an alternative to Splunk by combining Fluentd with
 the Sematext open Elasticsearch API.
 
-![](/images/sematext-dashboard.png)
+![sematext-dashboard.png](/images/sematext-dashboard.png)
 
 
 [Elasticsearch](https://www.elastic.co/products/elasticsearch) is an
 open source search engine known for its ease of use.
 [Sematext](https://sematext.com/) runs and manages Elasticsearch
-in the cloud. You also have the option to use [Kibana](https://www.elastic.co/products/kibana)
-alongside the dashboards in the Sematext UI.
-
+in the cloud. You also have the option to use [Kibana](https://www.elastic.co/products/kibana) alongside the dashboards in the Sematext UI.
 
 By combining Fluentd and Sematext's managed Elasticsearch + Kibana you get
 a scalable, flexible, easy to use log management tool and search engine with an intuitive native web UI.
-You also get Kibana, if you want to use it. This provides a managed Splunk alternative,
-for a fraction of the cost.
+You also get Kibana, if you want to use it. This provides a managed Splunk alternative, for a fraction of the cost.
 
 In this guide, we'll cover the installation, setup, and basic use of
-this log management solution. This setup was tested on Ubuntu
-18.04. **If you're not familiar with Fluentd**, please
-learn more about Fluentd first.
+this log management solution. This setup was tested on Ubuntu 18.04.
+**If you're not familiar with Fluentd**, please learn more about Fluentd first.
+
 
 ## Prerequisites
+
 
 ### Set Up Sematext
 
 You need to [sign up](https://apps.sematext.com/ui/registration) and create an App. Read more in the docs [here](https://sematext.com/docs/).
 
-### Set Up Fluentd (td-agent)
+### Set Up Fluentd (`td-agent`)
 
-In this guide you'll install td-agent, the stable release of Fluentd.
-Please refer to the guides below for detailed installation steps.
+In this guide you'll install `td-agent`, the stable release of Fluentd.
+Please refer to the guides below for detailed installation steps:
 
 -   [Debian Package](/install/install-by-deb.md)
 -   [RPM Package](/install/install-by-rpm.md)
 -   [Ruby gem](/install/install-by-gem.md)
 
-Next, install the Elasticsearch plugin for Fluentd:
-`fluent-plugin-elasticsearch`.
+Next, install the Elasticsearch plugin for Fluentd `fluent-plugin-elasticsearch`:
 
 ```
 $ sudo /usr/sbin/td-agent-gem install fluent-plugin-elasticsearch --no-document
 ```
 
 Now you'll configure the `td-agent` (Fluentd) to interface properly with
-Elasticsearch. Please edit `/etc/td-agent/td-agent.conf` as shown
-below:
+Elasticsearch. Please edit `/etc/td-agent/td-agent.conf` as shown below:
 
 ```
 # Switch to debug if you need to debug
@@ -93,7 +89,7 @@ below:
 </match>
 ```
 
-Once everything has been set up and configured, start the `td-agent`.
+Once everything has been set up and configured, start `td-agent`:
 
 ```
 # init
@@ -103,26 +99,28 @@ $ sudo /etc/init.d/td-agent start
 $ sudo systemctl start td-agent.service
 ```
 
-## Set Up rsyslogd
+
+## Set Up `rsyslogd`
 
 Finally, configure forwarding logs from your `rsyslogd` to Fluentd.
 Please add the following line to your `/etc/rsyslog.conf`, and restart
 `rsyslog`. This will forward your local syslog to Fluentd, and Fluentd will
-forward the logs to Sematext.
+forward the logs to Sematext:
 
 ```
 *.* @127.0.0.1:42185
 ```
 
-Please restart the rsyslog service once the modification is complete.
+Please restart the `rsyslog` service once the modification is complete:
 
 ```
 $ sudo /etc/init.d/rsyslog restart
 ```
 
+
 ## Store and Search Logs
 
-Once Fluentd receives logs from rsyslog and ships them
+Once Fluentd receives logs from `rsyslog` and ships them
 to Sematext, you can view, search and visualize the log
 data using prebuilt Dashboards, by creating custom Dashboards,
 or with Kibana.
@@ -130,8 +128,7 @@ or with Kibana.
 First of all, open up the Seamtext UI and access your App. You'll see prebuilt
 dashboards with full-text search, filters, and alerts out-of-the-box.
 
-![](/images/sematext-configure-logs.png)
-
+![sematext-configure-logs.png](/images/sematext-configure-logs.png)
 
 Sematext will automatically figure out hosts, idents, pids, timestamps,
 and the origin of the logs. In this case the origin is Fluentd.
@@ -139,22 +136,23 @@ and the origin of the logs. In this case the origin is Fluentd.
 After you start receiving logs, you can create custom charts, reports,
 and alerts to fine-tune your own personal use-case.
 
-If you're used to Kibana, you can still use it as well.
+If you are used to Kibana, you can still use it as well.
 For more details on how to use Kibana, please read [the official manual](https://www.elastic.co/guide/en/kibana/current/index.html).
 
-![](/images/sematext-logs-overview.png)
+![sematext-logs-overview.png](/images/sematext-logs-overview.png)
+
 
 ### Debugging
 
-To manually send logs to Sematext, please use the `logger` command.
+To manually send logs to Sematext, please use the `logger` command:
 
 ```
 $ logger -t test foobar
 ```
 
 When debugging your `td-agent` configuration, using
-[filter\_stdout](/plugins/filter/stdout.md) will be useful. All the logs including
-errors can be found at `/etc/td-agent/td-agent.log`.
+[`filter_stdout`](/plugins/filter/stdout.md) will be useful. All the logs
+including errors can be found at `/etc/td-agent/td-agent.log`.
 
 ```
 <filter **>
@@ -175,16 +173,18 @@ errors can be found at `/etc/td-agent/td-agent.log`.
 </match>
 ```
 
+
 ## Conclusion
 
 This how-to guide introduced an alternative SaaS tool to use instead of Splunk.
 The combination of Fluentd and Sematext, with an open Elasticsearch API and Kibana,
-gives you tooling you're used to, with the added benefit of not having to manage
+gives you tooling you are used to, with the added benefit of not having to manage
 an Elasticsearch cluster.
 
 You'll get access to storing and searching logs from infrastructure,
 apps, and software. The example provided in this article has been
 tested for the current production environments of Sematext.
+
 
 ## Learn More
 
@@ -196,4 +196,4 @@ tested for the current production environments of Sematext.
 ------------------------------------------------------------------------
 
 If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open).
-[Fluentd](http://www.fluentd.org/) is a open source project under [Cloud Native Computing Foundation (CNCF)](https://cncf.io/). All components are available under the Apache 2 License.
+[Fluentd](http://www.fluentd.org/) is an open-source project under [Cloud Native Computing Foundation (CNCF)](https://cncf.io/). All components are available under the Apache 2 License.

@@ -1,9 +1,9 @@
 # Centralize Logs from Ruby Applications
 
-The '[fluent-logger-ruby](http://github.com/fluent/fluent-logger-ruby)'
+The [`fluent-logger-ruby`](http://github.com/fluent/fluent-logger-ruby)
 library is used to post records from Ruby applications to Fluentd.
 
-This article explains how to use the fluent-logger-ruby library.
+This article explains how to use it.
 
 
 ## Prerequisites
@@ -15,7 +15,7 @@ This article explains how to use the fluent-logger-ruby library.
 
 ## Installing Fluentd
 
-Please refer to the following documents to install fluentd.
+Please refer to the following documents to install fluentd:
 
 -   [Install Fluentd with rpm Package](/install/install-by-rpm.md)
 -   [Install Fluentd with deb Package](/install/install-by-deb.md)
@@ -25,7 +25,8 @@ Please refer to the following documents to install fluentd.
 
 ## Modifying the Config File
 
-Next, please configure Fluentd to use the [forward Input plugin](/plugins/input/forward.md) as its data source.
+Configure Fluentd to use the [`forward`](/plugins/input/forward.md) input plugin
+as its data source:
 
 ```
 <source>
@@ -37,25 +38,26 @@ Next, please configure Fluentd to use the [forward Input plugin](/plugins/input/
 </match>
 ```
 
-Please restart your agent once these lines are in place.
+Restart agent after configuring.
 
 ```
-# for systemd
-$ sudo systemctl restart td-agent.service
-# for init.d
+# for rpm/deb only
 $ sudo /etc/init.d/td-agent restart
+
+# or systemd
+$ sudo systemctl restart td-agent.service
 ```
 
 
-## Using fluent-logger-ruby
+## Using `fluent-logger-ruby`
 
-First, add the 'fluent-logger' gem to your Gemfile.
+Add 'fluent-logger' gem to your `Gemfile`:
 
 ```
 gem 'fluent-logger', "~> 0.7.1"
 ```
 
-Next, please initialize and post the records as shown below.
+Initialize and post the records as shown below:
 
 ```
 require 'fluent-logger'
@@ -63,14 +65,15 @@ Fluent::Logger::FluentLogger.open(nil, :host=>'localhost', :port=>24224)
 Fluent::Logger.post("fluentd.test.follow", {"from"=>"userA", "to"=>"userB"})
 ```
 
-Executing the script will send the logs to Fluentd.
+Executing the script will send the logs to Fluentd:
 
 ```
 $ ruby test.rb
 ```
 
-The logs should be output to `/var/log/td-agent/td-agent.log` or stdout
-of the Fluentd process via the [stdout Output plugin](/plugins/output/stdout.md).
+The logs should be output to `/var/log/td-agent/td-agent.log` or the standard
+output of the Fluentd process via the [`stdout`](/plugins/output/stdout.md)
+output plugin.
 
 
 ## Production Deployments
@@ -95,9 +98,9 @@ writing records to other destinations:
 
 ### High-Availability Configurations of Fluentd
 
-For high-traffic websites (more than 5 application nodes), we recommend
-using a high availability configuration of td-agent. This will improve
-data transfer reliability and query performance.
+For high-traffic websites (more than 5 application nodes), we recommend using
+high-availability configuration for `td-agent`. This will improve the
+reliability of data transfer and query performance.
 
 -   [High-Availability Configurations of Fluentd](/deployment/high-availability.md)
 
@@ -105,7 +108,7 @@ data transfer reliability and query performance.
 ### Monitoring
 
 Monitoring Fluentd itself is also important. The article below describes
-general monitoring methods for td-agent.
+general monitoring methods for `td-agent`.
 
 -   [Monitoring Fluentd](/deployment/monitoring.md)
 
@@ -113,4 +116,4 @@ general monitoring methods for td-agent.
 ------------------------------------------------------------------------
 
 If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open).
-[Fluentd](http://www.fluentd.org/) is a open source project under [Cloud Native Computing Foundation (CNCF)](https://cncf.io/). All components are available under the Apache 2 License.
+[Fluentd](http://www.fluentd.org/) is an open-source project under [Cloud Native Computing Foundation (CNCF)](https://cncf.io/). All components are available under the Apache 2 License.

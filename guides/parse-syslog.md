@@ -1,24 +1,24 @@
 # Parse Syslog Messages Robustly
 
 Syslog is a popular protocol that virtually runs on every server. It is
-used to collect all kinds of logs. The problem with syslog is that
+used to collect all kinds of logs. The problem with `syslog` is that
 services have a wide range of log formats, and no single parser can
-parse all syslog messages effectively.
+parse all `syslog` messages effectively.
 
 In this tutorial, we will show how to use Fluentd to filter and parse
-different syslog messages robustly.
+different `syslog` messages robustly.
 
 
 ## Prerequisites
 
 -   A basic understanding of Fluentd
--   A running instance of rsyslogd
+-   A running instance of `rsyslogd`
 
 In this guide, we assume you are running
-[td-agent](https://www.fluentd.org/download) on Ubuntu.
+[`td-agent`](https://www.fluentd.org/download) on Ubuntu.
 
 
-## Setting up rsyslogd
+## Setting Up `rsyslogd`
 
 Open `/etc/rsyslogd.conf` and append the following line:
 
@@ -26,14 +26,13 @@ Open `/etc/rsyslogd.conf` and append the following line:
 *.* @127.0.0.1:5140
 ```
 
-Then restart the rsyslogd service:
+Then restart the `rsyslogd` service:
 
 ```
 $ sudo systemctl restart syslog
 ```
 
-This tells rsyslogd to forward logs to port 5140 to which Fluentd will
-listen.
+This tells `rsyslogd` to forward logs to port 5140 to which Fluentd will listen.
 
 
 ## Setting up Fluentd
@@ -41,7 +40,7 @@ listen.
 In this section, we will evolve our Fluentd configuration step-by-step.
 
 
-### Step 1: Listening to syslog messages
+### Step 1: Listening to `syslog` Messages
 
 First, let's configure Fluentd to listen to syslog messages.
 
@@ -60,24 +59,24 @@ Open `/etc/td-agent/td-agent.conf` and put the following configuration:
 ```
 
 This is the most basic setup: it listens to all syslog messages and
-outputs them to stdout.
+outputs them to the standard output.
 
-Now please restart td-agent.
+Now please restart `td-agent`:
 
 ```
 $ sudo systemctl restart td-agent
 ```
 
-Let's confirm data is coming in.
+Let's confirm data is coming in:
 
 ```
 $ less /var/log/td-agent/td-agent.log
 ```
 
 
-### Step 2: Extract syslog messages from sudo
+### Step 2: Extract `syslog` Messages from `sudo`
 
-Now, let's look at a `sudo` message like this one.
+Now, let's look at a `sudo` message like this one:
 
 ```
 2018-09-27 16:00:01.000000000 +0900 system.authpriv.info: {"host":"localhost",
@@ -85,15 +84,15 @@ Now, let's look at a `sudo` message like this one.
 by admin(uid=0)"}
 ```
 
-For security reasons, it's worth knowing which user performed what using
+For security reasons, it is worth knowing which user performed what using
 `sudo`. In order to do so, we need to parse the message field. In other
-words, we need to extract syslog messages from `sudo` and handle them
+words, we need to extract `syslog` messages from `sudo` and handle them
 differently.
 
-For this purpose, we can use [the grep plugin](/plugins/filter/grep.md). This plugin
-examines the fields of events, and filter them based on regular
-expression patterns. In the following example, Fluentd filters out
-events that come from `sudo` and contain command data.
+For this purpose, we can use the [`grep`](/plugins/filter/grep.md) filter
+plugin. It examines the fields of events, and filter them based on regular
+expression patterns. In the following example, Fluentd filters out events that
+come from `sudo` and contain command data:
 
 ```
 <source>
@@ -120,14 +119,13 @@ events that come from `sudo` and contain command data.
 ```
 
 
-### Step 3: Extract information from messages
+### Step 3: Extract Information from Messages
 
-Now let's extract some information from syslog messages. For this
-purpose, we use another plugin called [filter-parser](/plugins/filter/parser.md).
-With this plugin, you can parse the content of a field using a regular
-expression.
+Now let's extract some information from `syslog` messages. For this purpose, we
+use another plugin called [`filter-parser`](/plugins/filter/parser.md). With
+this plugin, you can parse the content of a field using a regular expression.
 
-Here is the final configuration.
+Here is the final configuration:
 
 ```
 <source>
@@ -162,20 +160,19 @@ Here is the final configuration.
 </match>
 ```
 
-Then restart td-agent.
+Then restart `td-agent`:
 
 ```
 $ sudo systemctl restart td-agent
 ```
 
-Let's execute some comment with `sudo`. For example:
+Let's execute some comment with `sudo`:
 
 ```
 $ sudo cat /var/log/auth.log
 ```
 
-Now you should have a line looks like below in
-`/var/log/td-agent/td-agent.log`:
+Now, you should have a line like this in `/var/log/td-agent/td-agent.log`:
 
 ```
 2018-09-27 16:00:01.000000000 +0900 system.authpriv.notice: {"sudoer":"root",
@@ -187,13 +184,13 @@ There it is, as you can see in the line!
 
 ## Conclusion
 
-Fluentd makes it easy to ingest syslog events. You can immediately send
-the data to output systems like MongoDB and Elasticsearch, but also you
+Fluentd makes it easy to ingest `syslog` events. You can immediately send
+data to the output systems like MongoDB and Elasticsearch, but also you
 can do filtering and further parsing *inside Fluentd* before passing the
-processed data onto output destinations.
+processed data onto the output destinations.
 
 
 ------------------------------------------------------------------------
 
 If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open).
-[Fluentd](http://www.fluentd.org/) is a open source project under [Cloud Native Computing Foundation (CNCF)](https://cncf.io/). All components are available under the Apache 2 License.
+[Fluentd](http://www.fluentd.org/) is an open-source project under [Cloud Native Computing Foundation (CNCF)](https://cncf.io/). All components are available under the Apache 2 License.

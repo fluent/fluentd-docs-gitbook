@@ -1,14 +1,14 @@
 # Monitoring Fluentd
 
-This article desribes how to monitor Fluentd.
+This article describes how to monitor Fluentd.
 
 
 ## Fluentd Metrics Monitoring
 
 Fluentd can expose internal metrics via REST API, and works with
-monitoring tools such as [Prometheus](https://prometheus.io/),
-[Datadog](https://www.datadoghq.com/), etc. Our recommendation is to use
-Prometheus, since we will be collaborating more in the future under the
+monitoring tools such as [`Prometheus`](https://prometheus.io/),
+[`Datadog`](https://www.datadoghq.com/), etc. Our recommendation is to use
+`Prometheus`, since we will be collaborating more in the future under the
 [CNCF (Cloud Native Computing Foundation)](https://www.cncf.io/).
 
 -   [Monitoring Fluentd (Prometheus)](/deployment/monitoring-prometheus.md)
@@ -19,8 +19,9 @@ Prometheus, since we will be collaborating more in the future under the
 ## Process Monitoring
 
 Two `ruby` processes (parent and child) are executed. Please make sure
-that these processes are running. The example for `td-agent` is shown
-below.
+that these processes are running.
+
+Here's an example for `td-agent`:
 
 ```
 /opt/td-agent/embedded/bin/ruby /usr/sbin/td-agent
@@ -28,14 +29,15 @@ below.
   --log /var/log/td-agent/td-agent.log
 ```
 
-For td-agent on Linux, you can check the process statuses with the
-following command. Two processes should be shown if there are no issues.
+For `td-agent` on Linux, check the process statuses like this: 
 
 ```
 $ ps w -C ruby -C td-agent --no-heading
 32342 ?        Sl     0:00 /opt/td-agent/embedded/bin/ruby /usr/sbin/td-agent --daemon /var/run/td-agent/td-agent.pid --log /var/log/td-agent/td-agent.log
 32345 ?        Sl     0:01 /opt/td-agent/embedded/bin/ruby /usr/sbin/td-agent --daemon /var/run/td-agent/td-agent.pid --log /var/log/td-agent/td-agent.log
 ```
+
+There should be two processes if there is no issue.
 
 
 ## Port Monitoring
@@ -50,8 +52,8 @@ settings are shown below:
 
 ## Debug Port
 
-A debug port for local communication is recommended for trouble
-shooting. Please note that the configuration below will be required.
+A debug port for local communication is recommended for troubleshooting. The
+following configuration will be required for the debug port:
 
 ```
 <source>
@@ -61,11 +63,10 @@ shooting. Please note that the configuration below will be required.
 </source>
 ```
 
-You can attach the process using the `fluent-debug` command through
-dRuby.
+You can attach the process using the `fluent-debug` command through `dRuby`.
 
 
 ------------------------------------------------------------------------
 
 If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open).
-[Fluentd](http://www.fluentd.org/) is a open source project under [Cloud Native Computing Foundation (CNCF)](https://cncf.io/). All components are available under the Apache 2 License.
+[Fluentd](http://www.fluentd.org/) is an open-source project under [Cloud Native Computing Foundation (CNCF)](https://cncf.io/). All components are available under the Apache 2 License.

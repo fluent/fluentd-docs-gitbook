@@ -15,9 +15,9 @@ That is why [Treasure Data, Inc](http://www.treasuredata.com/) provides **the
 stable distribution of Fluentd**, called `td-agent`. The differences between
 Fluentd and `td-agent` can be found [here](https://www.fluentd.org/faqs).
 
-This installation guide is for `td-agent` v3, the new stable version. The
-`td-agent` v3 uses fluentd v1.0 in the core. See [this
-page](/overview/td-agent-v2-vs-v3.md) for the comparison between v2 and v3.
+This installation guide is for `td-agent` v3/v4.
+`td-agent` v3/v4 uses fluentd v1 in the core. See
+[this page](/overview/td-agent-v2-vs-v3.md) for the comparison and supported OS.
 
 
 ## Step 0: Before Installation
@@ -41,6 +41,10 @@ Support: CentOS, RHEL 6, 7 64bit
 Download and execute [`install-redhat-td-agent3.sh`](https://toolbelt.treasuredata.com/sh/install-redhat-td-agent3.sh) script with `curl`:
 
 ```
+# td-agent 4
+$ curl -L https://toolbelt.treasuredata.com/sh/install-redhat-td-agent4.sh | sh
+
+# td-agent 3
 $ curl -L https://toolbelt.treasuredata.com/sh/install-redhat-td-agent3.sh | sh
 ```
 
@@ -59,6 +63,10 @@ manually.
 For Amazon Linux 2:
 
 ```
+# td-agent 4
+$ curl -L https://toolbelt.treasuredata.com/sh/install-amazon2-td-agent4.sh | sh
+
+# td-agent 3
 $ curl -L https://toolbelt.treasuredata.com/sh/install-amazon2-td-agent3.sh | sh
 ```
 
@@ -92,6 +100,8 @@ Dec 07 15:12:27 ubuntu systemd[1]: Started td-agent: Fluentd based data collecto
 
 To customize `systemd` behavior, put your `td-agent.service` in
 `/etc/systemd/system`.
+
+NOTE: In td-agent 4, path is different. `/opt/td-agent/bin` instead of `/opt/td-agent/embedded/bin`
 
 
 ### `init.d`

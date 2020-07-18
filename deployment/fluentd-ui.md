@@ -3,22 +3,20 @@
 [fluentd-ui](https://github.com/fluent/fluentd-ui) is a browser-based
 [fluentd](http://fluentd.org/) and
 [td-agent](http://docs.treasuredata.com/articles/td-agent) manager that
-supports following operations.
+supports the following operations:
 
 -   Install, uninstall, and upgrade Fluentd plugins
--   start/stop/restart fluentd process
--   Configure Fluentd settings such as config file content, pid file
-    path, etc
+-   Start/stop/restart fluentd process
+-   Configure Fluentd settings such as config file, pid file path, etc.
 -   View Fluentd log with simple error viewer
 
-fluentd-ui dosen't work with fluentd v1 and td-agent 3 doesn't include
+`fluentd-ui` does not work with `fluentd` v1 and `td-agent` 3 does not include
 it. This content is for v0.12 for now.
 
 
 ## Getting Started
 
-If you've installed td-agent, you can start it by `td-agent-ui start` as
-below:
+For `td-agent`, you can start it by `td-agent-ui start` like this:
 
 ```
 $ sudo /usr/sbin/td-agent-ui start
@@ -28,8 +26,7 @@ Puma 2.9.2 starting...
 * Listening on tcp://0.0.0.0:9292
 ```
 
-Or if you use fluentd gem, install fluentd-ui via `gem` command at
-first.
+For `fluentd` gem installation, install `fluentd-ui` via `gem` command:
 
 ```
 $ gem install -V fluentd-ui
@@ -40,11 +37,14 @@ Puma 2.9.2 starting...
 * Listening on tcp://0.0.0.0:9292
 ```
 
-Then, open <http://localhost:9292/> by your browser.
+Then, open http://localhost:9292/ in your browser.
 
-The default account is username="admin" and password="changeme"
+The default account credentials are:
 
-![fluentd-ui](/images/fluentd-ui/fluentd-ui.gif)
+-   `username="admin"`
+-   `password="changeme"`
+
+![fluentd-ui.gif](/images/fluentd-ui/fluentd-ui.gif)
 
 
 ## Screenshots
@@ -54,22 +54,22 @@ The default account is username="admin" and password="changeme"
 
 ### Dashboard
 
-![dashboard](/images/fluentd-ui/dashboard.gif)
+![dashboard.gif](/images/fluentd-ui/dashboard.gif)
 
 
 ### Setting
 
-![setting](/images/fluentd-ui/setting.gif)
+![setting.git](/images/fluentd-ui/setting.gif)
 
 
-### in\_tail setting
+### `in_tail` setting
 
-![in\_tail](/images/fluentd-ui/in_tail.gif)
+![`in_tail`.gif](/images/fluentd-ui/in_tail.gif)
 
 
 ### Plugin
 
-![plugin](/images/fluentd-ui/plugin.gif)
+![plugin.gif](/images/fluentd-ui/plugin.gif)
 
 ![ss01](/images/fluentd-ui/01.png) ![ss02](/images/fluentd-ui/02.png)
 ![ss03](/images/fluentd-ui/03.png) ![ss04](/images/fluentd-ui/04.png)
@@ -79,4 +79,4 @@ The default account is username="admin" and password="changeme"
 ------------------------------------------------------------------------
 
 If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open).
-[Fluentd](http://www.fluentd.org/) is a open source project under [Cloud Native Computing Foundation (CNCF)](https://cncf.io/). All components are available under the Apache 2 License.
+[Fluentd](http://www.fluentd.org/) is an open-source project under [Cloud Native Computing Foundation (CNCF)](https://cncf.io/). All components are available under the Apache 2 License.

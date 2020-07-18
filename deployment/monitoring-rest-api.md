@@ -1,13 +1,14 @@
 # Monitoring Fluentd (REST API)
 
-This article describes how to get the internal Fluentd metrics via REST
-API.
+This article describes how to get the internal Fluentd metrics via REST API.
 
 
 ## Monitoring Agent
 
-Fluentd has a monitoring agent to retrieve internal metrics in JSON via
-HTTP. Please add the following lines to your configuration file.
+Fluentd has a monitoring agent to retrieve internal metrics in JSON format via
+HTTP.
+
+Add these lines to your configuration file:
 
 ```
 <source>
@@ -17,7 +18,7 @@ HTTP. Please add the following lines to your configuration file.
 </source>
 ```
 
-Next, please restart the agent and get the metrics via HTTP.
+Restart the agent and get the metrics via HTTP:
 
 ```
 $ curl http://host:24220/api/plugins.json
@@ -56,23 +57,23 @@ $ curl http://host:24220/api/plugins.json
 }
 ```
 
-See [in\_monitor\_agent article](/plugins/input/monitor_agent.md) for more detail.
+See [`in_monitor_agent`](/plugins/input/monitor_agent.md) article for more detail.
 
 
-## Monitoring the event flow
+## Monitoring the Event Flow
 
 Use
-[flowcounter](https://github.com/tagomoris/fluent-plugin-flowcounter) or
-[flowcounter\_simple](https://github.com/sonots/fluent-plugin-flowcounter-simple)
+[`flowcounter`](https://github.com/tagomoris/fluent-plugin-flowcounter) or
+[`flowcounter_simple`](https://github.com/sonots/fluent-plugin-flowcounter-simple)
 plugin.
 
 
-## Datadog (dd-agent) Integration
+## Datadog (`dd-agent`) Integration
 
-[Datadog](https://www.datadoghq.com/) is a cloud monitoring service, and
+[`Datadog`](https://www.datadoghq.com/) is a cloud monitoring service, and
 its monitoring agent `dd-agent` has native integration with Fluentd.
 
-Please refer this documentation for more details.
+For more details:
 
 -   [Datadog-Fluentd Integration](http://docs.datadoghq.com/integrations/fluentd/)
 
@@ -80,4 +81,4 @@ Please refer this documentation for more details.
 ------------------------------------------------------------------------
 
 If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open).
-[Fluentd](http://www.fluentd.org/) is a open source project under [Cloud Native Computing Foundation (CNCF)](https://cncf.io/). All components are available under the Apache 2 License.
+[Fluentd](http://www.fluentd.org/) is an open-source project under [Cloud Native Computing Foundation (CNCF)](https://cncf.io/). All components are available under the Apache 2 License.

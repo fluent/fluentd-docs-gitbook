@@ -1,9 +1,9 @@
 # Routing Examples
 
-This article shows typical routing examples.
+This article shows configuration samples for typical routing scenarios.
 
 
-## Simple Input -\> Filter -\> Output
+## Simple: `Input -> Filter -> Output`
 
 ```
 <source>
@@ -24,7 +24,7 @@ This article shows typical routing examples.
 ```
 
 
-### Two input cases
+## Two Inputs: `forward` and `tail`
 
 ```
 <source>
@@ -50,12 +50,12 @@ This article shows typical routing examples.
 </match>
 ```
 
-If you want to separate data pipeline for each sources, use Label.
+If you want to separate the data pipelines for each source, use Label.
 
 
-## Input -\> Filter -\> Output with Label
+## With Label: `Input -> Filter -> Output`
 
-Label reduces complex tag handling by separating data pipeline.
+Label reduces complex `tag` handling by separating data pipelines.
 
 ```
 <source>
@@ -89,12 +89,10 @@ Label reduces complex tag handling by separating data pipeline.
 ```
 
 
-## Re-route event by tag
+## Reroute Event by Tag
 
-Use
-[fluent-plugin-route](https://github.com/tagomoris/fluent-plugin-route)
-plugin. `route` plugin rewrites tag and re-emit events to other match or
-Label.
+Use [fluent-plugin-route](https://github.com/tagomoris/fluent-plugin-route)
+plugin. This plugin rewrites `tag` and re-emit events to other match or Label.
 
 ```
 <match worker.**>
@@ -124,7 +122,7 @@ Label.
 ```
 
 
-## Re-route event by record content
+## Re-route Event by Record Content
 
 Use
 [fluent-plugin-rewrite-tag-filter](https://github.com/fluent/fluent-plugin-rewrite-tag-filter).
@@ -142,7 +140,7 @@ Use
     pattern ^\[(\w+)\]
     tag $1.${tag}
   </rule>
-  # you can put more <rule>
+  # more rules
 </match>
 
 # send mail when receives alert level logs
@@ -151,20 +149,20 @@ Use
   # ...
 </match>
 
-# other logs are stored into file
+# other logs are stored into a file
 <match *.app.**>
   @type file
   # ...
 </match>
 ```
 
-See also [out\_rewrite\_tag\_filter](/plugins/output/rewrite_tag_filter.md) article.
+See also: [out\_rewrite\_tag\_filter](/plugins/output/rewrite_tag_filter.md)
 
 
-## Re-route event to other Label
+## Re-route Event to Other Label
 
-Use [out\_relabel](/plugins/output/relabel.md) plugin. `relabel` plugin simply emits
-events to Label. No tag rewrite.
+Use [out\_relabel](/plugins/output/relabel.md) plugin. This plugin simply emits
+events to Label without rewriting the `tag`.
 
 ```
 <source>
@@ -198,5 +196,8 @@ events to Label. No tag rewrite.
 
 ------------------------------------------------------------------------
 
-If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open).
-[Fluentd](http://www.fluentd.org/) is a open source project under [Cloud Native Computing Foundation (CNCF)](https://cncf.io/). All components are available under the Apache 2 License.
+If this article is incorrect or outdated, or omits critical information, please
+[let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open).
+[Fluentd](http://www.fluentd.org/) is an open-source project under [Cloud Native
+Computing Foundation (CNCF)](https://cncf.io/). All components are available
+under the Apache 2 License.

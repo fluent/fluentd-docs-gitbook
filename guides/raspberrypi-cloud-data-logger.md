@@ -6,7 +6,7 @@ single-board computer. Because it is low-cost and easy to equip with
 various types of sensors, using Raspberry Pi as a cloud data logger is
 one of its ideal use cases.
 
-![](/images/raspberry-pi-cloud-data-logger.png)
+![raspberry-pi-cloud-data-logger.png](/images/raspberry-pi-cloud-data-logger.png)
 
 This article introduces how to transport sensor data from Raspberry Pi
 to the cloud, using Fluentd as the data collector. For the cloud side,
@@ -28,14 +28,18 @@ your Raspberry Pi by following the instructions in the blog post below:
 
 Next, we'll install Fluentd on Raspbian. Raspbian Stretch with desktop
 and recommended software bundles Ruby 2.3.3 by default, but we need
-the extra development package to install Fluentd.
+the extra development package to install Fluentd:
 
-    $ sudo aptitude install ruby-dev
+```
+$ sudo aptitude install ruby-dev
+```
 
-We'll now install Fluentd and the necessary plugins.
+We'll now install Fluentd and the necessary plugins:
 
-    $ sudo gem install fluentd
-    $ sudo fluent-gem install fluent-plugin-td
+```
+$ sudo gem install fluentd
+$ sudo fluent-gem install fluent-plugin-td
+```
 
 
 ## Configure and Launch Fluentd
@@ -46,38 +50,45 @@ Its free plan lets you store and analyze millions of data points.
 You can get your account's API key from the [users page](https://console.treasuredata.com/users/current).
 
 Please prepare the `fluentd.conf` file with the following information,
-including your API key.
+including your API key:
 
-    <match td.*.*>
-      @type tdlog
-      apikey YOUR_API_KEY_HERE
+```
+<match td.*.*>
+  @type tdlog
+  apikey YOUR_API_KEY_HERE
 
-      auto_create_table
-      <buffer>
-        @type file
-        path /home/pi/fluentd/td
-      </buffer>
-    </match>
-    <source>
-      @type http
-      port 8888
-    </source>
-    <source>
-      @type forward
-    </source>
+  auto_create_table
+  <buffer>
+    @type file
+    path /home/pi/fluentd/td
+  </buffer>
+</match>
 
-Finally, please launch Fluentd via your terminal.
+<source>
+  @type http
+  port 8888
+</source>
 
-    $ fluentd -c fluent.conf
+<source>
+  @type forward
+</source>
+```
+
+Finally, please launch Fluentd via your terminal:
+
+```
+$ fluentd -c fluent.conf
+```
 
 
 ## Upload Test
 
-To test the configuration, just post a JSON message to Fluentd via
-HTTP.
+To test the configuration, just post a JSON message to Fluentd via HTTP:
 
-    $ curl -X POST -d 'json={"sensor1":3123.13,"sensor2":321.3}' \
-      http://localhost:8888/td.testdb.raspberrypi
+```
+$ curl -X POST -d 'json={"sensor1":3123.13,"sensor2":321.3}' \
+  http://localhost:8888/td.testdb.raspberrypi
+```
 
 NOTE: If you're using Python, you can use Fluentd's
 [python logger](/language/python.md) library.
@@ -91,11 +102,13 @@ You can now issue queries against the imported data.
 
 * [Treasure Data: New Query](https://console.treasuredata.com/query_forms/new)
 
-For example, these queries calculate the average sensor1 value and
-the sum of sensor2 values.
+For example, these queries calculate the average `sensor1` value and
+the sum of `sensor2` values:
 
-    SELECT AVG(sensor1) FROM raspberrypi;
-    SELECT SUM(sensor2) FROM raspberrypi;
+```
+SELECT AVG(sensor1) FROM raspberrypi;
+SELECT SUM(sensor2) FROM raspberrypi;
+```
 
 
 ## Conclusion
@@ -104,7 +117,8 @@ Raspberry Pi is an ideal platform for prototyping data logger hardware.
 Fluentd helps Raspberry Pi transfer the collected data to the cloud
 easily and reliably.
 
+
 ------------------------------------------------------------------------
 
 If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open).
-[Fluentd](http://www.fluentd.org/) is a open source project under [Cloud Native Computing Foundation (CNCF)](https://cncf.io/). All components are available under the Apache 2 License.
+[Fluentd](http://www.fluentd.org/) is an open-source project under [Cloud Native Computing Foundation (CNCF)](https://cncf.io/). All components are available under the Apache 2 License.
