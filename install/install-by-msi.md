@@ -171,7 +171,8 @@ Next, let's register td-agent to Windows service to permanently run as a
 server process. Please execute `Td-agent Command Prompt` again but with
 administrative privilege, and type the two commands below.
 
-```                                                                                                                                                > fluentd --reg-winsvc i
+```
+> fluentd --reg-winsvc i
 > fluentd --reg-winsvc-fluentdopt '-c C:/opt/td-agent/etc/td-agent/td-agent.conf -o C:/opt/td-agent/td-agent.log'
 ```
 
