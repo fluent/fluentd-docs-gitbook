@@ -4,7 +4,7 @@ HTTP RPC enables you to manage your Fluentd instance through HTTP
 endpoints. You can use this feature as a replacement of [Unix signals](/deployment/signals.md).
 
 It is especially useful for environments where signals are not supported well
-e.g. Windows.This require fluentd start not with --no-supervisor.
+e.g. Windows.This requires Fluentd to start with --no-supervisor command-line option.
 
 
 ## Configuration
