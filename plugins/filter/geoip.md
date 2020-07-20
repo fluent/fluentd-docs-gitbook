@@ -3,13 +3,13 @@
 The `filter_geoip` Filter plugin adds geographic location information to
 logs using the Maxmind GeoIP databases.
 
-This document doesn't describe all parameters. If you want to know full
+This document does not describe all the parameters. If you want to know full
 features, check the Further Reading section.
 
 
 ## Prerequisites
 
-The GeoIP library.
+Install GeoIP library:
 
 ```
 # for RHEL/CentOS
@@ -24,13 +24,13 @@ $ sudo apt install libgeoip-dev
 $ brew install geoip
 ```
 
-libmaxminddb for GeoIP2 is bundled to geoip2\_c.
+`libmaxminddb` for GeoIP2 is bundled with `geoip2_c`.
 
 
 ## Install
 
-`filter_geoip` is not included in td-agent. All users must install the
-fluent-plugin-geoip gem using the following command.
+`filter_geoip` is not included in `td-agent`. All users must install the
+`fluent-plugin-geoip` gem using the following command:
 
 ```
 $ fluent-gem install fluent-plugin-geoip
@@ -42,8 +42,7 @@ For more details, see [Plugin Management](/deployment/plugin-management.md).
 
 ## Example Configuration
 
-The configuration shown below adds geolocation information to
-`apache.access`.
+This configuration adds the geolocation information to `apache.access`:
 
 ```
 <filter access.apache>
@@ -76,23 +75,23 @@ The configuration shown below adds geolocation information to
 </filter>
 ```
 
-Please see the [fluent-plugin-geoip
+See [fluent-plugin-geoip
 README](https://github.com/y-ken/fluent-plugin-geoip#readme) for further
 details.
 
 
 ## Plugin helpers
 
--   [compat\_parameters](/developer/api-plugin-helper-compat_parameters.md)
--   [inject](/developer/api-plugin-helper-inject.md)
+-   [`compat_parameters`](/developer/api-plugin-helper-compat_parameters.md)
+-   [`inject`](/developer/api-plugin-helper-inject.md)
 
 
 ## Parameters
 
-[Common Parameters](/configuration/plugin-common-parameters.md)
+See [Common Parameters](/configuration/plugin-common-parameters.md).
 
 
-### geoip\_database
+### `geoip_database`
 
 | type   | default | version |
 |:-------|:--------|:--------|
@@ -101,7 +100,7 @@ details.
 Path to GeoIP database file.
 
 
-### geoip2\_database
+### `geoip2_database`
 
 | type   | default | version |
 |:-------|:--------|:--------|
@@ -109,31 +108,33 @@ Path to GeoIP database file.
 
 Path to GeoIP2 database file.
 
-### geoip\_lookup\_keys
+
+### `geoip_lookup_keys`
 
 | type  | default  | version |
 |:-----:|:--------:|:-------:|
 | array | ["host"] | 1.2.0   |
 
-Specify one or more geoip lookup field which has IP address.
+Specifies one or more geoip lookup fields containing the IP address.
 
-See [record\_accessor](/developer/api-plugin-helper-record_accessor)
+See [`record_accessor`](/developer/api-plugin-helper-record_accessor)
 about nested attributes.
 
-**NOTE** Since v1.3.0 does not interpret `host.ip` as nested attribute.
+**NOTE**: Since v1.3.0 does not interpret `host.ip` as nested attribute.
 
-### geoip\_lookup\_key
+
+### `geoip_lookup_key`
 
 | type   | default | version |
 |:-------|:--------|:--------|
 | string | host    | 1.0.0   |
 
-Specify one or more geoip lookup field which has ip address.
+Specifies one or more geoip lookup fields containing the ip address.
 
-+This parameter has been deprecated since v1.2.0.
+This parameter has been deprecated since v1.2.0.
 
 
-### skip\_adding\_null\_record
+### `skip_adding_null_record`
 
 | type | default | version |
 |:-----|:--------|:--------|
@@ -141,10 +142,10 @@ Specify one or more geoip lookup field which has ip address.
 
 Set to `true` to skip adding field with `[null, null]` array.
 
-This is useful for elasticsearch.
+This is useful for ElasticSearch.
 
 
-### backend\_library
+### `backend_library`
 
 | type | default   | available values                 | version |
 |:-----|:----------|:---------------------------------|:--------|
@@ -155,13 +156,16 @@ Set backend library.
 
 ## Use cases
 
-#### Plot real time access statistics on a world map using Elasticsearch and Kibana
+
+#### Plot Realtime Access Statistics on a World Map using Elasticsearch and Kibana
 
 The `country_code` field is needed to visualize access statistics on a
 world map using [Kibana](http://www.elasticsearch.org/overview/kibana/).
 
-Note: The following plugins are required: \* fluent-plugin-geoip \*
-fluent-plugin-elasticsearch
+Required plugins:
+
+-   `fluent-plugin-geoip`
+-   `fluent-plugin-elasticsearch`
 
 ```
 <filter apache.access>
@@ -191,10 +195,13 @@ fluent-plugin-elasticsearch
 
 ## Further Reading
 
--   [fluent-plugin-geoip repository](https://github.com/y-ken/fluent-plugin-geoip)
+-   [`fluent-plugin-geoip`](https://github.com/y-ken/fluent-plugin-geoip)
 
 
 ------------------------------------------------------------------------
 
-If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open).
-[Fluentd](http://www.fluentd.org/) is a open source project under [Cloud Native Computing Foundation (CNCF)](https://cncf.io/). All components are available under the Apache 2 License.
+If this article is incorrect or outdated, or omits critical information, please
+[let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open).
+[Fluentd](http://www.fluentd.org/) is an open-source project under [Cloud Native
+Computing Foundation (CNCF)](https://cncf.io/). All components are available
+under the Apache 2 License.

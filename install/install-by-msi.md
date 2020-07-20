@@ -81,6 +81,14 @@ these commands:
 > fluentd --reg-winsvc-fluentdopt '-c C:/opt/td-agent/etc/td-agent/td-agent.conf -o C:/opt/td-agent/td-agent.log'
 ```
 
+**NOTE**: Making `td-agent` service start automatically requires additional
+commandline parameters:
+
+```
+> fluentd --reg-winsvc i --reg-winsvc-auto-start --reg-winsvc-delay-start
+> fluentd --reg-winsvc-fluentdopt '-c C:/opt/td-agent/etc/td-agent/td-agent.conf -o C:/opt/td-agent/td-agent.log'
+```
+
 ## Step 4: Run `td-agent` as a Windows service
 
 ### Using GUI
