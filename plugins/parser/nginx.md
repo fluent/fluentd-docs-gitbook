@@ -1,16 +1,16 @@
-# nginx Parser Plugin
+# `nginx` Parser Plugin
 
-The `nginx` parser plugin parses default nginx logs.
+The `nginx` parser plugin parses the default nginx logs.
 
 
 ## Parameters
 
-See [Parse section configurations](/configuration/parse-section.md)
+See [Parse Section Configurations](/configuration/parse-section.md).
 
 
-## Regexp patterns
+## Regexp Patterns
 
-This is regexp and time format patterns of this plugin:
+Here is the regexp and time format patterns of this plugin:
 
 ```
 expression /^(?<remote>[^ ]*) (?<host>[^ ]*) (?<user>[^ ]*) \[(?<time>[^\]]*)\] "(?<method>\S+)(?: +(?<path>[^\"]*?)(?: +\S*)?)?" (?<code>[^ ]*) (?<size>[^ ]*)(?: "(?<referer>[^\"]*)" "(?<agent>[^\"]*)"(?:\s+(?<http_x_forwarded_for>[^ ]+))?)?$/
@@ -24,11 +24,13 @@ used for the event time.
 
 ## Example
 
+This incoming event:
+
 ```
 127.0.0.1 192.168.0.1 - [28/Feb/2013:12:00:00 +0900] "GET / HTTP/1.1" 200 777 "-" "Opera/12.0" -
 ```
 
-This incoming event is parsed as:
+is parsed as:
 
 ```
 time:
@@ -52,5 +54,8 @@ record:
 
 ------------------------------------------------------------------------
 
-If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open).
-[Fluentd](http://www.fluentd.org/) is a open source project under [Cloud Native Computing Foundation (CNCF)](https://cncf.io/). All components are available under the Apache 2 License.
+If this article is incorrect or outdated, or omits critical information, please
+[let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open).
+[Fluentd](http://www.fluentd.org/) is an open-source project under
+[Cloud Native Computing Foundation (CNCF)](https://cncf.io/). All components are
+available under the Apache 2 License.
