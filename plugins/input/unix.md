@@ -2,13 +2,13 @@
 
 The `in_unix` Input plugin enables Fluentd to retrieve records from
 the Unix Domain Socket. The wire protocol is the same as
-[in_forward](/plugins/input/forward.md), but the transport layer is
+[`in_forward`](/plugins/input/forward.md), but the transport layer is
 different.
 
-## Example Configuration
+It is included in Fluentd's core.
 
-`in_unix` is included in Fluentd's core. No additional installation
-process is required.
+
+## Example Configuration
 
 ```
 <source>
@@ -17,16 +17,19 @@ process is required.
 </source>
 ```
 
-NOTE: Please see the [Config File](/configuration/config-file.md) article
-for the basic structure and syntax of the configuration file.
+Refer to the [Configuration File](/configuration/config-file.md) article for the
+basic structure and syntax of the configuration file.
+
 
 ## Parameters
 
-### @type (required)
+
+### `@type` (required)
 
 The value must be `unix`.
 
-### path
+
+### `path`
 
 | type   | default                                   | version |
 |:------:|:-----------------------------------------:|:-------:|
@@ -36,7 +39,8 @@ The path to your Unix Domain Socket.
 
 Fluentd will use the environment variable `FLUENT_SOCKET` if defined.
 
-### backlog
+
+### `backlog`
 
 | type    | default | version |
 |:-------:|:-------:|:-------:|
@@ -44,15 +48,21 @@ Fluentd will use the environment variable `FLUENT_SOCKET` if defined.
 
 The backlog of Unix Domain Socket.
 
-### tag
+
+### `tag`
 
 | type   | default | version |
 |:-------|:--------|:--------|
 | string | nil     | 1.11.0  |
 
-`in_unix` uses incoming event's tag by default. If set `tag` parameter, use its value instead.
+`in_unix` uses incoming event's tag by default. If `tag` parameter is set, its
+value is used instead.
+
 
 ------------------------------------------------------------------------
 
-If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open).
-[Fluentd](http://www.fluentd.org/) is a open source project under [Cloud Native Computing Foundation (CNCF)](https://cncf.io/). All components are available under the Apache 2 License.
+If this article is incorrect or outdated, or omits critical information, please
+[let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open).
+[Fluentd](http://www.fluentd.org/) is an open-source project under [Cloud Native
+Computing Foundation (CNCF)](https://cncf.io/). All components are available
+under the Apache 2 License.

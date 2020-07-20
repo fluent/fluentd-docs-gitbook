@@ -1,15 +1,14 @@
-# dummy Input Plugin
+# `dummy` Input Plugin
 
-![](/images/plugins/input/dummy.png)
+![dummy.png](/images/plugins/input/dummy.png)
 
 The `in_dummy` input plugin generates dummy events. It is useful for
 testing, debugging, benchmarking and getting started with Fluentd.
 
+It is included in Fluentd's core.
+
 
 ## Example Configuration
-
-`in_dummy` is included in Fluentd's core. No additional installation
-process is required.
 
 ```
 <source>
@@ -22,24 +21,23 @@ Please see the [Config File](/configuration/config-file.md) article for the basi
 structure and syntax of the configuration file.
 
 
-## Plugin helpers
+## Plugin Helpers
 
--   [thread](/developer/api-plugin-helper-thread.md)
--   [storage](/developer/api-plugin-helper-storage.md)
-
+-   [`thread`](/developer/api-plugin-helper-thread.md)
+-   [`storage`](/developer/api-plugin-helper-storage.md)
 -   See also: [Input Plugin Overview](/plugins/input/README.md)
 
 
 ## Parameters
 
-[Common Parameters](/configuration/plugin-common-parameters.md)
+See [Common Parameters](/configuration/plugin-common-parameters.md).
 
-### @type
+### `@type`
 
 The value must be `dummy`.
 
 
-### tag
+### `tag`
 
 | type   | default | version |
 |:-------|:--------|:--------|
@@ -48,7 +46,7 @@ The value must be `dummy`.
 The value is the tag assigned to the generated events.
 
 
-### size
+### `size`
 
 | type    | default | version |
 |:--------|:--------|:--------|
@@ -57,7 +55,7 @@ The value is the tag assigned to the generated events.
 The number of events in event stream of each emits.
 
 
-### rate
+### `rate`
 
 | type    | default | version |
 |:--------|:--------|:--------|
@@ -66,7 +64,7 @@ The number of events in event stream of each emits.
 It configures how many events to generate per second.
 
 
-### auto\_increment\_key
+### `auto_increment_key`
 
 | type   | default | version |
 |:-------|:--------|:--------|
@@ -84,7 +82,7 @@ events look like:
 ```
 
 
-### suspend
+### `suspend`
 
 | type | default | version |
 |:-----|:--------|:--------|
@@ -93,7 +91,7 @@ events look like:
 This parameter is removed since v1.10.0. This feature is automatically handled in the core.
 
 
-### dummy
+### `dummy`
 
 | type   | default                  | version |
 |:-------|:-------------------------|:--------|
@@ -106,5 +104,8 @@ hashes in the array are cycled through in order.
 
 ------------------------------------------------------------------------
 
-If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open).
-[Fluentd](http://www.fluentd.org/) is a open source project under [Cloud Native Computing Foundation (CNCF)](https://cncf.io/). All components are available under the Apache 2 License.
+If this article is incorrect or outdated, or omits critical information, please
+[let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open).
+[Fluentd](http://www.fluentd.org/) is an open-source project under [Cloud Native
+Computing Foundation (CNCF)](https://cncf.io/). All components are available
+under the Apache 2 License.

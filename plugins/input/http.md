@@ -1,6 +1,6 @@
 # HTTP Input Plugin
 
-![](/images/plugins/input/http.png)
+![http.png](/images/plugins/input/http.png)
 
 The `in_http` Input plugin allows you to send events through HTTP
 requests. Using this plugin, you can trivially launch a REST endpoint to
@@ -9,7 +9,7 @@ gather data.
 
 ## Configuration
 
-The following snippet shows an example configuration.
+Here is a sample configuration:
 
 ```
 <source>
@@ -21,7 +21,8 @@ The following snippet shows an example configuration.
 </source>
 ```
 
-For the full list of the configurable options, see [the "Parameters" section](#parameters).
+For the full list of the configurable options, see the [Parameters](#parameters)
+section.
 
 
 ## Basic Usage
@@ -34,7 +35,7 @@ $ curl -X POST -d 'json={"foo":"bar"}' http://localhost:9880/app.log
 ```
 
 By default, timestamps are assigned to each record on arrival. You can
-override the timestamp using the `time` parameter.
+override the timestamp using the `time` parameter:
 
 ```
 # Overwrite the timestamp to 2018-02-16 04:40:37.3137116
@@ -42,7 +43,7 @@ $ curl -X POST -d 'json={"foo":"bar"}' \
   http://localhost:9880/test.tag?time=1518756037.3137116
 ```
 
-Here is another example in JavaScript.
+Here is another example in JavaScript:
 
 ```
 // Post a record using XMLHttpRequest
@@ -54,21 +55,21 @@ req.open('POST', 'http://localhost:9880/debug.log');
 req.send(form);
 ```
 
-For more advanced usage, please read [the "Tips & Tricks"
-section](#tips-&-tricks).
+For more advanced usage, please read the [Tips and Tricks](#tips-and-tricks)
+section.
 
 
 ## Parameters
 
-[Common Parameters](/configuration/plugin-common-parameters.md)
+See [Common Parameters](/configuration/plugin-common-parameters.md).
 
 
-### @type (required)
+### `@type` (required)
 
 The value must be `http`.
 
 
-### port
+### `port`
 
 | type    | default | version |
 |:--------|:--------|:--------|
@@ -77,7 +78,7 @@ The value must be `http`.
 The port to listen to.
 
 
-### bind
+### `bind`
 
 | type   | default                 | version |
 |:-------|:------------------------|:--------|
@@ -86,7 +87,7 @@ The port to listen to.
 The bind address to listen to.
 
 
-### body\_size\_limit
+### `body_size_limit`
 
 | type | default | version |
 |:-----|:--------|:--------|
@@ -95,7 +96,7 @@ The bind address to listen to.
 The size limit of the POSTed element.
 
 
-### keepalive\_timeout
+### `keepalive_timeout`
 
 | type | default      | version |
 |:-----|:-------------|:--------|
@@ -104,47 +105,49 @@ The size limit of the POSTed element.
 The timeout limit for keeping the connection alive.
 
 
-### add\_http\_headers
+### `add_http_headers`
 
 | type | default | version |
 |:-----|:--------|:--------|
 | bool | false   | 0.14.0  |
 
-Add `HTTP_` prefix headers to the record.
+Adds `HTTP_` prefix headers to the record.
 
 
-### add\_remote\_addr
+### `add_remote_addr`
 
 | type | default | version |
 |:-----|:--------|:--------|
 | bool | false   | 0.14.0  |
 
-Add `REMOTE_ADDR` field to the record. The value of `REMOTE_ADDR` is the
+Adds `REMOTE_ADDR` field to the record. The value of `REMOTE_ADDR` is the
 client's address.
 
 If your system set multiple `X-Forwarded-For` headers in the request,
-`in_http` uses first one. For example:
+`in_http` uses the first one. For example:
 
 ```
 X-Forwarded-For: host1, host2
 X-Forwarded-For: host3
 ```
 
-If send above multiple headers, `REMOTE_ADDR` value is `host1`.
+If the above multiple headers are sent, the value of `REMOTE_ADDR` will be
+`host1`.
 
 
-### cors\_allow\_origins
+### `cors_allow_origins`
 
 | type  | default       | version |
 |:------|:--------------|:--------|
 | array | nil(disabled) | 0.14.0  |
 
-White list domains for CORS.
+Whitelist domains for CORS.
 
 If you set `["domain1", "domain2"]` to `cors_allow_origins`, `in_http`
 returns `403` to access from other domains. Since Fluentd v1.2.6, you
-can use a wildcard character `*` to allow requests from any origins (see
-the following example).
+can use a wildcard character `*` to allow requests from any origins.
+
+Example:
 
 ```
 <source>
@@ -155,16 +158,16 @@ the following example).
 ```
 
 
-### respond\_with\_empty\_img
+### `respond_with_empty_img`
 
 | type | default | version |
 |:-----|:--------|:--------|
 | bool | false   | 0.12.0  |
 
-Respond with an empty gif image of 1x1 pixel (rather than an emtpy
-string).
+Responds with an empty GIF image of 1x1 pixel (rather than an empty string).
 
-### &lt;transport&gt; section
+
+### `<transport>` Section
 
 | type | default | available values | version |
 |:-----|:--------|:-----------------|:--------|
@@ -179,28 +182,28 @@ This section is for using TLS transport.
 </transport>
 ```
 
-See "How to Enable TLS Encryption" section for how to use and see
-["Configuration example" in "Server Plugin Helper" article](/developer/api-plugin-helper-server.md#configuration-example) for
-supported parameters
+See **How to Enable TLS Encryption** section for how to use and see
+[Configuration Example](/developer/api-plugin-helper-server.md#configuration-example) for all supported parameters.
 
-Without `<transport tls>`, in\_http uses HTTP.
+Without `<transport tls>`, `in_http` uses HTTP.
+
 
 ### `<parse>` directive
 
 Use parser plugin to parse incoming data. See also [Handle other formats using parser plugins](#handle-other-formats-using-parser-plugins) section.
 
 
-### format (deprecated)
+### `format` (deprecated)
 
 Deprecated parameter. Use `<parse>` directive instead.
 
 
-## Tips & Tricks
+## Tips and Tricks
 
 
-### How to send data in MessagePack format
+### How to send data in MessagePack format?
 
-You can post data in MessagePack format by adding the `msgpack=` prefix.
+You can post data in MessagePack format by adding the `msgpack=` prefix:
 
 ```
 # Send data in msgpack format
@@ -209,18 +212,17 @@ $ curl -X POST -d "msgpack=$msgpack" http://localhost:9880/app.log
 ```
 
 
-### How to use HTTP Content-Type header
+### How to use HTTP Content-Type header?
 
-`in_http` plugin recognizes HTTP 'Content-Type' header in the incoming
-requests. For example, you can send a JSON payload without the `json=`
-prefix.
+`in_http` plugin recognizes HTTP `Content-Type` header in the incoming requests.
+For example, you can send a JSON payload without the `json=` prefix:
 
 ```
 $ curl -X POST -d '{"foo":"bar"}' -H 'Content-Type: application/json' \
   http://localhost:9880/app.log
 ```
 
-To use MessagePack, set the content type to `application/msgpack`.
+To use MessagePack, set the content type to `application/msgpack`:
 
 ```
 $ msgpack=`echo -e "\x81\xa3foo\xa3bar"`
@@ -229,7 +231,7 @@ $ curl -X POST -d "$msgpack" -H 'Content-Type: application/msgpack' \
 ```
 
 
-### Handle other formats using parser plugins
+### Handle Other Formats using Parser Plugins
 
 You can handle various input formats by using the `<parse>` directive.
 For example, add the following settings to the configuration file:
@@ -245,28 +247,29 @@ For example, add the following settings to the configuration file:
 </source>
 ```
 
-Now you can post custom-format records as below:
+Now you can post custom-format records like this:
 
 ```
 # This will be parsed into {"field1":"123456","field2":"awesome"}
 $ curl -X POST -d '123456:awesome' http://localhost:9880/app.log
 ```
 
-Many other formats (e.g. csv/syslog/nginx) are also supported as well.
-You can find the full list of supported formats in ["Parser Plugin Overview"](/plugins/parser/README.md).
+Many other formats (e.g. `csv`/`syslog`/`nginx`) are also supported.
+For the full list of supported formats, see [Parser Plugin Overview](/plugins/parser/README.md).
 
-Note: Some parser plugins do not support [the batch mode](#handle-large-data-with-batch-mode). So if you want to use bulk
-insertion for handling a large data set, please consider to keep using
-the default JSON (or MessagePack) format or write batch mode supported parser(return array object).
+NOTE: Some parser plugins do not support the [batch mode](#handle-large-data-with-batch-mode).
+So, if you want to use bulk insertion for handling a large data set, please
+consider keeping the default JSON (or MessagePack) format or write batch mode
+supported parser (return array object).
 
 
 ## Enhance Performance
 
 
-### Handle large data with batch mode
+### Handle Large Data with Batch Mode
 
 You can post multiple records with a single request by packing data into
-a JSON/MessagePack array.
+a JSON/MessagePack array:
 
 ```
 # Send multiple events as a JSON array
@@ -274,22 +277,21 @@ $ curl -X POST -d 'json=[{"foo":"bar"},{"abc":"def"},{"xyz":"123"}]' \
   http://localhost:9880/app.log
 ```
 
-This significantly improves the throughput since it reduces the number
-of HTTP requests. Here is a simple bechmark result on MacBook Pro with
-ruby 2.3:
+This significantly improves the throughput since it reduces the number of HTTP
+requests. Here is a simple benchmark on MacBook Pro with Ruby 2.3:
 
 | json            | msgpack         | msgpack array(10 items) |
 |:----------------|:----------------|:------------------------|
 | 2100 events/sec | 2400 events/sec | 10000 events/sec        |
 
-Tested configuration and ruby script is
+Tested configuration and Ruby script are
 [here](https://gist.github.com/repeatedly/672ac73abf7cbcb629aaec791838cf6d).
 
 
-### Use compression to reduce bandwidth overhead
+### Use Compression to Reduce Bandwidth Overhead
 
 Since v1.2.3, Fluentd can handle gzip-compressed payloads. To enable
-this feature, you need to add the 'Content-Encoding' header to your
+this feature, you need to add the `Content-Encoding` header to your
 requests.
 
 ```
@@ -302,10 +304,9 @@ $ curl --data-binary @json.gz -H "Content-Encoding: gzip" \
 You do not need any configuration to enable this feature.
 
 
-### Multi-process environment
+### Multi-process Environment
 
-If you use this plugin under multi-process environment, port will be
-shared.
+If you use this plugin under multi-process environment, port will be shared.
 
 ```
 <system>
@@ -317,33 +318,33 @@ shared.
 </source>
 ```
 
-With this configuration, 3 workers share 9880 port. No need additional
-port. Incoming data will be routed to 3 workers automatically.
+With this configuration, three (3) workers share 9880 port. No need for an
+additional port. Incoming data will be routed to three (3) workers automatically.
 
 
 ## Troubleshooting
 
 
-### Why in\_http removes '+' from my log?
+### Why `in_http` removes '+' from my log?
 
 This is HTTP spec, not fluentd problem. You need to encode your payload
-properly or use multipart request. Here is ruby example:
+properly or use multipart request. Here is a Ruby example:
 
 ```
-# OK
+# Good
 URI.encode_www_form({json: {"message" => "foo+bar"}.to_json})
 
-# NG
+# Bad
 "json=#{"message" => "foo+bar"}.to_json}"
 ```
 
-curl command example:
+`curl` command example:
 
 ```
-# OK
+# Good
 curl -X POST -H 'Content-Type: multipart/form-data' -F 'json={"message":"foo+bar"}' http://localhost:9880/app.log
 
-# NG
+# Bad
 curl -X POST -F 'json={"message":"foo+bar"}' http://localhost:9880/app.log
 ```
 
@@ -355,11 +356,10 @@ curl -X POST -F 'json={"message":"foo+bar"}' http://localhost:9880/app.log
 ## Tips
 
 
-### How to Enable TLS Encryption
+### How to Enable TLS Encryption?
 
-Since v1.5.0, `in_http` support TLS tranport. Here is configuration example with HTTPS client.
-
-- in_tcp
+Since v1.5.0, `in_http` support TLS transport. Here is a configuration example
+with HTTPS client:
 
 ```
 <source>
@@ -394,11 +394,13 @@ end
 
 puts post("/test.http?time=#{Time.now.to_i}", record).body
 ```
-### How to Enable TLS Mutual Authentication
+
+
+### How to Enable TLS Mutual Authentication?
 
 Fluentd supports [TLS mutual authentication](https://en.wikipedia.org/wiki/Mutual_authentication)
-(a.k.a. client certificate auth). If you want to use this feature,
-please set the `client_cert_auth` and `ca_path` options as follows.
+(i.e. client certificate auth). If you want to use this feature, please set the
+`client_cert_auth` and `ca_path` options like this:
 
 ```
 <source>
@@ -411,11 +413,15 @@ please set the `client_cert_auth` and `ca_path` options as follows.
 </source>
 ```
 
-When this feature is enabled, Fluentd will check all incoming requests
-for a client certificate signed by the trusted CA. Requests that don't
-supply a valid client certificate will fail.
+When this feature is enabled, Fluentd will check all the incoming requests for a
+client certificate signed by the trusted CA. Requests with an invalid client
+certificate will fail.
+
 
 ------------------------------------------------------------------------
 
-If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open).
-[Fluentd](http://www.fluentd.org/) is a open source project under [Cloud Native Computing Foundation (CNCF)](https://cncf.io/). All components are available under the Apache 2 License.
+If this article is incorrect or outdated, or omits critical information, please
+[let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open).
+[Fluentd](http://www.fluentd.org/) is an open-source project under [Cloud Native
+Computing Foundation (CNCF)](https://cncf.io/). All components are available
+under the Apache 2 License.

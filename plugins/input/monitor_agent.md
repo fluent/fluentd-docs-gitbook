@@ -3,11 +3,10 @@
 The `in_monitor_agent` Input plugin enables Fluentd to export internal
 metrics by using HTTP API.
 
+It is included in Fluentd's core.
+
 
 ## Example Configuration
-
-`in_monitor_agent` is included in Fluentd's core. No additional
-installation process is required.
 
 ```
 <source>
@@ -17,8 +16,7 @@ installation process is required.
 </source>
 ```
 
-This configuration launches HTTP server with 24220 port and get metrics
-like below:
+This configuration launches HTTP server with 24220 port and get metrics:
 
 ```
 $ curl http://host:24220/api/plugins.json
@@ -30,21 +28,21 @@ Also you can fetch the same data in LTSV format:
 $ curl http://host:24220/api/plugins
 ```
 
-Please see the [Config File](/configuration/config-file.md) article for the basic
-structure and syntax of the configuration file.
+Refer to the [Configuration File](/configuration/config-file.md) article for the
+basic structure and syntax of the configuration file.
 
 
 ## Parameters
 
-[Common Parameters](/configuration/plugin-common-parameters.md)
+See [Common Parameters](/configuration/plugin-common-parameters.md).
 
 
-### @type (required)
+### `@type` (required)
 
 The value must be `monitor_agent`.
 
 
-### port
+### `port`
 
 | type    | default | version |
 |:--------|:--------|:--------|
@@ -53,7 +51,7 @@ The value must be `monitor_agent`.
 The port to listen to.
 
 
-### bind
+### `bind`
 
 | type   | default                 | version |
 |:-------|:------------------------|:--------|
@@ -62,7 +60,7 @@ The port to listen to.
 The bind address to listen to.
 
 
-### tag
+### `tag`
 
 | type   | default | version |
 |:-------|:--------|:--------|
@@ -72,7 +70,7 @@ If you set this parameter, this plugin emits metrics as records. See
 "Reuse plugins" section.
 
 
-### emit\_interval
+### `emit_interval`
 
 | type    | default | version |
 |:--------|:--------|:--------|
@@ -82,29 +80,27 @@ The interval time between event emits. This will be used when `tag` is
 configured.
 
 
-### include\_config
+### `include_config`
 
 | type | default | version |
 |:-----|:--------|:--------|
 | bool | true    | 0.14.0  |
 
-You can set this option to false to remove `config` field from the
-response.
+You can set this option to false to remove `config` field from the response.
 
 
-### include\_retry
+### `include_retry`
 
 | type | default | version |
 |:-----|:--------|:--------|
 | bool | true    | 0.14.11 |
 
-You can set this option to false to remove `retry` field from the
-response.
+You can set this option to false to remove `retry` field from the response.
 
 
 ## Configuration Example
 
-Here is a configuration example that uses `in_monitor_agent`.
+Here is a configuration example that uses `in_monitor_agent`:
 
 ```
 <source>
@@ -124,16 +120,16 @@ Here is a configuration example that uses `in_monitor_agent`.
 </match>
 ```
 
-When using this plugin, we strongly recommend to set `@id` on *each*
+When using this plugin, we strongly recommend to set `@id` on **each**
 plugin in use. This makes the task to identify which record corresponds
-to which plugin much easier (Without `@id`, Fluentd uses `object_id` as
+to which plugin much easier. Without `@id`, Fluentd uses `object_id` as
 unique identifier, so you cannot identify a record just by looking at
-its `plugin_id` field)
+its `plugin_id` field.
 
 
 ## Output Example
 
-Here is how the output looks like (in JSON format):
+Here is how the output looks like in JSON:
 
 ```
 {
@@ -166,15 +162,17 @@ Here is how the output looks like (in JSON format):
 }
 ```
 
-If the plugin is an output with buffer setting, the metrics has buffer
+If the plugin is an output with buffer settings, the metrics has buffer
 related fields.
 
 
-### In retry
+### `retry`
 
 If the output plugin is in retry status, additional fields are added to
 `retry`. For example, if the elasticsearch plugin fails to flush the
-buffer, response is below:
+buffer.
+
+Here is the response:
 
 ```
 { 
@@ -195,23 +193,23 @@ buffer, response is below:
 
 `steps` field in `retry` show the number of flush failure, so next is
 3rd try. `retry_count` is the total number of flush failure. This value
-is cleared when fluentd restart, not retry succeeded.
+is cleared when fluentd restarts, not when retry succeeded.
 
 
-## Tips & Tricks
+## Tips and Tricks
 
 
 ### How to use query parameters to tune outputs
 
 This plugin supports a number of query parameters with which you can
 customize the output format of HTTP responses. For example, you can
-append `debug=1` to the request URL to get the verbose internal metrics.
+append `debug=1` to the request URL to get the verbose internal metrics:
 
 ```
 $ curl http://localhost:24220/api/plugins.json?debug=1
 ```
 
-The following list shows the available query parameters.
+The following list shows the available query parameters:
 
 | Parameter     | Value          | Explanation                                            |
 |:--------------|:---------------|:-------------------------------------------------------|
@@ -226,8 +224,9 @@ The following list shows the available query parameters.
 
 ### How to emit metrics as events
 
-You can emits the internal metrics as events by setting the option
-`tag`. For example:
+You can emit the internal metrics as events by setting the `tag`.
+
+For example:
 
 ```
 <source>
@@ -240,7 +239,7 @@ You can emits the internal metrics as events by setting the option
 
 Note that `in_monitor_agent` produces separate records for each plugin.
 Thus, using this configuration, you will receive events like below once
-per minute.
+per minute:
 
 ```
 2018-01-30 22:53:29.591560000 +0900 debug.monitor: { "plugin_id":"object:3ffd9988bea0","plugin_category":"input","type":"monitor_agent","output_plugin":false,"retry_count":null}
@@ -249,11 +248,11 @@ per minute.
 ```
 
 
-### Multi-process environment
+### Multi-Process Environment
 
-If you use this plugin under multi-process environment, HTTP server will
-be launched in each worker. Port is assigned in sequential number. For
-example, with this configuration:
+If you use this plugin under multi-process environment, HTTP server will be
+launched in each worker. Port is assigned sequentially. For example, with this
+configuration:
 
 ```
 <system>
@@ -266,12 +265,20 @@ example, with this configuration:
 </source>
 ```
 
-3 HTTP servers will be launched. Port 24230 for worker 0, port 24231 for
-worker 1 and port 24232 for worker 2. Note that you may need to set
-worker\_id to `@id` parameter. See [config article](/configuration/config-file.md#embedded-ruby-code)
+Three (3) HTTP servers will be launched with:
+
+-   port 24230 for worker 0
+-   port 24231 for worker 1
+-   port 24232 for worker 2
+
+Note that you may need to set `worker_id` to `@id` parameter. See [config
+article](/configuration/config-file.md#embedded-ruby-code).
 
 
 ------------------------------------------------------------------------
 
-If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open).
-[Fluentd](http://www.fluentd.org/) is a open source project under [Cloud Native Computing Foundation (CNCF)](https://cncf.io/). All components are available under the Apache 2 License.
+If this article is incorrect or outdated, or omits critical information, please
+[let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open).
+[Fluentd](http://www.fluentd.org/) is an open-source project under [Cloud Native
+Computing Foundation (CNCF)](https://cncf.io/). All components are available
+under the Apache 2 License.
