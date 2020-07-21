@@ -1,14 +1,13 @@
-# null Output Plugin
+# `null` Output Plugin
 
-![](/images/plugins/output/null.png)
+![null.png](/images/plugins/output/null.png)
 
 The `null` output plugin just throws away events.
 
+It is included in Fluentd's core.
+
 
 ## Example Configuration
-
-`out_null` is included in Fluentd's core. No additional installation
-process is required.
 
 ```
 <match pattern>
@@ -16,11 +15,11 @@ process is required.
 </match>
 ```
 
-Please see the [Config File](/configuration/config-file.md) article for the basic
-structure and syntax of the configuration file.
+Please see the [Configuration File](/configuration/config-file.md) article for
+the basic structure and syntax of the configuration file.
 
 
-## Supported modes
+## Supported Modes
 
 -   Non-Buffered
 -   Synchronous
@@ -33,47 +32,51 @@ See [Output Plugin Overview](/plugins/output/README.md) for more details.
 
 [Common Parameters](/configuration/plugin-common-parameters.md)
 
-### @type
+### `@type`
 
 The value must be `null`.
 
 
-### never\_flush
+### `never_flush`
 
 | type | default | version |
 |:-----|:--------|:--------|
 | bool | false   | 0.14.12 |
 
-The parameter for testing to simulate output plugin which never succeed
-to flush.
+The parameter for testing to simulate the output plugin that never succeeds to
+flush.
 
-### &lt;buffer&gt; section
+
+### `<buffer>` Section
 
 See [Buffer section configurations](/configuration/buffer-section.md) for more details.
 
-#### chunk\_keys
+
+#### `chunk_keys`
 
 | type  | default | version |
 |:------|:--------|:--------|
 | array | tag     | 0.14.5  |
 
-Overwrite default value in this plugin.
+Overwrites the default value in this plugin.
 
-#### flush\_at\_shutdown
+
+#### `flush_at_shutdown`
 
 | type | default | version |
 |:-----|:--------|:--------|
 | bool | true    | 0.14.5  |
 
-Overwrite default value in this plugin.
+Overwrites the default value in this plugin.
 
-#### chunk\_limit\_size
+
+#### `chunk_limit_size`
 
 | type | default | version |
 |:-----|:--------|:--------|
 | size | 10240   | 0.14.5  |
 
-Overwrite default value in this plugin.
+Overwrites the default value in this plugin.
 
 
 ## Common Buffer / Output parameters
@@ -83,5 +86,8 @@ See [Buffer Plugin Overview](/plugins/buffer/README.md) and [Output Plugin Overv
 
 ------------------------------------------------------------------------
 
-If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open).
-[Fluentd](http://www.fluentd.org/) is a open source project under [Cloud Native Computing Foundation (CNCF)](https://cncf.io/). All components are available under the Apache 2 License.
+If this article is incorrect or outdated, or omits critical information, please
+[let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open).
+[Fluentd](http://www.fluentd.org/) is an open-source project under
+[Cloud Native Computing Foundation (CNCF)](https://cncf.io/). All components are
+available under the Apache 2 License.

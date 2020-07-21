@@ -1,20 +1,21 @@
-# secondary\_file Output Plugin
+# `secondary_file` Output Plugin
 
-![](/images/plugins/output/file.png)
+![file.png](/images/plugins/output/file.png)
 
-The `out_secondary_file` Output plugin writes chunks to files.
-This plugin is similar to `out_file` but this is for `<secondary>` usecase.
-Don't use this plugin for primary plugin.
+The `out_secondary_file` Output plugin writes chunks to files. This plugin is
+similar to `out_file` but this is for `<secondary>` use-case.
+
+NOTE: Do not use this plugin for primary plugin.
+
+`out_secondary_file` is included in Fluentd's core.
+
 
 ## Example Configuration
-
-`out_secondary_file` is included in Fluentd's core. No additional installation
-process is required.
 
 ```
 <match pattern>
   @type forward
-  # other parameters ...
+  # ...
   <secondary>
     @type secondary_file
     directory /var/log/fluentd/error
@@ -22,13 +23,14 @@ process is required.
 </match>
 ```
 
-With this configuration, failed buffer chunks are saved into `/var/log/fluentd/error/dump.bin.N`,
-`N` is 0-origin incremental number.
+With this configuration, failed buffer chunks are saved into
+`/var/log/fluentd/error/dump.bin.N`, `N` is 0-origin incremental number.
 
-Please see the [Config File](/configuration/config-file.md) article for the basic
-structure and syntax of the configuration file. 
+Please see the [Configuration File](/configuration/config-file.md) article for
+the basic structure and syntax of the configuration file. 
 
-## Plugin helpers
+
+## Plugin Helpers
 
 No helpers.
 
@@ -38,19 +40,19 @@ No helpers.
 [Common Parameters](/configuration/plugin-common-parameters.md)
 
 
-### @type (required)
+### `@type` (required)
 
 The value must be `secondary_file`.
 
 
-### directory
+### `directory`
 
 | type   | default            | version |
 |:-------|:-------------------|:--------|
 | string | required parameter | 1.0.0   |
 
 The directory path of the output file.
-Received buffer chunks are saved under this directory.
+Received buffer chunks are saved in this directory.
 
 ```
 <secondary>
@@ -60,7 +62,7 @@ Received buffer chunks are saved under this directory.
 ```
 
 
-### basename
+### `basename`
 
 | type   | default    | version |
 |:-------|:-----------|:--------|
@@ -77,7 +79,7 @@ You can use `${chunk_id}` placeholder to identify original chunk.
 </secondary>
 ```
 
-The output path is like below:
+The output path would be:
 
 ```
 # 59c278456e74a22dc594b06a7d4247c4 is chunk id
@@ -85,15 +87,14 @@ The output path is like below:
 ```
 
 
-### append
+### `append`
 
 | type | default | version |
 |:-----|:--------|:--------|
 | bool | false   | 1.0.0   |
 
-The received chunk is appended to existence file or not. The default is
-not appended. By default, `out_secondary_file` flushes each chunk to different
-path.
+The received chunk is appended to existing file or not. The default is not
+appended. By default, `out_secondary_file` flushes each chunk to different path:
 
 ```
 # append false
@@ -104,8 +105,8 @@ dump.bin.2
 dump.bin.N
 ```
 
-This makes parallel file processing easy. But if you want to disable
-this behaviour, you can disable it by setting `append true`.
+This makes parallel file processing easy. But if you want to disable this
+behavior, you can disable it by setting `append true`:
 
 ```
 # append true
@@ -114,5 +115,8 @@ dump.bin
 
 ------------------------------------------------------------------------
 
-If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open).
-[Fluentd](http://www.fluentd.org/) is a open source project under [Cloud Native Computing Foundation (CNCF)](https://cncf.io/). All components are available under the Apache 2 License.
+If this article is incorrect or outdated, or omits critical information, please
+[let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open).
+[Fluentd](http://www.fluentd.org/) is an open-source project under
+[Cloud Native Computing Foundation (CNCF)](https://cncf.io/). All components are
+available under the Apache 2 License.

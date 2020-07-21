@@ -1,13 +1,12 @@
-# roundrobin Output Plugin
+# `roundrobin` Output Plugin
 
 The `roundrobin` Output plugin distributes events to multiple outputs
 using a weighted round-robin algorithm.
 
+It is included in Fluentd's core.
+
 
 ## Example Configuration
-
-`out_roundrobin` is included in Fluentd's core. No additional
-installation process is required.
 
 ```
 <match pattern>
@@ -17,28 +16,28 @@ installation process is required.
     @type tcp
     host 192.168.1.21
     weight 3
-    ...
+    # ...
   </store>
   <store>
     @type tcp
     host 192.168.1.22
     weight 2
-    ...
+    # ...
   </store>
   <store>
     @type tcp
     host 192.168.1.23
     weight 1
-    ...
+    # ...
   </store>
 </match>
 ```
 
-Please see the [Config File](/configuration/config-file.md) article for the basic
-structure and syntax of the configuration file.
+Please see the [Configuration File](/configuration/config-file.md) article for
+the basic structure and syntax of the configuration file.
 
 
-## Supported modes
+## Supported Modes
 
 -   Non-Buffered
 
@@ -47,17 +46,18 @@ structure and syntax of the configuration file.
 
 [Common Parameters](/configuration/plugin-common-parameters.md)
 
-### @type
+### `@type`
 
 The value must be `roundrobin`.
 
 
-### &lt;store&gt;
+### `<store>`
 
-Specifies the storage destinations. The format is the same as the
-`<match>` directive.
+Specifies the storage destinations. The format is the same as the `<match>`
+directive.
 
-#### weight
+
+#### `weight`
 
 | type    | default | version |
 |:--------|:--------|:--------|
@@ -68,5 +68,8 @@ Weight to distribute events to multiple outputs.
 
 ------------------------------------------------------------------------
 
-If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open).
-[Fluentd](http://www.fluentd.org/) is a open source project under [Cloud Native Computing Foundation (CNCF)](https://cncf.io/). All components are available under the Apache 2 License.
+If this article is incorrect or outdated, or omits critical information, please
+[let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open).
+[Fluentd](http://www.fluentd.org/) is an open-source project under
+[Cloud Native Computing Foundation (CNCF)](https://cncf.io/). All components are
+available under the Apache 2 License.

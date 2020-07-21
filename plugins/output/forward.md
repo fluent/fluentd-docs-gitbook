@@ -1,25 +1,24 @@
-# forward Output Plugin
+# `forward` Output Plugin
 
-![](/images/plugins/output/forward.png)
+![forward.png](/images/plugins/output/forward.png)
 
 The `out_forward` Buffered Output plugin forwards events to other
 fluentd nodes. This plugin supports load-balancing and automatic
-fail-over (a.k.a. active-active backup). For replication, please use the
-[out\_copy](/plugins/output/copy.md) plugin.
+fail-over (i.e. active-active backup). For replication, please use
+[`out_copy`](/plugins/output/copy.md) plugin.
 
-The `out_forward` plugin detects server faults using a "φ accrual
-failure detector" algorithm. You can customize the parameters of the
+The `out_forward` plugin detects server faults using a **φ accrual
+failure detector** algorithm. You can customize the parameters of the
 algorithm. When a server fault recovers, the plugin makes the server
 available automatically after a few seconds.
 
-The `out_forward` plugin supports at-most-once and at-least-once
-semantics. The default is at-most-once.
+The `out_forward` plugin supports **at-most-once** and **at-least-once**
+semantics. The default is **at-most-once**.
+
+It is included in Fluentd's core.
 
 
 ## Example Configuration
-
-`out_forward` is included in Fluentd's core. No additional installation
-process is required.
 
 ```
 <match pattern>
@@ -49,11 +48,11 @@ process is required.
 </match>
 ```
 
-Please see the [Config File](/configuration/config-file.md) article for the basic
-structure and syntax of the configuration file.
+Please see the [Configuration File](/configuration/config-file.md) article for
+the basic structure and syntax of the configuration file.
 
 
-## Supported modes
+## Supported Modes
 
 -   Synchronous
 -   Asynchronous
@@ -61,42 +60,43 @@ structure and syntax of the configuration file.
 See [Output Plugin Overview](/plugins/output/README.md) for more details.
 
 
-## Plugin helpers
+## Plugin Helpers
 
--   [socket](/developer/api-plugin-helper-socket.md)
--   [server](/developer/api-plugin-helper-server.md)
--   [timer](/developer/api-plugin-helper-timer.md)
--   [thread](/developer/api-plugin-helper-thread.md)
--   [compat\_parameters](/developer/api-plugin-helper-compat_parameters.md)
+-   [`socket`](/developer/api-plugin-helper-socket.md)
+-   [`server`](/developer/api-plugin-helper-server.md)
+-   [`timer`](/developer/api-plugin-helper-timer.md)
+-   [`thread`](/developer/api-plugin-helper-thread.md)
+-   [`compat_parameters`](/developer/api-plugin-helper-compat_parameters.md)
 
 
 ## Parameters
 
 [Common Parameters](/configuration/plugin-common-parameters.md)
 
-### @type
+
+### `@type`
 
 The value must be `forward`.
 
 
-### &lt;server&gt; (at least one is required)
+### `<server>` (at least one is required)
 
 | required | multi | version |
 |:---------|:------|:--------|
 | true     | true  | 0.14.5  |
 
-The destination servers. Each server has following parameters.
+The destination servers. Each server has the following parameters:
 
-- host
-- name
-- port
-- shared\_key
-- username
-- password
-- standby
-- weight
+-   `host`
+-   `name`
+-   `port`
+-   `shared_key`
+-   `username`
+-   `password`
+-   `standby`
+-   `weight`
  
-#### host
+#### `host`
 
 | type   | default            | version |
 |:-------|:-------------------|:--------|
@@ -104,16 +104,18 @@ The destination servers. Each server has following parameters.
 
 The IP address or host name of the server.
 
-#### name
+
+#### `name`
 
 | type   | default | version |
 |:-------|:--------|:--------|
 | string | nil     | 0.14.5  |
 
 The name of the server. Used for logging and certificate verification in
-TLS transport (when host is address).
+TLS transport (when host is the address).
 
-#### port
+
+#### `port`
 
 | type    | default | version |
 |:--------|:--------|:--------|
@@ -122,7 +124,8 @@ TLS transport (when host is address).
 The port number of the host. Note that both TCP packets (event stream)
 and UDP packets (heartbeat message) are sent to this port.
 
-#### shared\_key
+
+#### `shared_key`
 
 | type   | default | version |
 |:-------|:--------|:--------|
@@ -130,7 +133,8 @@ and UDP packets (heartbeat message) are sent to this port.
 
 The shared key per server.
 
-#### username
+
+#### `username`
 
 | type   | default           | version |
 |:-------|:------------------|:--------|
@@ -138,7 +142,8 @@ The shared key per server.
 
 The username for authentication.
 
-#### password
+
+#### `password`
 
 | type   | default           | version |
 |:-------|:------------------|:--------|
@@ -146,7 +151,8 @@ The username for authentication.
 
 The password for authentication.
 
-#### standby
+
+#### `standby`
 
 | type | default | version |
 |:-----|:--------|:--------|
@@ -160,7 +166,7 @@ promoted to an active node. The standby node is not used by the
 ```
 <match pattern>
   @type forward
-  ...
+  # ...
 
   <server>
     name myserver1
@@ -173,11 +179,12 @@ promoted to an active node. The standby node is not used by the
     weight 60
     standby
   </server>
-  ...
+  # ...
 </match>
 ```
 
-#### weight
+
+#### `weight`
 
 | type    | default | version |
 |:--------|:--------|:--------|
@@ -188,17 +195,17 @@ weight of the other server is 30, events are sent in a 2:3 ratio. The
 default weight is 60.
 
 
-### require\_ack\_response
+### `require_ack_response`
 
 | type | default | version |
 |:-----|:--------|:--------|
 | bool | false   | 0.14.0  |
 
-Change the protocol to at-least-once. The plugin waits the ack from
-destination's in\_forward plugin.
+Changes the protocol to **at-least-once**. The plugin waits the ack from
+destination's `in_forward` plugin.
 
 
-### ack\_response\_timeout
+### `ack_response_timeout`
 
 | type | default | version |
 |:-----|:--------|:--------|
@@ -207,10 +214,10 @@ destination's in\_forward plugin.
 This option is used when `require_ack_response` is `true`. This default
 value is based on popular `tcp_syn_retries`.
 
-If set `0`, this plugin doesn't wait the ack response.
+If set `0`, this plugin does not wait for the ack response.
 
 
-### send\_timeout
+### `send_timeout`
 
 | type | default | version |
 |:-----|:--------|:--------|
@@ -218,15 +225,18 @@ If set `0`, this plugin doesn't wait the ack response.
 
 The timeout time when sending event logs.
 
-### connect\_timeout
+
+### `connect_timeout`
 
 | type | default | version |
 |:-----|:--------|:--------|
 | time | nil(no timeout) | 1.6.0 |
 
-The timeout time for socket connect. When the connection timed out during establishment, Errno::ETIMEDOUT is raised.
+The timeout time for socket connect. When the connection is timed out during
+establishment, `Errno::ETIMEDOUT` error is raised.
 
-### recover\_wait
+
+### `recover_wait`
 
 | type | default | version |
 |:-----|:--------|:--------|
@@ -235,17 +245,16 @@ The timeout time for socket connect. When the connection timed out during establ
 The wait time before accepting a server fault recovery.
 
 
-### heartbeat\_type
+### `heartbeat_type`
 
 | type | default   | available                 | version |
 |:-----|:----------|:--------------------------|:--------|
 | enum | transport | transport, tcp, udp, none | 0.14.12 |
 
-The transport protocol to use for heartbeats. Set "none" to disable
-heartbeat.
+The transport protocol to use for heartbeats. Set `none` to disable heartbeat.
 
 
-### heartbeat\_interval
+### `heartbeat_interval`
 
 | type | default | version |
 |:-----|:--------|:--------|
@@ -254,7 +263,7 @@ heartbeat.
 The interval of the heartbeat packer.
 
 
-### phi\_failure\_detector
+### `phi_failure_detector`
 
 | type | default | version |
 |:-----|:--------|:--------|
@@ -263,7 +272,7 @@ The interval of the heartbeat packer.
 Use the "Phi accrual failure detector" to detect server failure.
 
 
-### phi\_threshold
+### `phi_threshold`
 
 | type    | default | version |
 |:--------|:--------|:--------|
@@ -271,14 +280,13 @@ Use the "Phi accrual failure detector" to detect server failure.
 
 The threshold parameter used to detect server faults.
 
-\`phi\_threshold\` is deeply related to \`heartbeat\_interval\`. If you
-are using longer \`heartbeat\_interval\`, please use the larger
-\`phi\_threshold\`. Otherwise you will see frequent detachments of
-destination servers. The default value 16 is tuned for
-\`heartbeat\_interval\` 1s.
+`phi_threshold` is directly related to `heartbeat_interval`. If you are using
+longer `heartbeat_interval`, please use the larger `phi_threshold`. Otherwise,
+you will see frequent detachments of destination servers. The default value 16
+is tuned for `heartbeat_interval` 1s.
 
 
-### hard\_timeout
+### `hard_timeout`
 
 | type | default | version |
 |:-----|:--------|:--------|
@@ -288,16 +296,16 @@ The hard timeout used to detect server failure. The default value is
 equal to the `send_timeout` parameter.
 
 
-### expire\_dns\_cache
+### `expire_dns_cache`
 
 | type | default                | version |
 |:-----|:-----------------------|:--------|
 | time | nil (persistent cache) | 0.14.0  |
 
-Set TTL to expire DNS cache in seconds. Set 0 not to use DNS Cache.
+Sets TTL to expire DNS cache in seconds. Set 0 not to use DNS Cache.
 
 
-### dns\_round\_robin
+### `dns_round_robin`
 
 | type | default | version |
 |:-----|:--------|:--------|
@@ -306,29 +314,28 @@ Set TTL to expire DNS cache in seconds. Set 0 not to use DNS Cache.
 Enable client-side DNS round robin. Uniform randomly pick an IP address
 to send data when a hostname has several IP addresses.
 
-\`heartbeat\_type udp\` is not available with \`dns\_round\_robin
-true\`. Use \`heartbeat\_type tcp\` or \`heartbeat\_type none\`.
+`heartbeat_type udp` is not available with `dns_round_robintrue`. Use `heartbeat_type tcp` or `heartbeat_type none`.
 
 
-### ignore\_network\_errors\_at\_startup
+### `ignore_network_errors_at_startup`
 
 | type | default | version |
 |:-----|:--------|:--------|
 | bool | false   | 0.14.12 |
 
-Ignore DNS resolution and errors at startup time.
+Ignores DNS resolution and errors at startup time.
 
 
-### tls\_version
+### `tls_version`
 
-| type | default  | available          | version |
-|:-----|:---------|:-------------------|:--------|
-| enum | TLSv1\_2 | TLSv1\_1, TLSv1\_2 | 0.14.12 |
+| type | default   | available            | version |
+|:-----|:----------|:---------------------|:--------|
+| enum | `TLSv1_2` | `TLSv1_1`, `TLSv1_2` | 0.14.12 |
 
 The default version of TLS transport.
 
 
-### tls\_ciphers
+### `tls_ciphers`
 
 | type   | default                                             | version |
 |:-------|:----------------------------------------------------|:--------|
@@ -337,34 +344,34 @@ The default version of TLS transport.
 The cipher configuration of TLS transport.
 
 
-### tls\_insecure\_mode
+### `tls_insecure_mode`
 
 | type | default | version |
 |:-----|:--------|:--------|
 | bool | false   | 0.14.12 |
 
-Skip all verification of certificates or not.
+Skips all verification of certificates or not.
 
 
-### tls\_allow\_self\_signed\_cert
+### `tls_allow_self_signed_cert`
 
 | type | default | version |
 |:-----|:--------|:--------|
 | bool | false   | 0.14.12 |
 
-Allow self signed certificates or not.
+Allows self-signed certificates or not.
 
 
-### tls\_verify\_hostname
+### `tls_verify_hostname`
 
 | type | default | version |
 |:-----|:--------|:--------|
 | bool | true    | 0.14.12 |
 
-Verify hostname of servers and certificates or not in TLS transport.
+Verifies hostname of servers and certificates or not in TLS transport.
 
 
-### tls\_cert\_path
+### `tls_cert_path`
 
 | type            | default | version |
 |:----------------|:--------|:--------|
@@ -372,15 +379,17 @@ Verify hostname of servers and certificates or not in TLS transport.
 
 The additional CA certificate path for TLS.
 
-### tls\_client\_cert\_path
+
+### `tls_client_cert_path`
 
 | type   | default | version |
 |:------:|:-------:|:-------:|
 | string | nil     | 1.3.2   |
 
-The client certificate path for TLS
+The client certificate path for TLS.
 
-### tls\_client\_private\_key\_path
+
+### `tls_client_private_key_path`
 
 | type   | default | version |
 |:------:|:-------:|:-------:|
@@ -388,7 +397,8 @@ The client certificate path for TLS
 
 The client private key path for TLS.
 
-### tls\_client\_private\_key\_passphrase
+
+### `tls_client_private_key_passphrase`
 
 | type   | default | version |
 |:------:|:-------:|:-------:|
@@ -396,7 +406,8 @@ The client private key path for TLS.
 
 The client private key passphrase for TLS.
 
-### tls\_cert\_thumbprint
+
+### `tls_cert_thumbprint`
 
 | type   | default | version |
 |:------:|:-------:|:-------:|
@@ -405,7 +416,8 @@ The client private key passphrase for TLS.
 The certificate thumbprint for searching from Windows system certstore
 This parameter is for Windows only.
 
-### tls\_cert\_logical\_store\_name,
+
+### `tls_cert_logical_store_name`
 
 | type   | default | version |
 |:------:|:-------:|:-------:|
@@ -414,44 +426,49 @@ This parameter is for Windows only.
 The certificate logical store name on Windows system certstore.
 This parameter is for Windows only.
 
-### tls\_cert\_use\_enterprise\_store
+
+### `tls_cert_use_enterprise_store`
 
 | type   | default | version |
 |:------:|:-------:|:-------:|
 | string | true    | 1.7.1   |
 
-Enable to use certificate enterprise store on Windows system certstore.
+Enables to use certificate enterprise store on Windows system certstore.
 This parameter is for Windows only.
 
-### keepalive
+
+### `keepalive`
 
 | type | default | version |
 |:----:|:-------:|:-------:|
 | bool | false   | 1.5.0   |
 
-Enable keepalive connection.
+Enables the keepalive connection.
 
-### keepalive\_timeout
+
+### `keepalive_timeout`
 
 | type | default | version |
 |:----:|:-------:|:-------:|
 | time | nil     | 1.5.0   |
 
-Expired time of keepalive. Default value is nil, which means to keep connection
+Timeout for keepalive. Default value is `nil`, which means to keep connection
 as long as possible.
 
-### &lt;security&gt; section
+
+### `<security>` Section
 
 | required | multi | version |
 |:---------|:------|:--------|
 | false    | false | 0.14.5  |
 
-This section contains parameters related to authentication.
+This section contains parameters related to authentication:
 
-- self\_hostname
-- shared\_key
+- `self_hostname`
+- `shared_key`
 
-#### self\_hostname
+
+#### `self_hostname`
 
 | type   | default            | version |
 |:-------|:-------------------|:--------|
@@ -459,7 +476,8 @@ This section contains parameters related to authentication.
 
 The hostname.
 
-#### shared\_key
+
+#### `shared_key`
 
 | type   | default            | version |
 |:-------|:-------------------|:--------|
@@ -468,7 +486,8 @@ The hostname.
 Shared key for authentication. If you want to specify `shared_key`
 for specific server, use `<server>` section.
 
-### &lt;secondary&gt;
+
+### `<secondary>`
 
 | required | multi | version |
 |:---------|:------|:--------|
@@ -478,7 +497,7 @@ The backup destination that is used when all servers are unavailable.
 
 For more details, see [Secondary Output](/plugins/output/README.md/#secondary-output).
 
-### verify\_connection\_at\_startup
+### `verify_connection_at_startup`
 
 | type | default | version |
 |:----:|:-------:|:-------:|
@@ -487,14 +506,13 @@ For more details, see [Secondary Output](/plugins/output/README.md/#secondary-ou
 Verify that a connection can be made with one of `out_forward` nodes
 at the time of startup.
 
-## Tips & Tricks
+
+## Tips and Tricks
 
 
-### How to connect to a TLS/SSL enabled server
+### How to connect to a TLS/SSL enabled server?
 
-If you've [set up TLS/SSL encryption in the receiving server](/plugins/input/forward.md/#how-to-enable-tls/ssl-encryption), you need to tell
-the output forwarder to use encryption by setting the `transport`
-parameter:
+If you have set up [TLS/SSL encryption](/plugins/input/forward.md/#how-to-enable-tls/ssl-encryption) for the receiving server, you need to tell the output forwarder to use encryption by setting the `transport` parameter:
 
 ```
 <match debug.**>
@@ -507,7 +525,7 @@ parameter:
 </match>
 ```
 
-If you're using a self-singed certificate, copy the certificate file to
+If you are using a self-singed certificate, copy the certificate file to
 the forwarding server, then add the following settings:
 
 ```
@@ -526,13 +544,12 @@ the forwarding server, then add the following settings:
 After updating the settings, please confirm that the forwarded data is
 being received by the destination node properly.
 
-### How to connect to a TLS/SSL enabled server with Windows Certstore Certificate
 
-If you've [set up TLS/SSL encryption in the receiving server](/plugins/input/forward.md/#how-to-enable-tls/ssl-encryption), you need to tell
-the output forwarder to use encryption by setting the `transport`
-parameter.
+### How to connect to a TLS/SSL enabled server with Windows Certstore Certificate?
 
-Valid logical store name are:
+If you have set up [TLS/SSL encryption](/plugins/input/forward.md/#how-to-enable-tls/ssl-encryption) in the receiving server, you need to tell the output forwarder to use encryption by setting the `transport` parameter.
+
+Valid logical store names are:
 
 * MY
 * CA
@@ -549,8 +566,8 @@ Valid logical store name are:
 * WEBHOSTING
 * REMOTE DESKTOP
 
-Logical store name is case-insensitive.
-Note that this section configurations work on only Windows.
+Logical store name is case-insensitive. Note that this section configurations
+work only for Windows.
 
 ```
 <match debug.**>
@@ -566,9 +583,9 @@ Note that this section configurations work on only Windows.
 </match>
 ```
 
-If you're using a self-signed certificate, export the certificate file
-from Windows Certstore and copy to the forwarding server,
-then add the following settings:
+If you are using a self-signed certificate, export the certificate file from
+Windows Certstore and copy to the forwarding server, then add the following
+settings:
 
 ```
 <match debug.**>
@@ -586,11 +603,13 @@ then add the following settings:
 </match>
 ```
 
-Note that these configuration works for root certificate which is put in Windows Certstore.
-Currently, chained certificate is not supported.
+Note that these configuration works for root certificate which is put in Windows
+Certstore. Currently, chained certificate is not supported.
 
 Certificate thumbprint is able to obtain with [`certutil`](https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/certutil) command.
-Here is an example which uses a certificate that is generated by `fluent-ca-generate` command.
+
+Here is an example which uses a certificate that is generated by
+`fluent-ca-generate` command:
 
 ```
 PS> certutil -store -enterprise <YOUR CERTIFICATE STORE NAME>
@@ -611,13 +630,13 @@ CertUtil: -store command completed successfully.
 
 `Cert hash(sha1)` is called as thumbprint in this section.
 
-Note that `-enterprise` flag represents to use enterprise certstore.
-Please pay attension to using whether enterprise certificates store or not.
+Note that `-enterprise` flag represents to use enterprise certstore. Please pay
+attention to using whether enterprise certificates store or not.
 
-### How to Enable Password Authentication
 
-If you want to connect to [a server that requires password authentication](/plugins/input/forward.md/#how-to-enable-password-authentication), you
-need to set your credentials in the configuration file.
+### How to Enable Password Authentication?
+
+If you want to connect to a server that requires [password authentication](/plugins/input/forward.md/#how-to-enable-password-authentication), you need to set your credentials in the configuration file:
 
 ```
 <match debug.**>
@@ -633,13 +652,13 @@ need to set your credentials in the configuration file.
 </match>
 ```
 
-Note that, as to the option `self_hostname`, you need to set the name of
-the server on which your `out_forward` instance is running. In the
-current implementation, it is considered invalid if your `in_forward`
-and `out_forward` shares the same hostname.
+Note that, as to the option `self_hostname`, you need to set the name of the
+server on which your `out_forward` instance is running. In the current
+implementation, it is considered invalid if your `in_forward` and `out_forward`
+share the same `hostname`.
 
 
-### How to enable gzip compression
+### How to enable `gzip` compression?
 
 Since v0.14.7, Fluentd supports transparent data compression. You can
 use this feature to reduce the transferred payload size.
@@ -657,9 +676,8 @@ To enable this feature, set the `compress` option as follows:
 </match>
 ```
 
-You don't need any configuration in the receiving server. Data
-compression is auto-detected and handled transparently by the
-destination node.
+You do not need any configuration in the receiving server. Data compression is
+auto-detected and handled transparently by the destination node.
 
 
 ### What is a Phi accrual failure detector?
@@ -667,23 +685,23 @@ destination node.
 Fluentd implements an adaptive failure detection mechanism called "Phi
 accrual failure detector". Here is how it works:
 
-1.  Each `in_forward` node sends heartbeat packets to its `out_forward`
-    server at a regular interval.
-2.  The `out_forward` server records the arrival time of heartbeat
-    packets sent by each node.
-3.  If the server does not receive a heartbeat from one of its nodes for
-    "a long time", it assumes the node is down.
+1.  Each `in_forward` node sends heartbeat packets to its `out_forward` server
+    with a regular interval.
+2.  The `out_forward` server records the arrival time of heartbeat packets sent
+    by each node.
+3.  If the server does not receive a heartbeat from one of its nodes for "a long
+    time", it assumes the node is down.
 
 But how long should the server wait before detaching a node? The phi
 accrual failure detector answers this question by computing the
 probability of a node being down based on the assumption that heartbeat
-intervals follow normal distribution. Internally it represent the
-confidence of a node being down by a continuous function *φ(t)* which
+intervals follow normal distribution. Internally, it represents the
+confidence of a node being down by a continuous function **φ(t)** which
 grows as the time from the last packet increases.
 
-For example, suppose that the historical average interval is 1 seconds
-and the standard deviation is 1, it's not likely that the node is still
-being active when its heartbeat does not arrive for the last 10 seconds.
+For example, suppose that the historical average interval is 1 second
+and the standard deviation is 1, it is unlikely that the node is still
+being active when its heartbeat has not been received for the last 10 seconds.
 
 For details, please read the original paper: [Hayashibara, Naohiro, et al. "The φ accrual failure detector." IEEE, 2004.](https://scholar.google.com/scholar?cluster=12946656837229314866)
 
@@ -695,7 +713,7 @@ For details, please read the original paper: [Hayashibara, Naohiro, et al. "The 
 
 Please make sure that you can communicate with port 24224 using **not
 only TCP, but also UDP**. These commands will be useful for checking the
-network configuration.
+network configuration:
 
 ```
 $ telnet host 24224
@@ -709,5 +727,8 @@ heartbeat.
 
 ------------------------------------------------------------------------
 
-If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open).
-[Fluentd](http://www.fluentd.org/) is a open source project under [Cloud Native Computing Foundation (CNCF)](https://cncf.io/). All components are available under the Apache 2 License.
+If this article is incorrect or outdated, or omits critical information, please
+[let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open).
+[Fluentd](http://www.fluentd.org/) is an open-source project under
+[Cloud Native Computing Foundation (CNCF)](https://cncf.io/). All components are
+available under the Apache 2 License.
