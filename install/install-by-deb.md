@@ -17,7 +17,8 @@ Fluentd and `td-agent` can be found [here](https://www.fluentd.org/faqs).
 
 This installation guide is for `td-agent` v3/v4.
 `td-agent` v3/v4 uses fluentd v1.0 in the core. See
-[this page](/overview/td-agent-v2-vs-v3.md) for the comparison and supported OS.
+[this page](/overview/td-agent-v2-vs-v3-vs-v4.md) for the comparison and supported OS.
+
 
 ## Step 0: Before Installation
 
@@ -26,18 +27,6 @@ configure your OS properly.
 
 
 ## Step 1: Install from Apt Repository
-
-For Ubuntu, the supported versions are:
-
--   Ubuntu 18.04 LTS / Bionic 64bit
--   Ubuntu 16.04 LTS / Xenial 64bit
--   Ubuntu 14.04 LTS / Trusty 64bit
-
-For Debian, the supported versions are:
-
--   Debian 10 Buster 64bit
--   Debian 9 Stretch 64bit
--   Debian 8 Jessie 64bit
 
 NOTE: If your OS is not supported, consider [gem
 installation](/install/install-by-gem.md) instead.

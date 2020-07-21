@@ -34,11 +34,10 @@ timestamps in the logs. See [Pre-installation Guide](/install/before-install.md)
 NOTE: If your OS is not supported, consider [gem
 installation](/install/install-by-gem.md) instead.
 
+
 ### Red Hat / CentOS
 
-Support: CentOS, RHEL 6, 7 64bit
-
-Download and execute [`install-redhat-td-agent3.sh`](https://toolbelt.treasuredata.com/sh/install-redhat-td-agent3.sh) script with `curl`:
+Download and execute the install script with `curl`:
 
 ```
 # td-agent 4
@@ -101,10 +100,13 @@ Dec 07 15:12:27 ubuntu systemd[1]: Started td-agent: Fluentd based data collecto
 To customize `systemd` behavior, put your `td-agent.service` in
 `/etc/systemd/system`.
 
-NOTE: In td-agent 4, path is different. `/opt/td-agent/bin` instead of `/opt/td-agent/embedded/bin`
+NOTE: In `td-agent` 4, the path is different i.e. `/opt/td-agent/bin` instead of
+`/opt/td-agent/embedded/bin`.
 
 
 ### `init.d`
+
+This is for CentOS 6, non systemd based system.
 
 Use `/etc/init.d/td-agent` script to `start`, `stop`, or `restart` the agent:
 
