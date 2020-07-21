@@ -8,7 +8,7 @@ for Fluentd and canonical plugins as Treasure Agent (the package is called
 
 |  Platform       | v2 | v3 | v4(x86_64) | v4(Arm64) |
 | ----------------| -- | -- | -- | -- |
-| RedHat/CentOS 5 | OK |    |    |    |
+| RedHat/CentOS 5 | &#10004; |    |    |    |
 | RedHat/CentOS 6 | OK | OK |    |    |
 | RedHat/CentOS 7 | OK | OK | OK | OK |
 | RedHat/CentOS 8 |    | OK | OK | OK |
