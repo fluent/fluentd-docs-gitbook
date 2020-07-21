@@ -9,20 +9,20 @@ for Fluentd and canonical plugins as Treasure Agent (the package is called
 |  Platform       | v2 | v3 | v4(x86_64) | v4(Arm64) |
 | ----------------| -- | -- | -- | -- |
 | RedHat/CentOS 5 | &#10004; |    |    |    |
-| RedHat/CentOS 6 | OK | OK |    |    |
-| RedHat/CentOS 7 | OK | OK | OK | OK |
-| RedHat/CentOS 8 |    | OK | OK | OK |
-| Amazon Linux 2  |    | OK | OK | OK |
-| Ubuntu Precise  | OK |    |    |    |
-| Ubuntu Trusty   | OK | OK |    |    |
-| Ubuntu Xenial   | OK | OK | OK |    |
-| Ubuntu Bionic   | OK | OK | OK | OK |
-| Ubuntu Focal    |    |    | OK | OK |
-| Debian Jessie   | OK | OK |    |    |
-| Debian Stretch  | OK | OK |    |    |
-| Debian Buster   |    | OK | OK | OK |
-| MacOSX          | OK | OK |    |    |
-| Windows         |    | OK | OK |    |
+| RedHat/CentOS 6 | &#10004; | &#10004; |    |    |
+| RedHat/CentOS 7 | &#10004; | &#10004; | &#10004; | &#10004; |
+| RedHat/CentOS 8 |    | &#10004; | &#10004; | &#10004; |
+| Amazon Linux 2  |    | &#10004; | &#10004; | &#10004; |
+| Ubuntu Precise  | &#10004; |    |    |    |
+| Ubuntu Trusty   | &#10004; | &#10004; |    |    |
+| Ubuntu Xenial   | &#10004; | &#10004; | &#10004; |    |
+| Ubuntu Bionic   | &#10004; | &#10004; | &#10004; | &#10004; |
+| Ubuntu Focal    |    |    | &#10004; | &#10004; |
+| Debian Jessie   | &#10004; | &#10004; |    |    |
+| Debian Stretch  | &#10004; | &#10004; |    |    |
+| Debian Buster   |    | &#10004; | &#10004; | &#10004; |
+| MacOSX          | &#10004; | &#10004; |    |    |
+| Windows         |    | &#10004; | &#10004; |    |
 
 ## Features
 
