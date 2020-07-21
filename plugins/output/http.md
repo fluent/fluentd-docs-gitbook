@@ -1,13 +1,13 @@
 # HTTP Output Plugin
 
-The `out_http` Output plugin writes records into via HTTP/HTTPS.
+The `out_http` Output plugin writes records via HTTP/HTTPS.
 
 This plugin is introduced since fluentd v1.7.0.
 
-## Example Configuration
+It is included in Fluentd's core.
 
-`out_http` is included in Fluentd's core. No additional installation
-process is required.
+
+## Example Configuration
 
 ```
 <match pattern>
@@ -25,18 +25,20 @@ process is required.
 </match>
 ```
 
-Please see the [Config File](/configuration/config-file.md) article for the basic
-structure and syntax of the configuration file. For `<buffer>` section,
-please check [Buffer section cofiguration](/configuration/buffer-section.md).
+Please see the [Configuration File](/configuration/config-file.md) article for
+the basic structure and syntax of the configuration file.
+
+For `<buffer>`, refer to [Buffer Section Configuration](/configuration/buffer-section.md).
 
 
 ## Parameters
 
-### @type
+### `@type`
 
 The value must be `http`.
 
-### endpoint
+
+### `endpoint`
 
 | type   | default  | version |
 |:-------|:---------|:--------|
@@ -47,6 +49,7 @@ The endpoint for HTTP request. If you want to use HTTPS, use `https` prefix.
 ```
 # Use HTTP
 endpoint http://example.com/api
+
 # USe HTTPS. You can set additional HTTPS parameters like tls_xxx
 endpoint https://example.com/api
 ```
@@ -60,31 +63,37 @@ endpoint http://example.com/api/${tag}-${key}
 </buffer>
 ```
 
-See [Buffer section configurations](/configuration/buffer-section.md) for more details.
+See [Buffer Section Configurations](/configuration/buffer-section.md) for more
+details.
 
-### http_method
+
+### `http_method`
 
 | type | default | available values | version |
 |:-----|:--------|:-----------------|:--------|
 | enum | post    | post/put         | 1.7.0   |
 
-The method for HTTP request
+The method for HTTP request.
 
-### proxy
+
+### `proxy`
 
 | type   | default  | version |
 |:-------|:---------|:--------|
 | string | optional | 1.7.0   |
 
-The proxy for HTTP request
+The proxy for HTTP request.
 
-### content_type
+
+### `content_type`
 
 | type   | default | version |
 |:-------|:--------|:--------|
 | string | nil     | 1.7.0   |
 
-Content-Type for HTTP request. `out_http` automatically set `Content-Type` for built-in formatters when this parameter is not specified. Here is a table:
+`Content-Type` for HTTP request. `out_http` automatically set `Content-Type` for built-in formatters when this parameter is not specified.
+
+Here is a table:
 
 * `json(json_array: false)`: `application/x-ndjson`
 * `json(json_array: true)`: `application/json`
@@ -93,7 +102,8 @@ Content-Type for HTTP request. `out_http` automatically set `Content-Type` for b
 * `msgpack`: `application/x-msgpack`
 * `out_file`, `single_value`, `stdout`, `hash`: `text/plain`
 
-### json_array
+
+### `json_array`
 
 | type   | default | version |
 |:-------|:--------|:--------|
@@ -102,9 +112,12 @@ Content-Type for HTTP request. `out_http` automatically set `Content-Type` for b
 Using array format of JSON. This parameter is used and valid only for json format.
 When `json_array` as true, Content-Type should be `application/json` and be able to use JSON data for the HTTP request body.
 
-### &lt;format&gt; directive
 
-The format of the payload. The default `@type` is `json`. Here is `single_value` example:
+### `<format>` Directive
+
+The format of the payload. The default `@type` is `json`.
+
+Here is `single_value` example:
 
 ```
 <format>
@@ -112,93 +125,104 @@ The format of the payload. The default `@type` is `json`. Here is `single_value`
 </format>
 ```
 
-See [formatter article](/plugins/formatter/README.md) for more detail.
+See [`formatter`](/plugins/formatter/README.md) article for more detail.
 
-### headers
+
+### `headers`
 
 | type   | default | version |
 |:-------|:--------|:--------|
 | hash   | nil     | 1.7.0   |
 
-Additional headers for HTTP request
+Additional headers for HTTP request.
 
 ```
 headers {"key1":"value1", "key2":"value2"}
 ```
 
-### open_timeout
+
+### `open_timeout`
 
 | type   | default | version |
 |:-------|:--------|:--------|
 | integer| nil     | 1.7.0   |
 
-The connection open timeout in seconds. See also [Ruby document](https://docs.ruby-lang.org/en/master/Net/HTTP.html#attribute-i-open_timeout)
+The connection open timeout in seconds. See also [Ruby document](https://docs.ruby-lang.org/en/master/Net/HTTP.html#attribute-i-open_timeout).
 
-### read_timeout
 
-| type   | default | version |
-|:-------|:--------|:--------|
-| integer| nil     | 1.7.0   |
-
-The read timeout in seconds. See also [Ruby document](https://docs.ruby-lang.org/en/master/Net/HTTP.html#attribute-i-read_timeout)
-
-### ssl_timeout
+### `read_timeout`
 
 | type   | default | version |
 |:-------|:--------|:--------|
 | integer| nil     | 1.7.0   |
 
-The TLS timeout in seconds
+The read timeout in seconds. See also [Ruby document](https://docs.ruby-lang.org/en/master/Net/HTTP.html#attribute-i-read_timeout).
 
-### tls_ca_cert_path
+
+### `ssl_timeout`
+
+| type   | default | version |
+|:-------|:--------|:--------|
+| integer| nil     | 1.7.0   |
+
+The TLS timeout in seconds.
+
+
+### `tls_ca_cert_path`
 
 | type   | default | version |
 |:-------|:--------|:--------|
 | string | nil     | 1.7.0   |
 
-The CA certificate path for TLS
+The CA certificate path for TLS.
 
-### tls_client_cert_path
 
-| type   | default | version |
-|:-------|:--------|:--------|
-| string | nil     | 1.7.0   |
-
-The client certificate path for TLS
-
-### tls_private_key_path
+### `tls_client_cert_path`
 
 | type   | default | version |
 |:-------|:--------|:--------|
 | string | nil     | 1.7.0   |
 
-The client private key path for TLS
+The client certificate path for TLS.
 
-### tls_private_key_passphrase
+
+### `tls_private_key_path`
 
 | type   | default | version |
 |:-------|:--------|:--------|
 | string | nil     | 1.7.0   |
 
-The client private key passphrase for TLS
+The client private key path for TLS.
 
-### tls_verify_mode
+
+### `tls_private_key_passphrase`
+
+| type   | default | version |
+|:-------|:--------|:--------|
+| string | nil     | 1.7.0   |
+
+The client private key passphrase for TLS.
+
+
+### `tls_verify_mode`
 
 | type | default | available values | version |
 |:-----|:--------|:-----------------|:--------|
 | enum | peer    | peer/none        | 1.7.0   |
 
-The verify mode of TLS
+The verify mode of TLS.
 
-### tls_version
+
+### `tls_version`
 
 | type | default | available values | version |
 |:-----|:--------|:-----------------|:--------|
 | enum | TLSv1_2 | TLSv1_2/TLSv1_1  | 1.7.0   |
 
-The default version of TLS
+The default version of TLS.
 
-### tls_ciphers
+
+### `tls_ciphers`
 
 | type   | default                  | version |
 |:-------|:-------------------------|:--------|
@@ -206,17 +230,19 @@ The default version of TLS
 
 The cipher suites configuration of TLS.
 
-### error_response_as_unrecoverable
+
+### `error_response_as_unrecoverable`
 
 | type   | default | version |
 |:-------|:--------|:--------|
 | bool   | true    | 1.7.0   |
 
-Raise `UnrecoverableError` when the response code is non success, 1xx/3xx/4xx/5xx. If `false`, `out_http` logs error message instead of raising `UnrecoverableError`.
+Raise `UnrecoverableError` when the response code is not success, 1xx/3xx/4xx/5xx. If `false`, `out_http` logs error message instead of raising `UnrecoverableError`.
 
-See also [Handling Unrecoverable Errors](/buffer/README.md#handling-unrecoverable-errors)
+See also [Handling Unrecoverable Errors](/buffer/README.md#handling-unrecoverable-errors).
 
-### retryable_response_codes
+
+### `retryable_response_codes`
 
 | type         | default | version |
 |:-------------|:--------|:--------|
@@ -224,9 +250,10 @@ See also [Handling Unrecoverable Errors](/buffer/README.md#handling-unrecoverabl
 
 The list of retryable response code. If the response code is included in this list, `out_http` retries the buffer flush.
 
-### &lt;auth&gt; section
 
-Specify HTTP authentication.
+### `<auth>` Section
+
+Specifies HTTP authentication:
 
 ```
 <auth>
@@ -236,7 +263,7 @@ Specify HTTP authentication.
 </auth>
 ```
 
-#### method
+#### `method`
 
 | type | default | available values | version |
 |:-----|:--------|:-----------------|:--------|
@@ -244,34 +271,36 @@ Specify HTTP authentication.
 
 The method for HTTP authentication. Now only `basic`.
 
-#### username
+
+#### `username`
 
 | type   | default | version |
 |:-------|:--------|:--------|
 | string | nil     | 1.7.0   |
 
-The username for basic authentication
+The username for basic authentication.
 
-#### password
+
+#### `password`
 
 | type   | default | version |
 |:-------|:--------|:--------|
 | string | nil     | 1.7.0   |
 
-The password for basic authentication
+The password for basic authentication.
+
 
 ## Common Output / Buffer parameters
 
-For common output / buffer parameters, please check the following
-articles.
+For common output / buffer parameters, please check the following articles:
 
 -   [Output Plugin Overview](/plugins/output/README.md)
 -   [Buffer Section Configuration](/configuration/buffer-section.md)
 
 
-## The payload content
+## The Payload Content
 
-`out_http`'s request body depends on `<format>` configuration. For example, the default setting generates newline delimited json like below:
+`out_http`'s request body depends on `<format>` configuration. For example, the default setting generates newline delimited JSON like this:
 
 ```
 # \n is added by `add_newline true` parameter in <format>
@@ -294,7 +323,7 @@ log line4\n
 
 ## Troubleshooting
 
-### 400 Bad request between out\_http and in\_http
+### 400 Bad request between `out_http` and `in_http`
 
 When getting the following error:
 
@@ -303,7 +332,7 @@ When getting the following error:
 #0 bad chunk is moved to /tmp/fluent/backup/worker0/object_3ff8a73edae8/5a71a08ca19b1b343c8dce1b74c9a963.log
 ```
 
-Users should be specify `json` format with `json_array` as true for out\_http configuration:
+Users should specify `json` format with `json_array` as true for `out_http` configuration:
 
 ```
 <match **>
@@ -319,7 +348,7 @@ Users should be specify `json` format with `json_array` as true for out\_http co
 </match>
 ```
 
-And receiver in\_http configuration should be:
+And receiver `in_http` configuration should be:
 
 ```
 <source>
@@ -332,7 +361,7 @@ And receiver in\_http configuration should be:
 </source>
 ```
 
-Or specify msgpack format:
+Or specify `msgpack` format:
 
 ```
 <match **>
@@ -347,7 +376,7 @@ Or specify msgpack format:
 </match>
 ```
 
-And receiver in\_http configuration should be:
+And, receiver `in_http` configuration should be:
 
 ```
 <source>
@@ -363,9 +392,15 @@ And receiver in\_http configuration should be:
 </source>
 ```
 
-But, we recommend to use in/out [`forward`](forward.md) plugin to communicate with two Fluentds due to at-most-once and at-least-once semantics for rigidty.
+But, we recommend to use in/out [`forward`](forward.md) plugin to communicate
+with two Fluentd instances due to `at-most-once` and `at-least-once` semantics
+for rigidity.
+
 
 ------------------------------------------------------------------------
 
-If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open).
-[Fluentd](http://www.fluentd.org/) is a open source project under [Cloud Native Computing Foundation (CNCF)](https://cncf.io/). All components are available under the Apache 2 License.
+If this article is incorrect or outdated, or omits critical information, please
+[let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open).
+[Fluentd](http://www.fluentd.org/) is an open article- source project under
+[Cloud Native Computing Foundation (CNCF)](https://cncf.io/). All components are
+available under the Apache 2 License.

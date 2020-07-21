@@ -1,15 +1,14 @@
-# stdout Output Plugin
+# `stdout` Output Plugin
 
-![](/images/plugins/output/stdout.png)
+![stdout.png](/images/plugins/output/stdout.png)
 
-The `stdout` output plugin prints events to stdout (or logs if launched
-with daemon mode). This output plugin is useful for debugging purposes.
+The `stdout` output plugin prints events to the standard output (or logs if
+launched as a daemon). This output plugin is useful for debugging purposes.
+
+It is included in Fluentd's core.
 
 
 ## Example Configuration
-
-`out_stdout` is included in Fluentd's core. No additional installation
-process is required.
 
 ```
 <match pattern>
@@ -20,71 +19,78 @@ process is required.
 Please see the [Config File](/configuration/config-file.md) article for the basic
 structure and syntax of the configuration file.
 
-A sample output is as follows:
+Sample output:
 
 ```
 2017-11-28 11:43:13.814351757 +0900 tag: {"field1":"value1","field2":"value2"}
 ```
 
-where the first part shows the output time, the second part shows the
-tag, and the third part shows the record.
+where the first part shows the output `time`, the second part shows the `tag`, and
+the third part shows the `record`.
 
 
-## Supported modes
+## Supported Modes
 
 -   Non-Buffered
 -   Synchronous
 
 
-## Plugin helpers
+## Plugin Helpers
 
--   [inject](/developer/api-plugin-helper-inject.md)
--   [formatter](/developer/api-plugin-helper-formatter.md)
--   [compat\_parameters](/developer/api-plugin-helper-compat_parameters.md)
+-   [`inject`](/developer/api-plugin-helper-inject.md)
+-   [`formatter`](/developer/api-plugin-helper-formatter.md)
+-   [`compat_parameters`](/developer/api-plugin-helper-compat_parameters.md)
 
 
 ## Parameters
 
 [Common Parameters](/configuration/plugin-common-parameters.md)
 
-### @type
+
+### `@type`
 
 The value must be `stdout`.
 
-### &lt;buffer&gt; section
 
-See [Buffer section configurations](/configuration/buffer-section.md) for more details.
+### `<buffer>` Section
 
-#### chunk\_keys
+See [Buffer Section Configurations](/configuration/buffer-section.md) for more
+details.
+
+
+#### `chunk_keys`
 
 | type  | default | version |
 |:------|:--------|:--------|
 | array | tag     | 0.14.5  |
 
-Overwrite default value in this plugin.
+Overwrites the default value in this plugin.
 
-#### flush\_at\_shutdown
+
+#### `flush_at_shutdown`
 
 | type | default | version |
 |:-----|:--------|:--------|
 | bool | true    | 0.14.5  |
 
-Overwrite default value in this plugin.
+Overwrites the default value in this plugin.
 
-#### chunk\_limit\_size
+
+#### `chunk_limit_size`
 
 | type | default | version |
 |:-----|:--------|:--------|
 | size | 10240   | 0.14.5  |
 
-Overwrite default value in this plugin.
+Overwrites the default value in this plugin.
 
 
-### &lt;format&gt; section
+### `<format>` Section
 
-See [Format section configurations](/configuration/format-section.md) for more details.
+See [Format Section Configurations](/configuration/format-section.md) for more details.
 
-#### @type
+
+#### `@type`
 
 | type   | default | version |
 |:-------|:--------|:--------|
@@ -92,20 +98,26 @@ See [Format section configurations](/configuration/format-section.md) for more d
 
 The format of output.
 
-#### output\_type
+
+#### `output_type`
 
 | type   | default | version |
 |:-------|:--------|:--------|
 | string | json    | 0.14.5  |
 
-This is the option of `stdout` format. Configure the format of record
+This is the option for `stdout` format. Configure the format of record
 (third part). Any formatter plugins can be specified.
 
-### &lt;inject&gt; section
 
-See [Inject section configurations](/configuration/inject-section.md) for more details.
+### `<inject>` Section
+
+See [Inject Section Configurations](/configuration/inject-section.md) for more details.
+
 
 ------------------------------------------------------------------------
 
-If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open).
-[Fluentd](http://www.fluentd.org/) is a open source project under [Cloud Native Computing Foundation (CNCF)](https://cncf.io/). All components are available under the Apache 2 License.
+If this article is incorrect or outdated, or omits critical information, please
+[let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open).
+[Fluentd](http://www.fluentd.org/) is an open-source project under
+[Cloud Native Computing Foundation (CNCF)](https://cncf.io/). All components are
+available under the Apache 2 License.
