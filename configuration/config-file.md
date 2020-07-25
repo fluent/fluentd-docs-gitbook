@@ -48,10 +48,10 @@ For a Docker container, the default location of config file is
 docker run -ti --rm -v /path/to/dir:/fluentd/etc fluentd -c /fluentd/etc/<conf-file>
 ```
 
-#### `FLUENT_CONF` Environment Variable
+#### `FLUENTD_CONF` Environment Variable
 
-You can change the default configuration file location via `FLUENT_CONF`. For
-example, `/etc/td-agent/td-agent.conf` is specified via `FLUENT_CONF` inside
+You can change the default configuration file location via `FLUENTD_CONF`. For
+example, `/etc/td-agent/td-agent.conf` is specified via `FLUENTD_CONF` inside
 `td-agent` scripts.
 
 #### `-c` option
