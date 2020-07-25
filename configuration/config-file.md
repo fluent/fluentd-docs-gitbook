@@ -39,9 +39,9 @@ $ sudo vi /etc/fluent/fluent.conf
 
 #### FLUENT\_CONF environment variable
 
-You can change default configuration file location via `FLUENT_CONF`.
+You can change default configuration file location via `FLUENTD_CONF`.
 For example, `/etc/td-agent/td-agent.conf` is specified via
-`FLUENT_CONF` inside td-agent scripts.
+`FLUENTD_CONF` inside td-agent scripts.
 
 #### -c option
 
