@@ -131,8 +131,8 @@ record: {"event":"data"}
 #### Didn't find your input source? You can write your own plugin!
 
 You can add new input sources by writing your own plugins. For further
-information regarding Fluentd input sources, please refer to the [Input Plugin
-Overview](/plugins/input/README.md) article.
+information regarding Fluentd input sources, please refer to the
+[Input Plugin Overview](/plugins/input/README.md) article.
 
 
 ## 2. "match": Tell fluentd what to do!
@@ -170,9 +170,8 @@ and `forward`. Let's add those to our configuration file.
 Each `match` directive must include a match pattern and a `@type` parameter.
 Only events with a `tag` matching the pattern will be sent to the output
 destination (in the above example, only the events with the tag `myapp.access`
-are matched. See [the section below for more advanced
-usage](#how-match-patterns-work)). The `@type` parameter specifies the output
-plugin to use.
+are matched. See [the section below for more advanced usage](#how-match-patterns-work)).
+The `@type` parameter specifies the output plugin to use.
 
 Just like input sources, you can add new output destinations by writing your own
 plugins. For further information regarding Fluentd output destinations, please
@@ -216,8 +215,8 @@ the filtered event `{"event":"data","host_param":"webserver1"}` goes to the
 `file` output plugin.
 
 You can also add new filters by writing your own plugins. For further
-information regarding Fluentd filter destinations, please refer to the [Filter
-Plugin Overview](/plugins/filter/README.md) article.
+information regarding Fluentd filter destinations, please refer to the
+[Filter Plugin Overview](/plugins/filter/README.md) article.
 
 
 ## 4. Set system wide configuration: the "system" directive
@@ -528,9 +527,8 @@ defined as follows:
 -   `string`: the field is parsed as a string. This is the most *generic* type,
     where each plugin decides how to process the string.
     -   The `string` has three literals: non-quoted one line string, `'`
-        signle-quoted string and `"` double-quoted string.
-    -   See **Format Tips** section and [literal
-        examples](https://github.com/fluent/fluentd/blob/master/example/v1_literal_example.conf).
+        single-quoted string and `"` double-quoted string.
+    -   See **Format Tips** section and [literal examples](https://github.com/fluent/fluentd/blob/master/example/v1_literal_example.conf).
 -   `integer`: the field is parsed as an integer.
 -   `float`: the field is parsed as a float.
 -   `size`: the field is parsed as the number of bytes. There are several
@@ -576,8 +574,7 @@ These parameters are reserved and are prefixed with an `@` symbol:
 -   `@label`: specifies the label symbol. See
     [label](/configuration/config-file.md/#5-group-filter-and-output-the-ldquolabelrdquo-directive)
     section.
--   `@log_level`: specifies per plugin log level. See [Per Plugin
-    Log](/deployment/logging.md/#per-plugin-log) section.
+-   `@log_level`: specifies per plugin log level. See [Per Plugin Log](/deployment/logging.md/#per-plugin-log) section.
 
 The `type`, `id` and `log_level` parameters are supported for backward
 compatibility.
@@ -692,6 +689,6 @@ str_param   "foo\nbar" # \n is interpreted as actual LF character
 
 If this article is incorrect or outdated, or omits critical information, please
 [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open).
-[Fluentd](http://www.fluentd.org/) is an open-source project under [Cloud Native
-Computing Foundation (CNCF)](https://cncf.io/). All components are available
-under the Apache 2 License.
+[Fluentd](http://www.fluentd.org/) is an open-source project under
+[Cloud Native Computing Foundation (CNCF)](https://cncf.io/). All components are
+available under the Apache 2 License.

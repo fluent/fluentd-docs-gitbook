@@ -23,8 +23,7 @@ It is enabled for the plugins that support parser plugin features.
 ## Parser Plugin Type
 
 The `@type` parameter of `<parse>` section specifies the type of the parser
-plugin. Fluentd core bundles [a lot of useful parser
-plugins](/plugins/parser/README.md).
+plugin. Fluentd core bundles some useful [parser plugins](/plugins/parser/README.md).
 
 ```
 <parse>
@@ -183,6 +182,6 @@ For `types` parameter, the following types are supported:
 
 If this article is incorrect or outdated, or omits critical information, please
 [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open).
-[Fluentd](http://www.fluentd.org/) is an open-source project under [Cloud Native
-Computing Foundation (CNCF)](https://cncf.io/). All components are available
-under the Apache 2 License.
+[Fluentd](http://www.fluentd.org/) is an open-source project under
+[Cloud Native Computing Foundation (CNCF)](https://cncf.io/). All components are
+available under the Apache 2 License.

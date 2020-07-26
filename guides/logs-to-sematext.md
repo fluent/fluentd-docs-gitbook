@@ -8,14 +8,16 @@ the Sematext open Elasticsearch API.
 ![sematext-dashboard.png](/images/sematext-dashboard.png)
 
 
-[Elasticsearch](https://www.elastic.co/products/elasticsearch) is an
-open source search engine known for its ease of use.
-[Sematext](https://sematext.com/) runs and manages Elasticsearch
-in the cloud. You also have the option to use [Kibana](https://www.elastic.co/products/kibana) alongside the dashboards in the Sematext UI.
+[Elasticsearch](https://www.elastic.co/products/elasticsearch) is an open source
+search engine known for its ease of use. [Sematext](https://sematext.com/) runs
+and manages Elasticsearch in the cloud. You also have the option to use
+[Kibana](https://www.elastic.co/products/kibana) alongside the dashboards in the
+Sematext UI.
 
-By combining Fluentd and Sematext's managed Elasticsearch + Kibana you get
-a scalable, flexible, easy to use log management tool and search engine with an intuitive native web UI.
-You also get Kibana, if you want to use it. This provides a managed Splunk alternative, for a fraction of the cost.
+By combining Fluentd and Sematext's managed Elasticsearch + Kibana you get a
+scalable, flexible, easy to use log management tool and search engine with an
+intuitive native web UI. You also get Kibana, if you want to use it. This
+provides a managed Splunk alternative, for a fraction of the cost.
 
 In this guide, we'll cover the installation, setup, and basic use of
 this log management solution. This setup was tested on Ubuntu 18.04.
@@ -27,7 +29,8 @@ this log management solution. This setup was tested on Ubuntu 18.04.
 
 ### Set Up Sematext
 
-You need to [sign up](https://apps.sematext.com/ui/registration) and create an App. Read more in the docs [here](https://sematext.com/docs/).
+You need to [sign up](https://apps.sematext.com/ui/registration) and create an
+App. Read more in the docs [here](https://sematext.com/docs/).
 
 ### Set Up Fluentd (`td-agent`)
 
@@ -137,7 +140,7 @@ After you start receiving logs, you can create custom charts, reports,
 and alerts to fine-tune your own personal use-case.
 
 If you are used to Kibana, you can still use it as well.
-For more details on how to use Kibana, please read [the official manual](https://www.elastic.co/guide/en/kibana/current/index.html).
+For more details, read [Kibana's official manual](https://www.elastic.co/guide/en/kibana/current/index.html).
 
 ![sematext-logs-overview.png](/images/sematext-logs-overview.png)
 
@@ -195,5 +198,8 @@ tested for the current production environments of Sematext.
 
 ------------------------------------------------------------------------
 
-If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open).
-[Fluentd](http://www.fluentd.org/) is an open-source project under [Cloud Native Computing Foundation (CNCF)](https://cncf.io/). All components are available under the Apache 2 License.
+If this article is incorrect or outdated, or omits critical information, please
+[let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open).
+[Fluentd](http://www.fluentd.org/) is an open-source project under
+[Cloud Native Computing Foundation (CNCF)](https://cncf.io/). All components are
+available under the Apache 2 License.

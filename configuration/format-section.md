@@ -22,8 +22,7 @@ The **format** section can be under `<match>` or `<filter>` section.
 ## Formatter Plugin Type
 
 The `@type` parameter of `<format>` section specifies the type of the formatter
-plugin. Fluentd core bundles [some useful formatter
-plugins](/plugins/formatter/README.md).
+plugin. Fluentd core bundles some useful [formatter plugins](/plugins/formatter/README.md).
 
 ```
 <format>
@@ -105,6 +104,6 @@ The `@type` parameter specifies the type of the formatter plugin.
 
 If this article is incorrect or outdated, or omits critical information, please
 [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open).
-[Fluentd](http://www.fluentd.org/) is an open-source project under [Cloud Native
-Computing Foundation (CNCF)](https://cncf.io/). All components are available
-under the Apache 2 License.
+[Fluentd](http://www.fluentd.org/) is an open-source project under
+[Cloud Native Computing Foundation (CNCF)](https://cncf.io/). All components are
+available under the Apache 2 License.

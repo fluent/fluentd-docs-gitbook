@@ -23,8 +23,7 @@ section. It is enabled for the plugins that support storage plugin features.
 ## Storage Plugin Type
 
 The `@type` parameter of `<storage>` section specifies the type of the storage
-plugin. Fluentd core bundles [a useful storage
-plugin](/plugins/storage/README.md). 
+plugin. Fluentd core bundles a useful [storage plugin](/plugins/storage/README.md). 
 
 ```
 <storage>
@@ -49,6 +48,6 @@ For more details, see plugins documentation.
 
 If this article is incorrect or outdated, or omits critical information, please
 [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open).
-[Fluentd](http://www.fluentd.org/) is an open-source project under [Cloud Native
-Computing Foundation (CNCF)](https://cncf.io/). All components are available
-under the Apache 2 License.
+[Fluentd](http://www.fluentd.org/) is an open-source project under
+[Cloud Native Computing Foundation (CNCF)](https://cncf.io/). All components are
+available under the Apache 2 License.

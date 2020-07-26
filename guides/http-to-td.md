@@ -1,15 +1,22 @@
 # Cloud Big Data Analytics with Treasure Data
 
-This article explains how to use [Treasure Data](http://www.fluentd.org/treasuredata) with [Fluentd](http://fluentd.org/)
+This article explains how to use
+[Treasure Data](http://www.fluentd.org/treasuredata) with [Fluentd](http://fluentd.org/)
 to aggregate semi-structured logs into Treasure Data (TD), which offers
 Cloud Data Service.
 
 
 ## Background
 
-[Fluentd](http://fluentd.org/) is an advanced open-source log collector originally developed at [Treasure Data, Inc](http://www.fluentd.org/treasuredata). Fluentd is specifically designed to solve the big-data log collection problem.
+[Fluentd](http://fluentd.org/) is an advanced open-source log collector
+originally developed at [Treasure Data, Inc](http://www.fluentd.org/treasuredata).
+Fluentd is specifically designed to solve the big-data log collection problem.
 
-[Treasure Data](http://www.fluentd.org/treasuredata) provides Cloud Data Service, which Fluentd users can use to easily store and analyze data on the cloud. Fluentd is designed to flexibly connect with many systems via plugins, but Treasure Data should be your top choice if you don't want to spend engineering resources maintaining your backend infrastructure.
+[Treasure Data](http://www.fluentd.org/treasuredata) provides Cloud Data
+Service, which Fluentd users can use to easily store and analyze data on the
+cloud. Fluentd is designed to flexibly connect with many systems via plugins,
+but Treasure Data should be your top choice if you don't want to spend
+engineering resources maintaining your backend infrastructure.
 
 This article will show you how to use [Fluentd](http://fluentd.org/) to
 receive data from HTTP and stream it into TD.
@@ -142,7 +149,7 @@ Result     :
 
 It is not advisable to send sensitive user information to the cloud. To
 assist with this need, `out_tdlog` comes with some anonymization systems.
-Please see the [Treasure Data plugin](http://github.com/treasure-data/fluent-plugin-td/) article for details.
+For more details, see [Treasure Data plugin](http://github.com/treasure-data/fluent-plugin-td/).
 
 
 ## Conclusion
@@ -163,5 +170,8 @@ analytics infrastructure.
 
 ------------------------------------------------------------------------
 
-If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open).
-[Fluentd](http://www.fluentd.org/) is an open-source project under [Cloud Native Computing Foundation (CNCF)](https://cncf.io/). All components are available under the Apache 2 License.
+If this article is incorrect or outdated, or omits critical information, please
+[let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open).
+[Fluentd](http://www.fluentd.org/) is an open-source project under
+[Cloud Native Computing Foundation (CNCF)](https://cncf.io/). All components are
+available under the Apache 2 License.

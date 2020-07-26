@@ -5,7 +5,7 @@ its high cost makes it prohibitive for many teams. In this article, we
 present a free and open source alternative to Splunk by combining three
 open source projects: Elasticsearch, Kibana, and Fluentd.
 
-![](/images/kibana6-screenshot-visualize.png)
+![kibana6-screenshot-visualize.png](/images/kibana6-screenshot-visualize.png)
 
 
 [Elasticsearch](https://www.elastic.co/products/elasticsearch) is an
@@ -18,7 +18,7 @@ By combining these three tools (Fluentd + Elasticsearch + Kibana) we get
 a scalable, flexible, easy to use log search engine with a great Web UI
 that provides an open-source Splunk alternative, all for free.
 
-![](/images/fluentd-elasticsearch-kibana.png)
+![fluentd-elasticsearch-kibana.png](/images/fluentd-elasticsearch-kibana.png)
 
 
 In this guide, we will go over installation, setup, and basic use of
@@ -236,5 +236,8 @@ buffer, etc.) according to your needs.
 
 ------------------------------------------------------------------------
 
-If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open).
-[Fluentd](http://www.fluentd.org/) is an open-source project under [Cloud Native Computing Foundation (CNCF)](https://cncf.io/). All components are available under the Apache 2 License.
+If this article is incorrect or outdated, or omits critical information, please
+[let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open).
+[Fluentd](http://www.fluentd.org/) is an open-source project under
+[Cloud Native Computing Foundation (CNCF)](https://cncf.io/). All components are
+available under the Apache 2 License.

@@ -29,9 +29,10 @@ anytime. [Norikra](https://norikra.github.io/) is written by
 [@tagomoris](https://github.com/tagomoris), a committer of the Fluentd
 project.
 
-This article will show you how to integrate
-[Fluentd](https://fluentd.org/), [Norikra](https://norikra.github.io/),
-and the [Fluentd norikra plugin](https://github.com/norikra/fluent-plugin-norikra) to create a robust stream data processing platform.
+This article will show you how to integrate [Fluentd](https://fluentd.org/),
+[Norikra](https://norikra.github.io/), and the
+[Fluentd norikra plugin](https://github.com/norikra/fluent-plugin-norikra) to
+create a robust stream data processing platform.
 
 
 ## Architecture
@@ -266,5 +267,8 @@ stream processing environment that can handle real workloads.
 
 ------------------------------------------------------------------------
 
-If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open).
-[Fluentd](http://www.fluentd.org/) is an open-source project under [Cloud Native Computing Foundation (CNCF)](https://cncf.io/). All components are available under the Apache 2 License.
+If this article is incorrect or outdated, or omits critical information, please
+[let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open).
+[Fluentd](http://www.fluentd.org/) is an open-source project under
+[Cloud Native Computing Foundation (CNCF)](https://cncf.io/). All components are
+available under the Apache 2 License.

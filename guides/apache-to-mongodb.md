@@ -145,8 +145,9 @@ The `**` in `mongo.**` matches zero or more period-delimited tag parts
 **`flush_interval`** specifies how often the data is written to MongoDB.
 The other options specify MongoDB's host, port, db, and collection.
 
-For additional configuration parameters, please see the [MongoDB Output plugin](/plugins/output/mongo.md) article. If you are using ReplicaSet, please see the
-[MongoDB ReplicaSet Output plugin](/plugins/output/mongo_replset.md) article.
+For additional configuration parameters, please see the
+[MongoDB Output plugin](/plugins/output/mongo.md) article. If you are using
+ReplicaSet, please see the [MongoDB ReplicaSet Output plugin](/plugins/output/mongo_replset.md) article.
 
 
 ## Test
@@ -185,5 +186,8 @@ Fluentd + MongoDB makes real-time log collection simple, easy, and robust.
 
 ------------------------------------------------------------------------
 
-If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open).
-[Fluentd](http://www.fluentd.org/) is an open-source project under [Cloud Native Computing Foundation (CNCF)](https://cncf.io/). All components are available under the Apache 2 License.
+If this article is incorrect or outdated, or omits critical information, please
+[let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open).
+[Fluentd](http://www.fluentd.org/) is an open-source project under
+[Cloud Native Computing Foundation (CNCF)](https://cncf.io/). All components are
+available under the Apache 2 License.

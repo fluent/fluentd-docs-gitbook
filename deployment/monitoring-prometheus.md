@@ -3,9 +3,9 @@
 This article describes how to monitor Fluentd via
 [Prometheus](https://prometheus.io/).
 
-Since both Prometheus and Fluentd are under [CNCF (Cloud Native Computing
-Foundation)](https://www.cncf.io/), Fluentd project is recommending to use
-Prometheus by default to monitor Fluentd.
+Since both Prometheus and Fluentd are under
+[CNCF (Cloud Native Computing Foundation)](https://www.cncf.io/),
+Fluentd project is recommending to use Prometheus by default to monitor Fluentd.
 
 
 ## Installation
@@ -152,8 +152,8 @@ $ echo '{"message":"hello"}' | bundle exec fluent-cat company.test1
 $ echo '{"message":"hello"}' | bundle exec fluent-cat company.test2
 ```
 
-Access `http://localhost:24231/metrics` to receive the metrics in [Prometheus
-format](https://prometheus.io/docs/instrumenting/exposition_formats/):
+Access `http://localhost:24231/metrics` to receive the metrics in
+[Prometheus format](https://prometheus.io/docs/instrumenting/exposition_formats/):
 
 ```
 curl http://localhost:24231/metrics
@@ -234,7 +234,8 @@ records per tag.
 
 Since `fluentd_input_status_num_records_total` and
 `fluentd_output_status_num_records_total` are monotonically increasing
-numbers, it requires a little bit of calculation by [PromQL (Prometheus Query Language)](https://prometheus.io/docs/prometheus/latest/querying/basics/)
+numbers, it requires a little bit of calculation by
+[PromQL (Prometheus Query Language)](https://prometheus.io/docs/prometheus/latest/querying/basics/)
 to make them meaningful.
 
 Here are the example PromQLs for common metrics:
@@ -289,8 +290,7 @@ rate(fluentd_output_status_retry_count[1m])
 For more advanced visualization and alerting, we recommend
 [Grafana](https://grafana.com/) as a visualization frontend for Prometheus.
 
--   [Grafana Support for
-    Prometheus](https://prometheus.io/docs/visualization/grafana/)
+-   [Grafana Support for Prometheus](https://prometheus.io/docs/visualization/grafana/)
 
 ![prometheus-grafana.png](/images/prometheus-grafana.png)
 
@@ -303,5 +303,8 @@ For more advanced visualization and alerting, we recommend
 
 ------------------------------------------------------------------------
 
-If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open).
-[Fluentd](http://www.fluentd.org/) is an open-source project under [Cloud Native Computing Foundation (CNCF)](https://cncf.io/). All components are available under the Apache 2 License.
+If this article is incorrect or outdated, or omits critical information, please
+[let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open).
+[Fluentd](http://www.fluentd.org/) is an open-source project under
+[Cloud Native Computing Foundation (CNCF)](https://cncf.io/). All components are
+available under the Apache 2 License.

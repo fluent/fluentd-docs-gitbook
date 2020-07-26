@@ -12,9 +12,10 @@ developed and published by Amazon Web Services officially.
 ## Background
 
 [Fluentd](http://fluentd.org/) is an advanced open-source log collector
-originally developed at [Treasure Data, Inc](http://www.treasuredata.com/). Because Fluentd can collect logs
-from various sources, [Amazon Kinesis](https://aws.amazon.com/kinesis/)
-is one of the popular destinations for the output.
+originally developed at [Treasure Data, Inc](http://www.treasuredata.com/).
+Because Fluentd can collect logs from various sources,
+[Amazon Kinesis](https://aws.amazon.com/kinesis/) is one of the popular
+destinations for the output.
 
 Amazon Kinesis is a platform for streaming data on AWS, offering
 powerful services to make it easy to load and analyze streaming data,
@@ -147,18 +148,18 @@ The `**` in `match.**` matches zero or more period-delimited tag parts
 The `flush_interval` parameter specifies how often the data is written to
 Kinesis.
 
-The `random_partition_key true` option will generate the partition key via UUID
-v3
+The `random_partition_key true` option will generate the partition key via UUID v3
 ([source](https://github.com/awslabs/aws-fluent-plugin-kinesis/blob/master/lib/fluent/plugin/out_kinesis.rb#L210)).
 Kinesis Stream consists of `shards`, and the processing power of each shard is
 limited. This partition key will be used by Kinesis, to determine which shard
 wll be assigned to for the specific record.
 
-For additional configuration parameters, please see the [Kinesis Output plugin](https://github.com/awslabs/aws-fluent-plugin-kinesis) README.
+For additional configurations, see [Kinesis Output plugin](https://github.com/awslabs/aws-fluent-plugin-kinesis).
 
 For those who are interested in security, all communication between
 Fluentd and Amazon Kinesis are done via HTTPS. If you do not want to
-have AES keys in the configuration file, [IAM Role based authentication](http://docs.aws.amazon.com/kinesis/latest/dev/controlling-access.html)
+have AES keys in the configuration file,
+[IAM Role based authentication](http://docs.aws.amazon.com/kinesis/latest/dev/controlling-access.html)
 is available too for EC2 nodes.
 
 
@@ -210,5 +211,8 @@ and robust.
 
 ------------------------------------------------------------------------
 
-If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open).
-[Fluentd](http://www.fluentd.org/) is an open-source project under [Cloud Native Computing Foundation (CNCF)](https://cncf.io/). All components are available under the Apache 2 License.
+If this article is incorrect or outdated, or omits critical information, please
+[let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open).
+[Fluentd](http://www.fluentd.org/) is an open-source project under
+[Cloud Native Computing Foundation (CNCF)](https://cncf.io/). All components are
+available under the Apache 2 License.

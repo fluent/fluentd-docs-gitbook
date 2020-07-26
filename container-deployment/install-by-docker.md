@@ -5,8 +5,7 @@ image](https://hub.docker.com/r/fluent/fluentd/), maintained by [Treasure Data,
 Inc](http://www.treasuredata.com/).
 
 - [Fluentd official Docker image](https://hub.docker.com/r/fluent/fluentd/)
-- [Fluentd official Docker image
-  (Source)](https://github.com/fluent/fluentd-docker-image)
+- [Fluentd official Docker image (Source)](https://github.com/fluent/fluentd-docker-image)
 
 
 ## Step 0: Install Docker
@@ -102,12 +101,9 @@ Now, you know how to use Fluentd via Docker.
 Here are some Docker related resources for Fluentd:
 
 - [Fluentd official Docker image](https://hub.docker.com/r/fluent/fluentd/)
-- [Fluentd official Docker image
-  (Source)](https://github.com/fluent/fluentd-docker-image)
-- [Docker Logging Driver and
-  Fluentd](/container-deployment/docker-logging-driver.md)
-- [Docker Logging via EFK (Elasticsearch + Fluentd + Kibana) Stack with Docker
-  Compose](/container-deployment/docker-compose.md)
+- [Fluentd official Docker image (Source)](https://github.com/fluent/fluentd-docker-image)
+- [Docker Logging Driver and Fluentd](/container-deployment/docker-logging-driver.md)
+- [Docker Logging via EFK (Elasticsearch + Fluentd + Kibana) Stack with Docker Compose](/container-deployment/docker-compose.md)
 
 Also, refer to the following tutorials to learn how to collect data from various
 data sources:
@@ -115,10 +111,13 @@ data sources:
 - Basic Configuration
   - [Config File](/configuration/config-file.md)
 - Application Logs
-  - [Ruby](/language/ruby.md), [Java](/language/java.md),
-    [Python](/language/python.md), [PHP](/language/php.md),
-    [Perl](/language/perl.md), [Node.js](/language/nodejs.md),
-    [Scala](/language/scala.md)
+  - [Ruby](/language/ruby.md)
+  - [Java](/language/java.md)
+  - [Python](/language/python.md)
+  - [PHP](/language/php.md)
+  - [Perl](/language/perl.md)
+  - [Node.js](/language/nodejs.md)
+  - [Scala](/language/scala.md)
 - Examples
   - [Store Apache Log into Amazon S3](/guides/apache-to-s3.md)
   - [Store Apache Log into MongoDB](/guides/apache-to-mongodb.md)
@@ -129,6 +128,6 @@ data sources:
 
 If this article is incorrect or outdated, or omits critical information, please
 [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open).
-[Fluentd](http://www.fluentd.org/) is an open-source project under [Cloud Native
-Computing Foundation (CNCF)](https://cncf.io/). All components are available
-under the Apache 2 License.
+[Fluentd](http://www.fluentd.org/) is an open-source project under
+[Cloud Native Computing Foundation (CNCF)](https://cncf.io/). All components are
+available under the Apache 2 License.
