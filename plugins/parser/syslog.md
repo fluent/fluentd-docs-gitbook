@@ -159,7 +159,7 @@ record:
 ```
 
 
-### rfc5424 log
+### RFC-5424 Log
 
 This incoming event:
 
