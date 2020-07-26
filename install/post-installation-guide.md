@@ -1,8 +1,6 @@
 # Post Installation Guide
 
-The goal of this article is to provide a concise post-installation guide
-to new Fluentd users. It is assumed that you've installed Fluentd
-through td-agent package.
+This article discusses the post-installation steps for the new Fluentd users assuming that Fluentd has been installed using the `td-agent` package.
 
 
 ## System Administration
@@ -10,14 +8,19 @@ through td-agent package.
 
 ### Configuration File
 
-A clean installation leaves you a td-agent instance running on a sample
-configuration file. You can edit the configuration file located at:
+After successful installation, a `td-agent` instance will be up and running with
+a predefined template configuration file.
+
+The default path for this configuration file is:
 
 ```
 /etc/td-agent/td-agent.conf
 ```
 
-After editing this file, you need to restart td-agent using `systemctl`:
+You may edit this configuration file according to your own use case.
+
+After editing the configuration file, restart `td-agent` using `systemctl`
+command:
 
 ```
 $ sudo systemctl restart td-agent
@@ -26,33 +29,31 @@ $ sudo systemctl restart td-agent
 
 ### Logging
 
-By default, td-agent writes its operation logs to the following file:
+By default, `td-agent` writes its operation logs to the following file:
 
 ```
 /var/log/td-agent/td-agent.log
 ```
 
-If you want to make td-agent more verbose, read the article
-["Trouble Shooting"](/deployment/trouble-shooting.md).
+For more verbose logs, read the article on
+[Troubleshooting](/deployment/trouble-shooting.md).
 
 
-## Connect to Other Services
+## Connect to the Other Services
 
 
 ### How It Works
 
 In Fluentd, the most important part of data input/output is managed by
-plugins. Each plugin knows how to interface with a external endpoint and
-is responsible for managing a pipeline to convey data streams.
+plugins. Each plugin knows how to interface with an external endpoint and
+is solely responsible for managing one pipeline to forward data streams.
 
-Plugins are named with a certain convention. For example, if it receives
-data and interfacing with Apache Kafka, it's called `in_kafka`. In the
-same way, if it publishes data and connects to MongoDB, it's called
-`out_mongo`.
+Plugins use a certain naming convention. For example, if it receives data and
+interfaces with Apache Kafka, it is called `in_kafka`. In the same way, if it
+publishes data and connects to MongoDB, it is called `out_mongo`.
 
-The following snippet is an example configuration, which uses
-`in_forward` plugin as an input source and `out_file` plugin as an
-output endpoint.
+The following configuration uses the `in_forward` plugin as an input source and
+`out_file` plugin as an output endpoint:
 
 ```
 <source>
@@ -69,13 +70,12 @@ output endpoint.
 
 ### Plugin Management
 
-Fluentd manages plugins as Ruby gems, but stores these gems in a
-separate directory from where normal Ruby gems reside.
+Fluentd manages plugins as Ruby gems but stores them in their dedicated
+directory separated from the normal Ruby gems.
 
-This is why you need to use a special program `td-agent-gem` to manage
-Fluentd plugins. For example, the following command allows you to
-install the plugin to connect S3 (which contains both `in_s3` and
-`out_s3`)
+A special program `td-agent-gem` is used to manage plugin gems. For example, the
+following command installs a plugin to connect to S3 (including both `in_s3` and
+`out_s3` plugins):
 
 ```
  $ sudo /usr/sbin/td-agent-gem install fluent-plugin-s3
@@ -84,11 +84,11 @@ install the plugin to connect S3 (which contains both `in_s3` and
 
 ### Available Plugins
 
-See [List Of All Plugins](https://www.fluentd.org/plugins) to explore
+See the [List Of All Plugins](https://www.fluentd.org/plugins) to explore the
 available third-party plugins.
 
-Note that a number of plugins are already included in the standard
-distribution of td-agent, so you may not need to install them manually.
+Note that a number of plugins are bundled with the standard distribution of
+`td-agent` so you do not need to install them manually.
 
 
 ## Configuration Syntax
@@ -96,13 +96,12 @@ distribution of td-agent, so you may not need to install them manually.
 
 ### Data Source
 
-A configuration file consists of a number of setting blocks (like
-`<source>`). Each block contains a set of options for a specific data
-endpoint.
+A configuration file consists of a number of setting blocks or sections e.g.
+`<source>`. Each block contains a set of options for a specific data endpoint.
 
 For example, if you want to create an endpoint to receive data from
-[syslog](/plugins/input/syslog.md), you need to add a `<source>` block and set up its
-settings as follows.
+[syslog](/plugins/input/syslog.md), you need to add a `<source>` block and set
+up its settings like this:
 
 ```
 <source>
@@ -112,20 +111,19 @@ settings as follows.
 </source>
 ```
 
-The option `@type` determines which plugin to use. You do not need
-prepend type prefix in this option (so `@type syslog`, not
-`@type in_syslog`).
+The `@type` parameter specifies which plugin to use. Note that the plugin type
+prefix i.e. `in_`, `out_`, etc. is not needed here. In this example, the input
+plugin is specified as `syslog`, not `in_syslog`.
 
 
 ### Output Endpoint
 
-To add an output endpoint for data stream, you need to define a
-`<match>` block. Syntactically, `<match>` is slightly different from
-`<source>` in the sense that it requires a filter expression as an
-argument.
+To add an output endpoint for data stream, you need to define a `<match>` block.
+Syntactically, `<match>` is slightly different from `<source>` in the sense that
+it requires a filter expression as an argument.
 
-For example, If you want to output events tagged with `debug.log`, you
-need to write as below:
+For example, if you want to output events tagged with `debug.log`, you need to
+mention this tag as an argument in `<match>` like this:
 
 ```
 <match debug.log>
@@ -133,25 +131,27 @@ need to write as below:
   port 5140
   brokers kafka-server:9092
   tag system
-  # other parameters...
+  # ...
 </match>
 ```
 
-You can use a wildcard character `*` in the filter expression. For
-example, `debug.*` matches `debug.log` and `debug.foo` etc.
+The wildcard character `*` can be used in the filter expression. For example,
+`debug.*` matches `debug.log`, `debug.foo`, etc.
 
-If you want to catch all descendent tags, use double asterisks `**`. For
-example, `debug.**` matches not only `debug.log`, but also
-`debug.log.bar` or `debug.log.level.critical` etc.
+To catch all the descendent tags, use double asterisks `**`. For example,
+`debug.**` matches not only `debug.log`, but also `debug.log.bar` or
+`debug.log.level.critical`, etc.
 
 
 ### Further Reading
 
-Read [Configuration File Syntax](/configuration/config-file.md) for the full configuration
-syntax.
+-   [Configuration File Syntax](/configuration/config-file.md)
 
 
 ------------------------------------------------------------------------
 
-If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open).
-[Fluentd](http://www.fluentd.org/) is a open source project under [Cloud Native Computing Foundation (CNCF)](https://cncf.io/). All components are available under the Apache 2 License.
+If this article is incorrect or outdated, or omits critical information, please
+[let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open).
+[Fluentd](http://www.fluentd.org/) is an open-source project under [Cloud Native
+Computing Foundation (CNCF)](https://cncf.io/). All components are available
+under the Apache 2 License.

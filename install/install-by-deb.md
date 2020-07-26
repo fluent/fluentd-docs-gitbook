@@ -1,54 +1,54 @@
-# Installing Fluentd Using deb Package
+# Installing Fluentd Using `deb` Package
 
-This article explains how to install the
-[td-agent](https://docs.treasuredata.com/articles/td-agent) deb package,
-the stable Fluentd distribution package maintained by [Treasure Data, Inc](http://www.treasuredata.com/).
+This article explains how to install `td-agent` deb package, the stable Fluentd
+distribution package maintained by [Treasure Data,
+Inc](http://www.treasuredata.com/).
 
 
-## What is td-agent?
+## What is `td-agent`?
 
-Fluentd is written in Ruby for flexibility, with performance sensitive
-parts written in C. However, some users may have difficulty installing
-and operating a Ruby daemon.
+Fluentd is written in Ruby for flexibility, with performance-sensitive parts in
+C. However, some users may have difficulty installing and operating a Ruby
+daemon.
 
-That's why [Treasure Data, Inc](http://www.treasuredata.com/) is
-providing **the stable distribution of Fluentd**, called `td-agent`. The
-differences between Fluentd and td-agent can be found
-[here](https://www.fluentd.org/faqs).
+That is why [Treasure Data, Inc](http://www.treasuredata.com/) provides **the
+stable distribution of Fluentd**, called `td-agent`. The differences between
+Fluentd and `td-agent` can be found [here](https://www.fluentd.org/faqs).
 
-This installation guide is for td-agent v3/td-agent v4.
-td-agent v3/v4 uses fluentd v1 in the core. See [this page](/overview/td-agent-v2-vs-v3-vs-v4.md) for the comparison and supported OS.
+This installation guide is for `td-agent` v3/v4.
+`td-agent` v3/v4 uses fluentd v1.0 in the core. See
+[this page](/overview/td-agent-v2-vs-v3-vs-v4.md) for the comparison and supported OS.
 
 
 ## Step 0: Before Installation
 
-Please follow the [Preinstallation Guide](/install/before-install.md) to configure
-your OS properly. This will prevent many unnecessary problems.
+Please follow the [Pre-installation Guide](/install/before-install.md) to
+configure your OS properly.
 
 
 ## Step 1: Install from Apt Repository
 
-It's HIGHLY recommended that you set up **ntpd** on the node to prevent
-invalid timestamps in your logs. Please check the [Preinstallation Guide](/install/before-install.md).
+NOTE: If your OS is not supported, consider [gem
+installation](/install/install-by-gem.md) instead.
 
-Note: If td-agent doesn't support your OS, consider [gem installation](/install/install-by-gem.md) instead.
-
-Note: treasure data doesn't verify debian packages. If you have a problem with debian packages,
-send a patch to [omnibus-td-agent repository](https://github.com/treasure-data/omnibus-td-agent) or [td-agent-builder repository](https://github.com/fluent-plugins-nursery/td-agent-builder).
+NOTE: Treasure Data does not verify debian packages. If you have any problem
+with debian packages, send a patch to
+[`omnibus-td-agent`](https://github.com/treasure-data/omnibus-td-agent)
+repository.
 
 A shell script is provided to automate the installation process for each
 version. The shell script registers a new apt repository at
 `/etc/apt/sources.list.d/treasure-data.list` and installs the `td-agent`
 deb package.
 
-For Ubuntu Focal,
+For Ubuntu Focal:
 
 ```
 # td-agent 4
 curl -L https://toolbelt.treasuredata.com/sh/install-ubuntu-focal-td-agent4.sh | sh
 ```
 
-For Ubuntu Bionic,
+For Ubuntu Bionic:
 
 ```
 # td-agent 4
@@ -57,7 +57,7 @@ curl -L https://toolbelt.treasuredata.com/sh/install-ubuntu-bionic-td-agent4.sh 
 curl -L https://toolbelt.treasuredata.com/sh/install-ubuntu-bionic-td-agent3.sh | sh
 ```
 
-For Ubuntu Xenial,
+For Ubuntu Xenial:
 
 ```
 # td-agent 4
@@ -66,14 +66,14 @@ curl -L https://toolbelt.treasuredata.com/sh/install-ubuntu-xenial-td-agent4.sh 
 curl -L https://toolbelt.treasuredata.com/sh/install-ubuntu-xenial-td-agent3.sh | sh
 ```
 
-For Ubuntu Trusty,
+For Ubuntu Trusty:
 
 ```
 # td-agent 3
 curl -L https://toolbelt.treasuredata.com/sh/install-ubuntu-trusty-td-agent3.sh | sh
 ```
 
-For Debian Buster,
+For Debian Buster:
 
 ```
 # td-agent 4
@@ -82,14 +82,14 @@ curl -L https://toolbelt.treasuredata.com/sh/install-debian-buster-td-agent4.sh 
 curl -L https://toolbelt.treasuredata.com/sh/install-debian-buster-td-agent3.sh | sh
 ```
 
-For Debian Stretch,
+For Debian Stretch:
 
 ```
 # td-agent 3
 curl -L https://toolbelt.treasuredata.com/sh/install-debian-stretch-td-agent3.sh | sh
 ```
 
-For Debian Jessie,
+For Debian Jessie:
 
 ```
 # td-agent 3
@@ -99,10 +99,10 @@ curl -L https://toolbelt.treasuredata.com/sh/install-debian-jessie-td-agent3.sh 
 ## Step 2: Launch Daemon
 
 
-### systemd
+### `systemd`
 
-The `/lib/systemd/system/td-agent` script is provided to start, stop, or
-restart the agent.
+Use `/lib/systemd/system/td-agent` script to `start`, `stop`, or `restart` the
+agent:
 
 ```
 $ sudo systemctl start td-agent.service
@@ -121,17 +121,14 @@ Dec 07 15:12:27 ubuntu systemd[1]: Starting td-agent: Fluentd based data collect
 Dec 07 15:12:27 ubuntu systemd[1]: Started td-agent: Fluentd based data collector for Treasure Data.
 ```
 
-If you want to customize systemd behaviour, put your `td-agent.service`
-into `/etc/systemd/system`
+To customize `systemd` behavior, put your `td-agent.service` in
+`/etc/systemd/system`.
 
 NOTE: In td-agent 4, path is different. `/opt/td-agent/bin` instead of `/opt/td-agent/embedded/bin`
 
-### init.d
+### `init.d`
 
-This is for non systemd based system.
-
-The `/etc/init.d/td-agent` script is provided to start, stop, or restart
-the agent.
+For non systemd-based system, use `/etc/init.d/td-agent` script to `start`, `stop`, or `restart` the agent:
 
 ```
 $ sudo /etc/init.d/td-agent restart
@@ -148,26 +145,32 @@ $ sudo /etc/init.d/td-agent restart
 $ sudo /etc/init.d/td-agent status
 ```
 
-Please make sure **your configuration file** is located at
-`/etc/td-agent/td-agent.conf`.
+Please make sure your configuration file path is:
+
+```
+/etc/td-agent/td-agent.conf
+```
 
 
 ## Step 3: Post Sample Logs via HTTP
 
-By default, `/etc/td-agent/td-agent.conf` is configured to take logs
-from HTTP and route them to stdout (`/var/log/td-agent/td-agent.log`).
-You can post sample log records using the curl command.
+The default configuration (`/etc/td-agent/td-agent.conf`) is to receive logs at
+an HTTP endpoint and route them to `stdout`. For `td-agent` logs, see
+`/var/log/td-agent/td-agent.log`.
+
+You can post sample log records with `curl` command:
 
 ```
 $ curl -X POST -d 'json={"json":"message"}' http://localhost:8888/debug.test
+$ tail -n 1 /var/log/td-agent/td-agent.log
+2018-01-01 17:51:47 -0700 debug.test: {"json":"message"}
 ```
 
 
 ## Next Steps
 
-You're now ready to collect your real logs using Fluentd. Please see the
-following tutorials to learn how to collect your data from various data
-sources.
+You are now ready to collect real logs with Fluentd. Refer to the following
+tutorials on how to collect data from various sources:
 
 -   Basic Configuration
     -   [Config File](/configuration/config-file.md)
@@ -179,13 +182,16 @@ sources.
     -   [Store Apache Log into MongoDB](/guides/apache-to-mongodb.md)
     -   [Data Collection into HDFS](/guides/http-to-hdfs.md)
 
-Please refer to the resources below for further steps.
+For further steps, follow these:
 
--   [ChangeLog of td-agent](http://docs.treasuredata.com/articles/td-agent-changelog)
+-   [ChangeLog of `td-agent`](http://docs.treasuredata.com/articles/td-agent-changelog)
 -   [Chef Cookbook](https://github.com/treasure-data/chef-td-agent/)
 
 
 ------------------------------------------------------------------------
 
-If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open).
-[Fluentd](http://www.fluentd.org/) is a open source project under [Cloud Native Computing Foundation (CNCF)](https://cncf.io/). All components are available under the Apache 2 License.
+If this article is incorrect or outdated, or omits critical information, please
+[let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open).
+[Fluentd](http://www.fluentd.org/) is an open-source project under [Cloud Native
+Computing Foundation (CNCF)](https://cncf.io/). All components are available
+under the Apache 2 License.
