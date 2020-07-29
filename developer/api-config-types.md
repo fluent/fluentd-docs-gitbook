@@ -1,53 +1,57 @@
 # Types of Configuration Parameters
 
 
-## Common options
+## Common Options
 
--   default: Specify default value for this parameter. If omit this
-    option, this parameter is required. Fluentd will check this value on
-    boot when this option is omitted.
+- `default`: Specifies the default value for a parameter. If omitted, the
+  parameter is required. On startup, Fluentd uses the default value instead if
+  the parameter is not configured.
 
-```
-# Required parameter. The configuration must have this parameter like 'param1 10'
+```rb
+# Required parameter: The configuration must have this parameter like 'param1 10'.
 config_param :param1, :integer
-# Optional parameter. If the configuration doesn't have 'param2', 100 is used
+
+# Optional parameter: If the configuration doesn't have 'param2', 100 is used.
 config_param :param2, :integer, default: 100
 ```
 
--   secret: If true, mask this parameter when Fluentd dumps the configuration.
+- `secret`: If `true`, the parameter will be masked when Fluentd dumps its
+  configuration on the standard output on startup.
 
-```
+```rb
 config_param :secret_param, :string, secret: true
 ```
 
--   deprecated: Specify deprecation warning message. If users use this
-    parameter in their config, they will see deprecation warning on
-    boot.
+- `deprecated`: Specifies the deprecation warning message. If users use this
+  parameter in the configuration, they will see the deprecation warning on
+  startup.
 
-```
+```rb
 config_param :old_param, :string, deprecated: "Use new_param instead"
 ```
 
--   obsoleted: Specify obsolete error message. If users use this
-    parameter in their config, Fluentd raises `Fluent::ConfigError` and
-    stop.
+- `obsoleted`: Specifies the obsolete error message. If users use this parameter
+  in the configuration, Fluentd raises `Fluent::ConfigError` and stops.
 
-```
+```rb
 config_param :dead_param, :string, obsoleted: "This parameter doesn't work anymore"
 ```
 
--   alias: Alias of this parameter as symbol
--   skip\_accessor: If true, skip adding accessor to the plugin. Only
-    for internal use.
+- `alias`: Alias for this parameter as a symbol.
+- `skip_accessor`: If `true`, skip adding accessor to the plugin. For internal
+  use only!
 
 
-## :string
+# Data Types
 
-Define a string parameter.
+
+## `:string`
+
+Defines a string parameter.
 
 Code Example:
 
-```
+```rb
 config_param :name, :string, default: "John Doe", alias: :full_name
 config_param :password, :string, secret: true
 
@@ -60,19 +64,19 @@ end
 
 Configuration Example:
 
-```
+```text
 name John Titor
 passowrd very-secret-password
 ```
 
 
-## :regexp
+## `:regexp`
 
-Define a regexp parameter. Since v1.2.0.
+Defines a regexp parameter. Since v1.2.0.
 
 Code Example:
 
-```
+```rb
 config_param :pattern, :regexp, default: /^key_/
 
 def configure(conf)
@@ -91,19 +95,19 @@ end
 
 Configuration Example:
 
-```
+```text
 pattern /^name_/
 pattern ^name_    # Also support pattern without slashes
 ```
 
 
-## :integer
+## `:integer`
 
-Define an integer parameter.
+Defines an integer parameter.
 
 Code Example:
 
-```
+```rb
 config_param :num_children, :integer, default: 1
 
 def start
@@ -117,19 +121,18 @@ end
 
 Configuration Example:
 
-```
-::text
+```text
 num_children 10
 ```
 
 
-## :float
+## `:float`
 
-Define a float parameter.
+Defines a float parameter.
 
 Code Example:
 
-```
+```rb
 helpers :timer
 config_param :interval, :float, default: 0.5
 
@@ -144,19 +147,20 @@ end
 
 Configuration Example:
 
-```
+```text
 interval 1.5
 ```
 
 
-## :size
+## `:size`
 
-Define a size parameter in bytes. Available suffixes are `k`, `m`, `g`,
-`t` (ignore case).
+Defines a size parameter in bytes.
+
+Available suffixes: { `k`, `m`, `g`, `t` } (ignore case)
 
 Code Example:
 
-```
+```rb
 config_param :limit, :size
 
 def do_something
@@ -167,7 +171,7 @@ end
 
 Configuration Example:
 
-```
+```text
 limit 10  # 10 byte
 limit 10k # 10240 byte
 limit 10m # 10485760 byte
@@ -177,20 +181,22 @@ limit 10t # 10995116277760 byte
 
 Configuration Example:
 
-```
+```text
 limit 10m
 ```
 
 
-## :time
+## `:time`
 
-Define a length of time paramater. Available suffixes are `s`, `m`, `h`,
-`d` (lower case only). If omit suffix, apply `to_f` to the value and
-convert it to seconds.
+Defines the length of time parameter.
+
+Available suffixes: { `s`, `m`, `h`, `d` } (lower case only).
+
+If omitted, `to_f` is applied to the value which converts it to seconds.
 
 Code Example:
 
-```
+```rb
 config_param :interval, :time
 
 def start
@@ -202,8 +208,7 @@ end
 
 Configuration Example:
 
-```
-::text
+```text
 interval 0.5 # 0.5 seconds
 interval 1s  # 1 second
 interval 1m  # 1 minute = 60 seconds
@@ -213,18 +218,18 @@ interval 1d  # 1 day = 86400 seconds
 
 Configuration Example:
 
-```
+```text
 interval 10m
 ```
 
 
-## :bool
+## `:bool`
 
-Define a bool parameter.
+Defines a Boolean parameter.
 
 Code Example:
 
-```
+```rb
 config_param :deep_copy, :bool, default: false
 
 def copy(object)
@@ -238,24 +243,24 @@ end
 
 Configuration Example:
 
-```
+```text
 deep_copy true
 ```
 
 
-## :enum
+## `:enum`
 
-Define an enumeration type parameter.
+Defines an enumerated parameter.
 
-Users can choose a value from the list. If user choose the value that
-does not exist in the list, error will occur on boot.
+Users can choose a value from the list. If a non-listed value is chosen, an
+error occurs on startup.
 
--   Available options
-    -   list: Available value list
+- Available options
+  - `list`: List of available values.
 
 Code Example:
 
-```
+```rb
 config_param :protocol_type, :enum, list: [:udp, :tcp], default: :udp
 
 def send
@@ -270,24 +275,25 @@ end
 
 Configuration Example:
 
-```
+```text
 protocol_type tcp
 ```
 
 
-## :array
+## `:array`
 
-Define an array type parameter.
+Defines an array parameter.
 
-Users can set array value to the parameter.
+Users can set an array value for a parameter.
 
--   Available options
-    -   value\_type: Define type of the value. Available type are
-        `:string`, `:integer`, `:float`, `:size`, `:bool`, `:time`.
+- Available options
+  - `value_type`: Defines the type of the value.
+
+    Available types: { `:string`, `:integer`, `:float`, `:size`, `:bool`, `:time` }
 
 Code Example:
 
-```
+```rb
 config_param :users, :array, default: [], value_type: :string
 
 def available_user?(user)
@@ -297,30 +303,29 @@ end
 
 Configuration Example:
 
-```
+```text
 users user1, user2, user3
 users ["user1", "user2", "user3"] # written in JSON
 ```
 
-These configuration will convert to:
+This configuration will be converted to:
 
-```
+```rb
 ["user1", "user2", "user3"]
 ```
 
 
-## :hash
+## `:hash`
 
-Define a hash type parameter.
+Defines a hash parameter.
 
--   Available options
-    -   symbolize\_keys: If true, symbolize keys.
-    -   value\_type: Define type of the value. Use same type with all
-        values.
+- Available options
+  - `symbolize_keys`: If `true`, the keys are symbolized.
+  - `value_type`: Defines the same type for all values.
 
 Code Example:
 
-```
+```rb
 config_param :key_values, :hash, default: {}, symbolize_keys: true, value_type: :string
 
 def do_something
@@ -332,19 +337,22 @@ end
 
 Configuration Example:
 
-```
+```text
 key_values {"key1": "value1", "key2": "value2"} # written in JSON
 key_values key1:value1,key2:value2
 ```
 
-These configurations will be converted to:
+This configurations will be converted to:
 
-```
+```rb
 { key1: "value1", key2: "value2" }
 ```
 
 
 ------------------------------------------------------------------------
 
-If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open).
-[Fluentd](http://www.fluentd.org/) is a open source project under [Cloud Native Computing Foundation (CNCF)](https://cncf.io/). All components are available under the Apache 2 License.
+If this article is incorrect or outdated, or omits critical information, please
+[let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open).
+[Fluentd](http://www.fluentd.org/) is an open-source project under
+[Cloud Native Computing Foundation (CNCF)](https://cncf.io/). All components are
+available under the Apache 2 License.

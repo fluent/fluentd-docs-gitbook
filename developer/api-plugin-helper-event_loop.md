@@ -1,25 +1,25 @@
 # EventLoop Plugin Helper API
 
-`event_loop` helper managers event loops.
+The `event_loop` plugin helper manages event loops.
 
-Here is the code example with `event_loop` helper:
+Here is an example:
 
-```
+```rb
 require 'fluent/plugin/input'
 
 module Fluent::Plugin
   class ExampleInput < Input
     Fluent::Plugin.register_input('example', self)
 
-    # 1. load event_loop_helper
+    # 1. Load `event_loop_helper`
     helpers :event_loop
 
-    # omit configure, shutdown and other plugin API
+    # Omit `configure`, `shutdown` and other plugin APIs
 
     def start
       super
 
-      # 2. attach watcher
+      # 2. Attach watcher
       watcher = Coolio::TCPServer.new(...)
       event_loop_attach(watcher)
     end
@@ -27,28 +27,30 @@ module Fluent::Plugin
 end
 ```
 
-Attached watcher is managed by the plugin. No need watcher detach code
-in plugin's `shutdown`. The plugin shutdowns attached watchers
-automatically.
+The attached watcher is managed by the plugin. No need of watcher detach code in
+plugin's `shutdown`. The plugin shutdowns the attached watchers automatically.
 
 
 ## Methods
 
 
-### event\_loop\_attach(watcher)
+### `event_loop_attach(watcher)`
 
-This method attaches watcher to event loop
+This method attaches watcher to event loop.
 
 -   `watcher`: `Coolio::Watcher` instances
 
 
-## event\_loop used plugins
+## Plugins using `event_loop`
 
--   [HTTP input](/plugins/input/http.md)
--   [Tail input](/plugins/input/tail.md)
+-   [`in_http`](/plugins/input/http.md)
+-   [`in_tail`](/plugins/input/tail.md)
 
 
 ------------------------------------------------------------------------
 
-If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open).
-[Fluentd](http://www.fluentd.org/) is a open source project under [Cloud Native Computing Foundation (CNCF)](https://cncf.io/). All components are available under the Apache 2 License.
+If this article is incorrect or outdated, or omits critical information, please
+[let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open).
+[Fluentd](http://www.fluentd.org/) is an open-source project under
+[Cloud Native Computing Foundation (CNCF)](https://cncf.io/). All components are
+available under the Apache 2 License.

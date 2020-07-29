@@ -1,41 +1,44 @@
 # Writing Parser Plugins
 
-Fluentd supports [pluggable, customizable formats for input
-plugins](parser-plugin-overview). The plugin files whose names start
-with "parser\_" are registered as Parser Plugins. See [Plugin Base Class API](/developer/api-plugin-base.md) to show details of common API for all plugin
-types.
+Fluentd supports [pluggable and customizable formats for input plugins](parser-plugin-overview). The plugin filenames prefixed `parser_` are
+registered as Parser Plugins.
+
+See [Plugin Base Class API](/developer/api-plugin-base.md) for details on the
+common APIs for all the plugin types.
 
 Here is an example of a custom parser that parses the following
 newline-delimited log format:
 
-```
+```text
 <timestamp><SPACE>key1=value1<DELIMITER>key2=value2<DELIMITER>key3=value...
 ```
 
-e.g., something like this
+like this:
 
-```
+```text
 2014-04-01T00:00:00 name=jake age=100 action=debugging
 ```
 
-While it is not hard to write a regular expression to match this format,
-it is tricky to extract and save key names.
+While it is not hard to write a regular expression to match this format, it is
+tricky to extract and save key names.
 
-Here is the code to parse this custom format (let's call it
-`time_key_value`). It takes one optional parameter called `delimiter`,
-which is the delimiter for key-value pairs. It also takes `time_format`
-to parse the time string.
+Here is the code to parse this custom format (let's call it `time_key_value`).
+It takes one optional parameter called `delimiter`, which is the delimiter for
+key/value pairs. It also takes `time_format` to parse the `time` string.
 
-```
+```rb
 require 'fluent/plugin/parser'
 
 module Fluent::Plugin
   class TimeKeyValueParser < Parser
-    # Register this parser as "time_key_value"
-    Fluent::Plugin.register_parser("time_key_value", self)
+    # Register this parser as 'time_key_value'
+    Fluent::Plugin.register_parser('time_key_value', self)
 
-    config_param :delimiter, :string, default: " "   # delimiter is configurable with " " as default
-    config_param :time_format, :string, default: nil # time_format is configurable
+    # `delimiter` is configurable with ' ' as default
+    config_param :delimiter, :string, default: ' '
+
+    # `time_format` is configurable
+    config_param :time_format, :string, default: nil
 
     def configure(conf)
       super
@@ -44,29 +47,31 @@ module Fluent::Plugin
         raise ConfigError, "delimiter must be a single character. #{@delimiter} is not."
       end
 
-      # TimeParser class is already given. It takes a single argument as the time format
+      # `TimeParser` class is already available.
+      # It takes a single argument as the time format
       # to parse the time string with.
       @time_parser = Fluent::TimeParser.new(@time_format)
     end
 
     def parse(text)
-      time, key_values = text.split(" ", 2)
+      time, key_values = text.split(' ', 2)
       time = @time_parser.parse(time)
       record = {}
-      key_values.split(@delimiter).each { |kv|
-        k, v = kv.split("=", 2)
+      key_values.split(@delimiter).each do |kv|
+        k, v = kv.split('=', 2)
         record[k] = v
-      }
+      end
       yield time, record
     end
   end
 end
 ```
 
-Then, save this code in `parser_time_key_value.rb` in a loadable plugin
-path. Then, if in\_tail is configured as
+Save this code as `parser_time_key_value.rb` in a loadable plugin path.
 
-```
+With `in_tail` configured as:
+
+```text
 # Other lines...
 <source>
   @type tail
@@ -77,18 +82,27 @@ path. Then, if in\_tail is configured as
 </source>
 ```
 
-Then, the log line like `2014-01-01T00:00:00 k=v a=b` is parsed as
-`2013-01-01 00:00:00 +0000 test: {"k":"v","a":"b"}`.
+this log line:
 
-For more details about `<parse>` section, see [Parse section configurations](/configuration/parse-section.md).
+```text
+2014-01-01T00:00:00 k=v a=b
+```
+
+will be parsed as:
+
+```text
+2013-01-01 00:00:00 +0000 test: {"k":"v","a":"b"}
+```
+
+For more details on `<parse>`, see [Parse Section Configurations](/configuration/parse-section.md).
 
 
 ## How To Use Parsers From Plugins
 
-Parser plugins are designed to be used from other plugins, like Input,
-Filter and Output. There is a Parser plugin helper for that purpose:
+Parser plugins are designed to be used with other plugins, like Input, Filter
+and Output. There is a Parser plugin helper solely for this purpose:
 
-```
+```rb
 # in class definition
 helpers :parser
 
@@ -101,48 +115,49 @@ helpers :parser
 end
 ```
 
-See [Parser Plugin Helper API](/developer/api-plugin-helper-parser.md) for details.
+See [Parser Plugin Helper API](/developer/api-plugin-helper-parser.md) for
+details.
 
 
 ## Methods
 
-Parser plugins have a method to parse input (text) data to a structured
-record (Hash) with time.
+Parser plugins have a method to parse input (text) data to a structured record
+(`Hash`) with time.
 
-#### \#parse(text, &block)
 
-`Parser#parse` gets input data as an argument, and call callback block
-to feed results of parser. The input text may contain 2 or more records,
-so the parser plugin might call block 2 or more times for an argument.
+#### `#parse(text, &block)`
+
+It gets input data as `text`, and call `&block` to feed the results of the
+parser. The input `text` may contain two or more records so that means the
+parser plugin might call the `&block` two or more times for one argument.
 
 Parser plugins must implement this method.
 
 
 ## Writing Tests
 
-Fluentd parser plugin has just one or some points to be tested. Others
-(parsing configurations, controlling buffers, retries, flushes and many
-others) are controlled by Fluentd core.
+Fluentd parser plugin has one or more points to be tested. Others (parsing
+configurations, controlling buffers, retries, flushes, etc.) are controlled by
+the Fluentd core.
 
-Fluentd also provides test driver for plugins. You can write tests of
-your own plugins very easily:
+Fluentd also provides the test driver for plugins. You can easily write tests
+for your own plugins:
 
-```
-::ruby
+```rb
 # test/plugin/test_parser_your_own.rb
 
 require 'test/unit'
-require 'fluent/test/driver/parser
+require 'fluent/test/driver/parser'
 
-# your own plugin
+# Your own plugin
 require 'fluent/plugin/parser_your_own'
 
 class ParserYourOwnTest < Test::Unit::TestCase
   def setup
-    # common setup
+    # Common setup
   end
 
-  COPNFIG = %[
+  CONFIG = %[
     pattern apache
   ]
 
@@ -165,7 +180,7 @@ class ParserYourOwnTest < Test::Unit::TestCase
       text = '192.168.0.1 - - [28/Feb/2013:12:00:00 +0900] "GET / HTTP/1.1" 200 777'
       expected_time = event_time('28/Feb/2013:12:00:00 +0900', format: '%d/%b/%Y:%H:%M:%S %z')
       expected_record = {
-        "method" => "GET",
+        'method' => 'GET',
         # ...
       }
       d.instance.parse(text) do |time, record|
@@ -180,30 +195,33 @@ end
 
 ### Overview of Tests
 
-Testing for parser plugins are mainly for:
+Testing for parser plugins is mainly for:
 
--   Configuration/Validation checks for invalid configurations (about
-    `#configure`)
--   Checks for parsed time and record by parser plugins
+-   Validation of configuration (i.e. `#configure`)
+-   Validation of the parsed time and record
 
-Plugin test driver provides logger and feature to override system
-configurations, and configuration parser and others to make it easy to
-test configuration errors or others.
+To make testing easy, the plugin test driver provides a logger and the
+functionality to override the system and parser configurations, etc.
 
-Lifecycle of plugins and test drivers is:
+The lifecycle of plugin and test driver is:
 
-1.  Instantiate plugin driver (and it instantiates plugin)
+1.  Instantiate plugin driver which then instantiates the plugin
 2.  Configure plugin
 3.  Run test code
 4.  Assert results of tests by data provided from driver
 
-Test drivers instantiate the plugin. See [Testing API for plugins](/developer/plugin-test-code.md) for details.
+For: 
 
-For configuration tests, repeat 1-2. For full feature tests, repeat 1-4.
-Test drivers and helper methods will support it.
+- configuration tests, repeat steps # 1-2
+- full feature tests, repeat steps # 1-4
+
+See [Testing API for Plugins](/developer/plugin-test-code.md) for details.
 
 
 ------------------------------------------------------------------------
 
-If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open).
-[Fluentd](http://www.fluentd.org/) is a open source project under [Cloud Native Computing Foundation (CNCF)](https://cncf.io/). All components are available under the Apache 2 License.
+If this article is incorrect or outdated, or omits critical information, please
+[let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open).
+[Fluentd](http://www.fluentd.org/) is an open-source project under
+[Cloud Native Computing Foundation (CNCF)](https://cncf.io/). All components are
+available under the Apache 2 License.

@@ -1,83 +1,77 @@
 # Server Plugin Helper API
 
-`server` helper manages various types of servers.
+The `server` plugin helper manages various types of servers.
 
-Here is the code example with `server` helper:
+Here is an example:
 
-```
+```rb
 require 'fluent/plugin/input'
 
 module Fluent::Plugin
   class ExampleInput < Input
     Fluent::Plugin.register_input('example', self)
 
-    # 1. load server helper
+    # 1. Load server helper
     helpers :server
 
-    # omit configure, shutdown and other plugin API
+    # Omit `configure`, `shutdown` and other plugin APIs
 
     def start
-      # 2. create server
+      # 2. Create server
       server_create(:title, @port) do |data|
-        #3. process data
+        #3. Process data
       end
     end
   end
 end
 ```
 
-Launched server is managed by the plugin. No need server shutdown code
-in plugin's `shutdown`. The plugin shutdowns launched servers
+The launched server is managed by the plugin helper. No need of server shutdown
+code in plugin's `shutdown` method. The plugin shutdowns the launched servers
 automatically.
 
-For more details about configuration, see [Transport section](/configuration/transport-section.md).
+For more details, see [Transport Section](/configuration/transport-section.md).
 
 
 ## Methods
 
 
-### server\_create\_connection(title, port, proto: nil, bind: '0.0.0.0', shared: true, backlog: nil, tls\_options: nil, \*\*socket\_options, &block)
+### `server_create_connection(title, port, proto: nil, bind: '0.0.0.0', shared: true, backlog: nil, tls_options: nil, **socket_options, &block)`
 
-This method creates server instance for various protocols.
+This method creates a server instance for various protocols.
 
-The block will be invoked with connection as a parameter on connection.
+The `&block` is invoked with the new connection as parameter.
 
 -   `title`: unique symbol
 -   `port`: the port to listen to
--   `proto`: protocol type. `:tcp`, `:tls`
+-   `proto`: protocol type. { `:tcp`, `:tls` }
 -   `bind`: the bind address to listen to
--   `shared`: if true, share socket via serverengine for multiple
-    workers
+-   `shared`: if `true`, share socket via server engine for multiple workers
 -   `backlog`: the maximum length of the queue for pending connections
 -   `tls_options`: options for TLS
-    -   `version`: set TLS version `:'TLSv1_1'` or `:'TLSv1_2'`.
-        Default: `:'TLSv1_2'`
-    -   `ciphers`: set the list of available cpher suites. Default:
-        `"ALL:!aNULL:!eNULL:!SSLv2"`
-    -   `insecure`: if true, set TLS verify mode NONE
-    -   `cert_verifier`: if specified, pass evaluated object to openssl's [verify_callback](https://ruby-doc.org/stdlib-2.7.0/libdoc/openssl/rdoc/OpenSSL/X509/Store.html#verify_callback-attribute-method). See also "cert\_verifier example" section.
-    -   `verify_fqdn`: if true, check the server certificate is valid
-        for the hostname
+    -   `version`: set TLS version `:TLSv1_1` or `:TLSv1_2`.
+        Default: `:TLSv1_2`
+    -   `ciphers`: set the list of available cipher suites. (default:
+        `"ALL:!aNULL:!eNULL:!SSLv2"`)
+    -   `insecure`: if `true`, set TLS verify mode `NONE`
+    -   `cert_verifier`: if specified, pass evaluated object to OpenSSL's [`verify_callback`](https://ruby-doc.org/stdlib-2.7.0/libdoc/openssl/rdoc/OpenSSL/X509/Store.html#verify_callback-attribute-method). See also "`cert_verifier` example" section.
+    -   `verify_fqdn`: if `true`, validate the server certificate for the hostname
     -   `fqdn`: set FQDN
-    -   `enable_system_cert_store`: if true, enable system default cert
-        store
-    -   `allow_self_signed_cert`: if true, allow self signed certificate
+    -   `enable_system_cert_store`: if `true`, enable system default cert store
+    -   `allow_self_signed_cert`: if `true`, allow self-signed certificate
     -   `cert_paths`: files contain PEM-encoded certificates
 -   `socket_options`: options for socket
-    -   `resolve_name`: if true, resolve hostname
-    -   `connect`: if true, connect to host
-    -   `nonblock`: if true, use non-blocking I/O
-    -   `linger_timeout`: the timeout time in seconds used to set
-        `SO_LINGER`
-    -   `recv_timeout`: the timeout time in seconds used to set
-        `SO_RECVTIMEO`
-    -   `send_timeout`: the timeout time in seconds used to set
-        `SO_SNDTIMEO`
-    -   `send_keepalive_packet`: if true, enable TCP keepalive via `SO_KEEPALIVE`. See also [socket article](/developer/api-plugin-helper-socket.md#send_keepalive_packet-usecase)
+    -   `resolve_name`: if `true`, resolve the hostname
+    -   `connect`: if `true`, connect to host
+    -   `nonblock`: if `true`, use non-blocking I/O
+    -   `linger_timeout`: the timeout (seconds) to set `SO_LINGER`
+    -   `recv_timeout`: the timeout (seconds) to set `SO_RECVTIMEO`
+    -   `send_timeout`: the timeout (seconds) to set `SO_SNDTIMEO`
+    -   `send_keepalive_packet`: if `true`, enable TCP keep-alive via `SO_KEEPALIVE`. See also [socket article](/developer/api-plugin-helper-socket.md#send_keepalive_packet-usecase).
 
-Code example:
+Example:
 
-```
+```rb
 # TCP
 server_create_connection(:title, @port) do |conn|
   # on connection
@@ -91,53 +85,44 @@ end
 ```
 
 
-### server\_create(title, port, proto: nil, bind: '0.0.0.0', shared: true, socket: nil, backlog: nil, tls\_options: nil, max\_bytes: nil, flags: 0, \*\*socket\_options, &callback)
+### `server_create(title, port, proto: nil, bind: '0.0.0.0', shared: true, socket: nil, backlog: nil, tls_options: nil, max_bytes: nil, flags: 0, **socket_options, &callback)`
 
-This method creates server instance for various protocols.
+This method creates a server instance for various protocols.
 
-The block will be invoked with parameter(s) on data.
+The `&block` is invoked with parameter(s) on data.
 
 -   `title`: unique symbol
 -   `port`: the port to listen to
--   `proto`: protocol type. `:tcp`, `:udp`, `:tls`
+-   `proto`: protocol type. { `:tcp`, `:udp`, `:tls` }
 -   `bind`: the bind address to listen to
--   `shared`: if true, share socket via serverengine for multiple
-    workers.
--   `socket`: socket instance for UDP. this is available only for UDP.
+-   `shared`: if `true`, share socket via server engine for multiple workers
+-   `socket`: socket instance for UDP (only for UDP)
 -   `backlog`: the maximum length of the queue for pending connections
 -   `tls_options`: options for TLS
-    -   `version`: set TLS version `:'TLSv1_1'` or `:'TLSv1_2'`.
-        Default: `:'TLSv1_2'`
-    -   `ciphers`: set the list of available cpher suites. Default:
-        `"ALL:!aNULL:!eNULL:!SSLv2"`
-    -   `insecure`: if true, set TLS verify mode NONE
-    -   `cert_verifier`: if specified, pass evaluated object to openssl's [verify_callback](https://ruby-doc.org/stdlib-2.7.0/libdoc/openssl/rdoc/OpenSSL/X509/Store.html#verify_callback-attribute-method). See also "cert\_verifier example" section.
-    -   `verify_fqdn`: if true, check the server certificate is valid
-        for the hostname
+    -   `version`: set TLS version `:TLSv1_1` or `:TLSv1_2`. (default: `:TLSv1_2`)
+    -   `ciphers`: set the list of available cipher suites. (default:
+        `"ALL:!aNULL:!eNULL:!SSLv2"`)
+    -   `insecure`: if `true`, set TLS verify mode `NONE`
+    -   `cert_verifier`: if specified, pass evaluated object to OpenSSL's [`verify_callback`](https://ruby-doc.org/stdlib-2.7.0/libdoc/openssl/rdoc/OpenSSL/X509/Store.html#verify_callback-attribute-method). See also "`cert_verifier` example" section.
+    -   `verify_fqdn`: if `true`, validate the server certificate for the hostname
     -   `fqdn`: set FQDN
-    -   `enable_system_cert_store`: if true, enable system default cert
-        store
-    -   `allow_self_signed_cert`: if true, allow self signed certificate
+    -   `enable_system_cert_store`: if `true`, enable system default cert store
+    -   `allow_self_signed_cert`: if `true`, allow self signed certificate
     -   `cert_paths`: files contain PEM-encoded certificates
--   `max_bytes`: the maximum number of bytes to receive from the socket.
-    This is required only for UDP.
--   `flags`: zero or more of the MSG\_ options. This is available only
-    for UDP.
+-   `max_bytes`: the maximum number of bytes to receive (required for  UDP)
+-   `flags`: zero or more of the `MSG_` options (UDP-only)
 -   `socket_options`: options for socket
-    -   `resolve_name`: if true, resolve hostname
-    -   `connect`: if true, connect to host
-    -   `nonblock`: if true, use non-blocking I/O
-    -   `linger_timeout`: the timeout time in seconds used to set
-        `SO_LINGER`
-    -   `recv_timeout`: the timeout time in seconds used to set
-        `SO_RECVTIMEO`
-    -   `send_timeout`: the timeout time in seconds used to set
-        `SO_SNDTIMEO`
-    -   `send_keepalive_packet`: if true, enable TCP keepalive via `SO_KEEPALIVE`. See also [socket article](/developer/api-plugin-helper-socket.md#send_keepalive_packet-usecase)
+    -   `resolve_name`: if `true`, resolve the hostname
+    -   `connect`: if `true`, connect to host
+    -   `nonblock`: if `true`, use non-blocking I/O
+    -   `linger_timeout`: the timeout (seconds) to set `SO_LINGER`
+    -   `recv_timeout`: the timeout (seconds) to set `SO_RECVTIMEO`
+    -   `send_timeout`: the timeout (seconds) to set `SO_SNDTIMEO`
+    -   `send_keepalive_packet`: if `true`, enable TCP keep-alive via `SO_KEEPALIVE`. See also [socket article](/developer/api-plugin-helper-socket.md#send_keepalive_packet-usecase).
 
 Code example:
 
-```
+```rb
 # UDP (w/o socket)
 server_create(:title, @port, proto: :udp, max_bytes: 2048) do |data|
   # data is received data
@@ -175,9 +160,9 @@ end
 
 ## Configuration example
 
-Here is TLS configuration example with server helper used plugin.
+Here is a TLS configuration example:
 
-```
+```text
 <source>
   @type forward
   # other plugin parameters
@@ -206,17 +191,18 @@ Here is TLS configuration example with server helper used plugin.
     generate_cert_common_name "Common Name"
     generate_cert_expiration "#{10 * 365 * 86400}"
     generate_cert_digest sha256
-  <transport>
-<source>
+  </transport>
+</source>
 ```
 
-### cert_verifier example
+
+### `cert_verifier` example
 
 `cert_verifier` is supported since v1.10.0.
 
-- Configuration example
+Configuration example:
 
-```
+```text
 <source>
   @type forward
   <transport tls>
@@ -231,9 +217,9 @@ Here is TLS configuration example with server helper used plugin.
 
 Code must be return callable object which has `call` method with 2 arguments. This object is used as openssl's [verify_callback](https://ruby-doc.org/stdlib-2.7.0/libdoc/openssl/rdoc/OpenSSL/X509/Store.html#verify_callback-attribute-method)
 
-#### Proc or lambda object for simple case
+#### `Proc` or `lambda` Object for the Simple Scenario
 
-```
+```rb
 Proc.new { |ok, ctx|
   # check code
 
@@ -245,11 +231,11 @@ Proc.new { |ok, ctx|
 }
 ```
 
-#### Use class for complicated case
+#### Use `class` for the Complicated Scenario
 
-This is CN check example..
+This is CN check example:
 
-```
+```rb
 module Fluent
   module Plugin
     class InForwardCNChecker
@@ -273,16 +259,19 @@ end
 Fluent::Plugin::InForwardCNChecker.new
 ```
 
-## server used plugins
+## Plugins using `server`
 
--   [Forward input](/plugins/input/forward.md)
--   [Syslog input](/plugins/input/syslog.md)
--   [TCP input](/plugins/input/tcp.md)
--   [UDP input](/plugins/input/udp.md)
--   [Forward output](/plugins/output/forward.md)
+-   [`in_forward`](/plugins/input/forward.md)
+-   [`in_syslog`](/plugins/input/syslog.md)
+-   [`in_tcp`](/plugins/input/tcp.md)
+-   [`in_udp`](/plugins/input/udp.md)
+-   [`out_forward`](/plugins/output/forward.md)
 
 
 ------------------------------------------------------------------------
 
-If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open).
-[Fluentd](http://www.fluentd.org/) is a open source project under [Cloud Native Computing Foundation (CNCF)](https://cncf.io/). All components are available under the Apache 2 License.
+If this article is incorrect or outdated, or omits critical information, please
+[let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open).
+[Fluentd](http://www.fluentd.org/) is an open-source project under
+[Cloud Native Computing Foundation (CNCF)](https://cncf.io/). All components are
+available under the Apache 2 License.

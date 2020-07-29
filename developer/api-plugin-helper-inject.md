@@ -1,25 +1,24 @@
 # Inject Plugin Helper API
 
-`inject` helper injects values to events according to the configuration.
+The `inject` plugin helper injects values into events according to the
+configuration.
 
-For details about configuration, see [Inject section](/configuration/inject-section.md).
+Here is an example:
 
-Here is the code example with `inject` helper:
-
-```
+```rb
 require 'fluent/plugin/filter'
 
 module Fluent::Plugin
   class ExampleFilter < Filter
     Fluent::Plugin.register_filter('example', self)
 
-    # 1. load inject helper
+    # 1. Load inject helper
     helpers :inject
 
-    # omit configure, shutdown and other plugin API
+    # Omit `configure`, `shutdown` and other plugin APIs
 
     def filter(tag, time, record)
-      # 2. inject values to record
+      # 2. Inject values into `record`
       new_record = inject_values_to_record(tag, time, record)
       # edit new_record ...
       new_record
@@ -28,23 +27,23 @@ module Fluent::Plugin
 end
 ```
 
-For more details about configuration, see [Inject section](/configuration/inject-section.md).
+For more details, see [Inject section](/configuration/inject-section.md).
 
 
 ## Methods
 
 
-### inject\_values\_to\_recort(tag, time, record)
+### `inject_values_to_recort(tag, time, record)`
 
-This method injects values to given record and returns new record
+This method injects values to the given record and returns the new record.
 
 -   `tag`: the tag of the event
 -   `time`: event timestamp
 -   `record`: event record
 
-Code example:
+Example:
 
-```
+```rb
 def filter(tag, time, record)
   new_record = inject_values_to_record(tag, time, record)
   # edit new_record ...
@@ -53,17 +52,17 @@ end
 ```
 
 
-### inject\_values\_to\_event\_stream(tag, es)
+### `inject_values_to_event_stream(tag, es)`
 
-This method injects values to given event stream and returns new event
-stream
+This method injects values into the given event stream and returns the new event
+stream.
 
 -   `tag`: the tag of the event
 -   `es`: event stream
 
-Code example:
+Example:
 
-```
+```rb
 def process(tag, es)
   new_es = inject_values_to_event_stream(tag, es)
   # do something using new_es
@@ -71,16 +70,19 @@ end
 ```
 
 
-## inject used plugins
+## Plugins using `inject`
 
--   [Stdout filter](/plugins/filter/stdout.md)
--   [Exec output](/plugins/output/exec.md)
--   [Exec filter output](/plugins/output/exec_filter.md)
--   [File output](/plugins/output/file.md)
--   [Stdout output](/plugins/output/stdout.md)
+-   [`filter_stdout`](/plugins/filter/stdout.md)
+-   [`out_exec`](/plugins/output/exec.md)
+-   [`out_exec filter`](/plugins/output/exec_filter.md)
+-   [`out_file`](/plugins/output/file.md)
+-   [`out_stdout`](/plugins/output/stdout.md)
 
 
 ------------------------------------------------------------------------
 
-If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open).
-[Fluentd](http://www.fluentd.org/) is a open source project under [Cloud Native Computing Foundation (CNCF)](https://cncf.io/). All components are available under the Apache 2 License.
+If this article is incorrect or outdated, or omits critical information, please
+[let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open).
+[Fluentd](http://www.fluentd.org/) is an open-source project under
+[Cloud Native Computing Foundation (CNCF)](https://cncf.io/). All components are
+available under the Apache 2 License.
