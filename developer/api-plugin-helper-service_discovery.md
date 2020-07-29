@@ -70,7 +70,7 @@ and selecting target services. It provides `select_service` method that returns
 a target service to send data.
 
 
-## Plugins that use `service_discovery`
+## Plugins using `service_discovery`
 
 -   [`out_forward`](/plugins/output/forward.md)
 

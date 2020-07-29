@@ -1,7 +1,6 @@
 # Writing Parser Plugins
 
-Fluentd supports [pluggable and customizable formats for input plugins](parser-plugin-overview). The plugin filenames prefixed `parser_` are
-registered as Parser Plugins.
+Fluentd supports [pluggable and customizable formats for input plugins](parser-plugin-overview). The plugin filenames prefixed `parser_` are registered as Parser Plugins.
 
 See [Plugin Base Class API](/developer/api-plugin-base.md) for details on the
 common APIs for all the plugin types.

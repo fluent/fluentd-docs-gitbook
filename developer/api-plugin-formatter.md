@@ -112,7 +112,7 @@ Formatter plugins must implement this method.
 
 ## Writing Tests
 
-Fluentd formatter plugin has just one point to be tested. Others (parsing
+Fluentd formatter plugin has one or more points to be tested. Others (parsing
 configurations, controlling buffers, retries, flushes and many others) are
 controlled by the Fluentd core.
 
