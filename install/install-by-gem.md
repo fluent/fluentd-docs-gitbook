@@ -20,7 +20,7 @@ package via Package Manager to build native extension gems.
 Fetch and install the `fluentd` Ruby gem using `gem` command:
 
 ```
-$ gem install fluentd --no-ri --no-rdoc
+$ gem install fluentd --no-doc
 ```
 
 The official RubyGems page is [here](https://rubygems.org/gems/fluentd).
