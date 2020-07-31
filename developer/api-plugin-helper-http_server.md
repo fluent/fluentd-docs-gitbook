@@ -1,11 +1,13 @@
-# Http Server Plugin Helper API
+# HTTP Server Plugin Helper API
 
-`http_server` helper creates http server. This helper was introduced since v1.6.0.
+The `http_server` helper creates an HTTP server. This helper was introduced in
+v1.6.0.
 
-`http_server` helper supports [async-http](https://github.com/socketry/async-http) based server to improve the performance.
-If you install `async-http` gem, `http_server` helper uses it instead of standard [webrick](https://github.com/ruby/webrick) server.
+It supports [`async-http`](https://github.com/socketry/async-http)-based server
+to improve the performance. If `async-http` gem is not installed, this helper
+uses the standard [`webrick`](https://github.com/ruby/webrick) server instead.
 
-Here is the code example with `http_server` helper:
+Here is an example:
 
 ```rb
 require 'fluent/plugin/input'
@@ -14,7 +16,7 @@ module Fluent::Plugin
   class ExampleInput < Input
     Fluent::Plugin.register_output('example', self)
 
-    # 1. load http_server helper
+    # 1. Load http_server helper
     helpers :http_server
 
     config_param :bind, :string
@@ -23,9 +25,9 @@ module Fluent::Plugin
     def start
       super
 
-      # 2. create and start http server
+      # 2. Create and start HTTP server
       create_http_server(:example_http_server, addr: @bind, port: @port, logger: log) do |serv|
-        # define endpoint `/hello` with GET method
+        # Define endpoint `/hello` with GET method
         serv.get('/hello') { [200, { 'Content-Type' => 'text/plain' }, 'hello!'] }
       end
     end
@@ -33,40 +35,48 @@ module Fluent::Plugin
 end
 ```
 
-Launched http server is managed by the helper. No need to stop http server
-in plugin's `stop` method. The plugin stops launched http server automatically.
+**NOTE**: The launched plugin itself is managed by its plugin helper which stops it
+automatically. No need to stop it in the `stop` method.
+
 
 ## Methods
 
-### create\_http\_server(title, addr:, port:, logger:, default\_app: nil, &block)
 
-__this method is deprecated. Use http\_server\_create\_http\_server method instead__
+### `create_http_server(title, addr:, port:, logger:, default_app: nil, &block)` (deprecated)
 
-### http\_server\_create\_http\_server(title, addr:, port:, logger:, default\_app: nil, proto: nil, tls_opts: nil, &block)
-
-This method creats and runs http server with given routes which are defined in `&block`.
-
-- `title`: the name of listen thread. this name must be unique
-- `addr`: Address to listen to
-- `port`: Port to listen to.
-- `logger`: Logger which is used in server helper
-- `default_app`: Use this object when server received a request whose path is not registered. This object must have `#call` or be a `Proc` object.
-- `proto`: protocol type. `:tcp`, `:tls`.  default value is tcp
-- `tls_opts`: options for TLS. same as the [Server Helper's  server_create_connection tls_options](/developer/api-plugin-helper-server)
-
-### http\_server\_create\_https\_server(title, addr:, port:, logger:, default\_app: nil, tls_opts: nil, &block)
-
-This method creats and runs http server with given routes which are defined in `&block`.
-
-- `title`: the name of listen thread. this name must be unique
-- `addr`: Address to listen to
-- `port`: Port to listen to
-- `logger`: Logger which is used in server helper
-- `default_app`: Use this object when server received a request whose path is not registered. This object must have `#call` or be a `Proc` object.
-- `tls_opts`: options for TLS. same as the [Server Helper's  server_create_connection tls_options](/developer/api-plugin-helper-server)
+**This method is deprecated! Use `http_server_create_http_server` method instead.**
 
 
-## Define other HTTP methods
+### `http_server_create_http_server(title, addr:, port:, logger:, default_app: nil, proto: nil, tls_opts: nil, &block)`
+
+It creates and starts an HTTP server with the given routes defined in `&block`.
+
+- `title`: The name of the listening thread. Must be unique!
+- `addr`: The address to listen to.
+- `port`: The port to listen to.
+- `logger`: The logger used in the server helper.
+- `default_app`: The object to handle the requests with unregistered paths. This
+  object must have a `#call` method or must be a `Proc` object.
+- `proto`: Protocol type. Supported values: {`:tcp`, `:tls`} (default: `:tcp`)
+- `tls_opts`: TLS options. Same as the Server Helper's
+  [`server_create_connection` `tls_options`](/developer/api-plugin-helper-server).
+
+
+### `http_server_create_https_server(title, addr:, port:, logger:, default_app: nil, tls_opts: nil, &block)`
+
+It creates and starts an HTTPS server with the given routes defined in `&block`.
+
+- `title`: The name of the listening thread. Must be unique!
+- `addr`: The address to listen to.
+- `port`: The port to listen to.
+- `logger`: The logger used in the server helper.
+- `default_app`: The object to handle the requests with unregistered paths. This
+  object must have a `#call` method or must be a `Proc` object.
+- `tls_opts`: TLS options. Same as the Server Helper's
+  [`server_create_connection` `tls_options`](/developer/api-plugin-helper-server).
+
+
+## Handling of other HTTP Methods
 
 ```rb
 create_http_server(:example_http_server, addr: @bind, port: @port, logger: log) do |serv|
@@ -78,28 +88,36 @@ create_http_server(:example_http_server, addr: @bind, port: @port, logger: log) 
 end
 ```
 
-## Detail of request and send response
+
+## Request and Response
+
 
 #### Request
 
-request has following methods.
+Request supports these following methods:
 
-* `query_string`: query string like `hoge=v1&fuga=v2`
-* `query`: query which is `query_string` parsed with `CGI.parse`
-* `body`: request body
-* `path`: request path
+* `query_string`: returns query string like `hoge=v1&fuga=v2`
+* `query`: returns query which is `query_string` parsed by `CGI.parse`
+* `body`: returns the request body
+* `path`: returns the request path
+
 
 #### Response
 
-http server helper expects an array as return value like below.
+The `http_server` helper expects an array as the return value i.e.:
 
-`[${response_status}, ${headers}, ${body}]`
+```rb
+[${response_status}, ${headers}, ${body}]
+```
 
-* `${response_status}` should be an Integer
-* `${headers}` should be a Hash
-* `${body}` should be a String or nil
+* `${response_status}` should be an `Integer`
+* `${headers}` should be a `Hash`
+* `${body}` should be a `String` or `nil`
 
-#### Example of recieving json request and return json response
+
+#### Example
+
+Here is an example of request and response in JSON format:
 
 ```rb
 create_http_server(:example_json_http_server, addr: @bind, port: @port, logger: log) do |serv|
@@ -112,11 +130,16 @@ create_http_server(:example_json_http_server, addr: @bind, port: @port, logger: 
 end
 ```
 
-## http\_server used plugins
 
--   [Monitor Agent input](/plugins/input/monitor_agent.md)
+## Plugins using `http_server`
+
+-   [`in_monitor_agent`](/plugins/input/monitor_agent.md)
+
 
 ------------------------------------------------------------------------
 
-If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open).
-[Fluentd](http://www.fluentd.org/) is a open source project under [Cloud Native Computing Foundation (CNCF)](https://cncf.io/). All components are available under the Apache 2 License.
+If this article is incorrect or outdated, or omits critical information, please
+[let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open).
+[Fluentd](http://www.fluentd.org/) is an open-source project under
+[Cloud Native Computing Foundation (CNCF)](https://cncf.io/). All components are
+available under the Apache 2 License.

@@ -1,13 +1,16 @@
 # Writing Filter Plugins
 
-This section shows how to write custom filters in addition to [the core filter plugins](/plugins/filter/README.md). The plugin files whose names
-start with "filter\_" are registered as filter plugins. See [Plugin Base Class API](/developer/api-plugin-base.md) to show details of common API for all plugin
-types.
+This section shows how to write a custom filter plugin in addition to the core
+[ones](/plugins/filter/README.md). The plugin filenames starting with `filter_`
+prefix are registered as filter plugins.
 
-Here is the implementation of the most basic filter that passes through
-all events as-is:
+See [Plugin Base Class API](/developer/api-plugin-base.md) for more details on
+the common APIs of all the plugins.
 
-```
+Here is the implementation of the most basic filter that passes through all the
+events as-is:
+
+```rb
 require 'fluent/plugin/filter'
 
 module Fluent::Plugin
@@ -19,7 +22,7 @@ module Fluent::Plugin
 
     def configure(conf)
       super
-      # do the usual configuration here
+      # Do the usual configuration here
     end
 
     # def start
@@ -45,28 +48,31 @@ end
 
 ## Methods
 
-Filter plugins have a method to be implemented.
+A filter plugin overrides the `filter` method.
 
-#### \#filter(tag, time, record)
 
-This method implements the filtering logic for individual filters. `tag`
-is a String, `time` is a Fluent::EventTime or an Integer and `record` is
-a Hash with String keys.
+#### `#filter(tag, time, record)`
 
-The return value of this method should be a Hash of modified record, or
-nil. Fluentd will ignore the event which the filter returns nil.
+This method implements the filtering logic.
+
+- `tag`: is a `String`,
+- `time` is a `Fluent::EventTime` or an `Integer`; and,
+- `record` is a `Hash` with String keys.
+
+The return value of this method should be a `Hash` of modified record, or `nil`.
+In case of `nil`, the event will be discarded.
 
 
 ## Writing Tests
 
-Fluentd filter plugin has just one or some points to be tested. Others
-(parsing configurations, controlling buffers, retries, flushes and many
-others) are controlled by Fluentd core.
+Fluentd filter plugin has one or some points to be tested. Others (parsing
+configurations, controlling buffers, retries, flushes and many others) are
+controlled by Fluentd core.
 
-Fluentd also provides test driver for plugins. You can write tests of
-your own plugins very easily:
+Fluentd also provides test driver for plugins. You can write tests for your own
+plugins very easily:
 
-```
+```rb
 # test/plugin/test_filter_your_own.rb
 
 require 'test/unit'
@@ -92,7 +98,7 @@ class YourOwnFilterTest < Test::Unit::TestCase
 
   def filter(config, messages)
     d = create_driver(config)
-    d.run(default_tag: "input.access") do
+    d.run(default_tag: 'input.access') do
       messages.each do |message|
         d.feed(message)
       end
@@ -122,17 +128,16 @@ class YourOwnFilterTest < Test::Unit::TestCase
     test 'add hostname to record' do
       conf = CONFIG
       messages = [
-        { "message" => "This is test message" }
+        { 'message' => 'This is test message' }
       ]
       expected = [
-        { "message" => "This is test message", "hostname" => "example.com" }
+        { 'message' => 'This is test message', 'hostname' => 'example.com' }
       ]
       filtered_records = filter(conf, messages)
       assert_equal(expected, filtered_records)
     end
     # ...
   end
-
   # ...
 end
 ```
@@ -140,33 +145,39 @@ end
 
 ### Overview of Tests
 
-Testing for filter plugins are mainly for:
+Testing for the filter plugins is mainly for:
 
--   Configuration/Validation checks for invalid configurations (about
-    `#configure`)
--   Checks for filtered records by filter plugins
+-   Validation of configuration parameters (i.e. `#configure`)
+-   Validation of the filtered records
 
-Plugin test driver provides dummy router, logger and feature to override
-system configurations, and configuration parser and others to make it
-easy to test configuration errors or others.
+To make testing easy, the plugin test driver provides a dummy router, a logger
+and general functionality to override the system, parser and other relevant
+configurations.
 
-Lifecycle of plugins and test drivers is:
+The lifecycle of the plugin and its test driver is:
 
-1.  Instantiate plugin driver (and it instantiates plugin)
+1.  Instantiate the test driver which then instantiates the plugin
 2.  Configure plugin
 3.  Register conditions to stop/break running tests
 4.  Run test code (provided as a block for `d.run`)
-5.  Assert results of tests by data provided from driver
+5.  Assert results of tests using data provided by the driver
 
-Test drivers calls methods for plugin lifecycles at the beginning of 4.
-(`#start`) and the end of 4. (`#stop`, `#shutdown`, ...). It can be
-skipped by optional arguments of `#run`. See [Testing API for plugins](/developer/plugin-test-code.md) for details.
+At the start of Step # 4, the test driver calls the startup methods of the
+plugin e.g. `#start` and at the end `#stop`, `#shutdown`, etc. It can be skipped
+by optional arguments of `#run`.
 
-For configuration tests, repeat 1-2. For full feature tests, repeat 1-5.
-Test drivers and helper methods will support it.
+For:
+
+- configuration tests, repeat steps # 1-2
+- full feature tests, repeat steps # 1-5
+
+For more details, see [Testing API for Plugins](/developer/plugin-test-code.md).
 
 
 ------------------------------------------------------------------------
 
-If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open).
-[Fluentd](http://www.fluentd.org/) is a open source project under [Cloud Native Computing Foundation (CNCF)](https://cncf.io/). All components are available under the Apache 2 License.
+If this article is incorrect or outdated, or omits critical information, please
+[let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open).
+[Fluentd](http://www.fluentd.org/) is an open-source project under
+[Cloud Native Computing Foundation (CNCF)](https://cncf.io/). All components are
+available under the Apache 2 License.

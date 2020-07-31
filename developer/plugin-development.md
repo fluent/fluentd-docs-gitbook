@@ -1,75 +1,87 @@
-# Writing plugins
+# Writing Plugins
 
 
-## Installing custom plugins
+## Installing Custom Plugins
 
-To install a plugin, please put the ruby script in the
-`/etc/fluent/plugin` directory.
+To install a plugin, put the Ruby script in `/etc/fluent/plugin` directory.
 
-Alternatively, you can create a Ruby Gem package that includes a
-`lib/fluent/plugin/<TYPE>_<NAME>.rb` file. The *TYPE* is:
+Alternatively, you can create a Ruby Gem package that includes:
 
--   `in` for input plugins
--   `out` for output plugins
--   `filter` for filter plugins
--   `parser` for parser plugins
--   `formatter` for formatter plugins
--   `storage` for storage plugins
--   `buf` for buffer plugins
--   `sd` for service discovery
+```text
+lib/fluent/plugin/<TYPE>_<NAME>.rb
+```
 
-For example, an email Output plugin would have the path:
-`lib/fluent/plugin/out_mail.rb`. The packaged gem can be distributed and
-installed using RubyGems. For further information, please see the [list of Fluentd plugins](http://www.fluentd.org/plugins) for third-party
-plugins.
+The `TYPE` prefix could be:
+
+| prefix      | plugin type       | 
+|:-----------:|:-----------------:|
+| `in`        | input             |
+| `out`       | output            |
+| `filter`    | filter            |
+| `parser`    | parser            |
+| `formatter` | formatter         |
+| `storage`   | storage           |
+| `buf`       | buffer            |
+| `sd`        | service discovery |
+
+For example, an email output plugin would have the path:
+
+```text
+lib/fluent/plugin/out_mail.rb
+```
+
+The packaged gem can be distributed and installed using RubyGems. For further
+information, see the [list of Fluentd plugins](http://www.fluentd.org/plugins)
+for third-party plugins.
 
 
 ## Overview
 
-The following slides can help the user understand how Fluentd works
-before they dive into writing their own plugins.
+The following slides can help understand how Fluentd works before diving into
+writing custom plugins.
 
-(The slides are taken from [Naotoshi Seo's](https://github.com/sonots)
-[RubyKaigi 2014 talk](http://rubykaigi.org/2014/presentation/S-NaotoshiSeo/).)
+These slides are from [Naotoshi Seo's](https://github.com/sonots)
+[RubyKaigi 2014 talk](http://rubykaigi.org/2014/presentation/S-NaotoshiSeo/).
 
-This slide is based on Fluentd v0.12. There are many difference between
-v0.12 and v1 API, but it may help our understanding about Fluent's total design.
+The slides are based on Fluentd v0.12. There are many differences between v0.12
+and v1 API, but it may help build an understanding of overall Fluentd's design.
 
 
-### Fluentd version and Plugin API
+### Fluentd Version and Plugin API
 
-Fluentd now has two active versions, v1 and v0.12. v1 is current
-stable and v1 has brand-new Plugin API. v0.12 is old stable and v0.12
-has old Plugin API.
+Fluentd now has two active versions, v1 and v0.12. v1 is current stable and v1
+has brand-new Plugin API. v0.12 is old stable and v0.12 has old Plugin API.
 
-The important point is v1 supports v1 and v0.12 APIs. It means the
-plugin for v0.12 works with v1.
+The important point is v1 supports v1 and v0.12 APIs. It means the plugin for
+v0.12 works with v1.
 
-We recommend to use new v1 plugin API for new plugins.
+It is recommended to use the new v1 plugin API for writing new plugins.
 
 
 ### Send a patch or fork?
 
-If you have a problem with existing plugins or new feature idea, sending
-a patch is better. If the plugin author is non-active, try to become new
-plugin maintainer first. Forking a plugin and release alternative
-plugin, e.g. fluent-plugin-xxx-alt, is final approach.
+If you have a problem with any existing plugins or new feature idea, sending a
+patch is better. If the plugin author is non-active, try to become its new
+plugin maintainer first. Forking a plugin and release its alternative version,
+e.g. `fluent-plugin-xxx-alt` is considered the last option.
 
 
-## Writing plugins
+## Writing Plugins
 
-To create a plugin as a ruby script (to put it on `/etc/fluent/plugin`),
-just write a `<TYPE>_<NAME>.rb` file by editor, IDE or anything you
-prefer.
+To create a plugin as a Ruby script (to put it in `/etc/fluent/plugin/`
+directory), create a `<TYPE>_<NAME>.rb` file in any editor/IDE of your choice.
 
-```
+Example:
+
+```rb
 # in_my_awesome.rb
 require 'fluent/plugin/input'
 
 module Fluent
   module Plugin
     class MyAwesomeInput < Input
-      Fluent::Plugin.register_input('my_awesome', self) # for "@type my_awesome" in configuration
+      # For `@type my_awesome` in configuration file
+      Fluent::Plugin.register_input('my_awesome', self)
 
       def configure(conf)
         super
@@ -84,30 +96,41 @@ module Fluent
 end
 ```
 
-See each plugin development article, "How to write XXX plugin", for API details.
+See the respective plugin development article, "How to write XXX plugin", for
+API details.
 
-Single ruby script is easy to write, but hard to test, to manage
-versions and to publish it. If you want to publish a plugin under
-version control, you should use `bundle gem` to create the plugin source
-tree and init it as git repository (it requires `bundler` gem in your
-ruby environment): `bundle gem fluent-plugin-my_awesome`. It generates
-source code directory tree under `lib`, the simple
-`fluent-plugin-my_awesome.gemspec` file, `README.md` and some other
-files.
+A single Ruby script is easy to write but hard to test, manage, version.
+publish, etc.
 
-Fluentd plugin projects use a bit different code tree under `lib` from
-typical ruby projects. Take care about to keep
-`lib/fluent/plugin/<TYPE>_<NAME>.rb` paths.
+If you want to publish a plugin under version control, you should use
+`bundle gem` to create the plugin source tree and then `git init` it.
+It requires `bundler` gem in your Ruby environment. 
 
+Example:
 
-### Generating plugin project skeleton
-
-Generate a project skeleton for creating a Fluentd plugin as a Gem
-package.
-
-For example generate input http2 plugin project skeleton:
-
+```shell
+$ bundle gem fluent-plugin-my_awesome
 ```
+
+It generates source code directory tree under `lib`,
+`fluent-plugin-my_awesome.gemspec` file, `README.md` and other relevant files.
+
+Fluentd plugin projects use a bit different code tree under `lib` i.e.:
+
+```text
+lib/fluent/plugin/<TYPE>_<NAME>.rb
+```
+
+
+### Generating Plugin Project Skeleton
+
+To make things easier, `fluent-plugin-generate` is provided to generate the
+project skeleton for writing a Fluentd plugin as a Gem package.
+
+For example, to generate the project skeleton for an input plugin `http2`, the
+command would be:
+
+```shell
 $ fluent-plugin-generate input http2
 License: Apache-2.0
         create Gemfile
@@ -137,27 +160,23 @@ fluent-plugin-http2/
 5 directories, 8 files
 ```
 
-If you want to generate a project skeleton without LICENSE, use
-`--no-license` option. For more details, see
-`fluent-plugin-generate --help`.
-
-Using `fluent-plugin-generate` command is good starting point to develop
-Fluentd plugins.
+If you want to generate a project skeleton without LICENSE, use `--no-license`
+option. For more details, see `fluent-plugin-generate --help`.
 
 
-## Debugging plugins
+## Debugging Plugins
 
-Run `fluentd` with the `-vv` option to show debug messages:
+Run `fluentd` with the `-vv` option to show debugging messages:
 
-```
+```shell
 $ fluentd -vv
 ```
 
-The **stdout** and **copy** output plugins are useful for debugging. The
-**stdout** output plugin dumps matched events to the console. It can be
-used as follows:
+The `stdout` and `copy` output plugins are useful for debugging. The `stdout`
+output plugin dumps matched events to the standard output (console). It can be
+configured like this:
 
-```
+```text
 # You want to debug this plugin.
 <source>
   @type your_custom_input_plugin
@@ -172,7 +191,7 @@ used as follows:
 The **copy** output plugin copies matched events to multiple output
 plugins. You can use it in conjunction with the stdout plugin:
 
-```
+```text
 <source>
   @type forward
 </source>
@@ -197,7 +216,7 @@ plugins. You can use it in conjunction with the stdout plugin:
 You can use **stdout** filter instead of **copy** and **stdout**
 combination. The result is same as above but more simpler.
 
-```
+```text
 <source>
   @type forward
 </source>
@@ -212,37 +231,35 @@ combination. The result is same as above but more simpler.
 ```
 
 
-## Writing tests for plugins
+## Writing Tests for Plugins
 
 Fluentd provides unit test frameworks for plugins:
 
-```
-Fluent::Test::Driver::Input
-  Test driver for input plugins.
-
-Fluent::Test::Driver::Output
-  Test driver for output plugins.
-
-Fluent::Test::Driver::Filter
-  Test driver for filter plugins
+```rb
+Fluent::Test::Driver::Input   # Test driver for input plugins.
+Fluent::Test::Driver::Output  # Test driver for output plugins.
+Fluent::Test::Driver::Filter  # Test driver for filter plugins.
 ```
 
-Fluentd core project strongly recommends to use `test-unit` as a unit
-test library. Fluentd's test drivers assume that the test code uses it.
-Add `test-unit` into the development dependency in your gemspec, add
-Rake task to run tests in your Rakefile and write test code in
-`test/plugin/test_in_my_awesome.rb`.
+It is strongly recommended to use `test-unit` as the unit test library.
+Fluentd's test drivers assume that the test code uses it. Add `test-unit`as the
+development dependency in your `gemspec`, add `Rake` task to run tests in your
+`Rakefile` and write test code in `test/plugin/test_in_my_awesome.rb`.
 
-```
-# in gemspec
+**gemspec**
+
+```rb
 Gem::Specification.new do |gem|
-  gem.name = "fluent-plugin-my_awesome"
+  gem.name = 'fluent-plugin-my_awesome'
   # ...
-  gem.add_runtime_dependency     "fluentd"
-  gem.add_development_dependency "test-unit"
+  gem.add_runtime_dependency     'fluentd'
+  gem.add_development_dependency 'test-unit'
 end
+```
 
-# in Rakefile
+**Rakefile**
+
+```rb
 require 'rake/testtask'
   Rake::TestTask.new(:test) do |test|
   test.libs << 'lib' << 'test'
@@ -251,16 +268,20 @@ require 'rake/testtask'
 end
 ```
 
-Then, run `bundle exec rake test` to run all tests in your test code.
+Run `bundle` to execute tests: 
 
-See [Writing Plugin Test Code](/developer/plugin-test-code.md) for more
-details about writing tests.
+```shell
+$ bundle exec rake test
+```
+
+See [Writing Plugin Test Code](/developer/plugin-test-code.md) for more details
+on writing tests.
 
 
-## Writing documents for plugins
+## Writing Documents for Plugins
 
-You have a snippet of README.md if you generate project skeleton using
-`fluent-plugin-generate`.
+Following is a snippet of `README.md` showing the project skeleton generated
+with `fluent-plugin-generate`.
 
 For example:
 
@@ -312,8 +333,7 @@ You can copy and paste generated documents here.
 
 You should write plugin description and configurations.
 
-You can generate documents for configuration using
-`fluent-plugin-config-format` command.
+You can generate configuration using `fluent-plugin-config-format` command.
 
 Example (input dummy):
 
@@ -351,5 +371,8 @@ For more details, see `fluent-plugin-config-format --help`.
 
 ------------------------------------------------------------------------
 
-If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open).
-[Fluentd](http://www.fluentd.org/) is a open source project under [Cloud Native Computing Foundation (CNCF)](https://cncf.io/). All components are available under the Apache 2 License.
+If this article is incorrect or outdated, or omits critical information, please
+[let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open).
+[Fluentd](http://www.fluentd.org/) is an open-source project under
+[Cloud Native Computing Foundation (CNCF)](https://cncf.io/). All components are
+available under the Apache 2 License.
