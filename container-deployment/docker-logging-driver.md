@@ -100,7 +100,7 @@ By default, the Fluentd logging driver will try to find a local Fluentd instance
 (Step # 2) listening for connections on the TCP port `24224`. Note that the
 container will not start if it cannot connect to the Fluentd instance.
 
-![fluentd_docker_integrated.png](https://www.fluentd.org/assets/img/recipes/fluentd_docker_integrated.png)
+![Integration of Docker with Fluentd](https://www.fluentd.org/assets/img/recipes/fluentd_docker_integrated.png)
 
 The following command will run a base Ubuntu container and print some messages
 to the standard output:

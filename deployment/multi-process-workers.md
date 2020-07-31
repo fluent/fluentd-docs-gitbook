@@ -17,7 +17,7 @@ Multi process workers feature launches multiple workers and use a separate
 process per worker. In addition, `fluentd` provides several features for multi
 process workers, so you can get multi process merits.
 
-![multi-process-workers.png](/images/multi-process-workers.png)
+![Multi-process Workers](/images/multi-process-workers.png)
 
 
 ## Configuration

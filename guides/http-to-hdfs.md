@@ -25,7 +25,7 @@ receive data from HTTP and stream it into HDFS.
 
 The figure below shows the high-level architecture:
 
-![http-to-hdfs.png](/images/http-to-hdfs.png)
+![HTTP-to-HDFS Overview](/images/http-to-hdfs.png)
 
 
 ## Install

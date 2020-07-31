@@ -50,7 +50,7 @@ Open this Command Prompt from the Windows Start menu.
 
 Its icon looks like this on Windows Server 2012:
 
-![msi-td-agent-command-prompt.png](/images/msi-td-agent-command-prompt.png)
+![Td-agent Command Prompt](/images/msi-td-agent-command-prompt.png)
 
 Now, launch `td-agent` with the following command:
 
@@ -71,7 +71,7 @@ It is working properly if you see the following in the logs:
 test.event: {"k", "v"}
 ```
 
-[![td-agent-windows-prompt.png](/images/td-agent-windows-prompt.png)](/images/td-agent-windows-prompt.png)
+[![Td-agent Windows Prompt](/images/td-agent-windows-prompt.png)](/images/td-agent-windows-prompt.png)
 
 
 ### Step 3: Run `td-agent` as Windows service
@@ -148,7 +148,7 @@ After you have installed the .msi package, you will see the program called
 `Td-agent Command Prompt` installed. Please double click this icon in
 the Windows menu (below is how it looks like on Windows Server 2012).
 
-![msi-td-agent-command-prompt.png](/images/msi-td-agent-command-prompt.png)
+![Td-agent Command Prompt](/images/msi-td-agent-command-prompt.png)
 
 In the prompt, please execute the command below to launch `td-agent` process:
 
@@ -169,7 +169,7 @@ It's working properly if td-agent process outputs:
 test.event: {"k", "v"}
 ```
 
-[![td-agent-windows-prompt.png](/images/td-agent-windows-prompt.png)](/images/td-agent-windows-prompt.png)
+[![Td-agent Windows Prompt](/images/td-agent-windows-prompt.png)](/images/td-agent-windows-prompt.png)
 
 
 ### Step 3: Register `td-agent` to Windows Service

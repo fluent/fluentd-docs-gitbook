@@ -1,6 +1,6 @@
 # Kubernetes Logging with Fluentd
 
-![fluentd_kubernetes.png](/images/fluentd_kubernetes.png)
+![Fluentd + Kubernetes](/images/fluentd_kubernetes.png)
 
 [Kubernetes](http://kubernetes.io) provides two logging endpoints for
 applications and cluster logs:

@@ -1,6 +1,6 @@
 # MongoDB Output Plugin
 
-![mongo.png](/images/plugins/output/mongo.png)
+![](/images/plugins/output/mongo.png)
 
 The `out_mongo` Output plugin writes records into
 [MongoDB](http://mongodb.org/), the emerging document-oriented database system.

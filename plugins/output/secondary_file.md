@@ -1,6 +1,6 @@
 # `secondary_file` Output Plugin
 
-![file.png](/images/plugins/output/file.png)
+![](/images/plugins/output/file.png)
 
 The `out_secondary_file` Output plugin writes chunks to files. This plugin is
 similar to `out_file` but this is for `<secondary>` use-case.

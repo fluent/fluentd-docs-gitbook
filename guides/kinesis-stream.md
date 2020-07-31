@@ -6,7 +6,7 @@ This article explains how to use [Fluentd](http://fluentd.org/)'s
 to aggregate semi-structured logs in real-time. Kinesis plugin is
 developed and published by Amazon Web Services officially.
 
-![fluentd-kinesis.png](/images/fluentd-kinesis.png)
+![Fluentd + Kinesis](/images/fluentd-kinesis.png)
 
 
 ## Background
