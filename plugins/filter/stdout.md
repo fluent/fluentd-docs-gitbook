@@ -67,7 +67,7 @@ This is the option of `stdout` format. Configures the format of record
 
 ### `<inject>` Section
 
-See [Inject Section Configurations](/developer/inject-section) for more details.
+See [Inject Section Configurations](/configuration/inject-section) for more details.
 
 
 ## Learn More
