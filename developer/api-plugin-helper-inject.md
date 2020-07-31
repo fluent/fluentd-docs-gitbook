@@ -74,7 +74,7 @@ end
 
 -   [`filter_stdout`](/plugins/filter/stdout.md)
 -   [`out_exec`](/plugins/output/exec.md)
--   [`out_exec filter`](/plugins/output/exec_filter.md)
+-   [`out_exec_filter`](/plugins/output/exec_filter.md)
 -   [`out_file`](/plugins/output/file.md)
 -   [`out_stdout`](/plugins/output/stdout.md)
 

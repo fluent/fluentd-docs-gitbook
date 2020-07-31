@@ -59,7 +59,7 @@ new_time = extract_time_from_record(record)
 -   [`in_exec`](/plugins/input/exec.md)
 -   [`in_tcp`](/plugins/input/tcp.md)
 -   [`in_udp`](/plugins/input/udp.md)
--   [`out_exec filter`](/plugins/output/exec_filter.md)
+-   [`out_exec_filter`](/plugins/output/exec_filter.md)
 
 
 ------------------------------------------------------------------------

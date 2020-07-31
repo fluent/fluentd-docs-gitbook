@@ -91,7 +91,7 @@ end
 -   [`in_tail`](/plugins/input/tail.md)
 -   [`in_tcp`](/plugins/input/tcp.md)
 -   [`in_udp`](/plugins/input/udp.md)
--   [`out_exec filter`](/plugins/output/exec_filter.md)
+-   [`out_exec_filter`](/plugins/output/exec_filter.md)
 
 
 ------------------------------------------------------------------------

@@ -79,7 +79,7 @@ end
 
 -   [`in_exec`](/plugins/input/exec.md)
 -   [`out_exec`](/plugins/output/exec.md)
--   [`out_exec filter`](/plugins/output/exec_filter.md)
+-   [`out_exec_filter`](/plugins/output/exec_filter.md)
 
 
 ------------------------------------------------------------------------

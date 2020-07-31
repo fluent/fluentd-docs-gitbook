@@ -17,7 +17,7 @@ module Fluent::Plugin
     # Plugins should be registered by calling `Fluent::Plugin.register_TYPE` method with name and `self`.
     # The first argument String is to identify the plugin in the configuration file.
     # The second argument is class of the plugin itself, `self` in most cases.
-    Fluent::Plugin.register_output('my_example', self)
+    Fluent::Plugin.register_input('my_example', self)
 
     desc 'The port number'
     # `config_param` Defines a parameter. You can refer the following parameter via @port instance variable.

@@ -90,7 +90,7 @@ this log line:
 will be parsed as:
 
 ```text
-2013-01-01 00:00:00 +0000 test: {"k":"v","a":"b"}
+2014-01-01 00:00:00 +0000 test: {"k":"v","a":"b"}
 ```
 
 For more details on `<parse>`, see [Parse Section Configurations](/configuration/parse-section.md).
