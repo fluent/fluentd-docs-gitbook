@@ -1,4 +1,4 @@
-# Monitoring Fluentd
+# Monitoring Fluentd: Overview
 
 This article describes how to monitor Fluentd.
 
@@ -11,9 +11,9 @@ monitoring tools such as [`Prometheus`](https://prometheus.io/),
 `Prometheus`, since we will be collaborating more in the future under the
 [CNCF (Cloud Native Computing Foundation)](https://www.cncf.io/).
 
--   [Monitoring Fluentd (Prometheus)](/deployment/monitoring-prometheus.md)
+-   [Monitoring Fluentd (Prometheus)](/monitoring/monitoring-prometheus.md)
 -   [Monitoring Fluentd (Datadog)](https://docs.datadoghq.com/integrations/fluentd/)
--   [Monitoring Fluentd (REST API)](/deployment/monitoring-rest-api.md)
+-   [Monitoring Fluentd (REST API)](/monitoring/monitoring-rest-api.md)
 
 
 ## Process Monitoring
@@ -23,7 +23,7 @@ that these processes are running.
 
 Here's an example for `td-agent`:
 
-```
+```shell
 /opt/td-agent/embedded/bin/ruby /usr/sbin/td-agent
   --daemon /var/run/td-agent/td-agent.pid
   --log /var/log/td-agent/td-agent.log
@@ -31,7 +31,7 @@ Here's an example for `td-agent`:
 
 For `td-agent` on Linux, check the process statuses like this: 
 
-```
+```shell
 $ ps w -C ruby -C td-agent --no-heading
 32342 ?        Sl     0:00 /opt/td-agent/embedded/bin/ruby /usr/sbin/td-agent --daemon /var/run/td-agent/td-agent.pid --log /var/log/td-agent/td-agent.log
 32345 ?        Sl     0:01 /opt/td-agent/embedded/bin/ruby /usr/sbin/td-agent --daemon /var/run/td-agent/td-agent.pid --log /var/log/td-agent/td-agent.log
@@ -55,7 +55,7 @@ settings are shown below:
 A debug port for local communication is recommended for troubleshooting. The
 following configuration will be required for the debug port:
 
-```
+```text
 <source>
   @type debug_agent
   bind 127.0.0.1

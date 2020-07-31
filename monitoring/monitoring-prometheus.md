@@ -12,13 +12,13 @@ Fluentd project is recommending to use Prometheus by default to monitor Fluentd.
 
 Install `fluent-plugin-prometheus` gem:
 
-```
+```shell
 $ fluent-gem install fluent-plugin-prometheus --version='~>1.6.1'
 ```
 
 For `td-agent`, use `td-agent-gem` for installation:
 
-```
+```shell
 $ sudo td-agent-gem install fluent-plugin-prometheus --version='~>1.6.1'
 ```
 
@@ -39,7 +39,7 @@ To expose Fluentd metrics to Prometheus, we need to configure three (3) parts:
 
 Configure the `<filter>` section to count the incoming records per tag:
 
-```
+```text
 # source
 <source>
   @type forward
@@ -71,7 +71,7 @@ counter as the record comes in.
 Configure `copy` plugin with `prometheus` output plugin to count the outgoing
 records per tag:
 
-```
+```text
 # count the number of outgoing records per tag
 <match company.*>
   @type copy
@@ -111,7 +111,7 @@ counter as the record goes out.
 Configure `prometheus` input plugin to expose internal counter information via
 HTTP:
 
-```
+```text
 # expose metrics in prometheus format
 
 <source>
@@ -135,7 +135,7 @@ HTTP:
 
 After you have done these three (3) changes, restart fluentd:
 
-```
+```shell
 # For stand-alone Fluentd installations
 $ fluentd -c fluentd.conf
 
@@ -145,7 +145,7 @@ $ sudo systemctl restart td-agent
 
 Let's send some records:
 
-```
+```shell
 $ echo '{"message":"hello"}' | bundle exec fluent-cat company.test1
 $ echo '{"message":"hello"}' | bundle exec fluent-cat company.test1
 $ echo '{"message":"hello"}' | bundle exec fluent-cat company.test1
@@ -155,7 +155,7 @@ $ echo '{"message":"hello"}' | bundle exec fluent-cat company.test2
 Access `http://localhost:24231/metrics` to receive the metrics in
 [Prometheus format](https://prometheus.io/docs/instrumenting/exposition_formats/):
 
-```
+```shell
 curl http://localhost:24231/metrics
 # TYPE fluentd_input_status_num_records_total counter
 # HELP fluentd_input_status_num_records_total The total number of incoming records
@@ -176,7 +176,7 @@ fluentd_output_status_buffer_queue_length{hostname="KZK.local",plugin_id="object
 
 Prepare the configuration file (`prometheus.yml`):
 
-```
+```yml
 global:
   scrape_interval: 10s # Set the scrape interval to every 10 seconds. Default is every 1 minute.
 
@@ -190,7 +190,7 @@ scrape_configs:
 
 Launch `prometheus`:
 
-```
+```shell
 $ ./prometheus --config.file="prometheus.yml"
 ```
 
