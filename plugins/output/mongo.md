@@ -28,7 +28,7 @@ This has the following advantages:
 will need to install the `fluent-plugin-mongo` gem using the following
 command:
 
-```
+```shell
 $ fluent-gem install fluent-plugin-mongo
 ```
 
@@ -37,7 +37,7 @@ For more details, see [Plugin Management](/deployment/plugin-management.md).
 
 ## Example Configuration
 
-```
+```text
 # Single MongoDB
 <match mongo.**>
   @type mongo
@@ -83,6 +83,15 @@ For `<buffer>`, refer to [Buffer Section Configuration](/configuration/buffer-se
 The value must be `mongo`.
 
 
+### `connection_string` (required)
+
+| type   | default     | version |
+|:-------|:------------|:--------|
+| string | `nil`       | 1.0.0   |
+
+The MongoDB connection string for URI.
+
+
 ### `host`
 
 | type   | default     | version |
@@ -101,11 +110,11 @@ The MongoDB hostname.
 The MongoDB port.
 
 
-### `database`
+### `database` (required)
 
-| type   | default            | version |
-|:-------|:-------------------|:--------|
-| string | required parameter | 1.0.0   |
+| type   | default  | version |
+|:-------|:---------|:--------|
+| string | `nil`    | 1.0.0   |
 
 The database name.
 
@@ -178,7 +187,7 @@ collection.
 For example, if you generate records with tags `mongo.foo`, the records will be
 inserted into the `foo` collection within the `fluentd` database:
 
-```
+```text
 <match mongo.*>
   @type mongo
   host fluentd
