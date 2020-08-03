@@ -217,7 +217,7 @@ sentry, irc, etc.
     @type monitoring_plugin
     # ...
   </match>
-<label>
+</label>
 ```
 
 
@@ -249,7 +249,7 @@ Leaf Server Example:
       # Monitoring server parameters
     </server>
   </match>
-<label>
+</label>
 ```
 
 Monitoring Server Example:
