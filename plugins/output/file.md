@@ -1,6 +1,6 @@
 # `file` Output Plugin
 
-![file.png](/images/plugins/output/file.png)
+![](/images/plugins/output/file.png)
 
 The `out_file` Output plugin writes events to files. By default, it
 creates files on a daily basis (around 00:10). This means that when you

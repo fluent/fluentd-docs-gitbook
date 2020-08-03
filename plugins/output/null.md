@@ -1,6 +1,6 @@
 # `null` Output Plugin
 
-![null.png](/images/plugins/output/null.png)
+![](/images/plugins/output/null.png)
 
 The `null` output plugin just throws away events.
 

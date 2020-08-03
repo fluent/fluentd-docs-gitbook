@@ -3,7 +3,7 @@
 This article shows how to collect `syslog` data into
 [InfluxDB](http://github.com/influxdb/influxdb) using Fluentd.
 
-![syslog-fluentd-influxdb.png](/images/syslog-fluentd-influxdb.png)
+![Syslog + Fluentd + InfluxDB](/images/syslog-fluentd-influxdb.png)
 
 
 ## Prerequisites
@@ -151,7 +151,7 @@ write SQL queries against your log data**.
 
 And then click `Visualization` and select line chart:
 
-![chronograf-explore-data.png](/images/chronograf-explore-data.png)
+![Chronograf: Explore Data](/images/chronograf-explore-data.png)
 
 Here, I am counting the number of lines of syslog messages per facility/priority:
 
@@ -161,11 +161,11 @@ SELECT COUNT(ident) FROM test.autogen./^system\./ GROUP BY time(1s)
 
 Click on "Submit Query" and you get a graph like this:
 
-![chronograf-query.png](/images/chronograf-query.png)
+![Chronograf: Query](/images/chronograf-query.png)
 
 Here is another screenshot just for the `system.daemon.info` series:
 
-![chronograf-query-2.png](/images/chronograf-query-2.png)
+![Chronograf: Query](/images/chronograf-query-2.png)
 
 
 ------------------------------------------------------------------------

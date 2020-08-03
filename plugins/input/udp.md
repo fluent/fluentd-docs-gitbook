@@ -1,6 +1,6 @@
 # UDP Input Plugin
 
-![udp.png](/images/plugins/input/udp.png)
+![](/images/plugins/input/udp.png)
 
 The `in_udp` Input plugin enables Fluentd to accept UDP payload.
 

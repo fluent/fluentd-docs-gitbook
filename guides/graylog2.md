@@ -87,7 +87,7 @@ Then, from the dropdown, choose `GELF UDP` and click on `Launch new input`,
 which should pop up a modal dialogue, Select the `Node` and fill the `Title`.
 Then, click `Save`.
 
-![graylog2-input.png](/images/graylog2-input.png)
+![Graylog Inputs](/images/graylog2-input.png)
 
 Now, Graylog2 is ready to accept messages from Fluentd over UDP. It's time to
 configure Fluentd.
@@ -153,7 +153,7 @@ $ sudo systemctl restart td-agent
 When you log back into Graylog, you should be seeing a graph like this
 (wait for events to flow in):
 
-![graylog2-graph.png](/images/graylog2-graph.png)
+![Graylog Graph](/images/graylog2-graph.png)
 
 ------------------------------------------------------------------------
 

@@ -1,6 +1,6 @@
 # `forward` Input Plugin
 
-![forward.png](/images/plugins/input/forward.png)
+![](/images/plugins/input/forward.png)
 
 The `in_forward` Input plugin listens to a TCP socket to receive the
 event stream. It also listens to a UDP socket to receive heartbeat

@@ -44,7 +44,7 @@ The default account credentials are:
 -   `username="admin"`
 -   `password="changeme"`
 
-![fluentd-ui.gif](/images/fluentd-ui/fluentd-ui.gif)
+![Fluentd UI](/images/fluentd-ui/fluentd-ui.gif)
 
 
 ## Screenshots
@@ -54,26 +54,32 @@ The default account credentials are:
 
 ### Dashboard
 
-![dashboard.gif](/images/fluentd-ui/dashboard.gif)
+![Fluentd UI: Dashboard](/images/fluentd-ui/dashboard.gif)
 
 
 ### Setting
 
-![setting.git](/images/fluentd-ui/setting.gif)
+![Fluentd UI: Settings](/images/fluentd-ui/setting.gif)
 
 
 ### `in_tail` setting
 
-![`in_tail`.gif](/images/fluentd-ui/in_tail.gif)
+![Fluentd UI: `in_tail` Settings](/images/fluentd-ui/in_tail.gif)
 
 
 ### Plugin
 
-![plugin.gif](/images/fluentd-ui/plugin.gif)
+![Plugin](/images/fluentd-ui/plugin.gif)
 
-![ss01](/images/fluentd-ui/01.png) ![ss02](/images/fluentd-ui/02.png)
-![ss03](/images/fluentd-ui/03.png) ![ss04](/images/fluentd-ui/04.png)
-![ss05](/images/fluentd-ui/05.png)
+![](/images/fluentd-ui/01.png)
+
+![](/images/fluentd-ui/02.png)
+
+![](/images/fluentd-ui/03.png)
+
+![](/images/fluentd-ui/04.png)
+
+![](/images/fluentd-ui/05.png)
 
 
 ------------------------------------------------------------------------

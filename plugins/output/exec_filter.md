@@ -1,6 +1,6 @@
 # `exec_filter` Output Plugin
 
-![exec_filter.png](/images/plugins/output/exec_filter.png)
+![](/images/plugins/output/exec_filter.png)
 
 The `out_exec_filter` Buffered Output plugin 1) executes an external program
 using an event as input; and, 2) reads a new event from the program output.

@@ -1,6 +1,6 @@
 # HDFS (WebHDFS) Output Plugin
 
-![webhdfs.png](/images/plugins/output/webhdfs.png)
+![](/images/plugins/output/webhdfs.png)
 
 The `out_webhdfs` Output plugin writes records into HDFS (Hadoop
 Distributed File System). By default, it creates files on an hourly

@@ -6,7 +6,7 @@ single-board computer. Because it is low-cost and easy to equip with
 various types of sensors, using Raspberry Pi as a cloud data logger is
 one of its ideal use cases.
 
-![raspberry-pi-cloud-data-logger.png](/images/raspberry-pi-cloud-data-logger.png)
+![Cloud Data Logger by Raspberry Pi](/images/raspberry-pi-cloud-data-logger.png)
 
 This article introduces how to transport sensor data from Raspberry Pi
 to the cloud, using Fluentd as the data collector. For the cloud side,

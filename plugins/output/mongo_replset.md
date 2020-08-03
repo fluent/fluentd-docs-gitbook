@@ -1,6 +1,6 @@
 # MongoDB ReplicaSet Output Plugin
 
-![mongo_replset.png](/images/plugins/output/mongo_replset.png)
+![](/images/plugins/output/mongo_replset.png)
 
 The `out_mongo_replset` Output plugin writes records into
 [MongoDB](http://mongodb.org/), the emerging document-oriented database
