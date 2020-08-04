@@ -17,7 +17,7 @@ Fluentd and `td-agent` can be found [here](https://www.fluentd.org/faqs).
 
 This installation guide is for `td-agent` v3/v4.
 `td-agent` v3/v4 uses fluentd v1 in the core. See
-[this page](/overview/td-agent-v2-vs-v3.md) for the comparison and supported OS.
+[this page](/overview/td-agent-v2-vs-v3-vs-v4.md) for the comparison and supported OS.
 
 
 ## Step 0: Before Installation
