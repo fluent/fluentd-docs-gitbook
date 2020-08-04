@@ -1,25 +1,25 @@
 # Timer Plugin Helper API
 
-`timer` helper manages event timers.
+The `timer` plugin helper manages event timers.
 
-Here is the code example with `timer` helper:
+Here is an example:
 
-```
+```rb
 require 'fluent/plugin/input'
 
 module Fluent::Plugin
   class ExampleInput < Input
     Fluent::Plugin.register_input('example', self)
 
-    # 1. load timer helper
+    # 1. Load timer helper
     helpers :timer
 
-    # omit configure, shutdown and other plugin API
+    # Omit `configure`, `shutdown` and other plugin APIs
 
     def start
       super
 
-      # 2. execute timer with unique name and second unit interval
+      # 2. Execute timer with unique name and second unit interval
       timer_execute(:example_timer, 10) {
         # ...
       }
@@ -28,25 +28,25 @@ module Fluent::Plugin
 end
 ```
 
-Launched timer is managed by the plugin. No need timer shutdown code in
-plugin's `shutdown`. The plugin shutdowns launched timers automatically.
+The launched timer is managed by the plugin helper. No need of timer shutdown
+code in plugin's `shutdown` method. The plugin shutdowns the launched timers
+automatically.
 
 
 ## Methods
 
 
-### timer\_execute(title, interval, repeat: true, &block)
+### `timer_execute(title, interval, repeat: true, &block)`
 
-This method executes timer with given parameters and routine
+This method executes timer with the given parameters and routine.
 
 -   `title`: unique symbol value
--   `interval`: Second unit `integer`/`float` value.
--   `repeat`: `true`/`false`. Default is `true`. If pass `false`, timer
-    is one-shot.
+-   `interval`: second unit `integer`/`float` value.
+-   `repeat`: `true`/`false` (default: `true`). If `false`, timer is one-shot.
 
 Code examples:
 
-```
+```rb
 # Pass block directly. block is executed in 10 second interval.
 timer_execute(:example_timer, 10) {
   # ...
@@ -60,14 +60,17 @@ end
 ```
 
 
-## timer used plugins
+## Plugins using `timer`
 
--   [Forward output](/plugins/output/forward.md)
--   [Monitor Agent input](/plugins/input/monitor_agent.md)
--   [Dummy input](/plugins/input/dummy.md)
+-   [`out_forward`](/plugins/output/forward.md)
+-   [`in_monitor_agent`](/plugins/input/monitor_agent.md)
+-   [`in_dummy`](/plugins/input/dummy.md)
 
 
 ------------------------------------------------------------------------
 
-If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open).
-[Fluentd](http://www.fluentd.org/) is a open source project under [Cloud Native Computing Foundation (CNCF)](https://cncf.io/). All components are available under the Apache 2 License.
+If this article is incorrect or outdated, or omits critical information, please
+[let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open).
+[Fluentd](http://www.fluentd.org/) is an open-source project under
+[Cloud Native Computing Foundation (CNCF)](https://cncf.io/). All components are
+available under the Apache 2 License.

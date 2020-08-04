@@ -1,20 +1,20 @@
 # Parser Plugin Helper API
 
-`parser` helper manages parser plugin life cycle.
+The `parser` plugin helper manages the lifecycle of parser plugin.
 
-Here is the code example with `parser` helper:
+Here is an example:
 
-```
+```rb
 require 'fluent/plugin/input'
 
 module Fluent::Plugin
   class ExampleInput < Input
     Fluent::Plugin.register_input('example', self)
 
-    # 1. load parser helper
+    # 1. Load parser helper
     helpers :parser
 
-    # omit shutdown and other plugin API
+    # Omit `shutdown` and other plugin APIs
 
     def configure(conf)
       super
@@ -26,10 +26,10 @@ module Fluent::Plugin
     def start
       super
 
-      # use parser helper in combination with other plugin helpers usually
+      # Use parser helper in combination usually with other plugin helpers
       timer_execute(:example_timer, 10) do
         read_raw_data do |text|
-          # 3. call @parser.parse(text) to parse raw data
+          # 3. Call `@parser.parse(text)` to parse raw data
           @parser.parse(text) do |time, record|
             router.emit(tag, time, record)
           end
@@ -40,62 +40,64 @@ module Fluent::Plugin
 end
 ```
 
-For more details about parser plugin, see following articles:
+For more details, see the following articles:
 
 -   [Parser Plugin Overview](/plugins/parser/README.md)
 -   [Writing Parser Plugins](/developer/api-plugin-parser.md)
--   [Parser plugin](/configuration/parse-section.md)
+-   [Parser Plugin](/configuration/parse-section.md)
 
 
 ## Methods
 
 
-### parser\_create(usage: "", type: nil, conf: nil, default\_type: nil)
+### `parser_create(usage: "", type: nil, conf: nil, default_type: nil)`
 
-This method creates parser plugin instance with given parameters.
+This method creates a parser plugin instance with the given parameters.
 
--   `usage`: unique name. This is required when multiple parsers are
-    used in the plugin
+-   `usage`: unique name required for multiple parsers
 -   `type`: parser type
 -   `conf`: parser plugin configuration
 -   `default_type`: default parser type
 
-Code examples:
+**Examples**
 
-```
+```rb
 # Create parser plugin instance using <parse> section in fluent.conf during configure phase
 @parser = parser_create
 @parser.parse(text) do |time, record|
-  ...
+  # ...
 end
 
 # Create JSON parser
 @json_parser = parser_create(usage: 'parser_in_example_json', type: 'json')
 @json_parser.parse(json) do |time, record|
-  ...
+  # ...
 end
 
-# Create MessagePack paser
+# Create MessagePack parser
 @msgpack_parser = parser_create(usage: 'parser_in_example_msgpack', type: 'msgpack')
 @msgpack_parser.parse(msgpack_binary) do |time, record|
-   ...
+  # ...
 end
 ```
 
 
-## parser used plugins
+## Plugins using `parser`
 
--   [Parser filter](/plugins/filter/parser.md)
--   [Exec input](/plugins/input/exec.md)
--   [HTTP input](/plugins/input/http.md)
--   [Syslog input](/plugins/input/syslog.md)
--   [Tail input](/plugins/input/tail.md)
--   [TCP input](/plugins/input/tcp.md)
--   [UDP input](/plugins/input/udp.md)
--   [Exec filter output](/plugins/output/exec_filter.md)
+-   [`filter_parser`](/plugins/filter/parser.md)
+-   [`in_exec`](/plugins/input/exec.md)
+-   [`in_http`](/plugins/input/http.md)
+-   [`in_syslog`](/plugins/input/syslog.md)
+-   [`in_tail`](/plugins/input/tail.md)
+-   [`in_tcp`](/plugins/input/tcp.md)
+-   [`in_udp`](/plugins/input/udp.md)
+-   [`out_exec_filter`](/plugins/output/exec_filter.md)
 
 
 ------------------------------------------------------------------------
 
-If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open).
-[Fluentd](http://www.fluentd.org/) is a open source project under [Cloud Native Computing Foundation (CNCF)](https://cncf.io/). All components are available under the Apache 2 License.
+If this article is incorrect or outdated, or omits critical information, please
+[let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open).
+[Fluentd](http://www.fluentd.org/) is an open-source project under
+[Cloud Native Computing Foundation (CNCF)](https://cncf.io/). All components are
+available under the Apache 2 License.

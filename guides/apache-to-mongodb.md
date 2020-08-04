@@ -26,7 +26,7 @@ import Apache logs into MongoDB.
 
 The figure below shows how things will work:
 
-![apache-to-mongodb.png](/images/apache-to-mongodb.png)
+![Apache + MongoDB](/images/apache-to-mongodb.png)
 
 Fluentd does three (3) things:
 

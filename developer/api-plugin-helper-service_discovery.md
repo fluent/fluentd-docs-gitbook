@@ -1,8 +1,9 @@
 # Service Discovery Helper API
 
-`service_discovery` helper provides users with service discovery.
+The `service_discovery` plugin helper provides users with the service discovery
+functionality.
 
-Here is the code example with `service_discovery` helper:
+Example:
 
 ```rb
 require 'fluent/plugin/output'
@@ -11,7 +12,7 @@ module Fluent::Plugin
   class ExampleOutput < Output
     Fluent::Plugin.register_output('example', self)
 
-    # 1. load service_discovery helper
+    # 1. Load service_discovery helper
     helpers :service_discovery
 
     def configure(conf)
@@ -29,45 +30,55 @@ module Fluent::Plugin
     end
 
     def write(chunk)
-      # 3. select service to send data
+      # 3. Select service to send data
       discovery_manager.select_service do |node|
         send_data(node, chunk)
       end
     end
 
     def send_data(node, chunk)
-      # send data
+      # Send data
     end
   end
 end
 ```
 
-Launched service discovery service is managed by the helper. No need to stop it.
-in plugin's `stop` method. The plugin stops launched service discovery automatically.
+**NOTE**: The launched plugin itself is managed by its plugin helper which stops it
+automatically. No need to stop it in the `stop` method.
+
 
 ## Methods
 
-### service\_discovery\_create\_manager(title, configurations:, load\_balancer: nil, custom\_build\_method: nil, interval: 3)
 
-The method creates service `discovery_manager`. Here is the parameter.
+### `service_discovery_create_manager(title, configurations:, load_balancer: nil, custom_build_method: nil, interval: 3)`
 
-- `title`: Thread name. this value must be unique (required)
-- `configurations`: Configuration of target service (required)
-- `load_balancer`: Balancing load to target servers. default is Round-Robin
-- `custom_build_method`: Custom method used when building service
-- `interval`: Interval time for updating target service
+This method creates `service_discovery_manager`.
 
-### discovery\_manager
+#### Parameters
 
-The value manages all things about service discovery such as updating target services and selecting target services.
-The value provides `select_service` method which returns a target service to send data.
+- `title`: Thread name. Must be unique. (required)
+- `configurations`: Configuration of target service. (required)
+- `load_balancer`: Balancing load to target servers. (default: Round-Robin)
+- `custom_build_method`: Custom method used when building service.
+- `interval`: Time interval for updating target service.
 
 
-## plugins which use service\_discovery
+### `discovery_manager`
 
--   [out forward](/plugins/output/forward.md)
+It manages service discovery functionalities such as updating target services
+and selecting target services. It provides `select_service` method that returns
+a target service to send data.
+
+
+## Plugins using `service_discovery`
+
+-   [`out_forward`](/plugins/output/forward.md)
+
 
 ------------------------------------------------------------------------
 
-If this article is incorrect or outdated or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open).
-[Fluentd](http://www.fluentd.org/) is a open source project under [Cloud Native Computing Foundation (CNCF)](https://cncf.io/). All components are available under the Apache 2 License.
+If this article is incorrect or outdated, or omits critical information, please
+[let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open).
+[Fluentd](http://www.fluentd.org/) is an open-source project under
+[Cloud Native Computing Foundation (CNCF)](https://cncf.io/). All components are
+available under the Apache 2 License.

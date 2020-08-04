@@ -1,30 +1,27 @@
 # Writing Output Plugins
 
-To create an output plugin, you need to define a class inheriting
-**Fluent::Plugin::Output** and implement a set of methods on it.
+Extend `Fluent::Plugin::Output` class and implement its methods.
 
-The exact set of methods to be implemented is dependent on the design of
-your plugin. The following is a general template for writing a custom
-output plugin.
+The exact set of methods to be implemented is dependent on the design of the
+plugin. The following is a general template for writing a custom output plugin:
 
-```
+```rb
 require 'fluent/plugin/output'
 
 module Fluent::Plugin
   class SomeOutput < Output
+    # First, register the plugin. 'NAME' is the name of this plugin
+    # and identifies the plugin in the configuration file.
+    Fluent::Plugin.register_output('NAME', self)
 
-    # Register the name of your plugin (Choose a name which
-    # is not used by any other output plugins).
-    Fluent::Plugin.register_output('some', self)
-
-    # Enable threads if you are writing an async buffered plugin
+    # Enable threads if you are writing an async buffered plugin.
     helpers :thread
 
-    # Define parameters for your plugin
+    # Define parameters for your plugin.
     config_param :path, :string
 
     #### Non-Buffered Output #############################
-    # Implement process() if your plugin is unbeffered.
+    # Implement `process()` if your plugin is non-buffered.
     # Read "Non-Buffered output" for details.
     ######################################################
     def process(tag, es)
@@ -34,48 +31,49 @@ module Fluent::Plugin
     end
 
     #### Sync Buffered Output ##############################
-    # Implement write() if your plugin uses a normal buffer.
+    # Implement `write()` if your plugin uses normal buffer.
     # Read "Sync Buffered Output" for details.
     ########################################################
     def write(chunk)
       real_path = extract_placeholders(@path, chunk)
 
-      log.debug "writing data to file", chunk_id: dump_unique_id_hex(chunk.unique_id)
+      log.debug 'writing data to file', chunk_id: dump_unique_id_hex(chunk.unique_id)
 
-      # For standard chunk format (without #format() method)
+      # For standard chunk format (without `#format()` method)
       chunk.each do |time, record|
         # output events to ...
       end
 
-      # For custom format (when #format() implemented)
+      # For custom format (when `#format()` implemented)
       # File.open(real_path, 'w+')
 
-      ## or #write_to(io) is available
+      # or `#write_to(io)` is available
       # File.open(real_path, 'w+') do |file|
       #   chunk.write_to(file)
       # end
     end
 
     #### Async Buffered Output #############################
-    # Implement try_write() if you want to defer commit of
-    # chunks. Read "Async Buffered Output" for how it works.
+    # Implement `try_write()` if you want to defer committing
+    # chunks. Read "Async Buffered Output" for details.
     ########################################################
     def try_write(chunk)
       real_path = extract_placeholders(@path, chunk)
 
-      log.debug "sending data to server", chunk_id: dump_unique_id_hex(chunk.unique_id)
+      log.debug 'sending data to server', chunk_id: dump_unique_id_hex(chunk.unique_id)
 
       send_data_to_server(@host, real_path, chunk.read)
 
       chunk_id = chunk.unique_id
 
-      # Create a thread for defered commit.
+      # Create a thread for deferred commit.
       thread_create(:check_send_result) do
         while thread_current_running?
           sleep SENDDATA_CHECK_INTERVAL # == 5
 
           if check_data_on_server(real_path, chunk_id)
-            # commit chunk - chunk will be deleted and not be retried anymore by this call
+            # commit chunk
+            # chunk will be deleted and not be retried anymore by this call
             commit_write(chunk_id)
             break
           end
@@ -83,9 +81,9 @@ module Fluent::Plugin
       end
     end
 
-    # Override #format if you want to customize how Fluentd stores
+    # Override `#format` if you want to customize how Fluentd stores
     # events. Read the section "How to Customize the Serialization
-    # Format for Chunks" for how it works.
+    # Format for Chunks" for details.
     def format(tag, time, record)
       [tag, time, record].to_json
     end
@@ -96,82 +94,85 @@ end
 
 ## Three Modes of Output Plugins
 
-Output plugins have three operation modes. Each mode has a set of
-interfaces to implement. Any output plugin must support (at least) one
+Output plugins have three operational modes. Each mode has a set of
+interfaces to implement. An output plugin must support (at least) one
 of these three modes.
 
+- Non-Buffered Mode
+- Sync-Buffered Mode
+- Async-Buffered Mode
 
-### Non-buffered Mode
 
-This is the simplest operation mode. The output plugin transfers events
-to the destination immediately after the reception. It does not use any
-buffer and never attempts to retry on errors.
+### Non-Buffered Mode
 
-For example, the built-in plugin `out_stdout` normally operates in this
-mode; This plugin just writes each event to stdout and essentially has
-no state.
+This is the simplest mode. The output plugin transfers events to the destination
+immediately after receiving them. It does not use any buffer and never attempts
+to retry on errors.
+
+For example, the built-in plugin `out_stdout` normally uses this mode. It just
+dumps events to the standard output without maintaining any state.
 
 This mode is available when `#process` method is implemented.
 
 
-### Sync Buffered Mode
+### Sync-Buffered Mode
 
-In this mode, the output plugin temporally stores events in a buffer and
-send them later. The exact behaviour of buffering is finely tunable
-though configuration parameters.
+In this mode, the output plugin temporarily stores events in a buffer and send
+them later. The exact buffering behavior is fine-tunable through configuration
+parameters.
 
-The most notable benefit of this mode is that it enables you to leverage
-the native retry mechanism. Temporal errors (like network failures) are
-transparently handled by Fluentd and you do not need to implement an
-error-handling mechanism by yourself.
+The most notable benefit of this mode is that it enables you to leverage the
+native retry mechanism. The errors such as network failures are transparently
+handled by Fluentd and you do not need to implement an error-handling mechanism
+by yourself.
 
 This mode is available when `#write` method is implemented.
 
 
-### Async Buffered Mode
+### Async-Buffered Mode
 
-In this mode, the output plugin temporally stores events in a buffer and
-send them later. The major difference with the synchronous mode is that
-this mode allows you to defer acknowledgement of transferred records.
-For example, you can implement the "at-least-once" semantics using this
-mode. Please read "How To Use Asynchronous Buffered Mode" for details.
+In this mode, the output plugin temporarily stores events in a buffer and send
+them later. The major difference with the synchronous mode is that this mode
+allows you to defer the acknowledgement of transferred records. For example, you
+can implement the **at-least-once** semantics using this mode.
+
+Please read "How To Use Asynchronous Buffered Mode" for details.
 
 This mode is available when `#try_write` method is implemented.
 
 
 ### How Fluentd Chooses Modes
 
-From viewpoint of users: write `<buffer>` section to enable buffering -
-Output plugin will use buffered mode if available, or fail to launch if
-unavailable.
+From the users' perspective, `<buffer>` section enables buffering. An output
+plugin will use buffered mode if available or fail otherwise.
 
-It's a bit complex from viewpoint of plugin developers. Here's full
-chart how Fluentd decides the mode:
+However, from the plugin developer's viewpoint, it is a bit different.
+
+See the full chart here showing how Fluentd chooses a mode:
 
 **[Fluentd v0.14 Plugin API Details](https://www.slideshare.net/tagomoris/fluentd-v014-plugin-api-details "Fluentd v0.14 Plugin API Details")**
 from **[SATOSHI TAGOMORI](https://www.slideshare.net/tagomoris)**
 
-Simply speaking, this is the rule:
+Simply, this is the rule:
 
--   If users configure `<buffer>` section:
-    -   plugin tries to do buffering
--   Else if plugin implements both of methods for buffered/non-buffered
-    -   plugin calls `#prefer_buffer_processing` to decide it (true
-        means to do buffering: default true)
--   Else plugin does as implemented
+- If `<buffer>` section is configured:
+  - plugin tries to do buffering
+- Else if plugin implements both methods for buffered/non-buffered:
+  - plugin calls `#prefer_buffer_processing` to decide (`true` means to do
+    buffering: default is `true`)
+- Else plugin does as implemented.
 
 When plugin does buffering:
 
--   If plugin implements both of Sync/Async buffered methods
-    -   plugin calls `#prefer_delayed_commit` to decide it (true means
-        to use delayed commit: default true)
--   Else plugin does as implemented
+- If plugin implements both Sync/Async buffered methods:
+  - plugin calls `#prefer_delayed_commit` to decide (`true` means to use delayed
+    commit: default is `true`)
+- Else plugin does as implemented.
 
-It's an important point that methods to decide modes will be called in
-`#start` methods, which is called after `#configure`. So plugins can
-decide the default behavior with configured parameter values by
-overriding these methods (`#prefer_buffer_processing` and
-`#prefer_delayed_commit`).
+It is important to note that the methods that decide modes are called in
+`#start` after `#configure`. So, the plugins can decide the default behavior
+using configured parameters by overriding `#prefer_buffer_processing` and
+`#prefer_delayed_commit` methods.
 
 
 ## How Buffers Work
@@ -179,91 +180,92 @@ overriding these methods (`#prefer_buffer_processing` and
 
 ### Understanding Chunking and Metadata
 
-See [Buffer section](/configuration/buffer-section.md) article for basic knowledge.
+For more details, see [Buffer](/configuration/buffer-section.md) section.
 
-Fluentd creates buffer chunks to store events. Each buffer chunks should
-be written at once, without any re-chunking in methods to write. In
-Fluentd v1.0, users can specify chunk keys by themselves using
-`<buffer CHUNK_KEYS>` section.
+Fluentd creates buffer chunks to store events. Each buffer chunks should be
+written at once, without any re-chunking. In Fluentd v1.0, users can specify
+chunk keys by themselves using `<buffer CHUNK_KEYS>` section.
 
-```
+Example:
+
+```text
 <buffer>         # Use pre-configured chunk keys by plugin
 <buffer []>      # without any chunk keys: all events will be appended into a chunk
 <buffer time>    # events in a time unit will be appended into a chunk
-                 #  (using ``timekey`` parameter)
+                 # (using `timekey` parameter)
 <buffer tag>     # events with same tag will be appended into a chunk
 <buffer any_key> # events with same value for specified key will be appended into a chunk
 ```
 
-When user specifies `time` as a chunk key, user must specifies `timekey`
-parameter in buffer section. If it is "15m" (15 minutes), events between
-00:00:00 and 00:14:59 will be in a chunk, and an event at 00:15:00 will
-be in another.
+When `time` is specified as the chunk key, `timekey` must also be specified in
+the buffer section. If it is configured as `15m` (15 minutes), the events
+between `00:00:00` and `00:14:59` will be in a chunk. An event at `00:15:00`
+will be in a different chunk.
 
-Users can specify 2 or more chunk keys as a list of items separated by
-comma (',').
+Users can specify two or more chunk keys as a list of items separated by comma
+(',').
 
-```
+Example:
+
+```text
 <buffer time,tag>
 <buffer time,country>
 <buffer tag,country,item>
 ```
 
-Specifying too many chunk keys causes that there are too many small
-chunks. It might be a problem (too many files in a directory for a file
-buffer).
+Too many chunk keys means too many small chunks and that may result in too many
+open files in a directory for a file buffer.
 
-Metadata, which can be fetched by `chunk.metadata`, contains values for
-chunking. If a user specifies `time`, metadata contains a value in
-`metadata.timekey`. If a user doesn't specify `time`, `metadata.timekey`
-is nil. See `chunk.metadata` for details.
+Metadata, fetched by `chunk.metadata`, contains values for chunking. If `time`
+is specified, metadata contains a value in `metadata.timekey`. Otherwise,
+`metadata.timekey` is `nil`. See `chunk.metadata` for details.
 
-In most cases, plugin authors don't need to consider these values. If
-you want to use these values to generate any paths, keys, table/database
-names or others, you can use `#extract_placeholders` method.
+In most cases, plugin authors do not need to consider these values. If you want
+to use these values to generate any paths, keys, table/database names, etc., you
+can use `#extract_placeholders` method.
 
-```
-@path = "/mydisk/mydir/${tag}/purchase.%Y-%m-%d.%H.log" # this value might come from configurations
+```rb
+@path = "/mydisk/mydir/${tag}/purchase.%Y-%m-%d.%H.log" # This value might be coming from configuration.
+
 extract_placeholders(@path, chunk) # => "/mydisk/mydir/service.cart/purshase.2016-06-10.23.log"
 ```
 
-This method call should be done by code of plugins, so plugins which
-supports this feature should explain which configuration parameter
-accepts placeholders in documents.
+The above method call should be performed by the plugin. And, the plugin that
+supports this feature should explain which configuration parameter accepts
+placeholders in its documentation.
 
 
 ### How To Control Buffering
 
-Buffer chunks will be flushed by some reason. Here's the complete list:
+Buffer chunks may be flushed due to the following reasons:
 
-1.  its size reaches to the limit of bytesize or number of records
-2.  its `timekey` is expired and `timekey_wait` passes
+1.  its size reaches the limit of bytesize or the maximum number of records
+2.  its `timekey` is expired and `timekey_wait` lapsed
 3.  it lives longer than `flush_interval`
-4.  it is appended any data and `flush_mode` is `immediate`
+4.  it appends data when `flush_mode` is `immediate`
 
-Buffer configuration has a parameter to control these mode, named
-`flush_mode`, which has 3 modes and default behavior.
+Buffer configuration provides `flush_mode` to control the mode. Here are its
+supported values and default behavior:
 
--   lazy: 1 and 2 are enabled
--   interval: 1, 2 and 3 are enabled
--   immediate: 4 is enabled
+-   `lazy`: 1 and 2 are enabled 
+-   `interval`: 1, 2 and 3 are enabled
+-   `immediate`: 4 is enabled
 
-Default is "lazy" if `time` is specified as chunk key. Otherwise,
-interval. If user specifies `flush_mode` explicitly, the plugin works as
-specified.
+Default is `lazy` if `time` is specified as the chunk key, `interval` otherwise.
+If `flush_mode` is explicitly configured, the plugin used the configured mode.
 
 
 ### How to Change the Default Values for Parameters
 
-There are many configuration parameters in `fluent/plugin/output.rb`,
-and some others in `fluent/plugin/buffer.rb`. Almost parameters are
-designed to work well for many use cases, but we want to overwrite
-default values of some parameters in plugins.
+Some configuration parameters are in `fluent/plugin/output.rb` and some are in
+`fluent/plugin/buffer.rb`. These parameters have been designed to work for most
+use cases. However, there may be need to override the default values of some
+parameters in plugins.
 
-If you want to change the default chunk keys and the limit of buffer
-chunk bytesize for your own plugin, you can do it like this:
+To change the default chunk keys and the limit of buffer chunk bytesize of a
+custom plugin, configure like this:
 
-```
+```rb
 class MyAwesomeOutput < Output
   config_section :buffer do
     config_set_default :chunk_keys, ['tag']
@@ -272,8 +274,7 @@ class MyAwesomeOutput < Output
 end
 ```
 
-This default value overriding is valid only for your plugin, and doesn't
-have any effect for others.
+This overriding is valid for this plugin only!
 
 
 ## Development Guide
@@ -281,13 +282,14 @@ have any effect for others.
 
 ### How To Use Asynchronous Buffered Mode and Delayed Commit
 
-Plugins must call `#commit_write` method by itself in async buffered
-mode. It will be done after some checks or wait for completion in
-destination side, so `#try_write` should NOT block processing for it.
-The best practice is to create a thread or timer to do it when the
-plugin starts.
+Plugins must call `#commit_write` in async buffered mode. It is called after
+some checks and it waits for the completion on destination side, so `#try_write`
+should NOT block its processing. The best practice is to create a dedicated
+thread or timer for it when the plugin starts.
 
-```
+Example:
+
+```rb
 class MyAwesomeOutput < Output
   helpers :timer
 
@@ -313,69 +315,64 @@ class MyAwesomeOutput < Output
 end
 ```
 
-The plugin can perform writing data and checking/commiting completion in
-parallel, and can use CPU resources more effeciently.
+The plugin can perform writing of data and checking/committing completion in
+parallel, and can use CPU resources more efficiently.
 
-If you are sure that writing data succeeded right after writing/sending
-data, you should use sync buffered output instead of async mode. Async
-mode is for destinations that we cannot check immediately whether
-operation succeeded or not.
+If you are sure that writing of data succeeds right after writing/sending data,
+you should use sync buffered output instead. Async mode is for destinations that
+we cannot check immediately after sending data whether it succeeded or not.
 
 
 ### How to Customize the Serialization Format for Chunks
 
-You can customize the serialization format with which Fluentd stores
-events into the buffer by overriding the method `#format`.
+The serialization format to store events in a buffer may be customized by
+overriding `#format` method.
 
-Generally you do not need to do this. Fluentd is equipped with a
-standard formatting function and there are many benefits to just leave
-the task to Fluentd (for example, it transparently allows you to iterate
-through records via `chunk.each`).
+Generally, it is not needed. Fluentd has its own serialization format and there
+are many benefits to just use the default one. For example, it transparently
+allows you to iterate through records via `chunk.each`.
 
-An exceptional case is when you can deliver chunks to the destination
-without any further processing. For example, `out_file` overrides
-`#format` so that it can produce chunk files that exactly look like
-final outputs. In this way, `out_file` can flush data just by moving
-chunk files to the destination path.
+An exceptional case is when the chunks need to sent to the destination without
+any further processing. For example, `out_file` overrides `#format` so that it
+can produce chunk files that exactly look like the final outputs. By doing this,
+`out_file` can flush data just by moving chunk files to the destination path.
 
-For further details, please also read the interface definition of
-`#format` below.
+For further details, read the interface definition of `#format` method below.
 
 
 ## List of Interface Methods
 
-Some methods should be overridden / implemented by plugins. On the other
-hand, plugins MUST NOT override methods without any metions about it.
+Some methods should be overridden/implemented by the plugins. On the other hand,
+plugins MUST NOT override methods without any mention.
 
 
-### \#process(tag, es)
+### `#process(tag, es)`
 
-The method for non-buffered output mode. The plugin which supports
-non-buffered output must implement this method.
+The method for non-buffered output mode. A plugin that supports non-buffered
+output must implement this method.
 
--   `tag`: a string, represents tag of events. events in es have same
-    tag.
--   `es`: an event stream (Fluent::EventStream)
-
-Return values will be ignored.
-
-
-### \#write(chunk)
-
-The method for sync buffered output mode. The plugin which supports sync
-buffered output must implement this method.
-
--   `chunk`: a buffer chunk (Fluent::Plugin::Buffer::Chunk)
-
-This method will be executed in parallel when `flush_thread_count` is
-larger than 1. So if your plugin modifies instance variables in this
-method, you need to protect it with `Mutex` or similar to avoid broken
-state.
+- `tag`: a string, represents tag of events. Events in `es` have the same `tag`.
+- `es`: an event stream (`Fluent::EventStream`)
 
 Return values will be ignored.
 
 
-### \#try\_write(chunk)
+### `#write(chunk)`
+
+The method for sync buffered output mode. A plugin that supports sync buffered
+output must implement this method.
+
+- `chunk`: a buffer chunk (`Fluent::Plugin::Buffer::Chunk`)
+
+This method will execute in parallel when `flush_thread_count` is greater than
+`1`. So, if your plugin modifies an instance variable in this method, you need
+to synchronize its access using a `Mutex` or some other synchronization facility
+to avoid the broken state.
+
+Return values will be ignored.
+
+
+### `#try_write(chunk)`
 
 The method for async buffered output mode. The plugin which supports
 async buffered output must implement this method.
@@ -390,149 +387,142 @@ state.
 Return values will be ignored.
 
 
-### \#format(tag, time, record)
+### `#format(tag, time, record)`
 
-The method for custom format of buffer chunks. The plugin which uses
-custom format to format buffer chunks must implement this method.
+The method for custom formatting of buffer chunks. A plugin that uses a custom
+format to format buffer chunks must implement this method.
 
--   `tag`: a String represents tag of events
--   `time`: a Fluent::EventTime object, or an Integer which represents
-    unix timestamp (seconds from Epoch)
--   `record`: a Hash with String keys
+- `tag`: a `String` represents tag of events
+- `time`: a `Fluent::EventTime` object or an `Integer` representing Unix
+  timestamp (seconds from Epoch)
+- `record`: a `Hash` with String keys
 
-Return value must be a String.
-
-
-### \#prefer\_buffered\_processing
-
-The method to specify whether to use buffered or non-buffered output
-mode in default when both methods are implemented. True means buffered
-output.
-
-Return value must be `true` or `false`.
+Return value must be a `String`.
 
 
-### \#prefer\_delayed\_commit
+### `#prefer_buffered_processing`
 
-The method to specify whether to use asynchronous or synchronous output
-mode when both methods are implemented. True means asynchronous buffered
-output.
+It specifies whether to use buffered or non-buffered output mode as the default
+when both methods are implemented. `True` means buffered output.
 
 Return value must be `true` or `false`.
 
 
-### \#extract\_placeholders(str, chunk)
+### `#prefer_delayed_commit`
 
-This method extract placeholders in given string, using values in chunk.
+It specifies whether to use asynchronous or synchronous output mode when both
+methods are implemented. `True` means asynchronous buffered output.
 
--   `str`: a String which contains placeholders
--   `chunk`: a Fluent::Plugin::Buffer::Chunk via `write`/`try_write`
-
-Return value is a String.
+Return value must be `true` or `false`.
 
 
-### \#commit\_write(chunk\_id)
+### `#extract_placeholders(str, chunk)`
 
-This method is to tell Fluentd that specified chunk should be committed.
-That chunk will be purged after this method call.
+It extracts placeholders in the given string using the values in chunk.
 
--   `chunk_id`: a String, brought by `chunk.unique_id`
+- `str`: a `String` containing placeholders
+- `chunk`: a `Fluent::Plugin::Buffer::Chunk` via `write`/`try_write`
 
-This method has some other optional arguments, but these are for
-internal use.
-
-
-### \#rollback\_write(chunk\_id)
-
-This method is to tell Fluentd that Fluentd should retry writing buffer
-chunk specified in argument. Plugins can call this method explicitly to
-retry writing chunks, or plugins also can leave that chunk id until
-timeout without calling this method.
-
--   `chunk_id`: a String, brought by `chunk.unique_id`
+Return value is a `String`.
 
 
-### \#dump\_unique\_id\_hex(chunk\_id)
+### `#commit_write(chunk_id)`
 
-This method is to dump buffer chunk ids. Buffer chunk id is a String,
-but the value includes non-printable characters. This method is to
-format chunk ids into printable strings, and be used for logging chunk
-ids.
+It tells Fluentd that the specified chunk should be committed. That chunk will
+be purged after this method call.
 
--   `chunk_id`: a String, brought by `chunk.unique_id`
+- `chunk_id`: a `String`, brought by `chunk.unique_id`
 
-Return value is a String.
+This method has some other optional arguments, but those are for internal use.
 
 
-### es.size
+### `#rollback_write(chunk_id)`
 
-`EventStream#size` returns an Integer, which represents the number of
-events in the event stream.
+It tells Fluentd that it should retry writing buffer chunk specified in the
+argument. Plugins can call this method explicitly to retry writing chunks, or
+they can just leave that chunk ID until timeout.
+
+- `chunk_id`: a `String`, brought by `chunk.unique_id`
 
 
-### es.each(&block)
+### `#dump_unique_id_hex(chunk_id)`
 
-`EventStream#each` receives a block argument, and call that block for
-each events (time and record).
+It dumps buffer chunk IDs. Buffer chunk ID is a `String`, but the value may
+include non-printable characters. This method formats chunk IDs as printable
+strings that can be used for logging purposes.
 
-```
+- `chunk_id`: a `String`, brought by `chunk.unique_id`
+
+Return value is a `String`.
+
+
+### `es.size`
+
+`EventStream#size` returns an `Integer` representing the number of events in the
+event stream.
+
+
+### `es.each(&block)`
+
+`EventStream#each` receives a block argument and call it for each event (`time`
+and `record`).
+
+Example:
+
+```rb
 es.each do |time, record|
   # ...
 end
 ```
 
--   `time`: a Fluent::EventTime object, or an Integer which represents
-    unix timestamp (seconds from Epoch)
--   `record`: a Hash with String keys
+- `time`: a `Fluent::EventTime` object or an `Integer` representing Unix
+  timestamp (seconds from Epoch)
+- `record`: a `Hash` with String keys
 
 
-### chunk.unique\_id
+### `chunk.unique_id`
 
-`Chunk#unique_id` returns a String which represents unique id of buffer
-chunks.
+Returns a `String` representing a unique ID for buffer chunk.
 
-Return value is a String. It includes non-printable characters, so use
+The returned `String` may include non-printable characters, so use
 `#dump_unique_id_hex` method to print it in logs or other purposes.
 
 
-### chunk.metadata
+### `chunk.metadata`
 
-`Chunk#metadata` returns a Fluent::Plugin::Buffer::Metadata object which
-contains values for chunking.
+Returns a `Fluent::Plugin::Buffer::Metadata` object containing values for
+chunking.
 
-Available fields of metadata are:
+Available fields of `metadata` are:
 
--   timekey: contains an integer represents unix timestamp, which is
-    equal to the first second of timekey range (nil if `time` isn't
-    specified)
--   tag: contains a string represents tag (nil if `tag` isn't specified)
--   variables: contains a hash with symbol keys, which contains any
-    other keys of chunk keys and values for these (nil if any other
-    chunk keys are specified)
+- `timekey`: an `Integer` representing Unix timestamp, which is equal to the
+  first second of `timekey` range (`nil` if `time` is not specified)
+- `tag`: a `String` representing event tag (`nil` if `tag` is not specified)
+- `variables`: a `Hash` with Symbol keys, containing other keys of chunk keys
+  and values for these (`nil` if any other chunk keys are specified)
 
-For example, `chunk.metadata.timekey` returns an Integer.
-`chunk.metadata.variables[:name]` returns an Object if `name` is
-specified as a chunk key.
+For example, `chunk.metadata.timekey` returns an `Integer`.
+`chunk.metadata.variables[:name]` returns an `Object` if `name` is specified as
+a chunk key.
 
 
-### chunk.size
+### `chunk.size`
 
-`Chunk#size` returns an Integer, represents the bytesize of chunks.
-
-
-### chunk.read
-
-`Chunk#read` reads all content of the chunk, and return it as a String.
-
-this method doesn't get any arguments, unlinke Ruby's IO object.
+Returns an `Integer` representing the bytesize of chunks.
 
 
-### chunk.open(&block)
+### `chunk.read`
 
-`Chunk#open` receives a block, and call it with an IO argument which
-provides reade operations.
+Reads all the content of the chunk and returns it as a `String`.
 
-```
+Unlike Ruby's IO object, this method has no arguments.
+
+
+### `chunk.open(&block)`
+
+Receives a block and calls it with an IO argument that provides read operations.
+
+```rb
 chunk.open do |io|
   while data = io.read(100)
     # ...
@@ -540,14 +530,14 @@ chunk.open do |io|
 end
 ```
 
--   `io`: a readable IO object
+- `io`: a readable IO object
 
 
-### chunk.write\_to(io)
+### `chunk.write_to(io)`
 
-`Chunk#write_to` writes entire data into an IO object.
+Writes entire data into an IO object.
 
--   `io`: a writable IO object
+- `io`: a writable IO object
 
 
 ### chunk.each(&block)
@@ -555,31 +545,32 @@ end
 This method is available only for standard format buffer chunks, and to
 provide iteration for events in buffer chunks.
 
-```
+```rb
 chunk.each do |time, record|
   # ...
-  # tag is available from chunk.metadata.tag if chunk_key is configured with tag
+  # tag is available from `chunk.metadata.tag` if `chunk_key` is configured with tag
 end
 ```
 
--   `time`: a Fluent::EventTime object, or an Integer which represents
-    unix timestamp (seconds from Epoch)
--   `record`: a Hash with String keys
+- `time`: a `Fluent::EventTime` object or an `Integer` representing Unix
+  timestamp (seconds from Epoch)
+- `record`: a `Hash` with String keys
 
 
 ## How to Write Tests
 
-This section explains how to write a test suite for your custom output
-plugin.
+This section explains how to write a test suite for a custom output plugin.
 
 
 ### Plugin Testing Overview
 
-To write a test suite, you need to define a class inheriting
-`Test::Unit::TestCase`. The basic structure is mostly same as any other
-Test::Unit-based test codes. Here is a minimum example.
+To write a test suite, you need to define a class inheriting from
+`Test::Unit::TestCase`. The basic structure is similar to any other
+`Test::Unit`-based test codes.
 
-```
+Here is a minimum example:
+
+```rb
 require_relative '../helper'
 require 'fluent/test/driver/output'
 require 'fluent/plugin/out_stdout'
@@ -595,50 +586,50 @@ class MyOutputTest < Test::Unit::TestCase
 end
 ```
 
-Please take notice of `Fluent::Test.setup` in the setup function. This
-function sets up a number of dummy proxies which are very convenient for
-many testing scenarios. So do not forget to call it!
+Please take notice of `Fluent::Test.setup` in the `setup` function. This
+function sets up a number of dummy proxies that are convenient for most testing
+scenarios. So, do not forget to call it!
 
-When you write a test suite for your plugin, please try to cover the
-following scenarios:
+When you write a test suite for your plugin, please try to cover the following
+scenarios:
 
-1.  What happens if invalid configuration values are passed?
-2.  Can your plugin transfer events to the destination?
-3.  Does `#write` (or `#try_write`) get called properly? (for a buffered
-    plugin)
-4.  Is your `#format` method working as expected? (for a buffered
-    plugin)
+1.  What happens if the configuration is invalid?
+2.  Can the plugin transfer events to the destination?
+3.  Does `#write` (or `#try_write`) get called properly? (for a buffered plugin)
+4.  Is your `#format` method working as expected? (for a buffered plugin)
 
 
 ### How to Use Test Drivers
 
-Plugin test driver provides dummy router, logger and feature to override
-system configurations, and configuration parser and others to make it
-easy to test configuration errors or others.
+To make testing easy, the plugin test driver provides a dummy router, a logger
+and the functionality to override the system and parser configurations, etc.
 
-Lifecycle of plugins and test drivers is:
+The lifecycle of plugin and test driver is:
 
-1.  Instantiate plugin driver (and it instantiates plugin)
+1.  Instantiate plugin driver which then instantiates the plugin
 2.  Configure plugin
 3.  Register conditions to stop/break running tests
 4.  Run test code (provided as a block for `d.run`)
 5.  Assert results of tests by data provided from driver
 
-Test drivers calls methods for plugin lifecycles at the beginning of 4.
-(`#start`) and the end of 4. (`#stop`, `#shutdown`, ...). It can be
-skipped by optional arguments of `#run`. See [Testing API for plugins](/developer/plugin-test-code.md) for details.
+Test driver calls methods for plugin lifecycle at the beginning of Step # 4
+(i.e. `#start`) and the end (i.e. `#stop`, `#shutdown`, etc.). It can be skipped
+by optional arguments of `#run`.
 
-For configuration tests, repeat 1-2. For full feature tests, repeat 1-5.
-Test drivers and helper methods will support it.
+See [Testing API for Plugins](/developer/plugin-test-code.md) for details.
+
+For:
+
+- configuration tests, repeat steps # 1-2
+- full feature tests, repeat steps # 1-5
 
 
 ### Example Test Code
 
-The following is a more convoluted example involving test drivers. A
-good first step is to modify the following code according to your
-specific needs.
+The following is a more convoluted example involving test drivers. A good first
+step is to modify the following code according to your own specific needs.
 
-```
+```rb
 # test/plugin/test_out_your_own.rb
 
 require 'test/unit'
@@ -674,7 +665,7 @@ class YourOwnOutputTest < Test::Unit::TestCase
 
     test 'param2 is set correctly' do
       d = create_driver
-      assert_equal "value2", d.instance.param2
+      assert_equal 'value2', d.instance.param2
     end
 
     # ...
@@ -685,7 +676,7 @@ class YourOwnOutputTest < Test::Unit::TestCase
       d = create_driver
       t = event_time("2016-06-10 19:46:32 +0900")
       d.run do
-        d.feed("tag", t, {"message" => "this is test message", "amount" => 53})
+        d.feed('tag', t, { 'message' => 'this is a test message', 'amount' => 53 })
       end
 
       assert{ check_write_of_plugin_called_and_its_result() }
@@ -695,15 +686,17 @@ class YourOwnOutputTest < Test::Unit::TestCase
   sub_test_case 'tests for #format' do
     test 'to test #format' do
       d = create_driver
-      t = event_time("2016-06-10 19:46:32 +0900")
+      t = event_time('2016-06-10 19:46:32 +0900')
       d.run do
-        d.feed("tag", t, {"message" => "this is test message", "amount" => 53})
+        d.feed('tag', t, { 'message' => 'this is a test message', 'amount' => 53 })
       end
 
-      rows = d.formatted # this returns array of result of #format
-      assert_equal "expected format result", rows[0]
+      # This returns an array i.e. the result of `#format`.
+      rows = d.formatted
 
-      # of course, you can check #format and #write at once
+      assert_equal 'expected format result', rows[0]
+
+      # Of course, you can check `#format` and `#write` at once.
       assert{ check_write_of_plugin_called_and_its_result() }
     end
   end
@@ -715,5 +708,8 @@ end
 
 ------------------------------------------------------------------------
 
-If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open).
-[Fluentd](http://www.fluentd.org/) is a open source project under [Cloud Native Computing Foundation (CNCF)](https://cncf.io/). All components are available under the Apache 2 License.
+If this article is incorrect or outdated, or omits critical information, please
+[let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open).
+[Fluentd](http://www.fluentd.org/) is an open-source project under
+[Cloud Native Computing Foundation (CNCF)](https://cncf.io/). All components are
+available under the Apache 2 License.

@@ -1,39 +1,41 @@
 # Storage Plugin Helper API
 
-`storage` helper manages plugin's internal states.
+The `storage` plugin helper manages the plugin's internal states.
 
-Here is the code example with `storage` helper:
+Here is an example:
 
-```
+```rb
 require 'fluent/plugin/input'
 
 module Fluent::Plugin
   class ExampleInput < Input
     Fluent::Plugin.register_input('awesome_example', self)
 
-    # 1. load storage helper
+    # 1. Load storage helper
     helpers :storage, :thread
 
     DEFAULT_STORAGE_TYPE = 'local'
 
-    # omit shutdown and other plugin API
+    # Omit `shutdown` and other plugin APIs
 
     def initialize
       super
+
       @storage = nil
     end
 
     def configure(conf)
       super
 
-      # 2. create storage with unique name
+      # 2. Create storage with unique name
       config = conf.elements(name: 'storage').first
       @storage = storage_create(usage: 'awesome_index', conf: config, default_type: DEFAULT_STORAGE_TYPE)
     end
 
     def start
       super
-      # 3. call storage plugin helpers get/put methods
+
+      # 3. Call storage plugin helpers get/put methods
       @storage.put(:awesome_index, 0) unless @storage.get(:awesome_index)
       thread_create(:awesome_input_runner, &method(:run))
     end
@@ -48,113 +50,121 @@ module Fluent::Plugin
     end
 
     def generate
-      # 4+. update storage plugin helper's storing value
-      @storage.update(:awesome_index){|v| v + 1}
+      # 4. Update storage plugin helper's storing value
+      @storage.update(:awesome_index) { |v| v + 1 }
     end
   end
 end
 ```
 
-Created storage is managed by the plugin. No need storage shutdown code
-in plugin's `shutdown`. The plugin shutdowns created storages
-automatically.
+The created storage is managed by the plugin helper. No need of storage shutdown
+code in plugin's `shutdown`. It shutdowns the created storages automatically.
 
-For more details about configuration, see [Storage section](/plugins/storage/storage-section.md).
+For more details, see [Storage](/plugins/storage/storage-section.md) section.
 
 
 ## Methods
 
 
-### storage\_create(usage: '', type: nil, conf: nil, default\_type: nil)
+### `storage_create(usage: '', type: nil, conf: nil, default_type: nil)`
 
-This method executes storage with given parameters and routine
+This method executes storage with the given parameters and routine.
 
--   `usage`: unique string value. Default is `''`.
--   `type`: storage plugin type. Default is `nil`.
--   `conf`: storage plugin configuration. Default is `nil`.
--   `default_conf`: storage plugin default configuration. Default is
-    `nil`.
+-   `usage`: unique string value (default: `''`)
+-   `type`: storage plugin type (default: `nil`)
+-   `conf`: storage plugin configuration (default: `nil`)
+-   `default_conf`: storage plugin default configuration (default: `nil`)
 
 
-### Storage plugin helper instance types
+### Storage Plugin Helper Instance Types
 
-  instance type          Attributes
-  ---------------------- --------------------------------------------------
-  Raw                    persistent && persistent\_always? `||` otherwise
-  Persistent Wrapper     persistent
-  Synchronized Wrapper   !synchronized?
+| Instance Type         | Attributes                                       |
+|:----------------------|:-------------------------------------------------|
+  Raw                   | `persistent && persistent_always? || otherwise`  |
+  Persistent Wrapper    | `persistent`                                     |
+  Synchronized Wrapper  | `!synchronized?`                                 |
+
 
 #### Raw
 
 Storage plugins will handle as-is.
 
+
 #### Persistent Wrapper
 
-This wrapper makes handled storage plugin should operate values
-persistently.
+This wrapper makes the handled storage plugin operate values persistently.
+
 
 #### Synchronized Wrapper
 
-This wrapper makes handled storage plugin should operate values
-synchronizedly.
+This wrapper makes handled storage plugin operate values synchronically.
 
 
-### Common methods
+### Common Methods
 
-Storage plugin helper encapsulates storage plugin implementation.
-Normally, the following methods will be called by owner plugin through
-this plugin helper.
+Storage plugin helper encapsulates storage plugin implementation. Normally, the
+following methods will be called by the owner plugin through this plugin helper:
 
-#### load
 
-This method loads persistently stored value by storage plugin.
+#### `load`
 
-#### save
+This method loads persistently stored value.
 
-This method save value persistently by storage plugin.
 
-#### get(key)
+#### `save`
+
+This method saves value persistently.
+
+
+#### `get(key)`
 
 -   `key`: symbol value.
 
 This method obtains stored value by key.
 
-#### fetch(key, defval)
+
+#### `fetch(key, defval)`
 
 -   `key`: symbol value.
 -   `defval`: default value.
 
-This method obtains stored value by key. If missing, it returns default
+This method obtains the stored value by key. If missing, it returns the default
 value.
 
-#### put(key, value)
+
+#### `put(key, value)`
 
 -   `key`: symbol value.
 -   `value`: store value.
 
-This method update stored value by key.
+This method updates the stored value by key.
 
-#### delete(key)
 
--   `key`: symbol value.
-
-This method delete stored value by key.
-
-#### update(key, &block)
+#### `delete(key)`
 
 -   `key`: symbol value.
--   `&block`: a Proc object.
 
-This method update stored value by Proc object.
+This method deletes the stored value by key.
 
 
-## storage used plugins
+#### `update(key, &block)`
 
--   [in dummy](/plugins/input/dummy.md)
--   [in windows eventlog](/plugins/input/windows_eventlog.md)
+-   `key`: symbol value.
+-   `&block`: a `Proc` object.
+
+This method updates the stored value using a `Proc` object.
+
+
+## Plugins using `storage`
+
+-   [`in_dummy`](/plugins/input/dummy.md)
+-   [`in_windows_eventlog`](/plugins/input/windows_eventlog.md)
 
 
 ------------------------------------------------------------------------
 
-If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open).
-[Fluentd](http://www.fluentd.org/) is a open source project under [Cloud Native Computing Foundation (CNCF)](https://cncf.io/). All components are available under the Apache 2 License.
+If this article is incorrect or outdated, or omits critical information, please
+[let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open).
+[Fluentd](http://www.fluentd.org/) is an open-source project under
+[Cloud Native Computing Foundation (CNCF)](https://cncf.io/). All components are
+available under the Apache 2 License.

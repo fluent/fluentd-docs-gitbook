@@ -5,7 +5,7 @@ its high cost makes it prohibitive for many teams. In this article, we
 present a free and open source alternative to Splunk by combining three
 open source projects: Elasticsearch, Kibana, and Fluentd.
 
-![kibana6-screenshot-visualize.png](/images/kibana6-screenshot-visualize.png)
+![Kibana Visualization](/images/kibana6-screenshot-visualize.png)
 
 
 [Elasticsearch](https://www.elastic.co/products/elasticsearch) is an
@@ -18,7 +18,7 @@ By combining these three tools (Fluentd + Elasticsearch + Kibana) we get
 a scalable, flexible, easy to use log search engine with a great Web UI
 that provides an open-source Splunk alternative, all for free.
 
-![fluentd-elasticsearch-kibana.png](/images/fluentd-elasticsearch-kibana.png)
+![Fluentd + Elasticsearch + Kibana](/images/fluentd-elasticsearch-kibana.png)
 
 
 In this guide, we will go over installation, setup, and basic use of
@@ -176,7 +176,7 @@ Kibana.
 For starters, let's access `http://localhost:5601` and click the `Set
 up index patters` button in the upper-right corner of the screen.
 
-![kibana6-screenshot-topmenu.png](/images/kibana6-screenshot-topmenu.png)
+![Kibana Top Menu](/images/kibana6-screenshot-topmenu.png)
 
 Kibana will start a wizard that guides you through configuring the data
 sets to visualize. If you want a quick start, use `logstash-*` as the
@@ -185,7 +185,7 @@ index pattern, and select `@timestamp` as the time-filter field.
 After setting up an index pattern, you can view the system logs as they
 flow in:
 
-![kibana6-screenshot.png](/images/kibana6-screenshot.png)
+![Kibana: Discover](/images/kibana6-screenshot.png)
 
 For more detail on how to use Kibana, please read the official
 [manual](https://www.elastic.co/guide/en/kibana/current/index.html).

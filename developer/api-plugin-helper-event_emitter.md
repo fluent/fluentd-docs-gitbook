@@ -1,10 +1,10 @@
 # Event Emitter Plugin Helper API
 
-`event_emitter` helper introduces `router` method to the plugin.
+The `event_emitter` plugin helper introduces `router` method to the plugin.
 
-Here is the code example with `event_emitter` helper:
+Here is an example:
 
-```
+```rb
 require 'fluent/plugin/output'
 
 module Fluent::Plugin
@@ -27,13 +27,13 @@ end
 ## Methods
 
 
-### router
+### `router`
 
-This method returns `Fluent::EventRouter` instance
+This method returns a `Fluent::EventRouter` instance.
 
 Code example:
 
-```
+```rb
 # emit event
 router.emit(tag, time, record)
 
@@ -51,17 +51,20 @@ end
 ```
 
 
-## event\_emitter used plugins
+## Plugins using `event_emitter`
 
 -   All input plugins
 -   All filter plugins
--   [Exec output](/plugins/output/exec.md)
--   [Relabel output](/plugins/output/relabel.md)
--   [Copy output](/plugins/output/copy.md)
--   [Roundrobin output](/plugins/output/roundrobin.md)
+-   [`out_exec`](/plugins/output/exec.md)
+-   [`out_relabel`](/plugins/output/relabel.md)
+-   [`out_copy`](/plugins/output/copy.md)
+-   [`out_roundrobin`](/plugins/output/roundrobin.md)
 
 
 ------------------------------------------------------------------------
 
-If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open).
-[Fluentd](http://www.fluentd.org/) is a open source project under [Cloud Native Computing Foundation (CNCF)](https://cncf.io/). All components are available under the Apache 2 License.
+If this article is incorrect or outdated, or omits critical information, please
+[let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open).
+[Fluentd](http://www.fluentd.org/) is an open-source project under
+[Cloud Native Computing Foundation (CNCF)](https://cncf.io/). All components are
+available under the Apache 2 License.

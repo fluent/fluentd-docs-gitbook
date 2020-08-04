@@ -1,6 +1,6 @@
 # `tail` Input Plugin
 
-![tail.png](/images/plugins/input/tail.png)
+![](/images/plugins/input/tail.png)
 
 The `in_tail` Input plugin allows Fluentd to read events from the tail
 of text files. Its behavior is similar to the `tail -F` command.

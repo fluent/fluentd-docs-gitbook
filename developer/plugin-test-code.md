@@ -1,10 +1,10 @@
 # Writing Plugin Test Code
 
 This article explains how to write Fluentd plugin test code using
-[test-unit](https://test-unit.github.io/).
+[`test-unit`](https://test-unit.github.io/).
 
-You can write test code with any other testing framework such as RSpec,
-minitest and etc.
+You can write test code with any other testing framework such as `RSpec`,
+`minitest`, etc.
 
 
 ## Basics of Plugin Testing
@@ -13,7 +13,7 @@ Fluentd provides useful Test Drivers according to plugin type. We can
 write maintainable test code for plugins using them. We can write
 helper.rb for output plugin as follows:
 
-```
+```rb
 $LOAD_PATH.unshift(File.expand_path("../../", __FILE__))
 require "test-unit"
 require "fluent/test"
@@ -24,12 +24,12 @@ Test::Unit::TestCase.include(Fluent::Test::Helpers)
 Test::Unit::TestCase.extend(Fluent::Test::Helpers)
 ```
 
-Note that Fluentd provides useful Test Drivers for input, output,
-filter, parser, and formatter.
+Note that Fluentd provides useful Test Drivers for `input`, `output`, `filter`,
+`parser` and `formatter`.
 
 The recommended fluentd plugin project structure is:
 
-```
+```shell
 .
 ├── Gemfile
 ├── LICENSE
@@ -49,10 +49,10 @@ The recommended fluentd plugin project structure is:
 
 ## Plugin Test Driver Overview
 
-There are useful Test Drivers for plugin testing. We can write test code
+There are some useful Test Drivers for plugin testing. We can write test code
 for plugins as following:
 
-```
+```rb
 # Load the module that defines common initialization method (Required)
 require 'fluent/test'
 # Load the module that defines helper methods for testing (Required)
@@ -66,24 +66,24 @@ class FileOutputTest < Test::Unit::TestCase
   include Fluent::Test::Helpers
 
   def setup
-    Fluent::Test.setup   # setup test for Fluentd (Required)
-    # setup test for plugin (Optional)
+    Fluent::Test.setup   # Setup test for Fluentd (Required)
+    # Setup test for plugin (Optional)
     # ...
   end
 
   def teardown
-    # terminate test for plugin (Optional)
+    # Terminate test for plugin (Optional)
   end
 
   def create_driver(conf = CONFIG)
     Fluent::Test::Driver::Output.new(Fluent::Plugin::FileOutput).configure(conf)
   end
 
-  # configuration related test group
+  # Configuration related test group
   sub_test_case 'configuration' do
     test 'basic configuration' do
       d = create_driver(basic_configuration)
-      assert_equal 'somethig', d.instance.parameter_name
+      assert_equal 'something', d.instance.parameter_name
     end
   end
 
@@ -104,11 +104,10 @@ end
 
 ## Testing Utility Methods
 
-You can get your plugin instance when you call Test Driver instance's
-`#instance` method. If utility methods are private, you can use
-`__send__`.
+You can get plugin instance by calling Test Driver instance's `#instance`
+method. If utility methods are `private`, use `__send__`.
 
-```
+```rb
 # ...
 class FileOutputTest < Test::Unit::TestCase
   # ...
@@ -127,45 +126,46 @@ end
 
 The methods in this section are available for all Test Driver.
 
-#### initialize(klass, opts: {}, &block)
 
-Initialize Test Driver instance.
+#### `initialize(klass, opts: {}, &block)`
 
--   `klass`: A class of Fluentd plugin
--   `opts`: Overwrite system config. This parameter is useful for
-    testing multi workers.
--   `block`: Customize plugin behavior. We can overwrite plugin code in
-    this block.
+Initializes Test Driver instance.
 
-Code example:
+- `klass`: A class of Fluentd plugin
+- `opts`: Overwrite system config. This parameter is useful for testing multi
+  workers.
+- `block`: Customize plugin behavior. We can overwrite plugin code in this
+  block.
 
-```
+Example:
+
+```rb
 def create_driver(conf={})
   d = Fluent::Test::Driver::Output.new(Fluent::Plugin::MyOutput) do
     attr_accessor :exceptions
-    # almost same as reopen plugin class
+    # Almost same as to reopen plugin class
     def prefer_buffered_processing
       false
     end
     def process(tag, es)
-      # drop events
+      # Drop events
     end
   end
   d.configure(conf)
 end
 ```
 
-#### configure(conf, syntax: :v1)
 
-Configure plugin instance managed by this Test Driver.
+#### `configure(conf, syntax: :v1)`
 
--   `conf`: `Fluent::Config::Element` or string
--   `syntax`: Available syntax are `:v1`, `:v0`, `:ruby`. But `:v0` is
-    obsoleted.
+Configures plugin instance managed by the Test Driver.
 
-Code example:
+- `conf`: `Fluent::Config::Element` or `String`
+- `syntax`: { `:v1`, `:v0`, `:ruby` } `:v0` is obsolete.
 
-```
+Example:
+
+```rb
 def create_driver(conf={})
   Fluent::Test::Driver::Output.new(Fluent::Plugin::MyOutput).configure(conf)
 end
@@ -180,25 +180,28 @@ def test_process
 end
 ```
 
-#### end\_if(&block)
 
-Register conditions to stop running Test Driver accurately.
+#### `end_if(&block)`
 
-All registered conditions must be true before stop Test Driver.
+Registers conditions to stop the running Test Driver accurately.
 
-#### break\_if(&block)
+All registered conditions must be `true` before Test Driver stops.
 
-Register conditions to stop running Test Driver.
 
-Test Driver should stop running if some of the breaking conditions are
-true.
+#### `break_if(&block)`
 
-#### broken?
+Registers conditions to stop the running Test Driver.
 
-Return true when some of the breaking conditions are true. Otherwise
-false.
+Test Driver should stop running if some of the breaking conditions are `true`.
 
-#### run(timeout: nil, start: true, shutdown: true, &block)
+
+#### `broken?`
+
+Returns `true` when some of the breaking conditions are `true`. Otherwise
+`false`.
+
+
+#### `run(timeout: nil, start: true, shutdown: true, &block)`
 
 Run Test Driver. This Test Driver will be stop running immediately after
 evaluating block if block given.
@@ -207,264 +210,286 @@ Otherwise, you must register conditions to stop running Test Driver.
 
 This method may be overridden in subclasses.
 
--   `timeout`: timeout in seconds.
--   `start`: if true, start running Test Driver. Otherwise you should
-    start running Test Driver like `d.instance_start`
--   `shutdown`: if true, shutdown running Test Driver.
+- `timeout`: timeout (seconds)
+- `start`: if `true`, start Test Driver. Otherwise, you should start running
+  Test Driver like `d.instance_start`.
+- `shutdown`: if `true`, shut down the running Test Driver.
 
-Code example:
+Example:
 
-```
+```rb
 # Run Test Driver and feed an event (output)
 d = create_driver
 d.run do
   d.feed(time, record)
 end
 
-# emit multiple events (output)
+# Emit multiple events (output)
 d = create_driver
+
 d.run(default_tag: 'test', expect_emits: 1, timeout: 10, start: true,  shutdown: false) { d.feed(time, { "k1" => 1 })}
+
 d.run(default_tag: 'test', expect_emits: 1, timeout: 10, start: false, shutdown: false) { d.feed(time, { "k1" => 2 })}
+
 d.run(default_tag: 'test', expect_emits: 1, timeout: 10, start: true,  shutdown: true ) { d.feed(time, { "k1" => 3 })}
 ```
 
-#### stop?
+#### `stop?`
 
-Return true when all of the stopping conditions are true. Otherwise
-false.
+Returns `true` when all the stopping conditions are `true`. Otherwise `false`.
 
-#### logs
+
+#### `logs`
 
 Returns logs managed by this Test Driver.
 
-#### instance
+
+#### `instance`
 
 Returns the plugin instance managed by this Test Driver.
 
 
 ## Test Driver Base Owner API
 
-filter, output, multi\_output
+- `filter`
+- `output`
+- `multi_output`
 
-#### run(expect\_emits: nil, expect\_records: nil, timeout: nil, start: true, shutdown: true, &block)
 
-Run Test Driver. This Test Driver will be stop running immediately after
-evaluating block if block given.
+#### `run(expect_emits: nil, expect_records: nil, timeout: nil, start: true, shutdown: true, &block)`
+
+Run Test Driver. This Test Driver will stop running immediately after evaluating
+`block` if given.
 
 Otherwise, you must register conditions to stop running Test Driver.
 
 This method may be overridden in subclasses.
 
--   `expect_emits`: Set the number of expected emits.
--   `expect_records`: Set the number of expected records.
--   `timeout`: timeout in seconds.
--   `start`: if true, start running Test Driver. Otherwise you should
-    start running Test Driver like `d.instance_start`
--   `shutdown`: if true, shutdown running Test Driver.
+- `expect_emits`: set the number of expected emits
+- `expect_records`: set the number of expected records
+- `timeout`: timeout (seconds)
+- `start`: if `true`, start running Test Driver. Otherwise you should start
+  running Test Driver like `d.instance_start`.
+- `shutdown`: if `true`, shut down the running Test Driver
 
-Code example:
+Example:
 
-```
+```rb
 # Run Test Driver and feed an event (owner plugin)
 d = create_driver
 d.run do
   d.feed(time, record)
 end
 
-# emit multiple events (owner plugin)
+# Emit multiple events (owner plugin)
 d = create_driver
+
 d.run(default_tag: 'test', expect_emits: 1, timeout: 10, start: true,  shutdown: false) { d.feed(time, { "k1" => 1 })}
+
 d.run(default_tag: 'test', expect_emits: 1, timeout: 10, start: false, shutdown: false) { d.feed(time, { "k1" => 2 })}
+
 d.run(default_tag: 'test', expect_emits: 1, timeout: 10, start: true,  shutdown: true ) { d.feed(time, { "k1" => 3 })}
 ```
 
-#### events(tag: nil)
+
+#### `events(tag: nil)`
 
 Returns the events filtered by given tag.
 
--   `tag`: filter by this tag. Returns all events when this parameter is
-    omitted.
+- `tag`: filter by this tag. If omitted, it returns all the events.
 
-#### event\_streams(tag: nil)
+
+#### `event_streams(tag: nil)`
 
 Returns the event streams filtered by given tag.
 
--   `tag`: filter by this tag. Returns all event streams when omit this
-    parameter.
+- `tag`: filter by this tag. If omitted, it returns all the event streams.
 
-#### emit\_count
+
+#### `emit_count`
 
 Returns the number of invoking `router.emit`.
 
-If you want to wait stopping Test Driver until events are emitted as
-many as you expected, you can use `d.run(expected_emits: n)` instead.
+If you want to delay the stopping of Test Driver until a certain number of
+records are emitted, you can use `d.run(expected_records: n)` instead.
 
-Code example:
+Example:
 
-```
+```rb
 d.run do
-  d.feed("test", record)
+  d.feed('test', record)
 end
 assert_equal(1, d.emit_count)
 ```
 
-#### record\_count
+
+#### `record_count`
 
 Returns the number of records.
 
-If you want to wait stopping Test Driver until records are emitted as
-many as you expected, you can use `d.run(expected_records: n)` instead.
+If you want to delay the stopping of Test Driver until a certain number of
+records are emitted, you can use `d.run(expected_records: n)` instead.
 
-#### error\_events(tag: nil)
 
-Returns error events filtered by given tag.
+#### `error_events(tag: nil)`
 
--   `tag`: filter by this tag. Returns all error events when omit this
-    parameter.
+Returns error events filtered by the given tag.
+
+- `tag`: filter by this tag. If omitted, it returns all error events.
 
 
 ## Test Driver Base owned API
 
-#### configure(conf, syntax: :v1)
 
-Configure plugin instance managed by this Test Driver.
+#### `configure(conf, syntax: :v1)`
 
--   `conf`: `Fluent::Config::Element` or string, hash
--   `syntax`: Available syntax are `:v1`, `:v0`, `:ruby`. But `:v0` is
-    obsoleted.
+Configures plugin instance managed by this Test Driver.
+
+- `conf`: `Fluent::Config::Element`, `String`, or `Hash`
+- `syntax`: Supported: { `:v1`, `:v0`, `:ruby` } `:v0` is obsolete.
 
 
 ## Test Driver Event Feeder API
 
-filter, output, multi\_output
+- `filter`
+- `output`
+- `multi_output`
 
-#### run(default\_tag: nil, \*\*kwargs, &block)
 
-Run EventFeeder.
+#### `run(default_tag: nil, **kwargs, &block)`
 
--   `default_tag`: the default tag of the event
+Runs `EventFeeder`.
 
-Code example:
+- `default_tag`: the default tag of the event
 
-```
-d.run(default_tag: "test") do
-  d.feed(event_time, { "message" => "Hello, Fluentd!!" })
+Example:
+
+```rb
+d.run(default_tag: 'test') do
+  d.feed(event_time, { 'message' => 'Hello, Fluentd!' })
 end
 ```
 
-#### feed(tag, time, record)
 
-Feed an event to plugin instance.
+#### `feed(tag, time, record)`
 
--   `tag`: the tag of the event
--   `time`: event timestamp
--   `record`: event record
+Feeds an event to plugin instance.
 
-Code example:
+- `tag`: the tag of the event
+- `time`: event timestamp
+- `record`: event record
 
-```
+Example:
+
+```rb
 d.run do
-  d.feed("test", event_time, { "message" => "Hello, Fluentd!!" })
+  d.feed('test', event_time, { 'message' => 'Hello, Fluentd!' })
 end
 ```
 
-#### feed(tag, array\_event\_stream)
 
-Feed an array of event stream to plugin instance.
+#### `feed(tag, array_event_stream)`
 
--   `tag`: the tag of the event
--   `array_event_stream`: array of `[time, record]`
-    -   `time`: event timestamp
-    -   `record`: event record
+Feeds an array of event stream to plugin instance.
 
-Code example:
+- `tag`: the tag of the event
+- `array_event_stream`: array of `[time, record]`
+  - `time`: event timestamp
+  - `record`: event record
 
-```
+Example:
+
+```rb
 d.run do
-  d.feed("test", [
-    [event_time, { "message" => "Hello, user1!!" }],
-    [event_time, { "message" => "Hello, user2!!" }]
+  d.feed('test', [
+    [event_time, { 'message' => 'Hello, user1!' }],
+    [event_time, { 'message' => 'Hello, user2!' }]
   ])
 end
 ```
 
-#### feed(tag, es)
 
-Feed an event stream to plugin instance.
+#### `feed(tag, es)`
 
--   `tag`: the tag of the event
--   `es`: event stream object
+Feeds an event stream to plugin instance.
 
-Code example:
+- `tag`: the tag of the event
+- `es`: event stream object
 
-```
-es = Fluent::OneEventStream.new(event_time, { "message" => "Hello, Fluentd!!" })
+Example:
+
+```rb
+es = Fluent::OneEventStream.new(event_time, { 'message' => 'Hello, Fluentd!' })
 d.run do
-  d.feed("test", es)
+  d.feed('test', es)
 end
 ```
 
-#### feed(record)
 
-Feed an event with default tag to plugin instance.
+#### `feed(record)`
 
--   `record`: event record
+Feeds an event with default tag to plugin instance.
 
-Code example:
+- `record`: event record
 
-```
-d.run(default_tag: "test") do
-  d.feed({ "message" => "Hello, Fluentd!!" })
-  # Above is same as below
-  d.feed(event_time, { "message" => "Hello, Fluentd!!" })
+Example:
+
+```rb
+d.run(default_tag: 'test') do
+  d.feed({ 'message' => 'Hello, Fluentd!' })
+  # Same as above ^
+  d.feed(event_time, { 'message' => 'Hello, Fluentd!' })
 end
 ```
 
-#### feed(time, record)
 
-Feed an event with default tag to plugin instance.
+#### `feed(time, record)`
 
--   `time`: event timestamp
--   `record`: event record
+Feeds an event with default tag to plugin instance.
 
-Code example:
+- `time`: event timestamp
+- `record`: event record
 
-```
-d.run(default_tag: "test") do
-  d.feed(event_time, { "message" => "Hello, Fluentd!!" })
+Example:
+
+```rb
+d.run(default_tag: 'test') do
+  d.feed(event_time, { 'message' => 'Hello, Fluentd!' })
 end
 ```
 
-#### feed(array\_event\_stream)
 
-Feed an array of event stream with default tag to plugin instance.
+#### `feed(array_event_stream)`
 
--   `array_event_stream`: array of `[time, record]`
-    -   `time`: event timestamp
-    -   `record`: event record
+Feeds an array of event stream with default tag to plugin instance.
 
-Code example:
+- `array_event_stream`: array of `[time, record]`
+  - `time`: event timestamp
+  - `record`: event record
 
-```
-d.run(default_tag: "test") do
+Example:
+
+```rb
+d.run(default_tag: 'test') do
   d.feed([
-    [event_time, { "message" => "Hello, user1!!" }],
-    [event_time, { "message" => "Hello, user2!!" }]
+    [event_time, { 'message' => 'Hello, user1!' }],
+    [event_time, { 'message' => 'Hello, user2!' }]
   ])
 end
 ```
 
-#### feed(es)
 
-Feed an event stream with default tag to plugin instance.
+#### `feed(es)`
 
--   `es`: event stream object
+Feeds an event stream with default tag to plugin instance.
 
-Code example:
+- `es`: event stream object
 
-```
-es = Fluent::OneEventStream.new(event_time, { "message" => "Hello, Fluentd!!" })
-d.run(default_tag: "test") do
+Example:
+
+```rb
+es = Fluent::OneEventStream.new(event_time, { 'message' => 'Hello, Fluentd!' })
+d.run(default_tag: 'test') do
   d.feed(es)
 end
 ```
@@ -472,15 +497,15 @@ end
 
 ## Test Driver Filter API
 
-#### filtered\_records
 
-Collect filtered records.
+#### `filtered_records`
 
-```
-::::ruby
+Collects the filtered records.
+
+```rb
 d = create_driver(config)
 d.run do
-  d.feed("filter.test", event_time, {'foo' => 'bar', 'message' => msg})
+  d.feed('filter.test', event_time, { 'foo' => 'bar', 'message' => msg })
 end
 d.filtered_records
 ```
@@ -488,90 +513,90 @@ d.filtered_records
 
 ## Test Driver Output API
 
-#### run(flush: true, wait\_flush\_completion: true, force\_flush\_retry: false, \*\*kwargs, &block)
 
--   `flush`: flush forcibly.
--   `wait_flush_completion`: if true, waiting for flush completion.
--   `force_flush_retry`: if true, retrying flush forcibly.
+#### `run(flush: true, wait_flush_completion: true, force_flush_retry: false, **kwargs, &block)`
+
+- `flush`: flush forcibly
+- `wait_flush_completion`: if `true`, waiting for `flush` to complete
+- `force_flush_retry`: if `true`, retrying flush forcibly
 
 Run Test Driver. This Test Driver will be stop running immediately after
-evaluating block if block given.
+evaluating the `block` if given.
 
 Otherwise, you must register conditions to stop running Test Driver.
 
-Code example:
+Example:
 
-```
-::::ruby
+```rb
 d = create_driver(config)
 d.run do
-  d.feed("filter.test", event_time, {'foo' => 'bar', 'message' => msg})
+  d.feed('filter.test', event_time, { 'foo' => 'bar', 'message' => msg })
 end
 ```
 
-#### formatted
+#### `formatted`
 
-Returns formatted records.
+Returns the formatted records.
 
-Code example:
+Example:
 
-```
-::::ruby
+```rb
 d = create_driver(config)
 d.run do
-  d.feed("filter.test", event_time, {'foo' => 'bar', 'message' => msg})
+  d.feed('filter.test', event_time, { 'foo' => 'bar', 'message' => msg })
 end
 d.formatted
 ```
 
-#### flush
+#### `flush`
 
-Flush forcibly.
+Flushes forcibly.
 
-Code example:
+Example:
 
-```
-::::ruby
+```rb
 d = create_driver(config)
 d.run do
-  d.feed("filter.test", event_time, {'foo' => 'bar', 'message' => msg})
+  d.feed('filter.test', event_time, { 'foo' => 'bar', 'message' => msg })
 end
 d.flush
 ```
 
 
-## Test helpers
+## Test Helpers
 
-#### assert\_equal\_event\_time(expected, actual, message = nil)
 
-Assert EventTime instance.
+#### `assert_equal_event_time(expected, actual, message = nil)`
 
--   `expected`: expected EventTime instance
--   `actual`: actual EventTime instance
--   `message`: message that is displayed when assertion failure
+Asserts the `EventTime` instance.
 
-Code example:
+- `expected`: expected `EventTime` instance
+- `actual`: actual `EventTime` instance
+- `message`: message to display when assertion fails
 
-```
+Example:
+
+```rb
 parser = create_parser
 parser.parse(text) do |time, record|
-  assert_equal_event_time(event_time("2017-12-27 09:43:50.123456789"), time)
+  assert_equal_event_time(event_time('2017-12-27 09:43:50.123456789'), time)
 end
 ```
 
-#### config\_element(name = 'test', argument = '', params = {}, elements = \[\])
+
+#### `config_element(name = 'test', argument = '', params = {}, elements = [])`
 
 Create `Fluent::Config::Element` instance.
 
--   `name`: element name such as "match", "filter", "source", "buffer",
-    "inject", "format", "parse" and etc.
--   `argument`: argument for section defined by `config_argument`
--   `params`: parameters for section defined by `config_element`
--   `elements`: child elements of this element
+- `name`: element name such as `match`, `filter`, `source`, `buffer`, `inject`,
+  `format`, `parse`, etc.
+- `argument`: argument for section defined by `config_argument`
+- `params`: parameters for section defined by `config_element`
+- `elements`: child elements of this config element
 
-Code example:
+Example:
 
-```
+```rb
 conf = config_element('match', '**', {
   'path' => "#{TMP_DIR}/prohibited/${tag}/file.%Y%m%d.log",
 }, [
@@ -584,96 +609,104 @@ conf = config_element('match', '**', {
 d = create_driver(conf)
 ```
 
-#### event\_time(str = nil, format: nil)
 
-Create `Fluent::EventTime` instance.
+#### `event_time(str = nil, format: nil)`
 
--   `str`: time represented as string
--   `format`: parse `str` as time according to this format. See also
-    [Time.strptime](https://docs.ruby-lang.org/en/trunk/Time.html#method-c-strptime)
+Creates a `Fluent::EventTime` instance.
 
-Code example:
+- `str`: time represented as `String`
+- `format`: parse `str` as `time` according to this format. See also
+  [`Time.strptime`](https://docs.ruby-lang.org/en/trunk/Time.html#method-c-strptime).
 
-```
+Example:
+
+```rb
 time = event_time
-time = event_time("2016-10-03 23:58:09 UTC")
+time = event_time('2016-10-03 23:58:09 UTC')
 time = event_time('2016-04-11 16:40:01 +0000')
-time = event_time("2016-04-17 11:15:00 -0700")
-time = event_time("2011-01-02 13:14:15")
+time = event_time('2016-04-17 11:15:00 -0700')
+time = event_time('2011-01-02 13:14:15')
 time = event_time('Sep 11 00:00:00', format: '%b %d %H:%M:%S')
 time = event_time('28/Feb/2013:12:00:00 +0900', format: '%d/%b/%Y:%H:%M:%S %z')
-time = event_time("2017-02-06T13:14:15.003Z", format: '%Y-%m-%dT%H:%M:%S.%L%z')
+time = event_time('2017-02-06T13:14:15.003Z', format: '%Y-%m-%dT%H:%M:%S.%L%z')
 ```
 
-#### with\_timezone(tz)
 
-Process given block with `tz`. This method overwrites `ENV['TZ']` while
-processing block.
+#### `with_timezone(tz, &block)`
 
--   `tz`: Timezone. This is set to `ENV['TZ']`.
+Processes the given block with `tz`. This method overrides `ENV['TZ']` while
+processing its `block`.
 
-Code example:
+- `tz`: timezone. This is set to `ENV['TZ']`.
 
-```
-time = with_timezone("UTC+02") do
-  parser = Fluent::TimeParser.new("%Y-%m-%d %H:%M:%S.%N", true)
-  parser.parse("2016-09-02 18:42:31.123456789")
+Example:
+
+```rb
+time = with_timezone('UTC+02') do
+  parser = Fluent::TimeParser.new('%Y-%m-%d %H:%M:%S.%N', true)
+  parser.parse('2016-09-02 18:42:31.123456789')
 end
-assert_equal_event_time(time, event_time("2016-09-02 18:42:31.123456789 -02:00", format: '%Y-%m-%d %H:%M:%S.%N %z'))
+assert_equal_event_time(time, event_time('2016-09-02 18:42:31.123456789 -02:00', format: '%Y-%m-%d %H:%M:%S.%N %z'))
 ```
 
-#### with\_worker\_config(root\_dir: nil, workers: nil, worker\_id: nil, &block)
 
-Process block with given parameters. This method overwrites system
-config while processing block.
+#### `with_worker_config(root_dir: nil, workers: nil, worker_id: nil, &block)`
 
-This is useful for testing Fluentd internal behavior related to multi
-workers.
+Processes `block` with the given parameters. This method overrides the system
+configuration while processing its `block`.
 
--   `root_dir`: Root directory.
--   `workers`: Number of workers.
--   `worker_id`: Id of workers.
+This is useful for testing Fluentd's internal behavior related to multi workers.
 
-Code example:
+- `root_dir`: root directory
+- `workers`: number of workers
+- `worker_id`: ID of workers
 
-```
+Example:
+
+```rb
 class Dummy < Fluent::Plugin::Output
 end
+
 d = Dummy.new
 with_worker_config(workers: 2, worker_id: 1) do
   d.configure(conf)
 end
-...
+
+# ...
 ```
 
-#### time2str(time, localtime: false, format: nil)
+#### `time2str(time, localtime: false, format: nil)`
 
-Convert `time` to string.
+Converts `time` to `String`.
 
 This is useful for testing formatter.
 
--   `time`: `Fluent::EventTime` instance. See also
-    [Time.at](https://docs.ruby-lang.org/en/trunk/Time.html#method-c-at)
--   `localtime`: If `true`, process `time` as localtime. Otherwise UTC.
--   `format`: See also
-    [Time\#strftime](https://docs.ruby-lang.org/en/trunk/Time.html#method-i-strftime).
+- `time`: `Fluent::EventTime` instance. See also
+  [`Time.at`](https://docs.ruby-lang.org/en/trunk/Time.html#method-c-at).
+- `localtime`: If `true`, processes `time` as `localtime`. Otherwise UTC.
+- `format`: See also
+  [`Time#strftime`](https://docs.ruby-lang.org/en/trunk/Time.html#method-i-strftime).
 
-    :::ruby formatter = configure\_formatter(conf) formatted =
-    formatter.format(tag, time, record)
-    assert\_equal("\#{time2str(time)}\\t\#{JSON.dump(record)}\\n",
-    formatted)
-
-#### msgpack(type)
-
-Shorthand for `Fluent::MessagePackFactory.factory`,
-`Fluent::MessagePackFactory.packer` and
-`Fluent::MessagePackFactory.unpacker`.
-
--   `type`: Available types are `:factory`, `:packer`, `:unpacker`.
-
-Code example:
-
+```rb
+formatter = configure_formatter(conf)
+formatted = formatter.format(tag, time, record)
+assert_equal("#{time2str(time)}\t#{JSON.dump(record)}\n", formatted)
 ```
+
+
+#### `msgpack(type)`
+
+- `type`: Available types: { `:factory`, `:packer`, `:unpacker` }
+
+Shorthand for:
+
+- `Fluent::MessagePackFactory.factory`
+- `Fluent::MessagePackFactory.packer` 
+- `Fluent::MessagePackFactory.unpacker`
+
+Example:
+
+```rb
 events = []
 factory = msgpack(:factory)
 factory.unpacker.feed_each(binary) do |obj|
@@ -681,34 +714,33 @@ factory.unpacker.feed_each(binary) do |obj|
 end
 ```
 
-#### capture\_stdout
+#### `capture_stdout(&block)`
 
-Capture stdout while processing given block.
+Captures the standard output while processing the given block.
 
 This is useful for testing Fluentd utility commands.
 
-Code example:
+Example:
 
-```
+```rb
 captured_string = capture_stdout do
   # Print something to STDOUT
-  puts "Hello!"
+  puts 'Hello!'
 end
-assert_equal("Hello!\n", capture_stdout)
+
+assert_equal('Hello!\n', capture_stdout)
 ```
 
 
 ## Testing Input Plugins
 
-You must test input plugins\' `router#emit` method. But you don't have
-to test this method explicitly. This testing code pattern is
-encapsulated with Input Test Driver.
+You must test input plugins' `router#emit` method. But you do not have to test
+this method explicitly. Its testing code pattern is encapsulated in the Input
+Test Driver.
 
-You can write input plugins test like below.
+You can write input plugins test like this:
 
-Code example:
-
-```
+```rb
 require 'fluent/test'
 require 'fluent/test/driver/input'
 require 'fluent/test/helpers'
@@ -721,7 +753,7 @@ class MyInputTest < Test::Unit::TestCase
     Fluent::Test.setup
   end
 
-  def create_driver(conf={})
+  def create_driver(conf = {})
     Fluent::Test::Driver::Input.new(Fluent::Plugin::MyInput).configure(conf)
   end
 
@@ -730,8 +762,8 @@ class MyInputTest < Test::Unit::TestCase
     d.run(timeout: 0.5)
 
     d.events.each do |tag, time, record|
-      assert_equal("input.test", tag)
-      assert_equal({"foo"=>"bar"}, record)
+      assert_equal('input.test', tag)
+      assert_equal({ 'foo' => 'bar' }, record)
       assert(time.is_a?(Fluent::EventTime))
     end
   end
@@ -741,15 +773,13 @@ end
 
 ## Testing Filter Plugins
 
-You must test filter plugins\' `#filter` method. But you don't have to
-test this method explicitly. This testing code pattern is encapsulated
-with Filter Test Driver.
+You must test filter plugins' `#filter` method. But you do not have to test this
+method explicitly. Its testing code pattern is encapsulated in Filter Test
+Driver.
 
-You can write filter plugins test like below.
+You can write filter plugins test like this:
 
-Code example:
-
-```
+```rb
 require 'fluent/test'
 require 'fluent/test/driver/filter'
 require 'fluent/test/helpers'
@@ -762,7 +792,7 @@ class MyInputTest < Test::Unit::TestCase
     Fluent::Test.setup
   end
 
-  def create_driver(conf={})
+  def create_driver(conf = {})
     Fluent::Test::Driver::Filter.new(Fluent::Plugin::MyFilter).configure(conf)
   end
 
@@ -770,7 +800,7 @@ class MyInputTest < Test::Unit::TestCase
     d = create_driver(config)
     time = event_time
     d.run do
-      d.feed("filter.test", time, {'foo' => 'bar', 'message' => msg})
+      d.feed('filter.test', time, { 'foo' => 'bar', 'message' => msg })
     end
 
     assert_equal(1, d.filtered_records.size)
@@ -781,15 +811,13 @@ end
 
 ## Testing Output Plugins
 
-You must test output plugins\' `#process` or `#write` or `#try_write`
-method. But you don't have to test this method explicitly. This testing
-code pattern is encapsulated with Output Test Driver.
+You must test output plugins' `#process` or `#write` or `#try_write` method. But
+you do not have to test this method explicitly. Its testing code pattern is
+encapsulated in the Output Test Driver.
 
-You can write output plugins test like below.
+You can write output plugins test like this:
 
-Code example:
-
-```
+```rb
 require 'fluent/test'
 require 'fluent/test/driver/output'
 require 'fluent/test/helpers'
@@ -802,7 +830,7 @@ class MyInputTest < Test::Unit::TestCase
     Fluent::Test.setup
   end
 
-  def create_driver(conf={})
+  def create_driver(conf = {})
     Fluent::Test::Driver::Output.new(Fluent::Plugin::MyOutput).configure(conf)
   end
 
@@ -810,7 +838,7 @@ class MyInputTest < Test::Unit::TestCase
     d = create_driver(config)
     time = event_time
     d.run do
-      d.feed("output.test", time, {'foo' => 'bar', 'message' => msg})
+      d.feed('output.test', time, { 'foo' => 'bar', 'message' => msg })
     end
 
     assert_equal(1, d.events.size)
@@ -821,13 +849,11 @@ end
 
 ## Testing Parser Plugins
 
-You must test parser plugins\' `#parse` method.
+You must test parser plugins' `#parse` method.
 
-You can write parser plugins test like below.
+You can write parser plugins test like this:
 
-Code example:
-
-```
+```rb
 require 'fluent/test'
 require 'fluent/test/driver/parser'
 require 'fluent/test/helpers'
@@ -840,7 +866,7 @@ class MyParserTest < Test::Unit::TestCase
     Fluent::Test.setup
   end
 
-  def create_driver(conf={})
+  def create_driver(conf = {})
     Fluent::Test::Driver::Parser.new(Fluent::Plugin::MyParser).configure(conf)
   end
 
@@ -848,11 +874,11 @@ class MyParserTest < Test::Unit::TestCase
     create_driver(conf).instance
   end
 
-  test "parse" do
+  test 'parse' do
     parser = create_parser(conf)
     parser.parse(text) do |time, record|
-      assert_equal(event_time("2017-12-26 11:56:50.1234567879"), time)
-      assert_equal({ "message" => "Hello, Fluentd!!" }, record)
+      assert_equal(event_time('2017-12-26 11:56:50.1234567879'), time)
+      assert_equal({ 'message' => 'Hello, Fluentd!' }, record)
     end
   end
 end
@@ -861,13 +887,11 @@ end
 
 ## Testing Formatter Plugins
 
-You must test formatter plugins\' `#format` method.
+You must test formatter plugins' `#format` method.
 
-You can write formatter plugins test like below.
+You can write formatter plugins test like this:
 
-Code example:
-
-```
+```rb
 require 'fluent/test'
 require 'fluent/test/driver/formatter'
 require 'fluent/test/helpers'
@@ -880,7 +904,7 @@ class MyFormatterTest < Test::Unit::TestCase
     Fluent::Test.setup
   end
 
-  def create_driver(conf={})
+  def create_driver(conf = {})
     Fluent::Test::Driver::Formatter.new(Fluent::Plugin::MyFormatter).configure(conf)
   end
 
@@ -888,28 +912,30 @@ class MyFormatterTest < Test::Unit::TestCase
     create_driver(conf).instance
   end
 
-  test "format" do
+  test 'format' do
     formatter = create_formatter(conf)
     formatted = formatter.format(tag, time, record)
-    assert_equal("message:awesome\tgreeting:hello", formatted)
+    assert_equal('message:awesome\tgreeting:hello', formatted)
   end
 end
 ```
 
 
-## Tests for logs
+## Tests for Logs
 
-Testing log is very easy.
+Testing logs is easy.
 
 Code example:
 
-```
+```rb
 # d is a Test Driver instance
 assert_equal(1, d.logs.size)
 logs = d.logs
+
 assert do
-  logs.any? {|log| log.include?(expected_log) }
+  logs.any? { |log| log.include?(expected_log) }
 end
+
 assert do
   logs.last.match?(/This is last log/)
 end
@@ -918,5 +944,8 @@ end
 
 ------------------------------------------------------------------------
 
-If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open).
-[Fluentd](http://www.fluentd.org/) is a open source project under [Cloud Native Computing Foundation (CNCF)](https://cncf.io/). All components are available under the Apache 2 License.
+If this article is incorrect or outdated, or omits critical information, please
+[let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open).
+[Fluentd](http://www.fluentd.org/) is an open-source project under
+[Cloud Native Computing Foundation (CNCF)](https://cncf.io/). All components are
+available under the Apache 2 License.

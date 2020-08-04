@@ -39,7 +39,7 @@ create a robust stream data processing platform.
 
 The figure below shows the high-level architecture:
 
-![fluentd-norikra-overview.png](/images/fluentd-norikra-overview.png)
+![Fluentd + Norikra Overview](/images/fluentd-norikra-overview.png)
 
 
 ## Installation

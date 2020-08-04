@@ -5,7 +5,7 @@ Feel free to use these logos on your slides, blog posts, etc.
 
 ## Square
 
-[![Fluentd_square.png](/images/logo/Fluentd_square.png)](/images/logo/Fluentd_square.png)
+[![Fluentd Square Logo](/images/logo/Fluentd_square.png)](/images/logo/Fluentd_square.png)
 
 [\[PNG\]](/images/logo/Fluentd_square.png)
 [\[SVG\]](/images/logo/Fluentd_square.svg)
@@ -13,7 +13,7 @@ Feel free to use these logos on your slides, blog posts, etc.
 
 ## Horizontal
 
-[![Fluentd_horizontal.png](/images/logo/Fluentd_horizontal.png)](/images/logo/Fluentd_horizontal.png)
+[![Fluentd Horizontal Logo](/images/logo/Fluentd_horizontal.png)](/images/logo/Fluentd_horizontal.png)
 
 [\[PNG\]](/images/logo/Fluentd_horizontal.png)
 [\[SVG\]](/images/logo/Fluentd_horizontal.svg)
@@ -21,7 +21,7 @@ Feel free to use these logos on your slides, blog posts, etc.
 
 ## Icon
 
-[![Fluentd_icon.png](/images/logo/Fluentd_icon.png)](/images/logo/Fluentd_icon.png)
+[![Fluentd Icon](/images/logo/Fluentd_icon.png)](/images/logo/Fluentd_icon.png)
 
 [\[PNG\]](/images/logo/Fluentd_icon.png)
 [\[SVG\]](/images/logo/Fluentd_icon.svg)

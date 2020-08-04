@@ -1,196 +1,190 @@
 # Updating plugin for v1 from v0.12
 
-This guide is for plugin authors to show how to update
-input/output/filter plugins written for Fluentd v0.12 or earlier.
+This guide is for plugin authors to show how to update input/output/filter
+plugins written for Fluentd v0.12 or earlier.
 
-There are something to be considered (see following "Updating Plugins
-Overview" section for details):
+There are some things to be considered (see "Updating Plugins Overview" section
+for details):
 
--   Plugins which use v0.12 API will be supported in Fluentd v1
-    (will be obsoleted at v2).
--   Users can use new features of Fluentd v1 only with plugins using
-    new API.
--   Plugins which use new API don't work on Fluentd v0.12.x.
+- Plugins using v0.12 API will be supported in Fluentd v1. This compatibility
+  guarantee will no longer be applicable with v2.
+- Users may use the new features of Fluentd v1 only with the plugins using new
+  API.
+- Plugins using new API will not work with Fluentd v0.12.x.
 
-Fluentd core team strongly recommend to use v1 API to make your
-plugins stable, consistent and easy to test.
+It is strongly recommended to use v1 API to write your plugins stable, consistent
+and easy to test.
 
 
 ## Updating Plugins Overview
 
-These are steps to update your plugins safely.
+Following are the steps to update your plugins safely:
 
-1.  release a latest version for Fluentd v0.12.x
-2.  update dependency
-3.  update code and tests
-4.  update CI environments
-5.  release the newer version for Fluentd v1 and later
-
-
-### 1. release a latest version
-
-At first, you should make a git branch named as `v0.12` (if you are
-using git for that plugin), and release a latest patch version from that
-branch without any changes, except for fixing dependency about
-`Fluentd ~> 0.12.0`. This makes you possible to fix bugs and release
-newer versions for Fluentd v0.12 users without breaking anything.
-
--   make a branch for Fluentd v0.12 versions
--   fix dependency about `Fluentd` to `~> 0.12.0` (or later:
-    `~> 0.12.26`)
--   bump your gem's version up to next patch version (for example:
-    `0.4.1` -\> `0.4.2`)
--   release it to rubygems.org
+1.  Release a Latest Version for Fluentd v0.12.x
+2.  Update Dependency
+3.  Update Code and Tests
+4.  Update CI Environments
+5.  Release the Newer Version for Fluentd v1 and Later
 
 
-### 2. update dependency
+### 1. Release a Latest Version
+
+At first, you should make a git branch named as `v0.12` (if you are using git
+for that plugin), and release a latest patch version from that branch without
+any changes, except fixing dependency of `Fluentd ~> 0.12.0`. This makes it
+possible to fix bugs and release newer versions for Fluentd v0.12 users without
+breaking anything.
+
+- make a branch for Fluentd v0.12 versions
+- fix dependency of `Fluentd` to `~> 0.12.0` (or later: `~> 0.12.26`)
+- bump the gem version up to next patch version (e.g. `0.4.1` to `0.4.2`)
+- release it to RubyGems.org
+
+
+### 2. Update Dependency
 
 Following updates are on master branch. You should update dependency in
-gemspec at first to depend on Fluentd v1.
+`gemspec` first to depend on Fluentd v1.
 
--   fix dependency about `Fluentd` to `[">= 1", "< 2"]`
--   execute `bundle install`
+- fix dependency of `Fluentd` to `[">= 1", "< 2"]`
+- execute `bundle install`
 
-Recommended dependency in gemspec:
+Recommended dependency in `gemspec`:
 
-```
+```rb
 # in gemspec
 Gem::Specification.new do |gem|
-  gem.name = "fluent-plugin-my_awesome"
+  gem.name = 'fluent-plugin-my_awesome'
   # ...
-  gem.add_runtime_dependency "fluentd", [">= 1", "< 2"]
+  gem.add_runtime_dependency 'fluentd', ['>= 1', "< 2']
 end
 ```
 
 
-### 3. update code and tests
+### 3. Update Code and Tests
 
-There are many difference between plugin types about updating code and
-tests. See "Updating Plugin Code" section below for each types of
-plugins.
+There are many differences between plugin types on updating code and tests. See
+"Updating Plugin Code" section below for each types of plugins.
 
--   update code and tests
--   confirm to run `bundle exec rake test`
+- update code and tests
+- run `bundle exec rake test`
 
 
-### 4. update CI environments
+### 4. Update CI Environments
 
-If you have CI configurations like `.travis.yml` and `appvayor.yml`,
-these should be updated to support Fluentd v1. Fluentd v1 supports Ruby 2.4 or later.
+If you have CI configurations like `.travis.yml` and `appvayor.yml`, these
+should be updated to support Fluentd v1. Fluentd v1 supports Ruby 2.4 or later.
 CI environments should not include Ruby 2.3 or earlier.
 
--   remove Ruby 2.3 or earlier from CI environments
--   add Ruby 2.4 (or other latest version) to CI environments
+- remove Ruby 2.3 or earlier from CI environments
+- add Ruby 2.4 (or other latest version) to CI environments
 
 
-### 5. add requirements section
+### 5. Add Requirements Section
 
-Add requirements section to `README.md` like following:
+Add a Requirements section to `README.md` like this:
 
-```
+
 ## Requirements
 
-| fluent-plugin-may_awesome | Fluentd    | Ruby   |
-|:--------------------------|:-----------|:-------|
-| >= 1.0.0                  | >= v1      | >= 2.4 |
-| < 1.0.0                   | >= v0.12.0 | >= 2.1 |
-```
+| `fluent-plugin-may_awesome` | Fluentd    | Ruby   |
+|:----------------------------|:-----------|:-------|
+| >= 1.0.0                    | >= v1      | >= 2.4 |
+| < 1.0.0                     | >= v0.12.0 | >= 2.1 |
+
 
 This helps that plugin users can understand plugin requirements.
 
 
-### 6. release new version
+### 6. Release New Version
 
-This is last step. The new version should be major or minor version up,
-not patch version up. If the current major version of your gem is equal
-or larger than 1, you should bump major version up (e.g., from 1 to 2).
-If the current major version is 0, you should bump minor version up
-(e.g., from `0.4.2` to `0.5.0`). Then, you can publish a new release
-which is available with Fluentd v1.
+This is the last step. The new version should be major or minor version up, not
+patch version up. If the current major version of your gem is equal or greater
+than 1, you should bump major version up (e.g. from 1 to 2). If the current
+major version is 0, you should bump minor version up (e.g. from `0.4.2` to
+`0.5.0`). Then, you can publish a new release which is available with Fluentd
+v1.
 
--   bump the version up
--   release it to rubygems.org
+- bump the version up
+- release it to RubyGems.org
 
 
 ## Updating Plugin Code
 
 For all types of plugins, take care about these things:
 
--   require files which contains definitions of classes/modules referred
-    in your plugin code
--   call `super` in `#initialize`, `#configure`, `#start` and
-    `#shutdown`
--   use `router.emit` to emit events into Fluentd instead of
-    `Engine.emit`
+- require files with definitions of classes/modules referred in your plugin code
+- call `super` in `#initialize`, `#configure`, `#start` and `#shutdown`
+- use `router.emit` to emit events into Fluentd instead of `Engine.emit`
 
-About updating tests, see "Test code" section for all plugin types.
+About updating tests, see "Test Code" section for all plugin types.
 
 
-### Input plugins
+### Input Plugins
 
-For input plugins, points to be fixed are:
+For input plugins, the points to be fixed are:
 
--   require "fluent/plugin/input" instead of "fluent/input"
--   fix superclass from `Fluent::Input` to `Fluent::Plugin::Input`
--   use `compat_parameters` plugin helper to keep compatibility of
-    configurations to v0.12 style
--   use `Fluent::Engine.now` or `Fluent::EventTime.now` to create
-    current time object instead of `Time.now.to_i`
--   update test code
+- require `'fluent/plugin/input'` instead of `'fluent/input'`
+- fix superclass from `Fluent::Input` to `Fluent::Plugin::Input`
+- use `compat_parameters` plugin helper for compatibility with v0.12 config style
+- use `Fluent::Engine.now` or `Fluent::EventTime.now` to create current time
+  object instead of `Time.now.to_i`
+- update test code
 
-Plugins will work well only with changes above.
+Plugins will work fine once the above changes are incorporated.
 
-Moreover, most input plugins create threads, timers, network servers
-and/or parsers. It's better to use plugin helpers to simplify code and
-to make tests stable. For more details, see [Plugin Helper Overview](/developer/plugin-helper-overview.md).
+Moreover, most input plugins create threads, timers, network servers and/or
+parsers. It is better to use plugin helpers to simplify code and to make tests
+stable.
 
-
-### Filter plugins
-
-For filter plugins, points to be fixed are:
-
--   require "fluent/plugin/filter" instead of "fluent/filter"
--   fix superclass from `Fluent::Filter` to `Fluent::Plugin::Filter`
--   use `compat_parameters` plugin helper to keep compatibility of
-    configurations to v0.12 style
--   update test code
-
-Plugins will work well only with changes above. But if your plugin
-implements `#filter_stream`, remove it if possible. Overriding
-`#filter_stream` make it impossible to optimize filters\' performance.
-
-Moreover, many filter plugins uses parsers or formatters. It's better to
-use plugin helpers for them to simplify code and make it easy to
-understand the way to configure the plugin.
+For more details, see
+[Plugin Helper Overview](/developer/plugin-helper-overview.md).
 
 
-### Non-buffered output plugins
+### Filter Plugins
 
-For output plugins (subclass of `Fluent::Output`), points to be fixed
-are:
+For filter plugins, the points to be fixed are:
 
--   require "fluent/plugin/output" instead of "fluent/output"
--   fix superclass from `Fluent::Output` to `Fluent::Plugin::Output`
--   use `compat_parameters` plugin helper to keep compatibility of
-    configurations to v0.12 style
--   remove `#emit` method and implement `#process(tag, es)` method
--   update test code
+- require `'fluent/plugin/filter'` instead of `'fluent/filter'`
+- fix superclass from `Fluent::Filter` to `Fluent::Plugin::Filter`
+- use `compat_parameters` plugin helper for compatibility with v0.12 config style
+- update test code
 
-If your output plugin emits events into Fluentd, follow these points
-too:
+Plugins will work fine once the above changes are incorporated. But if your
+plugin implements `#filter_stream`, remove it if possible. Overriding
+`#filter_stream` makes it impossible to optimize filters' performance.
 
--   use `event_emitter` plugin helper to introduce router
--   use `Fluent::Engine.now` or `Fluent::EventTime.now` to create
-    current time object instead of `Time.now.to_i`
+Moreover, many filter plugins use parsers or formatters. It is better to use
+plugin helpers for them to simplify code and make it easier to understand the
+way the plugin configures.
 
-It's recommended to use plugin helpers if your plugin creates any of
-thread, timer socket, child process and/or parsers/formatters. It's
-better to use plugin helpers to simplify code and to make tests stable.
-For more details, see [Plugin Helper Overview](/developer/plugin-helper-overview.md).
+
+### Non-Buffered Output Plugins
+
+For output plugins, the points to be fixed are:
+
+- require `'fluent/plugin/output'` instead of `'fluent/output'`
+- fix superclass from `Fluent::Output` to `Fluent::Plugin::Output`
+- use `compat_parameters` plugin helper for compatibility with v0.12 config style
+- remove `#emit` method and implement `#process(tag, es)` method
+- update test code
+
+If your output plugin emits events into Fluentd, follow these points too:
+
+- use `event_emitter` plugin helper to introduce a router
+- use `Fluent::Engine.now` or `Fluent::EventTime.now` to create current time
+  object instead of `Time.now.to_i`
+
+It is recommended to use plugin helpers if your plugin creates any one of
+thread, timer, socket, child process and/or parsers/formatters. It is better to
+use plugin helpers to simplify code and to make tests stable.
+
+For more details, see
+[Plugin Helper Overview](/developer/plugin-helper-overview.md).
 
 Before:
 
-```
+```rb
 require 'fluent/output'
 
 module Fluent
@@ -199,23 +193,23 @@ module Fluent
 
     def configure(conf)
       super
-      ...
+      # ...
     end
 
     def start
       super
-      ...
+      # ...
     end
 
     def shutdown
       super
-      ...
+      # ...
     end
 
     def emit(tag, es, chain)
       chain.next
       es.each do |time,record|
-        log.info "OK!"
+        log.info 'OK!'
       end
     end
   end
@@ -224,7 +218,7 @@ end
 
 After:
 
-```
+```rb
 require 'fluent/plugin/output'
 
 module Fluent
@@ -237,22 +231,22 @@ module Fluent
       def configure(conf)
         compat_parameters_convert(conf, ...)
         super
-        ...
+        # ...
       end
 
       def start
         super
-        ...
+        # ...
       end
 
       def shutdown
-        ...
+        # ...
         super # This super must be at the end of shutdown method
       end
 
       def process(tag, es)
         es.each do |time, record|
-          log.info("OK!")
+          log.info 'OK!'
         end
       end
     end
@@ -261,32 +255,32 @@ end
 ```
 
 
-### Buffered output plugins
+### Buffered Output Plugins
 
-For buffered output plugins (subclass of `Fluent::BufferedOutput`),
-points to be fixed are:
+For buffered output plugins (subclass of `Fluent::BufferedOutput`), the points
+to be fixed are:
 
--   require "fluent/plugin/output" instead of "fluent/output"
--   fix superclass from `Fluent::BufferedOutput` to
-    `Fluent::Plugin::Output`
--   use `compat_parameters` plugin helper to keep compatibility of
-    configurations to v0.12 style
--   implement `#compat_parameters_default_chunk_key` to return empty
-    string to show chunk key is not specified
--   fix `config_set_default` and its parameter names to override
-    parameters in `<buffer>` section
--   remove `#format_stream` method if it is implemented in your plugin
-    (it is not supported)
--   update test code
+- require `'fluent/plugin/output'` instead of `'fluent/output'`
+- fix superclass from `Fluent::BufferedOutput` to `Fluent::Plugin::Output`
+- use `compat_parameters` plugin helper for compatibility with v0.12 config style
+- implement `#compat_parameters_default_chunk_key` to return an empty string to
+  show chunk key is not specified
+- fix `config_set_default` and its parameter names to override parameters in
+  `<buffer>` section
+- remove `#format_stream` method if it is implemented in your plugin (it is not
+  supported)
+- update test code
 
-It's recommended to use plugin helpers if your plugin creates any of
-thread, timer socket, child process and/or parsers/formatters. It's
-better to use plugin helpers to simplify code and to make tests stable.
-For more details, see [Plugin Helper Overview](/developer/plugin-helper-overview.md).
+It is recommended to use plugin helpers if your plugin creates any one of
+thread, timer, socket, child process and/or parsers/formatters. It is better to
+use plugin helpers to simplify code and to make tests stable.
+
+For more details, see
+[Plugin Helper Overview](/developer/plugin-helper-overview.md).
 
 Before:
 
-```
+```rb
 require 'fluent/output'
 
 module Fluent
@@ -297,21 +291,21 @@ module Fluent
 
     def configure(conf)
       super
-      ...
+      # ...
     end
 
     def start
       super
-      ...
+      # ...
     end
 
     def shutdown
       super
-      ...
+      # ...
     end
 
     def format(tag, time, record)
-      ...
+      # ...
     end
 
     def write(chunk)
@@ -330,7 +324,7 @@ end
 
 After:
 
-```
+```rb
 require 'fluent/plugin/output'
 
 module Fluent
@@ -345,16 +339,16 @@ module Fluent
       def configure(conf)
         compat_parameters_convert(conf, ...)
         super
-        ...
+        # ...
       end
 
       def start
         super
-        ...
+        # ...
       end
 
       def shutdown
-        ...
+        # ...
         super # This super must be at the end of shutdown method
       end
 
@@ -367,100 +361,104 @@ module Fluent
       end
 
       def format(tag, time, record)
-        ...
+        # ...
       end
     end
   end
 end
 ```
 
-For more details, see [Writing Buffered Output Plugins](/developer/api-plugin-output.md).
+For more details, see
+[Writing Buffered Output Plugins](/developer/api-plugin-output.md).
 
 
-### ObjectBuffered output plugins
+### `ObjectBuffered` Output Plugins
 
-For object buffered output plugins (subclass of
-`Fluent::ObjectBufferedOutput`), points to be fixed are:
+For object buffered output plugins (subclass of `Fluent::ObjectBufferedOutput`),
+the points to be fixed are:
 
--   require "fluent/plugin/output" instead of "fluent/output"
--   fix superclass from `Fluent::ObjectBufferedOutput` to
-    `Fluent::Plugin::Output`
--   use `compat_parameters` plugin helper to keep compatibility of
-    configurations to v0.12 style
--   implement `#compat_parameters_default_chunk_key` to return `"tag"`
-    to show chunk key is tag (or something else if your plugin
-    overwrites `#emit` to change `key`)
--   fix `config_set_default` and its parameter names to override
-    parameters in `<buffer>` section
--   fix `#write` method code not to use `chunk.key`, to use
-    `chunk.metadata.tag` and `#extract_placeholders`
--   update test code
+- require `'fluent/plugin/output'` instead of `'fluent/output'`
+- fix superclass from `Fluent::ObjectBufferedOutput` to `Fluent::Plugin::Output`
+- use `compat_parameters` plugin helper for compatibility with v0.12 config style
+- implement `#compat_parameters_default_chunk_key` to return `"tag"` to show
+  chunk key is tag (or something else if your plugin overwrites `#emit` to
+  change `key`)
+- fix `config_set_default` and its parameter names to override parameters in
+  `<buffer>` section
+- fix `#write` method code not to use `chunk.key`, to use `chunk.metadata.tag`
+  and `#extract_placeholders`
+- update test code
 
-It's recommended to use plugin helpers if your plugin creates any of
-thread, timer socket, child process and/or parsers/formatters. It's
-better to use plugin helpers to simplify code and to make tests stable.
-For more details, see [Plugin Helper Overview](/developer/plugin-helper-overview.md).
+It is recommended to use plugin helpers if your plugin creates any one of
+thread, timer, socket, child process and/or parsers/formatters. It is better to
+use plugin helpers to simplify code and to make tests stable.
+
+For more details, see
+[Plugin Helper Overview](/developer/plugin-helper-overview.md).
 
 Before:
 
-```
+```rb
 require 'fluent/output'
 
 module Fluent
   class SomeOutput < ObjectBufferedOutput
     Plugin.register_output('NAME', self)
     # configure(conf), start, shutdown
-    ...
+    # ...
 
     def write(chunk)
-      ...
+      # ...
     end
   end
 end
 ```
 
-After: same as buffered output. For more details, see [Writing Buffered Output Plugins](/developer/api-plugin-output.md).
+After: Same as the buffered output.
+
+For more details, see
+[Writing Buffered Output Plugins](/developer/api-plugin-output.md).
 
 
-### TimeSliced output plugins
+### TimeSliced Output Plugins
 
-For time sliced output plugins (subclass of `Fluent::TimeSlicedOutput`),
+For time sliced output plugins (subclass of `Fluent::TimeSlicedOutput`), the
 points to be fixed are:
 
--   require "fluent/plugin/output" instead of "fluent/output"
--   fix superclass from `Fluent::TimeSlicedOutput` to
-    `Fluent::Plugin::Output`
--   use `compat_parameters` plugin helper to keep compatibility of
-    configurations to v0.12 style
--   implement `#compat_parameters_default_chunk_key` to return `"time"`
-    to show chunk key is time
--   set default value of `timekey` in `<buffer>` section if your plugin
-    specifies default `time_slice_format`
--   fix `config_set_default` and its parameter names to override
-    parameters in `<buffer>` section
--   fix `#write` method code not to use `chunk.key`, to use
-    `chunk.metadata.timekey` and `#extract_placeholders`
--   update test code
+- require `'fluent/plugin/output'` instead of `'fluent/output'`
+- fix superclass from `Fluent::TimeSlicedOutput` to `Fluent::Plugin::Output`
+- use `compat_parameters` plugin helper for compatibility with v0.12 config style
+- implement `#compat_parameters_default_chunk_key` to return `"time"` to show
+  chunk key is time
+- set default value of `timekey` in `<buffer>` section if your plugin specifies
+  default `time_slice_format`
+- fix `config_set_default` and its parameter names to override parameters in
+  `<buffer>` section
+- fix `#write` method code not to use `chunk.key`, to use
+  `chunk.metadata.timekey` and `#extract_placeholders`
+- update test code
 
-It's recommended to use plugin helpers if your plugin creates any of
-thread, timer socket, child process and/or parsers/formatters. It's
-better to use plugin helpers to simplify code and to make tests stable.
-For more details, see [Plugin Helper Overview](/developer/plugin-helper-overview.md).
+It is recommended to use plugin helpers if your plugin creates any one of
+thread, timer, socket, child process and/or parsers/formatters. It is better to
+use plugin helpers to simplify code and to make tests stable.
+
+For more details, see
+[Plugin Helper Overview](/developer/plugin-helper-overview.md).
 
 Before (code):
 
-```
+```rb
 require 'fluent/output'
 
 module Fluent
   class SomeOutput < TimeSlicedOutput
     Plugin.register_output('NAME', self)
     # configure(conf), start, shutdown
-    ...
+    # ...
 
     def write(chunk)
       day = chunk.key
-      ...
+      # ...
     end
   end
 end
@@ -468,20 +466,23 @@ end
 
 Before (configuration):
 
-```
+```text
 <match *>
   @type ...
   time_slice_format %Y%m%d%H
 </match>
 ```
 
-After (code): same as buffered output. For more details, see [Writing Buffered Output Plugins](/developer/api-plugin-output.md).
+After (code): Same as the buffered output.
+
+For more details, see
+[Writing Buffered Output Plugins](/developer/api-plugin-output.md).
 
 After (configuration):
 
 Use `<buffer>` section to customize chunking.
 
-```
+```text
 <match *>
   @type ...
   <buffer time>
@@ -493,39 +494,40 @@ Use `<buffer>` section to customize chunking.
 For more details, see [Understanding Chunking and Metadata](/developer/api-plugin-output.md/#understanding-chunking-and-metadata).
 
 
-### Multi output plugins
+### Multi Output Plugins
 
-For multi output plugins (subclass of `Fluent::MultiOutput`), there are
-many points to be considered.
+For multi output plugins (subclass of `Fluent::MultiOutput`), there are many
+points to be considered.
 
-If the plugin uses `<store>` sections and instantiates plugins per each
-store section, use `Fluent::Plugin::MultiOutput`. See code to know how
-to use it: `lib/fluent/plugin/multi_output.rb` or some built-in plugins
-like `out_copy`, `out_roundrobin`.
+If the plugin uses `<store>` sections and instantiates plugins per each store
+section, use `Fluent::Plugin::MultiOutput`. See code to know how to use it:
+`lib/fluent/plugin/multi_output.rb` or some built-in plugins such as`out_copy`
+and `out_roundrobin`.
 
 Otherwise, your plugin does something curious for Fluentd. Read code of
-`lib/fluent/plugin/output.rb` and `lib/fluent/plugin/bare_output.rb`,
-and consider which is better for your plugin. But it is strongly
-unrecommended to use `Fluent::Plugin::BareOutput` for most use cases.
+`lib/fluent/plugin/output.rb` and `lib/fluent/plugin/bare_output.rb`, and
+consider which is better for your plugin. But, it is advised against using
+`Fluent::Plugin::BareOutput` for most use cases.
 
 
-### Output plugins using mixins
+### Output Plugins using Mixins
 
-#### Fluent::HandleTagAndTimeMixin, Fluent::SetTagKeyMixin, Fluent::SetTimeKeyMixin
+
+#### `Fluent::HandleTagAndTimeMixin`, `Fluent::SetTagKeyMixin`, `Fluent::SetTimeKeyMixin`
 
 Use `inject` and `compat_parameters` plugin helper in plugin code.
 
-Old configuration will be converted to new style configuration
-automatically if plugin code uses proper plugin helpers. So plugin users
-will not need to rewrite configuration immediately.
+Old configuration will be converted to new style configuration automatically if
+plugin code uses proper plugin helpers. So, plugin users will not need to
+rewrite configuration immediately.
 
-Fluentd shows converted new style configuration in startup log if user
-provides old style configuration. User can rewrite configuration refer
-to the log.
+Fluentd shows converted new style configuration in startup log if user provides
+old style configuration. User may then rewrite the configuration dumped in the
+log.
 
 Before:
 
-```
+```text
 <match **>
   @type some_output
   include_tag_key true
@@ -538,7 +540,7 @@ Before:
 
 After:
 
-```
+```text
 <match **>
   @type some_output
   <inject>
@@ -549,14 +551,15 @@ After:
 </match>
 ```
 
-#### Fluent::HandleTagNameMixin
+
+#### `Fluent::HandleTagNameMixin`
 
 Related configurations:
 
--   `remove_tag_prefix`
--   `remove_tag_suffix`
--   `add_tag_prefix`
--   `add_tag_suffix`
+- `remove_tag_prefix`
+- `remove_tag_suffix`
+- `add_tag_prefix`
+- `add_tag_suffix`
 
 Use `extract_placeholders(template, chunk)` in plugin code.
 
@@ -564,79 +567,80 @@ Use placeholders `${tag}, ${tag[0]}, ${tag[1]}` in configuration.
 
 Before:
 
-```
+```text
 <match input.access>
   @type some_output
   remove_tag_prefix input.
-  tag               some.${tag}
+  tag some.${tag}
   <record>
-    ...
+    # ...
   </record>
 </match>
 ```
 
 After:
 
-```
+```text
 <match input.access>
   @type some_output
   tag some.${tag[1]}
   <record>
-    ...
+    # ...
   </record>
 </match>
 ```
 
 
-### Parser plugins
+### Parser Plugins
 
--   require "fluent/plugin/parser" instead of "fluent/parser"
--   fix superclass from `Fluent::Parser` to `Fluent::Plugin::Parser`
--   use `compat_parameters` plugin helper to keep compatibility of
-    configurations to v0.12 style
--   update test code
-
-
-### Formatter plugins
-
--   require "fluent/plugin/formatter" instead of "fluent/formatter"
--   fix superclass from `Fluent::Formatter` to
-    `Fluent::Plugin::Formatter`
--   use `compat_parameters` plugin helper to keep compatibility of
-    configurations to v0.12 style
--   update test code
+- require `'fluent/plugin/parser'` instead of `'fluent/parser'`
+- fix superclass from `Fluent::Parser` to `Fluent::Plugin::Parser`
+- use `compat_parameters` plugin helper for compatibility with v0.12 config style
+- update test code
 
 
-### Test code
+### Formatter Plugins
 
--   organize `test_helper.rb`
--   require "fluent/test/driver/output" and "fluent/test"
--   replace test driver from `Fluent::Test::OutputTestDrive` to
-    `Fluent::Test::Driver::Output`
--   use new test driver API
+- require `'fluent/plugin/formatter'` instead of `'fluent/formatter'`
+- fix superclass from `Fluent::Formatter` to `Fluent::Plugin::Formatter`
+- use `compat_parameters` plugin helper for compatibility with v0.12 config style
+- update test code
 
-For example, an output plugin's test code. For more details, see
-[Writing Plugin Test Code](/developer/plugin-test-code.md)
 
-Before:
+### Test Code
 
-test/test\_helper.rb
+- organize `test_helper.rb`
+- require `'fluent/test/driver/output'` and `'fluent/test'`
+- replace test driver from `Fluent::Test::OutputTestDrive` to
+  `Fluent::Test::Driver::Output`
+- use new test driver API
 
-```
+For example, here is an output plugin's test code.
+
+For more details, see
+[Writing Plugin Test Code](/developer/plugin-test-code.md).
+
+**Before:**
+
+`test/test_helper.rb`
+
+```rb
 require 'rubygems'
 require 'bundler'
 begin
   Bundler.setup(:default, :development)
 rescue Bundler::BundlerError => e
   $stderr.puts e.message
-  $stderr.puts "Run `bundle install` to install missing gems"
+  $stderr.puts 'Run `bundle install` to install missing gems'
   exit e.status_code
 end
+
 require 'test/unit'
 
 $LOAD_PATH.unshift(File.join(File.dirname(__FILE__), '..', 'lib'))
 $LOAD_PATH.unshift(File.dirname(__FILE__))
 require 'fluent/test'
+
 unless ENV.has_key?('VERBOSE')
   nulllogger = Object.new
   nulllogger.instance_eval {|obj|
@@ -651,14 +655,14 @@ class Test::Unit::TestCase
 end
 ```
 
-test/plugin/test\_some\_output.rb
+`test/plugin/test_some_output.rb`
 
-```
+```rb
 require 'test_helper'
 require 'fluent/plugin/out_some'
 
 class SomeOutputTest < Test::Unit::TestCase
-  def create_driver(conf, tag = "test")
+  def create_driver(conf, tag = 'test')
     Fluent::Test::OutputTestDriver.new(Fluent::SomeOutput, tag).configure(conf)
   end
 
@@ -667,29 +671,29 @@ class SomeOutputTest < Test::Unit::TestCase
   end
 
   def test_configure
-    # many configuration related test cases
+    # Configuration-related test cases
   end
 end
 ```
 
-After:
+**After:**
 
-test\_helper.rb
+`test_helper.rb`
 
-```
-require "bundler/setup"
-require "test/unit"
-$LOAD_PATH.unshift(File.join(__dir__, "..", "lib"))
+```rb
+require 'bundler/setup'
+require 'test/unit'
+$LOAD_PATH.unshift(File.join(__dir__, '..', 'lib'))
 $LOAD_PATH.unshift(__dir__)
-require "fluent/test"
+require 'fluent/test'
 ```
 
-test/plugin/test\_some\_output.rb
+`test/plugin/test_some_output.rb`
 
-```
-require "test_helper"
-require "fluent/test/driver/output"
-require "fluent/plugin/out_some"
+```rb
+require 'test_helper'
+require 'fluent/test/driver/output'
+require 'fluent/plugin/out_some'
 
 class SomeOutputTest < Test::Unit::TestCase
   def create_driver(conf)
@@ -700,21 +704,21 @@ class SomeOutputTest < Test::Unit::TestCase
     Fluent::Test.setup
   end
 
-  sub_test_case "configure" do
-    # configuration related tests goes here
-    test "empty" do
+  sub_test_case 'configure' do
+    # Configuration-related tests
+    test 'empty' do
       assert_raise(Fluent::ConfigError) do
-        create_driver("")
+        create_driver('')
       end
     end
-    ...
+    # ...
   end
 
-  sub_test_case "emit events" do
-    # emit events related tests goes here
-    test "emit 2 simple records" do
+  sub_test_case 'emit events' do
+    # Emit events-related tests
+    test 'emit 2 simple records' do
       d = create_driver(conf)
-      d.run(default_tag: "test") do
+      d.run(default_tag: 'test') do
         d.feed(time, record1)
         d.feed(time, record2)
       end
@@ -728,5 +732,8 @@ end
 
 ------------------------------------------------------------------------
 
-If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open).
-[Fluentd](http://www.fluentd.org/) is a open source project under [Cloud Native Computing Foundation (CNCF)](https://cncf.io/). All components are available under the Apache 2 License.
+If this article is incorrect or outdated, or omits critical information, please
+[let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open).
+[Fluentd](http://www.fluentd.org/) is an open-source project under
+[Cloud Native Computing Foundation (CNCF)](https://cncf.io/). All components are
+available under the Apache 2 License.

@@ -1,23 +1,19 @@
 # Extract Plugin Helper API
 
-`extract` helper extracts tag or time from event record according to the
-configuration.
+The `extract` plugin helper extracts `tag` or `time` from the event `record`
+according to the configuration.
 
-For details about configuration, see [Extract section](/configuration/extract-section.md).
+Here is an example:
 
-Here is the code example with `extract` helper:
-
-```
+```rb
 require 'fluent/plugin/output'
 
 module Fluent::Plugin
   class ExampleOutput > Output
     Fluent::Plugin.register_output('Example')
 
-  end
-
-  def process(tag, es)
-    es.each do |time, record|
+    def process(tag, es)
+      es.each do |time, record|
       new_tag = extract_tag_from_record(record)
       new_time = extract_time_from_record(record)
     end
@@ -26,47 +22,50 @@ module Fluent::Plugin
 end
 ```
 
-For more details about configuration, see [Extract section](/configuration/extract-section.md).
+For more details, see [Extract section](/configuration/extract-section.md).
 
 
 ## Methods
 
 
-### extract\_tag\_from\_record(record)
+### `extract_tag_from_record(record)`
 
-This method extracts tag from given record
+This method extracts `tag` from the given record.
 
 -   `record`: event record
 
-Code example:
+Example:
 
-```
+```rb
 new_tag = extract_tag_from_record(record)
 ```
 
 
-### extract\_time\_from\_record(record)
+### `extract_time_from_record(record)`
 
-This method extracts time from given record
+This method extracts `time` from given record.
 
 -   `record`: event record
 
-Code example:
+Example:
 
-```
+```rb
 new_time = extract_time_from_record(record)
 ```
 
 
-## extract used plugins
+## Plugins using `extract`
 
--   [Exec input](/plugins/input/exec.md)
--   [TCP input](/plugins/input/tcp.md)
--   [UDP input](/plugins/input/udp.md)
--   [Exec filter output](/plugins/output/exec_filter.md)
+-   [`in_exec`](/plugins/input/exec.md)
+-   [`in_tcp`](/plugins/input/tcp.md)
+-   [`in_udp`](/plugins/input/udp.md)
+-   [`out_exec_filter`](/plugins/output/exec_filter.md)
 
 
 ------------------------------------------------------------------------
 
-If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open).
-[Fluentd](http://www.fluentd.org/) is a open source project under [Cloud Native Computing Foundation (CNCF)](https://cncf.io/). All components are available under the Apache 2 License.
+If this article is incorrect or outdated, or omits critical information, please
+[let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open).
+[Fluentd](http://www.fluentd.org/) is an open-source project under
+[Cloud Native Computing Foundation (CNCF)](https://cncf.io/). All components are
+available under the Apache 2 License.
