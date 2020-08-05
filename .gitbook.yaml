@@ -42,18 +42,20 @@ redirects:
   v1.0/articles/multi-process-workers: deployment/multi-process-workers.md
   v1.0/articles/rpc: deployment/rpc.md
   v1.0/articles/plugin-management: deployment/plugin-management.md
-  v1.0/articles/monitoring-rest-api: deployment/monitoring-rest-api.md
   v1.0/articles/logging: deployment/logging.md
   v1.0/articles/high-availability: deployment/high-availability.md
   v1.0/articles/system-config: deployment/system-config.md
   v1.0/articles/failure-scenarios: deployment/failure-scenarios.md
   v1.0/articles/signals: deployment/signals.md
   v1.0/articles/fluentd-ui: deployment/fluentd-ui.md
-  v1.0/articles/monitoring: deployment/monitoring.md
-  v1.0/articles/monitoring-prometheus: deployment/monitoring-prometheus.md
   v1.0/articles/trouble-shooting: deployment/trouble-shooting.md
   v1.0/articles/performance-tuning-single-process: deployment/performance-tuning-single-process.md
   v1.0/articles/command-line-option: deployment/command-line-option.md
+
+  # Monitoring
+  v1.0/articles/monitoring: monitoring/overview.md
+  v1.0/articles/monitoring-rest-api: monitoring/monitoring-rest-api.md
+  v1.0/articles/monitoring-prometheus: monitoring/monitoring-prometheus.md
 
   # Plugin/Input
   v1.0/articles/input-plugin-overview: plugins/input/README.md

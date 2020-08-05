@@ -10,7 +10,7 @@ HTTP.
 
 Add these lines to your configuration file:
 
-```
+```text
 <source>
   @type monitor_agent
   bind 0.0.0.0
@@ -20,7 +20,7 @@ Add these lines to your configuration file:
 
 Restart the agent and get the metrics via HTTP:
 
-```
+```shell
 $ curl http://host:24220/api/plugins.json
 {
   "plugins":[
