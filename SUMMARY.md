@@ -59,7 +59,7 @@
   * [http](/plugins/input/http.md)
   * [syslog](/plugins/input/syslog.md)
   * [exec](/plugins/input/exec.md)
-  * [dummy](/plugins/input/dummy.md)
+  * [sample](/plugins/input/sample.md)
   * [monitor_agent](/plugins/input/monitor_agent.md)
   * [windows_eventlog](/plugins/input/windows_eventlog.md)
 * [Output Plugins](/plugins/output/README.md)

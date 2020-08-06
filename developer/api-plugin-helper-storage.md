@@ -157,7 +157,7 @@ This method updates the stored value using a `Proc` object.
 
 ## Plugins using `storage`
 
--   [`in_dummy`](/plugins/input/dummy.md)
+-   [`in_sample`](/plugins/input/sample.md)
 -   [`in_windows_eventlog`](/plugins/input/windows_eventlog.md)
 
 

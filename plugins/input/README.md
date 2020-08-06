@@ -32,7 +32,7 @@ data sources.
 -   [`in_http`](/plugins/input/http.md)
 -   [`in_syslog`](/plugins/input/syslog.md)
 -   [`in_exec`](/plugins/input/exec.md)
--   [`in_dummy`](/plugins/input/dummy.md)
+-   [`in_sample`](/plugins/input/sample.md)
 -   [`in_windows_eventlog`](/plugins/input/windows_eventlog.md)
 
 

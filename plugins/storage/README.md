@@ -28,11 +28,11 @@ For an input, an output, and filter plugin that supports Storage, the
 `<storage>` directive can be used to store key-value pair into the a key-value
 store such as JSON file, MongoDB, Redis and so on.
 
-Here is an example with `in_dummy`:
+Here is an example with `in_sample`:
 
 ```
 <source>
-  @type dummy
+  @type sample
   tag docs.fluentd.storage
   <storage awesome_path>
     @type my_custom_storage
@@ -48,7 +48,7 @@ Here is an example with `in_dummy`:
 
 ## List of Core Plugins with Storage support
 
--   [`in_dummy`](/plugins/input/dummy.md)
+-   [`in_sample`](/plugins/input/sample.md)
 
 
 ------------------------------------------------------------------------

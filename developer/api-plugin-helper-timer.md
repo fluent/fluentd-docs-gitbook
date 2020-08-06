@@ -64,7 +64,7 @@ end
 
 -   [`out_forward`](/plugins/output/forward.md)
 -   [`in_monitor_agent`](/plugins/input/monitor_agent.md)
--   [`in_dummy`](/plugins/input/dummy.md)
+-   [`in_sample`](/plugins/input/sample.md)
 
 
 ------------------------------------------------------------------------
