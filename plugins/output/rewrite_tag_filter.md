@@ -1,7 +1,7 @@
 # `rewrite_tag_filter` Output Plugin
 
-The `out_rewrite_tag_filter` Output plugin provides a rule-based
-mechanism for rewriting tags.
+The `out_rewrite_tag_filter` Output plugin provides a rule-based mechanism for
+rewriting tags.
 
 
 ## How It Works
@@ -61,11 +61,11 @@ For more details, see [Plugin Management](/deployment/plugin-management.md).
 
 ## Configuration Example
 
-Configuration design is dropping some pattern record first, then re-emit
-other matched record as new tag name. The example configuration shown
-below gives an example on how the plugin can be used to define a number
-of rules that examine values from different keys and sets the tag
-depending on the regular expression configured in each rule.
+By design, tHe configuration drops some pattern records first and then it
+re-emits the next matched record as the new tag name. The example configuration
+shown below gives an example on how the plugin can be used to define a number of
+rules that examine values from different keys and sets the tag depending on the
+regular expression configured in each rule.
 
 The tag value is later used to decide whether the log event shall be
 dropped or not.
@@ -147,7 +147,7 @@ Capitalizes letter for every matched regex backreference. (e.g. `maps -> Maps`)
 |:-------|:---------|:--------|
 | string | hostname | 2.0.0   |
 
-Overrides hostname command for placeholder. (default setting is long hostname)
+Overrides hostname command for placeholder. (The default is the long hostname.)
 
 
 ### `<rule>` Section
@@ -476,9 +476,9 @@ If you have the following configuration, it doesn't work:
 </match>
 ```
 
-In this case, `rewrite_tag_filter` causes infinite loop because
-fluentd's routing is executed from top to bottom. So you need to change
-tag like this:
+In this case, `rewrite_tag_filter` causes an infinite loop because the fluentd's
+routing is executed from top-to-bottom. So, you need to change the tag like
+this:
 
 ```
 <match app.**>

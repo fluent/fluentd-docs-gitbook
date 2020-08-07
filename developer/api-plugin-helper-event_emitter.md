@@ -1,6 +1,6 @@
 # Event Emitter Plugin Helper API
 
-The `event_emitter` plugin helper introduces `router` method to the plugin.
+The `event_emitter` plugin helper introduces the `router` method to the plugin.
 
 Here is an example:
 

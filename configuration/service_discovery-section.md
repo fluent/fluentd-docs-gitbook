@@ -1,6 +1,6 @@
 # Service Discovery Section Configurations
 
-Some of Fluentd plugins support the `<service_discovery>` section to set the
+Some of the Fluentd plugins support the `<service_discovery>` section to set the
 target nodes dynamically.
 
 ## Service Discovery Section Overview
@@ -40,7 +40,7 @@ For more details, see plugins documentation.
 
 ### `@type`
 
-The `@type` parameter specifies the type of the service discovery plugin.
+The `@type` parameter specifies the type of service discovery plugin.
 
 ```
 <service_discovery>

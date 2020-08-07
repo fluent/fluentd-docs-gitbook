@@ -2,7 +2,7 @@
 
 The `ltsv` formatter plugin output an event as [LTSV](http://ltsv.org).
 
-```
+```text
 field1[label_delimiter]value1[delimiter]field2[label_delimiter]value2\n
 ```
 
@@ -13,36 +13,36 @@ field1[label_delimiter]value1[delimiter]field2[label_delimiter]value2\n
 -   [Format section configurations](/configuration/format-section.md)
 
 
-### delimiter
+### `delimiter`
 
 | type   | default    | version |
 |:-------|:-----------|:--------|
-| string | "\\t"(TAB) | 0.14.0  |
+| string | `\t` (TAB) | 0.14.0  |
 
-Delimiter for fields.
+Delimiter for the fields.
 
 
-### label\_delimiter
+### `label_delimiter`
 
 | type   | default | version |
 |:-------|:--------|:--------|
-| string | :       | 0.14.0  |
+| string | `:`     | 0.14.0  |
 
-Delimiter for key value field.
+Delimiter for the key-value field.
 
 
-### add\_newline
+### `add_newline`
 
 | type | default | version |
 |:-----|:--------|:--------|
-| bool | true    | 0.14.12 |
+| bool | `true`  | 0.14.12 |
 
-Add `\n` to the result.
+Adds `\n` to the result.
 
 
 ## Example
 
-```
+```text
 tag:    app.event
 time:   1362020400
 record: {"host":"192.168.0.1","size":777,"method":"PUT"}
@@ -50,12 +50,15 @@ record: {"host":"192.168.0.1","size":777,"method":"PUT"}
 
 This incoming event is formatted to:
 
-```
+```text
 host:192.168.0.1\tsize:777\tmethod:PUT\n
 ```
 
 
 ------------------------------------------------------------------------
 
-If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open).
-[Fluentd](http://www.fluentd.org/) is a open source project under [Cloud Native Computing Foundation (CNCF)](https://cncf.io/). All components are available under the Apache 2 License.
+If this article is incorrect or outdated, or omits critical information, please
+[let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open).
+[Fluentd](http://www.fluentd.org/) is an open-source project under
+[Cloud Native Computing Foundation (CNCF)](https://cncf.io/). All components are
+available under the Apache 2 License.

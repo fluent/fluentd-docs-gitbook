@@ -1,16 +1,15 @@
 # Splunk-like Grep-and-Alert-Email System Using Fluentd
 
-[Splunk](http://www.splunk.com/) is a great tool for searching logs. One
-of its key features is the ability to `grep` logs and send alert emails
-when certain conditions are met.
+[Splunk](http://www.splunk.com/) is a great tool for searching logs. One of its
+key features is the ability to `grep` logs and send alert emails when certain
+conditions are met.
 
-In this little how-to article, we will show you how to build a similar
-system using Fluentd. More specifically, we will create a system that
-sends an alert email when it detects a 5xx HTTP status code in an Apache
-access log.
+In this little HowTo article, we will show you how to build a similar system
+using Fluentd. More specifically, we will create a system that sends an alert
+email when it detects a 5xx HTTP status code in an Apache access log.
 
-If you want a more general introduction to use Fluentd as a free
-alternative to Splunk, see the article
+If you want a more general introduction to use Fluentd as a free alternative to
+Splunk, see the article
 ["Free Alternative to Splunk Using Fluentd"](/guides/free-alternative-to-splunk-by-fluentd.md).
 
 
@@ -88,7 +87,7 @@ Before proceeding, please confirm:
 
 -   The SMTP configuration is correct. You need a working mail server
     and a proper recipient address to run this example.
--   The access log file has a proper file permission. You need to make
+-   The access log file has proper file permission. You need to make
     the file readable to the `td-agent`/`fluentd` daemon.
 
 
@@ -130,7 +129,7 @@ process manually:
 $ fluentd -c alert-email.conf
 ```
 
-Then generate some 5xx errors in the web server. If you do not have a
+Then, generate some 5xx errors in the web server. If you do not have a
 convenient way to accomplish this, appending 5xx lines to the log file
 manually will produce the same result.
 
@@ -139,10 +138,10 @@ Now you will receive an alert email titled "HTTP SERVER ERROR".
 
 ## What's next?
 
-Admittedly, this is a contrived example. In reality, you would set the
-threshold higher. Also, you might be interested in tracking 4xx pages as
-well. In addition to Apache logs, Fluentd can handle Nginx logs,
-syslogs, or any single- or multi-lined logs.
+Admittedly, this is a contrived example. In reality, you would set the threshold
+higher. Also, you might be interested in tracking 4xx pages as well. In addition
+to Apache logs, Fluentd can handle Nginx logs, syslogs, or any single- or
+multi-lined logs.
 
 You can learn more about Fluentd and its plugins by:
 

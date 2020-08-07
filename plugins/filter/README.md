@@ -11,7 +11,7 @@ Fluentd has eight (8) types of plugins:
 -   [Service Discovery](/plugins/service_discovery/README.md)
 -   [Buffer](/plugins/buffer/README.md)
 
-This article gives an overview of Filter Plugin.
+This article gives an overview of the Filter Plugin.
 
 
 ## Overview
@@ -62,17 +62,18 @@ Hence, in the following example:
 Only the events whose `message` field contain `cool` get the new field
 `hostname` with the machine's hostname as its value.
 
-Users can create their own custom plugins with a bit of Ruby. See [this section](/developer/plugin-development.md/#filter-plugins) for more information.
+Users can create their own custom plugins with a bit of Ruby.
+See [this section](/developer/plugin-development.md/#filter-plugins) for more information.
 
 
 ## Filter Chain Optimization
 
-If you have multiple filters in the pipeline, fluentd tries to optimize
-filter calls to improve the performance. The condition for optimization
-is all plugins in the pipeline use `filter` method. If the plugin which
-uses `filter_stream` exists, chain optimization is disabled.
+If you have multiple filters in the pipeline, fluentd tries to optimize filter
+calls to improve the performance. The condition for optimization is that all
+plugins in the pipeline use the `filter` method. If the plugin which uses
+`filter_stream` exists, chain optimization is disabled.
 
-If you see following message in the log, the optimization is disabled:
+If you see the following message in the log, the optimization is disabled:
 
 ```
 disable filter chain optimization because [Fluent::Plugin::XXXFilter] uses `#filter_stream` method

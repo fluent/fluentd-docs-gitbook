@@ -1,37 +1,36 @@
 # Free Alternative to Splunk Using Fluentd
 
-[Splunk](http://www.splunk.com/) is a great tool for searching logs, but
-its high cost makes it prohibitive for many teams. In this article, we
-present a free and open source alternative to Splunk by combining three
-open source projects: Elasticsearch, Kibana, and Fluentd.
+[Splunk](http://www.splunk.com/) is a great tool for searching logs, but its
+high cost makes it prohibitive for many teams. In this article, we present a
+free and open-source alternative to Splunk by combining three open source
+projects: Elasticsearch, Kibana, and Fluentd.
 
 ![Kibana Visualization](/images/kibana6-screenshot-visualize.png)
 
 
-[Elasticsearch](https://www.elastic.co/products/elasticsearch) is an
-open source search engine known for its ease of use.
-[Kibana](https://www.elastic.co/products/kibana) is an open source Web
-UI that makes Elasticsearch user friendly for marketers, engineers and
-data scientists alike.
+[Elasticsearch](https://www.elastic.co/products/elasticsearch) is an open-source
+search engine well-known for its ease of use.
+[Kibana](https://www.elastic.co/products/kibana) is an open-source Web UI that
+makes Elasticsearch user friendly for marketers, engineers and data scientists
+alike.
 
-By combining these three tools (Fluentd + Elasticsearch + Kibana) we get
-a scalable, flexible, easy to use log search engine with a great Web UI
-that provides an open-source Splunk alternative, all for free.
+By combining these three tools (Fluentd + Elasticsearch + Kibana) we get a
+scalable, flexible, easy to use the log search engine with a great Web UI that
+provides an open-source Splunk alternative, all for free.
 
 ![Fluentd + Elasticsearch + Kibana](/images/fluentd-elasticsearch-kibana.png)
 
-
-In this guide, we will go over installation, setup, and basic use of
-this combined log search solution. This article was tested on Ubuntu
-16.04 and CentOS 7.4. **If you're not familiar with Fluentd**, please
-learn more about Fluentd first.
+In this guide, we will go over the installation, setup, and basic use of this
+combined log search solution. This article was tested on Ubuntu 16.04 and CentOS
+7.4. **If you're not familiar with Fluentd**, please learn more about Fluentd
+first.
 
 ## Prerequisites
 
 
 ### Java for Elasticsearch
 
-Please confirm that your Java version is 8 or higher.
+Please confirm that Java version 8 or higher is installed:
 
 ```
 $ java -version
@@ -40,14 +39,11 @@ OpenJDK Runtime Environment (build 1.8.0_151-b12)
 OpenJDK 64-Bit Server VM (build 25.151-b12, mixed mode)
 ```
 
-Now that we've checked for prerequisites, we're now ready to install and
-set up the three open source tools.
-
 
 ## Set Up Elasticsearch
 
-To install Elasticsearch, please download and extract the Elasticsearch
-package as shown below.
+To install Elasticsearch, please download and extract the Elasticsearch package
+as shown below:
 
 ```
 $ curl -O https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-6.1.0.tar.gz
@@ -55,7 +51,7 @@ $ tar -xf elasticsearch-6.1.0.tar.gz
 $ cd elasticsearch-6.1.0
 ```
 
-Once installation is complete, start Elasticsearch.
+Once the installation is complete, start Elasticsearch:
 
 ```
 $ ./bin/elasticsearch
@@ -67,12 +63,10 @@ packages. For details, please refer to [the official instructions](https://www.e
 
 ## Set Up Kibana
 
-To install Kibana, download it via the official webpage and extract it.
-Kibana is a HTML / CSS / JavaScript application. Dowload page is
-[here](https://www.elastic.co/downloads/kibana). In this article, we use
-the binary for 64-bit Linux systems. Download page is
-[here](https://www.elastic.co/downloads/kibana). In this article, we
-download Mac OS X binary.
+To install Kibana, download it from the official website and extract it. Kibana
+is an HTML/CSS/JavaScript application
+([download](https://www.elastic.co/downloads/kibana)). Use the binary for 64-bit
+Linux systems. For this article, we download the binary for MacOS X.
 
 ```
 $ curl -O https://artifacts.elastic.co/downloads/kibana/kibana-6.1.0-linux-x86_64.tar.gz
@@ -80,8 +74,8 @@ $ tar -xf kibana-6.1.0-linux-x86_64.tar.gz
 $ cd kibana-6.1.0-linux-x86_64
 ```
 
-Once installation is complete, start Kibana and run `./bin/kibana`. You
-can modify Kibana's configuration via `config/kibana.yml`.
+Once the installation is complete, start Kibana i.e. `./bin/kibana`. You can
+modify its configuration file (`config/kibana.yml`).
 
 ```
 $ ./bin/kibana
@@ -90,26 +84,25 @@ $ ./bin/kibana
 Access `http://localhost:5601` in your browser.
 
 
-## Set Up Fluentd (td-agent)
+## Set Up Fluentd (`td-agent`)
 
-In this guide We'll install td-agent, the stable release of Fluentd.
-Please refer to the guides below for detailed installation steps.
+In this section, we'll install `td-agent`, the stable release of Fluentd. Please
+refer to the guides below for detailed instructions:
 
 -   [Debian Package](/install/install-by-deb.md)
 -   [RPM Package](/install/install-by-rpm.md)
 -   [Ruby gem](/install/install-by-gem.md)
 
 Next, we'll install the Elasticsearch plugin for Fluentd:
-fluent-plugin-elasticsearch. Then, install fluent-plugin-elasticsearch
-as follows.
+fluent-plugin-elasticsearch. Then, install `fluent-plugin-elasticsearch` as
+follows:
 
 ```
 $ sudo /usr/sbin/td-agent-gem install fluent-plugin-elasticsearch --no-document
 ```
 
-We'll configure td-agent (Fluentd) to interface properly with
-Elasticsearch. Please modify `/etc/td-agent/td-agent.conf` as shown
-below:
+We'll configure td-agent (Fluentd) to interface properly with Elasticsearch.
+Please modify `/etc/td-agent/td-agent.conf` as shown below:
 
 ```
 # get logs from syslog
@@ -133,10 +126,10 @@ below:
 </match>
 ```
 
-fluent-plugin-elasticsearch comes with a logstash\_format option that
-allows Kibana to search stored event logs in Elasticsearch.
+`fluent-plugin-elasticsearch` comes with a `logstash_format` option that allows
+Kibana to search through the stored event logs in Elasticsearch.
 
-Once everything has been set up and configured, we'll start td-agent.
+Once everything has been set up and configured, start `td-agent`:
 
 ```
 # init
@@ -146,18 +139,18 @@ $ sudo systemctl start td-agent.service
 ```
 
 
-## Set Up rsyslogd
+## Set Up `rsyslogd`
 
-In our final step, we'll forward the logs from your rsyslogd to Fluentd.
-Please add the following line to your `/etc/rsyslog.conf`, and restart
-rsyslog. This will forward your local syslog to Fluentd, and Fluentd in
-turn will forward the logs to Elasticsearch.
+The final step is to forward the logs from your `rsyslogd` to `fluentd`. Please
+add the following line to `/etc/rsyslog.conf`, and restart `rsyslog`. This
+will forward the local syslogs to Fluentd, and Fluentd in turn will forward the
+logs to Elasticsearch.
 
 ```
 *.* @127.0.0.1:42185
 ```
 
-Please restart the rsyslog service once the modification is complete.
+Please restart the `rsyslog` service once the modification is complete:
 
 ```
 # init
@@ -169,21 +162,19 @@ $ sudo systemctl restart rsyslog
 
 ## Store and Search Event Logs
 
-Once Fluentd receives some event logs from `rsyslog` and has flushed them
-to Elasticsearch, you can view, search and visualize the log data using
-Kibana.
+Once Fluentd receives some event logs from `rsyslog` and has flushed them to
+Elasticsearch, you can view, search and visualize the log data using Kibana.
 
-For starters, let's access `http://localhost:5601` and click the `Set
-up index patters` button in the upper-right corner of the screen.
+For starters, let's access `http://localhost:5601` and click the `Set up index
+patters` button in the upper-right corner of the screen.
 
 ![Kibana Top Menu](/images/kibana6-screenshot-topmenu.png)
 
-Kibana will start a wizard that guides you through configuring the data
-sets to visualize. If you want a quick start, use `logstash-*` as the
-index pattern, and select `@timestamp` as the time-filter field.
+Kibana will start a wizard that guides you through configuring the data sets to
+visualize. If you want a quick start, use `logstash-*` as the index pattern, and
+select `@timestamp` as the time-filter field.
 
-After setting up an index pattern, you can view the system logs as they
-flow in:
+After setting up an index pattern, you can view the system logs as they flow in:
 
 ![Kibana: Discover](/images/kibana6-screenshot.png)
 
@@ -219,12 +210,12 @@ including errors can be found at `/etc/td-agent/td-agent.log`.
 
 This article introduced the combination of Fluentd and Kibana (with
 Elasticsearch) which achieves a free alternative to Splunk: storing and
-searching machine logs. The examples provided in this article have not
-been tuned.
+searching machine logs. The examples provided in this article have not been
+tuned.
 
-If you will be using these components in production, you may want to
-modify some of the configurations (e.g. JVM, Elasticsearch, Fluentd
-buffer, etc.) according to your needs.
+If you will be using these components in production, you may want to modify some
+of the configurations (e.g. JVM, Elasticsearch, Fluentd buffer, etc.) according
+to your needs.
 
 
 ## Learn More

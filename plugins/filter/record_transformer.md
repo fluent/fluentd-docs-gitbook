@@ -61,7 +61,7 @@ into
 ```
 
 With the `enable_ruby` option, an arbitrary Ruby expression can be used
-inside `${...}`. Note that the `avg` field is typed as string in this
+inside `${...}`. Note that the `avg` field is typed as a string in this
 example. You may use `auto_typecast true` option to treat the field as a
 float.
 
@@ -136,7 +136,7 @@ variables are available:
     `record["total"]=100` and `record["count"]=10`.
 -   `tag` refers to the whole tag.
 -   `time` refers to stringified event time.
--   `hostname` refers to machine's hostname. The actual value is result of
+-   `hostname` refers to the machine's hostname. The actual value is the result of
     [`Socket.gethostname`](https://docs.ruby-lang.org/en/trunk/Socket.html#method-c-gethostname).
 
 You can also access to a certain portion of a tag using the following notations:
@@ -301,7 +301,7 @@ mutating records, consider `filter_record_modifier` instead.
 ### Use `dig` Method for Nested Field
 
 Users sometimes need to access a nested field. In this case, you can use `[]`
-chain like this:
+to create a chain like this:
 
 ```
 ${record["top"]["nest1"]["nest2"]}
@@ -329,7 +329,7 @@ ${record.dig("top", "nest1", "nest2")}
 
 ### What are the differences between `${record["key"]}` and `${key}`?
 
-`${key}` was a shortcut for `${record["key"]}`. This is error prone
+`${key}` was a shortcut for `${record["key"]}`. This is error-prone
 because `${tag}` is unclear, event tag or `record["tag"]`. So the
 `${key}` syntax was removed since v0.14. v0.12 still supports `${key}`
 but it is not recommended.
@@ -337,7 +337,7 @@ but it is not recommended.
 
 ### I got `unknown placeholder ${record['msg']} found` error, why?
 
-Without `enable_ruby`, `${}` placeholder supports only double quoted
+Without `enable_ruby`, `${}` placeholder supports only double-quoted
 string for record field access. So, use `${record["key"]}` instead of
 `${record['key']}`.
 

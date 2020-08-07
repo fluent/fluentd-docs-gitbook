@@ -43,8 +43,9 @@ basic structure and syntax of the configuration file.
 
 For `<parse>`, see [Parse Section](/configuration/parse-section.md).
 
-We have observed drastic performance improvements on Linux, with
-proper kernel parameter settings. If you have high-volume TCP traffic, follow [Before Installing Fluentd](/install/before-install.md) instructions.
+We have observed drastic performance improvements on Linux, with proper kernel
+parameter settings. If you have high-volume TCP traffic, follow
+[Before Installing Fluentd](/install/before-install.md) instructions.
 
 
 ## Plugin Helpers
@@ -205,7 +206,7 @@ This is exclusive with `host`.
 |:---------|:------|:--------|
 | true     | false | 0.14.10 |
 
-`in_tcp` uses parser plugin to parse the payload.
+`in_tcp` uses the parser plugin to parse the payload.
 
 For more details:
 
@@ -215,7 +216,7 @@ For more details:
 
 ## Code Example
 
-Here is a Ruby example to send event to `in_tcp`:
+Here is a Ruby example to send an event to `in_tcp`:
 
 ```
 require 'socket'

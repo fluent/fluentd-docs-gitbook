@@ -17,7 +17,7 @@ This article gives an overview of Storage Plugin.
 ## Overview
 
 Sometimes, the input/filter/output plugin needs to save its internal state in
-memory, storage or key-value store. Fluentd has a pluggable system called
+memory, storage, or key-value store. Fluentd has a pluggable system called
 Storage that lets a plugin store and reuse its internal state as key-value
 pairs.
 
@@ -25,12 +25,12 @@ pairs.
 ## How To Use
 
 For an input, an output, and filter plugin that supports Storage, the
-`<storage>` directive can be used to store key-value pair into the a key-value
-store such as JSON file, MongoDB, Redis and so on.
+`<storage>` directive can be used to store key-value pair into a key-value store
+such as a JSON file, MongoDB, Redis, etc.
 
 Here is an example with `in_sample`:
 
-```
+```text
 <source>
   @type sample
   tag docs.fluentd.storage

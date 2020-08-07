@@ -59,15 +59,15 @@ This method creates `service_discovery_manager`.
 - `title`: Thread name. Must be unique. (required)
 - `configurations`: Configuration of target service. (required)
 - `load_balancer`: Balancing load to target servers. (default: Round-Robin)
-- `custom_build_method`: Custom method used when building service.
+- `custom_build_method`: The custom method to build the service.
 - `interval`: Time interval for updating target service.
 
 
 ### `discovery_manager`
 
 It manages service discovery functionalities such as updating target services
-and selecting target services. It provides `select_service` method that returns
-a target service to send data.
+and selecting target services. It provides the `select_service` method that
+returns a target service to send data.
 
 
 ## Plugins using `service_discovery`

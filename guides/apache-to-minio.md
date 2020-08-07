@@ -1,7 +1,7 @@
 # Store Apache Logs into Minio
 
-This article explains how to use Fluentd to aggregate and transport
-Apache logs to a [Minio](https://www.minio.io) server.
+This article explains how to use Fluentd to aggregate and transport Apache logs
+to a [Minio](https://www.minio.io) server.
 
 
 ## Prerequisites
@@ -12,8 +12,8 @@ The following services are required to be set up correctly:
 -   [Minio](https://minio.io/download/)
 -   [Apache](https://httpd.apache.org/)
 
-Also, if you have installed Fluentd through RubyGems (without
-`td-agent`), please install the [`out_s3`](/plugins/output/s3.md) plugin manually:
+Also, if you have installed Fluentd through RubyGems (without `td-agent`),
+please install the [`out_s3`](/plugins/output/s3.md) plugin manually:
 
 ```
 $ sudo fluent-gem install fluent-plugin-s3
@@ -25,8 +25,8 @@ $ sudo fluent-gem install fluent-plugin-s3
 
 ### Input Settings
 
-In this example, we use the access log file as an input source, so save
-the following `<source>` settings to `/etc/td-agent/td-agent.conf`:
+In this example, we use the access log file as an input source, so save the
+following `<source>` settings to `/etc/td-agent/td-agent.conf`:
 
 ```
 <source>
@@ -41,16 +41,16 @@ the following `<source>` settings to `/etc/td-agent/td-agent.conf`:
 NOTE: If you are using the standalone version of Fluentd, use
 `/etc/fluent/fluent.conf` instead.
 
-Before proceeding, please confirm that the access log file has proper
-file permission. If the log file is not readable by the
-`td-agent`/`fluentd`, the rest of this article will not work.
+Before proceeding, please confirm that the access log file has proper file
+permission. If the log file is not readable by the `td-agent`/`fluentd`, the
+rest of this article will not work.
 
 
 ### Output Settings
 
-Now let's add settings for storing the incoming data in your Minio
-server. Since Minio is compatible with Amazon Simple Storage Service
-(S3), we can use the [`out_s3`](/plugins/output/s3.md) plugin to connect to the server.
+Now let's add settings for storing the incoming data in your Minio server. Since
+Minio is compatible with Amazon Simple Storage Service (S3), we can use the
+[`out_s3`](/plugins/output/s3.md) plugin to connect to the server.
 
 ```
 <match minio.apache.**>
@@ -86,15 +86,15 @@ Use `curl` to generate some log data for testing:
 $ curl http://localhost/
 ```
 
-Or you can use the Apache benchmarking tool for bulk generation:
+Or you can use the Apache Bench for the bulk request generation:
 
 ```
 $ ab -n 100 -c 10 http://localhost/
 ```
 
-Wait until the data gets flushed from the buffer (you can adjust the
-flush interval using the `timekey` and `timekey_wait` options above).
-Then you will see the aggregated log data on Minio:
+Wait until the data gets flushed from the buffer (you can adjust the flush
+interval using the `timekey` and `timekey_wait` options above). Then you will
+see the aggregated log data on Minio:
 
 ![Minio](/images/minio-screenshot.png)
 

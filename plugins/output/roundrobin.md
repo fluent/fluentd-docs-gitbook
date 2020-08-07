@@ -33,8 +33,8 @@ It is included in Fluentd's core.
 </match>
 ```
 
-Please see the [Configuration File](/configuration/config-file.md) article for
-the basic structure and syntax of the configuration file.
+Refer to [Configuration File](/configuration/config-file.md) for the basic
+structure and syntax of the configuration file.
 
 
 ## Supported Modes

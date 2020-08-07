@@ -1,7 +1,7 @@
 # `syslog` Parser Plugin
 
-The `syslog` parser plugin parses `syslog` generated logs. This plugin
-supports two RFC formats, RFC-3164 and RFC-5424.
+The `syslog` parser plugin parses `syslog` generated logs. This plugin supports
+two RFC formats, RFC-3164 and RFC-5424.
 
 
 ## Parameters
@@ -15,7 +15,7 @@ See [Parse Section Configurations](/configuration/parse-section.md).
 |:-------|:----------------|:--------|
 | string | %b %d %H:%M:%S  | 0.14.10 |
 
-Specifies the time format for event time. Default is `"%b %d %H:%M:%S"` for
+Specifies the time format for the event time. Default is `"%b %d %H:%M:%S"` for
 RFC-3164 protocol. If your log uses sub-second timestamp, change this parameter
 to `"%b %d %H:%M:%S.%N"`.
 
@@ -26,7 +26,7 @@ to `"%b %d %H:%M:%S.%N"`.
 |:-------|:------------------------|:--------|
 | string | %Y-%m-%dT%H:%M:%S.%L%z  | 0.14.14 |
 
-Specifies the event time format for RFC-5424 protocol.
+Specifies the event time format for the RFC-5424 protocol.
 
 
 ### `message_format`
@@ -109,7 +109,7 @@ time_format "%b %d %H:%M:%S"
 `pri`, `host`, `ident`, `pid` and `message` are included in the event record.
 `time` is used for the event time.
 
-`pri` value is converted to integer type.
+`pri` value is converted to the integer type.
 
 If `with_priority` is `false`, `^\<(?<pri>[0-9]+)\>` is removed from the
 pattern.
@@ -125,7 +125,7 @@ time_format "%Y-%m-%dT%H:%M:%S.%L%z"
 `pri`, `host`, `ident`, `pid`, `msgid`, `extradata` and `message` are included
 in the event record. `time` is used for the event time.
 
-`pri` value is converted to integer type.
+`pri` value is converted to the integer type.
 
 If `with_priority` is `false`, `\<(?<pri>[0-9]{1,3})\>[1-9]\d{0,2}` is removed
 from the pattern.

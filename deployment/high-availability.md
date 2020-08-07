@@ -25,10 +25,9 @@ runs out of write capacity. The proper approach would be to use
 synchronous logging and return errors when the event cannot be accepted.
 
 That's why Fluentd provides '**at most once**' and '**at least once**'
-transfers. In order to collect massive amounts of data without
-impacting application performance, a data logger must transfer data
-asynchronously. This improves performance at the cost of potential
-delivery failures.
+transfers. To collect massive amounts of data without impacting application
+performance, a data logger must transfer data asynchronously. This improves
+performance at the cost of potential delivery failures.
 
 However, most failure scenarios are preventable. The following sections
 describe how to set up Fluentd's topology for high-availability.
@@ -120,9 +119,9 @@ source for the log transfer as TCP:
 </match>
 ```
 
-The incoming logs are buffered, then periodically uploaded to the
-cloud. If upload fails, the logs are stored on the local disk until the
-retransmission succeeds.
+The incoming logs are buffered, then periodically uploaded to the cloud. If the
+upload fails, the logs are stored on the local disk until the retransmission
+succeeds.
 
 
 ## Failure Case Scenarios
@@ -130,9 +129,9 @@ retransmission succeeds.
 
 ### Forwarder Failure
 
-When a log forwarder receives events from applications, the events are
-first written into a disk buffer (specified by `buffer_path`). After
-every `flush_interval`, the buffered data is forwarded to aggregators.
+When a log forwarder receives events from applications, the events are first
+written into a disk buffer (specified by `buffer_path`). After every
+`flush_interval`, the buffered data is forwarded to aggregators.
 
 This process is inherently robust against data loss. If a log forwarder's
 fluentd process dies then on its restart the buffered data is properly
@@ -141,16 +140,16 @@ breaks, the data transfer is automatically retried.
 
 However, possible message loss scenarios do exist:
 
--   The process dies immediately after receiving the events, but before
-    writing them into the buffer.
+-   The process dies immediately after receiving the events, but before writing
+    them into the buffer.
 -   The forwarder's disk is broken, and the file buffer is lost.
 
 
 ### Aggregator Failure
 
-When log aggregators receive events from log forwarders, the events are
-first written into a disk buffer (specified by `buffer_path`). After
-every `flush_interval`, the buffered data is uploaded to the cloud.
+When log aggregators receive events from log forwarders, the events are first
+written into a disk buffer (specified by `buffer_path`). After every
+`flush_interval`, the buffered data is uploaded to the cloud.
 
 This process is inherently robust against data loss. If a log aggregator's
 fluentd process dies then on its restart the data from the log forwarder is
@@ -159,8 +158,8 @@ the data transfer is automatically retried.
 
 However, possible message loss scenarios do exist:
 
--   The process dies immediately after receiving the events, but before
-    writing them into the buffer.
+-   The process dies immediately after receiving the events, but before writing
+    them into the buffer.
 -   The aggregator's disk is broken, and the file buffer is lost.
 
 
@@ -169,9 +168,9 @@ However, possible message loss scenarios do exist:
 
 ### "no nodes are available"
 
-Please make sure that you can communicate with port 24224 using **not
-only TCP, but also UDP**. These commands will be useful for checking the
-network configuration:
+Please make sure that you can communicate with port 24224 using **not only TCP,
+but also UDP**. These commands will be useful for checking the network
+configuration:
 
 ```
 $ telnet host 24224
@@ -180,7 +179,7 @@ $ nmap -p 24224 -sU host
 
 Please note that there is one
 [known issue](http://kb.vmware.com/selfservice/microsites/search.do?language=en_US&cmd=displayKC&externalId=2019944)
-where VMware will occasionally lose small UDP packages used for heartbeat.
+where VMware will occasionally lose small UDP packages used for the heartbeat.
 
 
 ------------------------------------------------------------------------

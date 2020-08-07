@@ -1,8 +1,8 @@
 # Writing Filter Plugins
 
 This section shows how to write a custom filter plugin in addition to the core
-[ones](/plugins/filter/README.md). The plugin filenames starting with `filter_`
-prefix are registered as filter plugins.
+[ones](/plugins/filter/README.md). The plugin filenames, starting with `filter_`
+prefix, are registered as filter plugins.
 
 See [Plugin Base Class API](/developer/api-plugin-base.md) for more details on
 the common APIs of all the plugins.
@@ -60,7 +60,7 @@ This method implements the filtering logic.
 - `record` is a `Hash` with String keys.
 
 The return value of this method should be a `Hash` of modified record, or `nil`.
-In case of `nil`, the event will be discarded.
+If it is `nil`, the event will be discarded.
 
 
 ## Writing Tests

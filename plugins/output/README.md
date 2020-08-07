@@ -11,7 +11,7 @@ Fluentd has eight (8) types of plugins:
 -   [Service Discovery](/plugins/service_discovery/README.md)
 -   [Buffer](/plugins/buffer/README.md)
 
-This article gives an overview of Output Plugin.
+This article gives an overview of the Output Plugin.
 
 
 ## Overview
@@ -24,8 +24,8 @@ Fluentd v1.0 output plugins have three (3) buffering and flushing modes:
     collection of events) and a queue of chunks, and its behavior can be
     controlled by `<buffer>` section (See the diagram below).
 -   **Asynchronous Buffered** mode also has "stage" and "queue", but
-    output plugin will not commit writing chunks in methods
-    synchronously, but commit later.
+    the output plugin will not commit writing chunks in methods
+    synchronously, but commit them later.
 
 ![Fluentd v1.0 Plugin API Overview](/images/fluentd-v0.14-plugin-api-overview.png)
 
@@ -38,7 +38,7 @@ raise configuration errors.
 Output plugins in v1 can control keys of buffer chunking by
 configurations, dynamically. Users can configure buffer chunk keys as
 time (any unit specified by user), tag and any key name of records.
-Output plugin will split events into chunks: events in a chunk have same
+Output plugin will split events into chunks: events in a chunk have the same
 values for chunk keys. The output plugin's buffer behavior (if any) is
 defined by a separate [Buffer plugin](/plugins/buffer/README.md). Different
 buffer plugins can be chosen for each output plugin.
@@ -114,8 +114,8 @@ See [Buffer Section Configurations](/configuration/buffer-section.md).
 
 ### Control Flushing
 
-See [Buffer Plugin Overview](/plugins/buffer/README.md) for the basic
-behavior of buffer.
+See [Buffer Plugin Overview](/plugins/buffer/README.md) for the behavior of the
+buffer.
 
 
 #### `flush_mode`
@@ -186,16 +186,16 @@ Supported modes:
 
 -   `throw_exception` (default)
 
-    This mode throws `BufferOverflowError` exception to the input plugin. How
+    This mode throws the`BufferOverflowError` exception to the input plugin. How
     `BufferOverflowError` is handled depends on the input plugins, e.g. tail
     input stops reading new lines, forward input returns an error to forward
-    output. This action fits for streaming manner.
+    output. This action is suitable for streaming.
 
 -   `block`
 
     This mode stops input plugin thread until buffer full issue is resolved.
     This action is good for batch-like use-cases. This is mainly for `in_tail`
-    plugin. Other input plugins, e.g. socket based plugin, don't assume this
+    plugin. Other input plugins, e.g. socket-based plugin, don't assume this
     action.
 
     We do not recommend using `block` action to avoid `BufferOverflowError`.
@@ -207,7 +207,7 @@ Supported modes:
 
 -   `drop_oldest_chunk`
 
-    This mode drops oldest chunks. This mode is useful for monitoring system
+    This mode drops the oldest chunks. This mode is useful for monitoring system
     destinations. For monitoring, newer events are important than older.
 
 
@@ -227,7 +227,7 @@ Writing out the bottom chunk is considered to be a failure if `Output#write` or
 
 #### `retry_type`
 
-Specifies how to wait for next retry to flush buffer.
+Specifies how to wait for the next retry to flush buffer.
 
 Supported types:
 
@@ -245,8 +245,8 @@ Default: `false`
 
 #### `retry_timeout`
 
-The maximum seconds to retry to flush while failing, until plugin
-discards buffer chunks.
+The maximum seconds to retry to flush while failing, until the plugin
+discards the buffer chunks.
 
 Default: `72` (hours)
 
@@ -291,7 +291,7 @@ Default: `nil`
 
 #### `retry_randomize`
 
-If true, output plugin will retry after randomized interval not to do
+If `true`, the output plugin will retry after a randomized interval not to do
 burst retries.
 
 Default: `true`
@@ -333,8 +333,8 @@ This example sends logs to Elasticsearch using a file buffer
 </match>
 ```
 
-NOTE: `<secondary>` plugin receives the primary's buffer chunk directly.
-So, you need to check if your secondary plugin works with primary setting.
+NOTE: `<secondary>` plugin receives the primary's buffer chunk directly. So, you
+need to check if your secondary plugin works with the primary setting.
 
 
 ------------------------------------------------------------------------

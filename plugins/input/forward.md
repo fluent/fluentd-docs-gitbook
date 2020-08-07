@@ -70,7 +70,7 @@ The bind address to listen to.
 | string | nil     | 1.5.0  |
 
 `in_forward` uses incoming event's tag by default (See Protocol Section).
-If `tag` parameter is set, its value is used instead.
+If the `tag` parameter is set, its value is used instead.
 
 
 ### `add_tag_prefix`
@@ -79,7 +79,7 @@ If `tag` parameter is set, its value is used instead.
 |:-------|:--------|:--------|
 | string | nil     | 1.5.0  |
 
-Adds prefix to the incoming event's tag.
+Adds the prefix to the incoming event's tag.
 
 Here is an example:
 
@@ -99,7 +99,7 @@ With this configuration, the emitted tag is `prod.INCOMING_TAG`, e.g. `prod.app.
 |:--------|:--------|:--------|
 | integer | 0       | 0.14.0  |
 
-The timeout used to set linger option.
+The timeout used to set the linger option.
 
 
 ### `resolve_hostname`
@@ -117,8 +117,7 @@ Tries to resolve hostname from IP addresses or not.
 |:-----|:--------|:--------|
 | bool | false   | 0.14.5  |
 
-Connections will be disconnected right after receiving a message if
-this value is `true`.
+The connections will be disconnected right after receiving a message, if `true`.
 
 
 ### `send_keepalive_packet`
@@ -127,7 +126,8 @@ this value is `true`.
 |:-----|:--------|:--------|
 | bool | false   | 1.4.2   |
 
-Enables the TCP keepalive for sockets. See [socket article](/developer/api-plugin-helper-socket.md/#send_keepalive_packet-usecase) for more details.
+Enables the TCP keepalive for sockets.
+See [socket article](/developer/api-plugin-helper-socket.md/#send_keepalive_packet-usecase) for more details.
 
 
 ### `chunk_size_limit`
@@ -136,8 +136,8 @@ Enables the TCP keepalive for sockets. See [socket article](/developer/api-plugi
 |:-----|:---------------|:--------|
 | size | nil (no limit) | 0.14.0  |
 
-The size limit of the the received chunk. If the chunk size is larger
-than this value, the received chunk is dropped.
+The size limit of the received chunk. If the chunk size is larger than this
+value, the received chunk is dropped.
 
 
 ### `chunk_size_warn_limit`
@@ -158,7 +158,7 @@ larger than this value, a warning message will be sent.
 
 Skips the invalid incoming event.
 
-This option is useful at forwarder, not aggregator.
+This option is useful for forwarder, not aggregator.
 
 
 ### `source_address_key`
@@ -230,7 +230,7 @@ The hostname.
 |:-------|:-------------------|:--------|
 | string | required parameter | 0.14.5  |
 
-Shared key for authentication.
+The shared key for authentication.
 
 
 #### `user_auth`
@@ -248,7 +248,7 @@ If `true`, user-based authentication is used.
 |:-----|:--------|:--------|
 | bool | true    | 0.14.5  |
 
-Allows anonymous source. `<client>` sections are required if disabled.
+Allows the anonymous source. `<client>` sections are required, if disabled.
 
 
 #### `<user>` section
@@ -257,7 +257,7 @@ Allows anonymous source. `<client>` sections are required if disabled.
 |:---------|:------|:--------|
 | false    | true  | 0.14.5  |
 
-This section contains user based authentication:
+This section contains user-based authentication:
 
 -   `username`
 -   `password`
@@ -305,7 +305,7 @@ This section can be used in `<security>`
 |:-------|:--------|:--------|
 | string | nil     | 0.14.5  |
 
-The IP address or host name of the client.
+The IP address or hostname of the client.
 
 This is exclusive with `network`.
 
@@ -316,7 +316,7 @@ This is exclusive with `network`.
 |:-------|:--------|:--------|
 | string | nil     | 0.14.5  |
 
-Network address specification.
+The network address specification.
 
 This is exclusive with `host`.
 
@@ -327,7 +327,7 @@ This is exclusive with `host`.
 |:-------|:--------|:--------|
 | string | nil     | 0.14.5  |
 
-Shared key per client.
+The shared key per client.
 
 
 ##### `users`
@@ -336,7 +336,7 @@ Shared key per client.
 |:------|:--------|:--------|
 | array | `[]`    | 0.14.5  |
 
-Array of username(s).
+The array of usernames.
 
 
 ## Protocol
@@ -345,9 +345,9 @@ This plugin accepts both JSON or [MessagePack](http://msgpack.org/)
 messages and automatically detects which one is used. Internally, Fluentd
 uses MessagePack as it is more efficient than JSON.
 
-The time value is a `EventTime` or a platform-specific integer and is
-based on the output of Ruby's `Time.now.to_i` function. On Linux, BSD
-and MAC systems, this is the number of seconds since 1970.
+The time value is an `EventTime` or a platform-specific integer and is
+based on the output of Ruby's `Time.now.to_i` function. On Linux, BSD,
+and Mac systems, this is the number of seconds since 1970.
 
 Multiple messages may be sent on the same connection:
 
@@ -491,7 +491,7 @@ on another server, configure it by following these [instructions](/plugins/outpu
 
 ### Multi-process Environment
 
-If you use this plugin under multi-process environment, port will be
+If you use this plugin under the multi-process environment, the port will be
 shared.
 
 ```
@@ -505,8 +505,9 @@ shared.
 </source>
 ```
 
-With this configuration, three (3) workers share 24224 port. No need for an
-additional port. Incoming data will be routed to the workers automatically.
+With this configuration, the three (3) workers share the port `24224`. No need
+for an additional port. Incoming data will be routed to the workers
+automatically.
 
 
 ## FAQ

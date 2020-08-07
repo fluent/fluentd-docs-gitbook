@@ -3,7 +3,7 @@
 ![](/images/plugins/input/exec.png)
 
 The `in_exec` Input plugin executes external programs to receive or pull
-event logs. It will then read TSV (tab separated values), JSON or
+event logs. It will then read TSV (tab-separated values), JSON or
 MessagePack from the standard output of the program.
 
 You can run a program periodically or permanently. To run periodically,
@@ -66,7 +66,7 @@ The command (program) to execute.
 |:-------|:----------------------------------------------|:--------|
 | string | required if `extract`/`tag_key` is not specified | 0.14.0  |
 
-Tag of the output events.
+The tag of the output events.
 
 
 ### `run_interval`

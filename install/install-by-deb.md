@@ -31,7 +31,7 @@ configure your OS properly.
 NOTE: If your OS is not supported, consider [gem
 installation](/install/install-by-gem.md) instead.
 
-NOTE: Treasure Data does not verify debian packages. If you have any problem
+NOTE: Treasure Data does not verify Debian packages. If you have any problem
 with debian packages, send a patch to
 [`omnibus-td-agent`](https://github.com/treasure-data/omnibus-td-agent)
 repository.

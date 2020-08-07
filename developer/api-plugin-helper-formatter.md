@@ -1,6 +1,6 @@
 # Formatter Plugin Helper API
 
-The `formatter` plugin helper manages the lifecycle of formatter plugin.
+The `formatter` plugin helper manages the lifecycle of the formatter plugin.
 
 Here is an example:
 

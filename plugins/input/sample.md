@@ -60,7 +60,7 @@ The value is the tag assigned to the generated events.
 |:--------|:--------|:--------|
 | integer | 1       | 0.14.4  |
 
-The number of events in event stream of each emits.
+The number of events in the event stream of each emit.
 
 
 ### `rate`

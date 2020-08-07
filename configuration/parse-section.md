@@ -70,7 +70,7 @@ Here's the list of built-in parser plugins:
 The default value of the following parameters will be overridden by the
 individual parser plugins:
 
--   **`types`** (hash) (optional): Specify types for converting field into other
+-   **`types`** (hash) (optional): Specify types for converting field into another
     type. See below "The detail of types parameter" section.
     -   Default: `nil`
     -   string-based hash: `field1:type, field2:type, field3:type:option,
@@ -103,7 +103,7 @@ individual parser plugins:
 
 #### `types` Parameter
 
-For `types` parameter, the following types are supported:
+For the `types` parameter, the following types are supported:
 
 - `string`: Converts the field into `String` type. This uses `to_s` method for
   conversion.
@@ -111,7 +111,7 @@ For `types` parameter, the following types are supported:
 - `bool`: Converts the string `"true"`, `"yes"` or `"1"` into `true`. Otherwise,
   `false`.
 
-- `integer` (not `int`): Converts the field into `Integer` type. This uses
+- `integer` (not `int`): Converts the field into the `Integer` type. This uses
   `to_i` method for conversion. For example, the string `"1000"` converts into
   `1000`.
 

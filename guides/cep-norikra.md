@@ -1,8 +1,8 @@
 # Fluentd and Norikra: Complex Event Processing
 
 This article explains how to use [Fluentd](https://www.fluentd.org/) and
-[Norikra](https://norikra.github.io) to create a SQL-based realtime
-complex event processing platform.
+[Norikra](https://norikra.github.io) to create a SQL-based realtime complex
+event processing platform.
 
 
 ## Background
@@ -12,14 +12,13 @@ originally developed at [Treasure Data, Inc](https://www.treasuredata.com/).
 Fluentd is not only a log collector, but also an all-purpose stream processing
 platform. Plugins can be written to handle many kinds of events.
 
-However, Fluentd is not primarily designed for stream processing. We
-must restart Fluentd after making modifications to its
-configuration/code, making it unsuitable for running *both* short-span
-(seconds or minutes) calculations and long-span (hours or days)
-calculations. If we restart Fluentd to perform a short-span calculation,
-all existing internal statuses of short and long span calculations are
-lost. For large scale stream processing platforms, code/processes must
-be added/removed without any such losses.
+However, Fluentd is not primarily designed for stream processing. We must
+restart Fluentd after making modifications to its configuration/code, making it
+unsuitable for running *both* short-span (seconds or minutes) calculations and
+long-span (hours or days) calculations. If we restart Fluentd to perform a
+short-span calculation, all existing internal statuses of short and long span
+calculations are lost. For large scale stream processing platforms,
+code/processes must be added/removed without any such losses.
 
 [Norikra](https://norikra.github.io/) is an open-source stream processing
 server based on [Esper](https://github.com/espertechinc/esper) by
@@ -66,18 +65,21 @@ Fluentd can be installed through RubyGems or via deb/rpm packages.
 
 ### Installing Norikra
 
-Norikra requires JRuby. You can download the JRuby binary directly from
-the [official site](https://www.jruby.org/download) and export the PATH
-of `JRUBY_INSTALL_DIRECTORY/bin`.
+Norikra requires JRuby. You can download the JRuby binary directly from the
+[official site](https://www.jruby.org/download) and export the PATH of
+`JRUBY_INSTALL_DIRECTORY/bin`.
 
-Once JRuby has been installed, simply entering `jgem install norikra`
-will install Norikra.
+Once JRuby is set up, install Norikra:
+
+```shell
+jgem install norikra
+```
 
 
 ### Verify Installation
 
-We'll start the Norikra server after installation. The `norikra start`
-command will launch the Norikra server in your console.
+We'll start the Norikra server after installation. The `norikra start` command
+will launch the Norikra server in your console.
 
 ```
 ....
@@ -93,15 +95,15 @@ You can also check the current Norikra's status via the WebUI
 
 ## Fluentd Configuration
 
-We'll now configure Fluentd. If you used the deb/rpm package, Fluentd's
-config file is located at `/etc/td-agent/td-agent.conf`. Otherwise, it is
-located at `/etc/fluentd/fluentd.conf`.
+We'll now configure Fluentd. If you used the deb/rpm package, Fluentd's config
+file is located at `/etc/td-agent/td-agent.conf`. Otherwise, it is located at
+`/etc/fluentd/fluentd.conf`.
 
 
 ### HTTP Input
 
-For the input source, we will set up Fluentd to accept records from
-HTTP. The Fluentd configuration file should look like this:
+For the input source, we will set up Fluentd to accept records from HTTP. The
+Fluentd configuration file should look like this:
 
 ```
 <source>
@@ -113,8 +115,8 @@ HTTP. The Fluentd configuration file should look like this:
 
 ### Norikra Output
 
-The output destination will be Norikra. The output configuration should
-look like this:
+The output destination will be Norikra. The output configuration should look
+like this:
 
 ```
 <match data.*>
@@ -130,35 +132,33 @@ look like this:
 </match>
 ```
 
-The match section specifies the glob pattern used to look for matching
-tags. If a matching tag is found in a log, then the config inside
-`<match>...</match>` is used (i.e. the log is routed according to the
-config inside).
+The `<match>` section specifies the glob pattern used to look for the matching
+tags. If the tag of a log is matched, the respective `match` configuration is
+used (i.e. the log is routed accordingly).
 
-The **norikra** attribute specifies the Norikra server's RPC host and
-port ('26571' is the default port of Norikra RPC protocol). By
-**`target_map_tag true`** and **`remove_tag_prefix data`**, `out_norikra`
-handle the rest of tags (e.g. `foo` for `data.foo`) as target, which is a
-name of set of events as same as table name of RDBMS.
+The `norikra` attribute specifies the Norikra server's RPC host and port
+(default: `26571`). By `target_map_tag true` and `remove_tag_prefix data`,
+`out_norikra` handle the rest of tags (e.g. `foo` for `data.foo`) as the target,
+which is the name of the set of events as same as table name of RDBMS.
 
-The `<default>...</default>` section specifies which fields are sent to
-the Norikra server. We can also specify these sets per target with
-`<target NAME>...</target>`. For information on the additional options
-available, please refer to the [fluent-plugin-norikra documentation](https://github.com/norikra/fluent-plugin-norikra).
+The `<default>` section specifies which fields are sent to the Norikra server.
+We can also specify these sets per target with `<target NAME>...</target>`. For
+more details, refer to
+[`fluent-plugin-norikra`](https://github.com/norikra/fluent-plugin-norikra).
 
 
 ## Test
 
-To test the configuration, just post the JSON to Fluentd (we use the
-`curl` command in this example):
+To test the configuration, just post the JSON to Fluentd (we use the `curl`
+command in this example):
 
 ```
 $ curl -X POST -d 'json={"action":"login","user":2}' \
   http://localhost:8888/data.access
 ```
 
-Norikra's console log will show that Fluentd has opened the target
-`access` and sent a message with fields of `action` and `user`.
+Norikra's console log will show that Fluentd has opened the target `access` and
+sent a message with fields of `action` and `user`.
 
 ```
 2014-05-20 20:43:22 +0900 [INFO] : opening target, target:"access", fields:{}, auto_field:true
@@ -166,8 +166,8 @@ Norikra's console log will show that Fluentd has opened the target
 2014-05-20 20:43:23 +0900 [INFO] : target successfully opened (snip)
 ```
 
-We can check its fields with the `norikra-client` command (from console
-that has the PATH to JRuby).
+We can check its fields with `norikra-client` command from the console that has
+the `PATH` to JRuby:
 
 ```
 $ norikra-client target list
@@ -184,9 +184,9 @@ user    integer false
 
 ### Registering Queries and Fetching Outputs
 
-We can add queries on opened targets via the WebUI or CLI. The following
-query (just SQL!) counts the number of events with a non-zero `user` per
-10 second interval, with a 'group by' `action`:
+We can add queries on opened targets via the WebUI or CLI. The following query
+(just SQL!) counts the number of events with a non-zero `user` per 10 second
+interval, with a 'group by' `action`:
 
 ```
 SELECT
@@ -241,19 +241,18 @@ $ norikra-client event fetch test_query
 $
 ```
 
-If posts are done in 10 seconds, this query calculates all events in
-first 10 seconds, and counts events per `action` for events with
-`user != 0` only, and outputs events at "2014/05/20 21:00:24". At
-"2014/05/20 21:00:34", just after next 10 seconds, this query reports
-that no events arrived (These are teardown records, and reported only
-once).
+If posts are done in 10 seconds, this query calculates all the events in first
+10 seconds, and counts events per `action` for events with `user != 0` only, and
+outputs events at "2014/05/20 21:00:24". At "2014/05/20 21:00:34", just after
+next 10 seconds, this query reports that no events arrived (These are teardown
+records, and reported only once).
 
 
 ## Conclusion
 
-We can create a stream data processing platform without any schema
-definitions, using Fluentd and Norikra. This platform enables an agile
-stream processing environment that can handle real workloads.
+We can create a stream data processing platform without any schema definitions,
+using Fluentd and Norikra. This platform enables an agile stream processing
+environment that can handle real workloads.
 
 
 ## Learn More

@@ -83,7 +83,7 @@ from the program output.
 |:--------|:--------|:--------|
 | integer | 1       | 0.14.0  |
 
-The number of spawned process for `command`.
+The number of spawned processes for `command`.
 
 If the number is larger than 2, fluentd uses spawned processes by round
 robin fashion.
@@ -95,7 +95,7 @@ robin fashion.
 |:-------|:--------|:--------|
 | string | nil     | 0.14.0  |
 
-Respawn command when command exit. Default is disabled.
+Respawn command when the command exits. By default, it is disabled.
 
 If you specify a positive number, it tries to respawn until specified times.
 If you specify `inf` or `-1`, it tries to respawn forever.
@@ -127,7 +127,7 @@ The default block size to read if parser requires partial read.
 
 Suppress error logs during this interval.
 
-Output logs for all of messages to emit by default.
+By default, all the logs are emitted.
 
 
 ### `in_format`
@@ -148,7 +148,8 @@ The format used to process the program output.
 
 The format used to map the incoming events to the program input.
 
-See [Format Section Configurations](/configuration/format-section.md) for more details.
+See [Format Section Configurations](/configuration/format-section.md) for more
+details.
 
 
 #### `@type`

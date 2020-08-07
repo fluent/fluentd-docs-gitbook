@@ -1,9 +1,10 @@
 # Plugin Base API
 
 All plugin types are subclasses of `Fluent::Plugin::Base` in Fluentd v1 or
-later. Base class has some features and methods that provide basic mechanism
-as plugins. This page shows these methods provided by `Fluent::Plugin::Base`,
-and other methods provided commonly in some type of plugins.
+later. The `Base` class has some features and methods that provide the basic
+mechanism as plugins. This page shows these methods provided by
+`Fluent::Plugin::Base`, and other methods provided commonly in some type of
+plugins.
 
 The methods listed below are considered as public methods, and will be
 maintained not to break compatibility. Other methods may be changed
@@ -62,7 +63,7 @@ end
 
 ## Class Methods
 
-Base class provides methods to create configurable parameters for plugins. It
+`Base` class provides methods to create configurable parameters for plugins. It
 also supports methods to provide system configurations to plugins.
 
 
@@ -70,9 +71,9 @@ also supports methods to provide system configurations to plugins.
 
 Defines a parameter.
 
-- `name`: parameter name as symbol
-- `type`: parameter type
-- `options`: options for parameter
+- `name`: the parameter name as a symbol
+- `type`: the parameter type
+- `options`: the options for the parameter
 - `block`: if given, convert the value via the given block
 
 For details on types and options, see
@@ -99,10 +100,10 @@ end
 
 #### `.config_set_default(name, default_value)`
 
-Sets the default value of parameter specified by `name`. If the default value
-already exists, it raises `ArgumentError`.
+Sets the default value of the parameter specified by `name`. If the default
+value already exists, it raises `ArgumentError`.
 
-- `name`: The name of parameter.
+- `name`: The name of the parameter.
 - `default_value`: Default value of the parameter.
 
 Code Example:
@@ -118,10 +119,10 @@ config_set_default :chunk_limit_size, DEFAULT_CHUNK_LIMIT_SIZE
 
 #### `.config_set_desc(name, description)`
 
-Sets description of a parameter specified by `name`. If the description already
+Sets description of the parameter specified by `name`. If the description already
 exists, it raises `ArgumentError`. For internal use only! Use `desc` instead.
 
-- `name`: The name of parameter.
+- `name`: The name of the parameter.
 - `description`: Description of the parameter.
 
 
@@ -143,7 +144,7 @@ config_param :user, :string
 
 Defines a section to construct structured (nested) configuration.
 
-- `name`: The name of section.
+- `name`: The name of the section.
 - `options`:
   - `root`: If `true`, this section is the root section. For internal use only!
   - `param_name`: The section name.
@@ -339,7 +340,7 @@ Call `super` if the plugin overrides this method.
 
 Creating/opening timers, threads, listening sockets, file handles and others
 should be done in this method after `super`. Many of these may be provided as
-plugin helpers. See API details of each plugin helpers.
+plugin helpers. See API details of each plugin helper.
 
 Code Example:
 
@@ -390,7 +391,7 @@ end
 #### `#before_shutdown`
 
 This method is automatically called after `#stop` and before `#shutdown`. It may
-be used to control the flushing of buffered events in shutdown sequence.
+be used to control the flushing of buffered events in the shutdown sequence.
 
 Call `super` if the plugin overrides this method. The third-party plugins do not
 need to implement this method in most cases.
@@ -399,9 +400,9 @@ need to implement this method in most cases.
 #### `#shutdown`
 
 This method is automatically called while shutting down. It may be used to close
-file handles, network connections, listening servers and other resources that
-need cleanup. Event can be emitted in this method but not after this method is
-called.
+file handles, network connections, listening servers, and other resources that
+need cleanup. The event can be emitted in this method but not after this method
+is called.
 
 Call `super` if the plugin overrides this method.
 
@@ -469,8 +470,8 @@ module Fluent::Plugin
 end
 ```
 
-It is strongly recommended to call this method at the top of plugin class
-definition (just after calling `#register_`) to show the plugin helpers this
+It is strongly recommended to call this method at the top of the plugin class
+definition (just after calling `#register_`) to show what plugin helpers this
 plugin uses explicitly.
 
 

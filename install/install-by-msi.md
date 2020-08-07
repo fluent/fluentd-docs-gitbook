@@ -1,7 +1,8 @@
 # Installing Fluentd using .msi Installer (Windows)
 
-This article explains how to install `td-agent`, the stable Fluentd
-distribution package maintained by [Treasure Data, Inc](http://www.treasuredata.com/), on Windows.
+This article explains how to install `td-agent`, the stable Fluentd distribution
+package maintained by [Treasure Data, Inc](http://www.treasuredata.com/), on
+Windows.
 
 
 ## What is `td-agent`?
@@ -76,8 +77,8 @@ test.event: {"k", "v"}
 
 ### Step 3: Run `td-agent` as Windows service
 
-Since version 4.0.0, `td-agent` is registered as Windows service permanently by
-msi installer. You can start `td-agent` service manually.
+Since version 4.0.0, `td-agent` is registered as a Windows service permanently
+by the msi installer. You can start `td-agent` service manually.
 
 
 #### Using GUI
@@ -104,11 +105,12 @@ The Fluentd Windows Service service was started successfully.
 PS> Start-Service fluentdwinsvc
 ```
 
-Note that using `fluentdwinsvc` is needed to start Fluentd service in command-line.
-Because `fluentdwinsvc` is service name and it should be passed in `net.exe` or `Start-Service` Cmdlet.
+Note that using `fluentdwinsvc` is needed to start Fluentd service from the
+command-line. `fluentdwinsvc` is the service name and it should be passed to
+`net.exe` or `Start-Service` Cmdlet.
 
-The log file will be located at `C:/opt/td-agent/td-agent.log` as we
-specified in Step 3.
+The log file will be located at `C:/opt/td-agent/td-agent.log` as we specified
+in Step 3.
 
 
 ### Step 4: Install Plugins

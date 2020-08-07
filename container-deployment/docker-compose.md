@@ -86,7 +86,7 @@ services:
 
 The `logging` section (check [Docker Compose documentation](https://docs.docker.com/compose/compose-file/#/logging))
 of `web` container specifies [Docker Fluentd Logging Driver](https://docs.docker.com/engine/admin/logging/fluentd/)
-as a default container logging driver. All the logs from `web` container will
+as a default container logging driver. All the logs from the `web` container will
 automatically be forwarded to `host:port` specified by `fluentd-address`.
 
 
@@ -96,7 +96,7 @@ Create `fluentd/Dockerfile` with the following content using the Fluentd
 [official Docker image](https://hub.docker.com/r/fluent/fluentd/); and then,
 install the Elasticsearch plugin:
 
-``` {.CodeRay}
+```
 # fluentd/Dockerfile
 
 FROM fluent/fluentd:v1.6-debian-1
@@ -110,7 +110,7 @@ Then, create the Fluentd configuration file `fluentd/conf/fluent.conf`. The
 Docker logging driver and `elasticsearch` output plugin forwards these logs to
 Elasticsearch.
 
-``` {.CodeRay}
+```
 # fluentd/conf/fluent.conf
 
 <source>
@@ -190,7 +190,7 @@ Specify `fluentd-*` to `Index name or pattern` and click `Create`.
 Timestamp](/images/7.2_efk-kibana-timestamp.png)
 
 Then, go to `Discover` tab to check the logs. As you can see, logs are properly
-collected into Elasticsearch + Kibana, via Fluentd.
+collected into the Elasticsearch + Kibana, via Fluentd.
 
 ![Kibana Discover](/images/7.2_efk-kibana-discover.png)
 

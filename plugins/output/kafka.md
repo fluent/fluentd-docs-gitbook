@@ -70,10 +70,10 @@ Default: `localhost:9092`
 
 ### `topic_key`
 
-The field name for target topic. If the field value is `app`,
-this plugin write events to `app` topic.
+The field name for the target topic. If the field value is `app`,
+this plugin writes events to the `app` topic.
 
-In addition, this field name must be included in buffer chunk keys:
+This field name must be included in the buffer chunk keys:
 
 ```
 topic_key category
@@ -87,9 +87,9 @@ Default: `topic`
 
 ### `default_topic`
 
-The name of default topic. (default: `nil`)
+The name of the default topic. (default: `nil`)
 
-This value will be used when `topic_key` field is missing.
+This value will be used when the `topic_key` field is missing.
 
 
 ### `<format>` Directive
@@ -110,9 +110,9 @@ See [`formatter`](/plugins/formatter/README.md) article for more detail.
 
 ### `use_event_time`
 
-Set fluentd event time to kafka's CreateTime.
+Set fluentd event time to Kafka's `CreateTime`.
 
-Default: `false` (This means use current time.)
+Default: `false` (It means the current time.)
 
 
 ### `required_acks`

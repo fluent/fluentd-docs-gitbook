@@ -1,7 +1,7 @@
 # System Configuration
 
 This article describes the Fluentd's system configurations for `<system>`
-section and command line options.
+section and command-line options.
 
 
 ## Overview
@@ -55,7 +55,7 @@ Suppresses the repeated stacktrace.
 |:-----|:--------|:--------|
 | time | nil     | 0.14.0  |
 
-Specifies the time value of emitting error log interval.
+Specifies the time value of the emitting of error log interval.
 
 
 ### `suppress_config_dump`
@@ -127,7 +127,7 @@ Allows `Time` object in buffer's MessagePack serde. This is useful when the log 
 |:-------|:--------|:--------|
 | string | nil     | 0.14.0  |
 
-Specifies the file permission in octal format.
+Specifies the file permission in the octal format.
 
 
 ### `dir_permission`
@@ -136,7 +136,7 @@ Specifies the file permission in octal format.
 |:-------|:--------|:--------|
 | string | nil     | 0.14.0  |
 
-Specifies the directory permission in octal format.
+Specifies the directory permission in the octal format.
 
 
 ### `strict_config_value`
@@ -194,7 +194,7 @@ For code example, please refer to
 `.system_config_override` description.
 
 
-## Command Line Options
+## Command-Line Options
 
 
 -   `-s`, `--setup [DIR=/etc/fluent]`: Installs sample configuration file to

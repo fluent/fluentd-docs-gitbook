@@ -54,7 +54,8 @@ endpoint http://example.com/api
 endpoint https://example.com/api
 ```
 
-The `endpoint` parameter supports placeholders, so you can embed time, tag and record fields in the endpoint. Here is an example:
+The `endpoint` parameter supports placeholders, so you can embed time, tag and
+record fields in the endpoint. Here is an example:
 
 ```
 endpoint http://example.com/api/${tag}-${key}
@@ -91,7 +92,8 @@ The proxy for HTTP request.
 |:-------|:--------|:--------|
 | string | nil     | 1.7.0   |
 
-`Content-Type` for HTTP request. `out_http` automatically set `Content-Type` for built-in formatters when this parameter is not specified.
+`Content-Type` for HTTP request. `out_http` automatically set `Content-Type` for
+built-in formatters when this parameter is not specified.
 
 Here is a table:
 
@@ -109,8 +111,9 @@ Here is a table:
 |:-------|:--------|:--------|
 | bool   | false   | 1.10.4  |
 
-Using array format of JSON. This parameter is used and valid only for json format.
-When `json_array` as true, Content-Type should be `application/json` and be able to use JSON data for the HTTP request body.
+Using the array format of JSON. This parameter is used and valid only for json
+format. When `json_array` as true, Content-Type should be `application/json` and
+be able to use JSON data for the HTTP request body.
 
 
 ### `<format>` Directive
@@ -147,7 +150,9 @@ headers {"key1":"value1", "key2":"value2"}
 |:-------|:--------|:--------|
 | integer| nil     | 1.7.0   |
 
-The connection open timeout in seconds. See also [Ruby document](https://docs.ruby-lang.org/en/master/Net/HTTP.html#attribute-i-open_timeout).
+The connection open timeout in seconds.
+
+See also [Ruby document](https://docs.ruby-lang.org/en/master/Net/HTTP.html#attribute-i-open_timeout).
 
 
 ### `read_timeout`
@@ -156,7 +161,9 @@ The connection open timeout in seconds. See also [Ruby document](https://docs.ru
 |:-------|:--------|:--------|
 | integer| nil     | 1.7.0   |
 
-The read timeout in seconds. See also [Ruby document](https://docs.ruby-lang.org/en/master/Net/HTTP.html#attribute-i-read_timeout).
+The read timeout in seconds.
+
+See also [Ruby document](https://docs.ruby-lang.org/en/master/Net/HTTP.html#attribute-i-read_timeout).
 
 
 ### `ssl_timeout`
@@ -237,7 +244,9 @@ The cipher suites configuration of TLS.
 |:-------|:--------|:--------|
 | bool   | true    | 1.7.0   |
 
-Raise `UnrecoverableError` when the response code is not success, 1xx/3xx/4xx/5xx. If `false`, `out_http` logs error message instead of raising `UnrecoverableError`.
+Raise `UnrecoverableError` when the response code is not SUCCESS,
+1xx/3xx/4xx/5xx. If `false`, `out_http` logs error message instead of raising
+`UnrecoverableError`.
 
 See also [Handling Unrecoverable Errors](/buffer/README.md#handling-unrecoverable-errors).
 
@@ -248,7 +257,8 @@ See also [Handling Unrecoverable Errors](/buffer/README.md#handling-unrecoverabl
 |:-------------|:--------|:--------|
 | array of int | [503]   | 1.7.0   |
 
-The list of retryable response code. If the response code is included in this list, `out_http` retries the buffer flush.
+The list of retryable response codes. If the response code is included in this
+list, `out_http` retries the buffer flush.
 
 
 ### `<auth>` Section
@@ -300,7 +310,8 @@ For common output / buffer parameters, please check the following articles:
 
 ## The Payload Content
 
-`out_http`'s request body depends on `<format>` configuration. For example, the default setting generates newline delimited JSON like this:
+`out_http`'s request body depends on `<format>` configuration. For example, the
+default setting generates newline delimited JSON like this:
 
 ```
 # \n is added by `add_newline true` parameter in <format>
@@ -332,7 +343,8 @@ When getting the following error:
 #0 bad chunk is moved to /tmp/fluent/backup/worker0/object_3ff8a73edae8/5a71a08ca19b1b343c8dce1b74c9a963.log
 ```
 
-Users should specify `json` format with `json_array` as true for `out_http` configuration:
+Users should specify `json` format with `json_array` as true for `out_http`
+configuration:
 
 ```
 <match **>

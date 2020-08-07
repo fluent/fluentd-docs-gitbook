@@ -1,6 +1,6 @@
 # Fluentd's Signal Handling
 
-This article explains how `Fluentd` handles UNIX signals.
+This article explains how `fluentd` handles UNIX signals.
 
 
 ## Process Model

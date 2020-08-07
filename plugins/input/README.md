@@ -11,15 +11,14 @@ Fluentd has eight (8) types of plugins:
 -   [Service Discovery](/plugins/service_discovery/README.md)
 -   [Buffer](/plugins/buffer/README.md)
 
-This article gives an overview of Input Plugin.
+This article gives an overview of the Input Plugin.
 
 
 ## Overview
 
-Input plugins extend Fluentd to retrieve and pull event logs from
-external sources. An input plugin typically creates a thread socket and
-a listen socket. It can also be written to periodically pull data from
-data sources.
+Input plugins extend Fluentd to retrieve and pull event logs from the external
+sources. An input plugin typically creates a thread, socket, and a listening
+socket. It can also be written to periodically pull data from the data sources.
 
 
 ## List of Input Plugins

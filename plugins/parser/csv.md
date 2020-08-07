@@ -32,7 +32,7 @@ The delimiter (character or string) separating CSV values.
 |:-----|:--------|:-----------------|:--------|
 | enum | normal  | normal/fast      | 1.7.0   |
 
-The parser type used to parse log line.
+The parser type used to parse the log line.
 
 - `normal` uses Ruby's
   [`CSV.parse_line`](http://ruby-doc.org/stdlib-2.4.1/libdoc/csv/rdoc/CSV.html#method-c-parse_line)
@@ -56,7 +56,8 @@ value1,value2,value3,value4,value5
 message,"mes,sage","me,ssa,ge",mess age,""
 ```
 
-If your CSV format is not matched with above patterns, use `normal` parser instead.
+If your CSV format is not matched with the above patterns, use `normal` parser
+instead.
 
 
 ## Example

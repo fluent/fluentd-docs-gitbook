@@ -49,7 +49,8 @@ flush.
 
 ### `<buffer>` Section
 
-See [Buffer section configurations](/configuration/buffer-section.md) for more details.
+See [Buffer section configurations](/configuration/buffer-section.md) for more
+details.
 
 
 #### `chunk_keys`
@@ -81,7 +82,8 @@ Overwrites the default value in this plugin.
 
 ## Common Buffer / Output parameters
 
-See [Buffer Plugin Overview](/plugins/buffer/README.md) and [Output Plugin Overview](/plugins/output/README.md)
+See [Buffer Plugin Overview](/plugins/buffer/README.md) and
+[Output Plugin Overview](/plugins/output/README.md).
 
 
 ------------------------------------------------------------------------

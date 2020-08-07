@@ -1,13 +1,14 @@
 # Static Service Discovery Plugin
 
-The `static` service discovery plugin set the list of targets.
+The `static` service discovery plugin sets the list of targets.
 
 
 ## Example Configuration
 
-Here is an example with `out_forward` that defines the list of targets similar to the `server` directive:
+Here is an example with `out_forward` that defines the list of targets similar
+to the `server` directive:
 
-```
+```text
 <source>
   @type forward
 
@@ -28,13 +29,13 @@ Here is an example with `out_forward` that defines the list of targets similar t
 The value must be `static`.
 
 
-#### `host`
+#### `host` (required)
 
-| type   | default            | version |
-|:-------|:-------------------|:--------|
-| string | required parameter | 1.8.0  |
+| type   | default  | version |
+|:-------|:---------|:--------|
+| string |          | 1.8.0  |
 
-The IP address or host name of the server.
+The IP address or hostname of the server.
 
 
 #### `port`

@@ -1,6 +1,6 @@
-# Multi Process Workers
+# Multi-Process Workers
 
-This article describes how to use Fluentd's multi process workers
+This article describes how to use Fluentd's multi-process workers
 feature for high traffic. This feature launches two or more fluentd
 workers to utilize multiple CPU powers.
 
@@ -13,9 +13,9 @@ By default, one instance of `fluentd` launches a supervisor and a worker. A
 worker
 consists of input/filter/output plugins.
 
-Multi process workers feature launches multiple workers and use a separate
-process per worker. In addition, `fluentd` provides several features for multi
-process workers, so you can get multi process merits.
+Multi-process workers feature launches multiple workers and use a separate
+process per worker. `fluentd` provides several features for multi-process
+workers, so you can get multi-process merits.
 
 ![Multi-process Workers](/images/multi-process-workers.png)
 
@@ -39,7 +39,7 @@ With this configuration, fluentd launches four (4) workers.
 
 ### `<worker>` directive
 
-Some plugins do not work with multi process workers feature automatically, e.g.
+Some plugins do not work with multi-process workers feature automatically, e.g.
 `in_tail`. However, these plugins can be configured to run on specific workers
 with `<worker N>` directive. `N` is a zero-based worker index.
 
@@ -152,7 +152,7 @@ With this directive, you can specify multiple workers per worker directive.
 
 These parameters must be specified when you use the file buffer.
 
-With multi process workers, you cannot use the fixed `path` configuration for
+With multi-process workers, you cannot use the fixed `path` configuration for
 file buffer because it conflicts buffer file path between processes.
 
 ```
@@ -169,8 +169,8 @@ file buffer because it conflicts buffer file path between processes.
 </match>
 ```
 
-Instead of fixed configuration, fluentd provides dynamic buffer path
-based on `root_dir` and `@id` parameters. The stored path is
+Instead of a fixed configuration, fluentd provides the dynamic buffer path based
+on `root_dir` and `@id` parameters. The stored path is
 `${root_dir}/worker${worker index}/${plugin @id}/buffer` directory.
 
 ```
@@ -199,7 +199,7 @@ Each worker consumes memory and disk space separately. Take care while
 configuring buffer spaces and monitoring memory/disk consumption.
 
 
-## Multi Process Workers and Plugins
+## Multi-Process Workers and Plugins
 
 
 ### Input Plugin
@@ -229,9 +229,9 @@ process workers. `forward` input's port is shared among workers.
 
 #### feature supported and plain plugin
 
-Non server plugin helper based plugin set up socket/server in each
-worker. For example, `monitor_agent` needs multiple ports on multi
-process workers. Basically, the port is assigned sequentially.
+Non-server plugin helper based plugin set up socket/server in each worker. For
+example, `monitor_agent` needs multiple ports on multi-process workers. The port
+is assigned sequentially.
 
 ```
 <system>
@@ -246,7 +246,7 @@ process workers. Basically, the port is assigned sequentially.
 
 #### feature unsupported
 
-Some plugins do not work on multi process workers. For example, `tail`
+Some plugins do not work on multi-process workers. For example, `tail`
 input does not work because `in_tail` cannot be implemented with multi
 process.
 
@@ -259,7 +259,7 @@ section.
 By default, no additional changes are required but some plugins do need to
 specify the `worker_id` in the configuration. For example, `file` and `S3`
 plugins store events into a specified path. The problem is if the plugins under
-multi process workers flush events at the same time, the destination path is
+multi-process workers flush events at the same time, the destination path is
 also the same which results in data loss. To avoid this problem, a `worker_id`
 or some random string can be configured.
 
@@ -284,7 +284,7 @@ article for embedded Ruby code feature.
 ## FAQ
 
 
-### Fluentd cannot start with multi process workers, why?
+### Fluentd cannot start with multi-process workers, why?
 
 You may see following error in the fluentd logs:
 
@@ -292,9 +292,9 @@ You may see following error in the fluentd logs:
 2018-10-01 10:00:00 +0900 [error]: config error file="/path/to/fluentd.conf" error_class=Fluent::ConfigError error="Plugin 'tail' does not support multi workers configuration (Fluent::Plugin::TailInput)"
 ```
 
-This means that the configured plugin does not support multi process worker. All
-configured plugins must support multi process workers. See "Multi Process Worker
-and Plugins" section above.
+This means that the configured plugin does not support multi-process workers.
+All configured plugins must support multi-process workers. See "Multi-Process
+Worker and Plugins" section above.
 
 
 ------------------------------------------------------------------------

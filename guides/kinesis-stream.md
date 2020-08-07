@@ -151,22 +151,21 @@ Kinesis.
 The `random_partition_key true` option will generate the partition key via UUID v3
 ([source](https://github.com/awslabs/aws-fluent-plugin-kinesis/blob/master/lib/fluent/plugin/out_kinesis.rb#L210)).
 Kinesis Stream consists of `shards`, and the processing power of each shard is
-limited. This partition key will be used by Kinesis, to determine which shard
-wll be assigned to for the specific record.
+limited. This partition key will be used by Kinesis to determine which shard
+has been designated for a specific record.
 
 For additional configurations, see [Kinesis Output plugin](https://github.com/awslabs/aws-fluent-plugin-kinesis).
 
 For those who are interested in security, all communication between
 Fluentd and Amazon Kinesis are done via HTTPS. If you do not want to
 have AES keys in the configuration file,
-[IAM Role based authentication](http://docs.aws.amazon.com/kinesis/latest/dev/controlling-access.html)
+[IAM Role-based authentication](http://docs.aws.amazon.com/kinesis/latest/dev/controlling-access.html)
 is available too for EC2 nodes.
 
 
 ## Test
 
-Please restart `td-agent` process first, to make the configuration change
-available:
+Restart `td-agent` to make sure that the configuration change is available:
 
 ```
 # init
@@ -175,8 +174,8 @@ $ sudo /etc/init.d/td-agent restart
 $ sudo systemctl restart td-agent.service
 ```
 
-To test the configuration, just have a couple of accesses to your Apache
-server. This example uses the `ab` (Apache Bench) program:
+To test the configuration, just have a couple of accesses to your Apache server.
+This example uses the `ab` (Apache Bench) program:
 
 ```
 $ ab -n 100 -c 10 http://localhost/
@@ -187,18 +186,17 @@ $ ab -n 100 -c 10 http://localhost/
 
 #### Why we need Fluentd, while Kinesis also offers client libraries?
 
-A lot of people use Fluentd + Kinesis, simply because they want to have
-more choices for [inputs](http://www.fluentd.org/datasources) and
-[outputs](http://www.fluentd.org/dataoutputs). For inputs, Fluentd has a
-lot more community contributed plugins and libraries. For outputs, you
-can send not only Kinesis, but multiple destinations like Amazon S3,
-local file storage, etc.
+A lot of people use Fluentd + Kinesis, simply because they want to have more
+choices for [inputs](http://www.fluentd.org/datasources) and
+[outputs](http://www.fluentd.org/dataoutputs). For inputs, Fluentd has a lot
+more community-contributed plugins and libraries. For outputs, you can send not
+only Kinesis, but multiple destinations like Amazon S3, local file storage, etc.
 
 
 ## Conclusion
 
-Fluentd + Amazon Kinesis makes real-time log collection simple, easy,
-and robust.
+Fluentd with Amazon Kinesis makes the realtime log collection simple, easy, and
+robust.
 
 
 ## Learn More

@@ -2,14 +2,13 @@
 
 ![](/images/plugins/output/elasticsearch.png)
 
-The `out_elasticsearch` Output plugin writes records into Elasticsearch.
-By default, it creates records by bulk write operation. This means that
-when you first import records using the plugin, no record is created
-immediately.
+The `out_elasticsearch` Output plugin writes records into Elasticsearch. By
+default, it creates records by bulk write operation. This means that when you
+first import records using the plugin, no record is created immediately.
 
-The record will be created when the `chunk_keys` condition has been met.
-To change the output frequency, please specify the `time` in `chunk_keys`
-and specify `timekey` value in configuration.
+The record will be created when the `chunk_keys` condition has been met. To
+change the output frequency, please specify the `time` in `chunk_keys` and
+specify `timekey` value in the configuration.
 
 This document does not describe all the parameters. For details, refer to the
 **Further Reading** section.
@@ -17,12 +16,11 @@ This document does not describe all the parameters. For details, refer to the
 
 ## Installation
 
-Since `out_elasticsearch` has been included in the standard distribution
-of `td-agent` since v3.0.1, `td-agent` users do not need to install it
-manually.
+Since `out_elasticsearch` has been included in the standard distribution of
+`td-agent` since v3.0.1, `td-agent` users do not need to install it manually.
 
-If you have installed Fluentd without `td-agent`, please install this
-plugin using `fluent-gem`:
+If you have installed Fluentd without `td-agent`, please install this plugin
+using `fluent-gem`:
 
 ```
 $ fluent-gem install fluent-plugin-elasticsearch
@@ -72,8 +70,8 @@ The port number of your Elasticsearch node (default: `9200`).
 
 ### `hosts` (optional)
 
-If you want to connect to more than one Elasticsearch nodes, specify
-this option in the following format:
+If you want to connect to more than one Elasticsearch nodes, specify this option
+in the following format:
 
 ```
 hosts host1:port1,host2:port2,host3:port3
@@ -115,8 +113,8 @@ if you want to partition the index by tags, you can specify it like this:
 index_name fluentd.${tag}
 ```
 
-Here is a more practical example which partitions the Elasticsearch
-index by tags and timestamps:
+Here is a more practical example which partitions the Elasticsearch index by
+tags and timestamps:
 
 ```
 index_name fluentd.${tag}.%Y%m%d
@@ -140,8 +138,8 @@ If `true`, Fluentd uses the conventional index name format `logstash-%Y.%m.%d`
 
 #### `@log_level` option
 
-The `@log_level` option allows the user to set different levels of
-logging for each plugin.
+The `@log_level` option allows the user to set different levels of logging for
+each plugin.
 
 Supported log levels: `fatal`, `error`, `warn`, `info`, `debug`, `trace`.
 

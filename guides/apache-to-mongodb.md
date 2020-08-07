@@ -1,8 +1,8 @@
 # Store Apache Logs into MongoDB
 
-This article explains how to use [Fluentd](http://fluentd.org/)'s
-MongoDB Output plugin ([`out_mongo`](/plugins/output/mongo.md)) to aggregate
-semi-structured logs in realtime.
+This article explains how to use [Fluentd](http://fluentd.org/)'s MongoDB Output
+plugin ([`out_mongo`](/plugins/output/mongo.md)) to aggregate semi-structured
+logs in realtime.
 
 
 ## Background
@@ -10,16 +10,16 @@ semi-structured logs in realtime.
 [Fluentd](http://fluentd.org/) is an advanced open-source log collector
 originally developed at [Treasure Data, Inc](http://www.treasuredata.com/).
 Because Fluentd handles logs as semi-structured data streams, the ideal database
-should have strong support for semi-structured data. There are several
-candidates that meet this criterion, but we believe
-[MongoDB](http://www.mongodb.org/) is the market leader.
+should have strong support for semi-structured data. Several candidates meet
+this criterion, but we believe [MongoDB](http://www.mongodb.org/) is the market
+leader.
 
 MongoDB is an open-source, document-oriented database developed at
-[MongoDB, Inc](http://www.mongodb.com/). It is schema-free and uses a
-JSON-like format to manage semi-structured data.
+[MongoDB, Inc](http://www.mongodb.com/). It is schema-free and uses a JSON-like
+format to manage semi-structured data.
 
-This article will show you how to use [Fluentd](http://fluentd.org/) to
-import Apache logs into MongoDB.
+This article will show you how to use [Fluentd](http://fluentd.org/) to import
+Apache logs into MongoDB.
 
 
 ## Mechanism
@@ -28,11 +28,11 @@ The figure below shows how things will work:
 
 ![Apache + MongoDB](/images/apache-to-mongodb.png)
 
-Fluentd does three (3) things:
+Fluentd does these three (3) things:
 
 1.  It continuously "tails" the access log file.
-2.  It parses the incoming log entries into meaningful fields (such as
-    `ip`, `path`, etc.) and buffers them.
+2.  It parses the incoming log entries into meaningful fields (such as `ip`,
+    `path`, etc.) and buffers them.
 3.  It writes the buffered data to MongoDB periodically.
 
 
@@ -61,16 +61,16 @@ For MongoDB, please refer to the following downloads page:
 
 ## Configuration
 
-Let's start configuring Fluentd. If you used the deb/rpm package,
-Fluentd's config file is located at `/etc/td-agent/td-agent.conf`.
-Otherwise, it is located at `/etc/fluentd/fluentd.conf`.
+Let's start configuring Fluentd. If you used the deb/rpm package, Fluentd's
+config file is located at `/etc/td-agent/td-agent.conf`. Otherwise, it is
+located at `/etc/fluentd/fluentd.conf`.
 
 
 ### Tail Input
 
-For the input source, we will set up Fluentd to track the recent Apache
-logs (typically found at `/var/log/apache2/access_log`). The Fluentd
-configuration file should look like this:
+For the input source, we will set up Fluentd to track the recent Apache logs
+(typically found at `/var/log/apache2/access_log`). The Fluentd configuration
+file should look like this:
 
 ```
 <source>
@@ -84,29 +84,28 @@ configuration file should look like this:
 </source>
 ```
 
-Please make sure that your Apache outputs are in the default
-**combined** format. `format apache2` cannot parse custom log formats.
-Please see the [`in_tail`](/plugins/input/tail.md) article for more information.
+Please make sure that your Apache outputs are in the default **combined**
+format. `format apache2` cannot parse custom log formats. Please see the
+[`in_tail`](/plugins/input/tail.md) article for more details.
 
 Let's go through the configuration line by line:
 
 1.  `@type tail`: The `tail` Input plugin continuously tracks the log
     file. This handy plugin is included in Fluentd's core.
-2.  `@type apache2` in `<parse>`: Uses Fluentd's built-in Apache log
-    parser.
+2.  `@type apache2` in `<parse>`: Uses Fluentd's built-in Apache log parser.
 3.  `path /var/log/apache2/access_log`: The location of the Apache log.
     This may be different for your particular system.
-4.  `tag mongo.apache.access`: `mongo.apache.access` is used as the tag
-    to route the messages within Fluentd.
+4.  `tag mongo.apache.access`: `mongo.apache.access` is used as the tag to route
+    the messages within Fluentd.
 
-That's it! You should now be able to output a JSON-formatted data stream
-for Fluentd to process.
+That's it! You should now be able to output a JSON-formatted data stream for
+Fluentd to process.
 
 
 ### MongoDB Output
 
-The output destination will be MongoDB. The output configuration should
-look like this:
+The output destination will be MongoDB. The output configuration should look
+like this:
 
 ```
 <match mongo.**>
@@ -133,17 +132,16 @@ look like this:
 </match>
 ```
 
-The match section specifies the regexp used to look for matching tags.
-If a matching tag is found in a log, then the config inside
-`<match>...</match>` is used (i.e. the log is routed according to the
-config inside). In this example, the `mongo.apache.access` tag
-(generated by `tail`) is always used.
+The match section specifies the regexp used to look for matching tags. If a
+matching tag is found in a log, then the config inside `<match>...</match>` is
+used (i.e. the log is routed according to the config inside). In this example,
+the `mongo.apache.access` tag (generated by `tail`) is always used.
 
 The `**` in `mongo.**` matches zero or more period-delimited tag parts
 (e.g. `mongo`/`mongo.a`/`mongo.a.b`).
 
-**`flush_interval`** specifies how often the data is written to MongoDB.
-The other options specify MongoDB's host, port, db, and collection.
+**`flush_interval`** specifies how often the data is written to MongoDB. The
+other options specify MongoDB's host, port, db, and collection.
 
 For additional configuration parameters, please see the
 [MongoDB Output plugin](/plugins/output/mongo.md) article. If you are using
@@ -152,8 +150,8 @@ ReplicaSet, please see the [MongoDB ReplicaSet Output plugin](/plugins/output/mo
 
 ## Test
 
-To test the configuration, just ping the Apache server. This example
-uses the `ab` (Apache Bench) program:
+To test the configuration, just ping the Apache server. This example uses the
+`ab` (Apache Bench) program:
 
 ```
 $ ab -n 100 -c 10 http://localhost/

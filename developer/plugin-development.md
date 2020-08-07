@@ -49,8 +49,8 @@ and v1 API, but it may help build an understanding of overall Fluentd's design.
 
 ### Fluentd Version and Plugin API
 
-Fluentd now has two active versions, v1 and v0.12. v1 is current stable and v1
-has brand-new Plugin API. v0.12 is old stable and v0.12 has old Plugin API.
+Fluentd now has two active versions, v1 and v0.12. v1 is the current stable with
+the brand-new Plugin API. v0.12 is the old stable and it has the old Plugin API.
 
 The important point is v1 supports v1 and v0.12 APIs. It means the plugin for
 v0.12 works with v1.
@@ -60,7 +60,7 @@ It is recommended to use the new v1 plugin API for writing new plugins.
 
 ### Send a patch or fork?
 
-If you have a problem with any existing plugins or new feature idea, sending a
+If you have a problem with any built-in plugins or a new feature idea, sending a
 patch is better. If the plugin author is non-active, try to become its new
 plugin maintainer first. Forking a plugin and release its alternative version,
 e.g. `fluent-plugin-xxx-alt` is considered the last option.
@@ -104,7 +104,7 @@ publish, etc.
 
 If you want to publish a plugin under version control, you should use
 `bundle gem` to create the plugin source tree and then `git init` it.
-It requires `bundler` gem in your Ruby environment. 
+It requires the `bundler` gem in your Ruby environment. 
 
 Example:
 
@@ -166,7 +166,7 @@ option. For more details, see `fluent-plugin-generate --help`.
 
 ## Debugging Plugins
 
-Run `fluentd` with the `-vv` option to show debugging messages:
+Run `fluentd` with the `-vv` command-line option to show debugging messages:
 
 ```shell
 $ fluentd -vv
@@ -188,7 +188,7 @@ configured like this:
 </match>
 ```
 
-The **copy** output plugin copies matched events to multiple output
+The **copy** output plugin copies the matched events to the multiple output
 plugins. You can use it in conjunction with the stdout plugin:
 
 ```text
@@ -214,7 +214,7 @@ plugins. You can use it in conjunction with the stdout plugin:
 ```
 
 You can use **stdout** filter instead of **copy** and **stdout**
-combination. The result is same as above but more simpler.
+combination. The result is the same as above but more simpler.
 
 ```text
 <source>
@@ -331,7 +331,7 @@ You can copy and paste generated documents here.
   * Apache License, Version 2.0
 ````
 
-You should write plugin description and configurations.
+You should write the plugin description and configurations.
 
 You can generate configuration using `fluent-plugin-config-format` command.
 

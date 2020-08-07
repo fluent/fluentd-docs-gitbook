@@ -85,23 +85,22 @@ For `td-agent`, Fluentd uses the `/etc/td-agent/plugin` directory instead of
 
 ## Plugin Version Management
 
-Fluentd and plugins are evolving, so you may hit unexpected error with
-latest version, e.g. regression by new feature, remove deprecated
+Fluentd and plugins are evolving so you may hit an unexpected error with
+the latest version e.g. regression by a new feature, remove a deprecated
 parameter, change library dependency, etc. To avoid these problems, we
-recommend to fix fluentd and plugin version on production. If you want
-to update fluentd or plugins, check the behaviour first on your test
+recommend fixing fluentd and plugin version on production. If you want
+to update fluentd or plugins, check the behavior first on your test
 environment. For example, td-agent fixes fluentd and plugins version in
 each release.
 
-Fluentd plugins are rubygems and rubygems installs latest version by
-default. So we don't recommend to execute following commands on
-production:
+Fluentd plugins are RubyGems and RubyGems installs the latest version by
+default. So we don't recommend to execute following commands on production:
 
 -   `gem install fluentd`
 -   `gem install fluent-plugin-elasticsearch`
 -   `gem update # This is very dangerous. Update all existing gems`
 
-You should specify target version with `-v` option.
+You should specify the target version with `-v` option:
 
 -   `gem install fluentd -v 1.2.1`
 -   `gem install fluent-plugin-elasticsearch -v 2.10.3`
@@ -133,9 +132,9 @@ When specifying the `--gemfile` option, Fluentd will try to install the
 listed gems using Bundler. Fluentd will only load the listed gems separated
 from shared gems, and will also prevent unexpected plugin updates.
 
-In addition, if you update Fluentd's Ruby version, Bundler will
-reinstall the listed gems for the new Ruby version. This allows you to
-avoid the C extension API compatibility problem.
+If you update Fluentd's Ruby version, Bundler will reinstall the listed gems for
+the new Ruby version. This allows you to avoid the C extension API compatibility
+problem.
 
 
 ### For `td-agent`
@@ -152,7 +151,7 @@ ExecStart=
 ExecStart=/opt/td-agent/embedded/bin/fluentd --log /var/log/td-agent/td-agent.log --daemon /var/run/td-agent/td-agent.pid $TD_AGENT_OPTIONS
 ```
 
-We can also edit this file by following command:
+We can also edit this file using the following command:
 
 ```
 $ sudo systemctl edit td-agent.service

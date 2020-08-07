@@ -141,7 +141,7 @@ You will get something like this:
 |:-----|:--------|:--------|
 | size | 4096    | 0.14.14 |
 
-The maximum number of bytes for message.
+The maximum number of bytes for the message.
 
 
 ### `remove_newline`
@@ -150,7 +150,7 @@ The maximum number of bytes for message.
 |:-----|:--------|:--------|
 | bool | true    | 0.14.23 |
 
-Removes newline from the end of incoming payload.
+Removes the newline from the end of the incoming payload.
 
 
 ### `<parse>` Section
@@ -159,7 +159,7 @@ Removes newline from the end of incoming payload.
 |:---------|:------|:--------|
 | true     | false | 0.14.10 |
 
-`in_tcp` uses parser plugin to parse the payload.
+`in_tcp` uses the parser plugin to parse the payload.
 
 For more details:
 
@@ -169,7 +169,7 @@ For more details:
 
 ## Code Example
 
-Here is a Ruby example to send event to `in_udp`:
+Here is a Ruby example to send an event to `in_udp`:
 
 ```
 require 'socket'

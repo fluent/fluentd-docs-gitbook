@@ -1,11 +1,11 @@
 # `dummy` Input Plugin
 
-`in_dummy` has been renamed `in_sample` since fluetd v1.11.12.
+`in_dummy` has been renamed `in_sample` since Fluetd v1.11.12.
 See [`sample` input plugin](/plugins/input/sample.md) article for more details.
 
 You can keep to use following configuration in v1:
 
-```
+```text
 <source>
   @type dummy
   dummy {"hello":"world"}

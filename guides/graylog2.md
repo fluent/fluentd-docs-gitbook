@@ -24,8 +24,8 @@ $ sudo apt install mongodb-server openjdk-8-jre-headless uuid-runtime
 
 ### Elasticsearch
 
-Graylog requires Elasticsearch, which can be instantly launched using
-the following commands:
+Graylog requires Elasticsearch, which can be instantly launched using the
+following commands:
 
 ```
 # Note that Graylog 2.4 doesn't support Elasticsearch 6.X.
@@ -63,8 +63,8 @@ Open `/etc/graylog/server/server.conf` and configure the following parameters:
  2. `root_password_sha2`.
  3. `web_enable`
 
-For `root_password_sha2`, run `echo -n ROOT_PASSWORD | sha256sum` and set the hash.
-Also you need to set `web_enable` to true to access the web interface.
+For `root_password_sha2`, run `echo -n ROOT_PASSWORD | sha256sum` and set the
+hash. Also you need to set `web_enable` to true to access the web interface.
 
 Now let's start Graylog:
 
@@ -75,13 +75,15 @@ $ sudo systemctl start graylog-server
 
 ### Prepare Graylog for Fluentd
 
-Go to [http://localhost:9000](http://localhost:9000) and log into the web interface.
+Go to [http://localhost:9000](http://localhost:9000) and log into the web
+interface.
 
 To log in, use `admin` as the username and `YOUR_PASSWORD` as the password (the
 one you have set up for `root_password_sha2`).
 
 Once logged in, click on `System` in the top nav. Next, click on `Inputs` from
-the left navigation bar. (Or, simply go to [http://localhost:9000/system/inputs](http://localhost:9000/system/inputs).
+the left navigation bar. (Or, simply go to
+[http://localhost:9000/system/inputs](http://localhost:9000/system/inputs).
 
 Then, from the dropdown, choose `GELF UDP` and click on `Launch new input`,
 which should pop up a modal dialogue, Select the `Node` and fill the `Title`.
@@ -89,7 +91,7 @@ Then, click `Save`.
 
 ![Graylog Inputs](/images/graylog2-input.png)
 
-Now, Graylog2 is ready to accept messages from Fluentd over UDP. It's time to
+Now, Graylog2 is ready to accept messages from Fluentd over UDP. It is time to
 configure Fluentd.
 
 ### Fluentd
@@ -102,9 +104,9 @@ $ wget http://packages.treasuredata.com.s3.amazonaws.com/3/ubuntu/bionic/pool/co
 $ sudo dpkg -i td-agent_3.2.1-0_amd64.deb
 ```
 
-Then, install the `out_gelf` plugin to send data to Graylog. Currently, the
-GELF plugin is not available on RubyGems, so we need to download the plugin
-file and place it in `/etc/td-agent/plugin`:
+Then, install the `out_gelf` plugin to send data to Graylog. Currently, the GELF
+plugin is not available on RubyGems, so we need to download the plugin file and
+place it in `/etc/td-agent/plugin`:
 
 ```
 $ wget https://raw.githubusercontent.com/emsearcy/fluent-plugin-gelf/master/lib/fluent/plugin/out_gelf.rb
@@ -150,8 +152,8 @@ $ sudo systemctl restart td-agent
 
 ## Visualize the Data Stream
 
-When you log back into Graylog, you should be seeing a graph like this
-(wait for events to flow in):
+When you log back into Graylog, you should be seeing a graph like this (wait for
+events to flow in):
 
 ![Graylog Graph](/images/graylog2-graph.png)
 

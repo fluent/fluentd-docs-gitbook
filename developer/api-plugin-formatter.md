@@ -98,8 +98,8 @@ details.
 
 ## Methods
 
-The formatter plugins implement `filter` method to format input `Hash` record as
-a `String` object.
+The formatter plugins implement `filter` method to format the input `Hash`
+record as a `String` object.
 
 
 #### `#format(tag, time, record)`
@@ -175,7 +175,7 @@ Testing for formatter plugins is mainly for:
 To make testing easy, the plugin test driver provides a logger and the
 functionality to override the system, parser and other configurations.
 
-The lifecycle of plugin and its test driver is:
+The lifecycle of the plugin and its test driver is:
 
 1.  Instantiate plugin driver which then instantiates the plugin
 2.  Configure plugin

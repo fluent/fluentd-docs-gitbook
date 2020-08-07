@@ -126,19 +126,19 @@ The following is the current list of exceptions considered **unrecoverable**:
 
   | Exception                    | The typical cause of this error |
   | ---------------------------- | --- |
-  |`Fluent::UnrecoverableError`  | Output plugin can use this exception to suppress further retry attempts for plugin specific unrecoverable error. |
-  |`TypeError`                   | Occurs when an event has unexpected type in its target field. |
+  |`Fluent::UnrecoverableError`  | Output plugin can use this exception to suppress further retry attempts for plugin-specific unrecoverable error. |
+  |`TypeError`                   | Occurs when an event has an unexpected type in its target field. |
   |`ArgumentError`               | Occurs when the plugin uses the library wrongly. |
   |`NoMethodError`               | Occurs when events and configuration are mismatched. |
 
-Here are the patterns when unrecoverable error happens:
+Here are the patterns when an unrecoverable error happens:
 
 -   If the plugin does not have a `secondary`, the chunk is moved to the backup
     directory.
 -   If the plugin has a `secondary` which is of different type from primary,
     the chunk is moved to `secondary`.
 -   If the unrecoverable error happens inside `secondary`, the chunk is
-    moved to backup directory.
+    moved to the backup directory.
 
 
 ### Configuration Example
@@ -189,12 +189,12 @@ detailed explanation.
 `out_elasticsearch` uses MessagePack for buffer's serialization (NOTE
 that this depends on the plugin). On the other hand, [Elasticsearch's Bulk API](https://www.elastic.co/guide/en/elasticsearch/reference/current/docs-bulk.html)
 requires JSON-based payload. It means that one MessagePack-ed record is
-converted into 2 JSON lines. So, the payload size is larger than buffer's
+converted into 2 JSON lines. So, the payload size is larger than the buffer's
 chunk size.
 
-This sometimes causes a problem when output destination has the
-payload size limitation. If you have a problem with payload size issue,
-check chunk size configuration and API spec.
+This sometimes causes a problem when the output destination has a
+payload size limitation. If you have a problem with the payload size issue,
+check chunk size configuration, and API spec.
 
 
 ## List of Buffer Plugins

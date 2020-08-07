@@ -52,7 +52,7 @@ See [Format section configurations](/configuration/format-section.md) for more d
 |:-------|:--------|:--------|
 | string | stdout  | 0.14.5  |
 
-The format of output.
+The format of the output.
 
 
 #### `output_type`
@@ -61,7 +61,7 @@ The format of output.
 |:-------|:--------|:--------|
 | string | json    | 0.14.5  |
 
-This is the option of `stdout` format. Configures the format of record
+This is the option of `stdout` format. Configures the format of the record
 (third part). Any formatter plugins can be specified.
 
 
