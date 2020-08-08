@@ -107,7 +107,7 @@ reliability of data transfer and query performance.
 
 ### Monitoring
 
-Monitoring Fluentd itself is also important. The article below describes
+Monitoring Fluentd itself is also important. The article below describes the
 general monitoring methods for `td-agent`.
 
 -   [Monitoring Fluentd](/monitoring/overview.md)
