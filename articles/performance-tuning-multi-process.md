@@ -1,6 +1,6 @@
 # Performance Tuning (Multi Process)
 
-This article desdrivbes how to optimize Fluentd's performance with
+This article describes how to optimize Fluentd's performance with
 [in\_multiprocess](/plugins/input/multiprocess.md) plugin. With high traffic, Fluentd
 tends to be more CPU bound.
 
