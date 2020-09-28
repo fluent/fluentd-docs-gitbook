@@ -29,6 +29,12 @@ Download and install the `.msi` installer:
 
 -   [Download](https://td-agent-package-browser.herokuapp.com/4/windows)
 
+Or, install with [winget](https://www.microsoft.com/en-us/p/app-installer/9nblggh4nns1):
+
+```
+> winget install td-agent
+```
+
 
 ### Step 2: Run `td-agent` from Command Prompt
 
