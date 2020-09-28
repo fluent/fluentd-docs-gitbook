@@ -39,13 +39,15 @@ Service without the underscore in
 [RFC2782](https://tools.ietf.org/html/rfc2782).
 
 
-### `proto` (required)
+### `proto`
 
 | type   | default | version |
 |:-------|:--------|:--------|
 | string | `nil`   | 1.10.0  |
 
 Proto without the underscore in [RFC2782](https://tools.ietf.org/html/rfc2782).
+
+It is a required parameter.
 
 
 ### `hostname`

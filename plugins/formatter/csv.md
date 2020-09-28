@@ -13,13 +13,13 @@ The `csv` formatter plugin output an event as CSV.
 -   [Format section configurations](/configuration/format-section.md)
 
 
-### `fields` (required)
+### `fields`
 
 | type            | default  | version |
 |:----------------|:---------|:--------|
 | array of string | `nil`    | 0.14.0  |
 
-Specifies the output fields.
+Specifies the output fields. It is a required parameter.
 
 
 ### delimiter (String, Optional. defaults to ",")

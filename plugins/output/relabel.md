@@ -51,13 +51,13 @@ than supporting the `@label` parameter.
 The value must be `relabel`.
 
 
-### `@label` (required)
-
-The label.
+### `@label`
 
 | type   | default | version |
 |:-------|:--------|:--------|
 | string | `nil`   | 0.14.0  |
+
+Specifies the label. It is a required parameter.
 
 
 ------------------------------------------------------------------------

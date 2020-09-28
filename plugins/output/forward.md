@@ -395,7 +395,7 @@ The client certificate path for TLS.
 |:------:|:-------:|:-------:|
 | string | nil     | 1.3.2   |
 
-The client 5private key path for TLS.
+The client private key path for TLS.
 
 
 ### `tls_client_private_key_passphrase`

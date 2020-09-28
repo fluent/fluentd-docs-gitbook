@@ -77,22 +77,22 @@ Each target has following parameters:
 -   `weight`
 
 
-#### `host` (required)
+#### `host`
 
 | type   | default | version |
 |:-------|:--------|:--------|
 | string | `nil`   | 1.8.0   |
 
-The IP address or hostname of the server.
+The IP address or hostname of the server. It is a required parameter.
 
 
-#### `port` (required)
+#### `port`
 
 | type    | default | version |
 |:--------|:--------|:--------|
 | integer |          | 1.8.0  |
 
-The port number of the host.
+The port number of the host. It is a required parameter.
 
 
 #### `name`

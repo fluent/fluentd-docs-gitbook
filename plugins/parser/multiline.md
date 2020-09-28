@@ -28,14 +28,16 @@ unmatched new lines in the temporary buffer and try to match the buffered logs
 with each new line.
 
 
-### `formatN` (required)
+### `formatN`
 
 | type   | default | version |
 |:-------|:--------|:--------|
 | string | `nil`   | 0.14.0  |
 
+It is a required parameter.
+
 Specifies the regexp patterns. For readability, you can separate the regexp
-patterns into multiple `regexpN` parameters. See the Rails Log's example below.
+patterns into multiple `formatN` parameters. See the Rails Log's example below.
 These patterns are joined and then construct a regexp pattern with multiline
 mode.
 

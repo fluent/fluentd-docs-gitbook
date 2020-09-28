@@ -60,7 +60,7 @@ It is recommended to use the new v1 plugin API for writing new plugins.
 
 ### Send a patch or fork?
 
-If you have a problem with any built-in plugins or a new feature idea, sending a
+If you have a problem with any existing plugins or a new feature idea, sending a
 patch is better. If the plugin author is non-active, try to become its new
 plugin maintainer first. Forking a plugin and release its alternative version,
 e.g. `fluent-plugin-xxx-alt` is considered the last option.

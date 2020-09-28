@@ -29,13 +29,13 @@ to the `server` directive:
 The value must be `static`.
 
 
-#### `host` (required)
+#### `host`
 
 | type   | default  | version |
 |:-------|:---------|:--------|
 | string |          | 1.8.0  |
 
-The IP address or hostname of the server.
+The IP address or hostname of the server. It is a required parameter.
 
 
 #### `port`
