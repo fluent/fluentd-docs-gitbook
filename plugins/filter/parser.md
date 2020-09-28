@@ -150,7 +150,7 @@ With above configuration, here is the result:
 
 | type | default | version |
 |:-----|:--------|:--------|
-|bool  | `false` | 0.14.9  |
+| bool | `false` | 0.14.9  |
 
 If `true`, invalid string is replaced with safe characters and re-parse it.
 

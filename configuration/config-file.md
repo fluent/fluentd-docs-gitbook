@@ -416,35 +416,38 @@ app.log>`), there are a number of techniques you can use to manage the data flow
 more efficiently.
 
 
-### Wildcards and Expansions
+### Wildcards, Expansions and other tips
 
 The following match patterns can be used in `<match>` and `<filter>` tags:
 
--   `*` matches a single tag part.
+- `*` matches a single tag part.
 
-    -   For example, the pattern `a.*` matches `a.b`, but does not match `a` or
-        `a.b.c`
+  - For example, the pattern `a.*` matches `a.b`, but does not match `a` or `a.b.c`
 
--   `**` matches zero or more tag parts.
+- `**` matches zero or more tag parts.
 
-    -   For example, the pattern `a.**` matches `a`, `a.b` and `a.b.c`
+  - For example, the pattern `a.**` matches `a`, `a.b` and `a.b.c`
 
--   `{X,Y,Z}` matches X, Y, or Z, where X, Y, and Z are match patterns.
+- `{X,Y,Z}` matches X, Y, or Z, where X, Y, and Z are match patterns.
 
-    -   For example, the pattern `{a,b}` matches `a` and `b`, but does not match
-        `c`
-    -   This can be used in combination with `*` or `**` patterns. Examples
-        include `a.{b,c}.*` and `a.{b,c.**}`.
+  - For example, the pattern `{a,b}` matches `a` and `b`, but does not match `c`
+  - This can be used in combination with `*` or `**` patterns. Examples
+    include `a.{b,c}.*` and `a.{b,c.**}`.
 
--   `#{...}` evaluates the string inside brackets as a Ruby expression. (See
-    **Embedding Ruby Expressions** section below).
+- `/regular expression/` is for complex patterns
 
--   When multiple patterns are listed inside a single tag (delimited by one or
-    more whitespaces), it matches any of the listed patterns. For example:
+  - For example, the pattern `/(?!a\.).*/` matches non-`a.` started tags like `b.xxx`
+  - This feature is supported since fluentd v1.11.2
 
-    -   The patterns `<match a b>` match `a` and `b`.
-    -   The patterns `<match a.** b.*>` match `a`, `a.b`, `a.b.c` (from the
-        first pattern) and `b.d` (from the second pattern).
+- `#{...}` evaluates the string inside brackets as a Ruby expression. (See
+  **Embedding Ruby Expressions** section below).
+
+- When multiple patterns are listed inside a single tag (delimited by one or
+  more whitespaces), it matches any of the listed patterns. For example:
+
+  - The patterns `<match a b>` match `a` and `b`.
+  - The patterns `<match a.** b.*>` match `a`, `a.b`, `a.b.c` (from the
+    first pattern) and `b.d` (from the second pattern).
 
 
 ### Note on Match Order

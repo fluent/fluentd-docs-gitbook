@@ -23,6 +23,15 @@ Here is a simple comparison:
 - `yajl`: Mainly for stream parsing
 - `json`: Standard bundled library
 
+### `stream_buffer_size`
+
+| type | default | version |
+|:-----|:--------|:--------|
+| integer | 8192 | 1.0.0   |
+
+Set the buffer size that Yajl will use when parsing streaming input.
+
+See also: [Method: Yajl::Parser#parse](https://www.rubydoc.info/github/brianmario/yajl-ruby/Yajl%2FParser:parse)
 
 ### `time_type`
 
