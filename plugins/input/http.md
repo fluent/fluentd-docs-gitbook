@@ -171,7 +171,7 @@ Responds with an empty GIF image of 1x1 pixel (rather than an empty string).
 
 | type | default | available values | version |
 |:-----|:--------|:-----------------|:--------|
-| enum | tcp     | tls      | 1.5.0  |
+| enum | tcp     | tcp, tls         | 1.5.0   |
 
 This section is for using TLS transport.
 
@@ -190,7 +190,8 @@ Without `<transport tls>`, `in_http` uses HTTP.
 
 ### `<parse>` directive
 
-Use parser plugin to parse incoming data. See also [Handle other formats using parser plugins](#handle-other-formats-using-parser-plugins) section.
+Use the parser plugin to parse the incoming data.
+See also [Handle other formats using parser plugins](#handle-other-formats-using-parser-plugins) section.
 
 
 ### `format` (deprecated)
@@ -306,7 +307,8 @@ You do not need any configuration to enable this feature.
 
 ### Multi-process Environment
 
-If you use this plugin under multi-process environment, port will be shared.
+If you use this plugin under the multi-process environment, the port will be
+shared.
 
 ```
 <system>

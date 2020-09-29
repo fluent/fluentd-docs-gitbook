@@ -1,6 +1,6 @@
 # Child Process Plugin Helper API
 
-The `child_process` helper manages child processes' lifecycle.
+The `child_process` helper manages the child processes' lifecycle.
 
 Here is an example:
 
@@ -36,7 +36,7 @@ The launched child process is managed by the plugin helper which automatically
 
 ### `child_process_execute(title, sub_process_name, arguments: nil, subprocess_name: nil, interval: nil, immediate: false, parallel: false, mode: [:read, :write], stderr: :discard, env: {}, unsetenv: false, chdir: nil, internal_encoding: 'utf-8', external_encoding: 'ascii-8bit', scrub: true, replace_string: nil, wait_timeout: nil, on_exit_callback: nil, &block)`
 
-This method executes `child_process` with given parameters and routine.
+This method executes `child_process` with the given parameters and routine.
 
 - `title`: unique symbol value
 - `sub_process_name`: sub process name value
@@ -48,13 +48,11 @@ This method executes `child_process` with given parameters and routine.
 - `env`: Environment valuables. Default is {}.
 - `unsetenv`: `true`/`false`. Default is `false`
 - `chdir`: Working directory. Default is `nil`.
-- `internal_encoding`: Internal character encoding. Default is
-`utf-8`.
-- `external_encoding`: External character encoding. Default is
-`ascii-8bit`'
+- `internal_encoding`: Internal character encoding. Default is `utf-8`.
+- `external_encoding`: External character encoding. Default is `ascii-8bit`'
 - `scrub`: `true`/`false`. Default is `true`.
-- `replace_string`: Replace invalid code point with specified
-character. Default is `nil`.
+- `replace_string`: Replace the invalid code point with the specified character.
+  Default is `nil`.
 - `wait_timeout`: Set timeout seconds. Default is `nil`.
 - `on_exit_callback`: Set callback function. Default is `nil`
 

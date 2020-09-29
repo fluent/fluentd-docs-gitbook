@@ -11,7 +11,7 @@ This plugin is for users using ReplicaSet. If you are not using
 instead.
 
 This plugin has breaking changes since 0.8.0 due to mongo-ruby driver's
-breaking changes. If you are using prior 0.7.x series, please be careful
+breaking changes. If you are using a prior 0.7.x series, please be careful
 to upgrade 1.0.0 or later versions.
 
 
@@ -78,8 +78,7 @@ The value must be `mongo`.
 |:-------|:-------------------|:--------|
 | string | required parameter | 1.0.0   |
 
-The comma separated node strings (e.g.
-host1:27017,host2:27017,host3:27017).
+The comma-separated node strings (e.g. host1:27017,host2:27017,host3:27017).
 
 
 ### `database`
@@ -106,7 +105,7 @@ The collection name.
 |:-------|:---------|:--------|
 | string | optional | 1.0.0   |
 
-This option enables capped collection. This is always recommended because
+This option enables the capped collection. This is always recommended because
 MongoDB is not suited to storing large amounts of historical data.
 
 

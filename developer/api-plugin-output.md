@@ -112,7 +112,7 @@ to retry on errors.
 For example, the built-in plugin `out_stdout` normally uses this mode. It just
 dumps events to the standard output without maintaining any state.
 
-This mode is available when `#process` method is implemented.
+This mode is available when the `#process` method is implemented.
 
 
 ### Sync-Buffered Mode
@@ -126,34 +126,34 @@ native retry mechanism. The errors such as network failures are transparently
 handled by Fluentd and you do not need to implement an error-handling mechanism
 by yourself.
 
-This mode is available when `#write` method is implemented.
+This mode is available when the `#write` method is implemented.
 
 
 ### Async-Buffered Mode
 
 In this mode, the output plugin temporarily stores events in a buffer and send
 them later. The major difference with the synchronous mode is that this mode
-allows you to defer the acknowledgement of transferred records. For example, you
+allows you to defer the acknowledgment of transferred records. For example, you
 can implement the **at-least-once** semantics using this mode.
 
 Please read "How To Use Asynchronous Buffered Mode" for details.
 
-This mode is available when `#try_write` method is implemented.
+This mode is available when the `#try_write` method is implemented.
 
 
 ### How Fluentd Chooses Modes
 
-From the users' perspective, `<buffer>` section enables buffering. An output
-plugin will use buffered mode if available or fail otherwise.
+From the users' perspective, the `<buffer>` section enables buffering. An output
+plugin will use the buffered mode if available or fail otherwise.
 
 However, from the plugin developer's viewpoint, it is a bit different.
 
 See the full chart here showing how Fluentd chooses a mode:
 
-**[Fluentd v0.14 Plugin API Details](https://www.slideshare.net/tagomoris/fluentd-v014-plugin-api-details "Fluentd v0.14 Plugin API Details")**
+**[Fluentd v0.14 Plugin API Details](https://www.slideshare.net/tagomoris/fluentd-v014-plugin-api-details)**
 from **[SATOSHI TAGOMORI](https://www.slideshare.net/tagomoris)**
 
-Simply, this is the rule:
+This is the rule:
 
 - If `<buffer>` section is configured:
   - plugin tries to do buffering
@@ -337,7 +337,8 @@ any further processing. For example, `out_file` overrides `#format` so that it
 can produce chunk files that exactly look like the final outputs. By doing this,
 `out_file` can flush data just by moving chunk files to the destination path.
 
-For further details, read the interface definition of `#format` method below.
+For further details, read the interface definition of the `#format` method
+below.
 
 
 ## List of Interface Methods

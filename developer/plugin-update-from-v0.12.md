@@ -10,7 +10,7 @@ for details):
   guarantee will no longer be applicable with v2.
 - Users may use the new features of Fluentd v1 only with the plugins using new
   API.
-- Plugins using new API will not work with Fluentd v0.12.x.
+- Plugins using the new API will not work with Fluentd v0.12.x.
 
 It is strongly recommended to use v1 API to write your plugins stable, consistent
 and easy to test.
@@ -30,7 +30,7 @@ Following are the steps to update your plugins safely:
 ### 1. Release a Latest Version
 
 At first, you should make a git branch named as `v0.12` (if you are using git
-for that plugin), and release a latest patch version from that branch without
+for that plugin), and release the latest patch version from that branch without
 any changes, except fixing dependency of `Fluentd ~> 0.12.0`. This makes it
 possible to fix bugs and release newer versions for Fluentd v0.12 users without
 breaking anything.
@@ -43,8 +43,8 @@ breaking anything.
 
 ### 2. Update Dependency
 
-Following updates are on master branch. You should update dependency in
-`gemspec` first to depend on Fluentd v1.
+The following updates are on the `master` branch. You should update the
+dependency in `gemspec` first for Fluentd v1.
 
 - fix dependency of `Fluentd` to `[">= 1", "< 2"]`
 - execute `bundle install`
@@ -64,7 +64,7 @@ end
 ### 3. Update Code and Tests
 
 There are many differences between plugin types on updating code and tests. See
-"Updating Plugin Code" section below for each types of plugins.
+"Updating Plugin Code" section below for each type of plugin.
 
 - update code and tests
 - run `bundle exec rake test`
@@ -98,12 +98,11 @@ This helps that plugin users can understand plugin requirements.
 
 ### 6. Release New Version
 
-This is the last step. The new version should be major or minor version up, not
-patch version up. If the current major version of your gem is equal or greater
-than 1, you should bump major version up (e.g. from 1 to 2). If the current
-major version is 0, you should bump minor version up (e.g. from `0.4.2` to
-`0.5.0`). Then, you can publish a new release which is available with Fluentd
-v1.
+This is the last step. The new version should bump the major or minor version,
+not the patch version. If the current major version of your gem is >= 1, you
+should bump the major version (e.g. from 1 to 2). If the current major version
+is 0, you should bump the minor version (e.g. from `0.4.2` to `0.5.0`). Then,
+you can publish the new release with Fluentd v1.
 
 - bump the version up
 - release it to RubyGems.org
@@ -117,7 +116,7 @@ For all types of plugins, take care about these things:
 - call `super` in `#initialize`, `#configure`, `#start` and `#shutdown`
 - use `router.emit` to emit events into Fluentd instead of `Engine.emit`
 
-About updating tests, see "Test Code" section for all plugin types.
+About updating tests, see the "Test Code" section for all plugin types.
 
 
 ### Input Plugins
@@ -155,8 +154,8 @@ plugin implements `#filter_stream`, remove it if possible. Overriding
 `#filter_stream` makes it impossible to optimize filters' performance.
 
 Moreover, many filter plugins use parsers or formatters. It is better to use
-plugin helpers for them to simplify code and make it easier to understand the
-way the plugin configures.
+plugin helpers for them to simplify the code and make the configuration easier
+to understand.
 
 
 ### Non-Buffered Output Plugins
@@ -176,8 +175,8 @@ If your output plugin emits events into Fluentd, follow these points too:
   object instead of `Time.now.to_i`
 
 It is recommended to use plugin helpers if your plugin creates any one of
-thread, timer, socket, child process and/or parsers/formatters. It is better to
-use plugin helpers to simplify code and to make tests stable.
+thread, timer, socket, child process, and/or parsers/formatters. Using plugin
+helpers simplifies the code and makes the tests stable.
 
 For more details, see
 [Plugin Helper Overview](/developer/plugin-helper-overview.md).
@@ -272,8 +271,8 @@ to be fixed are:
 - update test code
 
 It is recommended to use plugin helpers if your plugin creates any one of
-thread, timer, socket, child process and/or parsers/formatters. It is better to
-use plugin helpers to simplify code and to make tests stable.
+thread, timer, socket, child process, and/or parsers/formatters. Using plugin
+helpers simplifies the code and makes the tests stable.
 
 For more details, see
 [Plugin Helper Overview](/developer/plugin-helper-overview.md).
@@ -390,8 +389,8 @@ the points to be fixed are:
 - update test code
 
 It is recommended to use plugin helpers if your plugin creates any one of
-thread, timer, socket, child process and/or parsers/formatters. It is better to
-use plugin helpers to simplify code and to make tests stable.
+thread, timer, socket, child process, and/or parsers/formatters. Using plugin
+helpers simplifies the code and makes the tests stable.
 
 For more details, see
 [Plugin Helper Overview](/developer/plugin-helper-overview.md).
@@ -422,8 +421,8 @@ For more details, see
 
 ### TimeSliced Output Plugins
 
-For time sliced output plugins (subclass of `Fluent::TimeSlicedOutput`), the
-points to be fixed are:
+For the time-sliced output plugins (sub-class of `Fluent::TimeSlicedOutput`),
+the points to be fixed are:
 
 - require `'fluent/plugin/output'` instead of `'fluent/output'`
 - fix superclass from `Fluent::TimeSlicedOutput` to `Fluent::Plugin::Output`
@@ -496,8 +495,8 @@ For more details, see [Understanding Chunking and Metadata](/developer/api-plugi
 
 ### Multi Output Plugins
 
-For multi output plugins (subclass of `Fluent::MultiOutput`), there are many
-points to be considered.
+For the multi-output plugins (sub-class of `Fluent::MultiOutput`), there are
+many points to be considered.
 
 If the plugin uses `<store>` sections and instantiates plugins per each store
 section, use `Fluent::Plugin::MultiOutput`. See code to know how to use it:
@@ -515,15 +514,15 @@ consider which is better for your plugin. But, it is advised against using
 
 #### `Fluent::HandleTagAndTimeMixin`, `Fluent::SetTagKeyMixin`, `Fluent::SetTimeKeyMixin`
 
-Use `inject` and `compat_parameters` plugin helper in plugin code.
+Use `inject` and `compat_parameters` plugin helper in the plugin code.
 
-Old configuration will be converted to new style configuration automatically if
-plugin code uses proper plugin helpers. So, plugin users will not need to
-rewrite configuration immediately.
+The old configuration will be converted to the new style configuration
+automatically if the plugin code uses the proper plugin helpers. So, plugin
+users will not need to rewrite the configuration immediately.
 
-Fluentd shows converted new style configuration in startup log if user provides
-old style configuration. User may then rewrite the configuration dumped in the
-log.
+Fluentd shows the converted new style configuration in the startup log if the
+user provides an old-style configuration. The user may then rewrite the
+configuration dumped in the log.
 
 Before:
 

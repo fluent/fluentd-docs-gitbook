@@ -43,7 +43,7 @@ new_tag = extract_tag_from_record(record)
 
 ### `extract_time_from_record(record)`
 
-This method extracts `time` from given record.
+This method extracts `time` from the given record.
 
 -   `record`: event record
 

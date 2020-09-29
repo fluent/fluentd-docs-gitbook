@@ -188,7 +188,7 @@ limit 10m
 
 ## `:time`
 
-Defines the length of time parameter.
+Defines the length of the time parameter.
 
 Available suffixes: { `s`, `m`, `h`, `d` } (lower case only).
 

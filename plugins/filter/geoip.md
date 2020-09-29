@@ -120,7 +120,7 @@ Specifies one or more geoip lookup fields containing the IP address.
 See [`record_accessor`](/developer/api-plugin-helper-record_accessor)
 about nested attributes.
 
-**NOTE**: Since v1.3.0 does not interpret `host.ip` as nested attribute.
+**NOTE**: Since v1.3.0 does not interpret `host.ip` as a nested attribute.
 
 
 ### `geoip_lookup_key`
@@ -140,7 +140,7 @@ This parameter has been deprecated since v1.2.0.
 |:-----|:--------|:--------|
 | bool | false   | 1.0.0   |
 
-Set to `true` to skip adding field with `[null, null]` array.
+Set to `true` to skip adding the field with `[null, null]` array.
 
 This is useful for ElasticSearch.
 

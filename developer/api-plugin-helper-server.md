@@ -40,7 +40,7 @@ For more details, see [Transport Section](/configuration/transport-section.md).
 
 This method creates a server instance for various protocols.
 
-The `&block` is invoked with the new connection as parameter.
+The `&block` is invoked with the new connection as a parameter.
 
 -   `title`: unique symbol
 -   `port`: the port to listen to
@@ -213,9 +213,11 @@ Configuration example:
 </source>
 ```
 
-- my_verifier.rb example
+- `my_verifier.rb` example
 
-Code must be return callable object which has `call` method with 2 arguments. This object is used as openssl's [verify_callback](https://ruby-doc.org/stdlib-2.7.0/libdoc/openssl/rdoc/OpenSSL/X509/Store.html#verify_callback-attribute-method)
+The code must return a callable object that has a `call` method with two
+arguments. This object is used as OpenSSL's
+[`verify_callback`](https://ruby-doc.org/stdlib-2.7.0/libdoc/openssl/rdoc/OpenSSL/X509/Store.html#verify_callback-attribute-method).
 
 #### `Proc` or `lambda` Object for the Simple Scenario
 

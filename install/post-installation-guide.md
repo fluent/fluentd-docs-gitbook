@@ -1,6 +1,7 @@
 # Post Installation Guide
 
-This article discusses the post-installation steps for the new Fluentd users assuming that Fluentd has been installed using the `td-agent` package.
+This article discusses the post-installation steps for the new Fluentd users
+assuming that Fluentd has been installed using the `td-agent` package.
 
 
 ## System Administration
@@ -8,8 +9,8 @@ This article discusses the post-installation steps for the new Fluentd users ass
 
 ### Configuration File
 
-After successful installation, a `td-agent` instance will be up and running with
-a predefined template configuration file.
+After the successful installation, a `td-agent` instance will be up and running
+with a predefined template configuration file.
 
 The default path for this configuration file is:
 
@@ -118,9 +119,9 @@ plugin is specified as `syslog`, not `in_syslog`.
 
 ### Output Endpoint
 
-To add an output endpoint for data stream, you need to define a `<match>` block.
-Syntactically, `<match>` is slightly different from `<source>` in the sense that
-it requires a filter expression as an argument.
+To add an output endpoint for the data stream, you need to define a `<match>`
+block. Syntactically, `<match>` is slightly different from `<source>` in the
+sense that it requires a filter expression as an argument.
 
 For example, if you want to output events tagged with `debug.log`, you need to
 mention this tag as an argument in `<match>` like this:

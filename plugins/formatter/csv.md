@@ -1,8 +1,8 @@
-# csv Formatter Plugin
+# `csv` Formatter Plugin
 
 The `csv` formatter plugin output an event as CSV.
 
-```
+```text
 "value1"[delimiter]"value2"[delimiter]"value3"\n
 ```
 
@@ -13,47 +13,47 @@ The `csv` formatter plugin output an event as CSV.
 -   [Format section configurations](/configuration/format-section.md)
 
 
-### fields
+### `fields`
 
-| type            | default            | version |
-|:----------------|:-------------------|:--------|
-| array of string | required parameter | 0.14.0  |
+| type            | default  | version |
+|:----------------|:---------|:--------|
+| array of string | `nil`    | 0.14.0  |
 
-Specify output fields
+Specifies the output fields. It is a required parameter.
 
 
 ### delimiter (String, Optional. defaults to ",")
 
 | type   | default | version |
 |:-------|:--------|:--------|
-| string | ,       | 0.14.0  |
+| string | `,`     | 0.14.0  |
 
 Delimiter for values.
 
-Use `\t` or `TAB` to specify tab character.
+Use `\t` or `TAB` to specify the tab character.
 
 
-### force\_quotes
-
-| type | default | version |
-|:-----|:--------|:--------|
-| bool | true    | 0.14.0  |
-
-If false, value won't be framed by quotes.
-
-
-### add\_newline
+### `force_quotes`
 
 | type | default | version |
 |:-----|:--------|:--------|
-| bool | true    | 0.14.12 |
+| bool | `true`  | 0.14.0  |
+
+If `false`, the value will not be framed by quotes.
+
+
+### `add_newline`
+
+| type | default | version |
+|:-----|:--------|:--------|
+| bool | `true ` | 0.14.12 |
 
 Add `\n` to the result.
 
 
 ## Example
 
-```
+```text
 <format>
   @type csv
   fields host,method
@@ -62,7 +62,7 @@ Add `\n` to the result.
 
 With this configuration:
 
-```
+```text
 tag:    app.event
 time:   1362020400
 record: {"host":"192.168.0.1","size":777,"method":"PUT"}
@@ -70,18 +70,21 @@ record: {"host":"192.168.0.1","size":777,"method":"PUT"}
 
 This incoming event is formatted to:
 
-```
+```text
 "192.168.0.1","PUT"\n
 ```
 
 With `force_quotes false`, the result is:
 
-```
+```text
 192.168.0.1,PUT\n
 ```
 
 
 ------------------------------------------------------------------------
 
-If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open).
-[Fluentd](http://www.fluentd.org/) is a open source project under [Cloud Native Computing Foundation (CNCF)](https://cncf.io/). All components are available under the Apache 2 License.
+If this article is incorrect or outdated, or omits critical information, please
+[let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open).
+[Fluentd](http://www.fluentd.org/) is an open-source project under
+[Cloud Native Computing Foundation (CNCF)](https://cncf.io/). All components are
+available under the Apache 2 License.

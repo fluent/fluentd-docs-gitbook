@@ -1,10 +1,10 @@
 # Easy Data Stream Manipulation using Fluentd
 
-Sometimes, you need to transform the data stream in a certain way. For
-example, you might want to extract a portion of data for error reporting,
-or need to append additional information to events for later inspection.
+Sometimes, you need to transform the data stream in a certain way. For example,
+you might want to extract a portion of data for error reporting, or need to
+append additional information to events for later inspection.
 
-This article explains common data manipulation techniques in details.
+This article explains the common data manipulation techniques in detail.
 
 
 ## How to Filter Events by Fields
@@ -12,9 +12,8 @@ This article explains common data manipulation techniques in details.
 [`filter_grep`](/plugins/filter/grep.md) is a built-in plugin that allows to
 filter the data stream using regular expressions.
 
-Suppose you are managing a web service, and try to monitor the access
-logs using Fluentd. In this case, an event in the data stream will look
-like:
+Suppose you are managing a web service, and try to monitor the access logs using
+Fluentd. In this case, an event in the data stream will look like:
 
 ```
 {
@@ -27,8 +26,8 @@ like:
 }
 ```
 
-Let's filter out all the successful responses with 2xx status codes, so
-that we can easily inspect if any error has occurred in the service:
+Let's filter out all the successful responses with 2xx status codes so that we
+can easily inspect if any error has occurred in the service:
 
 ```
 <filter apache.**>
@@ -40,9 +39,8 @@ that we can easily inspect if any error has occurred in the service:
 </filter>
 ```
 
-You can also filter the data using multiple fields. For example, the
-following example will keep all 5xx server errors, except those coming
-from the test directory:
+You can also filter the data using multiple fields. The following configuration
+will keep all 5xx server errors, except those coming from the test directory:
 
 ```
 <filter apache.**>
@@ -64,9 +62,9 @@ from the test directory:
 [`filter_record_transformer`](/plugins/filter/record_transformer.md) is a
 built-in plugin that enables it to inject arbitrary data into events.
 
-Suppose you are running a web service on multiple web servers, and you
-want to record which server handled each request. This can be
-implemented trivially using this plugin:
+Suppose you are running a web service on multiple web servers, and you want to
+record which server handled each request. This can be implemented trivially
+using this plugin:
 
 ```
 <filter apache.**>
@@ -91,10 +89,9 @@ This will produce an event like this:
 }
 ```
 
-Note that `${hostname}` is a predefined variable supplied by the
-plugin. You can also define a custom variable, or even evaluate
-arbitrary ruby expressions. For details, please read
-[`record_transformer`](/plugins/filter/record_transformer.md)'s manual.
+Note that `${hostname}` is a predefined variable supplied by the plugin. You can
+also define a custom variable, or even evaluate arbitrary ruby expressions. For
+more details, see [`record_transformer`](/plugins/filter/record_transformer.md).
 
 
 ------------------------------------------------------------------------

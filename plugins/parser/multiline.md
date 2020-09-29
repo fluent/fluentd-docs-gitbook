@@ -1,16 +1,16 @@
 # `multiline` Parser Plugin
 
-The `multiline` parser plugin parses multiline logs. This plugin is a
+The `multiline` parser plugin parses multiline logs. This plugin is the
 multiline version of `regexp` parser.
 
 The `multiline` parser parses log with `formatN` and `format_firstline`
-parameters. `format_firstline` is for detecting the start line of multiline log.
-`formatN`, where N's range is [1..20], is the list of Regexp format for
+parameters. `format_firstline` is for detecting the start line of the multiline
+log. `formatN`, where N's range is [1..20], is the list of Regexp format for
 multiline log.
 
-Unlike other parser plugins, this plugin needs special code in input
-plugin e.g. handle `format_firstline`. So, currently, `in_tail` plugin
-works with `multiline` but other input plugins do not work with it.
+Unlike other parser plugins, this plugin needs special code in input plugin e.g.
+handle `format_firstline`. So, currently, `in_tail` plugin works with
+`multiline` but other input plugins do not work with it.
 
 
 ## Parameters
@@ -23,20 +23,23 @@ See [Parse Section Configurations](/configuration/parse-section.md).
 Specifies the regexp pattern for the start line of multiple lines. Input plugin
 can skip the logs until `format_firstline` is matched. Default is `nil`.
 
-If `format_firstline` is not specified, input plugin should store
-unmatched new lines in temporary buffer and try to match buffered logs
+If `format_firstline` is not specified, the input plugin should store the
+unmatched new lines in the temporary buffer and try to match the buffered logs
 with each new line.
 
 
 ### `formatN`
 
-| type   | default            | version |
-|:-------|:-------------------|:--------|
-| string | required parameter | 0.14.0  |
+| type   | default | version |
+|:-------|:--------|:--------|
+| string | `nil`   | 0.14.0  |
 
-Specifies the regexp patterns. For readability, you can separate regexp patterns
-into multiple `regexpN` parameters, See Rails Log example below. These patterns
-are joined and construct a regexp pattern with multiline mode.
+It is a required parameter.
+
+Specifies the regexp patterns. For readability, you can separate the regexp
+patterns into multiple `formatN` parameters. See the Rails Log's example below.
+These patterns are joined and then construct a regexp pattern with multiline
+mode.
 
 
 ## Example

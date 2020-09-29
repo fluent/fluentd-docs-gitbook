@@ -1,8 +1,8 @@
 # `memory` Buffer Plugin
 
-The `memory` buffer plugin provides a fast buffer implementation. It
-uses memory to store buffer chunks. When Fluentd is shut down, buffered
-logs that cannot be written quickly are deleted.
+The `memory` buffer plugin provides a fast buffer implementation. It uses memory
+to store buffer chunks. When Fluentd is shut down, buffered logs that cannot be
+written quickly are deleted.
 
 
 ## Parameters
@@ -15,7 +15,7 @@ logs that cannot be written quickly are deleted.
 
 ## Example
 
-```
+```text
 <match pattern>
   <buffer>
     @type memory

@@ -105,7 +105,7 @@ writing records to other destinations:
 ### High-Availability Configurations of Fluentd
 
 For high-traffic websites (more than 5 application nodes), we recommend using
-high-availability configuration for `td-agent`. This will improve the
+the high-availability configuration for `td-agent`. This will improve the
 reliability of data transfer and query performance.
 
 -   [High-Availability Configurations of Fluentd](/deployment/high-availability.md)
@@ -113,7 +113,7 @@ reliability of data transfer and query performance.
 
 ### Monitoring
 
-Monitoring Fluentd itself is also important. The article below describes
+Monitoring Fluentd itself is also important. The article below describes the
 general monitoring methods for `td-agent`.
 
 -   [Monitoring Fluentd](/monitoring/overview.md)

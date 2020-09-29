@@ -1,7 +1,7 @@
 # Performance Tuning (Single Process)
 
 This article describes how to optimize Fluentd performance within
-single process. If your traffic is up to 5,000 messages/sec, the
+a single process. If your traffic is up to 5,000 messages/sec, the
 following techniques should be enough.
 
 With more traffic, Fluentd tends to be more CPU bound. In this case, consider
@@ -11,8 +11,8 @@ using [`multi-worker`](/deployment/multi-process-workers.md) feature.
 ## Check your OS Configuration
 
 Follow the [Pre-installation Guide](/install/before-install.md) to configure
-your OS properly. This can drastically improve the performance, and
-prevent many unnecessary problems.
+your OS properly. This can drastically improve performance, and prevent many
+unnecessary problems.
 
 
 ## Check `top` Command
@@ -27,13 +27,13 @@ Memory, Disk I/O, etc.).
 This is a general recommendation. It is suggested **NOT TO HAVE** extra
 computations inside Fluentd. Fluentd is flexible to do quite a bit internally,
 but adding too much logic to configuration file makes it difficult to read and
-maintain, while making it less robust. The configuration file should be as
+maintain while making it less robust. The configuration file should be as
 simple as possible.
 
 
 ## Use `flush_thread_count` Parameter
 
-If the destination for your logs is a remote storage or service, adding
+If the destination of your logs is remote storage or service, adding
 a `flush_thread_count` option will parallelize your outputs (the default
 is 1). Using multiple threads can hide the IO/network latency. This
 parameter is available for all output plugins.
@@ -96,7 +96,8 @@ effective for most Fluentd deployments. As before, you can run this with
 ## Reduce Memory Usage
 
 Ruby has several GC parameters to tune GC performance and you can
-configure these parameters via environment variable ([Parameter list](https://github.com/ruby/ruby/blob/61701ae1675f790ee3f59207283642dbe64c2d37/gc.c#L7417)).
+configure these parameters via an environment variable
+([Parameter list](https://github.com/ruby/ruby/blob/61701ae1675f790ee3f59207283642dbe64c2d37/gc.c#L7417)).
 To reduce memory usage, set `RUBY_GC_HEAP_OLDOBJECT_LIMIT_FACTOR` to a
 lower value. `RUBY_GC_HEAP_OLDOBJECT_LIMIT_FACTOR` is used for full GC
 trigger and the default is `2.0`.
@@ -110,9 +111,9 @@ Do full GC when the number of old objects is more than R * N
 ```
 
 So, the default GC behavior does not call full GC until the number of old
-objects reaches `2.0 * before old objects`. This improves the throughput
-but it grows the total memory usage. This setting is not good for low
-resource environment e.g. a small container. For such cases, try
+objects reaches `2.0 * before old objects`. This improves the throughput but it
+grows the total memory usage. This setting is not good for the low resource
+environment e.g. a small container. For such cases, try
 `RUBY_GC_HEAP_OLDOBJECT_LIMIT_FACTOR=0.9` or
 `RUBY_GC_HEAP_OLDOBJECT_LIMIT_FACTOR=1.2`.
 
@@ -125,7 +126,7 @@ articles for more detail.
 
 The CPU is often the bottleneck for Fluentd instances that handle
 billions of incoming records. To utilize multiple CPU cores, we
-recommend using `multi workers` feature.
+recommend using the `multi workers` feature.
 
 ```
 <system>

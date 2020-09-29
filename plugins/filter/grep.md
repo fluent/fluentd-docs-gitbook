@@ -263,7 +263,7 @@ Learn regular expressions for more patterns.
 |:-------|:--------|
 | string | 1.0.0   |
 
-This is deprecated parameter. Use `<regexp>` instead.
+This is a deprecated parameter. Use `<regexp>` instead.
 
 The `N` at the end should be replaced with an integer between 1 and 20
 (e.g. `regexp1`). `regexpN` takes two whitespace-delimited arguments.
@@ -339,7 +339,7 @@ filtered out.
 |:-------|:--------|
 | string | 1.0.0   |
 
-This is deprecated parameter. Use `<exclude>` instead.
+This is a deprecated parameter. Use `<exclude>` instead.
 
 The `N` at the end should be replaced with an integer between 1 and 20
 (e.g. `exclude1`). `excludeN` takes two whitespace-delimited arguments.

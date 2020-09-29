@@ -38,9 +38,9 @@ configuration. Please install the following software on the same node:
     ([`out_webhdfs`](/plugins/output/webhdfs.md))
 -   Apache HDFS
 
-The WebHDFS Output plugin is included in the latest version of Fluentd's
-deb/rpm package (v1.1.10 or later). If you want to use RubyGems to
-install the plugin, please use `gem install fluent-plugin-webhdfs`.
+The WebHDFS Output plugin is included in the latest version of Fluentd's deb/rpm
+package (v1.1.10 or later). If you want to use RubyGems to install the plugin,
+please use `gem install fluent-plugin-webhdfs`.
 
 -   [Debian Package](/install/install-by-deb.md)
 -   [RPM Package](/install/install-by-rpm.md)
@@ -50,15 +50,15 @@ install the plugin, please use `gem install fluent-plugin-webhdfs`.
 
 ## Fluentd Configuration
 
-Let's start configuring Fluentd. If you used the deb/rpm package,
-Fluentd's config file is located at `/etc/td-agent/td-agent.conf`.
-Otherwise, it is located at `/etc/fluentd/fluentd.conf`.
+Let's start configuring Fluentd. If you used the deb/rpm package, Fluentd's
+config file is located at `/etc/td-agent/td-agent.conf`. Otherwise, it is
+located at `/etc/fluentd/fluentd.conf`.
 
 
 ### HTTP Input
 
-For the input source, we will set up Fluentd to accept records from
-HTTP. The Fluentd configuration file should look like this:
+For the input source, we will set up Fluentd to accept records from HTTP. The
+Fluentd configuration file should look like this:
 
 ```
 <source>
@@ -70,8 +70,8 @@ HTTP. The Fluentd configuration file should look like this:
 
 ### WebHDFS Output
 
-The output destination will be WebHDFS. The output configuration should
-look like this:
+The output destination will be WebHDFS. The output configuration should look
+like this:
 
 ```
 <match hdfs.*.*>
@@ -85,29 +85,27 @@ look like this:
 </match>
 ```
 
-The `match` section specifies the regexp used to look for matching tags.
-If a matching tag is found in a log, then the config inside
-`<match>...</match>` is used (i.e. the log is routed according to the
-config inside).
+The `<match>` section specifies the regexp used to look for matching tags. If a
+tag in a log is matched, the respective `match` configuration is used (i.e. the
+log is routed accordingly).
 
 The `flush_interval` parameter specifies how often the data is written to HDFS.
 An append operation is used to append the incoming data to the file specified by
 the `path` parameter.
 
-Placeholders for both time and hostname can be used with the `path`
-parameter. This prevents multiple Fluentd instances from appending data
-to the same file, which must be avoided for append operations.
+Placeholders for both time and hostname can be used with the `path` parameter.
+This prevents multiple Fluentd instances from appending data to the same file,
+which must be avoided for append operations.
 
 Other options specify HDFS's NameNode host and port.
 
 
 ## HDFS Configuration
 
-Append operations are not enabled by default. Please put these
-configurations into your `hdfs-site.xml` file and restart the whole
-cluster:
+Append operations are not enabled by default. Please put these configurations
+into your `hdfs-site.xml` file and restart the whole cluster:
 
-```
+```xml
 <property>
   <name>dfs.webhdfs.enabled</name>
   <value>true</value>
@@ -124,15 +122,15 @@ cluster:
 </property>
 ```
 
-Please confirm that the HDFS user has write access to the `path`
-specified as the WebHDFS output.
+Please confirm that the HDFS user has the write access to the `path` specified
+as the WebHDFS output.
 
 
 ## Test
 
-To test the configuration, just post the JSON to Fluentd (we use the
-`curl` command in this example). Sending a `USR1` signal flushes Fluentd's
-buffer into WebHDFS:
+To test the configuration, just post the JSON to Fluentd (we use the `curl`
+command in this example). Sending a `USR1` signal flushes Fluentd's buffer into
+WebHDFS:
 
 ```
 $ curl -X POST -d 'json={"action":"login","user":2}' \
@@ -150,10 +148,10 @@ drwxr-xr-x   - 1 supergroup          0 2012-10-22 09:40 /log/20121022_14/access.
 
 ## Conclusion
 
-Fluentd + WebHDFS make realtime log collection simple, robust and
-scalable! [@tagomoris](http://github.com/tagomoris) has already been
-using this plugin to collect 20,000 msgs/sec, 1.5 TB/day without any
-major problems for several months now.
+Fluentd with WebHDFS makes the realtime log collection simple, robust and
+scalable! [@tagomoris](http://github.com/tagomoris) has already been using this
+plugin to collect 20,000 msgs/sec, 1.5 TB/day without any major problems for
+several months now.
 
 
 ## Learn More

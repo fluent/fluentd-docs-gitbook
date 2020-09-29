@@ -33,7 +33,7 @@ ExecStart=...existing options... -vv
 ### `td-agent` init.d with Environment Variable
 
 1.  edit `/etc/init.d/td-agent`
-2.  add `-vv` to TD\_AGENT\_OPTIONS
+2.  add `-vv` to `TD_AGENT_OPTIONS`
 3.  restart td-agent
 
     ```
@@ -43,8 +43,8 @@ ExecStart=...existing options... -vv
     ...
     ```
 
-This approach does not work on `systemd` environment because `systemd` hooks
-`init.d`'s start routine and ignore other options.
+This approach does not work on the `systemd` environment because `systemd` hooks
+the `init.d`'s startup routine and ignores the other options.
 
 
 ### gem
@@ -59,7 +59,7 @@ $ fluentd .. -vv
 ## Dump fluentd's Internal Information
 
 Fluentd uses [SIGDUMP](https://github.com/frsyuki/sigdump) for dumping
-fluentd internal information to local file, e.g. thread dump, object
+fluentd internal information to a local file, e.g. thread dump, object
 allocation, etc. If you have a problem with fluentd like process
 hang, please send `SIGCONT` to fluentd parent and child processes.
 
@@ -92,7 +92,7 @@ You sometimes hit unexpected shutdown with non-zero exit status like this:
 ```
 
 If the problem happens inside Ruby e.g. segmentation fault, C extension
-bug, etc., you cannot get the complete log when fluentd process is daemonized.
+bug, etc., you cannot get the complete log when `fluentd` process is daemonized.
 For example, `td-agent` launches fluentd with `--daemon` option. In
 `td-agent` case, you can get the complete log with following command to
 simulate `/etc/init.d/td-agent start` without daemonize:

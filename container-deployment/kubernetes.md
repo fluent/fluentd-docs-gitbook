@@ -53,15 +53,15 @@ node: [Fluentd DaemonSet](/articles/fluentd_daemonset.md).
 
 For [Kubernetes](https://kubernetes.io), a
 [DaemonSet](https://kubernetes.io/docs/admin/daemons/) ensures that all (or
-some) nodes run a copy of a *pod*. In order to solve log collection, we are
-going to implement a Fluentd DaemonSet.
+some) nodes run a copy of a *pod*. To solve log collection, we are going to
+implement a Fluentd DaemonSet.
 
 Fluentd is flexible enough and have the proper plugins to distribute logs to
 different third-party applications like databases or cloud services, so the
 principal question is to know: *Where the logs will be stored?*. Once we got
 that question answered, we can move forward configuring our DaemonSet.
 
-The following steps will focus on sending the logs to a Elasticsearch Pod:
+The following steps will focus on sending the logs to an Elasticsearch Pod:
 
 ### Get Fluentd DaemonSet sources
 
@@ -84,7 +84,7 @@ Fluentd as a DaemonSet. The Docker container image distributed on the repository
 also comes pre-configured so that Fluentd can gather all the logs from the
 Kubernetes node's environment and append the proper metadata to the logs.
 
-This repository has several presets for alpine/debian with popular outputs:
+This repository has several presets for Alpine/Debian with popular outputs:
 
 - [DaemonSet preset settings](https://github.com/fluent/fluentd-kubernetes-daemonset/tree/master/docker-image/v0.12)
 

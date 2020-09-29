@@ -1,6 +1,8 @@
 # Writing Parser Plugins
 
-Fluentd supports [pluggable and customizable formats](/plugins/parser/README.md) for input/filter plugins. The plugin filenames prefixed `parser_` are registered as Parser Plugins.
+Fluentd supports [pluggable and customizable formats for input
+plugins](parser-plugin-overview). The plugin filenames prefixed `parser_` are
+registered as Parser Plugins.
 
 See [Plugin Base Class API](/developer/api-plugin-base.md) for details on the
 common APIs for all the plugin types.
@@ -207,7 +209,7 @@ The lifecycle of plugin and test driver is:
 1.  Instantiate plugin driver which then instantiates the plugin
 2.  Configure plugin
 3.  Run test code
-4.  Assert results of tests by data provided from driver
+4.  Assert results of tests by data provided by the driver
 
 For: 
 

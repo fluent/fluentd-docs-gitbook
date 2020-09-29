@@ -88,9 +88,9 @@ trailing identifier.
 |:-----|:--------|:--------|
 | bool | false   | 0.14.0  |
 
-The flushed chunk is appended to existing file or not. The default is
-not appended. By default, `out_file` flushes each chunk to different
-path.
+Determines whether the flushed chunk is appended to an existing file or not. The
+default is not appended. By default, `out_file` flushes each chunk to a
+different path.
 
 ```
 # append false
@@ -100,8 +100,8 @@ file.20140609.log_0
 file.20140609.log_1
 ```
 
-This makes parallel file processing easy. But if you want to disable
-this behavior, you can disable it by setting `append true`.
+This makes parallel file processing easy. But if you want to disable this
+behavior, you can disable it by setting `append true`.
 
 ```
 # append true
@@ -134,7 +134,8 @@ Deprecated parameter. Use `<format>` instead.
 
 Add event `time` and event `tag` to record.
 
-See [Inject Section Configurations](/configuration/inject-section.md) for more details.
+See [Inject Section Configurations](/configuration/inject-section.md) for more
+details.
 
 
 ### `utc`
@@ -148,7 +149,7 @@ Deprecated parameter. Use `timekey_use_utc` in `<buffer>` instead.
 |:-----|:--------|:--------|
 | bool | true    | 0.14.9  |
 
-Add path suffix or not. See also `path_suffix` parameter.
+Add path suffix or not. See also the `path_suffix` parameter.
 
 
 ### `path_suffix`
@@ -167,7 +168,7 @@ Compresses flushed files using `gzip`. No compression is performed by default.
 
 ### `recompress`
 
-Executes compression again even when buffer chunk is already compressed.
+Performs compression again even if the buffer chunk is already compressed.
 
 Default: `false`
 
@@ -204,8 +205,8 @@ For common output / buffer parameters, please check the following articles:
 
 ### I can see files but placeholders are not replaced, why?
 
-You see intermediate buffer file, not output result. The placeholders
-are replaced during flush buffers.
+You see an intermediate buffer file, not the output result. The placeholders are
+replaced during flush buffers.
 
 For example, if you have this setting:
 
@@ -226,7 +227,7 @@ After flushed, you see actual output result:
 /path/to/file.test.20180405.log_0 # tag is 'test'
 ```
 
-See also note in `path` parameter.
+See the `path` parameter.
 
 
 ### Can I use a placeholder in `symlink_path`?

@@ -1,6 +1,6 @@
 # Record Accessor Plugin Helper API
 
-The `record_accessor` plugin helper provides a unified access to event record.
+The `record_accessor` plugin helper provides unified access to the event record.
 It uses `jsonpath` like syntax for the target field. With this helper, you can
 easily access/delete a nested field in the plugin.
 
@@ -37,7 +37,7 @@ end
 
 ## Syntax
 
--   dot notation: `$.` starting parameter. Chain fields with dot `.`.
+-   dot notation: `$.` is the starting parameter. Chain fields with dots `.`.
 
 For example:
 
@@ -51,7 +51,7 @@ Useful for special characters, `.`, whitespace, etc.
 
 `$['dot.key'][0]['space key']` for `record["dot.key"][0]["space key"]`
 
-If you set non `$.` or `$[` starting value, e.g. `key log`, it is same as
+If you set non `$.` or `$[` starting value, e.g. `key log`, it is the same as
 `record["log"]`. So, using `record_accessor` does not break the existing plugin
 behavior.
 
@@ -61,9 +61,11 @@ behavior.
 
 ### `record_accessor_create(param)`
 
-This method returns the accessor object of event record. `param` is a `String`.
+This method returns the accessor object of the event record.
 
-See "Syntax" section for the more details.
+The `param` is a `String`.
+
+See the "Syntax" section for more details.
 
 ```rb
 record_accessor_create("log")
@@ -71,7 +73,7 @@ record_accessor_create("$.key1.key2")
 record_accessor_create("$['key1'][0]['key2']")
 ```
 
-After create object, call `call`/`delete` method with record object.
+After creating an object, call `call`/`delete` method with the record object.
 
 ```rb
 accessor.call(record)   # get record field

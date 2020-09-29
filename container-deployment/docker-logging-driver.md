@@ -10,8 +10,8 @@ over the registers, or on the other hand, if the application has multiple
 instances running, the scenario becomes even more complex.
 
 On Docker v1.6, the concept of **[logging drivers](https://docs.docker.com/engine/admin/logging/overview/)**
-was introduced. Basically, the Docker engine is aware about the output
-interfaces that manage the application messages.
+was introduced. The Docker engine is aware of the output interfaces that manage
+the application messages.
 
 ![Fluentd Docker](https://www.fluentd.org/assets/img/recipes/fluentd_docker.png)
 
@@ -20,7 +20,7 @@ For Docker v1.8, we have implemented a native
 Now, you are able to have a unified and structured logging system with the
 simplicity and high performance of [Fluentd](http://fluentd.org).
 
-NOTE: Currently, Fluentd logging driver doesn't support sub-second precision.
+NOTE: Currently, the Fluentd logging driver doesn't support sub-second precision.
 
 
 ## Getting Started
@@ -129,8 +129,8 @@ information from the source container along with the message.
 
 ### Additional Step 1: Parse Log Message
 
-Application log is stored in the `"log"` field in the record. You can parse this
-log before sending it to the destinations by using
+The application log is stored in the `"log"` field in the record. You can parse
+this log before sending it to the destinations by using
 [`filter_parser`](/plugins/filter/parser.md).
 
 ``` {.CodeRay}
@@ -159,8 +159,8 @@ Filtered Event:
 
 ### Additional Step 2: Concatenate Multiple Lines Log Messages
 
-Application log is stored in the `log` field of the record. You can concatenate
-these logs by using
+The application log is stored in the `log` field of the record. You can
+concatenate these logs by using
 [`fluent-plugin-concat`](https://github.com/fluent-plugins-nursery/fluent-plugin-concat)
 filter before sending it to the destinations.
 
@@ -184,7 +184,7 @@ Original Events:
 
 Filtered Events:
 
-``` {.CodeRay}
+```
 2016-04-13 14:45:55 +0900 docker.28cf38e21204: {"container_id":"28cf38e212042225f5f80a56fac08f34c8f0b235e738900c4e0abcf39253a702","container_name":"/romantic_dubinsky","source":"stdout","log":"-e:2:in `/'\n-e:2:in `do_division_by_zero'\n-e:4:in `<main>'"}
 ```
 
@@ -197,7 +197,7 @@ plugin instead.
 
 The [Fluentd Logging
 Driver](https://docs.docker.com/engine/admin/logging/fluentd/) supports
-following options through the `--log-opt` Docker command line argument:
+following options through the `--log-opt` Docker command-line argument:
 
 - `fluentd-address`
 - `tag`
@@ -229,7 +229,7 @@ $ docker run --log-driver=fluentd --log-opt tag=docker.my_new_tag ubuntu echo ".
 Additionally, this option allows to specify some internal variables such as
 `{{.ID}}`, `{{.FullID}}` or `{{.Name}}` like this:
 
-``` {.CodeRay}
+```
 $ docker run --log-driver=fluentd --log-opt tag=docker.{{.ID}} ubuntu echo "..."
 ```
 
@@ -238,7 +238,7 @@ $ docker run --log-driver=fluentd --log-opt tag=docker.{{.ID}} ubuntu echo "..."
 
 For a real-world use-case, you would want to use something other than the
 Fluentd standard output to store Docker container messages, such as
-Elasticsearch, MongoDB, HDFS, S3, Google Cloud Storage and so on.
+Elasticsearch, MongoDB, HDFS, S3, Google Cloud Storage, and so on.
 
 This document describes how to set up a multi-container logging environment via
 EFK (Elasticsearch, Fluentd, Kibana) with Docker Compose.

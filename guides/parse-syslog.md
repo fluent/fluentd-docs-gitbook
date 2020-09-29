@@ -1,12 +1,12 @@
 # Parse Syslog Messages Robustly
 
-Syslog is a popular protocol that virtually runs on every server. It is
-used to collect all kinds of logs. The problem with `syslog` is that
-services have a wide range of log formats, and no single parser can
-parse all `syslog` messages effectively.
+Syslog is a popular protocol that virtually runs on every server. It is used to
+collect all kinds of logs. The problem with `syslog` is that services have a
+wide range of log formats, and no single parser can parse all `syslog` messages
+effectively.
 
-In this tutorial, we will show how to use Fluentd to filter and parse
-different `syslog` messages robustly.
+In this tutorial, we will show how to use Fluentd to filter and parse different
+`syslog` messages robustly.
 
 
 ## Prerequisites
@@ -175,8 +175,7 @@ $ sudo cat /var/log/auth.log
 Now, you should have a line like this in `/var/log/td-agent/td-agent.log`:
 
 ```
-2018-09-27 16:00:01.000000000 +0900 system.authpriv.notice: {"sudoer":"root",
-"command":"/bin/cat"}
+2018-09-27 16:00:01.000000000 +0900 system.authpriv.notice: {"sudoer":"root","command":"/bin/cat"}
 ```
 
 There it is, as you can see in the line!
@@ -184,10 +183,10 @@ There it is, as you can see in the line!
 
 ## Conclusion
 
-Fluentd makes it easy to ingest `syslog` events. You can immediately send
-data to the output systems like MongoDB and Elasticsearch, but also you
-can do filtering and further parsing *inside Fluentd* before passing the
-processed data onto the output destinations.
+Fluentd makes it easy to ingest `syslog` events. You can immediately send data
+to the output systems like MongoDB and Elasticsearch, but also you can do
+filtering and further parsing *inside Fluentd* before passing the processed data
+onto the output destinations.
 
 
 ------------------------------------------------------------------------

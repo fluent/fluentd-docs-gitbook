@@ -43,10 +43,11 @@ must close the socket when it is no longer needed.
 
 ### `socket_create(proto, host, port, **kwargs, &block)`
 
-This method creates socket instance with the given protocol type.
+This method creates a socket instance with the given protocol type.
 
-If block is given, it will be invoked with the socket instance as a parameter,
-and socket will automatically be closed when the block terminates.
+If the block is given, it will be invoked with the socket instance as a
+parameter, and the socket will automatically be closed when the block
+terminates.
 
 -   `proto`: protocol type. { `:tcp`, `:udp`, `:tls` }
 -   `host`: host name or IP address
@@ -83,8 +84,9 @@ end
 
 This method creates socket instance for TCP.
 
-If block is given, it will be invoked with the socket instance as a parameter,
-and socket will automatically be closed when the block terminates.
+If the block is given, it will be invoked with the socket instance as a
+parameter, and the socket will automatically be closed when the block
+terminates.
 
 -   `host`: hostname or IP address
 -   `port`: port number
@@ -95,12 +97,14 @@ and socket will automatically be closed when the block terminates.
     -   `recv_timeout`: the timeout (seconds) to set `SO_RECVTIMEO`
     -   `send_timeout`: the timeout (seconds) to set `SO_SNDTIMEO`
     -   `send_keepalive_packet`: if `true`, enable TCP keep-alive via `SO_KEEPALIVE`
-    -   `connect_timeout`: the timeout for socket connect. When the connection timed out during establishment, `Errno::ETIMEDOUT` is raised.
+    -   `connect_timeout`: the timeout for socket connect. When the connection
+        timed out during establishment, `Errno::ETIMEDOUT` is raised.
 
 
 #### `send_keepalive_packet` Use Case
 
-If you set `true` to `send_keepavlie_packet`, you also need to configure keep-alive related kernel parameters:
+If you set `true` to `send_keepavlie_packet`, you also need to configure
+keep-alive related kernel parameters:
 
 ```rb
 net.ipv4.tcp_keepalive_intvl = 75
@@ -108,7 +112,8 @@ net.ipv4.tcp_keepalive_probes = 5
 net.ipv4.tcp_keepalive_time = 7200
 ```
 
-This parameter mitigates half-open connection issue with load balancers. Check also [this issue](https://github.com/fluent/fluentd/pull/2352) for AWS NLB case.
+This parameter mitigates half-open connection issue with load balancers. Check
+also [this issue](https://github.com/fluent/fluentd/pull/2352) for AWS NLB case.
 
 
 ### `socket_create_udp(host, port, **kwargs, &block)`

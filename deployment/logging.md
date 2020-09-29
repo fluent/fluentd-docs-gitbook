@@ -1,6 +1,6 @@
 # Logging of Fluentd
 
-This article describes Fluentd logging mechanism.
+This article describes the Fluentd logging mechanism.
 
 Fluentd has two logging layers: global and per plugin. Different log levels
 can be set for global logging and plugin level logging.
@@ -55,7 +55,7 @@ $ fluentd -qq ... # error log level
 
 ### By Config File
 
-You can also change the logging level with `<system>` section in the config file:
+You can also configure the logging level in `<system>` section:
 
 ```
 # same as -qq command line option
@@ -136,7 +136,7 @@ $ fluentd -o /path/to/log_file
 ### Log Rotation Setting
 
 By default, Fluentd does not rotate log files. You can configure this behavior
-via command line options:
+via command-line options:
 
 #### `--log-rotate-age AGE`
 

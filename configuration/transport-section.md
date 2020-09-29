@@ -50,7 +50,7 @@ sections. It specifies the transport protocol, version, and certificates.
     -   Default: `false` (uses secure connection with `tls`)
 
 If you want to accept multiple TLS protocols, use `min_version`/`max_version`
-instead of `version`. To support old style, fluentd accepts `TLS1_1` and
+instead of `version`. To support the old style, fluentd accepts `TLS1_1` and
 `TLSv1_1` values.
 
 NOTE: `TLS1_3` is available when your system supports TLS 1.3.

@@ -1,6 +1,6 @@
 # Parser Plugin Helper API
 
-The `parser` plugin helper manages the lifecycle of parser plugin.
+The `parser` plugin helper manages the lifecycle of the parser plugin.
 
 Here is an example:
 

@@ -134,7 +134,7 @@ The collection name.
 |:-------|:---------|:--------|
 | string | optional | 1.0.0   |
 
-This option enables capped collection. This is always recommended
+This option enables the capped collection. This is always recommended
 because MongoDB is not suited for storing large amounts of historical
 data.
 

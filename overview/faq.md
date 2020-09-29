@@ -15,7 +15,7 @@ Use td-agent 3. It includes v1.
 
 ## What is the difference between v1 or v0.14?
 
-No difference. v1 is built on top of v0.14. Use v1 for newer
+No difference. v1 is built on top of v0.14. Use v1 for a newer
 installation. We use v1 or v1.x on our document.
 
 
@@ -24,9 +24,8 @@ installation. We use v1 or v1.x on our document.
 
 ### `Zlib::DataError` happens when Output plugin uses gzip compression!
 
-This is caused by thread handling mismatch between output thread and
-gzip library. Output plugin's retry mechanism automatically recovers this
-error.
+This is caused by thread handling mismatch between output thread and the gzip
+library. The output plugin's retry mechanism automatically recovers this error.
 
 Fluentd v1.3 has already fixed this problem.
 
@@ -68,7 +67,7 @@ Note that it must be double quotes, not single quotes.
 
 There are several reasons:
 
--   If you get `Address already in use` error, other process has already
+-   If you get `Address already in use` error, another process has already
     used `host:port`. Check port conflict between processes/plugins.
 -   If you get `Permission denied` error, you try to use a well-known
     port. Search `well-known ports` for how to use well-known ports. Use
@@ -91,16 +90,15 @@ See also: [Lifecycle of a Fluentd event](/overview/life-of-a-fluentd-event.md) o
 `file` buffer has limitations. Check [buf_file article](/plugins/buffer/file.md#limitation).
 
 
-### I got encoding error inside plugin. How to fix it?
+### I got encoding error inside the plugin. How to fix it?
 
-You may hit `"\xC3" from ASCII-8BIT to UTF-8` like
-`UndefinedConversionError` in the plugin. This error happens when string
-encoding is set to `ASCII-8BIT` but actual content is `UTF-8`. Fluentd
-and almost plugins treat the logs as a `ASCII-8BIT` by default but some
-libraries assume the log encoding is `UTF-8`. This is why this error
-happens.
+You may hit `"\xC3" from ASCII-8BIT to UTF-8` like `UndefinedConversionError` in
+the plugin. This error happens when string encoding is set to `ASCII-8BIT` but
+the actual content is `UTF-8`. Fluentd and all its plugins treat the logs as
+`ASCII-8BIT` by default but some libraries assume that the log encoding is
+`UTF-8`. This is why this error occurs.
 
-There are several approaches to avoid this problem.
+There are several approaches to avoid this problem:
 
 -   Set encoding correctly:
     -   The `tail` input plugin has encoding related parameters to change the

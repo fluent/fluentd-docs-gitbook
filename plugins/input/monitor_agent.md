@@ -1,7 +1,6 @@
 # Monitoring Agent Input Plugin
 
-The `in_monitor_agent` Input plugin enables Fluentd to export internal
-metrics by using HTTP API.
+The `in_monitor_agent` Input plugin exports Fluentd's internal metrics via REST API.
 
 It is included in Fluentd's core.
 
@@ -86,7 +85,7 @@ configured.
 |:-----|:--------|:--------|
 | bool | true    | 0.14.0  |
 
-You can set this option to false to remove `config` field from the response.
+You can set this option to false to remove the `config` field from the response.
 
 
 ### `include_retry`
@@ -95,12 +94,12 @@ You can set this option to false to remove `config` field from the response.
 |:-----|:--------|:--------|
 | bool | true    | 0.14.11 |
 
-You can set this option to false to remove `retry` field from the response.
+You can set this option to false to remove the `retry` field from the response.
 
 
 ## Configuration Example
 
-Here is a configuration example that uses `in_monitor_agent`:
+Here is a configuration example using `in_monitor_agent`:
 
 ```
 <source>
@@ -120,11 +119,10 @@ Here is a configuration example that uses `in_monitor_agent`:
 </match>
 ```
 
-When using this plugin, we strongly recommend to set `@id` on **each**
-plugin in use. This makes the task to identify which record corresponds
-to which plugin much easier. Without `@id`, Fluentd uses `object_id` as
-unique identifier, so you cannot identify a record just by looking at
-its `plugin_id` field.
+When using this plugin, we strongly recommend setting `@id` on **each** plugin
+in use. This makes the task to identify which record corresponds to which plugin
+much easier. Without `@id`, Fluentd uses `object_id` as the unique identifier,
+so you cannot identify a record just by looking at its `plugin_id` field.
 
 
 ## Output Example
@@ -162,15 +160,14 @@ Here is how the output looks like in JSON:
 }
 ```
 
-If the plugin is an output with buffer settings, the metrics has buffer
-related fields.
+If the plugin is an output plugin with the buffer settings, the metrics include
+the buffer related fields.
 
 
 ### `retry`
 
-If the output plugin is in retry status, additional fields are added to
-`retry`. For example, if the elasticsearch plugin fails to flush the
-buffer.
+If the output plugin is in retry status, additional fields are added to `retry`.
+For example, if the Elasticsearch plugin fails to flush the buffer.
 
 Here is the response:
 
@@ -191,9 +188,9 @@ Here is the response:
 }
 ```
 
-`steps` field in `retry` show the number of flush failure, so next is
-3rd try. `retry_count` is the total number of flush failure. This value
-is cleared when fluentd restarts, not when retry succeeded.
+`steps` field in `retry` show the number of flush failures, so next is the third
+try. `retry_count` is the total number of flush failures. This value is cleared
+when `fluentd` restarts, not when retry succeeds.
 
 
 ## Tips and Tricks
@@ -250,9 +247,9 @@ per minute:
 
 ### Multi-Process Environment
 
-If you use this plugin under multi-process environment, HTTP server will be
-launched in each worker. Port is assigned sequentially. For example, with this
-configuration:
+If you use this plugin under the multi-process environment, the HTTP server will
+be launched in each worker. Port is assigned sequentially. For example, with
+this configuration:
 
 ```
 <system>

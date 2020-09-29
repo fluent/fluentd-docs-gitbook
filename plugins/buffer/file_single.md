@@ -1,8 +1,9 @@
 # `file_single` Buffer Plugin
 
-The `file_single` buffer plugin provides a persistent buffer implementation. It uses files to store buffer chunks on disk.
+The `file_single` buffer plugin provides a persistent buffer implementation. It
+uses files to store buffer chunks on disk.
 
-`file_single` is similar to `file_file` but this plugin does not have metadata file.
+`file_single` is similar to `file_file` but it does not have the metadata file.
 
 
 ## Example Configuration
@@ -52,7 +53,7 @@ The actual path consists of five (5) parts:
 /path/to/buffer/fsb.hello.b513b61c9791029c2513b61c9791029c2.buf
 ```
 
-Under multi worker environment, `worker_id` and plugin `id` are added.
+Under multi-worker environment, `worker_id` and plugin `id` are added:
 
 ```
 /path/to/buffer/worker1/out_fwd/fsb.test.log.b513b61c9791029c2513b61c9791029c2.buf
@@ -70,12 +71,12 @@ Running out of disk space is a problem frequently reported by users.
 
 Calculate the number of records, chunk size, during chunk resume.
 
-The `buf_file_single` plugin does not have metadata file, so
-this plugin cannot keep the chunk size across fluentd restarts.
-If `true`, it calculates the chunk size by reading file at startup.
+The `buf_file_single` plugin does not have the metadata file, so this plugin
+cannot keep the chunk size across fluentd restarts. If `true`, it calculates the
+chunk size by reading the file at startup.
 
 If your plugin does not need the chunk size,
-you can set `false` to speed-up the fluentd startup time.
+you can set `false` to speedup the fluentd startup time.
 
 This option is mainly for `out_forward`.
 
@@ -98,8 +99,8 @@ does not implement `formatted_to_msgpack_binary?` correctly.
 
 ### chunk keys
 
-`buf_file_single` does not have metadata file, so `buf_file_single` cannot use
-rich metadata. The chunk keys must be the only tag or one field key for now.
+`buf_file_single` does not have the metadata file, so `buf_file_single` cannot
+use rich metadata. The chunk keys must be the only tag or one field key for now.
 
 ```
 <buffer>           # OK. Same as <buffer tag>
@@ -109,7 +110,7 @@ rich metadata. The chunk keys must be the only tag or one field key for now.
 <buffer key1,key2> # NG. multiple field keys are not supported
 ```
 
-This limitation will be removed by adding metadata header in the file.
+This limitation will be removed by adding the metadata header in the file.
 
 
 ### Remote File System is Not Supported

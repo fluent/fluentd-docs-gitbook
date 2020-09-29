@@ -127,11 +127,11 @@ with these parameters.
 
 ### `timekey`
 
-This plugin will flush chunks per specified time by `timekey` parameter.
-The default value is `86400` (when path don't contain time
-placeholders), which creates one file per day.
+This plugin will flush chunks per specified time by the `timekey` parameter. The
+default value is `86400` (when the path does not contain the time placeholders),
+which creates one file per day.
 
-This parameter is specified by `path` configuration. For example, when
+This parameter is specified by the `path` configuration. For example, when
 `path` contains `%H`, the value is `3600` and creates one file per hour.
 
 
@@ -145,7 +145,7 @@ hour.
 
 For example, when splitting files on an hourly basis, a log recorded at
 1:59 but arriving at the Fluentd node between 2:00 and 2:10 will be
-uploaded together with all the other logs from 1:00 to 1:59 in one
+uploaded together with all the other logs from 1:00 to 1:59 in one single
 transaction, avoiding extra overhead. Larger values can be set as
 needed.
 
@@ -161,8 +161,8 @@ for `chunk_limit_size`.
 
 ### `flush_interval`
 
-The interval between data flushes. The default is unspecified, and
-buffer chunks will be flushed at the end of time slices. The suffixes
+The interval between data flushes. The default is unspecified, and the
+buffer chunks will be flushed at the end of the time slices. The suffixes
 `s` (seconds), `m` (minutes), and `h` (hours) can be used.
 
 

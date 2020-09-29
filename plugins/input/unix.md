@@ -55,8 +55,8 @@ The backlog of Unix Domain Socket.
 |:-------|:--------|:--------|
 | string | nil     | 1.11.0  |
 
-`in_unix` uses incoming event's tag by default. If `tag` parameter is set, its
-value is used instead.
+`in_unix` uses incoming event's tag by default. If the `tag` parameter is set,
+its value is used instead.
 
 
 ------------------------------------------------------------------------

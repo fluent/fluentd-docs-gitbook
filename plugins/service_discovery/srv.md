@@ -1,13 +1,15 @@
 # SRV Service Discovery Plugin
 
-The `srv` service discovery plugin updates targets by [SRV Record](https://tools.ietf.org/html/rfc2782).
+The `srv` service discovery plugin updates the targets by
+[SRV Record](https://tools.ietf.org/html/rfc2782).
 
 
 ## Example Configuration
 
-Here is an example with `out_forward` updating targets to get SRV record from `_fluentd._tcp.exmaple.com`:
+Here is an example of `out_forward` updating the targets to get the SRV record
+from `_fluentd._tcp.exmaple.com`:
 
-```
+```text
 <match pattern>
   @type forward
 
@@ -27,22 +29,25 @@ Here is an example with `out_forward` updating targets to get SRV record from `_
 
 The value must be `srv`.
 
-### `service`
+### `service` (required)
 
-| type   | default             | version |
-|:-------|:--------------------|:--------|
-| string | required parameters | 1.10.0  |
+| type   | default | version |
+|:-------|:--------|:--------|
+| string | `nil`   | 1.10.0  |
 
-Service without underscore in [RFC2782](https://tools.ietf.org/html/rfc2782).
+Service without the underscore in
+[RFC2782](https://tools.ietf.org/html/rfc2782).
 
 
-### proto
+### `proto`
 
-| type   | default            | version |
-|:-------|:--------------------|:--------|
-| string | required parameters | 1.10.0  |
+| type   | default | version |
+|:-------|:--------|:--------|
+| string | `nil`   | 1.10.0  |
 
-Proto without underscore in [RFC2782](https://tools.ietf.org/html/rfc2782).
+Proto without the underscore in [RFC2782](https://tools.ietf.org/html/rfc2782).
+
+It is a required parameter.
 
 
 ### `hostname`
@@ -51,16 +56,16 @@ Proto without underscore in [RFC2782](https://tools.ietf.org/html/rfc2782).
 |:-------|:--------------------|:--------|
 | string | required parameters | 1.10.0  |
 
-Name in [RFC2782](https://tools.ietf.org/html/rfc2782).
+The name in [RFC2782](https://tools.ietf.org/html/rfc2782).
 
 
 ### `dns_server_host`
 
 | type   | default | version |
 |:-------|:--------|:--------|
-| string | nil     | 1.10.0  |
+| string | `nil`   | 1.10.0  |
 
-Hostname of DNS server to request the SRV record.
+The hostname of the DNS server to request the SRV record.
 
 
 ### `interval`
@@ -69,23 +74,23 @@ Hostname of DNS server to request the SRV record.
 |:--------|:--------|:--------|
 | integer | 60      | 1.10.0  |
 
-Interval of requesting to DNS server.
+The interval of sending requests to DNS server.
 
 
 ### `dns_lookup`
 
 | type   | default | version |
 |:-------|:--------|:--------|
-| bool   | true    | 1.10.0  |
+| bool   | `true`  | 1.10.0  |
 
-Resolve hostname to IP addr of SRV's Target.
+Resolves the hostname to IP address of the SRV's Target.
 
 
 #### `shared_key`
 
 | type   | default | version |
 |:-------|:--------|:--------|
-| string | nil     | 1.10.0  |
+| string | `nil`   | 1.10.0  |
 
 The shared key per server.
 
@@ -94,7 +99,7 @@ The shared key per server.
 
 | type   | default  | version |
 |:-------|:---------|:--------|
-| string | nil      | 1.10.0  |
+| string | `nil`    | 1.10.0  |
 
 The username for authentication.
 
@@ -103,7 +108,7 @@ The username for authentication.
 
 | type   | default | version |
 |:-------|:--------|:--------|
-| string | nil     | 1.10.0  |
+| string | `nil`   | 1.10.0  |
 
 The password for authentication.
 

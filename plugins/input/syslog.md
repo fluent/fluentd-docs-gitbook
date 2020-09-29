@@ -133,8 +133,8 @@ for all supported parameters.
 |:-----|:--------|:--------|
 | size | 2048    | 0.14.2  |
 
-The maximum length of syslog message in bytes. If you send larger message, change
-this parameter.
+The maximum length of a syslog message in bytes. If you send a larger message,
+change this parameter.
 
 
 ### `frame_type`
@@ -155,7 +155,7 @@ Messages are delimited by newline(`\n`):
 
 -   `octet_count`
 
-Message has message size prefix to delimit:
+Message has the message size prefix to delimit:
 
 ```
 43 <6>Sep 10 00:00:00 localhost logger: hello!
@@ -226,8 +226,8 @@ This parameter is used inside `<parse>` directive. The default is `rfc3164`.
 </source>
 ```
 
-Specify protocol format. Supported values are `rfc3164`, `rfc5424` and
-`auto`. If your syslog uses `rfc5424`, use `rfc5424` instead.\
+Specifies the protocol format. Supported values are `rfc3164`, `rfc5424` and
+`auto`. If your syslog uses `rfc5424`, use `rfc5424` instead.
 Here is an example of message:
 
 ```
@@ -319,7 +319,8 @@ If you set `severity_key severity` and got `<6>` started syslog message,
 |:-------|:----------------|:--------|
 | string | nil (no assign) | 0.14.10 |
 
-This parameter is deprecated due to misleading name. This sets severity, not priority value. 
+This parameter is deprecated due to a misleading name. This sets severity, not
+priority. 
 
 This parameter will be removed in fluentd v2. Use `severity_key` instead.
 
@@ -338,19 +339,22 @@ If you set `facility_key facility` and got `<6>` started syslog message,
 
 #### `@log_level`
 
-The `@log_level` option allows the user to set different levels of
-logging for each plugin. The supported log levels are: `fatal`, `error`,
-`warn`, `info`, `debug`, and `trace`.
+The `@log_level` option allows the user to set different levels of logging for
+each plugin. The supported log levels are: `fatal`, `error`, `warn`, `info`,
+`debug`, and `trace`.
 
 Please see the [logging article](/deployment/logging.md) for further details.
 
 
 ## TCP Protocol and Message Delimiter
 
-This plugin assumes `\n` for delimiter character between syslog messages
-in one TCP connection by default. If you use syslog library in your application with `<transport tcp>`, add `\n` to your syslog message. See also [rfc6587](https://tools.ietf.org/html/rfc6587#section-3.4.2).
+This plugin assumes `\n` for delimiter character between syslog messages in one
+TCP connection by default. If you use syslog library in your application with
+`<transport tcp>`, add `\n` to your syslog message. See also
+[rfc6587](https://tools.ietf.org/html/rfc6587#section-3.4.2).
 
-If your syslog uses octet counting mode, set `frame_type octet_count` in `in_syslog` configuration. See also `frame_type` parameter.
+If your syslog uses octet counting mode, set `frame_type octet_count` in
+`in_syslog` configuration. See also `frame_type` parameter.
 
 
 ## Tips
@@ -358,8 +362,8 @@ If your syslog uses octet counting mode, set `frame_type octet_count` in `in_sys
 
 ### How to Enable TLS Encryption
 
-Since v1.5.0, `in_syslog` support TLS transport. Here is configuration example
-with `rsyslog:
+Since v1.5.0, `in_syslog` support TLS transport. Here is the configuration
+example with `rsyslog`:
 
 - `in_syslog`
 
@@ -378,7 +382,7 @@ with `rsyslog:
 </source>
 ```
 
-- rsyslog
+- `rsyslog`
 
 ```
 $DefaultNetstreamDriverCAFile /etc/pki/ca.pem
@@ -389,9 +393,9 @@ $ActionSendStreamDriverAuthMode anon
 ```
 
 
-### Multi-process environment
+### Multi-process Environment
 
-If you use this plugin under multi-process environment, port will be
+If you use this plugin under the multi-process environment, the port will be
 shared.
 
 ```
@@ -405,24 +409,25 @@ shared.
 </source>
 ```
 
-With this configuration, 3 workers share 5140 port. No need additional
-port. Incoming data will be routed to 3 workers automatically.
+With this configuration, 3 workers share 5140 port. No need of an additional
+port. The incoming data will be routed to the three (3) workers automatically.
 
 
 ## FAQ
 
 ### Our system sends RFC3164/RFC5424 message but parse failure happens
 
-First, check your message format follows RFC3164/RFC5424 or not.
-Some systems say RFC3164/RFC5424 but it sends non-RFC3164/RFC5424 message, e.g. invalid priority, different timestamp, lack/add fields.
+First, check your message format follows RFC3164/RFC5424 or not. Some systems
+say RFC3164/RFC5424 but it sends non-RFC3164/RFC5424 message, e.g. invalid
+priority, different timestamp, lack/add fields.
 
 If only timestamp is different, configure `time_format` in `<parse>` may help.
 
-If other parts are different, syslog parser can't parse your message.
-To resolve the problem, there are several approaches:
+If other parts are different, the `syslog` parser cannot parse your message. To
+resolve the problem, there are several approaches:
 
-- Use regex parser or write your parser
-- Use in_udp/in_tcp with other parsers
+- Use `regex` parser or write your parser
+- Use `in_udp`/`in_tcp` with other parsers
 
 
 ## Learn More

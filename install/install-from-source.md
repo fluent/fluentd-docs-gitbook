@@ -11,7 +11,7 @@ Install Ruby `>= 2.1` and `bundler` on your local environment.
 
 ## Step 2: Fetch Source Code
 
-Fetch the source code from github. The official repository is located
+Fetch the source code from GitHub. The official repository is located
 [here](http://github.com/fluent/fluentd/).
 
 ```

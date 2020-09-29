@@ -11,64 +11,68 @@ This article shows how to collect `syslog` data into
 - A basic understanding of Fluentd
 - A running instance of `rsyslogd`
 
-**In this guide, we assume we are running `td-agent` (Fluentd package for
-Linux and OSX) on Ubuntu Xenial.**
+**In this guide, we assume we are running `td-agent` (Fluentd package for Linux
+and OSX) on Ubuntu Xenial.**
 
 
 ## Step 1: Install InfluxDB
 
-InfluxDB supports Ubuntu, RedHat and OSX (via brew). See
-[here](http://influxdb.com/download/) for the details.
+InfluxDB supports Ubuntu, RedHat and OSX (via `brew`).
 
-Since we are assumed to be on Ubuntu, the following two lines install
-InfluxDB:
+For more details, see [here](http://influxdb.com/download/).
 
-    $ wget https://dl.influxdata.com/influxdb/releases/influxdb_1.7.3_amd64.deb
-    $ sudo dpkg -i influxdb_1.7.3_amd64.deb
+Since we are assumed to be on Ubuntu, the following two lines install InfluxDB:
 
-Once it is installed, you can run it with
-
-    $ sudo systemctl start influxdb
-
-Then, you can verify that influxDB is running:
-
-    $ curl "http://localhost:8086/query?q=show+databases"
-
-If InfluxDB is running normally, you will see an object that contains
-the `_internal` database:
-
+```shell
+$ wget https://dl.influxdata.com/influxdb/releases/influxdb_1.7.3_amd64.deb
+$ sudo dpkg -i influxdb_1.7.3_amd64.deb
 ```
+
+Once it is installed, you can run it with:
+
+```shell
+$ sudo systemctl start influxdb
+```
+
+Then, you can verify that InfluxDB is running:
+
+```shell
+$ curl "http://localhost:8086/query?q=show+databases"
+```
+
+If InfluxDB is running normally, you will see an object that contains the
+`_internal` database:
+
+```json
 {"results":[{"statement_id":0,"series":[{"name":"databases","columns":["name"],"values":[["_internal"]]}]}]}
 ```
 
 Also, the following two lines install Chronograf:
 
-```
+```shell
 $ wget https://dl.influxdata.com/chronograf/releases/chronograf_1.7.7_amd64.deb
 $ sudo dpkg -i chronograf_1.7.7_amd64.deb
 ```
 
-Once it is installed, you can run it with
+Once it is installed, you can run it with:
 
-```
+```shell
 $ sudo systemctl start chronograf
 ```
 
-Then, go to localhost:8888 (or wherever you are hosting Chronograf) to
-access Chronograf's web console which is the successor of InfluxDB's web
-console.
+Then, go to localhost:8888 (or wherever you are hosting Chronograf) to access
+Chronograf's web console which is the successor of InfluxDB's web console.
 
-Create a database called `test`. This is where we will be storing `syslog`
-data.
+Create a database called `test`. This is where we will be storing `syslog` data:
 
-```
+```shell
 $ curl -i -XPOST http://localhost:8086/query --data-urlencode "q=CREATE DATABASE test"
 ```
 
-If you prefer command line or cannot access port 8083 from your local
-machine, running the following command creates a database called `test`:
+If you prefer command line or cannot access port 8083 from your local machine,
+running the following command creates a database called `test`:
 
-```
+```shell
 $ curl -i -X POST 'http://localhost:8086/write?db=test' --data-binary 'task,host=server01,region=us-west value=1 1434055562000000000'
 ```
 
@@ -78,29 +82,30 @@ We are done for now.
 ## Step 2: Install Fluentd and the InfluxDB plugin
 
 On your aggregator server, set up Fluentd.
-[See here](https://www.fluentd.org/download) for the details.
 
-```
+For more details, see [here](https://www.fluentd.org/download).
+
+```shell
 $ curl -L https://toolbelt.treasuredata.com/sh/install-ubuntu-xenial-td-agent3.sh | sh
 ```
 
-Next, the InfluxDB output plugin needs to be installed. Run
+Next, install the InfluxDB output plugin:
 
-```
+```shell
 /usr/sbin/td-agent-gem install fluent-plugin-influxdb
 ```
 
-If you are using vanilla Fluentd, run
+For the vanilla Fluentd, run:
 
-```
+```shell
 fluent-gem install fluent-plugin-influxdb
 ```
 
-You might need to `sudo` to install the plugin.
+You might need `sudo` to install the plugin.
 
 Finally, configure `/etc/td-agent/td-agent.conf` as follows:
 
-```
+```text
 <source>
   @type syslog
   port 42185
@@ -121,10 +126,10 @@ Restart `td-agent` with `sudo service td-agent restart`.
 
 ## Step 3: Configure `rsyslogd`
 
-If remote `rsyslogd` instances are already collecting data into the
-aggregator `rsyslogd`, the settings for `rsyslog` should remain unchanged.
-However, if this is a brand new setup, start forward syslog output by
-adding the following line to `/etc/rsyslogd.conf`
+If remote `rsyslogd` instances are already collecting data into the aggregator
+`rsyslogd`, the settings for `rsyslog` should remain unchanged. However, if this
+is a brand new setup, start forward `syslog` output by adding the following line
+to `/etc/rsyslogd.conf`:
 
 ```
 *.* @182.39.20.2:42185
@@ -136,34 +141,34 @@ this port is open though).
 
 Now, restart `rsyslogd`:
 
-```
+```shell
 $ sudo systemctl restart rsyslog
 ```
 
 
 ## Step 4: Confirm Data Flow
 
-Your syslog data should be flowing into InfluxDB every 10 seconds (this
-is configured by `flush_interval`).
+Your `syslog` data should be flowing into InfluxDB every 10 seconds (this is
+configured by `flush_interval`).
 
-Clicking on `Explore` brings up the query interface that **lets you
-write SQL queries against your log data**.
+Clicking on `Explore` brings up the query interface that **lets you write SQL
+queries against your log data**.
 
-And then click `Visualization` and select line chart:
+And then click `Visualization` and select the line chart:
 
 ![Chronograf: Explore Data](/images/chronograf-explore-data.png)
 
-Here, I am counting the number of lines of syslog messages per facility/priority:
+Now, to count the number of lines of `syslog` messages per facility/priority:
 
-```
+```sql
 SELECT COUNT(ident) FROM test.autogen./^system\./ GROUP BY time(1s)
 ```
 
-Click on "Submit Query" and you get a graph like this:
+Click on **Submit Query** to get a graph like this:
 
 ![Chronograf: Query](/images/chronograf-query.png)
 
-Here is another screenshot just for the `system.daemon.info` series:
+Here is another screenshot for the `system.daemon.info` series:
 
 ![Chronograf: Query](/images/chronograf-query-2.png)
 

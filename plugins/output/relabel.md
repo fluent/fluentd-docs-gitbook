@@ -20,12 +20,13 @@ It is included in Fluentd's core.
 </label>
 ```
 
-The above example puts a label `@foo` to matched events, and the `label`
-directive can take care of these events.
+In the above example, the `relabel` output plugin uses a label `@foo` to route
+the matched events, and then the respective `label` directive takes care of
+these events.
 
-**FYI**: All of input and output plugins also have `@label` parameter
-provided by Fluentd core. The `relabel` plugin is a plugin which
-actually does nothing, but supports only `@label` parameter.
+NOTE: All the input and output plugins support the `@label` parameter provided
+by the Fluentd core. The `relabel` plugin is a plugin that does nothing other
+than supporting the `@label` parameter.
 
 
 ## Supported Modes
@@ -52,11 +53,11 @@ The value must be `relabel`.
 
 ### `@label`
 
-The label.
+| type   | default | version |
+|:-------|:--------|:--------|
+| string | `nil`   | 0.14.0  |
 
-| type   | default            | version |
-|:-------|:-------------------|:--------|
-| string | required parameter | 0.14.0  |
+Specifies the label. It is a required parameter.
 
 
 ------------------------------------------------------------------------

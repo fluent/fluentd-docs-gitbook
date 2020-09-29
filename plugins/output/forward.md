@@ -112,7 +112,7 @@ The IP address or host name of the server.
 | string | nil     | 0.14.5  |
 
 The name of the server. Used for logging and certificate verification in
-TLS transport (when host is the address).
+TLS transport (when the host is the address).
 
 
 #### `port`
@@ -122,7 +122,7 @@ TLS transport (when host is the address).
 | integer | 24224   | 0.14.5  |
 
 The port number of the host. Note that both TCP packets (event stream)
-and UDP packets (heartbeat message) are sent to this port.
+and UDP packets (heartbeat messages) are sent to this port.
 
 
 #### `shared_key`
@@ -232,8 +232,8 @@ The timeout time when sending event logs.
 |:-----|:--------|:--------|
 | time | nil(no timeout) | 1.6.0 |
 
-The timeout time for socket connect. When the connection is timed out during
-establishment, `Errno::ETIMEDOUT` error is raised.
+The connection timeout for the socket. When the connection is timed out during
+the connection establishment, `Errno::ETIMEDOUT` error is raised.
 
 
 ### `recover_wait`
@@ -251,7 +251,7 @@ The wait time before accepting a server fault recovery.
 |:-----|:----------|:--------------------------|:--------|
 | enum | transport | transport, tcp, udp, none | 0.14.12 |
 
-The transport protocol to use for heartbeats. Set `none` to disable heartbeat.
+Specifies the transport protocol for heartbeats. Set `none` to disable.
 
 
 ### `heartbeat_interval`
@@ -404,7 +404,7 @@ The client private key path for TLS.
 |:------:|:-------:|:-------:|
 | string | nil     | 1.3.2   |
 
-The client private key passphrase for TLS.
+The TLS private key passphrase for the client.
 
 
 ### `tls_cert_thumbprint`
@@ -413,7 +413,7 @@ The client private key passphrase for TLS.
 |:------:|:-------:|:-------:|
 | string | nil     | 1.7.1   |
 
-The certificate thumbprint for searching from Windows system certstore
+The certificate thumbprint for searching from Windows system certstore.
 This parameter is for Windows only.
 
 
@@ -433,7 +433,7 @@ This parameter is for Windows only.
 |:------:|:-------:|:-------:|
 | string | true    | 1.7.1   |
 
-Enables to use certificate enterprise store on Windows system certstore.
+Enables the certificate enterprise store on Windows system certstore.
 This parameter is for Windows only.
 
 
@@ -452,8 +452,8 @@ Enables the keepalive connection.
 |:----:|:-------:|:-------:|
 | time | nil     | 1.5.0   |
 
-Timeout for keepalive. Default value is `nil`, which means to keep connection
-as long as possible.
+Timeout for keepalive. Default value is `nil` which means to keep the connection
+alive as long as possible.
 
 
 ### `<security>` Section
@@ -483,8 +483,8 @@ The hostname.
 |:-------|:-------------------|:--------|
 | string | required parameter | 0.14.5  |
 
-Shared key for authentication. If you want to specify `shared_key`
-for specific server, use `<server>` section.
+The shared key for authentication. If you want to specify `shared_key` for
+specific server, use the `<server>` section.
 
 
 ### `<secondary>`
@@ -512,7 +512,9 @@ at the time of startup.
 
 ### How to connect to a TLS/SSL enabled server?
 
-If you have set up [TLS/SSL encryption](/plugins/input/forward.md/#how-to-enable-tls/ssl-encryption) for the receiving server, you need to tell the output forwarder to use encryption by setting the `transport` parameter:
+If you have set up [TLS/SSL encryption](/plugins/input/forward.md/#how-to-enable-tls/ssl-encryption) for the
+receiving server, you need to tell the output forwarder to use encryption by
+setting the `transport` parameter:
 
 ```
 <match debug.**>
@@ -547,7 +549,9 @@ being received by the destination node properly.
 
 ### How to connect to a TLS/SSL enabled server with Windows Certstore Certificate?
 
-If you have set up [TLS/SSL encryption](/plugins/input/forward.md/#how-to-enable-tls/ssl-encryption) in the receiving server, you need to tell the output forwarder to use encryption by setting the `transport` parameter.
+If you have set up [TLS/SSL encryption](/plugins/input/forward.md/#how-to-enable-tls/ssl-encryption) in the
+receiving server, you need to tell the output forwarder to use encryption by
+setting the `transport` parameter.
 
 Valid logical store names are:
 
@@ -575,7 +579,7 @@ work only for Windows.
   transport tls
   # Set valid logical store name.
   tls_cert_logical_store_name Trust
-  tls_verify_hostname true # Set false to ignore cert hostname.
+  tls_verify_hostname true # Set false to ignore the cert hostname.
   <server>
     host 192.168.1.2
     port 24224
@@ -604,9 +608,11 @@ settings:
 ```
 
 Note that these configuration works for root certificate which is put in Windows
-Certstore. Currently, chained certificate is not supported.
+Certstore. Currently, the chained certificate is not supported.
 
-Certificate thumbprint is able to obtain with [`certutil`](https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/certutil) command.
+Certificate thumbprint is able to obtain with
+[`certutil`](https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/certutil)
+command.
 
 Here is an example which uses a certificate that is generated by
 `fluent-ca-generate` command:

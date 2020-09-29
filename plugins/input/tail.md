@@ -66,8 +66,8 @@ The value must be `tail`.
 
 The tag of the event.
 
-`*` can be used as a placeholder that expands to the actual file path,
-replacing `'/'` with `'.'`.
+`*` can be used as a placeholder that expands to the actual file path, replacing
+`'/'` with `'.'`.
 
 With the following configuration:
 
@@ -87,9 +87,9 @@ tag foo.*
 
 The path(s) to read. Multiple paths can be specified, separated by comma `','`.
 
-`*` and `strftime` format can be included to add/remove watch file
-dynamically. At interval of `refresh_interval`, Fluentd refreshes the
-list of watch file.
+`*` and `strftime` format can be included to add/remove the watch file
+dynamically. At the interval of `refresh_interval`, Fluentd refreshes the list
+of watch files.
 
 ```
 path /path/to/%Y/%m/%d/*
@@ -131,7 +131,7 @@ For timezone format, see [Timezone Section](/configuration/format-section.md/#ti
 |:------|:-------------|:--------|
 | array | `[]` (empty) | 0.14.0  |
 
-The paths to exclude the files from watcher list.
+The paths excluded from the watcher list.
 
 For example, to remove the compressed files, you can use the following pattern:
 
@@ -140,7 +140,7 @@ path /path/to/*
 exclude_path ["/path/to/*.gz", "/path/to/*.zip"]
 ```
 
-`exclude_path` takes input as an array, unlike `path` which takes as string.
+`exclude_path` takes input as an array, unlike `path` which takes as a string.
 
 
 ### `refresh_interval`
@@ -149,7 +149,7 @@ exclude_path ["/path/to/*.gz", "/path/to/*.zip"]
 |:-----|:-------------|:--------|
 | time | 60 (seconds) | 0.14.0  |
 
-The interval of refreshing the list of watch file. This is used when path
+The interval to refresh the list of watch files. This is used when the path
 includes `*`.
 
 
@@ -169,8 +169,8 @@ specified time range when using `*` in `path`.
 |:-----|:--------|:--------|
 | bool | false   | 0.14.13 |
 
-Skips the refresh of watching list on startup. This reduces the startup
-time when using `*` in `path`.
+Skips the refresh of the watch list on startup. This reduces the startup time
+when `*` is used in `path`.
 
 
 ### `read_from_head`
@@ -179,15 +179,15 @@ time when using `*` in `path`.
 |:-----|:--------|:--------|
 | bool | false   | 0.14.0  |
 
-Starts to read the logs from the head of file, not tail.
+Starts to read the logs from the head of the file, not tail.
 
 If you want to `tail` the contents with `*` or `strftime` dynamic path, set this
-parameter to `true`. Instead, you should guarantee that log rotation will not
-occur in `*` directory.
+parameter to `true`. Instead, you should guarantee that the log rotation will
+not occur in `*` directory.
 
-When this is `true`, `in_tail` tries to read a file during startup phase.
-If target file is large, it takes long time and starting other plugins
-isn't executed until reading file is finished.
+When this is `true`, `in_tail` tries to read a file during the startup phase. If
+the target file is large, it takes a long time and other plugins do not start
+until the reading is finished.
 
 
 ### `encoding`, `from_encoding`
@@ -223,8 +223,8 @@ $ ruby -e 'p Encoding.name_list.sort'
 
 The number of lines to read with each I/O operation.
 
-If you see `chunk bytes limit exceeds for an emitted event stream` or similar log
-with `in_tail`, set smaller value.
+If you see `chunk bytes limit exceeds for an emitted event stream` or similar
+log with `in_tail`, set a smaller value.
 
 
 ### `multiline_flush_interval`
@@ -235,9 +235,9 @@ with `in_tail`, set smaller value.
 
 The interval of flushing the buffer for multiline format.
 
-If you set `multiline_flush_interval 5s`, `in_tail` flushes buffered
-event after 5 seconds from last emit. This option is useful when you use
-`format_firstline` option.
+If you set `multiline_flush_interval 5s`, `in_tail` flushes buffered event after
+5 seconds from last emit. This option is useful when you use `format_firstline`
+option.
 
 
 ### `pos_file` (highly recommended)
@@ -258,12 +258,12 @@ pos_file /var/log/td-agent/tmp/access.log.pos
 Don't share `pos_file` between `in_tail` configurations. It causes
 unexpected behavior e.g. corrupt `pos_file` content.
 
-`in_tail` removes untracked file position during startup. It means that
-the content of `pos_file` keeps growing until restart when you tails lots of
-files with dynamic path setting.
+`in_tail` removes the untracked file position at startup. It means that the
+content of `pos_file` keeps growing until a restart when you tails lots of files
+with the dynamic path setting.
 
-This [issue](https://github.com/fluent/fluentd/issues/1126) will be fixed this
-problem in future.
+This [issue](https://github.com/fluent/fluentd/issues/1126) will be fixed in
+future.
 
 
 ### `pos_file_compaction_interval`
@@ -274,8 +274,8 @@ problem in future.
 
 The interval of doing compaction of pos file.
 
-The targets of compaction are unwatched, unparsable and duplicated line. You can
-use this value when `pos_file` option is set:
+The targets of compaction are unwatched, unparsable, and the duplicated line.
+You can use this value when `pos_file` option is set:
 
 ```
 pos_file /var/log/td-agent/tmp/access.log.pos
@@ -287,7 +287,7 @@ pos_file_compaction_interval 72h
 
 The format of the log.
 
-`in_tail` uses parser plugin to parse the log. See
+`in_tail` uses the parser plugin to parse the log. See
 [`parser`](/plugins/parser/README.md) for more detail.
 
 Examples:
@@ -319,7 +319,7 @@ Deprecated parameter. Use `<parse>` instead.
 |:-------|:----------------|:--------|
 | string | nil (no assign) | 0.14.0  |
 
-Adds the watching file path to `path_key` field.
+Adds the watching file path to the `path_key` field.
 
 With this configuration:
 
@@ -340,17 +340,17 @@ The generated events are like this:
 |:-----|:------------|:--------|
 | time | 5 (seconds) | 0.14.0  |
 
-`in_tail` actually does a bit more than `tail -F` itself. When rotating a
-file, some data may still need to be written to the old file as opposed
-to the new one.
+`in_tail` actually does a bit more than `tail -F` itself. When rotating a file,
+some data may still need to be written to the old file as opposed to the new
+one.
 
-`in_tail` takes care of this by keeping a reference to the old file (even
-after it has been rotated) for some time before transitioning completely
-to the new file. This helps prevent data designated for the old file
-from getting lost. By default, this time interval is 5 seconds.
+`in_tail` takes care of this by keeping a reference to the old file (even after
+it has been rotated) for some time before transitioning completely to the new
+file. This helps prevent data designated for the old file from getting lost. By
+default, this time interval is 5 seconds.
 
-The `rotate_wait` parameter accepts a single integer representing the
-number of seconds you want this time interval to be.
+The `rotate_wait` parameter accepts a single integer representing the number of
+seconds you want this time interval to be.
 
 
 ### `enable_watch_timer`
@@ -359,20 +359,20 @@ number of seconds you want this time interval to be.
 |:-----|:--------|:--------|
 | bool | true    | 0.14.0  |
 
-Enables the additional watch timer. Setting this parameter to `false`
-will significantly reduce CPU and I/O consumption when tailing a large
-number of files on systems with `inotify` support. The default is `true`
-which results in an additional 1 second timer being used.
+Enables the additional watch timer. Setting this parameter to `false` will
+significantly reduce CPU and I/O consumption when tailing a large number of
+files on systems with `inotify` support. The default is `true` which results in
+an additional 1 second timer being used.
 
-`in_tail` (via `Cool.io`) uses `inotify` on systems which supports it.
-Earlier versions of `libev` on some platforms (e.g. MacOS X) did not work
-properly; therefore, an explicit 1 second timer was used. Even on
-systems with `inotify` support, this results in additional I/O each
-second, for every file being tailed.
+`in_tail` (via `Cool.io`) uses `inotify` on systems which support it. Earlier
+versions of `libev` on some platforms (e.g. MacOS X) did not work properly;
+therefore, an explicit 1 second timer was used. Even on systems with `inotify`
+support, this results in additional I/O each second, for every file being
+tailed.
 
 Early testing demonstrates that modern `Cool.io` and `in_tail` work properly
-without the additional watch timer. At some point in future, depending on the
-feedback and testing, the additional watch timer may be disabled by default.
+without the additional watch timer. In the future, depending on the feedback and
+testing, the additional watch timer may be disabled by default.
 
 
 ### `enable_stat_watcher`
@@ -382,10 +382,10 @@ feedback and testing, the additional watch timer may be disabled by default.
 | bool | true    | 1.0.1   |
 
 Enables the additional `inotify`-based watcher. Setting this parameter to
-`false` will disable `inotify` events and use only timer watcher for file
+`false` will disable the `inotify` events and use only timer watcher for file
 tailing.
 
-This option is mainly for avoiding stuck issue with `inotify`.
+This option is mainly for avoiding the stuck issue with `inotify`.
 
 
 ### `open_on_every_update`
@@ -394,8 +394,8 @@ This option is mainly for avoiding stuck issue with `inotify`.
 |:-----|:--------|:--------|
 | bool | false   | 0.14.12 |
 
-Opens and closes the file on every update instead of leaving it open until
-it gets rotated.
+Opens and closes the file on every update instead of leaving it open until it
+gets rotated.
 
 
 ### `emit_unmatched_lines`
@@ -416,7 +416,7 @@ Emitted record is `{"unmatched_line" : incoming line}`, e.g.
 |:-----|:--------|:--------|
 | bool | false   | 0.14.0  |
 
-If you have to exclude the non-permission files from watching list, set this
+If you have to exclude the non-permission files from the watch list, set this
 parameter to `true`. It suppresses the repeated permission error logs.
 
 
@@ -439,9 +439,9 @@ Refer to the [Logging](/deployment/logging.md) for more details.
 
 ### What happens when `<parse>` type is not matched for logs?
 
-`in_tail` prints warning message. For example, if you specify
-`@type json` in `<parse>` and your log line is `123,456,str,true`, then
-you will see following message in fluentd logs:
+`in_tail` prints warning message. For example, if you specify `@type json` in
+`<parse>` and your log line is `123,456,str,true`, then you will see following
+message in fluentd logs:
 
 ```
 2018-04-19 02:23:44 +0900 [warn]: #0 pattern not match: "123,456,str,true"
@@ -452,8 +452,8 @@ See also `emit_unmatched_lines` parameter.
 
 ### `in_tail` doesn't start to read the log file, why?
 
-`in_tail` follows `tail -F` command's behavior by default, so `in_tail`
-reads only the new logs. If you want to read existing lines for batch use
+`in_tail` follows `tail -F` command's behavior by default, so `in_tail` reads
+only the new logs. If you want to read the existing lines for the batch use
 case, set `read_from_head true`.
 
 
@@ -463,36 +463,36 @@ If you see this message:
 
 > `/path/to/file` unreadable. It is excluded and would be examined next time.
 
-It means fluentd does not have read permission for `/path/to/file`. Check your
-fluentd and target files permission.
+It means that `fluentd` does not have read permission for `/path/to/file`. Check
+your fluentd and target files permission.
 
 
 ### `logrotate` Setting
 
-`logrotate` has `nocreate` parameter and it does not create a new file if log
-rotation is triggered. It means `in_tail` cannot find the new file to tail.
+`logrotate` has the `nocreate` parameter and it does not create a new file if
+log rotation is triggered. It means `in_tail` cannot find the new file to tail.
 
-This parameter does not fit typical application log use cases, so check your
-`logrotate` setting which doesn't include `nocreate` parameter.
+This parameter does not fit the typical application log use cases, so check your
+`logrotate` setting which does not include the `nocreate` parameter.
 
 
 ### What happens when `in_tail` receives `BufferOverflowError`?
 
 `in_tail` stops reading the new lines and pos file updates until
-`BufferOverflowError` is resolved. After resolving `BufferOverflowError`,
-resume emitting new lines and pos file updates.
+`BufferOverflowError` is resolved. After resolving `BufferOverflowError`, resume
+emitting new lines and pos file updates.
 
 
 ### `in_tail` is sometimes stopped when monitor lots of files. How to avoid it?
 
 Try to set `enable_stat_watcher false` in `in_tail` setting. We got several
 reports that `in_tail` is stopped when `*` is included in `path`, and the
-problem is resolved by disabling `inotify` events.
+problem is resolved by disabling the `inotify` events.
 
 
-### Wildcard pattern in path does not work on Windows, why?
+### Wildcard pattern in `path` does not work on Windows, why?
 
-Backslash(`\`) with `*` doesn't work on Windows by internal limitation.
+The backslash (`\`) with `*` does not work on Windows by internal limitations.
 To avoid this, use slash style instead:
 
 ```

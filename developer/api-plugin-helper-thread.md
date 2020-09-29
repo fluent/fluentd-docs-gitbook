@@ -41,7 +41,7 @@ automatically.
 
 ### `thread_create(title)`
 
-This method creates thread and run thread with the given routine.
+This method creates a thread and runs it with the given routine.
 
 `title` must be unique.
 

@@ -1,11 +1,11 @@
-# Fluentd Command Line Options
+# Fluentd Command-Line Options
 
-This article describes the `fluentd` command line options.
+This article describes the `fluentd` command-line options.
 
 
 ## `fluentd`
 
-Following are the fluentd command line options (`fluentd -h`):
+Following are the fluentd command-line options (`fluentd -h`):
 
 ```
 Usage: fluentd [options]
@@ -49,7 +49,7 @@ Usage: fluentd [options]
 
 -   `--suppress-config-dump`: Fluentd starts without configuration dump. If you
     do not want to show the configuration in fluentd logs, e.g. it contains
-    private keys, then this options is useful.
+    private keys, then this option is useful.
 
 -   `--suppress-repeated-stacktrace`: If `true`, suppresses the stacktrace in
     fluentd logs. Since v0.12, this option is `true` by default.
@@ -135,13 +135,13 @@ Options:
 
 ### Example
 
-Generate a README style document from plugin's config parameters:
+Generate a README style document from the plugin's config parameters:
 
 ```
 fluent-plugin-config-format output null
 ```
 
-Generate an old style output from plugin's config parameters:
+Generate an old-style output from the plugin's config parameters:
 
 ```
 fluent-plugin-config-format -f txt output null
@@ -150,8 +150,8 @@ fluent-plugin-config-format -f txt output null
 
 ## `fluent-plugin-generate`
 
-It generates Fluentd plugin project template. It is good for starting to
-Fluentd plugin development for using new API plugin. For more details,
+It generates the Fluentd plugin project template. It is good for starting to
+Fluentd plugin development for using the new API plugin. For more details,
 refer to the [Generating plugin project skeleton section](/developer/plugin-development.md/#generating-plugin-project-skeleton).
 
 Here is its usage (`fluent-plugin-generate -h`);

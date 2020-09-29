@@ -1,7 +1,7 @@
 # `parser` Filter Plugin
 
 The `parser` filter plugin "parses" string field in event records and mutates
-its event record with parsed result.
+its event record with the parsed result.
 
 It is included in the Fluentd's core.
 
@@ -150,7 +150,7 @@ With above configuration, here is the result:
 
 | type | default | version |
 |:-----|:--------|:--------|
-| bool | false   | 0.14.9  |
+| bool | `false` | 0.14.9  |
 
 If `true`, invalid string is replaced with safe characters and re-parse it.
 
@@ -218,11 +218,11 @@ With above configuration, result is below:
 
 Emits invalid record to `@ERROR` label. Invalid cases are:
 
--   key not exist
--   format is not matched
--   unexpected error
+-   key does not exist
+-   the format is not matched
+-   an unexpected error
 
-You can rescue unexpected format logs in `@ERROR` label.
+You can rescue unexpected format logs in the `@ERROR` label.
 
 If you want to ignore these errors, set `false`.
 
@@ -233,7 +233,7 @@ If you want to ignore these errors, set `false`.
 ### `suppress_parse_error_log` is missing. What are the alternatives?
 
 Since v1, `parser` filter does not support `suppress_parse_error_log`
-parameter because `parser` filter uses `@ERROR` feature instead of
+parameter because `parser` filter uses the `@ERROR` feature instead of
 internal logging to rescue invalid records. If you want to simply
 ignore invalid records, set `emit_invalid_record_to_error false`.
 

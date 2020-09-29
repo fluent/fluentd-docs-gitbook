@@ -62,14 +62,14 @@ Configure the `<filter>` section to count the incoming records per tag:
 </filter>
 ```
 
-With this configuration, `prometheus` filter plugin starts adding the internal
-counter as the record comes in.
+With this configuration, the `prometheus` filter plugin starts adding the
+internal counter as the record comes in.
 
 
 ### Step 2: Counting Outgoing Records by Prometheus Output Plugin
 
-Configure `copy` plugin with `prometheus` output plugin to count the outgoing
-records per tag:
+Configure the `copy` plugin with `prometheus` output plugin to count the
+outgoing records per tag:
 
 ```text
 # count the number of outgoing records per tag
@@ -102,8 +102,8 @@ records per tag:
 </match>
 ```
 
-With this configuration, `prometheus` output plugin starts adding the internal
-counter as the record goes out.
+With this configuration, the `prometheus` output plugin starts adding the
+internal counter as the record goes out.
 
 
 ### Step 3: Expose Metrics by Prometheus Input Plugin via HTTP

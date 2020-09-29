@@ -25,8 +25,8 @@ specify an `http` input, for short: we will be listening for **HTTP Requests**:
 </source>
 ```
 
-The definition specifies that a HTTP server will be listening on TCP
-port `8888`.
+The definition specifies that an HTTP server will be listening on TCP port
+`8888`.
 
 Now, let's define a **Matching** rule to print the incoming requests to the
 standard output:
@@ -85,9 +85,9 @@ A Fluentd event consists three components:
 -   `tag`: Specifies the origin where an event comes from. It is used for
     message routing.
 -   `time`: Specifies the time when an event happens with nanosecond resolution.
--   `record`: Specifies the actual log as JSON object.
+-   `record`: Specifies the actual log as a JSON object.
 
-The input plugin is responsible for generating Fluentd event from data sources.
+The input plugin is responsible for generating the Fluentd event from data sources.
 For example, `in_tail` generates events from text lines. If you have the
 following apache log:
 

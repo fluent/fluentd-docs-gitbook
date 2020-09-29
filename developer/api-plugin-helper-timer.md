@@ -38,7 +38,7 @@ automatically.
 
 ### `timer_execute(title, interval, repeat: true, &block)`
 
-This method executes timer with the given parameters and routine.
+This method executes the timer with the given parameters and routine.
 
 -   `title`: unique symbol value
 -   `interval`: second unit `integer`/`float` value.

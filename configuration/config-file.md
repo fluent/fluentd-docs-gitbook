@@ -40,7 +40,7 @@ Sending a `SIGHUP` signal will reload the config file.
 
 ### Docker
 
-For a Docker container, the default location of config file is
+For a Docker container, the default location of the config file is
 `/fluentd/etc/fluent.conf`. To mount a config file from outside of Docker, use a
 `bind-mount`.
 
@@ -71,7 +71,7 @@ The configuration file consists of the following directives:
 1.  **`source`** directives determine the input sources
 2.  **`match`** directives determine the output destinations
 3.  **`filter`** directives determine the event processing pipelines
-4.  **`system`** directives set system wide configuration
+4.  **`system`** directives set system-wide configuration
 5.  **`label`** directives group the output and filter for internal routing
 6.  **`@include`** directives include other files
 
@@ -115,7 +115,7 @@ and it must be in the Unix time format. The `record` is a JSON object.
 
 Fluentd accepts all non-period characters as a part of a `tag`. However, since
 the `tag` is sometimes used in a different context by output destinations (e.g.
-table name, database name, key name, etc.), **it is strongly recommended that
+the table name, database name, key name, etc.), **it is strongly recommended that
 you stick to the lower-case alphabets, digits and underscore** (e.g.
 `^[a-z0-9_]+$`).
 
@@ -173,7 +173,7 @@ destination (in the above example, only the events with the tag `myapp.access`
 are matched. See [the section below for more advanced usage](#how-match-patterns-work)).
 The `@type` parameter specifies the output plugin to use.
 
-Just like input sources, you can add new output destinations by writing your own
+Just like input sources, you can add new output destinations by writing custom
 plugins. For further information regarding Fluentd output destinations, please
 refer to the [Output Plugin Overview](/plugins/output/README.md) article.
 
@@ -219,9 +219,9 @@ information regarding Fluentd filter destinations, please refer to the
 [Filter Plugin Overview](/plugins/filter/README.md) article.
 
 
-## 4. Set system wide configuration: the "system" directive
+## 4. Set system-wide configuration: the `system` directive
 
-System-wide configurations are set by **system** directive. Most of them are
+System-wide configurations are set by `system` directive. Most of them are
 also available via command line options. For example, the following
 configurations are available:
 
@@ -316,7 +316,8 @@ In this configuration, `forward` events are routed to `record_transformer`
 filter / `elasticsearch` output and `in_tail` events are routed to `grep` filter
 / `s3` output inside `@SYSTEM` label.
 
-The `label` parameter is useful for event flow separation without `tag` prefix.
+The `label` parameter is useful for event flow separation without the `tag`
+prefix.
 
 
 ### `@ERROR` label
@@ -325,10 +326,10 @@ The `@ERROR` label is a builtin label used for error record emitted by plugin's
 `emit_error_event` API.
 
 If `<label @ERROR>` is set, the events are routed to this label when the related
-errors are emitted e.g. buffer is full or invalid record.
+errors are emitted e.g. the buffer is full or the record is invalid.
 
 
-## 6. Reuse your config: the "@include" directive
+## 6. Reuse your config: the `@include` directive
 
 The directives in separate configuration files can be imported using the
 **@include** directive:
@@ -540,7 +541,7 @@ defined as follows:
     -   `<INTEGER>m` or `<INTEGER>M`: number of megabytes
     -   `<INTEGER>g` or `<INTEGER>G`: number of gigabytes
     -   `<INTEGER>t` or `<INTEGER>T`: number of terabytes
-    -   Otherwise, the field is parsed as integer, and that integer is the
+    -   Otherwise, the field is parsed as an integer, and that integer is the
         **number of bytes**.
 -   `time`: the field is parsed as a time duration.
     -   `<INTEGER>s`: seconds
@@ -551,11 +552,11 @@ defined as follows:
         **number of seconds**. This option is useful for specifying sub-second
         time durations such as 0.1 (0.1 second = 100 milliseconds).
 -   `array`: the field is parsed as a JSON array. It also supports the shorthand
-    syntax. These are same values:
+    syntax. These are the same values:
     -   normal: `["key1", "key2"]`
     -   shorthand: `key1,key2`
 -   `hash`: the field is parsed as a JSON object. It also supports the shorthand
-    syntax. These are same values:
+    syntax. These are the same values:
     -   normal: `{"key1": "value1", "key2": "value2"}`
     -   shorthand: `key1:value1,key2:value2`
 
@@ -657,7 +658,7 @@ host_param  "#{hostname}"  # This is same with Socket.gethostname
 ```
 
 The `worker_id` shortcut is useful under multiple workers. For example, for a
-separate plugin id, add `worker_id` to store path in s3 to avoid file conflict.
+separate plugin id, add `worker_id` to store the path in s3 to avoid file conflict.
 
 Since v1.8.0, helper methods `use_nil` and `use_default` are available:
 
@@ -677,7 +678,7 @@ The `config-xxx` mixins use `"${}"`, not `"#{}"`. These embedded configurations
 are two different things.
 
 
-### In double quoted string literal, `\` is escape character
+### In double-quoted string literal, `\` is the escape character
 
 The forward slash `\` is interpreted as an escape character. You need `\` for
 setting `"`, `\r`, `\n`, `\t`, `\` or several characters in double-quoted string

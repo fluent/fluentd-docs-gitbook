@@ -92,7 +92,7 @@ Label reduces complex `tag` handling by separating data pipelines.
 ## Reroute Event by Tag
 
 Use [fluent-plugin-route](https://github.com/tagomoris/fluent-plugin-route)
-plugin. This plugin rewrites `tag` and re-emit events to other match or Label.
+plugin. This plugin rewrites `tag` and re-emit events to other `match` or Label.
 
 ```
 <match worker.**>

@@ -47,7 +47,7 @@ Old stable.
 - Ruby 2.4
 - Fluentd v1
 - Windows Support
-- Remove `fluentd-ui` from package
+- Remove `fluentd-ui` from the package
 
 
 ### `td-agent` v2

@@ -20,7 +20,7 @@ The path where buffer chunks are stored. The '\*' is replaced with
 random characters. This parameter is required.
 
 This parameter must be unique to avoid the race condition problem. For
-example, you cannot use fixed path parameter in `fluent-plugin-forest`.
+example, you cannot use a fixed path parameter in `fluent-plugin-forest`.
 `${tag}` or similar placeholder is needed. Of course, this parameter
 must also be unique between fluentd instances.
 
@@ -73,7 +73,7 @@ Running out of disk space is a problem frequently reported by users.
 |:-------|:--------|:--------|
 | string | .log    | 1.6.3   |
 
-Changes the suffix of buffer file.
+Changes the suffix of the buffer file.
 
 ```
 # default 
@@ -85,7 +85,8 @@ Changes the suffix of buffer file.
 /var/log/fluentd/buf/buffer.b58eec11d08ca8143b40e4d303510e0bb.buf.meta
 ```
 
-This parameter is useful when `.log` is not fit for your environment. See also [this issue comment](https://github.com/fluent/fluentd/issues/2236#issuecomment-514733974).
+This parameter is useful when `.log` is not fit for your environment.
+See also [this issue's comment](https://github.com/fluent/fluentd/issues/2236#issuecomment-514733974).
 
 
 ## Example
@@ -102,10 +103,10 @@ This parameter is useful when `.log` is not fit for your environment. See also [
 
 ## Limitation
 
-Caution: `file` buffer implementation depends on the characteristics of
-the local file system. Don't use `file` buffer on remote file systems e.g.
-NFS, GlusterFS, HDFS and etc. We observed major data loss by using
-remote file system.
+Caution: `file` buffer implementation depends on the characteristics of the
+local file system. Don't use `file` buffer on remote file systems e.g. NFS,
+GlusterFS, HDFS, etc. We observed major data loss by using the remote file
+system.
 
 
 ------------------------------------------------------------------------

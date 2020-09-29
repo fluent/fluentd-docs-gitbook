@@ -11,7 +11,7 @@ Fluentd has eight (8) types of plugins:
 -   [Service Discovery](/plugins/service_discovery/README.md)
 -   [Buffer](/plugins/buffer/README.md)
 
-This article gives an overview of Parser Plugin.
+This article gives an overview of the Parser Plugin.
 
 
 ## Overview
@@ -31,10 +31,9 @@ has a pluggable system that enables the user to create their own parser formats.
 -   From any input plugin that supports the `<parse>` directive, call the custom
     plugin by its name.
 
-Here is a simple example to read Nginx access logs using `in_tail` and
-`parser_nginx`:
+Here is an example to read Nginx access logs using `in_tail` and `parser_nginx`:
 
-```
+```text
 <source>
   @type tail
   path /path/to/input/file

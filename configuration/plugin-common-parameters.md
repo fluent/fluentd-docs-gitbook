@@ -104,7 +104,7 @@ set of the `<filter>` and `<match>` subsections under `<label>`.
 </label>
 ```
 
-NOTE: The values for `@label` parameter MUST start with `@` character.
+NOTE: The values for the `@label` parameter MUST start with `@` character.
 
 Specifying `@label` is strongly recommended to route events to any plugin
 without modifying the tags. It helps make the complex configuration modular and

@@ -11,7 +11,7 @@ Fluentd has eight (8) types of plugins:
 -   [Service Discovery](/plugins/service_discovery/README.md)
 -   [Buffer](/plugins/buffer/README.md)
 
-This article gives an overview of Service Discovery Plugin.
+This article gives an overview of the Service Discovery Plugin.
 
 
 ## Overview
@@ -28,7 +28,7 @@ service discovery.
 Here is a simple example to update target by reading file
 (`/etc/fluentd/sd.yaml`) with `out_forward` and `service_discovery`:
 
-```
+```text
 <source>
   @type forward
 

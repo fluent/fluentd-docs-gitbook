@@ -36,7 +36,7 @@ plugin's `shutdown`. The plugin shutdowns the attached watchers automatically.
 
 ### `event_loop_attach(watcher)`
 
-This method attaches watcher to event loop.
+This method attaches watcher to the event loop.
 
 -   `watcher`: `Coolio::Watcher` instances
 

@@ -106,7 +106,7 @@ NOTE: In `td-agent` 4, the path is different i.e. `/opt/td-agent/bin` instead of
 
 ### `init.d`
 
-This is for CentOS 6, non systemd based system.
+This is for CentOS 6, non-`systemd` based system.
 
 Use `/etc/init.d/td-agent` script to `start`, `stop`, or `restart` the agent:
 

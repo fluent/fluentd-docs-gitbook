@@ -109,7 +109,7 @@ router.emit(tag, time, {:foo => 'bar'})
 
 ## Methods
 
-There are no specific method for Input plugins.
+There are no specific methods for the Input plugins.
 
 
 ## Writing Tests
@@ -198,7 +198,7 @@ The lifecycle of plugin and test driver is:
 2.  Configure plugin
 3.  Register conditions to stop/break running tests
 4.  Run test code (provided as a block for `d.run`)
-5.  Assert results of tests by data provided from driver
+5.  Assert results of tests by data provided by the driver
 
 Test driver calls methods for plugin lifecycle at the beginning of Step # 4
 (i.e. `#start`) and at the end (i.e. `#stop`, `#shutdown`, etc.). It can be

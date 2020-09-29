@@ -1,10 +1,10 @@
 # `regexp` Parser Plugin
 
-The `regexp` parser plugin parses logs by given regexp pattern. The
-regexp must have at least one named capture (`?<NAME>`PATTERN). If the
-regexp has a capture named `time`, this is configurable via `time_key`
-parameter, it is used as the time of the event. You can specify the time
-format using the `time_format` parameter.
+The `regexp` parser plugin parses logs by given regexp pattern. The regexp must
+have at least one named capture (`?<NAME>`PATTERN). If the regexp has a capture
+named `time`, this is configurable via `time_key` parameter, it is used as the
+time of the event. You can specify the time format using the `time_format`
+parameter.
 
 ```
 <parse>
@@ -41,8 +41,8 @@ expression /.../i
 
 #### `m` (multiline)
 
-Build regular expression as a multiline mode. `.` matches newline. See Ruby's
-[Regexp](https://ruby-doc.org/core-2.4.1/Regexp.html#class-Regexp-label-Options).
+Build regular expression as a multiline mode. `.` matches the newline.
+See Ruby's [Regexp](https://ruby-doc.org/core-2.4.1/Regexp.html#class-Regexp-label-Options).
 
 ```
 expression /.../m
@@ -57,11 +57,11 @@ Specifies both `i` and `m`.
 expression /.../im
 ```
 
-`expression` is string type before 1.2.0.
+`expression` is the string type before 1.2.0.
 
 
 ### `ignorecase`
-`
+
 | type | default | version |
 |:-----|:--------|:--------|
 | bool | false   | 0.14.2  |
@@ -77,7 +77,7 @@ Deprecated since 1.2.0. Use `expression /pattern/i` instead.
 |:-----|:--------|:--------|
 | bool | false   | 0.14.2  |
 
-Builds regular expression in multiline mode. `.` matches newline. See Ruby's
+Builds regular expression in multiline mode. `.` matches the newline. See Ruby's
 [Regexp](https://ruby-doc.org/core-2.4.1/Regexp.html#class-Regexp-label-Options).
 Use `m` option with expression.
 
@@ -131,7 +131,7 @@ test your regexp for Fluentd configuration.
 
 NOTE: You may hit Application Error at Fluentular due to
 [heroku's free plan limitation](https://www.heroku.com/pricing).
-Retry a few hours later or use fluentd-ui instead.
+Retry a few hours later or use `fluentd-ui` instead.
 
 
 ------------------------------------------------------------------------

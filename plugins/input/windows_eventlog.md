@@ -37,7 +37,7 @@ basic structure and syntax of the configuration file.
 
 ### Event Example
 
-`in_windows_eventlog` sets corresponding channel to `channel` field.
+`in_windows_eventlog` sets the corresponding channel to the `channel` field.
 
 Here are some generated events:
 
@@ -84,12 +84,14 @@ channels application,system,security
 channels ["application", "system", "security"]
 ```
 
-Default is `["application"]`.
+Default: `["application"]`
 
 
 ### `read_interval`
 
-The interval of reading Windows Event log. Default is `2` seconds.
+The interval of reading the Windows Event log.
+
+Default: `2` seconds
 
 
 ### `<storage>`
@@ -98,8 +100,8 @@ The interval of reading Windows Event log. Default is `2` seconds.
 `in_windows_eventlog` plugin uses storage plugin for recording the
 position it last read from.
 
-The default is using local file. If you want to use on memory storage,
-set `persistent false`.
+By default, the local file is used. If you want to use on memory storage, set
+`persistent false`.
 
 ```
 <storage>
@@ -107,9 +109,9 @@ set `persistent false`.
 </storage>
 ```
 
-If you set `root_dir` in `<section>` and set `@id` in plugin
-configuration, `path` parameter is automatically generated. If not, you
-need to set `path` in `<storage>` section.
+If you set `root_dir` in `<section>` and set `@id` in the plugin configuration,
+the `path` parameter is automatically generated. If not, you need to set `path`
+in `<storage>` section.
 
 ```
 <storage>

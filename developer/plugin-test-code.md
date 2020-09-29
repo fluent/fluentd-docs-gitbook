@@ -104,7 +104,7 @@ end
 
 ## Testing Utility Methods
 
-You can get plugin instance by calling Test Driver instance's `#instance`
+You can get a plugin instance by calling Test Driver instance's `#instance`
 method. If utility methods are `private`, use `__send__`.
 
 ```rb
@@ -183,14 +183,14 @@ end
 
 #### `end_if(&block)`
 
-Registers conditions to stop the running Test Driver accurately.
+Registers the conditions to stop the running Test Driver gracefully.
 
 All registered conditions must be `true` before Test Driver stops.
 
 
 #### `break_if(&block)`
 
-Registers conditions to stop the running Test Driver.
+Registers the conditions to stop the running Test Driver.
 
 Test Driver should stop running if some of the breaking conditions are `true`.
 
@@ -203,16 +203,16 @@ Returns `true` when some of the breaking conditions are `true`. Otherwise
 
 #### `run(timeout: nil, start: true, shutdown: true, &block)`
 
-Run Test Driver. This Test Driver will be stop running immediately after
-evaluating block if block given.
+Runs the Test Driver. This Test Driver will stop running immediately after
+evaluating the `block` if given.
 
-Otherwise, you must register conditions to stop running Test Driver.
+Otherwise, you must register the conditions to stop the running Test Driver.
 
 This method may be overridden in subclasses.
 
 - `timeout`: timeout (seconds)
-- `start`: if `true`, start Test Driver. Otherwise, you should start running
-  Test Driver like `d.instance_start`.
+- `start`: if `true`, start the Test Driver. Otherwise, invoke `instance_start`
+  method to start it.
 - `shutdown`: if `true`, shut down the running Test Driver.
 
 Example:
@@ -268,9 +268,9 @@ This method may be overridden in subclasses.
 - `expect_emits`: set the number of expected emits
 - `expect_records`: set the number of expected records
 - `timeout`: timeout (seconds)
-- `start`: if `true`, start running Test Driver. Otherwise you should start
-  running Test Driver like `d.instance_start`.
-- `shutdown`: if `true`, shut down the running Test Driver
+- `start`: if `true`, start the Test Driver. Otherwise, invoke the
+  `instance_start` method to start it.
+- `shutdown`: if `true`, shut down the running Test Driver.
 
 Example:
 
@@ -294,14 +294,14 @@ d.run(default_tag: 'test', expect_emits: 1, timeout: 10, start: true,  shutdown:
 
 #### `events(tag: nil)`
 
-Returns the events filtered by given tag.
+Returns the events filtered by the given tag.
 
 - `tag`: filter by this tag. If omitted, it returns all the events.
 
 
 #### `event_streams(tag: nil)`
 
-Returns the event streams filtered by given tag.
+Returns the event streams filtered by the given tag.
 
 - `tag`: filter by this tag. If omitted, it returns all the event streams.
 
@@ -310,7 +310,7 @@ Returns the event streams filtered by given tag.
 
 Returns the number of invoking `router.emit`.
 
-If you want to delay the stopping of Test Driver until a certain number of
+If you want to delay the stopping of the Test Driver until a certain number of
 records are emitted, you can use `d.run(expected_records: n)` instead.
 
 Example:
@@ -327,7 +327,7 @@ assert_equal(1, d.emit_count)
 
 Returns the number of records.
 
-If you want to delay the stopping of Test Driver until a certain number of
+If you want to delay the stopping of the Test Driver until a certain number of
 records are emitted, you can use `d.run(expected_records: n)` instead.
 
 
@@ -658,7 +658,7 @@ configuration while processing its `block`.
 This is useful for testing Fluentd's internal behavior related to multi workers.
 
 - `root_dir`: root directory
-- `workers`: number of workers
+- `workers`: the number of workers
 - `worker_id`: ID of workers
 
 Example:
@@ -679,7 +679,7 @@ end
 
 Converts `time` to `String`.
 
-This is useful for testing formatter.
+This is useful for testing the formatter.
 
 - `time`: `Fluent::EventTime` instance. See also
   [`Time.at`](https://docs.ruby-lang.org/en/trunk/Time.html#method-c-at).
@@ -734,9 +734,9 @@ assert_equal('Hello!\n', capture_stdout)
 
 ## Testing Input Plugins
 
-You must test input plugins' `router#emit` method. But you do not have to test
-this method explicitly. Its testing code pattern is encapsulated in the Input
-Test Driver.
+You must test the input plugins' `router#emit` method. But you do not have to
+test this method explicitly. Its testing code pattern is encapsulated in the
+Input Test Driver.
 
 You can write input plugins test like this:
 
@@ -849,7 +849,7 @@ end
 
 ## Testing Parser Plugins
 
-You must test parser plugins' `#parse` method.
+You must test the parser plugins' `#parse` method.
 
 You can write parser plugins test like this:
 
@@ -887,7 +887,7 @@ end
 
 ## Testing Formatter Plugins
 
-You must test formatter plugins' `#format` method.
+You must test the formatter plugins' `#format` method.
 
 You can write formatter plugins test like this:
 

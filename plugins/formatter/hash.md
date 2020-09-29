@@ -1,9 +1,8 @@
-# hash Formatter Plugin
+# `hash` Formatter Plugin
 
-The `hash` formatter plugin converts an event to ruby hash.
+The `hash` formatter plugin converts an event to the Ruby hash.
 
-By default, `hash` formatter result doesn't contain `tag` and `time`
-field.
+By default, `hash` formatter result doesn't contain `tag` and `time` fields.
 
 
 ## Parameters
@@ -12,18 +11,18 @@ field.
 -   [Format section configurations](/configuration/format-section.md)
 
 
-### add\_newline
+### `add_newline`
 
 | type | default | version |
 |:-----|:--------|:--------|
-| bool | true    | 0.14.12 |
+| bool | `true`  | 0.14.12 |
 
-Add `\n` to the result.
+Adds `\n` to the result.
 
 
 ## Example
 
-```
+```text
 tag:    app.event
 time:   1362020400
 record: {"host":"192.168.0.1","size":777,"method":"PUT"}
@@ -31,12 +30,15 @@ record: {"host":"192.168.0.1","size":777,"method":"PUT"}
 
 This incoming event is formatted to:
 
-```
+```rb
 {"host"=>"192.168.0.1","size"=>777,"method"=>"PUT"}
 ```
 
 
 ------------------------------------------------------------------------
 
-If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open).
-[Fluentd](http://www.fluentd.org/) is a open source project under [Cloud Native Computing Foundation (CNCF)](https://cncf.io/). All components are available under the Apache 2 License.
+If this article is incorrect or outdated, or omits critical information, please
+[let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open).
+[Fluentd](http://www.fluentd.org/) is an open-source project under
+[Cloud Native Computing Foundation (CNCF)](https://cncf.io/). All components are
+available under the Apache 2 License.

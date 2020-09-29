@@ -5,7 +5,7 @@
 The `out_secondary_file` Output plugin writes chunks to files. This plugin is
 similar to `out_file` but this is for `<secondary>` use-case.
 
-NOTE: Do not use this plugin for primary plugin.
+NOTE: Do not use this plugin for the primary plugin.
 
 `out_secondary_file` is included in Fluentd's core.
 
@@ -69,7 +69,7 @@ Received buffer chunks are saved in this directory.
 | string | dump.bin   | 1.0.0   |
 
 The basename of the output file.
-You can use `${chunk_id}` placeholder to identify original chunk.
+You can use `${chunk_id}` placeholder to identify the original chunk.
 
 ```
 <secondary>
@@ -93,8 +93,8 @@ The output path would be:
 |:-----|:--------|:--------|
 | bool | false   | 1.0.0   |
 
-The received chunk is appended to existing file or not. The default is not
-appended. By default, `out_secondary_file` flushes each chunk to different path:
+Determines that the received chunk is appended to an existing file or not. By
+default, it is not appended and each chunk is flushed to a different path:
 
 ```
 # append false

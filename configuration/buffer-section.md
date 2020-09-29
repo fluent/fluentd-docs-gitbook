@@ -6,7 +6,7 @@ of events. The buffering is handled by the Fluentd core.
 
 ## Buffer Section Overview
 
-Buffer section comes under `<match>` section. It is enabled for those output
+Buffer section comes under the `<match>` section. It is enabled for those output
 plugins that support buffered output features.
 
 ```
@@ -42,7 +42,7 @@ Third-party plugins may also be installed and configured.
 
 However, the `@type` parameter is not mandatory. If omitted, by default, the
 buffer plugin specified by the output plugin is used (if possible). Otherwise,
-`memory` buffer plugin is used.
+the `memory` buffer plugin is used.
 
 For the usual workload, the file buffer plugin is recommended. It is more
 durable for the general use-cases.
@@ -130,7 +130,7 @@ For example:
   "13:59:59"]`, ...
 
 The events will be grouped into chunks by their time range. They will be flushed
-by the output plugin after expiration of the time key range.
+by the output plugin after the expiration of the time key range.
 
 ```
 <match tag.**>
@@ -324,8 +324,8 @@ Same with chunk keys:
 
 ### Argument
 
-Argument is an array of chunk keys that must be a list of comma-separated
-strings. It can also be left as blank.
+It is an array of chunk keys that must be a list of comma-separated strings. It
+can also be left blank.
 
 ```
 <buffer> # blank

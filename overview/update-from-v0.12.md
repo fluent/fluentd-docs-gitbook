@@ -22,9 +22,9 @@ $ gem install fluentd
 
 ## Configuration Style
 
-The configuration style is same but Fluentd v1 adds several sections for
-core features. For example, v1 uses `<buffer>` section for output's
-buffer parameters:
+The configuration style is the same but Fluentd v1 adds several sections for the
+core features. For example, v1 uses `<buffer>` section for output's buffer
+parameters:
 
 ### v1
 
@@ -57,11 +57,11 @@ buffer parameters:
 ```
 
 This separates configuration parameters into fluentd core features and
-plugin-specific features. See "Configuration" panel in the left menu for
+plugin-specific features. See the "Configuration" panel on the left menu for
 details on each section.
 
 Note that Fluentd v1 automatically converts v0.12 style into v1.0 style during
-startup phase, so you can reuse v0.12 configuration with v1. See
+the startup phase, so you can reuse v0.12 configuration with v1. See
 [`compat_parameters`](/developer/api-plugin-helper-compat_parameters.md) for a
 side-by-side listing of v1 and v0.12 parameters. Of course, v1 configuration is
 better for using full v1 API features.
@@ -69,21 +69,21 @@ better for using full v1 API features.
 
 ## Plugin Version
 
-Some popular plugins have already used new v1 plugin API. v1 API based plugins
-support useful features like flexible chunk keys, placeholders and etc. So we
-recommend to use the latest plugins for Fluentd v1.
+Some popular plugins have already used the new v1 plugin API. v1 API based
+plugins support useful features like flexible chunk keys, placeholders, etc. So
+we recommend using the latest plugins for Fluentd v1.
 
-Fluentd v1 supports old v0.12 plugin API so you can use older plugins
-with v1 without code update.
+Fluentd v1 supports old v0.12 plugin API so you can use older plugins with v1
+without code update.
 
 
 ## Treasure Agent (`td-agent`)
 
-td-agent 3 includes Fluentd v1 series. If you want to use fluentd v1
-with td-agent package, use td-agent 3 instead of td-agent 2.
+`td-agent` 3 includes Fluentd v1 series. If you want to use fluentd v1
+with `td-agent` package, use td-agent 3 instead of `td-agent` 2.
 
-You can upgrade td-agent 2 to 3 by executing install script for td-agent
-3 when you use deb/rpm package.
+You can upgrade td-agent 2 to 3 by executing install script for `td-agent` 3
+when you use `deb`/`rpm` package.
 
 For more details about install script, see the following articles:
 
@@ -93,8 +93,8 @@ For more details about install script, see the following articles:
 And then you must reinstall gem packages that you've ever used with
 td-agent 2.
 
-You should update your td-agent.conf to use Fluentd v1 configuration as soon as
-possible. For more details see [Configuration style](#configuration-style).
+You should update your `td-agent.conf` to use Fluentd v1 configuration as soon as
+possible. For more details, see [Configuration style](#configuration-style).
 
 
 ## Operation
@@ -102,10 +102,10 @@ possible. For more details see [Configuration style](#configuration-style).
 
 ### Buffer File Changes
 
-Fluentd v1 changes buffer mechanism for the flexibility. New buffer consists of
-buffer content and metadata. v0.12 buffer does not have metadata so new
+Fluentd v1 changes buffer mechanism for flexibility. The new buffer consists of
+buffer content and metadata. v0.12 buffer does not have metadata so the new
 API-based plugin cannot handle old buffer files. You need to flush the existing
-buffer files before updating fluentd.
+buffer files before updating the fluentd.
 
 
 ### Log Forwarding from v1.0 to v0.12

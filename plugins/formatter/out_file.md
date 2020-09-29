@@ -1,9 +1,9 @@
-# out\_file Formatter Plugin
+# `out_file` Formatter Plugin
 
 The `out_file` formatter plugin outputs time, tag and json record
 separated by a delimiter.
 
-```
+```text
 time[delimiter]tag[delimiter]record\n
 ```
 
@@ -16,54 +16,56 @@ This format is a default format of `out_file` plugin.
 -   [Format section configurations](/configuration/format-section.md)
 
 
-### delimiter
+### `delimiter`
 
 | type   | default    | version |
 |:-------|:-----------|:--------|
-| string | "\\t"(TAB) | 0.14.0  |
+| string | `\t` (TAB) | 0.14.0  |
 
-Delimiter for each field. "SPACE"(' ') and "COMMA"(',') are supported.
+Delimiter for each field.
 
-
-### output\_tag
-
-| type | default | version |
-|:-----|:--------|:--------|
-| bool | true    | 0.14.0  |
-
-Output tag field if true,
+Supported: SPACE (`' '`) and COMMA (`','`)
 
 
-### output\_time
+### `output_tag`
 
 | type | default | version |
 |:-----|:--------|:--------|
 | bool | true    | 0.14.0  |
 
-Output time field if true,
+Output tag field if `true`.
 
 
-### time\_type
+### `output_time`
+
+| type | default | version |
+|:-----|:--------|:--------|
+| bool | true    | 0.14.0  |
+
+Output time field if `true`.
+
+
+### `time_type`
 
 | type | default | version |
 |:-----|:--------|:--------|
 | enum | string  | 0.14.7  |
 
-Overwrite default value in this plugin.
+Overwrites the default value in this plugin.
 
 
-### time\_format
+### `time_format`
 
 | type   | default      | version |
 |:-------|:-------------|:--------|
 | string | nil(iso8601) | 0.14.7  |
 
-Overwrite default value in this plugin.
+Overwrites the default value in this plugin.
 
 
 ## Example
 
-```
+```text
 tag:    app.event
 time:   1362020400t
 record: {"host":"192.168.0.1","size":777,"method":"PUT"}
@@ -71,12 +73,15 @@ record: {"host":"192.168.0.1","size":777,"method":"PUT"}
 
 This incoming event is formatted to:
 
-```
+```text
 2013-02-28T12:00:00+09:00\tapp.event\t{"host":"192.168.0.1","size":777,"method":"PUT"}
 ```
 
 
 ------------------------------------------------------------------------
 
-If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open).
-[Fluentd](http://www.fluentd.org/) is a open source project under [Cloud Native Computing Foundation (CNCF)](https://cncf.io/). All components are available under the Apache 2 License.
+If this article is incorrect or outdated, or omits critical information, please
+[let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open).
+[Fluentd](http://www.fluentd.org/) is an open-source project under
+[Cloud Native Computing Foundation (CNCF)](https://cncf.io/). All components are
+available under the Apache 2 License.

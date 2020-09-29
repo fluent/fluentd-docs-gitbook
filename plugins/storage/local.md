@@ -9,7 +9,7 @@ storage.
 
 ### `path`
 
-Specifies the path name to save key-value pair. (default: `nil`)
+Specifies the pathname to save the key-value pair. (default: `nil`)
 
 
 ### `mode`
@@ -24,7 +24,7 @@ Specifies the directory access mode. (default: `0755`)
 
 ### `pretty_print`
 
-Output human readable formatted JSON. (default: `false`)
+Outputs the human-readable formatted JSON. (default: `false`)
 
 
 ## Attributes
@@ -34,7 +34,7 @@ Output human readable formatted JSON. (default: `false`)
 
 Note that `conf.arg` provides an alternative `path` parameter.
 
-```
+```text
 <storage awesome_path>
   @type local
 </storage>
@@ -47,8 +47,8 @@ Note that `conf.arg` provides an alternative `path` parameter.
 The above configuration will save the internal states, which are handled by
 `storage_local` under `tmp` directory.
 
-NOTE: Specifying filepath in `path` parameter does not support multi workers
-feature. Instead, you should specify directory there.
+NOTE: Specifying the file path in the `path` parameter does not support the
+multi-workers feature. Instead, you should specify a directory there.
 
 
 ------------------------------------------------------------------------
