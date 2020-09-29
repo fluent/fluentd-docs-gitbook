@@ -95,7 +95,9 @@ The destination servers. Each server has the following parameters:
 -   `password`
 -   `standby`
 -   `weight`
- 
+
+If you want to manage destination servers by flexible approach, use `<service_discovery>` instead.
+
 #### `host`
 
 | type   | default            | version |
@@ -194,6 +196,20 @@ The load balancing weight. If the weight of one server is 20 and the
 weight of the other server is 30, events are sent in a 2:3 ratio. The
 default weight is 60.
 
+### `<service_discovery>`
+
+Use service discovery plugin instead of fixed `<server>` list. See also [Service Discovery Plugin Overview](/plugins/service_discovery/README.md) for more details.
+
+```
+<match pattern>
+  @type forward
+
+  <service_discovery>
+    @type file
+    path /path/to/servers.yaml
+  </service_discovery>
+</source>
+```
 
 ### `require_ack_response`
 
