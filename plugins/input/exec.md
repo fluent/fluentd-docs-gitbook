@@ -87,6 +87,19 @@ command script runs only once.
 
 The default block size to read if parser requires partial read.
 
+### `connect_mode`
+
+| type | default | available values     | version |
+|:-----|:--------|:---------------------|:--------|
+| enum | `read` | `read`/`read_with_stderr` | 1.11.3 |
+
+Control target IO:
+
+- `read`: Read logs from stdio
+- `read_with_stderr`: Read logs from stdio and stderr.
+
+`read_with_stderr` is mainly for debug.
+
 
 ### `<parse>` section
 
