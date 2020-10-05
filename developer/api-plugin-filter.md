@@ -48,7 +48,7 @@ end
 
 ## Methods
 
-A filter plugin overrides the `filter` method.
+A filter plugin overrides the one of `filter`/`filter_with_time`/`filter_steam` method.
 
 
 #### `#filter(tag, time, record)`
@@ -62,6 +62,58 @@ This method implements the filtering logic.
 The return value of this method should be a `Hash` of modified record, or `nil`.
 If it is `nil`, the event will be discarded.
 
+```
+# example
+def filter(tag, time, record)
+  # process record
+  record['fluentd_tag'] = tag
+  record
+end
+```
+
+#### `#filter_with_time(tag, time, record)`
+
+This method implements the filtering logic with time update. Event time will be replaced with the return value.
+
+- `tag`: is a `String`,
+- `time` is a `Fluent::EventTime` or an `Integer`; and,
+- `record` is a `Hash` with String keys.
+
+The return value of this method should be two element array, `[new_time, new_record]` , or `nil`.
+If it is `nil`, the event will be discarded.
+
+```
+# example
+def filter_with_time(tag, time, record)
+  new_time = get_time_from_record(record)
+  new_record = update_record(tag, record)
+  return new_time, new_record  # this is same with return [new_time, new_record]
+end
+```
+
+#### `#filter_steam(tag, es)`
+
+This method implements the event stream based filtering logic.
+If you hard to implement the logic with `filter`, e.g. need to handle multiple records in one processing, use this method.
+
+- `tag`: is a `String`,
+- `es` is a `Fluent::EventStream` classes. See [EventStream code](https://github.com/fluent/fluentd/blob/master/lib/fluent/event.rb)
+
+The return value of this method should be `MultiEventStream`.
+If it is `nil`, the event will be discarded.
+
+```
+# example
+def filter_stream(tag, es)
+  new_es = Fluent::MultiEventStream.new
+  es.each { |time, record|
+    new_time = process_time(tag, time, record)
+    new_record = process_record(tag, time, record)
+    new_es.add(time, record)
+  }
+  new_es
+end
+```
 
 ## Writing Tests
 
