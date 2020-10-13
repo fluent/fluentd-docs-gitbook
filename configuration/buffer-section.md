@@ -463,8 +463,10 @@ Following are the flushing parameters for chunks to optimize performance
     -   Default: `throw_exception`
     -   How does output plugin behave when its buffer queue is full?
         -   `throw_exception`: raises an exception to show the error in log
-        -   `block`: blocks processing of input plugin to emit events into that
-            buffer
+        -   `block`: wait until buffer can store more data.
+             After buffer is ready for storing more data, writing buffer is retried.
+             Because of such behavior, `block` is suitable for processing batch execution,
+             so do not use for improving processing throughput or performance.
         -   `drop_oldest_chunk`: drops/purges the oldest chunk to accept newly
             incoming chunk
 
