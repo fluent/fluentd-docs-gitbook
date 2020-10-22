@@ -30,6 +30,14 @@ Adds `\n` to the result. If there is a trailing `\n` already, set it `false`.
 
 The value of this field is outputted.
 
+### `newline`
+
+| type | default                                         | version |
+|:-----|:------------------------------------------------|:--------|
+| enum | `lf (for non-Windows)` or `crlf (for Windows)`  | 1.11.5  |
+
+
+Specify newline characters.
 
 ## Example
 

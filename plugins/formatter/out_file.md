@@ -62,6 +62,14 @@ Overwrites the default value in this plugin.
 
 Overwrites the default value in this plugin.
 
+### `newline`
+
+| type | default                                         | version |
+|:-----|:------------------------------------------------|:--------|
+| enum | `lf (for non-Windows)` or `crlf (for Windows)`  | 1.11.5  |
+
+
+Specify newline characters.
 
 ## Example
 
