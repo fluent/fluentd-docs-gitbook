@@ -49,8 +49,16 @@ record: {"message":"Hello from Fluentd!"}
 
 This incoming event is formatted to:
 
+In non-Windows:
+
 ```text
 Hello from Fluentd!\n
+```
+
+In Windows:
+
+```text
+Hello from Fluentd!\r\n
 ```
 
 

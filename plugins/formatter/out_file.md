@@ -4,7 +4,7 @@ The `out_file` formatter plugin outputs time, tag and json record
 separated by a delimiter.
 
 ```text
-time[delimiter]tag[delimiter]record\n
+time[delimiter]tag[delimiter]record[newline]
 ```
 
 This format is a default format of `out_file` plugin.
