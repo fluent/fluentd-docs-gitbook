@@ -77,6 +77,10 @@ Here is an example to read Nginx access logs using `in_tail` and `parser_nginx`:
 
     For protocol buffers.
 
+-   [`avro`](https://github.com/fluent-plugins-nursery/fluent-plugin-parser-avro)
+
+    For Apache Avro.
+
 
 ## List of Core Input Plugins with Parser support
 
