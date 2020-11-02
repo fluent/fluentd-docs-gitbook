@@ -73,11 +73,12 @@ record_accessor_create("$.key1.key2")
 record_accessor_create("$['key1'][0]['key2']")
 ```
 
-After creating an object, call `call`/`delete` method with the record object.
+After creating an object, call `call`/`delete`/`set` method with the record object.
 
 ```rb
-accessor.call(record)   # get record field
-accessor.delete(record) # delete record field
+accessor.call(record)       # get record field
+accessor.delete(record)     # delete record field
+accessor.set(record, value) # set new value to record field
 ```
 
 
