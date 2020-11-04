@@ -78,6 +78,17 @@ See also: [Lifecycle of a Fluentd event](/overview/life-of-a-fluentd-event.md) o
 
 `file` buffer has limitations. Check [buf_file article](/plugins/buffer/file.md#limitation).
 
+### fluentd raises an `tzinfo` conflict error after installed plugins
+
+Fluentd supports tzinfo v1.1 or later and recent td-agent / official images install tzinfo v2 by default.
+The problem is several plugins depend on ActiveSupport and ActiveSuppot doesn't support tzinfo v2.
+To resolve this problem, there are 2 approaches.
+
+- Uninstall tzinfo v2 and install tzinfo v1.1 manually
+- Update plugin to remove ActiveSupport dependency. ActiveSupport is mainly for Ruby on Rails,
+  so using ActiveSupport for several convenient methods is overengineering.
+
+Former is easier approach.
 
 ### I got encoding error inside the plugin. How to fix it?
 
