@@ -19,17 +19,6 @@ No difference. v1 is built on top of v0.14. Use v1 for a newer
 installation. We use v1 or v1.x on our document.
 
 
-## Known Issue
-
-
-### `Zlib::DataError` happens when Output plugin uses gzip compression!
-
-This is caused by thread handling mismatch between output thread and the gzip
-library. The output plugin's retry mechanism automatically recovers this error.
-
-Fluentd v1.3 has already fixed this problem.
-
-
 ## Operations
 
 
