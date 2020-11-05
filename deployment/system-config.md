@@ -65,6 +65,8 @@ Specifies the time value of the emitting of error log interval.
 
 Specify interval to ignore repeated log/stacktrace messages.
 
+See also [Logging article](/deployment/logging.md#ignore_repeated_log_interval).
+
 ### `ignore_same_log_interval`
 
 | type | default | version |
@@ -72,6 +74,8 @@ Specify interval to ignore repeated log/stacktrace messages.
 | time | nil     | 1.11.3  |
 
 Specify interval to ignore same log/stacktrace messages.
+
+See also [Logging article](/deployment/logging.md#ignore_same_log_interval).
 
 ### `suppress_config_dump`
 

@@ -141,9 +141,11 @@ Under high loaded environment, output destination sometimes becomes unstable and
 
 ### `ignore_same_log_interval`
 
+```
 <system>
   ignore_same_log_interval 60s
 </system>
+```
 
 This is similar to `ignore_repeated_log_inteval` but covers more usecases. For example, if the plugin generates several log messages in one action, logs are not repeated:
 
