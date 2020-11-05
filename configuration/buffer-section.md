@@ -167,7 +167,6 @@ sample `timekey_wait` values:
   12:00:00 - 12:59:59 |   600s (10m) |          13:10:00
 ```
 
-
 ### Other Keys
 
 The other (non-time/non-tag) keys are handled as the field names of records. The
@@ -303,6 +302,29 @@ keys is referenced, Fluentd raises configuration errors.
 </match>
 ```
 
+### Chunk ID
+
+`${chunk_id}` will be replaced with internal chunk id. No need to specify `chunk_id` in chunk keys.
+
+```
+<match test.**>
+  @type file
+  path /path/to/app_${tag}_${chunk_id}
+  append true
+  <buffer tag>
+    flush_interval 5s
+  </buffer>
+</match>
+```
+
+The result with `test.foo` tag is like below:
+
+```
+# 5b35967b2d6c93cb19735b7f7d19100c is chunk id
+/path/to/app_test.foo_5b35967b2d6c93cb19735b7f7d19100c.log
+```
+
+This placeholder is useful for identifying chunks, e.g. `secondary_file`, `s3` and more.
 
 ### Nested Field Support
 
