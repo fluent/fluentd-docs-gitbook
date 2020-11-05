@@ -129,7 +129,7 @@ $ sudo mkdir /var/run/fluentd
 $ sudo chown `whoami` /var/run/fluentd
 ```
 
-Then, run as ordinal user:
+Then, run as ordinal user with `cap_dac_read_search` capability attached Ruby:
 
 ```console
 $ bundle exec fluentd -c in_tail_camouflage_permission.conf
