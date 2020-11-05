@@ -122,6 +122,42 @@ is changed to:
 {"time":"2017-07-27","level":"info","message":"fluentd worker is now running worker=0","worker_id":0}
 ```
 
+## Suppress log/stacktrace messages
+
+Fluentd provides two parameters to suppress log/stacktrace messages
+
+- `ignore_repeated_log_interval` (since v1.10.2)
+- `ignore_same_log_interval` (since v1.11.3)
+
+### `ignore_repeated_log_interval`
+
+```
+<system>
+  ignore_repeated_log_interval 60s
+</system>
+```
+
+Under high loaded environment, output destination sometimes becomes unstable and it causes lots of same log message. This parameter mitigates such situation.
+
+### `ignore_same_log_interval`
+
+<system>
+  ignore_same_log_interval 60s
+</system>
+
+This is similar to `ignore_repeated_log_inteval` but covers more usecases. For example, if the plugin generates several log messages in one action, logs are not repeated:
+
+```
+# Retry generates several type messages. ignore_repeated_log_interval can't suppress these messages
+def write(chunk)
+  # process 1...
+  log.error "message1"
+  # process 2...
+  log.error "message2"
+end
+```
+
+`ignore_same_log_interval` resolves these cases.
 
 ## Output to Log File
 

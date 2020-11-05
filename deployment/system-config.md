@@ -57,6 +57,21 @@ Suppresses the repeated stacktrace.
 
 Specifies the time value of the emitting of error log interval.
 
+### `ignore_repeated_log_interval`
+
+| type | default | version |
+|:-----|:--------|:--------|
+| time | nil     | 1.10.2  |
+
+Specify interval to ignore repeated log/stacktrace messages.
+
+### `ignore_same_log_interval`
+
+| type | default | version |
+|:-----|:--------|:--------|
+| time | nil     | 1.11.3  |
+
+Specify interval to ignore same log/stacktrace messages.
 
 ### `suppress_config_dump`
 
