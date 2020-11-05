@@ -78,7 +78,7 @@ file                 capabilities
 
 ### Actual Example for Linux capability handling in in_tail
 
-When adding `cap_dac_override` (partial privilegies for rw file) and `cap_dac_read_search` (partial privilegies for read only), Fluentd/td-agent can handle to read 640 permission files such as `/var/log/syslog`:
+When adding `cap_dac_override` (partial privileges for rw file) and `cap_dac_read_search` (partial privileges for read only), Fluentd/td-agent can handle to read 640 permission files such as `/var/log/syslog`:
 
 ```console
 $ ls -lh /var/log/syslog
