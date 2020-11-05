@@ -11,6 +11,12 @@ This article shows configuration and dependent gem installation instruction for 
 * Ruby and its development packages
   * ruby-dev on Debian GNU/Linux and Ubuntu
   * ruby-devel on CentOS 7/8, Fedora 33, AmazonLinux 2
+* `setcap` command
+  * libcap2-bin on Debian GNU/Linux and Ubuntu
+  * libcap on CentOS 7/8, Fedora 33, AmazonLinux 2
+* `filecap` command
+  * libcap-ng-utils on Debian GNU/Linux and Ubuntu
+  * libcap-ng-utils on CentOS 7/8, Fedora 33, AmazonLinux 2
 
 ## Install capability handling gem
 
