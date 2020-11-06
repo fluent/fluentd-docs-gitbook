@@ -1,10 +1,10 @@
-# `single_value` Formatter Plugin
+# `tsv` Formatter Plugin
 
-The `single_value` formatter plugin output the value of a single field instead
-of the whole record.
+The `tsv` formatter plugin converts an event as TSV.
 
-This formatter is often used in conjunction with
-[`none` parser](/plugins/parser/none.md) in input plugin.
+```text
+value1[delimiter]value2[newline]
+```
 
 
 ## Parameters
@@ -12,23 +12,29 @@ This formatter is often used in conjunction with
 -   [Common Parameters](/configuration/plugin-common-parameters.md)
 -   [Format section configurations](/configuration/format-section.md)
 
+### `keys`
+
+| type            | default  | version |
+|:----------------|:---------|:--------|
+| array of string | `nil`    | 0.14.0  |
+
+Specifies the output fields. It is a required parameter.
+
+### `delimiter`
+
+| type   | default    | version |
+|:-------|:-----------|:--------|
+| string | `\t` (TAB) | 0.14.0  |
+
+Delimiter for the fields.
 
 ### `add_newline`
 
 | type | default | version |
 |:-----|:--------|:--------|
-| bool | `true`  | 0.14.0  |
+| bool | `true`  | 0.14.12 |
 
-Adds `\n` to the result. If there is a trailing `\n` already, set it `false`.
-
-
-### `message_key`
-
-| type   | default | version |
-|:-------|:--------|:--------|
-| string | message | 0.14.0  |
-
-The value of this field is outputted.
+Adds `\n` to the result.
 
 ### `newline`
 
@@ -44,7 +50,7 @@ Specify newline characters.
 ```text
 tag:    app.event
 time:   1362020400
-record: {"message":"Hello from Fluentd!"}
+record: {"host":"192.168.0.1","size":777,"method":"PUT"}
 ```
 
 This incoming event is formatted to:
@@ -52,15 +58,14 @@ This incoming event is formatted to:
 In non-Windows:
 
 ```text
-Hello from Fluentd!\n
+192.168.0.1\t777\tPUT\n
 ```
 
-In Windows:
+In non-Windows:
 
 ```text
-Hello from Fluentd!\r\n
+192.168.0.1\t777\tPUT\r\n
 ```
-
 
 ------------------------------------------------------------------------
 

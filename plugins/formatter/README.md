@@ -67,6 +67,7 @@ how to develop a custom formatter.
 -   [`msgpack`](/plugins/formatter/msgpack.md)
 -   [`hash`](/plugins/formatter/hash.md)
 -   [`single_value`](/plugins/formatter/single_value.md)
+-   [`tsv`](/plugins/formatter/tsv.md)
 
 
 ## List of Output/Filter Plugins with Formatter Support

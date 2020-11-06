@@ -4,7 +4,7 @@ The `out_file` formatter plugin outputs time, tag and json record
 separated by a delimiter.
 
 ```text
-time[delimiter]tag[delimiter]record\n
+time[delimiter]tag[delimiter]record[newline]
 ```
 
 This format is a default format of `out_file` plugin.
@@ -62,6 +62,14 @@ Overwrites the default value in this plugin.
 
 Overwrites the default value in this plugin.
 
+### `newline`
+
+| type | default                                         | version |
+|:-----|:------------------------------------------------|:--------|
+| enum | `lf (for non-Windows)` or `crlf (for Windows)`  | 1.11.5  |
+
+
+Specify newline characters.
 
 ## Example
 

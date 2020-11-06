@@ -3,7 +3,7 @@
 The `ltsv` formatter plugin output an event as [LTSV](http://ltsv.org).
 
 ```text
-field1[label_delimiter]value1[delimiter]field2[label_delimiter]value2\n
+field1[label_delimiter]value1[delimiter]field2[label_delimiter]value2[newline]
 ```
 
 
@@ -39,6 +39,14 @@ Delimiter for the key-value field.
 
 Adds `\n` to the result.
 
+### `newline`
+
+| type | default                                         | version |
+|:-----|:------------------------------------------------|:--------|
+| enum | `lf (for non-Windows)` or `crlf (for Windows)`  | 1.11.5  |
+
+
+Specify newline characters.
 
 ## Example
 
@@ -50,8 +58,16 @@ record: {"host":"192.168.0.1","size":777,"method":"PUT"}
 
 This incoming event is formatted to:
 
+In non-Windows:
+
 ```text
 host:192.168.0.1\tsize:777\tmethod:PUT\n
+```
+
+In Windows:
+
+```text
+host:192.168.0.1\tsize:777\tmethod:PUT\r\n
 ```
 
 

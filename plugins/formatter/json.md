@@ -19,6 +19,14 @@ By default, `json` formatter result doesn't contain `tag` and `time` fields.
 
 Adds `\n` to the result.
 
+### `newline`
+
+| type | default                                         | version |
+|:-----|:------------------------------------------------|:--------|
+| enum | `lf (for non-Windows)` or `crlf (for Windows)`  | 1.11.5  |
+
+
+Specify newline characters.
 
 ## Example
 
