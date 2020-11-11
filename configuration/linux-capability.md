@@ -40,6 +40,8 @@ Or install it yourself as for td-agent:
 
     $ td-agent-gem install capng_c
 
+**Note:** capng_c uses `pkg-config` to link libcap-ng library. If you couldn't handle Linux capability with capng_c installation, please confirm `pgk-config` package is installed on your box.
+
 ## Capability handling on in_tail
 
 Currently, `in_tail` which is the one of the Fluentd core plugin handles the following Linux capabilities:
