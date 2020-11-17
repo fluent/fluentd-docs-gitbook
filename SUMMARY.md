@@ -34,7 +34,7 @@
   * [Signals](/deployment/signals.md)
   * [RPC](/deployment/rpc.md)
   * [High Availability Config](/deployment/high-availability.md)
-  * [Performance Turning](/deployment/performance-tuning-single-process.md)
+  * [Performance Tuning](/deployment/performance-tuning-single-process.md)
   * [Multi Process Workers](/deployment/multi-process-workers.md)
   * [Failure Scenarios](/deployment/failure-scenarios.md)
   * [Plugin Management](/deployment/plugin-management.md)
