@@ -4,6 +4,7 @@ This article shows configuration and dependent gem installation instruction for 
 
 ## Prerequisites
 
+* gcc and make etc. for building C extension sources
 * libcap-ng package and its depelopment package
   * libcap-ng-dev on Debian GNU/Linux and Ubuntu
   * libcap-ng-devel on CentOS 7/8, Fedora 33, AmazonLinux 2
