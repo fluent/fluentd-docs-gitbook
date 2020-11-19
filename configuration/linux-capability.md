@@ -138,7 +138,7 @@ Then, run as ordinal user with `cap_dac_read_search` capability attached Ruby:
 ```console
 $ bundle exec fluentd -c in_tail_camouflage_permission.conf
 2020-11-05 14:47:57 +0900 [info]: parsing config file is succeeded path="example/in_tail.conf"
-2020-11-05 14:47:57 +0900 [info]: gem 'fluentd' version '1.11.4'
+2020-11-05 14:47:57 +0900 [info]: gem 'fluentd' version '1.12.0'
 2020-11-05 14:47:57 +0900 [info]: gem 'fluent-plugin-systemd' version '1.0.2'
 2020-11-05 14:47:57 +0900 [info]: using configuration file: <ROOT>
   <source>
@@ -158,7 +158,7 @@ $ bundle exec fluentd -c in_tail_camouflage_permission.conf
     @type stdout
   </match>
 </ROOT>
-2020-11-05 14:47:57 +0900 [info]: starting fluentd-1.11.4 pid=12109 ruby="2.6.3"
+2020-11-05 14:47:57 +0900 [info]: starting fluentd-1.12.0 pid=12109 ruby="2.6.3"
 2020-11-05 14:47:57 +0900 [info]: spawn command to main:  cmdline=["/home/fluentd/.rbenv/versions/2.6.3/bin/ruby", "-rbundler/setup", "-Eascii-8bit:ascii-8bit", "/home/fluentd/work/fluentd/vendor/bundle/ruby/2.6.0/bin/fluentd", "-c", "example/in_tail.conf", "--under-supervisor"]
 2020-11-05 14:47:58 +0900 [info]: adding match pattern="test" type="stdout"
 2020-11-05 14:47:58 +0900 [info]: adding source type="tail"
