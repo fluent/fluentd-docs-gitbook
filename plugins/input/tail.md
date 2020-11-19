@@ -52,6 +52,14 @@ restart. This position is recorded in the position file specified by the
 
 See [Common Parameters](/configuration/plugin-common-parameters.md).
 
+## Linux Capability
+
+Currently, `in_tail` handles the following Linux cababilities if Fluentd's Linux capability handling module is enabled:
+
+* `CAP_DAC_READ_SEARCH` (`:dac_read_search` on `in_tail` code.)
+* `CAP_DAC_OVERRIDE` (`:dac_override` on `in_tail` code.)
+
+See also: [Linux capability](configuration/linux-capability.md)
 
 ### `@type` (required)
 
