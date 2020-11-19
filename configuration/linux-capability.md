@@ -18,6 +18,7 @@ This article shows configuration and dependent gem installation instruction for 
 * `filecap` command
   * libcap-ng-utils on Debian GNU/Linux and Ubuntu
   * libcap-ng-utils on CentOS 7/8, Fedora 33, AmazonLinux 2
+* Fluentd v1.12 or later
 
 ## Install capability handling gem
 
