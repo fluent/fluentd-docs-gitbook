@@ -55,7 +55,8 @@ endpoint https://example.com/api
 ```
 
 The `endpoint` parameter supports placeholders, so you can embed time, tag and
-record fields in the endpoint. Here is an example:
+record fields in the endpoint. Placeholders also require the buffer section in order to work.
+Here is an example:
 
 ```
 endpoint http://example.com/api/${tag}-${key}
