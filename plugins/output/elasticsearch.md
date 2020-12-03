@@ -3,10 +3,10 @@
 ![](/images/plugins/output/elasticsearch.png)
 
 The `out_elasticsearch` Output plugin writes records into Elasticsearch. By
-default, it creates records by bulk write operation. This means that when you
-first import records using the plugin, no record is created immediately.
+default, it creates records using [bulk api](https://www.elastic.co/guide/en/elasticsearch/reference/current/docs-bulk.html) which performs multiple indexing operations in a single API call. This reduces overhead and can greatly increase indexing speed. This means that when you
+first import records using the plugin, records are not immediately pushed to Elasticsearch.
 
-The record will be created when the `chunk_keys` condition has been met. To
+Records will be sent to Elasticsearch when the `chunk_keys` condition has been met. To
 change the output frequency, please specify the `time` in `chunk_keys` and
 specify `timekey` value in the configuration.
 
@@ -128,6 +128,8 @@ specify timekey for time slice of chunk:
   timekey 1h # chunks per hours ("3600" also available)
 </buffer>
 ```
+
+For more information about buffer options checkout the [Buffer Section Configuration](/configuration/buffer-section.md).
 
 
 ### `logstash_format` (optional)
