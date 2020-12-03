@@ -113,6 +113,18 @@ behavior, you can disable it by setting `append true`:
 dump.bin
 ```
 
+## How to resend secondary file
+
+The secondary file can be resend by `fluent-cat` command.
+
+Here is the example to resend `dump.bin.0` to `127.0.0.1:24224` using `fluent-cat`.
+
+```
+$ cat /path/to/dump.bin.0 | fluent-cat --format msgpack  --host 127.0.0.1 --port 24224 TAG
+```
+
+See [fluent-cat](/deployment/command-line-option.html#fluent-cat) command line option about details.
+
 ------------------------------------------------------------------------
 
 If this article is incorrect or outdated, or omits critical information, please
