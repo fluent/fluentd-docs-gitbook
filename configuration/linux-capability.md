@@ -12,12 +12,6 @@ This article shows configuration and dependent gem installation instruction for 
 * Ruby and its development packages
   * ruby-dev on Debian GNU/Linux and Ubuntu
   * ruby-devel on CentOS 7/8, Fedora 33, AmazonLinux 2
-* `setcap` command
-  * libcap2-bin on Debian GNU/Linux and Ubuntu
-  * libcap on CentOS 7/8, Fedora 33, AmazonLinux 2
-* `filecap` command
-  * libcap-ng-utils on Debian GNU/Linux and Ubuntu
-  * libcap-ng-utils on CentOS 7/8, Fedora 33, AmazonLinux 2
 * Fluentd v1.12 or later
 
 ## Install capability handling gem
@@ -56,28 +50,30 @@ Set up `cap_dac_read_search` or `cap_dac_override` to using Ruby executable:
 ### Using CAP_DAC_READ_SEARCH
 
 ```console
-$ sudo setcap cap_dac_read_search=+eip /path/to/bin/ruby
+$ sudo fluent-cap-ctl --add dac_read_search [-f /path/to/bin/ruby]
+Updating dac_read_search done.
+Adding dac_read_search done.
 ```
 
 ### Using CAP_DAC_OVERRIDE
 
 ```console
-$ sudo setcap cap_dac_override=+eip /path/to/bin/ruby
-```
-
-**Note:** Under rbenv environment, `which ruby` returns shell script wrapper. If users want to set capability on rbenv-ed Ruby, please use the following command:
-
-```console
-$ sudo setcap YOUR_USING_CAPABILITY=+eip $(rbenv prefix)/bin/ruby
+$ sudo fluent-cap-ctl --add dac_override [-f /path/to/bin/ruby]
+Updating dac_override done.
+Adding dac_override done.
 ```
 
 #### Example setting up capability for rbenv-ed Ruby
 
 ```console
-$ sudo setcap cap_dac_override,cap_dac_read_search=+eip $(rbenv prefix)/bin/ruby
-$ filecap $(rbenv prefix)/bin/ruby
-file                 capabilities
-/home/fluentd/.rbenv/versions/2.6.3/bin/ruby     dac_override, dac_read_search
+$ sudo fluent-cap-ctl --add "dac_override,cap_dac_read_search" -f $(rbenv prefix)/bin/ruby
+Updating dac_read_search,dac_override done.
+Adding dac_read_search,dac_override done.
+$ fluent-cap-ctl --get -f $(rbenv prefix)/bin/ruby
+Capabilities in '/home/fluentd/.rbenv/versions/2.6.3/bin/ruby',
+Effective:   dac_override, dac_read_search
+Inheritable: dac_override, dac_read_search
+Permitted:   dac_override, dac_read_search
 ```
 
 ### Actual Example for Linux capability handling in in_tail
@@ -96,13 +92,17 @@ $ cat /var/log/syslog
 cat: /var/log/syslog: Permission denied
 ```
 
-Attach `cap_dac_read_search` for using Ruby executable binary:
+Attach `dac_read_search` for using Ruby executable binary:
 
 ```console
-$ sudo setcap cap_dac_read_search=+eip /path/to/bin/ruby
-$ filecap /path/to/bin/ruby
-file                 capabilities
-/path/to/bin/ruby     dac_read_search
+$ sudo fluent-cap-ctl --add dac_read_search [-f /path/to/bin/ruby]
+Updating dac_read_search done.
+Adding dac_read_search done.
+$ fluent-cap-ctl --get [-f /path/to/bin/ruby]
+Capabilities in '/path/to/bin/ruby',
+Effective:   dac_read_search
+Inheritable: dac_read_search
+Permitted:   dac_read_search
 ```
 
 And prepare the following configuration:
