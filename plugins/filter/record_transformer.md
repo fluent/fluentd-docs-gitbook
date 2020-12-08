@@ -182,6 +182,8 @@ foo_${record["key"]} bar_${record["value"]}
 nested_value ${record["payload"]["key"]}
 ```
 
+By historical reason, `enable_ruby true` is too slow. If you need this option,
+consider `record_modifier` filter instead. See also `Need more performance?` section.
 
 ### `auto_typecast`
 
