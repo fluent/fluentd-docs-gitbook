@@ -61,7 +61,7 @@ event record e.g. `exec`.
 -   **`localtime`** (bool) (optional): if `true`, uses local time. Otherwise,
     UTC is used. This is exclusive with `utc`.
     -   Default: `true`
--   **`utc`** (bool) (optional): if `true`, uses wUTC. Otherwise, local time is
+-   **`utc`** (bool) (optional): if `true`, uses UTC. Otherwise, local time is
     used. This is exclusive with `localtime`.
     -   Default: `false`
 -   **`timezone`** (string) (optional): uses the specified timezone. One can
