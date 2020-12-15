@@ -3,6 +3,7 @@
 For high-traffic websites, we recommend using a high-availability configuration
 for `Fluentd`.
 
+See also [The Patterns of Distributed Logging and Containers](https://www.slideshare.net/tagomoris/the-patterns-of-distributed-logging-and-containers) slide for understanding pros/cons of deployment patterns.
 
 ## Message Delivery Semantics
 
@@ -130,7 +131,7 @@ succeeds.
 ### Forwarder Failure
 
 When a log forwarder receives events from applications, the events are first
-written into a disk buffer (specified by `buffer_path`). After every
+written into a disk buffer (specified by <buffer>'s `path`). After every
 `flush_interval`, the buffered data is forwarded to aggregators.
 
 This process is inherently robust against data loss. If a log forwarder's
@@ -148,7 +149,7 @@ However, possible message loss scenarios do exist:
 ### Aggregator Failure
 
 When log aggregators receive events from log forwarders, the events are first
-written into a disk buffer (specified by `buffer_path`). After every
+written into a disk buffer (specified by <buffer>'s `path`). After every
 `flush_interval`, the buffered data is uploaded to the cloud.
 
 This process is inherently robust against data loss. If a log aggregator's
