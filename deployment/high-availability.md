@@ -44,6 +44,7 @@ consists of **log forwarders** and **log aggregators**.
 '**log forwarders**' are typically installed on every node to receive
 local events. Once an event is received, they forward it to the 'log
 aggregators' through the network.
+For log forwarders, [fluent-bit](https://fluentbit.io/) is also good candidate for light-weight processing.
 
 '**log aggregators**' are daemons that continuously receive events from
 the log forwarders. They buffer the events and periodically upload the
@@ -131,7 +132,7 @@ succeeds.
 ### Forwarder Failure
 
 When a log forwarder receives events from applications, the events are first
-written into a disk buffer (specified by <buffer>'s `path`). After every
+written into a disk buffer (specified by `<buffer>`'s `path`). After every
 `flush_interval`, the buffered data is forwarded to aggregators.
 
 This process is inherently robust against data loss. If a log forwarder's
@@ -149,7 +150,7 @@ However, possible message loss scenarios do exist:
 ### Aggregator Failure
 
 When log aggregators receive events from log forwarders, the events are first
-written into a disk buffer (specified by <buffer>'s `path`). After every
+written into a disk buffer (specified by `<buffer>`'s `path`). After every
 `flush_interval`, the buffered data is uploaded to the cloud.
 
 This process is inherently robust against data loss. If a log aggregator's
