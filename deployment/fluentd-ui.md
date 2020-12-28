@@ -1,24 +1,19 @@
 # Fluentd UI
 
-[fluentd-ui](https://github.com/fluent/fluentd-ui) is a browser-based
-[fluentd](http://fluentd.org/) and
-[td-agent](http://docs.treasuredata.com/articles/td-agent) manager that
-supports the following operations:
+[fluentd-ui](https://github.com/fluent/fluentd-ui) is a browser-based [fluentd](http://fluentd.org/) and [td-agent](http://docs.treasuredata.com/articles/td-agent) manager that supports the following operations:
 
--   Install, uninstall, and upgrade Fluentd plugins
--   Start/stop/restart fluentd process
--   Configure Fluentd settings such as config file, pid file path, etc.
--   View Fluentd log with simple error viewer
+* Install, uninstall, and upgrade Fluentd plugins
+* Start/stop/restart fluentd process
+* Configure Fluentd settings such as config file, pid file path, etc.
+* View Fluentd log with simple error viewer
 
-`fluentd-ui` does not work with `fluentd` v1 and `td-agent` 3 does not include
-it. This content is for v0.12 for now.
-
+`fluentd-ui` does not work with `fluentd` v1 and `td-agent` 3 does not include it. This content is for v0.12 for now.
 
 ## Getting Started
 
 For `td-agent`, you can start it by `td-agent-ui start` like this:
 
-```
+```text
 $ sudo /usr/sbin/td-agent-ui start
 Puma 2.9.2 starting...
 * Min threads: 0, max threads: 16
@@ -28,7 +23,7 @@ Puma 2.9.2 starting...
 
 For `fluentd` gem installation, install `fluentd-ui` via `gem` command:
 
-```
+```text
 $ gem install -V fluentd-ui
 $ fluentd-ui start
 Puma 2.9.2 starting...
@@ -37,55 +32,44 @@ Puma 2.9.2 starting...
 * Listening on tcp://0.0.0.0:9292
 ```
 
-Then, open http://localhost:9292/ in your browser.
+Then, open [http://localhost:9292/](http://localhost:9292/) in your browser.
 
 The default account credentials are:
 
--   `username="admin"`
--   `password="changeme"`
+* `username="admin"`
+* `password="changeme"`
 
-![Fluentd UI](/images/fluentd-ui/fluentd-ui.gif)
-
+![Fluentd UI](../.gitbook/assets/fluentd-ui%20%281%29.gif)
 
 ## Screenshots
 
-(v0.3.9)
-
+\(v0.3.9\)
 
 ### Dashboard
 
-![Fluentd UI: Dashboard](/images/fluentd-ui/dashboard.gif)
-
+![Fluentd UI: Dashboard](../.gitbook/assets/dashboard%20%281%29.gif)
 
 ### Setting
 
-![Fluentd UI: Settings](/images/fluentd-ui/setting.gif)
-
+![Fluentd UI: Settings](../.gitbook/assets/setting.gif)
 
 ### `in_tail` setting
 
-![Fluentd UI: `in_tail` Settings](/images/fluentd-ui/in_tail.gif)
-
+![Fluentd UI: \`in\_tail\` Settings](../.gitbook/assets/in_tail%20%281%29.gif)
 
 ### Plugin
 
-![Plugin](/images/fluentd-ui/plugin.gif)
+![Plugin](../.gitbook/assets/plugin.gif)
 
-![](/images/fluentd-ui/01.png)
+![](../.gitbook/assets/01%20%281%29.png)
 
-![](/images/fluentd-ui/02.png)
+![](../.gitbook/assets/02.png)
 
-![](/images/fluentd-ui/03.png)
+![](../.gitbook/assets/03.png)
 
-![](/images/fluentd-ui/04.png)
+![](../.gitbook/assets/04.png)
 
-![](/images/fluentd-ui/05.png)
+![](../.gitbook/assets/05.png)
 
+If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open). [Fluentd](http://www.fluentd.org/) is an open-source project under [Cloud Native Computing Foundation \(CNCF\)](https://cncf.io/). All components are available under the Apache 2 License.
 
-------------------------------------------------------------------------
-
-If this article is incorrect or outdated, or omits critical information, please
-[let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open).
-[Fluentd](http://www.fluentd.org/) is an open-source project under
-[Cloud Native Computing Foundation (CNCF)](https://cncf.io/). All components are
-available under the Apache 2 License.

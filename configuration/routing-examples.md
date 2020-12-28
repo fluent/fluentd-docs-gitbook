@@ -2,10 +2,9 @@
 
 This article shows configuration samples for typical routing scenarios.
 
-
 ## Simple: `Input -> Filter -> Output`
 
-```
+```text
 <source>
   @type forward
 </source>
@@ -23,10 +22,9 @@ This article shows configuration samples for typical routing scenarios.
 </match>
 ```
 
-
 ## Two Inputs: `forward` and `tail`
 
-```
+```text
 <source>
   @type forward
 </source>
@@ -52,12 +50,11 @@ This article shows configuration samples for typical routing scenarios.
 
 If you want to separate the data pipelines for each source, use Label.
 
-
 ## With Label: `Input -> Filter -> Output`
 
 Label reduces complex `tag` handling by separating data pipelines.
 
-```
+```text
 <source>
   @type forward
 </source>
@@ -88,13 +85,11 @@ Label reduces complex `tag` handling by separating data pipelines.
 </label>
 ```
 
-
 ## Reroute Event by Tag
 
-Use [fluent-plugin-route](https://github.com/tagomoris/fluent-plugin-route)
-plugin. This plugin rewrites `tag` and re-emit events to other `match` or Label.
+Use [fluent-plugin-route](https://github.com/tagomoris/fluent-plugin-route) plugin. This plugin rewrites `tag` and re-emit events to other `match` or Label.
 
-```
+```text
 <match worker.**>
   @type route
   remove_tag_prefix worker
@@ -121,13 +116,11 @@ plugin. This plugin rewrites `tag` and re-emit events to other `match` or Label.
 </label>
 ```
 
-
 ## Re-route Event by Record Content
 
-Use
-[fluent-plugin-rewrite-tag-filter](https://github.com/fluent/fluent-plugin-rewrite-tag-filter).
+Use [fluent-plugin-rewrite-tag-filter](https://github.com/fluent/fluent-plugin-rewrite-tag-filter).
 
-```
+```text
 <source>
   @type forward
 </source>
@@ -156,15 +149,13 @@ Use
 </match>
 ```
 
-See also: [out\_rewrite\_tag\_filter](/plugins/output/rewrite_tag_filter.md)
-
+See also: [out\_rewrite\_tag\_filter](../output/rewrite_tag_filter.md)
 
 ## Re-route Event to Other Label
 
-Use [out\_relabel](/plugins/output/relabel.md) plugin. This plugin simply emits
-events to Label without rewriting the `tag`.
+Use [out\_relabel](../output/relabel.md) plugin. This plugin simply emits events to Label without rewriting the `tag`.
 
-```
+```text
 <source>
   @type forward
 </source>
@@ -193,11 +184,5 @@ events to Label without rewriting the `tag`.
 </label>
 ```
 
+If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open). [Fluentd](http://www.fluentd.org/) is an open-source project under [Cloud Native Computing Foundation \(CNCF\)](https://cncf.io/). All components are available under the Apache 2 License.
 
-------------------------------------------------------------------------
-
-If this article is incorrect or outdated, or omits critical information, please
-[let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open).
-[Fluentd](http://www.fluentd.org/) is an open-source project under
-[Cloud Native Computing Foundation (CNCF)](https://cncf.io/). All components are
-available under the Apache 2 License.

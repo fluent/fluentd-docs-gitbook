@@ -1,13 +1,12 @@
-# Fluentd Command-Line Options
+# Command Line Option
 
 This article describes the `fluentd` command-line options.
 
-
 ## `fluentd`
 
-Following are the fluentd command-line options (`fluentd -h`):
+Following are the fluentd command-line options \(`fluentd -h`\):
 
-```
+```text
 Usage: fluentd [options]
     -s, --setup [DIR=/etc/fluent]    install sample configuration file to the directory
     -c, --config PATH                config file path (default: /etc/fluent/fluent.conf)
@@ -42,43 +41,26 @@ Usage: fluentd [options]
     -G, --gem-path GEM_INSTALL_PATH  Gemfile install path (default: $(dirname $gemfile)/vendor/bundle)
 ```
 
-
 ### Important Options
 
--   `-g`, `--gemfile`: Fluentd starts with bundler-managed dependent plugins.
-
--   `--suppress-config-dump`: Fluentd starts without configuration dump. If you
-    do not want to show the configuration in fluentd logs, e.g. it contains
-    private keys, then this option is useful.
-
--   `--suppress-repeated-stacktrace`: If `true`, suppresses the stacktrace in
-    fluentd logs. Since v0.12, this option is `true` by default.
-
--   `--without-source`: Fluentd starts without input plugins. This option is
-    useful for flushing buffers with no new incoming events.
-
--   `-i`, `--inline-config`: If fluentd is used on XaaS which does not support
-    persistent disks, this option is useful.
-
--   `--no-supervisor`: If you want to use your supervisor tools, this option
-    avoids double supervisor.
-
+* `-g`, `--gemfile`: Fluentd starts with bundler-managed dependent plugins.
+* `--suppress-config-dump`: Fluentd starts without configuration dump. If you do not want to show the configuration in fluentd logs, e.g. it contains private keys, then this option is useful.
+* `--suppress-repeated-stacktrace`: If `true`, suppresses the stacktrace in fluentd logs. Since v0.12, this option is `true` by default.
+* `--without-source`: Fluentd starts without input plugins. This option is useful for flushing buffers with no new incoming events.
+* `-i`, `--inline-config`: If fluentd is used on XaaS which does not support persistent disks, this option is useful.
+* `--no-supervisor`: If you want to use your supervisor tools, this option avoids double supervisor.
 
 ### Set via Configuration File
 
-Some options can be set via `<system>` directive via configuration file. See
-[configuration file](/configuration/config-file.md) article for more on
-`<system>` directive.
-
+Some options can be set via `<system>` directive via configuration file. See [configuration file](../configuration/config-file.md) article for more on `<system>` directive.
 
 ## `fluent-cat`
 
-The `fluent-cat` command sends an event to fluentd `in_forward`/`in_unix`
-plugin. This is particularly useful for testing.
+The `fluent-cat` command sends an event to fluentd `in_forward`/`in_unix` plugin. This is particularly useful for testing.
 
-Here is its usage (`fluent-cat --help`):
+Here is its usage \(`fluent-cat --help`\):
 
-```
+```text
 Usage: fluent-cat [options] <tag>
     -p, --port PORT                  fluent tcp port (default: 24224)
     -h, --host HOST                  fluent host (default: 127.0.0.1)
@@ -91,30 +73,27 @@ Usage: fluent-cat [options] <tag>
         --message-key KEY            key field for none format (default: message)
 ```
 
-
 ### Example
 
 Send JSON message with `debug.log` tag to the local fluentd instance:
 
-```
+```text
 echo '{"message":"hello"}' | fluent-cat debug.log
 ```
 
 Send JSON message to an instance of fluentd on another machine on the network:
 
-```
+```text
 echo '{"message":"hello"}' | fluent-cat debug.log --host testserver --port 24225
 ```
 
-
 ## `fluent-plugin-config-format`
 
-It generates the formatted configuration document with the specified format for
-a plugin.
+It generates the formatted configuration document with the specified format for a plugin.
 
-Here is its usage (`fluent-plugin-config-format -h`):
+Here is its usage \(`fluent-plugin-config-format -h`\):
 
-```
+```text
 Usage: fluent-plugin-config-format [options] <type> <name>
 
 Output plugin config definitions
@@ -132,31 +111,27 @@ Options:
     -p, --plugin=DIR                 Add plugin directory
 ```
 
-
 ### Example
 
 Generate a README style document from the plugin's config parameters:
 
-```
+```text
 fluent-plugin-config-format output null
 ```
 
 Generate an old-style output from the plugin's config parameters:
 
-```
+```text
 fluent-plugin-config-format -f txt output null
 ```
 
-
 ## `fluent-plugin-generate`
 
-It generates the Fluentd plugin project template. It is good for starting to
-Fluentd plugin development for using the new API plugin. For more details,
-refer to the [Generating plugin project skeleton section](/developer/plugin-development.md/#generating-plugin-project-skeleton).
+It generates the Fluentd plugin project template. It is good for starting to Fluentd plugin development for using the new API plugin. For more details, refer to the [Generating plugin project skeleton section](../plugin-development/#generating-plugin-project-skeleton).
 
-Here is its usage (`fluent-plugin-generate -h`);
+Here is its usage \(`fluent-plugin-generate -h`\);
 
-```
+```text
 Usage: fluent-plugin-generate [options] <type> <name>
 
 Generate a project skeleton for creating a Fluentd plugin
@@ -169,11 +144,5 @@ Options:
         --[no-]license=NAME          Specify license name (default: Apache-2.0)
 ```
 
+If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open). [Fluentd](http://www.fluentd.org/) is an open-source project under [Cloud Native Computing Foundation \(CNCF\)](https://cncf.io/). All components are available under the Apache 2 License.
 
-------------------------------------------------------------------------
-
-If this article is incorrect or outdated, or omits critical information, please
-[let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open).
-[Fluentd](http://www.fluentd.org/) is an open-source project under
-[Cloud Native Computing Foundation (CNCF)](https://cncf.io/). All components are
-available under the Apache 2 License.
