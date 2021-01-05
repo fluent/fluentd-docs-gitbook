@@ -1,25 +1,18 @@
-# Easy Data Stream Manipulation using Fluentd
+# Filter Modify Apache
 
-In this article, we introduce several common data manipulation
-challenges faced by our users (such as filtering and modifying data) and
-explain how to solve each task using one or more Fluentd plugins.
-
+In this article, we introduce several common data manipulation challenges faced by our users \(such as filtering and modifying data\) and explain how to solve each task using one or more Fluentd plugins.
 
 ## Scenario: Filtering Data by the Value of a Field
 
-Let's suppose our Fluentd instances are collecting data from Apache web
-server logs via [in\_tail](/plugins/input/tail.md). Our goal is to filter out all the
-200 requests.
+Let's suppose our Fluentd instances are collecting data from Apache web server logs via [in\_tail](). Our goal is to filter out all the 200 requests.
 
 ## Solution: Use fluent-plugin-grep
 
-[fluent-plugin-grep](https://github.com/sonots/fluent-plugin-grep) is a
-plugin that can "grep" data according to the different fields within
-Fluentd events.
+[fluent-plugin-grep](https://github.com/sonots/fluent-plugin-grep) is a plugin that can "grep" data according to the different fields within Fluentd events.
 
 If our events looks like
 
-``` {.CodeRay}
+```text
 {
     "code": 200,
     "url": "http://yourdomain.com/page.html",
@@ -31,7 +24,7 @@ If our events looks like
 
 then we can filter out all the requests with status code 200 as follows:
 
-``` {.CodeRay}
+```text
 ...
 <match apache.**>
     @type grep
@@ -41,11 +34,9 @@ then we can filter out all the requests with status code 200 as follows:
 </match>
 ```
 
-By using the `add_tag_prefix` option, we can prepend a tag in front of
-filtered events so that they can be matched to a subsequent section. For
-example, we can send all logs with non-200 status codes to [Treasure Data](http://www.treasuredata.com), as shown below:
+By using the `add_tag_prefix` option, we can prepend a tag in front of filtered events so that they can be matched to a subsequent section. For example, we can send all logs with non-200 status codes to [Treasure Data](http://www.treasuredata.com), as shown below:
 
-``` {.CodeRay}
+```text
 ...
 <match apache.**>
     @type grep
@@ -60,12 +51,9 @@ example, we can send all logs with non-200 status codes to [Treasure Data](http:
 </match>
 ```
 
-`fluent-plugin-grep` can filter based on multiple fields as well. The
-config below keeps all requests with status code 4xx that are NOT
-referred from yourdomain.com (a real world use case: figuring out how
-many dead links there are in the wild by filtering out internal links)
+`fluent-plugin-grep` can filter based on multiple fields as well. The config below keeps all requests with status code 4xx that are NOT referred from yourdomain.com \(a real world use case: figuring out how many dead links there are in the wild by filtering out internal links\)
 
-``` {.CodeRay}
+```text
 ...
 <match apache.**>
     @type grep
@@ -76,28 +64,23 @@ many dead links there are in the wild by filtering out internal links)
 ...
 ```
 
-## Scenario: Adding a New Field (such as hostname)
+## Scenario: Adding a New Field \(such as hostname\)
 
-When collecting data, we often need to add a new field or change an
-existing field in our log data. For example, many Fluentd users need to
-add the hostname of their servers to the Apache web server log data in
-order to compute the number of requests handled by each server (i.e.,
-store them in MongoDB/HDFS and run GROUP-BYs).
+When collecting data, we often need to add a new field or change an existing field in our log data. For example, many Fluentd users need to add the hostname of their servers to the Apache web server log data in order to compute the number of requests handled by each server \(i.e., store them in MongoDB/HDFS and run GROUP-BYs\).
 
 ## Solution: Use fluent-plugin-record-modifier
 
-[fluent-plugin-record-modifier](https://github.com/repeatedly/fluent-plugin-record-modifier)
-can add a new field to each data record.
+[fluent-plugin-record-modifier](https://github.com/repeatedly/fluent-plugin-record-modifier) can add a new field to each data record.
 
 If our events looks like
 
-``` {.CodeRay}
+```text
 {"code":200, "url":"http://yourdomain.com", "size":1232}
 ```
 
 then we can add a new field with the hostname information as follows:
 
-``` {.CodeRay}
+```text
 <match foo.bar>
     @type record_modifier
     gen_host "#{Socket.gethostname}"
@@ -111,17 +94,11 @@ then we can add a new field with the hostname information as follows:
 
 The modified events now look like
 
-``` {.CodeRay}
+```text
 {"gen_host": "our_server", code":200, "url":"http://yourdomain.com", "size":1232}
 ```
 
-NOTE: The `"#{Socket.gethostname}"` placeholder is interpreted at
-configuration parsing phase. It inlines the host name of the server that
-the Fluentd instance is running on (in this example, our server's name
-is "our\_server").
+NOTE: The `"#{Socket.gethostname}"` placeholder is interpreted at configuration parsing phase. It inlines the host name of the server that the Fluentd instance is running on \(in this example, our server's name is "our\_server"\).
 
+If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open). [Fluentd](http://www.fluentd.org/) is a open source project under [Cloud Native Computing Foundation \(CNCF\)](https://cncf.io/). All components are available under the Apache 2 License.
 
-------------------------------------------------------------------------
-
-If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open).
-[Fluentd](http://www.fluentd.org/) is a open source project under [Cloud Native Computing Foundation (CNCF)](https://cncf.io/). All components are available under the Apache 2 License.

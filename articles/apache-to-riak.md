@@ -1,47 +1,42 @@
-# Store Apache Logs into Riak
+# Apache To Riak
 
-This article explains how to use Fluentd's Riak Output plugin
-([out\_riak](https://github.com/kuenishi/fluent-plugin-riak)) to
-aggregate semi-structured logs in real-time.
+This article explains how to use Fluentd's Riak Output plugin \([out\_riak](https://github.com/kuenishi/fluent-plugin-riak)\) to aggregate semi-structured logs in real-time.
 
 ![](http://docs.fluentd.org/images/fluentd-riak.png)
 
-
 ## Prerequisites
 
-1.  An OSX or Linux machine
-2.  Fluentd is installed ([installation guide](/overview/installation.md))
-3.  Riak is installed
-4.  An Apache web server log
+1. An OSX or Linux machine
+2. Fluentd is installed \([installation guide](../quickstart/installation.md)\)
+3. Riak is installed
+4. An Apache web server log
 
 ## Installing the Fluentd Riak Output Plugin
 
-The [Riak output plugin](https://github.com/kuenishi/fluent-plugin-riak)
-is used to output data from a Fluentd node to a Riak node.
+The [Riak output plugin](https://github.com/kuenishi/fluent-plugin-riak) is used to output data from a Fluentd node to a Riak node.
 
 ### Rubygems Users
 
 Rubygems users can run the command below to install the plugin:
 
-``` {.CodeRay}
+```text
 $ gem install fluent-plugin-riak
 ```
 
 ### td-agent Users
 
-If you are using td-agent, run following command to install the Riak
-output plugin.
+If you are using td-agent, run following command to install the Riak output plugin.
 
--   td-agent v2: `/usr/sbin/td-agent-gem install fluent-plugin-riak`
--   td-agent v1: \`/usr/lib/fluent/ruby/bin/fluent-gem install
-    fluent-plugin-riak
+* td-agent v2: `/usr/sbin/td-agent-gem install fluent-plugin-riak`
+* td-agent v1: \`/usr/lib/fluent/ruby/bin/fluent-gem install
+
+  fluent-plugin-riak
 
 ## Configuring Fluentd
 
-Create a configuration file called `fluent.conf` and add the following
-lines:
+Create a configuration file called `fluent.conf` and add the following lines:
 
-``` {.CodeRay}
+```text
 <source>
   @type tail
   format apache2
@@ -60,31 +55,23 @@ lines:
 </match>
 ```
 
-The `<source>...</source>` section tells Fluentd to tail an
-Apache2-formatted log file located at `/var/log/apache2/access_log`.
-Each line is parsed as an Apache access log event and tagged with the
-`riak.apache` label.
+The `<source>...</source>` section tells Fluentd to tail an Apache2-formatted log file located at `/var/log/apache2/access_log`. Each line is parsed as an Apache access log event and tagged with the `riak.apache` label.
 
-The `<match riak.**>...</match>` section tells Fluentd to look for
-events whose tags start with `riak.` and send all matches to a Riak node
-located at `localhost:8087`. You can send events to multiple nodes by
-writing `nodes host1 host2 host3` instead.
+The `<match riak.**>...</match>` section tells Fluentd to look for events whose tags start with `riak.` and send all matches to a Riak node located at `localhost:8087`. You can send events to multiple nodes by writing `nodes host1 host2 host3` instead.
 
 ## Testing
 
 Launch Fluentd with the following command:
 
-``` {.CodeRay}
+```text
 $ fluentd -c fluentd.conf
 ```
-Please confirm that you have the file access permissions to (1) read the
-Apache log file and (2) write to
-\`/var/log/fluentd/apache2.access\_log.pos\` (sudo-ing might help).
 
-You should now see data coming into your Riak cluster. We can make sure
-that everything is running smoothly by hitting Riak's HTTP API:
+Please confirm that you have the file access permissions to \(1\) read the Apache log file and \(2\) write to \`/var/log/fluentd/apache2.access\_log.pos\` \(sudo-ing might help\).
 
-``` {.CodeRay}
+You should now see data coming into your Riak cluster. We can make sure that everything is running smoothly by hitting Riak's HTTP API:
+
+```text
 $ curl http://localhost:8098/buckets/fluentlog/keys?keys=true
 {"keys":["2014-01-23-d30b0698-b9de-4290-b8be-a66555497078", ...]}
 $ curl http://localhost:8098/buckets/fluentlog/keys/2014-01-23-d30b0698-b9de-4290-b8be-a66555497078
@@ -104,16 +91,13 @@ $ curl http://localhost:8098/buckets/fluentlog/keys/2014-01-23-d30b0698-b9de-429
 ]
 ```
 
-There it is! (the response JSON is formatted for readability)
+There it is! \(the response JSON is formatted for readability\)
 
 ## Learn More
 
--   [Fluentd Architecture](https://www.fluentd.org/architecture)
--   [Fluentd Get Started](/articles/quickstart.md)
--   [Riak Output Plugin](http://github.com/kuenishi/fluent-plugin-riak)
+* [Fluentd Architecture](https://www.fluentd.org/architecture)
+* [Fluentd Get Started]()
+* [Riak Output Plugin](http://github.com/kuenishi/fluent-plugin-riak)
 
+If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open). [Fluentd](http://www.fluentd.org/) is a open source project under [Cloud Native Computing Foundation \(CNCF\)](https://cncf.io/). All components are available under the Apache 2 License.
 
-------------------------------------------------------------------------
-
-If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open).
-[Fluentd](http://www.fluentd.org/) is a open source project under [Cloud Native Computing Foundation (CNCF)](https://cncf.io/). All components are available under the Apache 2 License.

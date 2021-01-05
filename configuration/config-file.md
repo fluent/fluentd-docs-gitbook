@@ -1,51 +1,41 @@
-# Configuration File Syntax
+# Config File Syntax
 
 This article describes the basic concepts of Fluentd's configuration file syntax.
 
-
 ## Introduction: The Life of a Fluentd Event
 
-Here is a brief overview of the life of a Fluentd event to help you
-understand the rest of this page:
+Here is a brief overview of the life of a Fluentd event to help you understand the rest of this page:
 
-The configuration file allows the user to control the input and output
-behavior of Fluentd by (1) selecting input and output plugins and (2)
-specifying the plugin parameters. The file is required for Fluentd to
-operate properly.
+The configuration file allows the user to control the input and output behavior of Fluentd by \(1\) selecting input and output plugins and \(2\) specifying the plugin parameters. The file is required for Fluentd to operate properly.
 
-See also [Life of a Fluentd Event](/overview/life-of-a-fluentd-event.md) article.
+See also [Life of a Fluentd Event](../quickstart/life-of-a-fluentd-event.md) article.
 
 ## Config File Location
 
 #### RPM, Deb or DMG
 
-If you installed Fluentd using the td-agent packages, the config file is
-located at /etc/td-agent/td-agent.conf.
+If you installed Fluentd using the td-agent packages, the config file is located at /etc/td-agent/td-agent.conf.
 
-``` {.CodeRay}
+```text
 $ sudo vi /etc/td-agent/td-agent.conf
 ```
 
 #### Gem
 
-If you installed Fluentd using the Ruby Gem, you can create the
-configuration file using the following commands. Sending a SIGHUP signal
-will reload the config file.
+If you installed Fluentd using the Ruby Gem, you can create the configuration file using the following commands. Sending a SIGHUP signal will reload the config file.
 
-``` {.CodeRay}
+```text
 $ sudo fluentd --setup /etc/fluent
 $ sudo vi /etc/fluent/fluent.conf
 ```
 
 #### FLUENT\_CONF environment variable
 
-You can change default configuration file location via `FLUENT_CONF`.
-For example, `/etc/td-agent/td-agent.conf` is specified via
-`FLUENT_CONF` inside td-agent scripts.
+You can change default configuration file location via `FLUENT_CONF`. For example, `/etc/td-agent/td-agent.conf` is specified via `FLUENT_CONF` inside td-agent scripts.
 
 #### -c option
 
-See [Command Line Option article](/deployment/command-line-option.md).
+See [Command Line Option article](../deployment/command-line-option.md).
 
 ## Character encoding
 
@@ -55,26 +45,23 @@ Fluentd assumes configuration file is UTF-8 or ASCII.
 
 The configuration file consists of the following directives:
 
-1.  **source** directives determine the input sources.
-2.  **match** directives determine the output destinations.
-3.  **filter** directives determine the event processing pipelines.
-4.  **system** directives set system wide configuration.
-5.  **label** directives group the output and filter for internal
-    routing
-6.  **include** directives include other files.
+1. **source** directives determine the input sources.
+2. **match** directives determine the output destinations.
+3. **filter** directives determine the event processing pipelines.
+4. **system** directives set system wide configuration.
+5. **label** directives group the output and filter for internal
+
+   routing
+
+6. **include** directives include other files.
 
 Let's actually create a configuration file step by step.
 
-## (1) "source": where all the data come from
+## \(1\) "source": where all the data come from
 
-Fluentd's input sources are enabled by selecting and configuring the
-desired input plugins using **source** directives. Fluentd's standard
-input plugins include `http` and `forward`. `http` turns fluentd into an
-HTTP endpoint to accept incoming HTTP messages whereas `forward` turns
-fluentd into a TCP endpoint to accept TCP packets. Of course, it can be
-both at the same time (You can add as many sources as you wish)
+Fluentd's input sources are enabled by selecting and configuring the desired input plugins using **source** directives. Fluentd's standard input plugins include `http` and `forward`. `http` turns fluentd into an HTTP endpoint to accept incoming HTTP messages whereas `forward` turns fluentd into a TCP endpoint to accept TCP packets. Of course, it can be both at the same time \(You can add as many sources as you wish\)
 
-``` {.CodeRay}
+```text
 # Receive events from 24224/tcp
 # This is used by log forwarding and the fluent-cat command
 <source>
@@ -89,26 +76,15 @@ both at the same time (You can add as many sources as you wish)
 </source>
 ```
 
-Each **source** directive must include a `@type` parameter. The `@type`
-parameter specifies which input plugin to use.
+Each **source** directive must include a `@type` parameter. The `@type` parameter specifies which input plugin to use.
 
 #### Interlude: Routing
 
-The `source` submits events into the Fluentd's routing engine. An event
-consists of three entities: **tag**, **time** and **record**. The tag is
-a string separated by '.'s (e.g. myapp.access), and is used as the
-directions for Fluentd's internal routing engine. The time field is
-specified by input plugins, and it must be in the Unix time format. The
-record is a JSON object.
-Fluentd accepts all non-period characters as a part of a tag. However,
-since the tag is sometimes used in a different context by output
-destinations (e.g., table name, database name, key name, etc.), **it is
-strongly recommended that you stick to the lower-case alphabets, digits
-and underscore**, e.g., `^[a-z0-9_]+$`.
+The `source` submits events into the Fluentd's routing engine. An event consists of three entities: **tag**, **time** and **record**. The tag is a string separated by '.'s \(e.g. myapp.access\), and is used as the directions for Fluentd's internal routing engine. The time field is specified by input plugins, and it must be in the Unix time format. The record is a JSON object. Fluentd accepts all non-period characters as a part of a tag. However, since the tag is sometimes used in a different context by output destinations \(e.g., table name, database name, key name, etc.\), **it is strongly recommended that you stick to the lower-case alphabets, digits and underscore**, e.g., `^[a-z0-9_]+$`.
 
 In the example above, the HTTP input plugin submits the following event:
 
-``` {.CodeRay}
+```text
 # generated by http://this.host:9880/myapp.access?json={"event":"data"}
 tag: myapp.access
 time: (current time)
@@ -117,20 +93,13 @@ record: {"event":"data"}
 
 #### Didn't find your input source? You can write your own plugin!
 
-You can add new input sources by writing your own plugins. For further
-information regarding Fluentd's input sources, please refer to the
-[Input Plugin Overview](/plugins/input/README.md) article.
+You can add new input sources by writing your own plugins. For further information regarding Fluentd's input sources, please refer to the [Input Plugin Overview]() article.
 
-## (2) "match": Tell fluentd what to do!
+## \(2\) "match": Tell fluentd what to do!
 
-The "match" directive looks for events with **match**ing tags and
-processes them. The most common use of the match directive is to output
-events to other systems (for this reason, the plugins that correspond to
-the match directive are called "output plugins"). Fluentd's standard
-output plugins include `file` and `forward`. Let's add those to our
-configuration file.
+The "match" directive looks for events with **match**ing tags and processes them. The most common use of the match directive is to output events to other systems \(for this reason, the plugins that correspond to the match directive are called "output plugins"\). Fluentd's standard output plugins include `file` and `forward`. Let's add those to our configuration file.
 
-``` {.CodeRay}
+```text
 # Receive events from 24224/tcp
 # This is used by log forwarding and the fluent-cat command
 <source>
@@ -154,29 +123,21 @@ configuration file.
 </match>
 ```
 
-Each **match** directive must include a match pattern and a `@type`
-parameter. Only events with a **tag** matching the pattern will be sent
-to the output destination (in the above example, only the events with
-the tag "myapp.access" is matched. See [the section below for more advanced usage](#how-match-patterns-work)). The `@type` parameter
-specifies the output plugin to use.
+Each **match** directive must include a match pattern and a `@type` parameter. Only events with a **tag** matching the pattern will be sent to the output destination \(in the above example, only the events with the tag "myapp.access" is matched. See [the section below for more advanced usage](config-file.md#how-match-patterns-work)\). The `@type` parameter specifies the output plugin to use.
 
-Just like input sources, you can add new output destinations by writing
-your own plugins. For further information regarding Fluentd's output
-destinations, please refer to the [Output Plugin Overview](/plugins/output/README.md) article.
+Just like input sources, you can add new output destinations by writing your own plugins. For further information regarding Fluentd's output destinations, please refer to the [Output Plugin Overview]() article.
 
-## (3) "filter": Event processing pipeline
+## \(3\) "filter": Event processing pipeline
 
-The "filter" directive has same syntax as "match" but "filter" could be
-chained for processing pipeline. Using filters, event flow is like
-below:
+The "filter" directive has same syntax as "match" but "filter" could be chained for processing pipeline. Using filters, event flow is like below:
 
-``` {.CodeRay}
+```text
 Input -> filter 1 -> ... -> filter N -> Output
 ```
 
 Let's add standard `record_transformer` filter to "match" example.
 
-``` {.CodeRay}
+```text
 # http://this.host:9880/myapp.access?json={"event":"data"}
 <source>
   @type http
@@ -196,31 +157,26 @@ Let's add standard `record_transformer` filter to "match" example.
 </match>
 ```
 
-Received event, `{"event":"data"}`, goes to `record_transformer` filter
-first. `record_transformer` adds "host\_param" field to event and
-filtered event, `{"event":"data","host_param":"webserver1"}`, goes to
-`file` output.
+Received event, `{"event":"data"}`, goes to `record_transformer` filter first. `record_transformer` adds "host\_param" field to event and filtered event, `{"event":"data","host_param":"webserver1"}`, goes to `file` output.
 
-You can also add new filters by writing your own plugins. For further
-information regarding Fluentd's filter destinations, please refer to the
-[Filter Plugin Overview](/plugins/filter/README.md) article.
+You can also add new filters by writing your own plugins. For further information regarding Fluentd's filter destinations, please refer to the [Filter Plugin Overview]() article.
 
-## (4) Set system wide configuration: the "system" directive
+## \(4\) Set system wide configuration: the "system" directive
 
-Following configurations are set by *system* directive. You can set same
-configurations by fluentd options:
+Following configurations are set by _system_ directive. You can set same configurations by fluentd options:
 
--   log\_level
--   suppress\_repeated\_stacktrace
--   emit\_error\_log\_interval
--   suppress\_config\_dump
--   without\_source
--   process\_name (only available in *system* directive. No fluentd
-    option)
+* log\_level
+* suppress\_repeated\_stacktrace
+* emit\_error\_log\_interval
+* suppress\_config\_dump
+* without\_source
+* process\_name \(only available in _system_ directive. No fluentd
+
+  option\)
 
 Here is an example:
 
-``` {.CodeRay}
+```text
 <system>
   # equal to -qq option
   log_level error
@@ -232,10 +188,9 @@ Here is an example:
 
 ### process\_name
 
-If set this parameter, fluentd's supervisor and worker process names are
-changed.
+If set this parameter, fluentd's supervisor and worker process names are changed.
 
-``` {.CodeRay}
+```text
 <system>
   process_name fluentd1
 </system>
@@ -243,7 +198,7 @@ changed.
 
 If we have this configuration, `ps` command shows the following result:
 
-``` {.CodeRay}
+```text
 % ps aux | grep fluentd1
 foo      45673   0.4  0.2  2523252  38620 s001  S+    7:04AM   0:00.44 worker:fluentd1
 foo      45647   0.0  0.1  2481260  23700 s001  S+    7:04AM   0:00.40 supervisor:fluentd1
@@ -251,15 +206,13 @@ foo      45647   0.0  0.1  2481260  23700 s001  S+    7:04AM   0:00.40 superviso
 
 This feature requires ruby 2.1 or later.
 
-## (5) Group filter and output: the "label" directive
+## \(5\) Group filter and output: the "label" directive
 
-The "label" directive groups filter and output for internal routing.
-"label" reduces the complexity of tag handling.
+The "label" directive groups filter and output for internal routing. "label" reduces the complexity of tag handling.
 
-Here is a configuration example. "label" is built-in plugin parameter so
-`@` prefix is needed.
+Here is a configuration example. "label" is built-in plugin parameter so `@` prefix is needed.
 
-``` {.CodeRay}
+```text
 <source>
   @type forward
 </source>
@@ -292,35 +245,28 @@ Here is a configuration example. "label" is built-in plugin parameter so
 </label>
 ```
 
-In this configuration, `forward` events are routed to
-`record_transformer` filter / `elasticsearch` output and `in_tail`
-events are routed to `grep` filter / `s3` output inside `@SYSTEM` label.
+In this configuration, `forward` events are routed to `record_transformer` filter / `elasticsearch` output and `in_tail` events are routed to `grep` filter / `s3` output inside `@SYSTEM` label.
 
 "label" is useful for event flow separation without tag prefix.
 
 ### ERROR label
 
-`@ERROR` label is a built-in label used for error record emitted by
-plugin's `emit_error_event` API.
+`@ERROR` label is a built-in label used for error record emitted by plugin's `emit_error_event` API.
 
-If you set `<label @ERROR>` in the configuration, events are routed to
-this label when emit related error, e.g. buffer is full or invalid
-record.
+If you set `<label @ERROR>` in the configuration, events are routed to this label when emit related error, e.g. buffer is full or invalid record.
 
-(6) Re-use your config: the "## include" directive
+\(6\) Re-use your config: the "\#\# include" directive
 
-Directives in separate configuration files can be imported using the
-**include** directive:
+Directives in separate configuration files can be imported using the **include** directive:
 
-``` {.CodeRay}
+```text
 # Include config files in the ./config.d directory
 @include config.d/*.conf
 ```
 
-The **include** directive supports regular file path, glob pattern,
-and http URL conventions:
+The **include** directive supports regular file path, glob pattern, and http URL conventions:
 
-``` {.CodeRay}
+```text
 # absolute path
 @include /path/to/config.conf
 
@@ -335,12 +281,9 @@ and http URL conventions:
 @include http://example.com/fluent.conf
 ```
 
-Note for glob pattern, files are expanded in the alphabetical order. If
-you have `a.conf` and `b.conf`, fluentd parses `a.conf` first. But you
-should not write the configuration depends on this order. It is so error
-prone. Please separate `@include` for safety.
+Note for glob pattern, files are expanded in the alphabetical order. If you have `a.conf` and `b.conf`, fluentd parses `a.conf` first. But you should not write the configuration depends on this order. It is so error prone. Please separate `@include` for safety.
 
-``` {.CodeRay}
+```text
 # If you have a.conf,b.conf,...,z.conf and a.conf / z.conf are important...
 
 # This is bad
@@ -354,48 +297,30 @@ prone. Please separate `@include` for safety.
 
 ## How match patterns work
 
-As described above, Fluentd allows you to route events based on their
-tags. Although you can just specify the exact tag to be matched (like
-`<filter app.log>`), there are a number of techniques you can use to
-manage the data flow more efficiently.
+As described above, Fluentd allows you to route events based on their tags. Although you can just specify the exact tag to be matched \(like `<filter app.log>`\), there are a number of techniques you can use to manage the data flow more efficiently.
 
 ### Wildcards and Expansions
 
-The following match patterns can be used in `<match>` and `<filter>`
-tags.
+The following match patterns can be used in `<match>` and `<filter>` tags.
 
--   `*` matches a single tag part.
+* `*` matches a single tag part.
+  * For example, the pattern `a.*` matches `a.b`, but does not match
 
-    -   For example, the pattern `a.*` matches `a.b`, but does not match
-        `a` or `a.b.c`
-
--   `**` matches zero or more tag parts.
-
-    -   For example, the pattern `a.**` matches `a`, `a.b` and `a.b.c`
-
--   `{X,Y,Z}` matches X, Y, or Z, where X, Y, and Z are match patterns.
-
-    -   For example, the pattern `{a,b}` matches `a` and `b`, but does
-        not match `c`
-
-    -   This can be used in combination with the `*` or `**` patterns.
-        Examples include `a.{b,c}.*` and `a.{b,c.**}`
-
--   When multiple patterns are listed inside a single tag (delimited by
-    one or more whitespaces), it matches any of the listed patterns. For
-    example:
-
-    -   The patterns `<match a b>` match `a` and `b`.
-
-    -   The patterns `<match a.** b.*>` match `a`, `a.b`, `a.b.c` (from
-        the first pattern) and `b.d` (from the second pattern).
+    `a` or `a.b.c`
+* `**` matches zero or more tag parts.
+  * For example, the pattern `a.**` matches `a`, `a.b` and `a.b.c`
+* `{X,Y,Z}` matches X, Y, or Z, where X, Y, and Z are match patterns.
+  * For example, the pattern `{a,b}` matches `a` and `b`, but does not match `c`
+  * This can be used in combination with the `*` or `**` patterns. Examples include `a.{b,c}.*` and `a.{b,c.**}`
+* When multiple patterns are listed inside a single tag \(delimited by one or more whitespaces\), it matches any of the listed patterns. For example:
+  * The patterns `<match a b>` match `a` and `b`.
+  * The patterns `<match a.** b.*>` match `a`, `a.b`, `a.b.c` \(from the first pattern\) and `b.d` \(from the second pattern\).
 
 ### Note on Match Order
 
-Fluentd tries to match tags in the order that they appear in the config
-file. So if you have the following configuration:
+Fluentd tries to match tags in the order that they appear in the config file. So if you have the following configuration:
 
-``` {.CodeRay}
+```text
 # ** matches all tags. Bad :(
 <match **>
   @type blackhole_plugin
@@ -407,10 +332,9 @@ file. So if you have the following configuration:
 </match>
 ```
 
-then `myapp.access` is never matched. Wider match patterns should be
-defined after tight match patterns.
+then `myapp.access` is never matched. Wider match patterns should be defined after tight match patterns.
 
-``` {.CodeRay}
+```text
 <match myapp.access>
   @type file
   path /var/log/fluent/access
@@ -422,15 +346,11 @@ defined after tight match patterns.
 </match>
 ```
 
-Of course, if you use two same patterns, second `match` is never
-matched. If you want to send events to multiple outputs, consider
-[out\_copy](/plugins/output/copy.md) plugin.
+Of course, if you use two same patterns, second `match` is never matched. If you want to send events to multiple outputs, consider [out\_copy]() plugin.
 
-The common pitfall is when you put a `<filter>` block after `<match>`.
-It will never work as supposed, since events never go through the filter
-for the reason explained above.
+The common pitfall is when you put a `<filter>` block after `<match>`. It will never work as supposed, since events never go through the filter for the reason explained above.
 
-``` {.CodeRay}
+```text
 # You should NOT put this <filter> block after the <match> block below.
 # If you do, Fluentd will just emit events without applying the filter.
 <filter myapp.access>
@@ -446,77 +366,108 @@ for the reason explained above.
 
 ## Supported Data Types for Values
 
-Each Fluentd plugin has a set of parameters. For example,
-[in\_tail](/plugins/input/tail.md) has parameters such as `rotate_wait` and `pos_file`.
-Each parameter has a specific type associated with it. They are defined
-as follows:
+Each Fluentd plugin has a set of parameters. For example, [in\_tail]() has parameters such as `rotate_wait` and `pos_file`. Each parameter has a specific type associated with it. They are defined as follows:
 
-Each parameter's type should be documented. If not, please let the
-plugin author know.
+Each parameter's type should be documented. If not, please let the plugin author know.
 
--   `string` type: the field is parsed as a string. This is the most
-    "generic" type, where each plugin decides how to process the string.
-    -   `string` has 3 literals, non-quoted one line string, `'` quoted
-        string and `"` quoted string.
-    -   See "Format tips" section and [literal examples](https://github.com/fluent/fluentd/blob/master/example/v1_literal_example.conf).
--   `integer` type: the field is parsed as an integer.
--   `float` type: the field is parsed as a float.
--   `size` type: the field is parsed as the number of bytes. There are
-    several notational variations:
-    -   If the value matches `<INTEGER>k` or `<INTEGER>K`, then the
-        value is the INTEGER number of kilobytes.
-    -   If the value matches `<INTEGER>m` or `<INTEGER>M`, then the
-        value is the INTEGER number of megabytes.
-    -   If the value matches `<INTEGER>g` or `<INTEGER>G`, then the
-        value is the INTEGER number of gigabytes.
-    -   If the value matches `<INTEGER>t` or `<INTEGER>T`, then the
-        value is the INTEGER number of terabytes.
-    -   Otherwise, the field is parsed as integer, and that integer is
-        the number of bytes.
--   `time` type: the field is parsed as a time duration.
-    -   If the value matches `<INTEGER>s`, then the value is the INTEGER
-        seconds.
-    -   If the value matches `<INTEGER>m`, then the value is the INTEGER
-        minutes.
-    -   If the value matches `<INTEGER>h`, then the value is the INTEGER
-        hours.
-    -   If the value matches `<INTEGER>d`, then the value is the INTEGER
-        days.
-    -   Otherwise, the field is parsed as float, and that float is the
-        number of seconds. This option is useful for specifying
-        sub-second time durations such as "0.1" (=0.1 second = 100ms).
--   `array` type: the field is parsed as a JSON array. It also supports
-    shorthand syntax. These are same values.
-    -   normal: `["key1", "key2"]`
-    -   shorthand: `key1,key2`
--   `hash` type: the field is parsed as a JSON object. It also supports
-    shorthand syntax. These are same values.
-    -   normal: `{"key1":"value1", "key2":"value2"}`
-    -   shorthand: `key1:value1,key2:value2`
+* `string` type: the field is parsed as a string. This is the most
 
-`array` and `hash` are JSON because almost all programming languages and
-infrastructure tools can generate JSON value easily than unusual format.
+  "generic" type, where each plugin decides how to process the string.
+
+  * `string` has 3 literals, non-quoted one line string, `'` quoted
+
+    string and `"` quoted string.
+
+  * See "Format tips" section and [literal examples](https://github.com/fluent/fluentd/blob/master/example/v1_literal_example.conf).
+
+* `integer` type: the field is parsed as an integer.
+* `float` type: the field is parsed as a float.
+* `size` type: the field is parsed as the number of bytes. There are
+
+  several notational variations:
+
+  * If the value matches `<INTEGER>k` or `<INTEGER>K`, then the
+
+    value is the INTEGER number of kilobytes.
+
+  * If the value matches `<INTEGER>m` or `<INTEGER>M`, then the
+
+    value is the INTEGER number of megabytes.
+
+  * If the value matches `<INTEGER>g` or `<INTEGER>G`, then the
+
+    value is the INTEGER number of gigabytes.
+
+  * If the value matches `<INTEGER>t` or `<INTEGER>T`, then the
+
+    value is the INTEGER number of terabytes.
+
+  * Otherwise, the field is parsed as integer, and that integer is
+
+    the number of bytes.
+
+* `time` type: the field is parsed as a time duration.
+  * If the value matches `<INTEGER>s`, then the value is the INTEGER
+
+    seconds.
+
+  * If the value matches `<INTEGER>m`, then the value is the INTEGER
+
+    minutes.
+
+  * If the value matches `<INTEGER>h`, then the value is the INTEGER
+
+    hours.
+
+  * If the value matches `<INTEGER>d`, then the value is the INTEGER
+
+    days.
+
+  * Otherwise, the field is parsed as float, and that float is the
+
+    number of seconds. This option is useful for specifying
+
+    sub-second time durations such as "0.1" \(=0.1 second = 100ms\).
+* `array` type: the field is parsed as a JSON array. It also supports
+
+  shorthand syntax. These are same values.
+
+  * normal: `["key1", "key2"]`
+  * shorthand: `key1,key2`
+
+* `hash` type: the field is parsed as a JSON object. It also supports
+
+  shorthand syntax. These are same values.
+
+  * normal: `{"key1":"value1", "key2":"value2"}`
+  * shorthand: `key1:value1,key2:value2`
+
+`array` and `hash` are JSON because almost all programming languages and infrastructure tools can generate JSON value easily than unusual format.
 
 ## Common plugin parameter
 
 These parameters are system reserved and it has `@` prefix.
 
--   `@type`: Specify plugin type
--   `@id`: Specify plugin id. in\_monitor\_agent uses this value for
-    plugin\_id field
--   `@label`: Specify label symbol. See
-    [label](/configuration/config-file.md/#5-group-filter-and-output-the-ldquolabelrdquo-directive)
-    section
--   `@log_level`: Specify per plugin log level. See [Per Plugin Log](/deployment/logging.md/#per-plugin-log) section
+* `@type`: Specify plugin type
+* `@id`: Specify plugin id. in\_monitor\_agent uses this value for
+
+  plugin\_id field
+
+* `@label`: Specify label symbol. See
+
+  [label](config-file.md#5-group-filter-and-output-the-ldquolabelrdquo-directive)
+
+  section
+
+* `@log_level`: Specify per plugin log level. See [Per Plugin Log](../deployment/logging.md#per-plugin-log) section
 
 `type`, `id` and `log_level` are supported for backward compatibility.
 
 ## Check configuration file
 
-You can check your configuration without plugins start by specifying
-`--dry-run` option.
+You can check your configuration without plugins start by specifying `--dry-run` option.
 
-``` {.CodeRay}
+```text
 $ fluentd --dry-run -c fluent.conf
 ```
 
@@ -526,10 +477,9 @@ This section describes useful features in configuration format.
 
 ### Multi line support for " quoted string, array and hash values
 
-You can write multi line value for `"` quoted string, array and hash
-values.
+You can write multi line value for `"` quoted string, array and hash values.
 
-``` {.CodeRay}
+```text
 str_param "foo  # This line is converted to "foo\nbar". NL is kept in the parameter
 bar"
 array_param [
@@ -541,12 +491,11 @@ hash_param {
 }
 ```
 
-Fluentd assumes `[` or `{` is a start of array / hash. So if you want to
-set `[` or `{` started but non-json parameter, please use `'` or `"`.
+Fluentd assumes `[` or `{` is a start of array / hash. So if you want to set `[` or `{` started but non-json parameter, please use `'` or `"`.
 
 Example1: mail plugin:
 
-``` {.CodeRay}
+```text
 <match **>
   @type mail
   subject "[CRITICAL] foo's alert system"
@@ -555,7 +504,7 @@ Example1: mail plugin:
 
 Example2: map plugin:
 
-``` {.CodeRay}
+```text
 <match tag>
   @type map
   map '[["code." + tag, time, { "code" => record["code"].to_i}], ["time." + tag, time, { "time" => record["time"].to_i}]]'
@@ -567,29 +516,22 @@ We will remove this restriction with configuration parser improvement.
 
 ### Embedded Ruby code
 
-You can evaluate the Ruby code with `#{}` in `"` quoted string. This is
-useful for setting machine information like hostname.
+You can evaluate the Ruby code with `#{}` in `"` quoted string. This is useful for setting machine information like hostname.
 
-``` {.CodeRay}
+```text
 host_param "#{Socket.gethostname}" # host_param is actual hostname like `webserver1`.
 env_param "foo-#{ENV["FOO_BAR"]}" # NOTE that foo-"#{ENV["FOO_BAR"]}" doesn't work.
 ```
 
-config-xxx mixins use "\${}", not "\#{}". These embedded
-configurations are two different things.
+config-xxx mixins use "${}", not "\#{}". These embedded configurations are two different things.
 
 ### In double quoted string literal, `\` is escape character
 
-`\` is interpreted as escape character. You need `\` for setting `"`,
-`\r`, `\n`, `\t`, `\` or several characters in double-quoted string
-literal.
+`\` is interpreted as escape character. You need `\` for setting `"`, `\r`, `\n`, `\t`, `\` or several characters in double-quoted string literal.
 
-``` {.CodeRay}
+```text
 str_param "foo\nbar" # \n is interpreted as actual LF character
 ```
 
+If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open). [Fluentd](http://www.fluentd.org/) is a open source project under [Cloud Native Computing Foundation \(CNCF\)](https://cncf.io/). All components are available under the Apache 2 License.
 
-------------------------------------------------------------------------
-
-If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open).
-[Fluentd](http://www.fluentd.org/) is a open source project under [Cloud Native Computing Foundation (CNCF)](https://cncf.io/). All components are available under the Apache 2 License.

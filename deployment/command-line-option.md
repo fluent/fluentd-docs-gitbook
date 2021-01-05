@@ -1,13 +1,12 @@
-# Fluentd command line option
+# Command Line Option
 
 This article describes built-in commands and its options
-
 
 ## fluentd
 
 Invoke fluentd. Here is supported options:
 
-``` {.CodeRay}
+```text
 Usage: fluentd [options]
     -s, --setup [DIR=/etc/fluent]    install sample configuration file to the directory`
     -c, --config PATH                config file path (default: /etc/fluent/fluent.conf)
@@ -40,41 +39,33 @@ Usage: fluentd [options]
 
 #### --suppress-config-dump
 
-Fluentd starts without configuration dump. If you don't want to show
-configuration in fluentd logs, e.g. don't show private keys, this
-options is useful.
+Fluentd starts without configuration dump. If you don't want to show configuration in fluentd logs, e.g. don't show private keys, this options is useful.
 
 #### --suppress-repeated-stacktrace
 
-If set true, suppress stacktrace in fluentd logs. Since v0.12, this
-option is true by default.
+If set true, suppress stacktrace in fluentd logs. Since v0.12, this option is true by default.
 
 #### --without-source
 
-Fluentd starts without input plugins. This option is useful for flushing
-buffers with no new incoming events.
+Fluentd starts without input plugins. This option is useful for flushing buffers with no new incoming events.
 
 #### -i, --inline-config
 
-If you use fluentd on XaaS which doesn't support persistent disks, this
-option is useful.
+If you use fluentd on XaaS which doesn't support persistent disks, this option is useful.
 
 #### --no-supervisor
 
-If you want to use your supervisor tools, this option avoids double
-supervisor.
+If you want to use your supervisor tools, this option avoids double supervisor.
 
 ### Set via configuration file
 
-Several options could be set via `<system>` directive configuration
-file. See [configuration file article](/configuration/config-file.md#4-set-system-wide-configuration-the-ldquosystemrdquo-directive).
+Several options could be set via `<system>` directive configuration file. See [configuration file article](../configuration/config-file.md#4-set-system-wide-configuration-the-ldquosystemrdquo-directive).
 
 ## fluent-cat
 
-Send event to fluentd's `in_forward`/`in_unix` plugin. This is useful
-for testing.
+Send event to fluentd's `in_forward`/`in_unix` plugin. This is useful for testing.
 
-``` {.CodeRay}
+```text
 Usage: fluent-cat [options] <tag>
     -p, --port PORT                  fluent tcp port (default: 24224)
     -h, --host HOST                  fluent host (default: 127.0.0.1)
@@ -91,18 +82,15 @@ Usage: fluent-cat [options] <tag>
 
 Send json message with `debug.log` tag to local fluentd:
 
-``` {.CodeRay}
+```text
 % echo '{"message":"hello"}' | fluent-cat debug.log
 ```
 
 Send to other machine:
 
-``` {.CodeRay}
+```text
 % echo '{"message":"hello"}' | fluent-cat debug.log --host testserver --port 24225
 ```
 
+If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open). [Fluentd](http://www.fluentd.org/) is a open source project under [Cloud Native Computing Foundation \(CNCF\)](https://cncf.io/). All components are available under the Apache 2 License.
 
-------------------------------------------------------------------------
-
-If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open).
-[Fluentd](http://www.fluentd.org/) is a open source project under [Cloud Native Computing Foundation (CNCF)](https://cncf.io/). All components are available under the Apache 2 License.

@@ -1,32 +1,28 @@
-# Installing Fluentd from Source
+# Install From Source
 
-This article explains how to install Fluentd from source code (git
-repository). This is useful for developers.
-
+This article explains how to install Fluentd from source code \(git repository\). This is useful for developers.
 
 ## Step-1: Install Ruby interpreter
 
-Please install Ruby \>= 1.9.3 and bundler on your local environment.
+Please install Ruby &gt;= 1.9.3 and bundler on your local environment.
 
 ## Step-2: Fetch Source Code
 
-Fetch the source code from github. The official repository is located
-[here](http://github.com/fluent/fluentd/).
+Fetch the source code from github. The official repository is located [here](http://github.com/fluent/fluentd/).
 
-``` {.CodeRay}
+```text
 $ git clone https://github.com/fluent/fluentd.git
 $ cd fluentd
 $ git checkout -b v0.12 origin/v0.12
 ```
 
-master branch is now for v1.x development so you need to checkout v0.12
-branch.
+master branch is now for v1.x development so you need to checkout v0.12 branch.
 
 ## Step-3: Build and Install
 
 Build the package with `rake` and install it with `gem`.
 
-``` {.CodeRay}
+```text
 $ bundle install
 Fetching gem metadata from https://rubygems.org/.........
 ...
@@ -39,48 +35,38 @@ $ gem install pkg/fluentd-xxx.gem
 
 ## Step-4: Run
 
-Run the following commands to to confirm that Fluentd was installed
-successfully:
+Run the following commands to to confirm that Fluentd was installed successfully:
 
-``` {.CodeRay}
+```text
 $ fluentd --setup ./fluent
 $ fluentd -c ./fluent/fluent.conf -vv &
 $ echo '{"json":"message"}' | fluent-cat debug.test
 ```
 
-The last command sends Fluentd a message '{"json":"message"}' with a
-"debug.test" tag. If the installation was successful, Fluentd will
-output the following message:
+The last command sends Fluentd a message '{"json":"message"}' with a "debug.test" tag. If the installation was successful, Fluentd will output the following message:
 
-``` {.CodeRay}
+```text
 2011-07-10 16:49:50 +0900 debug.test: {"json":"message"}
 ```
-It's HIGHLY recommended that you set up **ntpd** on the node to prevent
-invalid timestamps in your logs.
 
-For large deployments, you must use
-[jemalloc](http://www.canonware.com/jemalloc/) to avoid memory
-fragmentation. This is already included in the [rpm](/articles/install-by-rpm.md) and
-[deb](/articles/install-by-deb.md) packages.
+It's HIGHLY recommended that you set up **ntpd** on the node to prevent invalid timestamps in your logs.
+
+For large deployments, you must use [jemalloc](http://www.canonware.com/jemalloc/) to avoid memory fragmentation. This is already included in the [rpm](install-by-rpm.md) and [deb](install-by-deb.md) packages.
 
 ## Next Steps
 
-You're now ready to collect your real logs using Fluentd. Please see the
-following tutorials to learn how to collect your data from various data
-sources.
+You're now ready to collect your real logs using Fluentd. Please see the following tutorials to learn how to collect your data from various data sources.
 
--   Basic Configuration
-    -   [Config File](/configuration/config-file.md)
--   Application Logs
-    -   [Ruby](/articles/ruby.md), [Java](/articles/java.md), [Python](/articles/python.md), [PHP](/articles/php.md),
-        [Perl](/articles/perl.md), [Node.js](/articles/nodejs.md), [Scala](/articles/scala.md)
--   Examples
-    -   [Store Apache Log into Amazon S3](/articles/apache-to-s3.md)
-    -   [Store Apache Log into MongoDB](/articles/apache-to-mongodb.md)
-    -   [Data Collection into HDFS](/articles/http-to-hdfs.md)
+* Basic Configuration
+  * [Config File](../configuration/config-file.md)
+* Application Logs
+  * [Ruby](ruby.md), [Java](java.md), [Python](python.md), [PHP](php.md),
 
+    [Perl](perl.md), [Node.js](nodejs.md), [Scala](scala.md)
+* Examples
+  * [Store Apache Log into Amazon S3](apache-to-s3.md)
+  * [Store Apache Log into MongoDB](apache-to-mongodb.md)
+  * [Data Collection into HDFS](http-to-hdfs.md)
 
-------------------------------------------------------------------------
+If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open). [Fluentd](http://www.fluentd.org/) is a open source project under [Cloud Native Computing Foundation \(CNCF\)](https://cncf.io/). All components are available under the Apache 2 License.
 
-If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open).
-[Fluentd](http://www.fluentd.org/) is a open source project under [Cloud Native Computing Foundation (CNCF)](https://cncf.io/). All components are available under the Apache 2 License.

@@ -1,72 +1,51 @@
-# Writing plugins
-
+# Plugin Development
 
 ## Installing custom plugins
 
-To install a plugin, please put the ruby script in the
-`/etc/fluent/plugin` directory.
+To install a plugin, please put the ruby script in the `/etc/fluent/plugin` directory.
 
-Alternatively, you can create a Ruby Gem package that includes a
-`lib/fluent/plugin/<TYPE>_<NAME>.rb` file. The *TYPE* is:
+Alternatively, you can create a Ruby Gem package that includes a `lib/fluent/plugin/<TYPE>_<NAME>.rb` file. The _TYPE_ is:
 
--   `in` for input plugins
--   `out` for output plugins
--   `filter` for filter plugins
--   `buf` for buffer plugins
--   `parser` for parser plugins
--   `formatter` for formatter plugins
+* `in` for input plugins
+* `out` for output plugins
+* `filter` for filter plugins
+* `buf` for buffer plugins
+* `parser` for parser plugins
+* `formatter` for formatter plugins
 
-For example, an email Output plugin would have the path:
-`lib/fluent/plugin/out_mail.rb`. The packaged gem can be distributed and
-installed using RubyGems. For further information, please see the [list of Fluentd plugins](http://www.fluentd.org/plugins) for third-party
-plugins.
+For example, an email Output plugin would have the path: `lib/fluent/plugin/out_mail.rb`. The packaged gem can be distributed and installed using RubyGems. For further information, please see the [list of Fluentd plugins](http://www.fluentd.org/plugins) for third-party plugins.
 
 ## Overview
 
-The following slides can help the user understand how Fluentd works
-before they dive into writing their own plugins.
+The following slides can help the user understand how Fluentd works before they dive into writing their own plugins.
 
-(The slides are taken from [Naotoshi Seo's](//github.com/sonots)
-[RubyKaigi 2014 talk](//rubykaigi.org/2014/presentation/S-NaotoshiSeo).)
+\(The slides are taken from [Naotoshi Seo's](https://github.com/fluent/fluentd-docs-gitbook/tree/507e377b7e8e78a312dc49e76bd9a302c33fd058/github.com/sonots/README.md) [RubyKaigi 2014 talk](https://github.com/fluent/fluentd-docs-gitbook/tree/507e377b7e8e78a312dc49e76bd9a302c33fd058/rubykaigi.org/2014/presentation/S-NaotoshiSeo/README.md).\)
 
 ### Fluentd version and Plugin API
 
-Fluentd now has two active versions, v0.12 and v1.0. v0.12 is old stable
-and many people still use this version. v1.0 is current stable version
-and this version has brand-new Plugin API.
+Fluentd now has two active versions, v0.12 and v1.0. v0.12 is old stable and many people still use this version. v1.0 is current stable version and this version has brand-new Plugin API.
 
-The important point is plugin for v0.12 works with v0.12 and v1.0, but
-new v1.0 API based Plugin doesn't work with v0.12.
+The important point is plugin for v0.12 works with v0.12 and v1.0, but new v1.0 API based Plugin doesn't work with v0.12.
 
 This document based on v0.12 Plugin API.
 
 ### Send a patch or fork?
 
-If you have a problem with existing plugins or new feature idea, sending
-a patch is better. If the plugin author is non-active, try to become new
-plugin maintainer first. Forking a plugin and release alternative
-plugin, e.g. fluent-plugin-xxx-alt, is final approach.
+If you have a problem with existing plugins or new feature idea, sending a patch is better. If the plugin author is non-active, try to become new plugin maintainer first. Forking a plugin and release alternative plugin, e.g. fluent-plugin-xxx-alt, is final approach.
 
 ## Plugin versioning policy
 
-If you don't have a your policy, following semantic versioning is
-better.
+If you don't have a your policy, following semantic versioning is better.
 
 [Semantic Versioning 2.0.0 - Semantic Versioning](http://semver.org/)
 
-The important thing is if your plugin breaks the backward compatibiliy,
-update major version to avoid user troubles. For example, new v0.14 API
-based plugin doesn't work with fluentd v0.12. So if you release your
-existing plugin with new v0.14 API, please update major version, `0.5.0`
--\> `1.0.0`, `1.2.0` -\> `2.0.0`.
+The important thing is if your plugin breaks the backward compatibiliy, update major version to avoid user troubles. For example, new v0.14 API based plugin doesn't work with fluentd v0.12. So if you release your existing plugin with new v0.14 API, please update major version, `0.5.0` -&gt; `1.0.0`, `1.2.0` -&gt; `2.0.0`.
 
 ## Writing Input Plugins
 
-Extend the **Fluent::Input** class and implement the following methods.
-In `initialize`, `configure` and `start`, `super` should be called to
-call Input plugin default behaviour.
+Extend the **Fluent::Input** class and implement the following methods. In `initialize`, `configure` and `start`, `super` should be called to call Input plugin default behaviour.
 
-``` {.CodeRay}
+```text
 require 'fluent/input'
 
 module Fluent
@@ -107,21 +86,18 @@ module Fluent
 end
 ```
 
-To submit events, use the `router.emit(tag, time, record)` method, where
-`tag` is the String, `time` is the UNIX time integer and `record` is a
-Hash object.
+To submit events, use the `router.emit(tag, time, record)` method, where `tag` is the String, `time` is the UNIX time integer and `record` is a Hash object.
 
-``` {.CodeRay}
+```text
 tag = "myapp.access"
 time = Engine.now
 record = {"message"=>"body"}
 router.emit(tag, time, record)
 ```
 
-To submit multiple events in one call, use the
-`router.emit_stream(tag, es)` and `MultiEventStream` combo instead.
+To submit multiple events in one call, use the `router.emit_stream(tag, es)` and `MultiEventStream` combo instead.
 
-``` {.CodeRay}
+```text
 es = MultiEventStream.new
 records.each { |record|
   es.add(time, record)
@@ -131,22 +107,18 @@ router.emit_stream(tag, es)
 
 ### Record format
 
-Fluentd plugins assume the record is a JSON so the key should be the
-String, not Symbol. If you emit a symbol keyed record, it may cause a
-problem.
+Fluentd plugins assume the record is a JSON so the key should be the String, not Symbol. If you emit a symbol keyed record, it may cause a problem.
 
-``` {.CodeRay}
+```text
 router.emit(tag, time, {'foo' => 'bar'})  # OK!
 router.emit(tag, time, {:foo => 'bar'})   # NG!
 ```
 
 ## Writing Buffered Output Plugins
 
-Extend the **Fluent::BufferedOutput** class and implement the following
-methods. In `initialize`, `configure` and `start`, `super` should be
-called to call BufferedOutput plugin default behaviour.
+Extend the **Fluent::BufferedOutput** class and implement the following methods. In `initialize`, `configure` and `start`, `super` should be called to call BufferedOutput plugin default behaviour.
 
-``` {.CodeRay}
+```text
 require 'fluent/output'
 
 module Fluent
@@ -215,16 +187,13 @@ end
 
 ## Writing Time Sliced Output Plugins
 
-Time Sliced Output plugins are extended versions of buffered output
-plugins. One example of a time sliced output is the `out_file` plugin.
+Time Sliced Output plugins are extended versions of buffered output plugins. One example of a time sliced output is the `out_file` plugin.
 
-Note that Time Sliced Output plugins use file buffer by default. Thus
-the `buffer_path` option is required.
+Note that Time Sliced Output plugins use file buffer by default. Thus the `buffer_path` option is required.
 
-To implement a Time Sliced Output plugin, extend the
-**Fluent::TimeSlicedOutput** class and implement the following methods.
+To implement a Time Sliced Output plugin, extend the **Fluent::TimeSlicedOutput** class and implement the following methods.
 
-``` {.CodeRay}
+```text
 require 'fluent/output'
 
 module Fluent
@@ -245,12 +214,9 @@ end
 
 ## Writing Non-buffered Output Plugins
 
-Extend the **Fluent::Output** class and implement the following methods.
-**Output** plugin is often used for implementing filter like plugin. In
-`initialize`, `configure` and `start`, `super` should be called to call
-non-buffered Output plugin default behaviour.
+Extend the **Fluent::Output** class and implement the following methods. **Output** plugin is often used for implementing filter like plugin. In `initialize`, `configure` and `start`, `super` should be called to call non-buffered Output plugin default behaviour.
 
-``` {.CodeRay}
+```text
 require 'fluent/output'
 
 module Fluent
@@ -296,13 +262,11 @@ end
 
 ## Filter Plugins
 
-This section shows how to write custom filters in addition to [the core filter plugins](/plugins/filter/README.md). The plugin files whose names
-start with "filter\_" are registered as filter plugins.
+This section shows how to write custom filters in addition to [the core filter plugins](). The plugin files whose names start with "filter\_" are registered as filter plugins.
 
-Here is the implementation of the most basic filter that passes through
-all events as-is:
+Here is the implementation of the most basic filter that passes through all events as-is:
 
-``` {.CodeRay}
+```text
 require 'fluent/filter'
 
 module Fluent
@@ -343,20 +307,17 @@ module Fluent
 end
 ```
 
-In `initialize`, `configure`, `start` and `shutdown`, `super` should be
-called to call Filter plugin default behaviour.
+In `initialize`, `configure`, `start` and `shutdown`, `super` should be called to call Filter plugin default behaviour.
 
-See [Writing Input plugins](/developer/plugin-development.md#writing-input-plugins) section for the details of `tag`, `time` and `record`.
+See [Writing Input plugins](plugin-development.md#writing-input-plugins) section for the details of `tag`, `time` and `record`.
 
 ### filter\_stream method
 
-Almost plugins could be implemented by overriding `filter` method. But
-if you want to mutate the event stream itself, you can override
-`filter_stream` method.
+Almost plugins could be implemented by overriding `filter` method. But if you want to mutate the event stream itself, you can override `filter_stream` method.
 
 Here is the default implementation of `filter_stream`.
 
-``` {.CodeRay}
+```text
 def filter_stream(tag, es)
   new_es = MultiEventStream.new
   es.each { |time, record|
@@ -371,39 +332,29 @@ def filter_stream(tag, es)
 end
 ```
 
-`filter_stream` should return
-[EventStream](https://github.com/fluent/fluentd/blob/master/lib/fluent/event.rb)
-object.
+`filter_stream` should return [EventStream](https://github.com/fluent/fluentd/blob/master/lib/fluent/event.rb) object.
 
 ## Parser Plugins
 
-Fluentd supports [pluggable, customizable formats for input
-plugins](parser-plugin-overview). The plugin files whose names start
-with "parser\_" are registered as Parser Plugins.
+Fluentd supports [pluggable, customizable formats for input plugins](https://github.com/fluent/fluentd-docs-gitbook/tree/507e377b7e8e78a312dc49e76bd9a302c33fd058/developer/parser-plugin-overview/README.md). The plugin files whose names start with "parser\_" are registered as Parser Plugins.
 
-Here is an example of a custom parser that parses the following
-newline-delimited log format:
+Here is an example of a custom parser that parses the following newline-delimited log format:
 
-``` {.CodeRay}
+```text
 <timestamp><SPACE>key1=value1<DELIMITER>key2=value2<DELIMITER>key3=value...
 ```
 
 e.g., something like this
 
-``` {.CodeRay}
+```text
 2014-04-01T00:00:00 name=jake age=100 action=debugging
 ```
 
-While it is not hard to write a regular expression to match this format,
-it is tricky to extract and save key names.
+While it is not hard to write a regular expression to match this format, it is tricky to extract and save key names.
 
-Here is the code to parse this custom format (let's call it
-`time_key_value`). It takes one optional parameter called `delimiter`,
-which is the delimiter for key-value pairs. It also takes `time_format`
-to parse the time string. In `initialize`, `configure` and `start`,
-`super` should be called to call Parser plugin default behaviour.
+Here is the code to parse this custom format \(let's call it `time_key_value`\). It takes one optional parameter called `delimiter`, which is the delimiter for key-value pairs. It also takes `time_format` to parse the time string. In `initialize`, `configure` and `start`, `super` should be called to call Parser plugin default behaviour.
 
-``` {.CodeRay}
+```text
 require 'fluent/parser'
 
 module Fluent
@@ -446,10 +397,9 @@ module Fluent
 end
 ```
 
-Then, save this code in `parser_time_key_value.rb` in a loadable plugin
-path. Then, if in\_tail is configured as
+Then, save this code in `parser_time_key_value.rb` in a loadable plugin path. Then, if in\_tail is configured as
 
-``` {.CodeRay}
+```text
 # Other lines...
 <source>
   @type tail
@@ -458,15 +408,13 @@ path. Then, if in\_tail is configured as
 </source>
 ```
 
-Then, the log line like `2014-01-01T00:00:00 k=v a=b` is parsed as
-`2013-01-01 00:00:00 +0000 test: {"k":"v","a":"b"}`.
+Then, the log line like `2014-01-01T00:00:00 k=v a=b` is parsed as `2013-01-01 00:00:00 +0000 test: {"k":"v","a":"b"}`.
 
 ### Parser API
 
-Current `Parser#parse` API is called with block. We will remove
-`Parser#parse` with return value API since v0.14 or later.
+Current `Parser#parse` API is called with block. We will remove `Parser#parse` with return value API since v0.14 or later.
 
-``` {.CodeRay}
+```text
 # OK
 parser.parse(text) { |time, record| ... }
 # NG. This API will be removed
@@ -475,17 +423,11 @@ time, record = parser.parse(text) # or parser.call(text)
 
 ## Text Formatter Plugins
 
-Fluentd supports [pluggable, customizable formats for output
-plugins](formatter-plugin-overview). The plugin files whose names start
-with "formatter\_" are registered as Formatter Plugins.
+Fluentd supports [pluggable, customizable formats for output plugins](https://github.com/fluent/fluentd-docs-gitbook/tree/507e377b7e8e78a312dc49e76bd9a302c33fd058/developer/formatter-plugin-overview/README.md). The plugin files whose names start with "formatter\_" are registered as Formatter Plugins.
 
-Here is an example of a custom formatter that outputs events as CSVs. It
-takes a required parameter called "csv\_fields" and outputs the fields.
-It assumes that the values of the fields are already valid CSV fields.
-In `initialize`, `configure` and `start`, `super` should be called to
-call Formatter plugin default behaviour.
+Here is an example of a custom formatter that outputs events as CSVs. It takes a required parameter called "csv\_fields" and outputs the fields. It assumes that the values of the fields are already valid CSV fields. In `initialize`, `configure` and `start`, `super` should be called to call Formatter plugin default behaviour.
 
-``` {.CodeRay}
+```text
 require 'fluent/formatter'
 
 module Fluent
@@ -524,10 +466,9 @@ module Fluent
 end
 ```
 
-Then, save this code in `formatter_my_csv.rb` in a loadable plugin path.
-Then, if out\_file is configured as
+Then, save this code in `formatter_my_csv.rb` in a loadable plugin path. Then, if out\_file is configured as
 
-``` {.CodeRay}
+```text
 # Other lines...
 <match test>
   @type file
@@ -537,57 +478,50 @@ Then, if out\_file is configured as
 </match>
 ```
 
-and if the record `{"k1": 100, "k2": 200}` is matched, the output file
-should look like `100,200`
+and if the record `{"k1": 100, "k2": 200}` is matched, the output file should look like `100,200`
 
 ## Error stream
 
-`router` has `emit_error_event` API to rescue invalid events. Emitted
-events via `emit_error_event` are routed to `@ERROR` label.
+`router` has `emit_error_event` API to rescue invalid events. Emitted events via `emit_error_event` are routed to `@ERROR` label.
 
 There are several use cases:
 
--   Rescue invalid event which hard to apply filter routine, e.g. don't
-    have geoip target field.
--   Rescue invalid event which hard to serialize in the output, e.g.
-    can't convert a record into BSON.
+* Rescue invalid event which hard to apply filter routine, e.g. don't
+
+  have geoip target field.
+
+* Rescue invalid event which hard to serialize in the output, e.g.
+
+  can't convert a record into BSON.
 
 ### API
 
-``` {.CodeRay}
+```text
  :::text
  router.emit_error_event(tag, time, record, error)
 ```
 
--   tag: String: recommend to use incoming event tag
--   time: Integer: recommend to use incoming event time
--   record: Hash: recommend to use incoming event record
--   error: Exception: use a raised exception
+* tag: String: recommend to use incoming event tag
+* time: Integer: recommend to use incoming event time
+* record: Hash: recommend to use incoming event record
+* error: Exception: use a raised exception
 
 ## config\_param
 
-`config_param` helper defines plugin parameter. You don't need to parse
-parameters manually. `config_param` syntax is
-`config_param :name, :type, options`. Here is simple example:
+`config_param` helper defines plugin parameter. You don't need to parse parameters manually. `config_param` syntax is `config_param :name, :type, options`. Here is simple example:
 
-``` {.CodeRay}
+```text
 config_param :param1, :string
 config_param :param2, :integer, default: 10
 ```
 
-In this example, `param1` is required string parameter. If a user
-doesn't specify `param1`, fluentd raises an `ConfigError`.\
-On the other hand, `param2` is optional integer parameter. If a user
-doesn't specify `param2`, fluentd set `10` to `param2` automatically. If
-a user sets "5" to `param2` parameter, fluentd converts it into integer
-type automatically.
+In this example, `param1` is required string parameter. If a user doesn't specify `param1`, fluentd raises an `ConfigError`. On the other hand, `param2` is optional integer parameter. If a user doesn't specify `param2`, fluentd set `10` to `param2` automatically. If a user sets "5" to `param2` parameter, fluentd converts it into integer type automatically.
 
 ### Access parameter value
 
-`config_param` sets parsed result to `:name` instance variable after
-`configure` call. See example below:
+`config_param` sets parsed result to `:name` instance variable after `configure` call. See example below:
 
-``` {.CodeRay}
+```text
 config_param :param, :string
 
 def configure(conf)
@@ -601,7 +535,7 @@ end
 
 Fluentd supports following built-in types for plugin parameter:
 
-``` {.CodeRay}
+```text
 # hello, /path/to/file, etc
 config_param :str_param, :string
 # -1, 100, 100000, etc
@@ -624,19 +558,27 @@ config_param :enum_param, :enum, list: [:tcp, :udp]
 
 ### Supported options
 
--   `default`: Specified parameter becomes optional. `type` value or
-    `nil` are available: `default: 10`, `default: nil`.
--   `secret`: Specified parameter is masked when dump a configuration,
-    e.g. start logs, in\_monitor\_agent result: `secret: true`
--   `deprecated`: Specified parameter is showed in warning log. Need
-    deprecated message for value: `deprecated: "Use xxx instead"`
--   `obsoleted`: Specified parameter is showed in error log with
-    configuration error. Need obsoleted message for value:
-    `obsoleted: "Use xxx instead"`
+* `default`: Specified parameter becomes optional. `type` value or
+
+  `nil` are available: `default: 10`, `default: nil`.
+
+* `secret`: Specified parameter is masked when dump a configuration,
+
+  e.g. start logs, in\_monitor\_agent result: `secret: true`
+
+* `deprecated`: Specified parameter is showed in warning log. Need
+
+  deprecated message for value: `deprecated: "Use xxx instead"`
+
+* `obsoleted`: Specified parameter is showed in error log with
+
+  configuration error. Need obsoleted message for value:
+
+  `obsoleted: "Use xxx instead"`
 
 These options can be combined.
 
-``` {.CodeRay}
+```text
 config_param :param, :array, default: [1, 2], secret: true, deprecated: "Use new_param instead"
 ```
 
@@ -644,15 +586,13 @@ config_param :param, :array, default: [1, 2], secret: true, deprecated: "Use new
 
 Run `fluentd` with the `-vv` option to show debug messages:
 
-``` {.CodeRay}
+```text
 $ fluentd -vv
 ```
 
-The **stdout** and **copy** output plugins are useful for debugging. The
-**stdout** output plugin dumps matched events to the console. It can be
-used as follows:
+The **stdout** and **copy** output plugins are useful for debugging. The **stdout** output plugin dumps matched events to the console. It can be used as follows:
 
-``` {.CodeRay}
+```text
 # You want to debug this plugin.
 <source>
   @type your_custom_input_plugin
@@ -664,10 +604,9 @@ used as follows:
 </match>
 ```
 
-The **copy** output plugin copies matched events to multiple output
-plugins. You can use it in conjunction with the stdout plugin:
+The **copy** output plugin copies matched events to multiple output plugins. You can use it in conjunction with the stdout plugin:
 
-``` {.CodeRay}
+```text
 <source>
   @type forward
 </source>
@@ -689,10 +628,9 @@ plugins. You can use it in conjunction with the stdout plugin:
 </match>
 ```
 
-You can use **stdout** filter instead of **copy** and **stdout**
-combination. The result is same as above but more simpler.
+You can use **stdout** filter instead of **copy** and **stdout** combination. The result is same as above but more simpler.
 
-``` {.CodeRay}
+```text
 <source>
   @type forward
 </source>
@@ -710,7 +648,7 @@ combination. The result is same as above but more simpler.
 
 Fluentd provides unit test frameworks for plugins:
 
-``` {.CodeRay}
+```text
 Fluent::Test::InputTestDriver
   Test driver for input plugins.
 
@@ -725,26 +663,22 @@ Please see Fluentd's source code for details.
 
 ### Run test
 
-Fluentd test follows standard gem way and uses test-unit library. Use
-rake command.
+Fluentd test follows standard gem way and uses test-unit library. Use rake command.
 
-``` {.CodeRay}
+```text
 $ bundle install --path vendor/bundle # Install related libraries.
 $ bundle exec rake test
 ```
 
 If you want to run only one file, use `TEST` environment variable:
 
-``` {.CodeRay}
+```text
 $ bundle exec rake test TEST=test/plugin/test_out_foo.rb
 ```
 
 ## Further Reading
 
--   [Slides: Dive into Fluentd Plugin](http://www.slideshare.net/repeatedly/dive-into-fluentd-plugin-v012)
+* [Slides: Dive into Fluentd Plugin](http://www.slideshare.net/repeatedly/dive-into-fluentd-plugin-v012)
 
+If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open). [Fluentd](http://www.fluentd.org/) is a open source project under [Cloud Native Computing Foundation \(CNCF\)](https://cncf.io/). All components are available under the Apache 2 License.
 
-------------------------------------------------------------------------
-
-If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open).
-[Fluentd](http://www.fluentd.org/) is a open source project under [Cloud Native Computing Foundation (CNCF)](https://cncf.io/). All components are available under the Apache 2 License.

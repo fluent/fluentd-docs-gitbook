@@ -1,36 +1,31 @@
-# Installing Fluentd with Docker
+# Docker Image
 
-This article explains how to use [Fluentd's official Docker image](https://hub.docker.com/r/fluent/fluentd/), maintained by
-[Treasure Data, Inc](http://www.treasuredata.com/).
+This article explains how to use [Fluentd's official Docker image](https://hub.docker.com/r/fluent/fluentd/), maintained by [Treasure Data, Inc](http://www.treasuredata.com/).
 
--   [Fluentd's official Docker image](https://hub.docker.com/r/fluent/fluentd/)
--   [Fluentd's official Docker image (Source)](https://github.com/fluent/fluentd-docker-image)
-
+* [Fluentd's official Docker image](https://hub.docker.com/r/fluent/fluentd/)
+* [Fluentd's official Docker image \(Source\)](https://github.com/fluent/fluentd-docker-image)
 
 ## Step 0: Install Docker
 
 Please download and install [Docker](https://www.docker.com/) from here.
 
--   [Docker Installation](https://docs.docker.com/engine/installation/)
+* [Docker Installation](https://docs.docker.com/engine/installation/)
 
 ## Step 1: Pull Fluentd's Docker image
 
 Then, please download Fluentd v0.12's image by `docker pull` command.
 
-``` {.CodeRay}
+```text
 $ docker pull fluent/fluentd:v0.12-debian
 ```
-Debian and Alpine Linux version is available for Fluentd image. Debian
-version is recommended officially since it has jemalloc support, however
-Alpine image is smaller.
+
+Debian and Alpine Linux version is available for Fluentd image. Debian version is recommended officially since it has jemalloc support, however Alpine image is smaller.
 
 ## Step 2: Launch Fluentd Container
 
-To make the test simple, create the example config below at
-`/tmp/fluentd.conf`. This example accepts records from http, and output
-to stdout.
+To make the test simple, create the example config below at `/tmp/fluentd.conf`. This example accepts records from http, and output to stdout.
 
-``` {.CodeRay}
+```text
 # /tmp/fluentd.conf
 <source>
   @type http
@@ -44,7 +39,7 @@ to stdout.
 
 Finally, you can run Fluentd with `docker run` command.
 
-``` {.CodeRay}
+```text
 $ docker run -d \
   -p 9880:9880 -v /tmp:/fluentd/etc -e FLUENTD_CONF=fluentd.conf \
   fluent/fluentd
@@ -67,17 +62,15 @@ $ docker run -d \
 
 ## Step3: Post Sample Logs via HTTP
 
-Let's post sample logs via HTTP and confirm it's working. `curl` command
-is always your friend.
+Let's post sample logs via HTTP and confirm it's working. `curl` command is always your friend.
 
-``` {.CodeRay}
+```text
 $ curl -X POST -d 'json={"json":"message"}' http://localhost:9880/sample.test
 ```
 
-Use `docker ps` command to retrieve container ID, and use `docker logs`
-command to check the specific container's log.
+Use `docker ps` command to retrieve container ID, and use `docker logs` command to check the specific container's log.
 
-``` {.CodeRay}
+```text
 $ docker ps
 CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                                         NAMES
 b495e527850c        fluent/fluentd      "/bin/sh -c 'exec ..."   2 hours ago         Up 2 hours          5140/tcp, 24224/tcp, 0.0.0.0:9880->9880/tcp   awesome_mcnulty
@@ -87,29 +80,25 @@ $ docker logs b495e527850c | tail -n 1
 
 ## Next Steps
 
-Now you know how to use Fluentd via Docker. Here're a couple of Docker
-related documentations for Fluentd.
+Now you know how to use Fluentd via Docker. Here're a couple of Docker related documentations for Fluentd.
 
--   [Fluentd's official Docker image](https://hub.docker.com/r/fluent/fluentd/)
--   [Fluentd's official Docker image (Source)](https://github.com/fluent/fluentd-docker-image)
--   [Docker Logging Driver and Fluentd](/articles/docker-logging.md)
--   [Docker Logging via EFK (Elasticsearch + Fluentd + Kibana) Stack with Docker Compose](/articles/docker-logging-efk-compose.md)
+* [Fluentd's official Docker image](https://hub.docker.com/r/fluent/fluentd/)
+* [Fluentd's official Docker image \(Source\)](https://github.com/fluent/fluentd-docker-image)
+* [Docker Logging Driver and Fluentd](../articles/docker-logging.md)
+* [Docker Logging via EFK \(Elasticsearch + Fluentd + Kibana\) Stack with Docker Compose](../articles/docker-logging-efk-compose.md)
 
-Also, please see the following tutorials to learn how to collect your
-data from various data sources.
+Also, please see the following tutorials to learn how to collect your data from various data sources.
 
--   Basic Configuration
-    -   [Config File](/configuration/config-file.md)
--   Application Logs
-    -   [Ruby](/articles/ruby.md), [Java](/articles/java.md), [Python](/articles/python.md), [PHP](/articles/php.md),
-        [Perl](/articles/perl.md), [Node.js](/articles/nodejs.md), [Scala](/articles/scala.md)
--   Examples
-    -   [Store Apache Log into Amazon S3](/articles/apache-to-s3.md)
-    -   [Store Apache Log into MongoDB](/articles/apache-to-mongodb.md)
-    -   [Data Collection into HDFS](/articles/http-to-hdfs.md)
+* Basic Configuration
+  * [Config File](../configuration/config-file.md)
+* Application Logs
+  * [Ruby](../articles/ruby.md), [Java](../articles/java.md), [Python](../articles/python.md), [PHP](../articles/php.md),
 
+    [Perl](../articles/perl.md), [Node.js](../articles/nodejs.md), [Scala](../articles/scala.md)
+* Examples
+  * [Store Apache Log into Amazon S3](../articles/apache-to-s3.md)
+  * [Store Apache Log into MongoDB](../articles/apache-to-mongodb.md)
+  * [Data Collection into HDFS](../articles/http-to-hdfs.md)
 
-------------------------------------------------------------------------
+If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open). [Fluentd](http://www.fluentd.org/) is a open source project under [Cloud Native Computing Foundation \(CNCF\)](https://cncf.io/). All components are available under the Apache 2 License.
 
-If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open).
-[Fluentd](http://www.fluentd.org/) is a open source project under [Cloud Native Computing Foundation (CNCF)](https://cncf.io/). All components are available under the Apache 2 License.

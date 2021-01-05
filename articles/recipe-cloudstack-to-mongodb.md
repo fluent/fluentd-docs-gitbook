@@ -1,73 +1,42 @@
-# Storing CloudStack Logs into MongoDB
+# Recipe Cloudstack To Mongodb
 
-[Fluentd](http://fluentd.org) is an open source software to collect
-events and logs in JSON format. It has hundred of plugins that allows
-you to store the logs/events in your favorite data store like AWS S3,
-MongoDB and even elasticsearch. A CloudStack plugin has been written to
-be able to listen to CloudStack events and store these events in a
-chosen storage backend. In this chapter we will show how to store
-CloudStack logs in MongoDB using Fluentd. The
-[documentation](/articles/quickstart.md) quite straightforward, but here
-are the basic steps.
+[Fluentd](http://fluentd.org) is an open source software to collect events and logs in JSON format. It has hundred of plugins that allows you to store the logs/events in your favorite data store like AWS S3, MongoDB and even elasticsearch. A CloudStack plugin has been written to be able to listen to CloudStack events and store these events in a chosen storage backend. In this chapter we will show how to store CloudStack logs in MongoDB using Fluentd. The [documentation]() quite straightforward, but here are the basic steps.
 
-You will need a working `fluentd` installed on your machine. Pick your
-package manager of choice and install `fluentd`, for instance with `gem`
-we would do:
+You will need a working `fluentd` installed on your machine. Pick your package manager of choice and install `fluentd`, for instance with `gem` we would do:
 
-``` {.CodeRay}
+```text
 sudo gem install fluentd
 ```
 
-`fluentd` will now be in your path, you need to create a configuration
-file and start `fluentd` using this config. For additional options with
-`fluentd` just enter `fluentd -h`. The `s` option will create a sample
-configuration file in the working directory. The `-c` option will start
-`fluentd` using the specific configuration file. You can then send a
-test log/event message to the running process with `fluent-cat`
+`fluentd` will now be in your path, you need to create a configuration file and start `fluentd` using this config. For additional options with `fluentd` just enter `fluentd -h`. The `s` option will create a sample configuration file in the working directory. The `-c` option will start `fluentd` using the specific configuration file. You can then send a test log/event message to the running process with `fluent-cat`
 
-``` {.CodeRay}
+```text
 $ fluentd -s conf
 $ fluentd -c conf/fluent.conf &
 $ echo '{"json":"message"}' | fluent-cat debug.test
 ```
 
-CloudStack has a `listEvents` API which does what is says :) it lists
-events happening within a CloudStack deployment. Such events as the
-start and stop of a virtual machine, creation of security groups, life
-cycles events of storage elements, snapshots etc. The `listEvents` API
-is well
-[documented](http://cloudstack.apache.org/docs/api/apidocs-4.2/root_admin/listEvents.html).
-Based mostly on this API and the [fog](http://fog.io) ruby library, a
-CloudStack plugin for `fluentd` was written by [Yuichi UEMURA](https://github.com/u-ichi). It is slightly different from using
-`logstash`, as with `logstash` you can format the log4j logs of the
-CloudStack management server and directly collect those. Here we rely on
-the `listEvents` API.
-
+CloudStack has a `listEvents` API which does what is says :\) it lists events happening within a CloudStack deployment. Such events as the start and stop of a virtual machine, creation of security groups, life cycles events of storage elements, snapshots etc. The `listEvents` API is well [documented](http://cloudstack.apache.org/docs/api/apidocs-4.2/root_admin/listEvents.html). Based mostly on this API and the [fog](http://fog.io) ruby library, a CloudStack plugin for `fluentd` was written by [Yuichi UEMURA](https://github.com/u-ichi). It is slightly different from using `logstash`, as with `logstash` you can format the log4j logs of the CloudStack management server and directly collect those. Here we rely on the `listEvents` API.
 
 ## Getting Started
 
 You can install it from source:
 
-``` {.CodeRay}
+```text
 git clone https://github.com/u-ichi/fluent-plugin-cloudstack
 ```
 
-Then build your own gem and install it with
-`sudo gem build fluent-plugin-cloudstack.gemspec` and
-`sudo gem install fluent-plugin-cloudstack-0.0.8.gem`
+Then build your own gem and install it with `sudo gem build fluent-plugin-cloudstack.gemspec` and `sudo gem install fluent-plugin-cloudstack-0.0.8.gem`
 
 Or you install the gem directly:
 
-``` {.CodeRay}
+```text
 sudo gem install fluent-plugin-cloudstack
 ```
 
-Generate a configuration file with `fluentd -s conf`, you can specify
-the path to your configuration file. Edit the configuration to define a
-`source` as being from your CloudStack host. For instance if you a
-running a development environment locally:
+Generate a configuration file with `fluentd -s conf`, you can specify the path to your configuration file. Edit the configuration to define a `source` as being from your CloudStack host. For instance if you a running a development environment locally:
 
-``` {.CodeRay}
+```text
 <source>
   @type cloudstack
   host localhost
@@ -85,23 +54,17 @@ running a development environment locally:
 </source>
 ```
 
-There is currently a small bug in the `interval` definition so I
-commented it out. You also want to define the tag explicitly as being
-`cloudstack`. You can then create a `<match>` section in the
-configuration file. To keep it simple at first, we will simply echo the
-events to `stdout`, therefore just add:
+There is currently a small bug in the `interval` definition so I commented it out. You also want to define the tag explicitly as being `cloudstack`. You can then create a `<match>` section in the configuration file. To keep it simple at first, we will simply echo the events to `stdout`, therefore just add:
 
-``` {.CodeRay}
+```text
 <match cloudstack.**>
   @type stdout
 </match>
 ```
 
-Run `fluentd` with `fluentd -c conf/fluent.conf &`, browse the
-CloudStack UI, create a VM, create a service offering. Once the interval
-is passed you will see the events being written to `stdout`:
+Run `fluentd` with `fluentd -c conf/fluent.conf &`, browse the CloudStack UI, create a VM, create a service offering. Once the interval is passed you will see the events being written to `stdout`:
 
-``` {.CodeRay}
+```text
 $ 2013-11-05 12:19:26 +0100 [info]: starting fluentd-0.10.39
 2013-11-05 12:19:26 +0100 [info]: reading config file path="conf/fluent.conf"
 2013-11-05 12:19:26 +0100 [info]: using configuration file: <ROOT>
@@ -153,50 +116,27 @@ $ 2013-11-05 12:19:26 +0100 [info]: starting fluentd-0.10.39
 2013-11-05 12:20:19 +0100 cloudstack.usages: {"vm_sum":1,"memory_sum":536870912,"cpu_sum":1,"root_volume_sum":1400,"data_volume_sum":0,"Small Instance":1}
 ```
 
-I cut some of the output for brevity, note that I do have an interval
-listed as `3` because I did not want to wait 300 minutes. Therefore I
-installed from source and patched the plugin, it should be fixed in the
-source soon. You might have a different endpoint and of course different
-keys, and don't worry about me sharing that `secret_key` I am using a
-simulator, that key is already gone.
+I cut some of the output for brevity, note that I do have an interval listed as `3` because I did not want to wait 300 minutes. Therefore I installed from source and patched the plugin, it should be fixed in the source soon. You might have a different endpoint and of course different keys, and don't worry about me sharing that `secret_key` I am using a simulator, that key is already gone.
 
 ## Plugging MongoDB
 
-Getting the events and usage information on stdout is interesting, but
-the kicker comes from storing the data in a database or a search index.
-In this section we show to get closer to reality and use
-[MongoDB](http://www.mongodb.org) to store the data. MongoDB is an open
-source document database which is schemaless and stores document in JSON
-format (BSON actually). Installation and query syntax of MongoDB is
-beyond the scope of this chapter. MongoDB clusters can be setup with
-replication and sharding, in this section we use MongoDB on a single
-host with no sharding or replication. To use MongoDB as a storage
-backend for the events, we first need to install `mongodb`. On single
-OSX node this is as simple as `sudo port install mongodb`. For other OS
-use the appropriate package manager. You can then start mongodb with
-`sudo mongod --dbpath=/path/to/your/databases`. Create a `fluentd`
-database and a `fluentd` user with read/write access to it. In the mongo
-shell do:
+Getting the events and usage information on stdout is interesting, but the kicker comes from storing the data in a database or a search index. In this section we show to get closer to reality and use [MongoDB](http://www.mongodb.org) to store the data. MongoDB is an open source document database which is schemaless and stores document in JSON format \(BSON actually\). Installation and query syntax of MongoDB is beyond the scope of this chapter. MongoDB clusters can be setup with replication and sharding, in this section we use MongoDB on a single host with no sharding or replication. To use MongoDB as a storage backend for the events, we first need to install `mongodb`. On single OSX node this is as simple as `sudo port install mongodb`. For other OS use the appropriate package manager. You can then start mongodb with `sudo mongod --dbpath=/path/to/your/databases`. Create a `fluentd` database and a `fluentd` user with read/write access to it. In the mongo shell do:
 
-``` {.CodeRay}
+```text
 $sudo mongo
 >use fluentd
 >db.AddUser({user:"fluentd", pwd: "foobar", roles: ["readWrite", "dbAdmin"]})
 ```
 
-We then need to install the `fluent-plugin-mongodb`. Still using `gem`
-this will be done like so:
+We then need to install the `fluent-plugin-mongodb`. Still using `gem` this will be done like so:
 
-``` {.CodeRay}
+```text
 $sudo gem install fluent-plugin-mongo.
 ```
 
-The complete [documentation](/plugins/output/mongo.md) also explains how to
-modify the configuration of `fluentd` to use this backend. Previously we
-used `stdout` as the output backend, to use `mongodb` we just need to
-write a different `<match>` section like so:
+The complete [documentation]() also explains how to modify the configuration of `fluentd` to use this backend. Previously we used `stdout` as the output backend, to use `mongodb` we just need to write a different `<match>` section like so:
 
-``` {.CodeRay}
+```text
 # Single MongoDB
 <match cloudstack.**>
   @type mongo
@@ -218,14 +158,11 @@ write a different `<match>` section like so:
 </match>
 ```
 
-Note that you cannot have multiple `match` section for the same tag
-pattern.
+Note that you cannot have multiple `match` section for the same tag pattern.
 
-To view the events/usages in Mongo, simply start a mongo shell with
-`mongo -u fluentd -p foobar fluentd` and list the collections. You will
-see the `test` collection:
+To view the events/usages in Mongo, simply start a mongo shell with `mongo -u fluentd -p foobar fluentd` and list the collections. You will see the `test` collection:
 
-``` {.CodeRay}
+```text
 $ mongo -u fluentd -p foobar fluentd
 MongoDB shell version: 2.4.7
 connecting to: fluentd
@@ -238,10 +175,9 @@ system.users
 test
 ```
 
-Couple MongoDB commands will get your rolling, `db.getCollection`,
-`count()` and `findOne()`:
+Couple MongoDB commands will get your rolling, `db.getCollection`, `count()` and `findOne()`:
 
-``` {.CodeRay}
+```text
 > coll=db.getCollection('test')
 fluentd.test
 > coll.count()
@@ -256,7 +192,7 @@ fluentd.test
 
 The `find()` call returns all entries in the collection.
 
-``` {.CodeRay}
+```text
 > coll.find()
 { "_id" : ObjectId("5278d9822675c98317000001"), "events_flow" : 0, "time" : ISODate("2013-11-05T11:41:47Z") }
 { "_id" : ObjectId("5278d9822675c98317000002"), "vm_sum" : 0, "memory_sum" : 0, "cpu_sum" : 0, "root_volume_sum" : 1500, "data_volume_sum" : 0, "Small Instance" : 1, "time" : ISODate("2013-11-05T11:41:47Z") }
@@ -271,11 +207,7 @@ The `find()` call returns all entries in the collection.
 Type "it" for more
 ```
 
-We leave it to you to learn the MongoDB query syntax and the great
-aggregation framework, have fun.
+We leave it to you to learn the MongoDB query syntax and the great aggregation framework, have fun.
 
+If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open). [Fluentd](http://www.fluentd.org/) is a open source project under [Cloud Native Computing Foundation \(CNCF\)](https://cncf.io/). All components are available under the Apache 2 License.
 
-------------------------------------------------------------------------
-
-If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open).
-[Fluentd](http://www.fluentd.org/) is a open source project under [Cloud Native Computing Foundation (CNCF)](https://cncf.io/). All components are available under the Apache 2 License.

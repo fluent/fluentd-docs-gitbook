@@ -1,75 +1,58 @@
 # Store Apache Logs into MongoDB
 
-This article explains how to use [Fluentd](http://fluentd.org/)'s
-MongoDB Output plugin ([out\_mongo](/plugins/output/mongo.md)) to aggregate
-semi-structured logs in real-time.
-
+This article explains how to use [Fluentd](http://fluentd.org/)'s MongoDB Output plugin \([out\_mongo]()\) to aggregate semi-structured logs in real-time.
 
 ## Background
 
-[Fluentd](http://fluentd.org/) is an advanced open-source log collector
-originally developed at [Treasure Data,
-Inc](http://www.treasuredata.com/). Because Fluentd handles logs as
-semi-structured data streams, the ideal database should have strong
-support for semi-structured data. There are several candidates that meet
-this criterion, but we believe [MongoDB](http://www.mongodb.org/) is the
-market leader.
+[Fluentd](http://fluentd.org/) is an advanced open-source log collector originally developed at [Treasure Data, Inc](http://www.treasuredata.com/). Because Fluentd handles logs as semi-structured data streams, the ideal database should have strong support for semi-structured data. There are several candidates that meet this criterion, but we believe [MongoDB](http://www.mongodb.org/) is the market leader.
 
-MongoDB is an open-source, document-oriented database developed at
-[10gen, Inc](http://www.10gen.com/). It is schema-free and uses a
-JSON-like format to manage semi-structured data.
+MongoDB is an open-source, document-oriented database developed at [10gen, Inc](http://www.10gen.com/). It is schema-free and uses a JSON-like format to manage semi-structured data.
 
-This article will show you how to use [Fluentd](http://fluentd.org/) to
-import Apache logs into MongoDB.
+This article will show you how to use [Fluentd](http://fluentd.org/) to import Apache logs into MongoDB.
 
 ## Mechanism
 
 The figure below shows how things will work.
 
-![](/images/apache-to-mongodb.png)
+![](../.gitbook/assets/apache-to-mongodb.png)
 
 Fluentd does 3 things:
 
-1.  It continuously "tails" the access log file.
-2.  It parses the incoming log entries into meaningful fields (such as
-    `ip`, `path`, etc.) and buffers them.
-3.  It writes the buffered data to MongoDB periodically.
+1. It continuously "tails" the access log file.
+2. It parses the incoming log entries into meaningful fields \(such as
+
+   `ip`, `path`, etc.\) and buffers them.
+
+3. It writes the buffered data to MongoDB periodically.
 
 ## Install
 
-For simplicity, this article will describe how to set up an one-node
-configuration. Please install the following software on the same node.
+For simplicity, this article will describe how to set up an one-node configuration. Please install the following software on the same node.
 
--   [Fluentd](http://fluentd.org/)
--   [MongoDB Output Plugin](/plugins/output/mongo.md)
--   [MongoDB](http://www.mongodb.org/)
--   Apache (with the Combined Log Format)
+* [Fluentd](http://fluentd.org/)
+* [MongoDB Output Plugin]()
+* [MongoDB](http://www.mongodb.org/)
+* Apache \(with the Combined Log Format\)
 
-The MongoDB Output plugin is included in the latest version of Fluentd's
-deb/rpm package. If you want to use Ruby Gems to install the plugin,
-please use `gem install fluent-plugin-mongo`.
+The MongoDB Output plugin is included in the latest version of Fluentd's deb/rpm package. If you want to use Ruby Gems to install the plugin, please use `gem install fluent-plugin-mongo`.
 
--   [Debian Package](/articles/install-by-deb.md)
--   [RPM Package](/articles/install-by-rpm.md)
--   [Ruby gem](/articles/install-by-gem.md)
+* [Debian Package](install-by-deb.md)
+* [RPM Package](install-by-rpm.md)
+* [Ruby gem](install-by-gem.md)
 
 For MongoDB, please refer to the following downloads page.
 
--   [MongoDB Downloads](http://www.mongodb.org/downloads)
+* [MongoDB Downloads](http://www.mongodb.org/downloads)
 
 ## Configuration
 
-Let's start configuring Fluentd. If you used the deb/rpm package,
-Fluentd's config file is located at /etc/td-agent/td-agent.conf.
-Otherwise, it is located at /etc/fluentd/fluentd.conf.
+Let's start configuring Fluentd. If you used the deb/rpm package, Fluentd's config file is located at /etc/td-agent/td-agent.conf. Otherwise, it is located at /etc/fluentd/fluentd.conf.
 
 ### Tail Input
 
-For the input source, we will set up Fluentd to track the recent Apache
-logs (typically found at /var/log/apache2/access\_log) The Fluentd
-configuration file should look like this:
+For the input source, we will set up Fluentd to track the recent Apache logs \(typically found at /var/log/apache2/access\_log\) The Fluentd configuration file should look like this:
 
-``` {.CodeRay}
+```text
 <source>
   @type tail
   format apache2
@@ -78,29 +61,31 @@ configuration file should look like this:
   tag mongo.apache.access
 </source>
 ```
-Please make sure that your Apache outputs are in the default
-\'combined\' format. \`format apache2\` cannot parse custom log formats.
-Please see the [in\_tail](/plugins/input/tail.md) article for more information.
+
+Please make sure that your Apache outputs are in the default \'combined\' format. \`format apache2\` cannot parse custom log formats. Please see the [in\_tail]() article for more information.
 
 Let's go through the configuration line by line.
 
-1.  `type tail`: The tail Input plugin continuously tracks the log file.
-    This handy plugin is included in Fluentd's core.
-2.  `format apache2`: Uses Fluentd's built-in Apache log parser.
-3.  `path /var/log/apache2/access_log`: The location of the Apache log.
-    This may be different for your particular system.
-4.  `tag mongo.apache.access`: `mongo.apache.access` is used as the tag
-    to route the messages within Fluentd.
+1. `type tail`: The tail Input plugin continuously tracks the log file.
 
-That's it! You should now be able to output a JSON-formatted data stream
-for Fluentd to process.
+   This handy plugin is included in Fluentd's core.
+
+2. `format apache2`: Uses Fluentd's built-in Apache log parser.
+3. `path /var/log/apache2/access_log`: The location of the Apache log.
+
+   This may be different for your particular system.
+
+4. `tag mongo.apache.access`: `mongo.apache.access` is used as the tag
+
+   to route the messages within Fluentd.
+
+That's it! You should now be able to output a JSON-formatted data stream for Fluentd to process.
 
 ### MongoDB Output
 
-The output destination will be MongoDB. The output configuration should
-look like this:
+The output destination will be MongoDB. The output configuration should look like this:
 
-``` {.CodeRay}
+```text
 <match mongo.**>
   # plugin type
   @type mongo
@@ -121,33 +106,25 @@ look like this:
 </match>
 ```
 
-The match section specifies the regexp used to look for matching tags.
-If a matching tag is found in a log, then the config inside
-`<match>...</match>` is used (i.e. the log is routed according to the
-config inside). In this example, the `mongo.apache.access` tag
-(generated by `tail`) is always used.
+The match section specifies the regexp used to look for matching tags. If a matching tag is found in a log, then the config inside `<match>...</match>` is used \(i.e. the log is routed according to the config inside\). In this example, the `mongo.apache.access` tag \(generated by `tail`\) is always used.
 
-The `**` in `mongo.**` matches zero or more period-delimited tag parts
-(e.g. mongo/mongo.a/mongo.a.b).
+The `**` in `mongo.**` matches zero or more period-delimited tag parts \(e.g. mongo/mongo.a/mongo.a.b\).
 
-**flush\_interval** specifies how often the data is written to MongoDB.
-The other options specify MongoDB's host, port, db, and collection.
+**flush\_interval** specifies how often the data is written to MongoDB. The other options specify MongoDB's host, port, db, and collection.
 
-For additional configuration parameters, please see the [MongoDB Output plugin](/plugins/output/mongo.md) article. If you are using ReplicaSet, please see the
-[MongoDB ReplicaSet Output plugin](/plugins/output/mongo_replset.md) article.
+For additional configuration parameters, please see the [MongoDB Output plugin]() article. If you are using ReplicaSet, please see the [MongoDB ReplicaSet Output plugin]() article.
 
 ## Test
 
-To test the configuration, just ping the Apache server. This example
-uses the `ab` (Apache Bench) program.
+To test the configuration, just ping the Apache server. This example uses the `ab` \(Apache Bench\) program.
 
-``` {.CodeRay}
+```text
 $ ab -n 100 -c 10 http://localhost/
 ```
 
 Then, access MongoDB and see the stored data.
 
-``` {.CodeRay}
+```text
 $ mongo
 > use apache
 > db["access"].findOne();
@@ -158,18 +135,14 @@ $ mongo
 
 ## Conclusion
 
-Fluentd + MongoDB makes real-time log collection simple, easy, and
-robust.
+Fluentd + MongoDB makes real-time log collection simple, easy, and robust.
 
 ## Learn More
 
--   [Fluentd Architecture](https://www.fluentd.org/architecture)
--   [Fluentd Get Started](/articles/quickstart.md)
--   [MongoDB Output Plugin](/plugins/output/mongo.md)
--   [MongoDB ReplicaSet Output Plugin](/plugins/output/mongo_replset.md)
+* [Fluentd Architecture](https://www.fluentd.org/architecture)
+* [Fluentd Get Started]()
+* [MongoDB Output Plugin]()
+* [MongoDB ReplicaSet Output Plugin]()
 
+If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open). [Fluentd](http://www.fluentd.org/) is a open source project under [Cloud Native Computing Foundation \(CNCF\)](https://cncf.io/). All components are available under the Apache 2 License.
 
-------------------------------------------------------------------------
-
-If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open).
-[Fluentd](http://www.fluentd.org/) is a open source project under [Cloud Native Computing Foundation (CNCF)](https://cncf.io/). All components are available under the Apache 2 License.

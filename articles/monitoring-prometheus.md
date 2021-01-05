@@ -1,42 +1,36 @@
-# Monitoring Fluentd (Prometheus)
+# Monitoring Prometheus
 
-This article describes how to monitor Fluentd via
-[Prometheus](https://prometheus.io/).
+This article describes how to monitor Fluentd via [Prometheus](https://prometheus.io/).
 
-Since both Prometheus and Fluentd are under [CNCF (Cloud Native Computing Foundation)](https://www.cncf.io/), Fluentd project is
-recommending to use Prometheus by default to monitor Fluentd.
-
+Since both Prometheus and Fluentd are under [CNCF \(Cloud Native Computing Foundation\)](https://www.cncf.io/), Fluentd project is recommending to use Prometheus by default to monitor Fluentd.
 
 ## Installation
 
 First of all, please install `fluent-plugin-prometheus` gem.
 
-``` {.CodeRay}
+```text
 $ fluent-gem install fluent-plugin-prometheus --version=0.4.0
 ```
 
 If you are using td-agent, use `td-agent-gem` for installation.
 
-``` {.CodeRay}
+```text
 $ sudo td-agent-gem install fluent-plugin-prometheus --version=0.4.0
 ```
 
 ## Example Fluentd Configuration
 
-To expose the Fluentd metrics to Prometheus, we need to configure 3
-parts:
+To expose the Fluentd metrics to Prometheus, we need to configure 3 parts:
 
--   Step 1: Prometheus Filter Plugin to count Incoming Records
--   Step 2: Prometheus Output Plugin to count Outgoing Records
--   Step 3: Prometheus Input Plugin to expose metrics via HTTP
+* Step 1: Prometheus Filter Plugin to count Incoming Records
+* Step 2: Prometheus Output Plugin to count Outgoing Records
+* Step 3: Prometheus Input Plugin to expose metrics via HTTP
 
 ### Step 1: Counting Incoming Records by Prometheus Filter Plugin
 
-First, please add the `<filter>` section like below, to count the
-incoming records per tag. With this configuration, `prometheus` filter
-starts adding the internal counter as the record comes in.
+First, please add the `<filter>` section like below, to count the incoming records per tag. With this configuration, `prometheus` filter starts adding the internal counter as the record comes in.
 
-``` {.CodeRay}
+```text
 # source
 <source>
   @type forward
@@ -61,12 +55,9 @@ starts adding the internal counter as the record comes in.
 
 ### Step 2: Counting Outgoing Records by Prometheus Output Plugin
 
-Second, please use `copy` plugin with `prometheus` output plugin, to
-count the outgoing records per tag. With this configuration,
-`prometheus` output starts adding the internal counter as the record
-goes out.
+Second, please use `copy` plugin with `prometheus` output plugin, to count the outgoing records per tag. With this configuration, `prometheus` output starts adding the internal counter as the record goes out.
 
-``` {.CodeRay}
+```text
 # count number of outgoing records per tag
 <match company.*>
   @type copy
@@ -96,10 +87,9 @@ goes out.
 
 ### Step 3: Expose Metrics by Prometheus Input Plugin via HTTP
 
-Finally, please use `prometheus` input plugin to expose internal counter
-information via HTTP.
+Finally, please use `prometheus` input plugin to expose internal counter information via HTTP.
 
-``` {.CodeRay}
+```text
 # expose metrics in prometheus format
 <source>
   @type prometheus
@@ -120,7 +110,7 @@ information via HTTP.
 
 After you have done 3 changes, please restart fluentd.
 
-``` {.CodeRay}
+```text
 # For stand-alone Fluentd installations
 $ fluentd -c fluentd.conf
 # For td-agent users
@@ -129,17 +119,16 @@ $ sudo /etc/init.d/td-agent restart
 
 Let's send some records.
 
-``` {.CodeRay}
+```text
 $ echo '{"message":"hello"}' | bundle exec fluent-cat company.test1
 $ echo '{"message":"hello"}' | bundle exec fluent-cat company.test1
 $ echo '{"message":"hello"}' | bundle exec fluent-cat company.test1
 $ echo '{"message":"hello"}' | bundle exec fluent-cat company.test2
 ```
 
-Then, please access to `http://localhost:24231/metrics`, which is the
-URL to receive metrics in [Prometheus format](https://prometheus.io/docs/instrumenting/exposition_formats/).
+Then, please access to `http://localhost:24231/metrics`, which is the URL to receive metrics in [Prometheus format](https://prometheus.io/docs/instrumenting/exposition_formats/).
 
-``` {.CodeRay}
+```text
 curl http://localhost:24231/metrics
 # TYPE fluentd_input_status_num_records_total counter
 # HELP fluentd_input_status_num_records_total The total number of incoming records
@@ -159,7 +148,7 @@ fluentd_output_status_buffer_queue_length{hostname="KZK.local",plugin_id="object
 
 Please prepare the file below as `prometheus.yml`.
 
-``` {.CodeRay}
+```text
 global:
   scrape_interval: 10s # Set the scrape interval to every 10 seconds. Default is every 1 minute.
 
@@ -173,7 +162,7 @@ scrape_configs:
 
 Then, launch `prometheus` process.
 
-``` {.CodeRay}
+```text
 $ ./prometheus --config.file="prometheus.yml"
 ```
 
@@ -183,42 +172,36 @@ Now please open your browser and access to `http://localhost:9090/`.
 
 ### List of Fluentd nodes
 
-If you go to `http://localhost:9090/targets`, Prometheus will show you a
-list of Fluentd nodes and its status.
+If you go to `http://localhost:9090/targets`, Prometheus will show you a list of Fluentd nodes and its status.
 
-![](/images/prometheus-targets.png)
+![](../.gitbook/assets/prometheus-targets%20%281%29%20%281%29.png)
 
 ### List of Fluentd metrics
 
-Then, visit `http://localhost:9090/graph` to explore Fluentd internal
-metrics. There, you'll see 8 metrics in the metric list:
+Then, visit `http://localhost:9090/graph` to explore Fluentd internal metrics. There, you'll see 8 metrics in the metric list:
 
-![](/images/prometheus-metrics.png)
+![](../.gitbook/assets/prometheus-metrics%20%281%29%20%281%29.png)
 
--   fluentd\_input\_status\_num\_records\_total
--   fluentd\_output\_status\_buffer\_queue\_length
--   fluentd\_output\_status\_buffer\_total\_bytes
--   fluentd\_output\_status\_emit\_count
--   fluentd\_output\_status\_num\_errors
--   fluentd\_output\_status\_num\_records\_total
--   fluentd\_output\_status\_retry\_count
--   fluentd\_output\_status\_retry\_wait
+* fluentd\_input\_status\_num\_records\_total
+* fluentd\_output\_status\_buffer\_queue\_length
+* fluentd\_output\_status\_buffer\_total\_bytes
+* fluentd\_output\_status\_emit\_count
+* fluentd\_output\_status\_num\_errors
+* fluentd\_output\_status\_num\_records\_total
+* fluentd\_output\_status\_retry\_count
+* fluentd\_output\_status\_retry\_wait
 
-Please pick `fluentd_input_status_num_records_total`, and you'll see the
-total incoming records per tag.
+Please pick `fluentd_input_status_num_records_total`, and you'll see the total incoming records per tag.
 
-![](/images/prometheus-graph.png)
+![](../.gitbook/assets/prometheus-graph%20%281%29.png)
 
 ### Example Prometheus Queries
 
-Since `fluentd_input_status_num_records_total` and
-`fluentd_output_status_num_records_total` are monotonically increasing
-numbers, it requires a little bit of calculation by [PromQL (Prometheus Query Language)](https://prometheus.io/docs/prometheus/latest/querying/basics/)
-to make them meaningful.
+Since `fluentd_input_status_num_records_total` and `fluentd_output_status_num_records_total` are monotonically increasing numbers, it requires a little bit of calculation by [PromQL \(Prometheus Query Language\)](https://prometheus.io/docs/prometheus/latest/querying/basics/) to make them meaningful.
 
 Here are the example PromQLs for common metrics everyone wants to see.
 
-``` {.CodeRay}
+```text
 # number of available nodes
 up
 
@@ -240,14 +223,11 @@ rate(fluentd_output_status_emit_count[1m])
 
 ### Metrics to Monitor
 
-In addition to the traffic metrics introduced above, it is important to
-monitor the queue length and error count.
+In addition to the traffic metrics introduced above, it is important to monitor the queue length and error count.
 
-If these values are increasing, it means Fluentd cannot flush the buffer
-to the destination. Thus you will lose the data once the buffer becomes
-full.
+If these values are increasing, it means Fluentd cannot flush the buffer to the destination. Thus you will lose the data once the buffer becomes full.
 
-``` {.CodeRay}
+```text
 # maximum buffer length in last 1min
 max_over_time(fluentd_output_status_buffer_queue_length[1m])
 
@@ -263,21 +243,16 @@ rate(fluentd_output_status_retry_count[1m])
 
 ## Grafana for Advanced Visualization / Alerting
 
-For more advanced visualization and alerting, we recommend to use
-[Grafana](https://grafana.com/) as a visualization frontend for
-Prometheus.
+For more advanced visualization and alerting, we recommend to use [Grafana](https://grafana.com/) as a visualization frontend for Prometheus.
 
--   [Grafana Support for Prometheus](https://prometheus.io/docs/visualization/grafana/)
+* [Grafana Support for Prometheus](https://prometheus.io/docs/visualization/grafana/)
 
-![](/images/prometheus-grafana.png)
+![](../.gitbook/assets/prometheus-grafana%20%281%29%20%281%29.png)
 
 ## Further Readings
 
--   [Prometheus Documentation](https://prometheus.io/docs/introduction/overview/)
--   [Grafana Documentation](http://docs.grafana.org/)
+* [Prometheus Documentation](https://prometheus.io/docs/introduction/overview/)
+* [Grafana Documentation](http://docs.grafana.org/)
 
+If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open). [Fluentd](http://www.fluentd.org/) is a open source project under [Cloud Native Computing Foundation \(CNCF\)](https://cncf.io/). All components are available under the Apache 2 License.
 
-------------------------------------------------------------------------
-
-If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open).
-[Fluentd](http://www.fluentd.org/) is a open source project under [Cloud Native Computing Foundation (CNCF)](https://cncf.io/). All components are available under the Apache 2 License.
