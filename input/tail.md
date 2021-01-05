@@ -30,6 +30,13 @@ When Fluentd is first configured with `in_tail`, it will start reading from the 
 
 If `td-agent` restarts, it resumes reading from the last position before the restart. This position is recorded in the position file specified by the `pos_file` parameter.
 
+### Linux Capability
+
+Since v1.12.0, `in_tail` handles the following Linux cababilities if Fluentd's Linux capability handling module is enabled:
+
+* `CAP_DAC_READ_SEARCH` \(`:dac_read_search` on `in_tail` code.\)
+* `CAP_DAC_OVERRIDE` \(`:dac_override` on `in_tail` code.\)
+
 ## Plugin Helpers
 
 * [`timer`](../plugin-helper-overview/api-plugin-helper-timer.md)
@@ -37,18 +44,11 @@ If `td-agent` restarts, it resumes reading from the last position before the res
 * [`parser`](../plugin-helper-overview/api-plugin-helper-parser.md)
 * [`compat_parameters`](../plugin-helper-overview/api-plugin-helper-compat_parameters.md)
 
+See also: [Linux capability](../deployment/linux-capability.md)
+
 ## Parameters
 
 See [Common Parameters](../configuration/plugin-common-parameters.md).
-
-## Linux Capability
-
-Since v1.12.0, `in_tail` handles the following Linux cababilities if Fluentd's Linux capability handling module is enabled:
-
-* `CAP_DAC_READ_SEARCH` \(`:dac_read_search` on `in_tail` code.\)
-* `CAP_DAC_OVERRIDE` \(`:dac_override` on `in_tail` code.\)
-
-See also: [Linux capability](../deployment/linux-capability.md)
 
 ### `@type` \(required\)
 
@@ -95,7 +95,8 @@ path /path/to/a/*,/path/to/b/c.log
 
 If the date is `20140401`, Fluentd starts to watch the files in `/path/to/2014/04/01` directory. See also `read_from_head` parameter.
 
-You should not use `*` with log rotation because it may cause the log duplication. In this case, you should separate `in_tail` plugin configuration.
+By default, You should not use `*` with log rotation because it may cause the log duplication.
+To avoid log duplication, you need to set `follow_inodes true` in the configuration.
 
 ### `path_timezone`
 
@@ -130,6 +131,20 @@ exclude_path ["/path/to/*.gz", "/path/to/*.zip"]
 
 `exclude_path` takes input as an array, unlike `path` which takes as a string.
 
+### `follow_inodes`
+
+| type | default | version |
+| :--- | :--- | :--- |
+| bool | false | 1.12.0 |
+
+Enable combination of `*` in path with rotation inside same directory and `read_from_head true`.
+
+```
+path /path/to/*
+read_from_head true
+follow_inodes true  # Without this parameter, file rotation causes log duplication.
+```
+
 ### `refresh_interval`
 
 | type | default | version |
@@ -162,7 +177,7 @@ Skips the refresh of the watch list on startup. This reduces the startup time wh
 
 Starts to read the logs from the head of the file, not tail.
 
-If you want to `tail` the contents with `*` or `strftime` dynamic path, set this parameter to `true`. Instead, you should guarantee that the log rotation will not occur in `*` directory.
+If you want to `tail` the contents with `*` or `strftime` dynamic path, set this parameter to `true`. Instead, you should guarantee that the log rotation will not occur in `*` directory. Since v1.12.0, you can use `follow_inodes true` to avoid log duplication by log rotation.
 
 When this is `true`, `in_tail` tries to read a file during the startup phase. If the target file is large, it takes a long time and other plugins do not start until the reading is finished.
 
