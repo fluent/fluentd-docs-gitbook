@@ -2,7 +2,7 @@
 
 This article explains how to use [Fluentd](http://fluentd.org/)'s [Amazon Kinesis](https://aws.amazon.com/kinesis/) Output plugin \([`out_kinesis`](https://github.com/awslabs/aws-fluent-plugin-kinesis)\) to aggregate semi-structured logs in real-time. Kinesis plugin is developed and published by Amazon Web Services officially.
 
-![Fluentd + Kinesis](../.gitbook/assets/fluentd-kinesis%20%281%29.png)
+![Fluentd + Kinesis](../.gitbook/assets/fluentd-kinesis%20%281%29%20%281%29.png)
 
 ## Background
 

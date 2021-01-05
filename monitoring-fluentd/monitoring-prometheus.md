@@ -186,13 +186,13 @@ Now, open this URL `http://localhost:9090/` in your browser.
 
 Go to `http://localhost:9090/targets` to see the list of Fluentd nodes and their status.
 
-![Prometheus Targets](../.gitbook/assets/prometheus-targets%20%281%29.png)
+![Prometheus Targets](../.gitbook/assets/prometheus-targets%20%281%29%20%281%29.png)
 
 ### List of Fluentd Metrics
 
 Visit `http://localhost:9090/graph` to explore Fluentd's internal metrics. You'll see eight \(8\) metrics in the metric list:
 
-![Prometheus Metrics](../.gitbook/assets/prometheus-metrics%20%281%29.png)
+![Prometheus Metrics](../.gitbook/assets/prometheus-metrics%20%281%29%20%281%29.png)
 
 * `fluentd_input_status_num_records_total`
 * `fluentd_output_status_buffer_queue_length`
@@ -259,7 +259,7 @@ For more advanced visualization and alerting, we recommend [Grafana](https://gra
 
 * [Grafana Support for Prometheus](https://prometheus.io/docs/visualization/grafana/)
 
-![Prometheus + Grafana](../.gitbook/assets/prometheus-grafana%20%281%29.png)
+![Prometheus + Grafana](../.gitbook/assets/prometheus-grafana%20%281%29%20%281%29.png)
 
 ## Further Readings
 

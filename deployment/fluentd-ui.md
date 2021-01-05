@@ -7,7 +7,13 @@
 * Configure Fluentd settings such as config file, pid file path, etc.
 * View Fluentd log with simple error viewer
 
-`fluentd-ui` does not work with `fluentd` v1 and `td-agent` 3 does not include it. This content is for v0.12 for now.
+`fluentd-ui` does not work with `fluentd` v1 and `td-agent` 3 and 4 do not include it. This content is for v0.12 for now.
+
+## Enterprise
+
+[Calyptia](https://www.calyptia.com), from [fluentd.org/enterprise](https://www.fluentd.org/enterprise), offers an enterprise UI on top of Fluentd and Fluent Bit. Please visit their site for more information
+
+![](../.gitbook/assets/image.png)
 
 ## Getting Started
 
@@ -39,7 +45,7 @@ The default account credentials are:
 * `username="admin"`
 * `password="changeme"`
 
-![Fluentd UI](../.gitbook/assets/fluentd-ui%20%281%29.gif)
+![Fluentd UI](../.gitbook/assets/fluentd-ui%20%281%29%20%281%29.gif)
 
 ## Screenshots
 
@@ -47,7 +53,7 @@ The default account credentials are:
 
 ### Dashboard
 
-![Fluentd UI: Dashboard](../.gitbook/assets/dashboard%20%281%29.gif)
+![Fluentd UI: Dashboard](../.gitbook/assets/dashboard%20%281%29%20%281%29.gif)
 
 ### Setting
 
@@ -63,9 +69,9 @@ The default account credentials are:
 
 ![](../.gitbook/assets/01%20%281%29.png)
 
-![](../.gitbook/assets/02.png)
+![](../.gitbook/assets/02%20%281%29.png)
 
-![](../.gitbook/assets/03.png)
+![](../.gitbook/assets/03%20%281%29.png)
 
 ![](../.gitbook/assets/04.png)
 
