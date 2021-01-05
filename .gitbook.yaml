@@ -37,7 +37,6 @@ redirects:
   v1.0/articles/parse-section: configuration/parse-section.md
   v1.0/articles/config-file: configuration/config-file.md
   v1.0/articles/storage-section: configuration/storage-section.md
-  v1.0/articles/linux-capability: configuration/linux-capability.md
 
   # Deployment
   v1.0/articles/multi-process-workers: deployment/multi-process-workers.md
@@ -52,6 +51,7 @@ redirects:
   v1.0/articles/trouble-shooting: deployment/trouble-shooting.md
   v1.0/articles/performance-tuning-single-process: deployment/performance-tuning-single-process.md
   v1.0/articles/command-line-option: deployment/command-line-option.md
+  v1.0/articles/linux-capability: deployment/linux-capability.md
 
   # Monitoring
   v1.0/articles/monitoring: monitoring/overview.md

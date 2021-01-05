@@ -41,6 +41,7 @@
   * [Plugin Management](deployment/plugin-management.md)
   * [Trouble Shooting](deployment/trouble-shooting.md)
   * [Fluentd UI](deployment/fluentd-ui.md)
+  * [Linux Capability](deployment/linux-capability.md)
   * [Command Line Option](deployment/command-line-option.md)
 * [Container Deployment](container-deployment/README.md)
   * [Docker Image](container-deployment/install-by-docker.md)

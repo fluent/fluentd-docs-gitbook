@@ -43,12 +43,12 @@ See [Common Parameters](../configuration/plugin-common-parameters.md).
 
 ## Linux Capability
 
-Currently, `in_tail` handles the following Linux cababilities if Fluentd's Linux capability handling module is enabled:
+Since v1.12.0, `in_tail` handles the following Linux cababilities if Fluentd's Linux capability handling module is enabled:
 
 * `CAP_DAC_READ_SEARCH` \(`:dac_read_search` on `in_tail` code.\)
 * `CAP_DAC_OVERRIDE` \(`:dac_override` on `in_tail` code.\)
 
-See also: [Linux capability](https://github.com/fluent/fluentd-docs-gitbook/tree/64f4a664dc56a351572d39f3ff4c2f521fda9c30/plugins/input/configuration/linux-capability.md)
+See also: [Linux capability](../deployment/linux-capability.md)
 
 ### `@type` \(required\)
 
