@@ -1,6 +1,6 @@
 # Command Line Option
 
-This article describes the `fluentd` command-line options.
+This article describes the command-line tools and its options in `fluentd` project.
 
 ## `fluentd`
 
@@ -142,6 +142,26 @@ Arguments:
 
 Options:
         --[no-]license=NAME          Specify license name (default: Apache-2.0)
+```
+
+## `fluent-ctl`
+
+Control `fluentd` process using [Signals](../deployment/signals.md) or Windows Event.
+
+```
+Usage: fluent-ctl COMMAND PID
+
+Commands:
+  shutdown
+  restart
+  flush
+  reload
+```
+
+### Example
+
+```
+fluent-ctl shutdown 11111
 ```
 
 If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open). [Fluentd](http://www.fluentd.org/) is an open-source project under [Cloud Native Computing Foundation \(CNCF\)](https://cncf.io/). All components are available under the Apache 2 License.
