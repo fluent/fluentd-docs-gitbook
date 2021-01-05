@@ -42,7 +42,7 @@ However, if you set `@type json` in `<format>` like this:
 The output changes to
 
 ```javascript
-{"time": "2014-08-25 00:00:00 +0000", "tag":"foo.bar", "k1:"v1", "k2":"v2"}
+{"time": "2014-08-25 00:00:00 +0000", "tag":"foo.bar", "k1":"v1", "k2":"v2"}
 ```
 
 i.e., each line is a single JSON object with "time" and "tag fields to retain the event's timestamp and tag.
