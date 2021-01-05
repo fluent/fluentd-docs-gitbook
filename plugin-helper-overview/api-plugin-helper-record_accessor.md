@@ -74,6 +74,8 @@ accessor.delete(record)     # delete record field
 accessor.set(record, value) # set new value to record field
 ```
 
+NOTE: `set` method is supported since v1.10.3
+
 ## Plugins using `record_accessor`
 
 * [`filter_grep`](../filter/grep.md)
