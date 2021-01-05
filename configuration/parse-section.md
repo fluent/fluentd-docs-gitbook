@@ -181,7 +181,7 @@ For the `types` parameter, the following types are supported:
 
   * Default: `true`
 
-* **`utc`** \(bool\) \(optional\): if `true`, uses wUTC. Otherwise, local time is
+* **`utc`** \(bool\) \(optional\): if `true`, uses UTC. Otherwise, local time is
 
   used. This is exclusive with `localtime`.
 

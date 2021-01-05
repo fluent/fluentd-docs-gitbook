@@ -97,7 +97,7 @@ The `@type` parameter specifies the type of the formatter plugin.
 
   * Default: `true`
 
-* **`utc`** \(bool\) \(optional\): if `true`, uses wUTC. Otherwise, local time is
+* **`utc`** \(bool\) \(optional\): if `true`, uses UTC. Otherwise, local time is
 
   used. This is exclusive with `localtime`.
 

@@ -78,7 +78,7 @@ The **extract** section can be under `<match>`, `<source>`, or `<filter>` sectio
 
   * Default: `true`
 
-* **`utc`** \(bool\) \(optional\): if `true`, uses wUTC. Otherwise, local time is
+* **`utc`** \(bool\) \(optional\): if `true`, uses UTC. Otherwise, local time is
 
   used. This is exclusive with `localtime`.
 
