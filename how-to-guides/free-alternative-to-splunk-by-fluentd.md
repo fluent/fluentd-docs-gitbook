@@ -41,7 +41,7 @@ Once the installation is complete, start Elasticsearch:
 $ ./bin/elasticsearch
 ```
 
-Note: You can also install ElasticSearch \(and Kibana\) using RPM/DEB packages. For details, please refer to [the official instructions](https://www.elastic.co/downloads).
+Note: You can also install Elasticsearch \(and Kibana\) using RPM/DEB packages. For details, please refer to [the official instructions](https://www.elastic.co/downloads).
 
 ## Set Up Kibana
 

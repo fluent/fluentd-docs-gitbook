@@ -126,7 +126,7 @@ This parameter has been deprecated since v1.2.0.
 
 Set to `true` to skip adding the field with `[null, null]` array.
 
-This is useful for ElasticSearch.
+This is useful for Elasticsearch.
 
 ### `backend_library`
 
