@@ -67,12 +67,24 @@ Injected Record:
   type
 
   * Default: `float`
-  * Available values: `float`, `unixtime`, `string`
-    * `float`: seconds from Epoch + nano seconds \(e.g.
+  * Available values:
+    * `float`: seconds from Epoch + microseconds \(e.g.
 
-      1510544836.154709804\)
+      1510544836.154709\)
 
-    * `unixtime`: seconds from Epoch \(e.g. 1510544815\)
+    * `unixtime`: seconds from Epoch \(e.g. 1510544836\)
+    * `unixtime_millis` \(since v1.11.4\): milliseconds from Epoch
+
+       \(e.g. 1510544836154\)
+
+    * `unixtime_micros` \(since v1.20.0\): microseconds from Epoch
+
+       \(e.g. 1510544836154709\)
+
+    * `unixtime_nanos` \(since v1.20.0\): nanoseconds from Epoch
+
+      \(e.g. 1510544836154709804\)
+
     * `string`: use format specified by `time_format`, local time or time
 
       zone
