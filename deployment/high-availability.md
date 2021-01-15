@@ -34,7 +34,7 @@ However, most failure scenarios are preventable. The following sections describe
 
 To configure Fluentd for high availability, we assume that your network consists of '_log forwarders_' and '_log aggregators_'.
 
-![](../.gitbook/assets/fluentd_ha%20%281%29%20%281%29.png)
+![](../.gitbook/assets/fluentd_ha%20%281%29%20%281%29%20%281%29.png)
 
 '_log forwarders_' are typically installed on every node to receive local events. Once an event is received, they forward it to the 'log aggregators' through the network.
 

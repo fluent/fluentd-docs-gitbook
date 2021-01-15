@@ -45,7 +45,7 @@ The default account is username="admin" and password="changeme"
 
 ### Dashboard
 
-![dashboard](../.gitbook/assets/dashboard%20%281%29%20%281%29.gif)
+![dashboard](../.gitbook/assets/dashboard%20%281%29%20%281%29%20%281%29.gif)
 
 ### Setting
 
