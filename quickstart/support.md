@@ -16,7 +16,7 @@ Join our Slack channel and talk with Fluentd developers and users directly, now.
 
 If you need support for running in production from enterprise companies you can find providers at the following link
 
-* [Enterprise Support providers](https://www.fluentd.org/enterprise)
+* [Enterprise Support providers](https://www.fluentd.org/enterprise_services)
 
 ## Community Resources
 
