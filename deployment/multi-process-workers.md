@@ -10,7 +10,7 @@ By default, one instance of `fluentd` launches a supervisor and a worker. A work
 
 Multi-process workers feature launches multiple workers and use a separate process per worker. `fluentd` provides several features for multi-process workers, so you can get multi-process merits.
 
-![Multi-process Workers](../.gitbook/assets/multi-process-workers%20%281%29.png)
+![Multi-process Workers](../.gitbook/assets/multi-process-workers%20%281%29%20%281%29.png)
 
 ## Configuration
 

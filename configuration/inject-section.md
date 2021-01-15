@@ -75,11 +75,11 @@ Injected Record:
     * `unixtime`: seconds from Epoch \(e.g. 1510544836\)
     * `unixtime_millis` \(since v1.11.4\): milliseconds from Epoch
 
-       \(e.g. 1510544836154\)
+      \(e.g. 1510544836154\)
 
     * `unixtime_micros` \(since v1.20.0\): microseconds from Epoch
 
-       \(e.g. 1510544836154709\)
+      \(e.g. 1510544836154709\)
 
     * `unixtime_nanos` \(since v1.20.0\): nanoseconds from Epoch
 

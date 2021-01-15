@@ -95,8 +95,7 @@ path /path/to/a/*,/path/to/b/c.log
 
 If the date is `20140401`, Fluentd starts to watch the files in `/path/to/2014/04/01` directory. See also `read_from_head` parameter.
 
-By default, You should not use `*` with log rotation because it may cause the log duplication.
-To avoid log duplication, you need to set `follow_inodes true` in the configuration.
+By default, You should not use `*` with log rotation because it may cause the log duplication. To avoid log duplication, you need to set `follow_inodes true` in the configuration.
 
 ### `path_timezone`
 
@@ -139,7 +138,7 @@ exclude_path ["/path/to/*.gz", "/path/to/*.zip"]
 
 Enable combination of `*` in path with rotation inside same directory and `read_from_head true`.
 
-```
+```text
 path /path/to/*
 read_from_head true
 follow_inodes true  # Without this parameter, file rotation causes log duplication.

@@ -1,4 +1,4 @@
-# Linux capability
+# Linux Capability
 
 This article shows configuration and dependent gem installation instruction for enabling Linux capability module on Fluentd core.
 
@@ -26,38 +26,44 @@ gem 'capng_c'
 
 And then execute:
 
-    $ bundle
+```text
+$ bundle
+```
 
 Or install it yourself as for Fluentd:
 
-    $ fluent-gem install capng_c
+```text
+$ fluent-gem install capng_c
+```
 
 Or install it yourself as for td-agent:
 
-    $ td-agent-gem install capng_c
+```text
+$ td-agent-gem install capng_c
+```
 
-**Note:** capng_c uses `pkg-config` to link libcap-ng library. If you couldn't handle Linux capability with capng_c installation, please confirm `pgk-config` package is installed on your box.
+**Note:** capng\_c uses `pkg-config` to link libcap-ng library. If you couldn't handle Linux capability with capng\_c installation, please confirm `pgk-config` package is installed on your box.
 
-## Capability handling on in_tail
+## Capability handling on in\_tail
 
 Currently, `in_tail` which is the one of the Fluentd core plugin handles the following Linux capabilities:
 
-* `CAP_DAC_READ_SEARCH` (`:dac_read_search` on `in_tail` code.)
-* `CAP_DAC_OVERRIDE` (`:dac_override` on `in_tail` code.)
+* `CAP_DAC_READ_SEARCH` \(`:dac_read_search` on `in_tail` code.\)
+* `CAP_DAC_OVERRIDE` \(`:dac_override` on `in_tail` code.\)
 
 Set up `cap_dac_read_search` or `cap_dac_override` to using Ruby executable:
 
-### Using CAP_DAC_READ_SEARCH
+### Using CAP\_DAC\_READ\_SEARCH
 
-```console
+```text
 $ sudo fluent-cap-ctl --add dac_read_search [-f /path/to/bin/ruby]
 Updating dac_read_search done.
 Adding dac_read_search done.
 ```
 
-### Using CAP_DAC_OVERRIDE
+### Using CAP\_DAC\_OVERRIDE
 
-```console
+```text
 $ sudo fluent-cap-ctl --add dac_override [-f /path/to/bin/ruby]
 Updating dac_override done.
 Adding dac_override done.
@@ -65,7 +71,7 @@ Adding dac_override done.
 
 #### Example setting up capability for rbenv-ed Ruby
 
-```console
+```text
 $ sudo fluent-cap-ctl --add "dac_override,cap_dac_read_search" -f $(rbenv prefix)/bin/ruby
 Updating dac_read_search,dac_override done.
 Adding dac_read_search,dac_override done.
@@ -76,25 +82,25 @@ Inheritable: dac_override, dac_read_search
 Permitted:   dac_override, dac_read_search
 ```
 
-### Actual Example for Linux capability handling in in_tail
+### Actual Example for Linux capability handling in in\_tail
 
-When adding `cap_dac_override` (partial privileges for rw file) and `cap_dac_read_search` (partial privileges for read only), Fluentd/td-agent can handle to read 640 permission files such as `/var/log/syslog`:
+When adding `cap_dac_override` \(partial privileges for rw file\) and `cap_dac_read_search` \(partial privileges for read only\), Fluentd/td-agent can handle to read 640 permission files such as `/var/log/syslog`:
 
-```console
+```text
 $ ls -lh /var/log/syslog
 -rw-r----- 1 syslog adm 29K Nov  5 14:35 /var/log/syslog
 ```
 
 This file cannot read form ordinal users:
 
-```console
+```text
 $ cat /var/log/syslog
 cat: /var/log/syslog: Permission denied
 ```
 
 Attach `dac_read_search` for using Ruby executable binary:
 
-```console
+```text
 $ sudo fluent-cap-ctl --add dac_read_search [-f /path/to/bin/ruby]
 Updating dac_read_search done.
 Adding dac_read_search done.
@@ -107,7 +113,7 @@ Permitted:   dac_read_search
 
 And prepare the following configuration:
 
-```aconf
+```text
 <source>
   @type tail
   path /var/log/syslog
@@ -128,14 +134,14 @@ And prepare the following configuration:
 
 Make and change ownership directory:
 
-```console
+```text
 $ sudo mkdir /var/run/fluentd
 $ sudo chown `whoami` /var/run/fluentd
 ```
 
 Then, run as ordinal user with `cap_dac_read_search` capability attached Ruby:
 
-```console
+```text
 $ bundle exec fluentd -c in_tail_camouflage_permission.conf
 2020-11-05 14:47:57 +0900 [info]: parsing config file is succeeded path="example/in_tail.conf"
 2020-11-05 14:47:57 +0900 [info]: gem 'fluentd' version '1.12.0'
@@ -169,14 +175,7 @@ $ bundle exec fluentd -c in_tail_camouflage_permission.conf
 2020-11-05 09:55:01.000000000 +0900 test: {"host":"fluentd-testing","ident":"CRON","pid":"24610","message":"(root) CMD (command -v debian-sa1 > /dev/null && debian-sa1 1 1)"}
 ```
 
-Fluentd which is running on ordinal user does not complain as `Permission denied`.
-Users can retrieve root files' contents on non-root process, yay!
+Fluentd which is running on ordinal user does not complain as `Permission denied`. Users can retrieve root files' contents on non-root process, yay!
 
+If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open). [Fluentd](http://www.fluentd.org/) is an open-source project under [Cloud Native Computing Foundation \(CNCF\)](https://cncf.io/). All components are available under the Apache 2 License.
 
-------------------------------------------------------------------------
-
-If this article is incorrect or outdated, or omits critical information, please
-[let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open).
-[Fluentd](http://www.fluentd.org/) is an open-source project under
-[Cloud Native Computing Foundation (CNCF)](https://cncf.io/). All components are
-available under the Apache 2 License.
