@@ -197,6 +197,14 @@ Open `Td-agent Command Prompt` and use `fluent-gem` command:
 > fluent-gem install fluent-plugin-xyz --version=1.2.3
 ```
 
+## Tips
+
+### Manage privileges in td-agent 3.8.1 or later/td-agent 4.1.0 or later
+
+You need admin privilege to execute `td-agent-gem` command. For upgrade users since 3.8.0 or earlier/td-agent 4.0.1 or earlier, explicitly remove privileges for `NT AUTHORITY\Authenticated Users` from `c:\opt\td-agent`.
+
+This change is for fixing [CVE-2020-28169](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-28169).
+
 ## Next Steps
 
 You are now ready to collect real logs with Fluentd. Refer to the following tutorials on how to collect data from various sources:
