@@ -14,12 +14,14 @@ This plugin is the renamed version of `in_dummy`.
 <source>
   @type sample
   sample {"hello":"world"}
+  tag sample
 </source>
 
 # If you use fluentd v1.11.1 or earlier, use following configuration
 <source>
   @type dummy
   dummy {"hello":"world"}
+  tag dummy
 </source>
 ```
 
