@@ -53,7 +53,7 @@ The default account credentials are:
 
 ### Dashboard
 
-![Fluentd UI: Dashboard](../.gitbook/assets/dashboard%20%281%29%20%281%29%20%281%29.gif)
+![Fluentd UI: Dashboard](../.gitbook/assets/dashboard%20%281%29%20%281%29%20%281%29%20%281%29.gif)
 
 ### Setting
 

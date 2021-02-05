@@ -102,9 +102,9 @@ Here is a table:
 
 Using the array format of JSON. This parameter is used and valid only for json format. When `json_array` as true, Content-Type should be `application/json` and be able to use JSON data for the HTTP request body.
 
-- `json_array true`
+* `json_array true`
 
-```
+```text
 [
   {"key":"value", ...},
   {"key":"value", ...},
@@ -112,9 +112,9 @@ Using the array format of JSON. This parameter is used and valid only for json f
 ]
 ```
 
-- `json_array false`
+* `json_array false`
 
-```
+```text
 {"key":"value", ...}
 {"key":"value", ...}
 ...

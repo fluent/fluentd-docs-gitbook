@@ -509,6 +509,10 @@ The configuration file can be validated without starting the plugins using the `
 $ fluentd --dry-run -c fluent.conf
 ```
 
+## Config Advisor
+
+You can use the Calyptia Config advisor for tips on Fluentd configuration: [http://fluentd-config-analyzer.calyptia.com/](http://fluentd-config-analyzer.calyptia.com/)
+
 ## Format Tips
 
 This section describes some useful features for the configuration file.
