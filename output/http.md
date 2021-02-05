@@ -87,8 +87,8 @@ The proxy for HTTP request.
 
 Here is a table:
 
-* `json(json_array: false)`: `application/x-ndjson`
-* `json(json_array: true)`: `application/json`
+* `json` with `json_array false`: `application/x-ndjson`
+* `json` with `json_array true`: `application/json`
 * `csv`: `text/csv`
 * `tsv`, `ltsv`: `text/tab-separated-values`
 * `msgpack`: `application/x-msgpack`
@@ -101,6 +101,24 @@ Here is a table:
 | bool | false | 1.10.4 |
 
 Using the array format of JSON. This parameter is used and valid only for json format. When `json_array` as true, Content-Type should be `application/json` and be able to use JSON data for the HTTP request body.
+
+- `json_array true`
+
+```
+[
+  {"key":"value", ...},
+  {"key":"value", ...},
+  ...
+]
+```
+
+- `json_array false`
+
+```
+{"key":"value", ...}
+{"key":"value", ...}
+...
+```
 
 ### `<format>` Directive
 
