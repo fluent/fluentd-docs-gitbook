@@ -99,7 +99,7 @@ Usage: fluent-plugin-config-format [options] <type> <name>
 Output plugin config definitions
 
 Arguments:
-        type: input,output,filter,buffer,parser,formatter,storage
+        type: input,output,filter,buffer,parser,formatter,storage,service_discovery
         name: registered plugin name
 
 Options:
@@ -109,6 +109,7 @@ Options:
     -I PATH                          Add PATH to $LOAD_PATH
     -r NAME                          Load library
     -p, --plugin=DIR                 Add plugin directory
+    -t, --table                      Use table syntax to dump parameters
 ```
 
 ### Example
@@ -123,6 +124,12 @@ Generate an old-style output from the plugin's config parameters:
 
 ```text
 fluent-plugin-config-format -f txt output null
+```
+
+Generate a markdown table style output from the plugin's config parameters:
+
+```text
+fluent-plugin-config-format -f markdown --table output null
 ```
 
 ## `fluent-plugin-generate`
