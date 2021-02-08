@@ -2,16 +2,16 @@
 
 This article explains how to collect [Docker](https://www.docker.com/) logs and propagate them to EFK \(Elasticsearch + Fluentd + Kibana\) stack. The example uses [Docker Compose](https://docs.docker.com/compose/) for setting up multiple containers.
 
-![Kibana](../.gitbook/assets/7.2_kibana-homepage.png)
+![Kibana](../.gitbook/assets/7.10_kibana-homepage.png)
 
 [Elasticsearch](https://www.elastic.co/products/elasticsearch) is an open-source search engine known for its ease of use. [Kibana](https://www.elastic.co/products/kibana) is an open-source Web UI that makes Elasticsearch user-friendly for marketers, engineers and data scientists alike.
 
 By combining these three tools EFK \(Elasticsearch + Fluentd + Kibana\) we get a scalable, flexible, easy to use log collection and analytics pipeline. In this article, we will set up four \(4\) containers, each includes:
 
-* [Apache HTTP Server](https://hub.docker.com/_/httpd/)
-* [Fluentd](https://hub.docker.com/r/fluent/fluentd/)
-* [Elasticsearch](https://hub.docker.com/_/elasticsearch/)
-* [Kibana](https://hub.docker.com/_/kibana/)
+- [Apache HTTP Server](https://hub.docker.com/_/httpd/)
+- [Fluentd](https://hub.docker.com/r/fluent/fluentd/)
+- [Elasticsearch](https://hub.docker.com/_/elasticsearch/)
+- [Kibana](https://hub.docker.com/_/kibana/)
 
 All the logs of `httpd` will be ingested into Elasticsearch + Kibana, via Fluentd.
 
@@ -19,7 +19,7 @@ All the logs of `httpd` will be ingested into Elasticsearch + Kibana, via Fluent
 
 Please download and install Docker / Docker Compose. Well, that's it :\)
 
-* [Docker Installation](https://docs.docker.com/engine/installation/)
+- [Docker Installation](https://docs.docker.com/engine/installation/)
 
 ## Step 0: Create `docker-compose.yml`
 
@@ -53,7 +53,7 @@ services:
       - "24224:24224/udp"
 
   elasticsearch:
-    image: docker.elastic.co/elasticsearch/elasticsearch:7.2.0
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.10.2
     environment:
       - "discovery.type=single-node"
     expose:
@@ -62,7 +62,7 @@ services:
       - "9200:9200"
 
   kibana:
-    image: kibana:7.2.0
+    image: kibana:7.10.1
     links:
       - "elasticsearch"
     ports:
@@ -78,9 +78,9 @@ Create `fluentd/Dockerfile` with the following content using the Fluentd [offici
 ```text
 # fluentd/Dockerfile
 
-FROM fluent/fluentd:v1.6-debian-1
+FROM fluent/fluentd:v1.12.0-debian-1.0
 USER root
-RUN ["gem", "install", "fluent-plugin-elasticsearch", "--no-document", "--version", "3.5.2"]
+RUN ["gem", "install", "fluent-plugin-elasticsearch", "--no-document", "--version", "4.3.3"]
 USER fluent
 ```
 
@@ -131,8 +131,8 @@ Use `docker ps` command to verify that the four \(4\) containers are up and runn
 $ docker ps
 CONTAINER ID        IMAGE                                                 COMMAND                  CREATED             STATUS              PORTS                              NAMES
 558fd18fa2d4        httpd                                                 "httpd-foreground"       17 seconds ago      Up 16 seconds       0.0.0.0:80->80/tcp                 docker_web_1
-bc5bcaedb282        kibana:7.2.0                                          "/usr/local/bin/kiba…"   18 seconds ago      Up 17 seconds       0.0.0.0:5601->5601/tcp             docker_kibana_1
-9fe2d02cff41        docker.elastic.co/elasticsearch/elasticsearch:7.2.0   "/usr/local/bin/dock…"   20 seconds ago      Up 18 seconds       0.0.0.0:9200->9200/tcp, 9300/tcp   docker_elasticsearch_1
+bc5bcaedb282        kibana:7.10.1                                         "/usr/local/bin/kiba…"   18 seconds ago      Up 17 seconds       0.0.0.0:5601->5601/tcp             docker_kibana_1
+9fe2d02cff41        docker.elastic.co/elasticsearch/elasticsearch:7.10.2  "/usr/local/bin/dock…"   20 seconds ago      Up 18 seconds       0.0.0.0:9200->9200/tcp, 9300/tcp   docker_elasticsearch_1
 ```
 
 ## Step 3: Generate `httpd` Access Logs
@@ -155,13 +155,13 @@ $ curl http://localhost:80/[1-10]
 
 ## Step 4: Confirm Logs from Kibana
 
-Browse to `http://localhost:5601/` and set up the index name pattern for Kibana. Specify `fluentd-*` to `Index name or pattern` and click `Create`.
+Browse to `http://localhost:5601/app/management/kibana/indexPatterns` and set up the index name pattern for Kibana. Specify `fluentd-*` to `Index name or pattern` and click `Create`.
 
-![Kibana Index](../.gitbook/assets/7.2_efk-kibana-index.png) ![Kibana Timestamp](../.gitbook/assets/7.2_efk-kibana-timestamp.png)
+![Kibana Index](../.gitbook/assets/7.10_efk-kibana-index.png) ![Kibana Timestamp](../.gitbook/assets/7.10_efk-kibana-timestamp.png)
 
 Then, go to `Discover` tab to check the logs. As you can see, logs are properly collected into the Elasticsearch + Kibana, via Fluentd.
 
-![Kibana Discover](../.gitbook/assets/7.2_efk-kibana-discover.png)
+![Kibana Discover](../.gitbook/assets/7.10_efk-kibana-discover.png)
 
 ## Code
 
@@ -169,9 +169,8 @@ The code is available at [https://github.com/digikin/fluentd-elastic-kibana](htt
 
 ## Learn More
 
-* [Fluentd: Architecture](https://www.fluentd.org/architecture)
-* [Fluentd: Get Started](../quickstart/)
-* [Downloading Fluentd](http://www.fluentd.org/download)
+- [Fluentd: Architecture](https://www.fluentd.org/architecture)
+- [Fluentd: Get Started](../quickstart/)
+- [Downloading Fluentd](http://www.fluentd.org/download)
 
 If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open). [Fluentd](http://www.fluentd.org/) is an open-source project under [Cloud Native Computing Foundation \(CNCF\)](https://cncf.io/). All components are available under the Apache 2 License.
-
