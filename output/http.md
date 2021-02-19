@@ -146,6 +146,22 @@ Additional headers for HTTP request.
 headers {"key1":"value1", "key2":"value2"}
 ```
 
+### headers_from_placeholders
+
+| type | default | version |
+| :--- | :--- | :--- |
+| hash | nil | 1.12.1 |
+
+Additional placeholder based headers for HTTP request.
+If you want to use tag or record field, use this parameter instead of `headers`.
+
+```
+headers_from_placeholders {"x-foo-bar":"${$.foo.bar}","x-tag":"app-${tag}"}
+<buffer tag,$.foo.bar>
+  # buffer parameters...
+</buffer>
+```
+
 ### `open_timeout`
 
 | type | default | version |
