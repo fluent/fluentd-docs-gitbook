@@ -11,7 +11,7 @@ Usage: fluentd [options]
     -s, --setup [DIR=/etc/fluent]    install sample configuration file to the directory
     -c, --config PATH                config file path (default: /etc/fluent/fluent.conf)
         --dry-run                    Check fluentd setup is correct or not
-        --show-plugin-config=PLUGIN  Show PLUGIN configuration and exit(ex: input:dummy)
+        --show-plugin-config=PLUGIN  [DEPRECATED] Show PLUGIN configuration and exit(ex: input:dummy)
     -p, --plugin DIR                 add plugin directory
     -I PATH                          add library path
     -r NAME                          load library
@@ -34,11 +34,14 @@ Usage: fluentd [options]
         --without-source             invoke a fluentd without input plugins
         --use-v1-config              Use v1 configuration format (default)
         --use-v0-config              Use v0 configuration format
+        --strict-config-value        Parse config values strictly
     -v, --verbose                    increase verbose level (-v: debug, -vv: trace)
     -q, --quiet                      decrease verbose level (-q: warn, -qq: error)
         --suppress-config-dump       suppress config dumping when fluentd starts
     -g, --gemfile GEMFILE            Gemfile path
     -G, --gem-path GEM_INSTALL_PATH  Gemfile install path (default: $(dirname $gemfile)/vendor/bundle)
+        --conf-encoding ENCODING     specify configuration file encoding
+        --disable-shared-socket      Don't open shared socket for multiple workers
 ```
 
 ### Important Options
