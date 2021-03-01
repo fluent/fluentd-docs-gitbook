@@ -173,5 +173,10 @@ If `in_udp` gets lots of packets within 1 sec, some packets are dropped. For exa
 
 This means that `in_udp` with one process cannot handle such traffic loads. Try [multi workers](../deployment/multi-process-workers.md).
 
+### Issues with newlines
+
+In edge situations please try to set `remove_newline` to `false` so that input will be properly processed, especially when sendig multiline json messages.
+
+
 If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open). [Fluentd](http://www.fluentd.org/) is an open-source project under [Cloud Native Computing Foundation \(CNCF\)](https://cncf.io/). All components are available under the Apache 2 License.
 
