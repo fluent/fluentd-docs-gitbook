@@ -218,6 +218,20 @@ The number of lines to read with each I/O operation.
 
 If you see `chunk bytes limit exceeds for an emitted event stream` or similar log with `in_tail`, set a smaller value.
 
+### `read_bytes_limit_per_second`
+
+| type    | default        | version |
+|:--------|:---------------|:--------|
+| size    | -1 (unlimited) | 1.13.0  |
+
+The number of reading bytes per second to read with I/O operation.
+
+This value should be equal or greater than 8192.
+
+If you work with a big cluster with high volume of log, you can use this parameter
+to avoid network saturation and make it easier to calculate the max throughput per node.
+To restrict shipping log volumes per second, set a positive number.
+
 ### `multiline_flush_interval`
 
 | type | default | version |
