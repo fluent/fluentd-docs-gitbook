@@ -48,7 +48,7 @@ For more details, see [Plugin Management](../deployment/plugin-management.md).
 
 ## Configuration Example
 
-By design, tHe configuration drops some pattern records first and then it re-emits the next matched record as the new tag name. The example configuration shown below gives an example on how the plugin can be used to define a number of rules that examine values from different keys and sets the tag depending on the regular expression configured in each rule.
+By design, the configuration drops some pattern records first and then it re-emits the next matched record as the new tag name. The example configuration shown below gives an example on how the plugin can be used to define a number of rules that examine values from different keys and sets the tag depending on the regular expression configured in each rule.
 
 The tag value is later used to decide whether the log event shall be dropped or not.
 
