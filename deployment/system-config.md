@@ -148,6 +148,14 @@ Specifies the directory permission in the octal format.
 
 Parses config values strictly. Invalid numerical or boolean values are not allowed. Fluentd raises configuration error instead of replacing them with `0` or `true` implicitly.
 
+### `disable_shared_socket`
+
+| type | default | version |
+| :--- | :--- | :--- |
+| bool | nil | 1.12.1 |
+
+Force disable the shared socket which is for listening a same port across multiple worker processes. When the shared socket is enabled (it's the default behavior), a socket is always created to enable workers to communicate with the supervisor. On Windows, it consumes a dynamic (a.k.a ephemeral) TCP port. If you don't prefer it, set this option as `true`. When it's disabled, you may not use plugins that listen a port such as in_forward, in_http and in_syslog.
+
 ### `<log>` section
 
 #### `format`
