@@ -144,7 +144,7 @@ For the `types` parameter, the following types are supported:
   type
 
   * Default: `float`
-  * Available values: `float`, `unixtime`, `string`
+  * Available values: `float`, `unixtime`, `string`, `mixed`
     * `float`: seconds from Epoch + nano seconds \(e.g.
 
       1510544836.154709804\)
@@ -153,6 +153,8 @@ For the `types` parameter, the following types are supported:
     * `string`: use format specified by `time_format`, local time or time
 
       zone
+
+    * `mixed`: enable `time_format_fallbacks` option. (Since Fluentd v1.12.2)
 
 * **`time_format`** \(string\) \(optional\): processes value according to the
 
@@ -198,6 +200,22 @@ For the `types` parameter, the following types are supported:
     3. `[+-]HH` \(e.g. "+09"\)
     4. Region/Zone \(e.g. `Asia/Tokyo`\)
     5. Region/Zone/Zone \(e.g. `America/Argentina/Buenos_Aires`\)
+
+* **`time_format_fallbacks`** \(\) \(optional\): uses the specified time format as a fallback in the specified order.
+
+  You can parse undetermined time format by using `time_format_fallbacks`. This options is enabled when `time_type` is `mixed`.
+
+  * Default: `nil`
+
+  ```text
+    time_type: mixed
+    time_format: unixtime
+    time_format_fallbacks: %iso8601
+  ```
+
+  In the above use case, the timestamp is parsed as `unixtime` at first, if it fails, then it is parsed as `%iso8601` secondary.
+  Note that `time_format_fallbacks` is the last resort to parse mixed timestamp format. There is a performance penalty
+  (Typically, N fallbacks are specified in `time_format_fallbacks` and if the last specified format is used as a fallback, N times slower in the worst case).
 
 If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open). [Fluentd](http://www.fluentd.org/) is an open-source project under [Cloud Native Computing Foundation \(CNCF\)](https://cncf.io/). All components are available under the Apache 2 License.
 
