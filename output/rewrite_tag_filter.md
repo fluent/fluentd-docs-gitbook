@@ -10,6 +10,8 @@ When a message is handled by the plugin, the rules are tested one by one in orde
 
 ### Example
 
+#### Basic Example
+
 This in an example of how to use this plugin to rewrite tags. In the example, records tagged with `app.component` will have their tag prefixed with the value of the key `message`:
 
 ```text
@@ -34,6 +36,59 @@ Sample data:
 | app.component {"message":"[crit]: ..."}  | +----> | crit.app.component {"message":"[crit]: ..."}   |
 | app.component {"message":"[alert]: ..."} | +----> | alert.app.component {"message":"[alert]: ..."} |
 +------------------------------------------+        +------------------------------------------------+
+```
+
+#### Nested kubernetes namespace attributes based rules
+
+This is an example of how to use this plugin to rewrite tags with nested attributes which are kubernetes metadata. In the example, records tagged with `kubernetes.information` will have their tag prefixed with the value of the nested key `kubernetes.namespace_name`.
+
+##### Dot notation
+
+```text
+<match kubernetes.**>
+  @type rewrite_tag_filter
+  <rule>
+    key $.kubernetes.namespace_name
+    pattern ^(.+)$
+    tag $1.${tag}
+  </rule>
+</match>
+```
+
+##### Bracket notation
+
+```text
+<match kubernetes.**>
+  @type rewrite_tag_filter
+  <rule>
+    key $['kubernetes']['namespace_name']
+    pattern ^(.+)$
+    tag $1.${tag}
+  </rule>
+</match>
+```
+
+Sample data:
+
+```text
++----------------------------------------------------------------------------------------+        +-------------------------------------------------------------------------------------------------------+
+| original record                                                                        |        | rewritten tag record                                                                                  |
+|----------------------------------------------------------------------------------------|        |-------------------------------------------------------------------------------------------------------|
+| kubernetes.information {"kubernetes" : { "namespace_name": "kube-system" }, ... }      | +----> | kube-system.kubernetes.information {"kubernetes" : { "namespace_name": "kube-system" }, ... }         |
+| kubernetes.information {"kubernetes" : { "namespace_name": "default" }, ... }          | +----> | default.kubernetes.information {"kubernetes" : { "namespace_name": "default" }, ... }                 |
+| kubernetes.information {"kubernetes" : { "namespace_name": "kube-public" }, ... }      | +----> | kube-public.kubernetes.information {"kubernetes" : { "namespace_name": "kube-public" }, ... }         |
+| kubernetes.information {"kubernetes" : { "namespace_name": "kube-node-lease" }, ... }  | +----> | kube-node-lease.kubernetes.information {"kubernetes" : { "namespace_name": "kube-node-lease" }, ... } |
++----------------------------------------------------------------------------------------+        +-------------------------------------------------------------------------------------------------------+
+```
+
+These example copnfigurations can process nested attributes like following:
+
+```json
+{
+  "kubernetes": {
+    "namespace_name": "kube-system"
+  }
+}
 ```
 
 ## Installation
