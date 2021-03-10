@@ -81,16 +81,6 @@ Sample data:
 +----------------------------------------------------------------------------------------+        +-------------------------------------------------------------------------------------------------------+
 ```
 
-These example configurations can process nested attributes like following:
-
-```json
-{
-  "kubernetes": {
-    "namespace_name": "kube-system"
-  }
-}
-```
-
 ## Installation
 
 `out_rewrite_tag_filter` is included in `td-agent` by default \(v3.0.1 or later\). Fluentd gem users will have to install the `fluent-plugin-rewrite-tag-filter` gem using the following command:
