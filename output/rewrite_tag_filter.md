@@ -81,7 +81,7 @@ Sample data:
 +----------------------------------------------------------------------------------------+        +-------------------------------------------------------------------------------------------------------+
 ```
 
-These example copnfigurations can process nested attributes like following:
+These example configurations can process nested attributes like following:
 
 ```json
 {
