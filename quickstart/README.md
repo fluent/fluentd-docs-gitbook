@@ -49,12 +49,12 @@ The articles shown below will provide detailed information for you to learn more
 * [Architecture Overview](https://www.fluentd.org/architecture)
 * [Life of a Fluentd Event](life-of-a-fluentd-event.md)
 * Plugin Overview
-  * [Input Plugins]()
-  * [Output Plugins]()
-  * [Buffer Plugins]()
-  * [Filter Plugins]()
-  * [Parser Plugins]()
-  * [Formatter Plugins]()
+  * [Input Plugins](/input/README.md)
+  * [Output Plugins](/output/README.md)
+  * [Buffer Plugins](/buffer/README.md)
+  * [Filter Plugins](/filter/README.md)
+  * [Parser Plugins](/parser/README.md)
+  * [Formatter Plugins](/formatter/README.md)
 * [High Availability Configuration](../deployment/high-availability.md)
 * [FAQ](faq.md)
 
