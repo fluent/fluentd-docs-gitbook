@@ -71,9 +71,9 @@ If true, queued chunks are flushed at shutdown process. The default is `false`.
 
 The interval between retries. The suffixes "s" \(seconds\), "m" \(minutes\), and "h" \(hours\) can be used.
 
-Limitation
+## Limitation
 
-## Caution
+Caution:
 
 `file` buffer implementation depends on the characteristics of local file system. Don't use `file` buffer on remote file system, e.g. NFS, GlusterFS, HDFS and etc. We observed major data loss by using remote file system.
 

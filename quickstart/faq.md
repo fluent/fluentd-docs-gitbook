@@ -100,7 +100,7 @@ See also: [Life of a Fluentd event](life-of-a-fluentd-event.md) or [Config File]
 
 ### File buffer doesn't work properly, why?
 
-`file` buffer has limitations. Check [`buf_file` article](https://github.com/fluent/fluentd-docs-gitbook/tree/507e377b7e8e78a312dc49e76bd9a302c33fd058/overview/buf_file/README.md#limitation).
+`file` buffer has limitations. Check [`buf_file` article](https://docs.fluentd.org/v/0.12/buffer/file#limitation).
 
 ### I got enconding error inside plugin. How to fix it?
 
