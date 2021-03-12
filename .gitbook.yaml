@@ -121,6 +121,7 @@ redirects:
   v1.0/articles/formatter_single_value: plugins/formatter/single_value.md
   v1.0/articles/formatter_json: plugins/formatter/json.md
   v1.0/articles/formatter_stdout: plugins/formatter/stdout.md
+  v1.0/articles/formatter_tsv: plugins/formatter/tsv.md
 
   # Plugin/Buffer
   v1.0/articles/buffer-plugin-overview: plugins/buffer/README.md
