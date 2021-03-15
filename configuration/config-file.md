@@ -132,7 +132,7 @@ The **match** directive looks for events with **match**ing tags and processes th
 </match>
 ```
 
-Each `match` directive must include a match pattern and a `@type` parameter. Only events with a `tag` matching the pattern will be sent to the output destination \(in the above example, only the events with the tag `myapp.access` are matched. See [the section below for more advanced usage](config-file.md#how-match-patterns-work)\). The `@type` parameter specifies the output plugin to use.
+Each `match` directive must include a match pattern and a `@type` parameter. Only events with a `tag` matching the pattern will be sent to the output destination \(in the above example, only the events with the tag `myapp.access` are matched. See [the section below for more advanced usage](config-file.md#how-do-the-match-patterns-work)\). The `@type` parameter specifies the output plugin to use.
 
 Just like input sources, you can add new output destinations by writing custom plugins. For further information regarding Fluentd output destinations, please refer to the [Output Plugin Overview](../output/) article.
 
