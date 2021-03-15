@@ -58,7 +58,7 @@ See [this section](../plugin-development/#text-formatter-plugins) to learn how t
 * [`msgpack`](msgpack.md)
 * [`hash`](hash.md)
 * [`single_value`](single_value.md)
-* [`tsv`](https://github.com/fluent/fluentd-docs-gitbook/tree/00b9632ca340d343772c3b858b38b3fbe2a5a42f/plugins/formatter/tsv.md)
+* [`tsv`](tsv.md)
 
 ## List of Output/Filter Plugins with Formatter Support
 

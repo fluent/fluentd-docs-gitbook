@@ -111,6 +111,7 @@
   * [hash](formatter/hash.md)
   * [single\_value](formatter/single_value.md)
   * [stdout](formatter/stdout.md)
+  * [tsv](formatter/tsv.md)
 * [Buffer Plugins](buffer/README.md)
   * [memory](buffer/memory.md)
   * [file](buffer/file.md)
