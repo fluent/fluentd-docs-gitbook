@@ -166,7 +166,7 @@ Let's add standard `record_transformer` filter to `match` example.
 </match>
 ```
 
-Visualization of configuration: [https://link.calyptia.com/qd0](https://link.calyptia.com/qd0)
+Visualization of configuration: [https://link.calyptia.com/6mk](https://link.calyptia.com/6mk)
 
 ![Visualization from Calyptia](../.gitbook/assets/screen-shot-2021-03-16-at-12.57.45-pm.png)
 
@@ -260,7 +260,7 @@ Here is a configuration example:
 </label>
 ```
 
-Visualization of configuration: [https://link.calyptia.com/iec](https://link.calyptia.com/iec)
+Visualization of configuration: [https://link.calyptia.com/dxn](https://link.calyptia.com/dxn)
 
 ![Visualization from Calyptia](../.gitbook/assets/screen-shot-2021-03-16-at-12.59.05-pm.png)
 
