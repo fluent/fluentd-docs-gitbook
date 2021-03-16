@@ -72,7 +72,7 @@ $ docker run -p 9880:9880 -v $(pwd)/tmp:/fluentd/etc fluent/fluentd:edge-debian 
 Use `curl` command to post sample logs via HTTP like this:
 
 ```text
-$ curl -X POST -d 'json={"json":"message"}' http://localhost:9880/sample.test
+$ curl -X POST -d 'json={"json":"message"}' http://127.0.0.1:9880/sample.test
 ```
 
 Use `docker ps` command to retrieve container ID and use `docker logs` command to check the specific container's log like this:
