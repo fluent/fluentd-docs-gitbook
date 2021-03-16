@@ -95,7 +95,7 @@ If the block is given, it will be invoked with the socket instance as a paramete
 
 #### `send_keepalive_packet` Use Case
 
-If you set `true` to `send_keepavlie_packet`, you also need to configure keep-alive related kernel parameters:
+If you set `true` to `send_keepalive_packet`, you also need to configure keep-alive related kernel parameters:
 
 ```ruby
 net.ipv4.tcp_keepalive_intvl = 75
@@ -153,4 +153,3 @@ If block is given, it will be invoked with the socket instance as a parameter, a
 * [`out_forward`](../output/forward.md)
 
 If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open). [Fluentd](http://www.fluentd.org/) is an open-source project under [Cloud Native Computing Foundation \(CNCF\)](https://cncf.io/). All components are available under the Apache 2 License.
-

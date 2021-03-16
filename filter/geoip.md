@@ -17,7 +17,7 @@ $ sudo yum install geoip-devel --enablerepo=epel
 $ sudo apt install build-essential
 $ sudo apt install libgeoip-dev
 
-# for MacOSX (brew)
+# for macOS (brew)
 $ brew install geoip
 ```
 
