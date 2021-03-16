@@ -23,10 +23,10 @@ Debian and Alpine Linux version is available for Fluentd image. Debian version i
 
 ## Step 2: Launch Fluentd Container
 
-To make the test simple, create the example config below at `/tmp/fluentd.conf`. This example accepts records from `http`, and outputs to `stdout`.
+To make the test simple, create the example config below at `$(pwd)/tmp/fluentd.conf`. This example accepts records from `http`, and outputs to `stdout`.
 
 ```text
-# /tmp/fluentd.conf
+# $(pwd)/tmp/fluentd.conf
 
 <source>
   @type http
