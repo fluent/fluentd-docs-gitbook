@@ -174,7 +174,7 @@ Now please open your browser and access to `http://localhost:9090/`.
 
 If you go to `http://localhost:9090/targets`, Prometheus will show you a list of Fluentd nodes and its status.
 
-![](../.gitbook/assets/prometheus-targets%20%281%29%20%281%29%20%281%29.png)
+![](../.gitbook/assets/prometheus-targets%20%281%29%20%281%29%20%281%29%20%281%29%20%281%29.png)
 
 ### List of Fluentd metrics
 

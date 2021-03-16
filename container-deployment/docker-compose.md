@@ -2,7 +2,7 @@
 
 This article explains how to collect [Docker](https://www.docker.com/) logs to EFK \(Elasticsearch + Fluentd + Kibana\) stack. The example uses [Docker Compose](https://docs.docker.com/compose/) for setting up multiple containers.
 
-![](../.gitbook/assets/kibana5-screenshot%20%282%29%20%282%29.png)
+![](../.gitbook/assets/kibana5-screenshot%20%282%29%20%282%29%20%282%29%20%282%29.png)
 
 [Elasticsearch](https://www.elastic.co/products/elasticsearch) is an open source search engine known for its ease of use. [Kibana](https://www.elastic.co/products/kibana) is an open source Web UI that makes Elasticsearch user friendly for marketers, engineers and data scientists alike.
 
@@ -149,11 +149,11 @@ $ repeat 10 curl http://localhost:80/
 
 Please go to `http://localhost:5601/` with your browser. Then, you need to set up the index name pattern for Kibana. Please specify `fluentd-*` to `Index name or pattern` and press `Create` button.
 
-![](../.gitbook/assets/efk-kibana-1%20%281%29%20%281%29%20%281%29.png)
+![](../.gitbook/assets/efk-kibana-1%20%281%29%20%281%29%20%281%29%20%281%29%20%281%29.png)
 
 Then, go to `Discover` tab to seek for the logs. As you can see, logs are properly collected into Elasticsearch + Kibana, via Fluentd.
 
-![](../.gitbook/assets/efk-kibana-2%20%281%29%20%281%29%20%281%29.png)
+![](../.gitbook/assets/efk-kibana-2%20%281%29%20%281%29%20%281%29%20%281%29.png)
 
 ## Conclusion
 

@@ -4,7 +4,7 @@ Looking to get data out of http rest api into treasure data? You can do that wit
 
 ![](../.gitbook/assets/http_rest_api%20%281%29.png)
 
-![](../.gitbook/assets/treasure_data%20%283%29%20%283%29%20%283%29.png)
+![](../.gitbook/assets/treasure_data%20%283%29%20%283%29%20%283%29%20%283%29%20%283%29.png)
 
 Here is how:
 

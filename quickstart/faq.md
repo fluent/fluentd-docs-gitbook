@@ -64,7 +64,7 @@ You installed v1.0 based plugin. See [Plugin Management](../deployment/plugin-ma
 
 ### How can I match \(send\) an event to multiple outputs?
 
-You can use the `copy` [output plugin]() to send the same event to multiple output destinations.
+You can use the `copy` [output plugin](faq.md) to send the same event to multiple output destinations.
 
 ### How can I use environment variables to configure parameters dynamically?
 

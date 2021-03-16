@@ -4,7 +4,7 @@ Looking to get data out of http rest api into mongo? You can do that with [fluen
 
 ![](../.gitbook/assets/http_rest_api%20%281%29.png)
 
-![](../.gitbook/assets/mongo%20%282%29%20%282%29.png)
+![](../.gitbook/assets/mongo%20%282%29%20%282%29%20%282%29%20%282%29.png)
 
 Here is how:
 

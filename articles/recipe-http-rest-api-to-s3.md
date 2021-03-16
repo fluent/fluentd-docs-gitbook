@@ -4,7 +4,7 @@ Looking to get data out of http rest api into s3? You can do that with [fluentd]
 
 ![](../.gitbook/assets/http_rest_api%20%281%29.png)
 
-![](../.gitbook/assets/s3%20%283%29%20%283%29.png)
+![](../.gitbook/assets/s3%20%283%29%20%283%29%20%282%29.png)
 
 Here is how:
 

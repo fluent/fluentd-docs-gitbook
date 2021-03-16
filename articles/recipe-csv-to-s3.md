@@ -2,9 +2,9 @@
 
 Looking to get data out of csv into s3? You can do that with [fluentd](https://github.com/fluent/fluentd-docs-gitbook/tree/507e377b7e8e78a312dc49e76bd9a302c33fd058/fluentd.org) in **10 minutes**!
 
-![](../.gitbook/assets/csv%20%282%29%20%282%29%20%282%29.png)
+![](../.gitbook/assets/csv%20%282%29%20%282%29%20%282%29%20%282%29%20%282%29.png)
 
-![](../.gitbook/assets/s3%20%283%29%20%283%29.png)
+![](../.gitbook/assets/s3%20%283%29%20%283%29%20%282%29.png)
 
 Here is how:
 
