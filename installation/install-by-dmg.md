@@ -1,6 +1,6 @@
-# Install by .dmg Package \(MacOS X\)
+# Install by .dmg Package \(macOS\)
 
-This article explains how to install `td-agent`, the stable Fluentd distribution package maintained by [Treasure Data, Inc](https://www.treasuredata.com/), on MacOS X.
+This article explains how to install `td-agent`, the stable Fluentd distribution package maintained by [Treasure Data, Inc](https://www.treasuredata.com/), on macOS.
 
 ## What is `td-agent`?
 
@@ -8,7 +8,7 @@ Fluentd is written in Ruby for flexibility, with performance-sensitive parts in 
 
 That is why [Treasure Data, Inc](http://www.treasuredata.com/) provides **the stable distribution of Fluentd**, called `td-agent`. The differences between Fluentd and `td-agent` can be found [here](https://www.fluentd.org/faqs).
 
-For MacOS X, `td-agent` is distributed as `.dmg` installer.
+For macOS, `td-agent` is distributed as `.dmg` installer.
 
 ## Step 1: Install `td-agent`
 
@@ -51,9 +51,9 @@ $ tail -n 1 /var/log/td-agent/td-agent.log
 
 ## Uninstall td-agent
 
-On MacOS, `td-agent` does not provide any uninstallation app like `rpm` / `deb` on Ubuntu.
+On macOS, `td-agent` does not provide any uninstallation app like `rpm` / `deb` on Ubuntu.
 
-To uninstall `td-agent` from MacOS, remove these files / directories:
+To uninstall `td-agent` from macOS, remove these files / directories:
 
 * `/Library/LaunchDaemons/td-agent.plist`
 * `/etc/td-agent`

@@ -12,7 +12,7 @@
   * [Before Installation](installation/before-install.md)
   * [Install by RPM Package \(Red Hat Linux\)](installation/install-by-rpm.md)
   * [Install by DEB Package \(Debian/Ubuntu\)](installation/install-by-deb.md)
-  * [Install by .dmg Package \(MacOS X\)](installation/install-by-dmg.md)
+  * [Install by .dmg Package \(macOS\)](installation/install-by-dmg.md)
   * [Install by .msi Installer \(Windows\)](installation/install-by-msi.md)
   * [Install by Ruby Gem](installation/install-by-gem.md)
   * [Install from Source](installation/install-from-source.md)
@@ -177,4 +177,3 @@
   * [Plugin Helper: Http Server](plugin-helper-overview/api-plugin-helper-http_server.md)
   * [Plugin Helper: Service Discovery](plugin-helper-overview/api-plugin-helper-service_discovery.md)
 * [Troubleshooting Guide](troubleshooting-guide.md)
-

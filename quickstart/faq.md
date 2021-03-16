@@ -56,7 +56,7 @@ If you get other errors, google it.
 
 ### fluentd raises `tzinfo` conflict error after installed plugins
 
-Fluentd supports tzinfo v1.1 or later and recent td-agent / official images install tzinfo v2 by default. The problem is several plugins depend on ActiveSupport and ActiveSuppot doesn't support tzinfo v2. To resolve this problem, there are 2 approaches.
+Fluentd supports tzinfo v1.1 or later and recent td-agent / official images install tzinfo v2 by default. The problem is several plugins depend on ActiveSupport and ActiveSupport doesn't support tzinfo v2. To resolve this problem, there are 2 approaches.
 
 * Uninstall tzinfo v2 and install tzinfo v1.1 manually
 * Update plugin to remove ActiveSupport dependency. ActiveSupport is mainly for Ruby on Rails,
@@ -116,4 +116,3 @@ If you are willing to write Regexp, [fluentd-ui's `in_tail` editor](../deploymen
 If you do NOT want to write any Regexp, look at [the Grok parser](https://github.com/kiyoto/fluent-plugin-grok-parser).
 
 If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open). [Fluentd](http://www.fluentd.org/) is an open-source project under [Cloud Native Computing Foundation \(CNCF\)](https://cncf.io/). All components are available under the Apache 2 License.
-

@@ -9,11 +9,11 @@ This article shows how to collect `syslog` data into [InfluxDB](http://github.co
 * A basic understanding of Fluentd
 * A running instance of `rsyslogd`
 
-**In this guide, we assume we are running `td-agent` \(Fluentd package for Linux and OSX\) on Ubuntu Xenial.**
+**In this guide, we assume we are running `td-agent` \(Fluentd package for Linux and macOS\) on Ubuntu Xenial.**
 
 ## Step 1: Install InfluxDB
 
-InfluxDB supports Ubuntu, RedHat and OSX \(via `brew`\).
+InfluxDB supports Ubuntu, RedHat and macOS \(via `brew`\).
 
 For more details, see [here](http://influxdb.com/download/).
 

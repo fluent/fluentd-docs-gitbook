@@ -5,7 +5,7 @@ This article shows configuration and dependent gem installation instruction for 
 ## Prerequisites
 
 * gcc and make etc. for building C extension sources
-* libcap-ng package and its depelopment package
+* libcap-ng package and its development package
   * libcap-ng-dev on Debian GNU/Linux and Ubuntu
   * libcap-ng-devel on CentOS 7/8, Fedora 33, AmazonLinux 2
 * pkg-config package for linking libcap-ng library
@@ -178,4 +178,3 @@ $ bundle exec fluentd -c in_tail_camouflage_permission.conf
 Fluentd which is running on ordinal user does not complain as `Permission denied`. Users can retrieve root files' contents on non-root process, yay!
 
 If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open). [Fluentd](http://www.fluentd.org/) is an open-source project under [Cloud Native Computing Foundation \(CNCF\)](https://cncf.io/). All components are available under the Apache 2 License.
-

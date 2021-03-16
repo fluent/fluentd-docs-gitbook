@@ -30,7 +30,7 @@ For more details, see [Inject section](../configuration/inject-section.md).
 
 ## Methods
 
-### `inject_values_to_recort(tag, time, record)`
+### `inject_values_to_record(tag, time, record)`
 
 This method injects values to the given record and returns the new record.
 
@@ -73,4 +73,3 @@ end
 * [`out_stdout`](../output/stdout.md)
 
 If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open). [Fluentd](http://www.fluentd.org/) is an open-source project under [Cloud Native Computing Foundation \(CNCF\)](https://cncf.io/). All components are available under the Apache 2 License.
-

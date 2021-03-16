@@ -32,7 +32,7 @@ If `td-agent` restarts, it resumes reading from the last position before the res
 
 ### Linux Capability
 
-Since v1.12.0, `in_tail` handles the following Linux cababilities if Fluentd's Linux capability handling module is enabled:
+Since v1.12.0, `in_tail` handles the following Linux capabilities if Fluentd's Linux capability handling module is enabled:
 
 * `CAP_DAC_READ_SEARCH` \(`:dac_read_search` on `in_tail` code.\)
 * `CAP_DAC_OVERRIDE` \(`:dac_override` on `in_tail` code.\)
@@ -331,7 +331,7 @@ The `rotate_wait` parameter accepts a single integer representing the number of 
 
 Enables the additional watch timer. Setting this parameter to `false` will significantly reduce CPU and I/O consumption when tailing a large number of files on systems with `inotify` support. The default is `true` which results in an additional 1 second timer being used.
 
-`in_tail` \(via `Cool.io`\) uses `inotify` on systems which support it. Earlier versions of `libev` on some platforms \(e.g. MacOS X\) did not work properly; therefore, an explicit 1 second timer was used. Even on systems with `inotify` support, this results in additional I/O each second, for every file being tailed.
+`in_tail` \(via `Cool.io`\) uses `inotify` on systems which support it. Earlier versions of `libev` on some platforms \(e.g. macOS\) did not work properly; therefore, an explicit 1 second timer was used. Even on systems with `inotify` support, this results in additional I/O each second, for every file being tailed.
 
 Early testing demonstrates that modern `Cool.io` and `in_tail` work properly without the additional watch timer. In the future, depending on the feedback and testing, the additional watch timer may be disabled by default.
 

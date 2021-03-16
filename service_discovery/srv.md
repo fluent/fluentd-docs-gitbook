@@ -4,7 +4,7 @@ The `srv` service discovery plugin updates the targets by [SRV Record](https://t
 
 ## Example Configuration
 
-Here is an example of `out_forward` updating the targets to get the SRV record from `_fluentd._tcp.exmaple.com`:
+Here is an example of `out_forward` updating the targets to get the SRV record from `_fluentd._tcp.example.com`:
 
 ```text
 <match pattern>
