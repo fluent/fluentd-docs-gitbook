@@ -8,10 +8,10 @@ This article explains how to collect [Docker](https://www.docker.com/) logs and 
 
 By combining these three tools EFK \(Elasticsearch + Fluentd + Kibana\) we get a scalable, flexible, easy to use log collection and analytics pipeline. In this article, we will set up four \(4\) containers, each includes:
 
-- [Apache HTTP Server](https://hub.docker.com/_/httpd/)
-- [Fluentd](https://hub.docker.com/r/fluent/fluentd/)
-- [Elasticsearch](https://hub.docker.com/_/elasticsearch/)
-- [Kibana](https://hub.docker.com/_/kibana/)
+* [Apache HTTP Server](https://hub.docker.com/_/httpd/)
+* [Fluentd](https://hub.docker.com/r/fluent/fluentd/)
+* [Elasticsearch](https://hub.docker.com/_/elasticsearch/)
+* [Kibana](https://hub.docker.com/_/kibana/)
 
 All the logs of `httpd` will be ingested into Elasticsearch + Kibana, via Fluentd.
 
@@ -19,7 +19,7 @@ All the logs of `httpd` will be ingested into Elasticsearch + Kibana, via Fluent
 
 Please download and install Docker / Docker Compose. Well, that's it :\)
 
-- [Docker Installation](https://docs.docker.com/engine/installation/)
+* [Docker Installation](https://docs.docker.com/engine/installation/)
 
 ## Step 0: Create `docker-compose.yml`
 
@@ -169,8 +169,9 @@ The code is available at [https://github.com/digikin/fluentd-elastic-kibana](htt
 
 ## Learn More
 
-- [Fluentd: Architecture](https://www.fluentd.org/architecture)
-- [Fluentd: Get Started](../quickstart/)
-- [Downloading Fluentd](http://www.fluentd.org/download)
+* [Fluentd: Architecture](https://www.fluentd.org/architecture)
+* [Fluentd: Get Started](../quickstart/)
+* [Downloading Fluentd](http://www.fluentd.org/download)
 
 If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open). [Fluentd](http://www.fluentd.org/) is an open-source project under [Cloud Native Computing Foundation \(CNCF\)](https://cncf.io/). All components are available under the Apache 2 License.
+

@@ -13,7 +13,7 @@ Please download and install [Docker](https://www.docker.com/) from here:
 
 ## Step 1: Pull Fluentd Docker Image
 
-Then, download Fluentd edge-debian's (edge-debian means latest version of Fluentd) image by `docker pull` command:
+Then, download Fluentd edge-debian's \(edge-debian means latest version of Fluentd\) image by `docker pull` command:
 
 ```text
 $ docker pull fluent/fluentd:edge-debian

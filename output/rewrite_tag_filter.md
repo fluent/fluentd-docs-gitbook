@@ -42,7 +42,7 @@ Sample data:
 
 This is an example of how to use this plugin to rewrite tags with nested attributes which are kubernetes metadata. In the example, records tagged with `kubernetes.information` will have their tag prefixed with the value of the nested key `kubernetes.namespace_name`.
 
-##### Dot notation
+**Dot notation**
 
 ```text
 <match kubernetes.**>
@@ -55,7 +55,7 @@ This is an example of how to use this plugin to rewrite tags with nested attribu
 </match>
 ```
 
-##### Bracket notation
+**Bracket notation**
 
 ```text
 <match kubernetes.**>

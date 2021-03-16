@@ -154,7 +154,7 @@ For the `types` parameter, the following types are supported:
 
       zone
 
-    * `mixed`: enable `time_format_fallbacks` option. (Since Fluentd v1.12.2)
+    * `mixed`: enable `time_format_fallbacks` option. \(Since Fluentd v1.12.2\)
 
 * **`time_format`** \(string\) \(optional\): processes value according to the
 
@@ -213,9 +213,7 @@ For the `types` parameter, the following types are supported:
     time_format_fallbacks: %iso8601
   ```
 
-  In the above use case, the timestamp is parsed as `unixtime` at first, if it fails, then it is parsed as `%iso8601` secondary.
-  Note that `time_format_fallbacks` is the last resort to parse mixed timestamp format. There is a performance penalty
-  (Typically, N fallbacks are specified in `time_format_fallbacks` and if the last specified format is used as a fallback, N times slower in the worst case).
+  In the above use case, the timestamp is parsed as `unixtime` at first, if it fails, then it is parsed as `%iso8601` secondary. Note that `time_format_fallbacks` is the last resort to parse mixed timestamp format. There is a performance penalty \(Typically, N fallbacks are specified in `time_format_fallbacks` and if the last specified format is used as a fallback, N times slower in the worst case\).
 
 If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open). [Fluentd](http://www.fluentd.org/) is an open-source project under [Cloud Native Computing Foundation \(CNCF\)](https://cncf.io/). All components are available under the Apache 2 License.
 
