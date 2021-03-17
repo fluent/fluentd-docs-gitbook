@@ -32,6 +32,14 @@ The delimiter pattern of TSV values. This parameter overwrites `delimiter` param
 
 The delimiter character between field name and value.
 
+### `replacement`
+
+| type | default | version |
+| :--- | :--- | :--- |
+| string | ` ` | 1.12.2 |
+
+The replacement character for delimiter characters in value to prevent creating malformed LTSV.
+
 ## Example for LTSV
 
 This incoming event:
