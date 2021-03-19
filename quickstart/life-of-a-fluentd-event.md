@@ -118,7 +118,7 @@ A **Filter** behaves like a rule to pass or reject an event. The following confi
 </match>
 ```
 
-Fluentd configuration visualization link: [https://link.calyptia.com/gjl](https://link.calyptia.com/gjl)
+Fluentd configuration visualization link: [https://link.calyptia.com/gjl](https://link.calyptia.com/gjl) \(sign-up required\)
 
 ![Visualization from Calyptia](../.gitbook/assets/screen-shot-2021-03-16-at-12.50.12-pm.png)
 
@@ -210,7 +210,7 @@ This new implementation called **Labels**, aims to solve the configuration file 
 </label>
 ```
 
-Fluentd configuration visualization: [https://link.calyptia.com/guh](https://link.calyptia.com/guh)
+Fluentd configuration visualization: [https://link.calyptia.com/guh](https://link.calyptia.com/guh) \(sign-up required\)
 
 ![Visualization from Calyptia](../.gitbook/assets/screen-shot-2021-03-16-at-12.51.26-pm.png)
 
