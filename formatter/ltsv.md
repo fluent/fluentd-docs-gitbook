@@ -43,6 +43,14 @@ Adds `\n` to the result.
 
 Specify newline characters.
 
+### `replacement`
+
+| type | default | version |
+| :--- | :--- | :--- |
+| string | ` ` \(SPACE\) | 1.12.2 |
+
+Safe replacement to substitute delimiters characters in records.
+
 ## Example
 
 ```text
