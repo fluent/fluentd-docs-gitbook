@@ -47,7 +47,7 @@ Specify newline characters.
 
 | type | default | version |
 | :--- | :--- | :--- |
-| string | ` ` \(SPACE\) | 1.12.2 |
+| string |  `` \(SPACE\) | 1.12.2 |
 
 Safe replacement to substitute delimiters characters in records.
 

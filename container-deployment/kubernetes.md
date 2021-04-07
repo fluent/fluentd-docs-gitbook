@@ -29,7 +29,7 @@ Before getting started, make sure you understand or have a basic idea about the 
 
   > A DaemonSet ensures that all \(or some\) nodes run a copy of a pod. As nodes are added to the cluster, pods are added to them. As nodes are removed from the cluster, those pods are garbage collected. Deleting a DaemonSet will clean up the pods it created...
 
-Since applications runs in Pods and multiple Pods might exists across multiple nodes, we need a specific Fluentd-Pod that takes care of log collection on each node: [Fluentd DaemonSet](https://github.com/fluent/fluentd-docs-gitbook/tree/da81ba70252eaa863cc28fc888584c59d6fc14d3/articles/fluentd_daemonset.md).
+Since applications runs in Pods and multiple Pods might exists across multiple nodes, we need a specific Fluentd-Pod that takes care of log collection on each node: Fluentd DaemonSet.
 
 ## Fluentd DaemonSet
 

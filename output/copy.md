@@ -151,9 +151,9 @@ If plugin1's emit/format raises an error, plugin2 is not executed. If you want t
 
 ### `ignore_if_prev_successes` argument
 
-Since Fluentd v1.12.2, you can use `ignore_if_prev_successes` to define fallback outputs.  For example:
+Since Fluentd v1.12.2, you can use `ignore_if_prev_successes` to define fallback outputs. For example:
 
-```
+```text
 <match app.**>
   @type copy
   <store ignore_error>
@@ -167,7 +167,7 @@ Since Fluentd v1.12.2, you can use `ignore_if_prev_successes` to define fallback
 </match>
 ```
 
-Fluentd will make use of plugin2 only if the preceeding destinations (plugin1 in this case) fail.
+Fluentd will make use of plugin2 only if the preceeding destinations \(plugin1 in this case\) fail.
 
 If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open). [Fluentd](http://www.fluentd.org/) is an open-source project under [Cloud Native Computing Foundation \(CNCF\)](https://cncf.io/). All components are available under the Apache 2 License.
 
