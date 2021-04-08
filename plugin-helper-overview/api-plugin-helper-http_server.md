@@ -55,7 +55,7 @@ It creates and starts an HTTP server with the given routes defined in `&block`.
 * `proto`: Protocol type. Supported values: {`:tcp`, `:tls`} \(default: `:tcp`\)
 * `tls_opts`: TLS options. Same as the Server Helper's
 
-  [`server_create_connection` `tls_options`](https://github.com/fluent/fluentd-docs-gitbook/tree/701b465b45f0b6dcd8dd8937fe4649de7ca4e6ea/developer/api-plugin-helper-server/README.md).
+  [`server_create_connection` `tls_options`](../plugin-helper-overview/api-plugin-helper-server.md).
 
 ### `http_server_create_https_server(title, addr:, port:, logger:, default_app: nil, tls_opts: nil, &block)`
 
@@ -71,7 +71,7 @@ It creates and starts an HTTPS server with the given routes defined in `&block`.
 
 * `tls_opts`: TLS options. Same as the Server Helper's
 
-  [`server_create_connection` `tls_options`](https://github.com/fluent/fluentd-docs-gitbook/tree/701b465b45f0b6dcd8dd8937fe4649de7ca4e6ea/developer/api-plugin-helper-server/README.md).
+  [`server_create_connection` `tls_options`](../plugin-helper-overview/api-plugin-helper-server.md).
 
 ## Handling of other HTTP Methods
 

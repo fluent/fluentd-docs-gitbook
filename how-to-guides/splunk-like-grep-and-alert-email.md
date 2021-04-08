@@ -8,7 +8,7 @@ If you want a more general introduction to use Fluentd as a free alternative to 
 
 ## Installing the Requisites
 
-[Install](https://github.com/fluent/fluentd-docs-gitbook/tree/da81ba70252eaa863cc28fc888584c59d6fc14d3/overview/installation.md) Fluentd if you haven't yet.
+[Install](../installation/README.md) Fluentd if you haven't yet.
 
 Please install `fluent-plugin-grepcounter` by running:
 

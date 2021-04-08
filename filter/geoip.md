@@ -104,7 +104,7 @@ Path to GeoIP2 database file.
 
 Specifies one or more geoip lookup fields containing the IP address.
 
-See [`record_accessor`](https://github.com/fluent/fluentd-docs-gitbook/tree/da81ba70252eaa863cc28fc888584c59d6fc14d3/developer/api-plugin-helper-record_accessor/README.md) about nested attributes.
+See [`record_accessor`](../plugin-helper-overview/api-plugin-helper-record_accessor.md) about nested attributes.
 
 **NOTE**: Since v1.3.0 does not interpret `host.ip` as a nested attribute.
 

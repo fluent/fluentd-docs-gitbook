@@ -175,7 +175,7 @@ Overwrites the default value in this plugin.
 
 ### `<inject>` Section
 
-See [Inject Section Configurations](https://github.com/fluent/fluentd-docs-gitbook/tree/da81ba70252eaa863cc28fc888584c59d6fc14d3/conguration/inject-section.md) for more details.
+See [Inject Section Configurations](../configuration/inject-section.md) for more details.
 
 #### `time_type`
 
@@ -187,7 +187,7 @@ Overwrites the default value in this plugin.
 
 ### `<extract>` Section
 
-See [Extract Section Configurations](https://github.com/fluent/fluentd-docs-gitbook/tree/da81ba70252eaa863cc28fc888584c59d6fc14d3/conguration/extract-section.md) for more details.
+See [Extract Section Configurations](../configuration/extract-section.md) for more details.
 
 #### `time_type`
 

@@ -56,7 +56,7 @@ This is the option of `stdout` format. Configures the format of the record \(thi
 
 ### `<inject>` Section
 
-See [Inject Section Configurations](https://github.com/fluent/fluentd-docs-gitbook/tree/da81ba70252eaa863cc28fc888584c59d6fc14d3/configuration/inject-section/README.md) for more details.
+See [Inject Section Configurations](../configuration/inject-section.md) for more details.
 
 ## Learn More
 
