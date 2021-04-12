@@ -117,6 +117,8 @@ Then, create the Fluentd configuration file `fluentd/conf/fluent.conf`. The [`fo
 </match>
 ```
 
+NOTE: The detail of used parameters for `@type elasticsearch`, see [Elasticsearch parameters section](../output/elasticsearch.md#parameters) and [fluent-plugin-elasticsearch](https://github.com/uken/fluent-plugin-elasticsearch) furthermore.
+
 ## Step 2: Start the Containers
 
 Let's start the containers:
