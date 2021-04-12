@@ -8,7 +8,7 @@ This article explains how to use it.
 
 * Basic knowledge of PHP
 * Basic knowledge of Fluentd
-* PHP 5.3 or higher
+* PHP 5.6 or higher
 
 ## Installing Fluentd
 
