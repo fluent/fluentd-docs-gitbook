@@ -253,7 +253,7 @@ The cipher suites configuration of TLS.
 
 Raise `UnrecoverableError` when the response code is not SUCCESS, 1xx/3xx/4xx/5xx. If `false`, `out_http` logs error message instead of raising `UnrecoverableError`.
 
-See also [Handling Unrecoverable Errors](https://github.com/fluent/fluentd-docs-gitbook/tree/5dddefd6973e32b1f20ce5112a642a79874d504d/buffer/README.md#handling-unrecoverable-errors).
+See also [Handling Unrecoverable Errors](../buffer/README.md#handling-unrecoverable-errors).
 
 ### `retryable_response_codes`
 

@@ -23,7 +23,7 @@ Using the Docker logging mechanism with [Fluentd](http://www.fluentd.org) is a s
 
 For simplicity, the Fluentd is launched as a standard process, not as a container.
 
-Please refer to [Docker Logging via EFK \(Elasticsearch + Fluentd + Kibana\) Stack with Docker Compose](https://github.com/fluent/fluentd-docs-gitbook/tree/da81ba70252eaa863cc28fc888584c59d6fc14d3/articles/docker-logging-efk-compose.md) for a fully containerized tutorial.
+Please refer to [Docker Logging via EFK \(Elasticsearch + Fluentd + Kibana\) Stack with Docker Compose](../container-deployment/docker-compose.md) for a fully containerized tutorial.
 
 ### Step 1: Create the Fluentd Configuration File
 

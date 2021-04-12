@@ -59,7 +59,7 @@ end
 
 The created storage is managed by the plugin helper. No need of storage shutdown code in plugin's `shutdown`. It shutdowns the created storages automatically.
 
-For more details, see [Storage](https://github.com/fluent/fluentd-docs-gitbook/tree/ebe77dba0bdfde2f0483c32b6f46b1bca8132520/plugins/storage/storage-section.md) section.
+For more details, see [Storage](../storage/README.md) section.
 
 ## Methods
 

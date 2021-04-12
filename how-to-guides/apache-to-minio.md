@@ -6,7 +6,7 @@ This article explains how to use Fluentd to aggregate and transport Apache logs 
 
 The following services are required to be set up correctly:
 
-* [Fluentd](https://github.com/fluent/fluentd-docs-gitbook/tree/da81ba70252eaa863cc28fc888584c59d6fc14d3/overview/installation.md)
+* [Fluentd](../installation/README.md)
 * [Minio](https://minio.io/download/)
 * [Apache](https://httpd.apache.org/)
 
