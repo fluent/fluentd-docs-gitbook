@@ -109,7 +109,7 @@ Here is the example to resend `dump.bin.0` to `127.0.0.1:24224` using `fluent-ca
 $ cat /path/to/dump.bin.0 | fluent-cat --format msgpack  --host 127.0.0.1 --port 24224 TAG
 ```
 
-See [fluent-cat](../deployment/command-line-option.html#fluent-cat) command line option about details.
+See [fluent-cat](../deployment/command-line-option.md#fluent-cat) command line option about details.
 
 If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open). [Fluentd](http://www.fluentd.org/) is an open-source project under [Cloud Native Computing Foundation \(CNCF\)](https://cncf.io/). All components are available under the Apache 2 License.
 
