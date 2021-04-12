@@ -160,7 +160,16 @@ end
 
 ## Configuration example
 
-Here is a TLS configuration example:
+Here is a TLS configuration examples:
+
+* Use configured certs (signed by public CA or self signed CA)
+* Use generated certs
+
+Case 1. Use configured certs (signed by public CA or self signed CA)
+
+
+If `cert_path` and `private_key_path` are specified, certs generation is disabled.
+The existing certs are loaded.
 
 ```text
 <source>
@@ -178,22 +187,41 @@ Here is a TLS configuration example:
     private_key_passphrase "passphrase"
     client_cert_auth false
 
-    # For Cert generated and signed by private CA Certificate
+    # For Cert signed by self signed CA
+    ca_path /path/to/ca_path
+    cert_path /path/to/cert_path
+    private_key_path /path/to/priv_key
+    private_key_passphrase "passphrase"
+    client_cert_auth false
+
+  </transport>
+</source>
+```
+
+Case 2 Use generated certs
+
+If `ca_cert_path` and `ca_private_key_path` are specified, certs generation is enabled.
+You can customize cert generation behavior via `generation_...` parameters.
+See [Generated and Signed by Private CA Certs or Self-signed Parameters](../configuration/transport-section.md#generated-and-signed-by-private-ca-certs-or-self-signed-parameters) about parameter details.
+
+```text
+<source>
+  @type forward
+  # other plugin parameters
+  <transport tls>
+    version TLSv1_2
+    ciphers ALL:!aNULL:!eNULL:!SSLv2
+    insecure false
+
+    # For Cert generated
     ca_cert_path /path/to/ca_cert
     ca_private_key_path /path/to/ca_priv_key
     ca_private_key_passphrase "ca_passphrase"
 
-    # For generating certs by private CA certs or self-signed
-    generate_private_key_length 2048
-    generate_cert_country US
-    generate_cert_state CA
-    generate_cert_locality Mountain View
-    generate_cert_common_name "Common Name"
-    generate_cert_expiration "#{10 * 365 * 86400}"
-    generate_cert_digest sha256
   </transport>
 </source>
 ```
+
 
 ### `cert_verifier` example
 
