@@ -41,5 +41,21 @@ Here is an example with `in_sample`:
 
 * [`in_sample`](../input/sample.md)
 
+## List of 3rd party storage plugins
+
+NOTE: This 3rd party storage plugin list does not fully covers all of them.
+
+* [fluent-plugin-storage-leveldb](https://github.com/cosmo0920/fluent-plugin-storage-leveldb)
+* [fluent-plugin-storage-memcached](https://github.com/cosmo0920/fluent-plugin-storage-memcached)
+* [fluent-plugin-storage-mongo](https://github.com/cosmo0920/fluent-plugin-storage-mongo)
+* [fluent-plugin-storage-redis](https://github.com/cosmo0920/fluent-plugin-storage-redis)
+
+## List of 3rd party Plugins with Storage support
+
+NOTE: This 3rd party plugin list does not fully covers all of them.
+
+* [fluent-plugin-systemd](https://github.com/fluent-plugin-systemd/fluent-plugin-systemd)
+* [fluent-plugin-windows-eventlog](https://github.com/fluent/fluent-plugin-windows-eventlog)
+
 If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open). [Fluentd](http://www.fluentd.org/) is an open-source project under [Cloud Native Computing Foundation \(CNCF\)](https://cncf.io/). All components are available under the Apache 2 License.
 
