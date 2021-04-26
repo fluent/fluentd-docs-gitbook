@@ -31,7 +31,7 @@ Here are other community resources:
 If you are interested in what's new in each version, please refer to the following links:
 
 * [Fluentd's ChangeLog](https://github.com/fluent/fluentd/blob/master/CHANGELOG.md).
-* [td-agent's ChangeLog](https://support.treasuredata.com/hc/en-us/articles/360001479187-The-td-agent-ChangeLog)
+* [td-agent's ChangeLog](https://docs.treasuredata.com/display/public/PD/The+td-agent+Change+Log)
 
 ## Development
 
