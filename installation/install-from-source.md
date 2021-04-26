@@ -52,6 +52,25 @@ It is highly recommended to set up `ntpd` on the node to prevent invalid timesta
 
 For large deployments, you must use [`jemalloc`](http://www.canonware.com/jemalloc/) to avoid memory fragmentation. This is already included in the [`rpm`](install-by-rpm.md) and [`deb`](install-by-deb.md) packages.
 
+## Troubleshooting
+
+### Cannot install on M1 macOS
+
+There is a known problem in the system Ruby on M1 macOS that `fluentd --setup ./fluent` command in Step.4 fails with an error similar to the following.
+
+```text
+.../kernel_require.rb:XX:in `require': dlopen(...): 
+missing compatible arch in ... (LoadError)
+```
+
+The system Ruby on macOS, which is like `universal.XXX-darwinXX` (you can check it by `$ ruby -v`) may cause this error. If you use the system Ruby, this error can be resolved by reinstalling Ruby.
+
+As an example, you can reinstall Ruby by using [Homebrew](https://brew.sh/).
+
+```text
+$ brew reinstall -s ruby
+```
+
 ## Next Steps
 
 You are now ready to collect real logs with Fluentd. Refer to the following tutorials on how to collect data from various sources:
