@@ -1,6 +1,6 @@
 # Fluentd UI
 
-[fluentd-ui](https://github.com/fluent/fluentd-ui) is a browser-based [fluentd](http://fluentd.org/) and [td-agent](http://docs.treasuredata.com/articles/td-agent) manager that supports the following operations:
+[fluentd-ui](https://github.com/fluent/fluentd-ui) is a browser-based [fluentd](http://fluentd.org/) and [td-agent](https://docs.treasuredata.com/display/public/PD/About+Treasure+Data%27s+Server-Side+Agent) manager that supports the following operations:
 
 * Install, uninstall, and upgrade Fluentd plugins
 * Start/stop/restart fluentd process
