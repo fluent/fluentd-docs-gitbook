@@ -59,7 +59,7 @@ For large deployments, you must use [`jemalloc`](http://www.canonware.com/jemall
 There is a known problem in the system Ruby on M1 macOS that `fluentd --setup ./fluent` command in Step.4 fails with an error similar to the following.
 
 ```text
-.../kernel_require.rb:XX:in `require': dlopen(...): 
+.../kernel_require.rb:XX:in `require': dlopen(...):
 missing compatible arch in ... (LoadError)
 ```
 
@@ -68,7 +68,7 @@ The system Ruby on macOS, which is like `universal.XXX-darwinXX` (you can check 
 As an example, you can reinstall Ruby by using [Homebrew](https://brew.sh/).
 
 ```text
-$ brew reinstall -s ruby
+$ brew reinstall --build-from-source ruby
 ```
 
 ## Next Steps
