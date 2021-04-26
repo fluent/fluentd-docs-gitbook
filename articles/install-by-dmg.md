@@ -69,7 +69,7 @@ You're now ready to collect your real logs using Fluentd. Please see the followi
 
 Please refer to the resources below for further steps.
 
-* [ChangeLog of td-agent](http://docs.treasuredata.com/articles/td-agent-changelog)
+* [ChangeLog of td-agent](https://docs.treasuredata.com/display/public/PD/The+td-agent+Change+Log)
 * [Chef Cookbook](https://github.com/treasure-data/chef-td-agent/)
 
 If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open). [Fluentd](http://www.fluentd.org/) is a open source project under [Cloud Native Computing Foundation \(CNCF\)](https://cncf.io/). All components are available under the Apache 2 License.
