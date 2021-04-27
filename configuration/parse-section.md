@@ -208,9 +208,9 @@ For the `types` parameter, the following types are supported:
   * Default: `nil`
 
   ```text
-    time_type: mixed
-    time_format: unixtime
-    time_format_fallbacks: %iso8601
+    time_type mixed
+    time_format unixtime
+    time_format_fallbacks %iso8601
   ```
 
   In the above use case, the timestamp is parsed as `unixtime` at first, if it fails, then it is parsed as `%iso8601` secondary. Note that `time_format_fallbacks` is the last resort to parse mixed timestamp format. There is a performance penalty \(Typically, N fallbacks are specified in `time_format_fallbacks` and if the last specified format is used as a fallback, N times slower in the worst case\).
