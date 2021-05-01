@@ -14,7 +14,8 @@ For macOS, `td-agent` is distributed as `.dmg` installer.
 
 Download and install the `.dmg` package:
 
-* [Download](https://td-agent-package-browser.herokuapp.com/3/macosx)
+* [td-agent v4](https://td-agent-package-browser.herokuapp.com/4/macosx)
+* [td-agent v3](https://td-agent-package-browser.herokuapp.com/3/macosx)
 
 NOTE: If your OS is not supported, consider [gem installation](install-by-gem.md) instead.
 
