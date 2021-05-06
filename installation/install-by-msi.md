@@ -10,8 +10,8 @@ That is why [Treasure Data, Inc](http://www.treasuredata.com/) provides **the st
 
 For Windows, `td-agent` is distributed as `.msi` installer.
 
-* [`td-agent` v4 \(fluentd 1.11.x\)](install-by-msi.md#td-agent-v4)
-* [`td-agent` v3 \(fluentd 1.10.x\)](install-by-msi.md#td-agent-v3)
+* [`td-agent` v4](install-by-msi.md#td-agent-v4)
+* [`td-agent` v3](install-by-msi.md#td-agent-v3)
 
 ## `td-agent` v4
 
