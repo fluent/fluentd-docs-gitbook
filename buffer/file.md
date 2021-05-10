@@ -86,6 +86,12 @@ This parameter is useful when `.log` is not fit for your environment. See also [
 </match>
 ```
 
+## Tips
+
+### Multi-Process Environment
+
+If you use this plugin under the multi-process environment, you need to use `@id`/`root_dir` parameters instead of fixed `path` parameter. See [Multi Process Workers](../deployment/multi-process-workers.md#root_dir-id-parameter) article.
+
 ## Limitation
 
 Caution: `file` buffer implementation depends on the characteristics of the local file system. Don't use `file` buffer on remote file systems e.g. NFS, GlusterFS, HDFS, etc. We observed major data loss by using the remote file system.
