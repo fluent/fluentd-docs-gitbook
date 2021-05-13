@@ -1,17 +1,19 @@
 # Install by .msi Installer \(Windows\)
 
-This article explains how to install `td-agent`, the stable Fluentd distribution package maintained by [Treasure Data, Inc](http://www.treasuredata.com/), on Windows.
+The recommended way to install Fluentd on Windows is to use MSI installers provided by `td-agent`.
 
 ## What is `td-agent`?
 
-Fluentd is written in Ruby for flexibility, with performance-sensitive parts in C. However, some users may have difficulty installing and operating a Ruby daemon.
+`td-agent` is a packaged distribution of Fluentd.
 
-That is why [Treasure Data, Inc](http://www.treasuredata.com/) provides **the stable distribution of Fluentd**, called `td-agent`. The differences between Fluentd and `td-agent` can be found [here](https://www.fluentd.org/faqs).
+* Includes Ruby and other library dependencies (since most Windows machines don't have them installed).
+* Includes a set of commonly-used 3rd-party plugins such as `out_es`.
+* Originally developed by [Treasure Data, Inc](http://www.treasuredata.com/) (hence the name).
 
-For Windows, `td-agent` is distributed as `.msi` installer.
+Currently two versions of `td-agent` are available.
 
-* [`td-agent` v4](install-by-msi.md#td-agent-v4)
-* [`td-agent` v3](install-by-msi.md#td-agent-v3)
+* td-agent` v4 packages Fluentd 1.11.x (or later). This version is recommended.
+* td-agent` v3 packages Fluentd 1.10.x (or below).
 
 ## `td-agent` v4
 
