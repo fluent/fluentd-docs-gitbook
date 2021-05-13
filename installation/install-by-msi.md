@@ -19,56 +19,61 @@ Currently two versions of `td-agent` are available.
 
 ### Step 1: Install `td-agent`
 
-Download and install the `.msi` installer:
+Download the latest MSI installer from [the download page](https://td-agent-package-browser.herokuapp.com/4/windows). Run the installer and follow the wizard.
 
-* [Download](https://td-agent-package-browser.herokuapp.com/4/windows)
+![td-agent installation wizard](../.gitbook/assets/td-agent4-wizard.png)
 
-Or, install with [winget](https://www.microsoft.com/en-us/p/app-installer/9nblggh4nns1):
+Alternatively `td-agent` can be installed with [winget](https://www.microsoft.com/en-us/p/app-installer/9nblggh4nns1):
 
 ```text
 > winget install td-agent
 ```
 
-### Step 2: Run `td-agent` from Command Prompt
+### Step 2: Set up `td-agent.conf`
 
-First, prepare your config file located at `C:/opt/td-agent/etc/td-agent/td-agent.conf`. The following simple configuration is to dump any incoming records to `td-agent`'s log file:
+Open `C:/opt/td-agent/etc/td-agent/td-agent.conf` with a text editor. Replace the configuration with the following content:
 
 ```text
 <source>
-  @type forward
+  @type windows_eventlog2
+  @id windows_eventlog2
+  channels application
+  read_existing_events false
+  tag winevt.raw
+  rate_limit 200
+  <storage>
+    @type local
+    persistent true
+    path C:\opt\td-agent\winlog.json
+  </storage>
 </source>
-<match test.**>
+
+<match winevt.raw>
   @type stdout
 </match>
 ```
 
-A new program `Td-agent Command Prompt` is installed as part of `td-agent`. Open this Command Prompt from the Windows Start menu.
+### Step 3: Launch Td-agent Command Prompt
 
-Its icon looks like this on Windows Server 2012:
+Open Windows Start menu, and search `Td-agent Command Prompt`. In most environments, the program will be found right under the "Recently Added" section.
 
-![Td-agent Command Prompt](../.gitbook/assets/msi-td-agent-command-prompt%20%281%29%20%283%29%20%283%29.png)
+![Windows start menu and Td-agent Command Prompt](../.gitbook/assets/td-agent4-menu.png)
 
-Now, launch `td-agent` with the following command:
+`Td-agent Command Prompt` is basically `cmd.exe`, with a few PATH tweaks for `td-agent` programs. Use this program whenever you need to interact with `td-agent`.
 
-```text
-> fluentd -c etc\td-agent\td-agent.conf
-```
+### Step 4: Run `td-agent`
 
-Then, open another `Td-agent Command Prompt` instance and type the following command to send a record to `td-agent`:
+Type the following command into `Td-agent Command Prompt`:
 
 ```text
-> echo {"message":"hello"} | fluent-cat test.event
+C:\opt\td-agent> td-agent
 ```
 
-It is working properly if you see the following in the logs:
+Now `td-agent` starts listening to Windows Eventlog, and will print records to stdout as they occur.
 
-```text
-test.event: {"k", "v"}
-```
+![Td-agent Command Prompt](../.gitbook/assets/td-agent4-prompt.png)
 
-[![Td-agent Windows Prompt](../.gitbook/assets/td-agent-windows-prompt.png)](https://github.com/fluent/fluentd-docs-gitbook/tree/da81ba70252eaa863cc28fc888584c59d6fc14d3/images/td-agent-windows-prompt.png)
-
-### Step 3: Run `td-agent` as Windows service
+### Step 5: Run `td-agent` as Windows service
 
 Since version 4.0.0, `td-agent` is registered as a Windows service permanently by the msi installer. You can start `td-agent` service manually.
 
@@ -96,12 +101,12 @@ Note that using `fluentdwinsvc` is needed to start Fluentd service from the comm
 
 The log file will be located at `C:/opt/td-agent/td-agent.log` as we specified in Step 3.
 
-### Step 4: Install Plugins
+### Step 6: Install Plugins
 
 Open `Td-agent Command Prompt` and use `fluent-gem` command:
 
 ```text
-> fluent-gem install fluent-plugin-xyz --version=1.2.3
+C:\opt\td-agent> td-agent-gem install fluent-plugin-xyz --version=1.2.3
 ```
 
 ## `td-agent` v3
