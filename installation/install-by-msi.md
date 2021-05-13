@@ -1,6 +1,6 @@
 # Install by .msi Installer \(Windows\)
 
-The recommended way to install Fluentd on Windows is to use MSI installers provided by `td-agent`.
+The recommended way to install Fluentd on Windows is to use MSI installers of `td-agent`.
 
 ## What is `td-agent`?
 
@@ -12,8 +12,8 @@ The recommended way to install Fluentd on Windows is to use MSI installers provi
 
 Currently two versions of `td-agent` are available.
 
-* td-agent` v4 packages Fluentd 1.11.x (or later). This version is recommended.
-* td-agent` v3 packages Fluentd 1.10.x (or below).
+* `td-agent` v4 packages Fluentd 1.11.x (or later). This version is recommended.
+* `td-agent` v3 packages Fluentd 1.10.x (or below).
 
 ## `td-agent` v4
 
