@@ -113,9 +113,9 @@ For example:
 
   ...
 
-* timekey 3600: `["12:00:00", ..., "12:59:59"]`, \`\["13:00:00", ...,
+* timekey 3600: `["12:00:00", ..., "12:59:59"]`, `["13:00:00", ..., "13:59:59"]`,
 
-  "13:59:59"\]\`, ...
+  ...
 
 The events will be grouped into chunks by their time range. They will be flushed by the output plugin after the expiration of the time key range.
 
