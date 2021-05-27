@@ -70,7 +70,7 @@ Configure the `copy` plugin with `prometheus` output plugin to count the outgoin
     @type forward
     <server>
       name myserver1
-      hostname 192.168.1.3
+      host 192.168.1.3
       port 24224
       weight 60
     </server>
