@@ -174,6 +174,22 @@ Specifies the logging format e.g. `text` or `json`.
 
 Specifies time format.
 
+#### `rotate_age`
+
+| type | default | version |
+| :--- | :--- | :--- |
+| enum or integer | 5 | 1.13.0 |
+
+Specifies `daily`, `weekly`, `monthly` or integer which indicates age of log rotation.
+
+#### `rotate_size`
+
+| type | default | version |
+| :--- | :--- | :--- |
+| size | 1048576 | 1.13.0 |
+
+Specifies log file size limitation.
+
 ### `Fluent::SystemConfig::Mixin` Methods
 
 #### `.system_config`
