@@ -4,7 +4,9 @@ This article discusses the post-installation steps for the new Fluentd users ass
 
 ## System Administration
 
-### Configuration File
+### For `td-agent`
+
+#### Configuration File
 
 After the successful installation, a `td-agent` instance will be up and running with a predefined template configuration file.
 
@@ -22,7 +24,7 @@ After editing the configuration file, restart `td-agent` using `systemctl` comma
 $ sudo systemctl restart td-agent
 ```
 
-### Logging
+#### Logging
 
 By default, `td-agent` writes its operation logs to the following file:
 
@@ -31,6 +33,38 @@ By default, `td-agent` writes its operation logs to the following file:
 ```
 
 For more verbose logs, read the article on [Troubleshooting](../deployment/trouble-shooting.md).
+
+### For `calyptia-fluentd`
+
+
+#### Configuration File
+
+After the successful installation, a `calyptia-fluentd` instance will be up and running with a predefined template configuration file.
+
+The default path for this configuration file is:
+
+```text
+/etc/calyptia-fluentd/calyptia-fluentd.conf
+```
+
+You may edit this configuration file according to your own use case.
+
+After editing the configuration file, restart `calyptia-fluentd` using `systemctl` command:
+
+```text
+$ sudo systemctl restart calyptia-fluentd
+```
+
+#### Logging
+
+By default, `calyptia-fluentd` writes its operation logs to the following file:
+
+```text
+/var/log/calyptia-fluentd/calyptia-fluentd.log
+```
+
+For more verbose logs, read the article on [Troubleshooting](../deployment/trouble-shooting.md).
+
 
 ## Connect to the Other Services
 
@@ -58,10 +92,20 @@ The following configuration uses the `in_forward` plugin as an input source and 
 
 Fluentd manages plugins as Ruby gems but stores them in their dedicated directory separated from the normal Ruby gems.
 
+#### `td-agent`
+
 A special program `td-agent-gem` is used to manage plugin gems. For example, the following command installs a plugin to connect to S3 \(including both `in_s3` and `out_s3` plugins\):
 
 ```text
  $ sudo /usr/sbin/td-agent-gem install fluent-plugin-s3
+```
+
+#### `calyptia-fluentd`
+
+A special program `calyptia-fluentd-gem` is used to manage plugin gems. For example, the following command installs a plugin to connect to S3 \(including both `in_s3` and `out_s3` plugins\):
+
+```text
+ $ sudo /usr/sbin/calyptia-fluentd-gem install fluent-plugin-s3
 ```
 
 ### Available Plugins

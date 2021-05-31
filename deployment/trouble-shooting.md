@@ -14,7 +14,9 @@ Set `log_level trace`.
 
 See the [logging](logging.md#by-config-file) article also.
 
-### `td-agent` systemd with User's Unit File
+### `td-agent`
+
+#### `td-agent` systemd with User's Unit File
 
 Put your unit file into `/etc/systemd/system/td-agent`. This overwrites the existing behavior of `/usr/lib/systemd/system/td-agent`.
 
@@ -23,7 +25,7 @@ Put your unit file into `/etc/systemd/system/td-agent`. This overwrites the exis
 ExecStart=...existing options... -vv
 ```
 
-### `td-agent` init.d with Environment Variable
+#### `td-agent` init.d with Environment Variable
 
 1. edit `/etc/init.d/td-agent`
 2. add `-vv` to `TD_AGENT_OPTIONS`
@@ -37,6 +39,19 @@ ExecStart=...existing options... -vv
    ```
 
 This approach does not work on the `systemd` environment because `systemd` hooks the `init.d`'s startup routine and ignores the other options.
+
+### `calyptia-fluentd`
+
+#### `calyptia-fluentd` systemd with User's Unit File
+
+Put your unit file into `/etc/systemd/system/calyptia-fluentd.service`. This overwrites the existing behavior of `/usr/lib/systemd/system/calyptia-fluentd.service`.
+
+```text
+[Service]
+ExecStart=...existing options... -vv
+```
+
+`calyptia-fluentd` is only provided `systemd` enabled platforms on Linux.
 
 ### gem
 

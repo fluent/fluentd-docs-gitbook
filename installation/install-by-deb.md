@@ -1,6 +1,6 @@
 # Install by DEB Package \(Debian/Ubuntu\)
 
-This article explains how to install `td-agent` deb package, the stable Fluentd distribution package maintained by [Treasure Data, Inc](http://www.treasuredata.com/).
+This article explains how to install stabke versions of deb packages, the stable Fluentd distribution packages maintained by [Treasure Data, Inc](http://www.treasuredata.com/) and [Calyptia, Inc.](https://www.calyptia.com/).
 
 ## What is `td-agent`?
 
@@ -8,13 +8,23 @@ Fluentd is written in Ruby for flexibility, with performance-sensitive parts in 
 
 That is why [Treasure Data, Inc](http://www.treasuredata.com/) provides **the stable distribution of Fluentd**, called `td-agent`. The differences between Fluentd and `td-agent` can be found [here](https://www.fluentd.org/faqs).
 
-This installation guide is for `td-agent` v3/v4. `td-agent` v3/v4 uses fluentd v1.0 in the core. See [this page](../quickstart/td-agent-v2-vs-v3-vs-v4.md) for the comparison and supported OS.
+## What is `calyptia-fluentd`?
 
-## Step 0: Before Installation
+Our Calyptia also knows that Fluentd is written in Ruby for flexibility, with performance-sensitive parts in C. However, some users may have difficulty installing and operating a Ruby daemon.
+And `td-agent` is still seated on Ruby 2.7 due to compatibility reasons and Ruby versioning policy, `calyptia-fluentd` uses Ruby 3 instead of Ruby 2.7 for now.
+
+That is why [Calyptia, Inc.](https://www.calyptia.com/) provides **the alternative stable distribution of Fluentd**, called `calyptia-fluentd`. The differences between `td-agent` and `calyptia-fluentd` are bundled and running Ruby versions for now.
+
+
+This installation guide is for `td-agent` v3/v4 and `calyptia-fluentd` v1. `td-agent` v3/v4 and `calyptia-fluentd` use fluentd v1 in the core. See [this page](../quickstart/td-agent-v2-vs-v3-vs-v4.md) for the comparison and supported OS.
+
+## Using to install `td-agent`
+
+### Step 0: Before Installation
 
 Please follow the [Pre-installation Guide](before-install.md) to configure your OS properly.
 
-## Step 1: Install from Apt Repository
+### Step 1: Install from Apt Repository
 
 NOTE: If your OS is not supported, consider [gem installation](install-by-gem.md) instead.
 
@@ -77,7 +87,7 @@ For Debian Jessie:
 curl -L https://toolbelt.treasuredata.com/sh/install-debian-jessie-td-agent3.sh | sh
 ```
 
-## Step 2: Launch Daemon
+### Step 2: Launch Daemon
 
 ### `systemd`
 
@@ -104,7 +114,7 @@ To customize `systemd` behavior, put your `td-agent.service` in `/etc/systemd/sy
 
 NOTE: In td-agent 4, path is different. `/opt/td-agent/bin` instead of `/opt/td-agent/embedded/bin`
 
-### `init.d`
+#### `init.d`
 
 For non systemd-based system, use `/etc/init.d/td-agent` script to `start`, `stop`, or `restart` the agent:
 
@@ -129,7 +139,7 @@ Please make sure your configuration file path is:
 /etc/td-agent/td-agent.conf
 ```
 
-## Step 3: Post Sample Logs via HTTP
+### Step 3: Post Sample Logs via HTTP
 
 The default configuration \(`/etc/td-agent/td-agent.conf`\) is to receive logs at an HTTP endpoint and route them to `stdout`. For `td-agent` logs, see `/var/log/td-agent/td-agent.log`.
 
@@ -139,6 +149,87 @@ You can post sample log records with `curl` command:
 $ curl -X POST -d 'json={"json":"message"}' http://localhost:8888/debug.test
 $ tail -n 1 /var/log/td-agent/td-agent.log
 2018-01-01 17:51:47 -0700 debug.test: {"json":"message"}
+```
+
+## Using to install `calyptia-fluentd`
+
+### Step 0: Before Installation
+
+Please follow the [Pre-installation Guide](before-install.md) to configure your OS properly.
+
+### Step 1: Install from Apt Repository
+
+NOTE: If your OS is not supported, consider [gem installation](install-by-gem.md) instead.
+
+A shell script is provided to automate the installation process for each version. The shell script registers a new apt repository at `/etc/apt/sources.list.d/calyptia-fluentd.sources` and installs the `calyptia-fluentd` deb package.
+
+For Ubuntu Focal:
+
+```text
+# calyptia-fluentd 1
+curl -L https://calyptia-fluentd.s3.us-east-2.amazonaws.com/calyptia-fluentd-1-ubuntu-focal.sh | sh
+```
+
+For Ubuntu Bionic:
+
+```text
+# calyptia-fluentd 1
+curl -L https://calyptia-fluentd.s3.us-east-2.amazonaws.com/calyptia-fluentd-1-ubuntu-bionic.sh | sh
+```
+
+For Ubuntu Xenial:
+
+```text
+# calyptia-fluentd 1
+curl -L https://calyptia-fluentd.s3.us-east-2.amazonaws.com/calyptia-fluentd-1-ubuntu-xenial.sh | sh
+```
+
+For Debian Buster:
+
+```text
+# calyptia-fluentd 1
+https://calyptia-fluentd.s3.us-east-2.amazonaws.com/calyptia-fluentd-1-debian-buster.sh
+```
+
+### Step 2: Launch Daemon
+
+### `systemd`
+
+Use `/lib/systemd/system/calyptia-fluentd` script to `start`, `stop`, or `restart` the agent:
+
+```text
+$ sudo systemctl start calyptia-fluentd.service
+$ sudo systemctl status calyptia-fluentd.service
+● calyptia-fluentd.service - calyptia-fluentd: Fluentd based data collector for Calyptia Services
+   Loaded: loaded (/lib/systemd/system/calyptia-fluentd.service; enabled; vendor preset: enabled)
+   Active: active (running) since Fri 2021-05-28 15:29:45 JST; 1s ago
+     Docs: https://docs.fluentd.org/
+  Process: 406739 ExecStart=/opt/calyptia-fluentd/bin/fluentd --log $CALYPTIA_FLUENTD_LOG_FILE --daemon /var/run/calyptia-fluentd/calyptia-fluentd.pid $CALYPTIA_FLUENTD_OPTIONS (code=exited, status=0/SUCCESS)
+ Main PID: 406762 (fluentd)
+    Tasks: 5 (limit: 4915)
+   CGroup: /system.slice/calyptia-fluentd.service
+           ├─406762 /opt/calyptia-fluentd/bin/ruby /opt/calyptia-fluentd/bin/fluentd --log /var/log/calyptia-fluentd/calyptia-fluentd.log --daemon /var/run/calyptia-fluentd/calyptia-fluentd.pid
+           └─406835 /opt/calyptia-fluentd/bin/ruby -Eascii-8bit:ascii-8bit /opt/calyptia-fluentd/bin/fluentd --log /var/log/calyptia-fluentd/calyptia-fluentd.log --daemon /var/run/calyptia-fluentd/calyptia-fluentd.pid --under-supervisor
+```
+
+To customize `systemd` behavior, put your `calyptia-fluentd.service` in `/lib/systemd/system`.
+
+Please make sure your configuration file path is:
+
+```text
+/etc/calyptia-fluentd/calyptia-fluentd.conf
+```
+
+### Step 3: Post Sample Logs via HTTP
+
+The default configuration \(`/etc/calyptia-fluentd/calyptia-fluentd.conf`\) is to receive logs at an HTTP endpoint and route them to `stdout`. For `calyptia-fluentd` logs, see `/var/log/calyptia-fluentd/calyptia-fluentd.log`.
+
+You can post sample log records with `curl` command:
+
+```text
+$ curl -X POST -d 'json={"json":"message"}' http://localhost:8888/debug.test
+$ sudo tail -n 1 /var/log/td-agent/td-agent.log
+2021-05-28 15:45:17.998214460 +0900 debug.test: {"json":"message"}
 ```
 
 ## Next Steps
