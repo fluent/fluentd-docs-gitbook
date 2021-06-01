@@ -36,7 +36,6 @@ For more verbose logs, read the article on [Troubleshooting](../deployment/troub
 
 ### For `calyptia-fluentd`
 
-
 #### Configuration File
 
 After the successful installation, a `calyptia-fluentd` instance will be up and running with a predefined template configuration file.
@@ -64,7 +63,6 @@ By default, `calyptia-fluentd` writes its operation logs to the following file:
 ```
 
 For more verbose logs, read the article on [Troubleshooting](../deployment/trouble-shooting.md).
-
 
 ## Connect to the Other Services
 

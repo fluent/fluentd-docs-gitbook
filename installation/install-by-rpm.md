@@ -10,8 +10,7 @@ That is why [Treasure Data, Inc](http://www.treasuredata.com/) provides **the st
 
 ## What is `calyptia-fluentd`?
 
-Our Calyptia also knows that Fluentd is written in Ruby for flexibility, with performance-sensitive parts in C. However, some users may have difficulty installing and operating a Ruby daemon.
-And `td-agent` is still seated on Ruby 2.7 due to compatibility reasons and Ruby versioning policy, `calyptia-fluentd` uses Ruby 3 instead of Ruby 2.7 for now.
+Our Calyptia also knows that Fluentd is written in Ruby for flexibility, with performance-sensitive parts in C. However, some users may have difficulty installing and operating a Ruby daemon. And `td-agent` is still seated on Ruby 2.7 due to compatibility reasons and Ruby versioning policy, `calyptia-fluentd` uses Ruby 3 instead of Ruby 2.7 for now.
 
 That is why [Calyptia, Inc.](https://www.calyptia.com/) provides **the alternative stable distribution of Fluentd**, called `calyptia-fluentd`. The differences between `td-agent` and `calyptia-fluentd` are bundled and running Ruby versions for now.
 
@@ -205,10 +204,7 @@ The default configuration \(`/etc/calyptia-fluentd/calyptia-faluentd.conf`\) is 
 
 You can post sample log records with `curl` command:
 
-```text
-$ curl -X POST -d 'json={"json":"message"}' http://localhost:8888/debug.test
-$ sudo tail -n 1 /var/log/calyptia-fluentd/calyptia-fluentd.log
-2021-05-31 06:19:04.415878392 +0000 debug.test: {"json":"message"}
+\`\`\`text $ curl -X POST -d 'json={"json":"message"}' [http://localhost:8888/debug.test](http://localhost:8888/debug.test) $ sudo tail -n 1 /var/log/calyptia-fluentd/calyptia-fluentd.log 2021-05-31 06:19:04.415878392 +0000 debug.test: {"json":"message"}
 
 ## Next Steps
 

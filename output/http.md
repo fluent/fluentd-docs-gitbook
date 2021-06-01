@@ -253,7 +253,7 @@ The cipher suites configuration of TLS.
 
 Raise `UnrecoverableError` when the response code is not SUCCESS, 1xx/3xx/4xx/5xx. If `false`, `out_http` logs error message instead of raising `UnrecoverableError`.
 
-See also [Handling Unrecoverable Errors](../buffer/README.md#handling-unrecoverable-errors).
+See also [Handling Unrecoverable Errors](../buffer/#handling-unrecoverable-errors).
 
 ### `retryable_response_codes`
 

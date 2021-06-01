@@ -6,26 +6,26 @@ The recommended way to install Fluentd on Windows is to use MSI installers of `t
 
 `td-agent` is a packaged distribution of Fluentd.
 
-* Includes Ruby and other library dependencies (since most Windows machines don't have them installed).
+* Includes Ruby and other library dependencies \(since most Windows machines don't have them installed\).
 * Includes a set of commonly-used 3rd-party plugins such as `out_es`.
-* Originally developed by [Treasure Data, Inc](http://www.treasuredata.com/) (hence the name).
+* Originally developed by [Treasure Data, Inc](http://www.treasuredata.com/) \(hence the name\).
 
 Currently two versions of `td-agent` are available.
 
-* `td-agent` v4 packages Fluentd 1.11.x (or later). This version is recommended.
-* `td-agent` v3 packages Fluentd 1.10.x (or below).
+* `td-agent` v4 packages Fluentd 1.11.x \(or later\). This version is recommended.
+* `td-agent` v3 packages Fluentd 1.10.x \(or below\).
 
 ## What is `calyptia-fluentd`?
 
 `calyptia-fluentd` is the alternative distribution of Fluentd.
 
-* Includes Ruby and other library dependencies (since most Windows box are not installed).
+* Includes Ruby and other library dependencies \(since most Windows box are not installed\).
 * Includes a set of frequently-used 3rd party plugins such as `out_elasticsearch` and `in_windows_eventlog2`.
 * This alternative agent is developed by [Calyptia, Inc.](https://www.calyptia.com/).
 
 Currently, calyptia-fluentd is on v1 only.
 
-* `calyptia-fluentd` v1 packages Fluentd 1.12.x (or later).
+* `calyptia-fluentd` v1 packages Fluentd 1.12.x \(or later\).
 
 ## `td-agent` v4
 

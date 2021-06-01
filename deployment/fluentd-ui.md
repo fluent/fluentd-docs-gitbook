@@ -45,7 +45,7 @@ The default account credentials are:
 * `username="admin"`
 * `password="changeme"`
 
-![Fluentd UI](../.gitbook/assets/fluentd-ui%20%281%29%20%281%29.gif)
+![Fluentd UI](../.gitbook/assets/fluentd-ui%20%281%29%20%282%29.gif)
 
 ## Screenshots
 
@@ -53,7 +53,7 @@ The default account credentials are:
 
 ### Dashboard
 
-![Fluentd UI: Dashboard](../.gitbook/assets/dashboard%20%281%29%20%281%29%20%281%29%20%281%29.gif)
+![Fluentd UI: Dashboard](../.gitbook/assets/dashboard%20%281%29%20%281%29%20%281%29.gif)
 
 ### Setting
 
@@ -61,13 +61,13 @@ The default account credentials are:
 
 ### `in_tail` setting
 
-![Fluentd UI: \`in\_tail\` Settings](../.gitbook/assets/in_tail%20%281%29.gif)
+![Fluentd UI: \`in\_tail\` Settings](../.gitbook/assets/in_tail%20%282%29.gif)
 
 ### Plugin
 
 ![Plugin](../.gitbook/assets/plugin.gif)
 
-![](../.gitbook/assets/01%20%281%29.png)
+![](../.gitbook/assets/01%20%282%29.png)
 
 ![](../.gitbook/assets/02%20%281%29.png)
 

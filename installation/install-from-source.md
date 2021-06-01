@@ -63,7 +63,7 @@ There is a known problem in the system Ruby on M1 macOS that `fluentd --setup ./
 missing compatible arch in ... (LoadError)
 ```
 
-The system Ruby on macOS, which is like `universal.XXX-darwinXX` (you can check it by `$ ruby -v`) may cause this error. If you use the system Ruby, this error can be resolved by reinstalling Ruby.
+The system Ruby on macOS, which is like `universal.XXX-darwinXX` \(you can check it by `$ ruby -v`\) may cause this error. If you use the system Ruby, this error can be resolved by reinstalling Ruby.
 
 As an example, you can reinstall Ruby by using [Homebrew](https://brew.sh/).
 

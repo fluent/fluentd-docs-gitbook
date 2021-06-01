@@ -10,8 +10,7 @@ That is why [Treasure Data, Inc](http://www.treasuredata.com/) provides **the st
 
 ## What is `calyptia-fluentd`?
 
-Our Calyptia also knows that Fluentd is written in Ruby for flexibility, with performance-sensitive parts in C. However, some users may have difficulty installing and operating a Ruby daemon.
-And `td-agent` is still seated on Ruby 2.7 due to compatibility reasons and Ruby versioning policy, `calyptia-fluentd` uses Ruby 3 instead of Ruby 2.7 for now.
+Our Calyptia also knows that Fluentd is written in Ruby for flexibility, with performance-sensitive parts in C. However, some users may have difficulty installing and operating a Ruby daemon. And `td-agent` is still seated on Ruby 2.7 due to compatibility reasons and Ruby versioning policy, `calyptia-fluentd` uses Ruby 3 instead of Ruby 2.7 for now.
 
 That is why [Calyptia, Inc.](https://www.calyptia.com/) provides **the alternative stable distribution of Fluentd**, called `calyptia-fluentd`. The differences between `td-agent` and `calyptia-fluentd` are bundled and running Ruby versions for now.
 
@@ -89,7 +88,6 @@ $ sudo launchctl load /Library/LaunchDaemons/calyptia-fluentd.plist
 $ less /var/log/calyptia-fluentd/calyptia-fluentd.log
 2021-05-31 14:29:38 +0900 [info]: starting fluentd-1.12.3 pid=72608 ruby="3.0.1"
 2021-05-31 14:29:38 +0900 [info]: spawn command to main:  cmdline=["/opt/calyptia-fluentd/bin/ruby", "-Eascii-8bit:ascii-8bit", "/opt/calyptia-fluentd/usr/sbin/calyptia-fluentd", "--log", "/var/log/calyptia-fluentd/calyptia-fluentd.log", "--use-v1-config", "--under-supervisor"]
-
 ```
 
 The configuration file is located at `/etc/calyptia-fluentd/calyptia-fluentd.conf` and the plugin directory is at `/etc/calyptia-fluentd/plugin`.
@@ -114,8 +112,7 @@ $ tail -n 1 /var/log/calyptia-fluentd/calyptia-fluentd.log
 
 ### Uninstall calyptia-fluentd
 
-On macOS, `calyptia-fluentd` uses dmg which includes macOS installer a.k.a. pkg.
-It does not provide any uninstallation app functionality like `rpm` / `deb` on CentOS / Ubuntu.
+On macOS, `calyptia-fluentd` uses dmg which includes macOS installer a.k.a. pkg. It does not provide any uninstallation app functionality like `rpm` / `deb` on CentOS / Ubuntu.
 
 To uninstall `calyptia-fluentd` from macOS, remove these files / directories:
 
