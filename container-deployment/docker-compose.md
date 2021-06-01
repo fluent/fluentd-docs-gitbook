@@ -69,7 +69,7 @@ services:
       - "5601:5601"
 ```
 
-The `logging` section \(check [Docker Compose documentation](https://docs.docker.com/compose/compose-file/#/logging)\) of `web` container specifies [Docker Fluentd Logging Driver](https://docs.docker.com/engine/admin/logging/fluentd/) as a default container logging driver. All the logs from the `web` container will automatically be forwarded to `host:port` specified by `fluentd-address`.
+The `logging` section \(check [Docker Compose documentation](https://docs.docker.com/compose/compose-file/compose-file-v3/#logging)\) of `web` container specifies [Docker Fluentd Logging Driver](https://docs.docker.com/engine/admin/logging/fluentd/) as a default container logging driver. All the logs from the `web` container will automatically be forwarded to `host:port` specified by `fluentd-address`.
 
 ## Step 1: Create Fluentd Image with your Config + Plugin
 
