@@ -60,6 +60,8 @@ These kernel options were originally taken from the presentation [How Netflix Tu
 **NOTE:** CentOS 7 or later, Ubuntu 18.04 (bionic) or later, and Debian GNU/Linux 10 (buster) or later are supported these parameters.
 
 Fluentd sometimes uses predictable paths for dumping, writing files, and so on.
+This default settings for the protections are in `/etc/sysctl.d/10-link-restrictions.conf`, or `/usr/lib/sysctl.d/50-default.conf` or elsewhere.
+
 For symlink attack protection, check the following parameters are set up as `1`:
 
 ```text
