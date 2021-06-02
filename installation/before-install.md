@@ -68,7 +68,7 @@ fs.protected_symlinks = 1
 This settings are almost enough for time-of-check to time-of-use (TOCTOU, TOCTTOU or TOC/TOU) which is a class of software bugs.
 
 CentOS 7 or later, Ubuntu 18.04 (bionic) or later, and Debian GNU/Linux 10 (buster) or later are supported these parameters.
-If you truned off these protection, please turn on them.
+If you turned off these protection, please turn on them.
 
 Use `sysctl -p` command or reboot your node for the changes to take effect.
 
