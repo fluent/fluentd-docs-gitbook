@@ -129,4 +129,5 @@ Fluentd + Treasure Data gives you a data collection and analysis system in days,
 * [Treasure Data](http://www.fluentd.org/treasuredata)
 * [Treasure Data: Documentation](http://docs.treasuredata.com/)
 
-{% include "../.gitbook/assets/footer.txt" %}
+If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open). [Fluentd](http://www.fluentd.org/) is an open-source project under [Cloud Native Computing Foundation \(CNCF\)](https://cncf.io/). All components are available under the Apache 2 License.
+

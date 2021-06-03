@@ -164,4 +164,5 @@ There it is, as you can see in the line!
 
 Fluentd makes it easy to ingest `syslog` events. You can immediately send data to the output systems like MongoDB and Elasticsearch, but also you can do filtering and further parsing _inside Fluentd_ before passing the processed data onto the output destinations.
 
-{% include "../.gitbook/assets/footer.txt" %}
+If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open). [Fluentd](http://www.fluentd.org/) is an open-source project under [Cloud Native Computing Foundation \(CNCF\)](https://cncf.io/). All components are available under the Apache 2 License.
+

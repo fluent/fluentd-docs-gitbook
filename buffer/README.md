@@ -159,4 +159,5 @@ This sometimes causes a problem when the output destination has a payload size l
 * [`buf_memory`](memory.md)
 * [`buf_file`](file.md)
 
-{% include "../.gitbook/assets/footer.txt" %}
+If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open). [Fluentd](http://www.fluentd.org/) is an open-source project under [Cloud Native Computing Foundation \(CNCF\)](https://cncf.io/). All components are available under the Apache 2 License.
+

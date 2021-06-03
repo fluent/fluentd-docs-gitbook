@@ -95,4 +95,5 @@ NOTE: The values for the `@label` parameter MUST start with `@` character.
 
 Specifying `@label` is strongly recommended to route events to any plugin without modifying the tags. It helps make the complex configuration modular and simple.
 
-{% include "../.gitbook/assets/footer.txt" %}
+If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open). [Fluentd](http://www.fluentd.org/) is an open-source project under [Cloud Native Computing Foundation \(CNCF\)](https://cncf.io/). All components are available under the Apache 2 License.
+
