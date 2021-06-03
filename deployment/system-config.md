@@ -238,4 +238,5 @@ For code example, please refer to [`api-plugin-base`](../plugin-development/api-
 * `-g`, `--gemfile GEMFILE`: Specifies the Gemfile path.
 * `-G`, `--gem-path GEM_INSTALL_PATH`: Specifies the Gemfile install path. \(Default: `$(dirname $gemfile)/vendor/bundle`\)
 
-{% include "../.gitbook/assets/footer.txt" %}
+If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open). [Fluentd](http://www.fluentd.org/) is an open-source project under [Cloud Native Computing Foundation \(CNCF\)](https://cncf.io/). All components are available under the Apache 2 License.
+

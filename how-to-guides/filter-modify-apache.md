@@ -80,4 +80,5 @@ This will produce an event like this:
 
 Note that `${hostname}` is a predefined variable supplied by the plugin. You can also define a custom variable, or even evaluate arbitrary ruby expressions. For more details, see [`record_transformer`](../filter/record_transformer.md).
 
-{% include "../.gitbook/assets/footer.txt" %}
+If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open). [Fluentd](http://www.fluentd.org/) is an open-source project under [Cloud Native Computing Foundation \(CNCF\)](https://cncf.io/). All components are available under the Apache 2 License.
+
