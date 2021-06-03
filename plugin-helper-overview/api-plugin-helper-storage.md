@@ -142,5 +142,4 @@ This method updates the stored value using a `Proc` object.
 * [`in_sample`](../input/sample.md)
 * [`in_windows_eventlog`](../input/windows_eventlog.md)
 
-If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open). [Fluentd](http://www.fluentd.org/) is an open-source project under [Cloud Native Computing Foundation \(CNCF\)](https://cncf.io/). All components are available under the Apache 2 License.
-
+{% include "../.gitbook/assets/footer.txt" %}
