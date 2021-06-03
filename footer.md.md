@@ -1,0 +1,6 @@
+# footer.md
+
+---
+
+test footer
+
