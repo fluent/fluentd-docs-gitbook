@@ -11,20 +11,20 @@ It is included in Fluentd's core.
   @type roundrobin
 
   <store>
-    @type tcp
-    host 192.168.1.21
+    @type http
+    endpoint http://192.168.1.21
     weight 3
     # ...
   </store>
   <store>
-    @type tcp
-    host 192.168.1.22
+    @type http
+    endpoint http://192.168.1.22
     weight 2
     # ...
   </store>
   <store>
-    @type tcp
-    host 192.168.1.23
+    @type http
+    endpoint http://192.168.1.23
     weight 1
     # ...
   </store>
