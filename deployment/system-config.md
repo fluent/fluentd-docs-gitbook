@@ -156,6 +156,15 @@ Parses config values strictly. Invalid numerical or boolean values are not allow
 
 Force disable the shared socket which is for listening a same port across multiple worker processes. When the shared socket is enabled \(it's the default behavior\), a socket is always created to enable workers to communicate with the supervisor. On Windows, it consumes a dynamic \(a.k.a ephemeral\) TCP port. If you don't prefer it, set this option as `true`. When it's disabled, you may not use plugins that listen a port such as in\_forward, in\_http and in\_syslog.
 
+### `blocking_reload_interval`
+
+| type | default | version |
+| :--- | :--- | :--- |
+| time | 15 | 1.13.1 |
+
+Specify the interval seconds that reloading config file request is blocked. This parameter is used to avoid inconsistent reloading state.
+It blocks excessive reloading request via RPC and SIGUSR2.
+
 ### `<log>` section
 
 #### `format`
