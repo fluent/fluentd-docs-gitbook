@@ -144,6 +144,14 @@ Example:
 
 Responds with an empty GIF image of 1x1 pixel \(rather than an empty string\).
 
+### `use_204_response`
+
+| type | default | version |
+| :--- | :--- | :--- |
+| bool | false | v1.8.0 |
+
+Respond status code with 204. This option will be deprecated at v2 because fluentd v2 will respond 204 as default.
+
 ### `<transport>` Section
 
 | type | default | available values | version |
