@@ -28,7 +28,7 @@ Create `docker-compose.yml` for [Docker Compose](https://docs.docker.com/compose
 With the YAML file below, you can create and start all the services \(in this case, Apache, Fluentd, Elasticsearch, Kibana\) by one command:
 
 ```text
-version: '3'
+version: "3"
 services:
   web:
     image: httpd
@@ -53,7 +53,8 @@ services:
       - "24224:24224/udp"
 
   elasticsearch:
-    image: docker.elastic.co/elasticsearch/elasticsearch:7.10.2
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.13.1
+    container_name: elasticsearch
     environment:
       - "discovery.type=single-node"
     expose:
@@ -62,7 +63,7 @@ services:
       - "9200:9200"
 
   kibana:
-    image: kibana:7.10.1
+    image: docker.elastic.co/kibana/kibana:7.13.1
     links:
       - "elasticsearch"
     ports:
@@ -80,7 +81,7 @@ Create `fluentd/Dockerfile` with the following content using the Fluentd [offici
 
 FROM fluent/fluentd:v1.12.0-debian-1.0
 USER root
-RUN ["gem", "install", "fluent-plugin-elasticsearch", "--no-document", "--version", "4.3.3"]
+RUN ["gem", "install", "fluent-plugin-elasticsearch", "--no-document", "--version", "5.0.3"]
 USER fluent
 ```
 
@@ -124,17 +125,18 @@ NOTE: The detail of used parameters for `@type elasticsearch`, see [Elasticsearc
 Let's start the containers:
 
 ```text
-$ docker-compose up
+$ docker-compose up --detach
 ```
 
 Use `docker ps` command to verify that the four \(4\) containers are up and running:
 
 ```text
 $ docker ps
-CONTAINER ID        IMAGE                                                 COMMAND                  CREATED             STATUS              PORTS                              NAMES
-558fd18fa2d4        httpd                                                 "httpd-foreground"       17 seconds ago      Up 16 seconds       0.0.0.0:80->80/tcp                 docker_web_1
-bc5bcaedb282        kibana:7.10.1                                         "/usr/local/bin/kiba…"   18 seconds ago      Up 17 seconds       0.0.0.0:5601->5601/tcp             docker_kibana_1
-9fe2d02cff41        docker.elastic.co/elasticsearch/elasticsearch:7.10.2  "/usr/local/bin/dock…"   20 seconds ago      Up 18 seconds       0.0.0.0:9200->9200/tcp, 9300/tcp   docker_elasticsearch_1
+CONTAINER ID   IMAGE                                                  COMMAND                  CREATED         STATUS         PORTS                                                                                                    NAMES
+60a8c3c8fcab   httpd                                                  "httpd-foreground"       6 minutes ago   Up 6 minutes   0.0.0.0:80->80/tcp, :::80->80/tcp                                                                        fluentd-elastic-kibana_web_1
+43df4d266636   fluentd-elastic-kibana_fluentd                         "tini -- /bin/entryp…"   6 minutes ago   Up 6 minutes   5140/tcp, 0.0.0.0:24224->24224/tcp, 0.0.0.0:24224->24224/udp, :::24224->24224/tcp, :::24224->24224/udp   fluentd-elastic-kibana_fluentd_1
+6a63ad1ddef1   docker.elastic.co/kibana/kibana:7.13.1                 "/bin/tini -- /usr/l…"   6 minutes ago   Up 6 minutes   0.0.0.0:5601->5601/tcp, :::5601->5601/tcp                                                                fluentd-elastic-kibana_kibana_1
+6168bd075497   docker.elastic.co/elasticsearch/elasticsearch:7.13.1   "/bin/tini -- /usr/l…"   6 minutes ago   Up 6 minutes   0.0.0.0:9200->9200/tcp, :::9200->9200/tcp, 9300/tcp                                                      elasticsearch
 ```
 
 ## Step 3: Generate `httpd` Access Logs
