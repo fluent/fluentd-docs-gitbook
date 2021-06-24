@@ -72,6 +72,57 @@ This parameter supports nested field access via [`record_accessor` syntax](../pl
 
 Keeps the original event time in the parsed result.
 
+```text
+<filter foo.bar>
+  @type parser
+  key_name log
+  reserve_time true
+  <parse>
+    @type json
+  </parse>
+</filter>
+```
+
+With above configuration, here is the result:
+
+```text
+# input data:  {"key":"value","log":"{\"time\":1622473200,\"user\":1}"}
+```
+
+Above incoming event is parsed as:
+
+```text
+time:
+2021-06-01 00:00:00.000000000 +0900
+
+record:
+{
+  "user": 1
+}
+```
+
+The value of `time` field (`1622473200`) is reserved as event time (`2021-06-01 00:00:00.000000000 +0900`).
+
+Without `reserve_time`, the result is:
+
+```text
+# input data:  {"key":"value","log":"{\"time\":1622473200,\"user\":1}"}
+```
+
+Above incoming event is parsed as:
+
+```text
+time:
+2021-06-24 14:33:35.475115751 +0900 (It vary on parsed timestamp)
+
+record:
+{
+  "user": 1
+}
+```
+
+The value of parsed timestamp is set as event time. The value of `time` field is discarded.
+
 ### `reserve_data`
 
 | type | default | version |
