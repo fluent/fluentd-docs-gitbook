@@ -176,9 +176,9 @@ Skips the refresh of the watch list on startup. This reduces the startup time wh
 
 Starts to read the logs from the head of the file or the last read position recorded in `pos_file`, not tail.
 
-If you want to `tail` the contents with `*` or `strftime` dynamic path, set this parameter to `true`. Instead, you should guarantee that the log rotation will not occur in `*` directory. Since v1.12.0, you can use `follow_inodes true` to avoid log duplication by log rotation.
+If you use `*` or `strftime` format as `path` and new files may be added into such paths while tailing, you should set this parameter to `true`. Otherwise some logs in newly added files may be lost. On the other hand you should guarantee that the log rotation will not occur in `*` directory in that case to avoid log duplication. Or you can use `follow_inodes true` to avoid such log duplication, which is available as of v1.12.0.
 
-When this is `true`, `in_tail` tries to read a file during the startup phase. If the target file is large, it takes a long time and other plugins do not start until the reading is finished.
+Note that `in_tail` tries to read a file during the startup phase when this is `true`. So that if the target file is too large and takes a long time to read it, other plugins are blocked to start until the reading is finished. You can avoid it by `skip_refresh_on_startup`.
 
 ### `encoding`, `from_encoding`
 
