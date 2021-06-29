@@ -174,7 +174,7 @@ Skips the refresh of the watch list on startup. This reduces the startup time wh
 | :--- | :--- | :--- |
 | bool | false | 0.14.0 |
 
-Starts to read the logs from the head of the file, not tail.
+Starts to read the logs from the head of the file or the last read position recorded in `pos_file`, not tail.
 
 If you want to `tail` the contents with `*` or `strftime` dynamic path, set this parameter to `true`. Instead, you should guarantee that the log rotation will not occur in `*` directory. Since v1.12.0, you can use `follow_inodes true` to avoid log duplication by log rotation.
 
