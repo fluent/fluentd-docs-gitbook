@@ -147,8 +147,8 @@ Usage: fluent-plugin-generate [options] <type> <name>
 Generate a project skeleton for creating a Fluentd plugin
 
 Arguments:
-        type: input,output,filter,parser,formatter
-        name: Your plugin name
+        type: input,output,filter,parser,formatter,storage
+        name: Your plugin name (fluent-plugin- prefix will be added to <name>)
 
 Options:
         --[no-]license=NAME          Specify license name (default: Apache-2.0)
