@@ -50,7 +50,7 @@ Since v1.13.0, `discovery_manager` is almost automatically configured only by ca
 
 * `title`: Thread name. Must be unique. \(required\)
 * `static_default_service_directive`: The directive name of each service when "static" service discovery is enabled in default.
-* `load_balancer`: object which has two methods #rebalance and #select_service.
+* `load_balancer`: object which has two methods \#rebalance and \#select\_service.
 * `custom_build_method`: The custom method to build the service.
 * `interval`: Time interval for updating target service.
 
@@ -128,9 +128,7 @@ module Fluent::Plugin
 end
 ```
 
-You can also use helper methods such as `service_discovery_services` or `service_discovery_rebalance` instead of
-`@discovery_manager.services` or `@discovery_manager.rebalance`.
-
+You can also use helper methods such as `service_discovery_services` or `service_discovery_rebalance` instead of `@discovery_manager.services` or `@discovery_manager.rebalance`.
 
 If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open). [Fluentd](http://www.fluentd.org/) is an open-source project under [Cloud Native Computing Foundation \(CNCF\)](https://cncf.io/). All components are available under the Apache 2 License.
 

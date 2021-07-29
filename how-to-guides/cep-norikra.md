@@ -16,7 +16,7 @@ This article will show you how to integrate [Fluentd](https://fluentd.org/), [No
 
 The figure below shows the high-level architecture:
 
-![Fluentd + Norikra Overview](../.gitbook/assets/fluentd-norikra-overview%20%281%29%20%281%29.png)
+![Fluentd + Norikra Overview](../.gitbook/assets/fluentd-norikra-overview%20%281%29%20%282%29.png)
 
 ## Installation
 

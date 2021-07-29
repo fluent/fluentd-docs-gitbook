@@ -517,9 +517,9 @@ The configuration file can be validated without starting the plugins using the `
 $ fluentd --dry-run -c fluent.conf
 ```
 
-## Config Advisor
+## Config Validator
 
-You can use the Calyptia Config advisor for tips on Fluentd configuration: [http://fluentd-config-analyzer.calyptia.com/](http://fluentd-config-analyzer.calyptia.com/)
+You can use the Calyptia Cloud advisor for tips on Fluentd configuration. Sign up required at https://cloud.calyptia.com.
 
 ## Format Tips
 

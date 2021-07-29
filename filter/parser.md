@@ -101,7 +101,7 @@ record:
 }
 ```
 
-The value of `time` field (`1622473200`) is reserved as event time (`2021-06-01 00:00:00.000000000 +0900`).
+The value of `time` field \(`1622473200`\) is reserved as event time \(`2021-06-01 00:00:00.000000000 +0900`\).
 
 Without `reserve_time`, the result is:
 

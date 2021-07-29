@@ -258,11 +258,11 @@ TODO: write description for you plugin.
 ## Installation
 
 ### RubyGems
-
 ```
+
 $ gem install fluent-plugin-http2
-```
 
+```text
 ### Bundler
 
 Add following line to your Gemfile:
@@ -273,7 +273,7 @@ gem "fluent-plugin-http2"
 
 And then execute:
 
-```
+```text
 $ bundle
 ```
 
@@ -281,7 +281,7 @@ $ bundle
 
 You can generate configuration template:
 
-```
+```text
 $ fluent-plugin-config-format input http2
 ```
 
@@ -289,10 +289,11 @@ You can copy and paste generated documents here.
 
 ## Copyright
 
-* Copyright(c) 2017- John Doe
+* Copyright\(c\) 2017- John Doe
 * License
   * Apache License, Version 2.0
-```
+
+    \`\`\`
 
 You should write the plugin description and configurations.
 

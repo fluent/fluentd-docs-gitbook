@@ -2,7 +2,7 @@
 
 Let's get started with **Fluentd**! **Fluentd** is a fully free and fully open-source log collector that instantly enables you to have a '**Log Everything**' architecture with [125+ types of systems](https://www.fluentd.org/plugins).
 
-![Fluentd Architecture](../.gitbook/assets/fluentd-architecture%20%281%29%20%282%29%20%282%29.png)
+![Fluentd Architecture](../.gitbook/assets/fluentd-architecture%20%281%29%20%282%29%20%282%29%20%282%29%20%283%29.png)
 
 Fluentd treats logs as JSON, a popular machine-readable format. It is written primarily in C with a thin-Ruby wrapper that gives users flexibility.
 

@@ -144,7 +144,7 @@ First, please prepare your config file located at `C:/opt/td-agent/etc/td-agent/
 
 After you have installed the .msi package, you will see the program called `Td-agent Command Prompt` installed. Please double click this icon in the Windows menu \(below is how it looks like on Windows Server 2012\).
 
-![Td-agent Command Prompt](../.gitbook/assets/msi-td-agent-command-prompt%20%281%29%20%283%29%20%283%29%20%283%29.png)
+![Td-agent Command Prompt](../.gitbook/assets/msi-td-agent-command-prompt%20%281%29%20%283%29%20%283%29%20%283%29%20%286%29%20%282%29.png)
 
 In the prompt, please execute the command below to launch `td-agent` process:
 
