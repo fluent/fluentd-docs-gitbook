@@ -1,6 +1,6 @@
 # Install by DEB Package \(Debian/Ubuntu\)
 
-This article explains how to install stabke versions of deb packages, the stable Fluentd distribution packages maintained by [Treasure Data, Inc](http://www.treasuredata.com/) and [Calyptia, Inc.](https://www.calyptia.com/).
+This article explains how to install stable versions of deb packages, the stable Fluentd distribution packages maintained by [Treasure Data, Inc](http://www.treasuredata.com/) and [Calyptia, Inc.](https://www.calyptia.com/).
 
 ## What is `td-agent`?
 
