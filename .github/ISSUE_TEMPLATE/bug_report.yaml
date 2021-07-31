@@ -1,0 +1,37 @@
+name: Bug Report for https://docs.fluentd.org/
+description: Create a report about Fluentd's documentation
+body:
+  - type: markdown
+    attributes:
+      value: |
+        This repository tracks an issue for Fluentd's documentation.
+        If you found a bug of Fluentd, please forward it to https://github.com/fluent/fluentd.
+        Do not create an issue about usage of Fluentd itself. Ask on https://discuss.fluentd.org/!
+  - type: textarea
+    id: description
+    attributes:
+      label: Describe the bug
+      description: A clear and concise description of what the bug in https://docs.fluentd.org
+    validations:
+      required: true
+  - type: textarea
+    id: link
+    attributes:
+      label: Link to the problematic documentation
+      description: Write the actual URL
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected explanation
+      description: A clear and concise description of what you expected to happen
+    validations:
+      required: true
+  - type: textarea
+    id: addtional-context
+    attributes:
+      label: Additional context
+      description: Add any other context about the problem here.
+    validations:
+      required: false
