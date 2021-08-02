@@ -1,6 +1,6 @@
 # Buffer Plugins
 
-Fluentd has eight \(8\) types of plugins:
+Fluentd has nine \(9\) types of plugins:
 
 * [Input](../input/)
 * [Parser](../parser/)
@@ -10,6 +10,7 @@ Fluentd has eight \(8\) types of plugins:
 * [Storage](../storage/)
 * [Service Discovery](../service_discovery/)
 * [Buffer](./)
+* [Metrics](../metrics/)
 
 This article gives an overview of Buffer Plugin.
 
