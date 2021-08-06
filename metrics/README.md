@@ -32,6 +32,11 @@ Here is an example with `metrics_local`:
 </system>
 ```
 
+`local` type plugin should provide equivalent behavior before Fluentd v1.13.
+This metrics type should provide single numeric value storing functionality.
+
+And this `local` type plugin should be used by default.
+
 ## List of Built-in Metrics Plugins
 
 * [`local`](local.md)
