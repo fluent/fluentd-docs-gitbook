@@ -4,7 +4,10 @@ This article explains how to collect [Docker](https://www.docker.com/) logs and 
 
 ![Kibana](../.gitbook/assets/7.10_kibana-homepage.png)
 
-[Elasticsearch](https://www.elastic.co/products/elasticsearch) is an open-source search engine known for its ease of use. [Kibana](https://www.elastic.co/products/kibana) is an open-source Web UI that makes Elasticsearch user-friendly for marketers, engineers and data scientists alike.
+[Elasticsearch](https://www.elastic.co/products/elasticsearch) had been an open-source search engine known for its ease of use. [Kibana](https://www.elastic.co/products/kibana) had been an open-source Web UI that makes Elasticsearch user-friendly for marketers, engineers and data scientists alike.
+
+NOTE: Since v7.11, These products are distributed under non open-source license (Dual licensed under Server Side Public License and Elastic License)
+
 
 By combining these three tools EFK \(Elasticsearch + Fluentd + Kibana\) we get a scalable, flexible, easy to use log collection and analytics pipeline. In this article, we will set up four \(4\) containers, each includes:
 
