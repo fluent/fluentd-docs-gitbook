@@ -26,7 +26,7 @@ Please follow the [Pre-installation Guide](before-install.md) to configure your 
 
 NOTE: If your OS is not supported, consider [gem installation](install-by-gem.md) instead.
 
-NOTE: Treasure Data does not verify Debian packages. If you have any problem with debian packages, send a patch to [`omnibus-td-agent`](https://github.com/treasure-data/omnibus-td-agent) repository.
+NOTE: Treasure Data does not verify Debian packages. If you have any problem with debian packages, send a patch to [`fluent-package-builder`](https://github.com/fluent-plugins-nursery/fluent-package-builder) repository.
 
 A shell script is provided to automate the installation process for each version. The shell script registers a new apt repository at `/etc/apt/sources.list.d/treasure-data.list` and installs the `td-agent` deb package.
 
