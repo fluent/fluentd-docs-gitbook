@@ -77,7 +77,7 @@ password mysecret
 
 Specify `https` if your Elasticsearch endpoint supports SSL \(default: `http`\).
 
-### path \(optional\)
+### `path` \(optional\)
 
 The REST API endpoint of Elasticsearch to post write requests \(default: `nil`\).
 
