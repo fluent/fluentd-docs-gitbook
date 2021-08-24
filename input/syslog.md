@@ -239,6 +239,14 @@ Emits unmatched lines when `<parse>` format is not matched for incoming logs.
 
 Emitted record is `{"unmatched_line" : "incoming line"}` with `${tag parameter}.unmatched` tag.
 
+### `resolve_hostname`
+
+| type | default | version |
+| :--- | :--- | :--- |
+| bool | nil | 0.14.19 |
+
+Tries to resolve hostname from IP addresses or not. Cannot set `false` when `source_hostname_key` is set.
+
 ### `source_hostname_key`
 
 | type | default | version |
