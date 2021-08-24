@@ -62,6 +62,13 @@ For Ubuntu Trusty:
 curl -L https://toolbelt.treasuredata.com/sh/install-ubuntu-trusty-td-agent3.sh | sh
 ```
 
+For Debian Bullseye:
+
+```text
+# td-agent 4
+curl -L https://toolbelt.treasuredata.com/sh/install-debian-bullseye-td-agent4.sh | sh
+```
+
 For Debian Buster:
 
 ```text
