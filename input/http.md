@@ -136,6 +136,14 @@ Example:
 </source>
 ```
 
+### `cors_allow_credentials`
+
+| type | default | version |
+| :--- | :--- | :--- |
+| bool | false | 1.14.0 |
+
+Add [`Access-Control-Allow-Credentials`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Credentials) header. It's needed when a request's credentials mode is `include`. An example of use case is using [Beacon API](https://developer.mozilla.org/en-US/docs/Web/API/Beacon_API), its request mode is always `include`.
+
 ### `respond_with_empty_img`
 
 | type | default | version |
