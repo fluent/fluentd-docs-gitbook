@@ -274,6 +274,12 @@ The `@ERROR` label is a builtin label used for error record emitted by plugin's 
 
 If `<label @ERROR>` is set, the events are routed to this label when the related errors are emitted e.g. the buffer is full or the record is invalid.
 
+### `@ROOT` label
+
+The `@ROOT` label is a builtin label used for getting root router by plugin's `event_emitter_router` API.
+
+This label is introduced since v1.14.0 to assign a label back to the default route. For example, timed-out event records are handled by the concat filter can be sent to the default route.
+
 ## 6. Reuse your config: the `@include` directive
 
 The directives in separate configuration files can be imported using the **@include** directive:
