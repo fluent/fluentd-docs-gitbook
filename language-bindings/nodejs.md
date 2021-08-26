@@ -1,14 +1,16 @@
 # Nodejs
 
-The [`fluent-logger-node`](https://github.com/fluent/fluent-logger-node) library is used to post records from Node.js applications to Fluentd.
+The [`@fluent-org/logger`](https://github.com/fluent/fluent-logger-forward-node) library is used to post records from Node.js applications to Fluentd. 
 
 This article explains how to use it.
+
+NOTE: The previous NPM package, [`fluent-logger`](https://github.com/fluent/fluent-logger-node) has been deprecated in favor of `@fluent-org/logger`.
 
 ## Prerequisites
 
 * Basic knowledge of Node.js and NPM
 * Basic knowledge of Fluentd
-* Node.js 6.0 or higher
+* Node.js 12.0 or higher
 
 ## Installing Fluentd
 
@@ -43,15 +45,15 @@ $ sudo /etc/init.d/td-agent restart
 $ sudo systemctl restart td-agent.service
 ```
 
-## Using `fluent-logger-node`
+## Using `@fluent-org/logger`
 
 ### Obtaining the Most Recent Version
 
-The most recent version of `fluent-logger-node` can be found [here](https://www.npmjs.com/package/fluent-logger).
+The most recent version of `@fluent-org/logger` can be found [here](https://www.npmjs.com/package/@fluent-org/logger).
 
 ### A Sample Application
 
-Here is a sample [Express](http://expressjs.com/) app using `fluent-logger-node`:
+Here is a sample [Express](http://expressjs.com/) app using `@fluent-org/logger`:
 
 #### `package.json`
 
@@ -61,7 +63,7 @@ Here is a sample [Express](http://expressjs.com/) app using `fluent-logger-node`
   "version": "0.0.1",
   "dependencies": {
     "express": "^4.16.0",
-    "fluent-logger": "^3.2.0"
+    "@fluent-org/logger": "^1.0.2"
   }
 }
 ```
@@ -78,15 +80,16 @@ This is a simple web app:
 
 ```text
 const express = require('express');
-const logger = require('fluent-logger');
+const FluentClient = require('@fluent-org/logger').FluentClient;
 const app = express();
 
 // The 2nd argument can be omitted. Here is a default value for options.
-logger.configure('fluentd.test', {
-  host: 'localhost',
-  port: 24224,
-  timeout: 3.0,
-  reconnectInterval: 600000 // 10 minutes
+const logger = new FluentClient('fluentd.test', {
+  socket: {
+    host: 'localhost',
+    port: 24224,
+    timeout: 3000, // 3 seconds
+  }
 });
 
 app.get('/', function(request, response) {
