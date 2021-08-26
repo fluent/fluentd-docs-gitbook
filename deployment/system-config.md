@@ -190,6 +190,23 @@ Specifies `daily`, `weekly`, `monthly` or integer which indicates age of log rot
 
 Specifies log file size limitation.
 
+#### `enable_input_metrics`
+
+| type | default | version |
+| :--- | :---    | :---    |
+| bool | nil     | 1.14.0  |
+
+Specifies whether measuring input metrics should be enabled or not.
+
+#### `enable_size_metrics`
+
+| type | default | version |
+| :--- | :---    | :---    |
+| bool | nil     | 1.14.0  |
+
+Specifies whether measuring record size metrics should be enabled or not.
+It can be useful for calculating flow rate on Fluentd instances.
+
 ### `Fluent::SystemConfig::Mixin` Methods
 
 #### `.system_config`
