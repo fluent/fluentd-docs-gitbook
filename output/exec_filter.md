@@ -169,7 +169,7 @@ Overwrites the default value in this plugin.
 
 | type | default | version |
 | :--- | :--- | :--- |
-| bool | false | 0.14.9 |
+| bool | true | 0.14.9 |
 
 Overwrites the default value in this plugin.
 
