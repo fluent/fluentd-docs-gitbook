@@ -122,6 +122,8 @@
   * [static](service_discovery/static.md)
   * [file](service_discovery/file.md)
   * [srv](service_discovery/srv.md)
+* [Metrics Plugins](metrics/README.md)
+  * [local](metrics/local.md)
 * [How-to Guides](how-to-guides/README.md)
   * [Stream Analytics with Materialize](how-to-guides/stream-analytics-with-materialize.md)
   * [Send Apache Logs to S3](how-to-guides/apache-to-s3.md)

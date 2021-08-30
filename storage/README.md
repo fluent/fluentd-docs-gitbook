@@ -1,6 +1,6 @@
 # Storage Plugins
 
-Fluentd has eight \(8\) types of plugins:
+Fluentd has nine \(9\) types of plugins:
 
 * [Input](../input/)
 * [Parser](../parser/)
@@ -10,6 +10,7 @@ Fluentd has eight \(8\) types of plugins:
 * [Storage](./)
 * [Service Discovery](../service_discovery/)
 * [Buffer](../buffer/)
+* [Metrics](../metrics/)
 
 This article gives an overview of Storage Plugin.
 
