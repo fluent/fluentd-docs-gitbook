@@ -143,7 +143,7 @@ For the `types` parameter, the following types are supported:
 
   type
 
-  * Default: `float`
+  * Default: `string`
   * Available values: `float`, `unixtime`, `string`, `mixed`
     * `float`: seconds from Epoch + nano seconds \(e.g.
 
