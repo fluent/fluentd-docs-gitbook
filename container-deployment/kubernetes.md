@@ -70,7 +70,7 @@ From the `fluentd-kubernetes-daemonset/` directory, find the YAML configuration 
 As an example, let's see a part of this file:
 
 ```text
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: DaemonSet
 metadata:
   name: fluentd
