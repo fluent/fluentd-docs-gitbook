@@ -605,7 +605,7 @@ The `config-xxx` mixins use `"${}"`, not `"#{}"`. These embedded configurations 
 
 ### In double-quoted string literal, `\` is the escape character
 
-The forward slash `\` is interpreted as an escape character. You need `\` for setting `"`, `\r`, `\n`, `\t`, `\` or several characters in double-quoted string literal.
+The backslash `\` is interpreted as an escape character. You need `\` for setting `"`, `\r`, `\n`, `\t`, `\` or several characters in double-quoted string literal.
 
 ```text
 str_param   "foo\nbar" # \n is interpreted as actual LF character
