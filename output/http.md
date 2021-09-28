@@ -46,7 +46,7 @@ The endpoint for HTTP request. If you want to use HTTPS, use `https` prefix.
 # Use HTTP
 endpoint http://example.com/api
 
-# USe HTTPS. You can set additional HTTPS parameters like tls_xxx
+# Use HTTPS. You can set additional HTTPS parameters like tls_xxx
 endpoint https://example.com/api
 ```
 
