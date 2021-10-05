@@ -204,7 +204,11 @@ The default configuration \(`/etc/calyptia-fluentd/calyptia-faluentd.conf`\) is 
 
 You can post sample log records with `curl` command:
 
-\`\`\`text $ curl -X POST -d 'json={"json":"message"}' [http://localhost:8888/debug.test](http://localhost:8888/debug.test) $ sudo tail -n 1 /var/log/calyptia-fluentd/calyptia-fluentd.log 2021-05-31 06:19:04.415878392 +0000 debug.test: {"json":"message"}
+```text
+$ curl -X POST -d 'json={"json":"message"}' http://localhost:8888/debug.test
+$ sudo tail -n 1 /var/log/calyptia-fluentd/calyptia-fluentd.log
+2021-05-31 06:19:04.415878392 +0000 debug.test: {"json":"message"}
+```
 
 ## Next Steps
 

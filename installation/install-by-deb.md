@@ -233,7 +233,7 @@ You can post sample log records with `curl` command:
 
 ```text
 $ curl -X POST -d 'json={"json":"message"}' http://localhost:8888/debug.test
-$ sudo tail -n 1 /var/log/td-agent/td-agent.log
+$ sudo tail -n 1 /var/log/calyptia-fluentd/calyptia-fluentd.log
 2021-05-28 15:45:17.998214460 +0900 debug.test: {"json":"message"}
 ```
 
