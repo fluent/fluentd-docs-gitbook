@@ -32,64 +32,64 @@ A shell script is provided to automate the installation process for each version
 
 For Ubuntu Focal:
 
-```text
+```bash
 # td-agent 4
-curl -L https://toolbelt.treasuredata.com/sh/install-ubuntu-focal-td-agent4.sh | sh
+curl -fsSL -o- https://toolbelt.treasuredata.com/sh/install-ubuntu-focal-td-agent4.sh | sh
 ```
 
 For Ubuntu Bionic:
 
-```text
+```bash
 # td-agent 4
-curl -L https://toolbelt.treasuredata.com/sh/install-ubuntu-bionic-td-agent4.sh | sh
+curl -fsSL -o- https://toolbelt.treasuredata.com/sh/install-ubuntu-bionic-td-agent4.sh | sh
 # td-agent 3
-curl -L https://toolbelt.treasuredata.com/sh/install-ubuntu-bionic-td-agent3.sh | sh
+curl -fsSL -o- https://toolbelt.treasuredata.com/sh/install-ubuntu-bionic-td-agent3.sh | sh
 ```
 
 For Ubuntu Xenial:
 
-```text
+```bash
 # td-agent 4
-curl -L https://toolbelt.treasuredata.com/sh/install-ubuntu-xenial-td-agent4.sh | sh
+curl -fsSL -o- https://toolbelt.treasuredata.com/sh/install-ubuntu-xenial-td-agent4.sh | sh
 # td-agent 3
-curl -L https://toolbelt.treasuredata.com/sh/install-ubuntu-xenial-td-agent3.sh | sh
+curl -fsSL -o- https://toolbelt.treasuredata.com/sh/install-ubuntu-xenial-td-agent3.sh | sh
 ```
 
 For Ubuntu Trusty:
 
-```text
+```bash
 # td-agent 3
-curl -L https://toolbelt.treasuredata.com/sh/install-ubuntu-trusty-td-agent3.sh | sh
+curl -fsSL -o- https://toolbelt.treasuredata.com/sh/install-ubuntu-trusty-td-agent3.sh | sh
 ```
 
 For Debian Bullseye:
 
-```text
+```bash
 # td-agent 4
-curl -L https://toolbelt.treasuredata.com/sh/install-debian-bullseye-td-agent4.sh | sh
+curl -fsSL -o- https://toolbelt.treasuredata.com/sh/install-debian-bullseye-td-agent4.sh | sh
 ```
 
 For Debian Buster:
 
-```text
+```bash
 # td-agent 4
-curl -L https://toolbelt.treasuredata.com/sh/install-debian-buster-td-agent4.sh | sh
+curl -fsSL -o- https://toolbelt.treasuredata.com/sh/install-debian-buster-td-agent4.sh | sh
 # td-agent 3
-curl -L https://toolbelt.treasuredata.com/sh/install-debian-buster-td-agent3.sh | sh
+curl -fsSL -o- https://toolbelt.treasuredata.com/sh/install-debian-buster-td-agent3.sh | sh
 ```
 
 For Debian Stretch:
 
-```text
+```bash
 # td-agent 3
-curl -L https://toolbelt.treasuredata.com/sh/install-debian-stretch-td-agent3.sh | sh
+curl -fsSL -o- https://toolbelt.treasuredata.com/sh/install-debian-stretch-td-agent3.sh | sh
 ```
 
 For Debian Jessie:
 
-```text
+```bash
 # td-agent 3
-curl -L https://toolbelt.treasuredata.com/sh/install-debian-jessie-td-agent3.sh | sh
+curl -fsSL -o- https://toolbelt.treasuredata.com/sh/install-debian-jessie-td-agent3.sh | sh
 ```
 
 ### Step 2: Launch Daemon
@@ -170,30 +170,30 @@ A shell script is provided to automate the installation process for each version
 
 For Ubuntu Focal:
 
-```text
+```bash
 # calyptia-fluentd 1
-curl -L https://calyptia-fluentd.s3.us-east-2.amazonaws.com/calyptia-fluentd-1-ubuntu-focal.sh | sh
+curl -fsSL -o- https://calyptia-fluentd.s3.us-east-2.amazonaws.com/calyptia-fluentd-1-ubuntu-focal.sh | sh
 ```
 
 For Ubuntu Bionic:
 
-```text
+```bash
 # calyptia-fluentd 1
-curl -L https://calyptia-fluentd.s3.us-east-2.amazonaws.com/calyptia-fluentd-1-ubuntu-bionic.sh | sh
+curl -fsSL -o- https://calyptia-fluentd.s3.us-east-2.amazonaws.com/calyptia-fluentd-1-ubuntu-bionic.sh | sh
 ```
 
 For Ubuntu Xenial:
 
-```text
+```bash
 # calyptia-fluentd 1
-curl -L https://calyptia-fluentd.s3.us-east-2.amazonaws.com/calyptia-fluentd-1-ubuntu-xenial.sh | sh
+curl -fsSL -o- https://calyptia-fluentd.s3.us-east-2.amazonaws.com/calyptia-fluentd-1-ubuntu-xenial.sh | sh
 ```
 
 For Debian Buster:
 
-```text
+```bash
 # calyptia-fluentd 1
-https://calyptia-fluentd.s3.us-east-2.amazonaws.com/calyptia-fluentd-1-debian-buster.sh
+curl -fsSL -o- https://calyptia-fluentd.s3.us-east-2.amazonaws.com/calyptia-fluentd-1-debian-buster.sh | sh
 ```
 
 ### Step 2: Launch Daemon
