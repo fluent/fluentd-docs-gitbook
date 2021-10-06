@@ -6,7 +6,7 @@
 
 [Elasticsearch](https://www.elastic.co/products/elasticsearch) is an open-source search engine well-known for its ease of use. [Kibana](https://www.elastic.co/products/kibana) is an open-source Web UI that makes Elasticsearch user friendly for marketers, engineers and data scientists alike.
 
-By combining these three tools \(Fluentd + Elasticsearch + Kibana\) we get a scalable, flexible, easy to use the log search engine with a great Web UI that provides an open-source Splunk alternative, all for free.
+By combining these three tools \(Fluentd + Elasticsearch + Kibana\) we get a scalable, flexible, easy to use log search engine with a great Web UI that provides an open-source Splunk alternative, all for free.
 
 ![Fluentd + Elasticsearch + Kibana](../.gitbook/assets/fluentd-elasticsearch-kibana.png)
 
@@ -45,7 +45,7 @@ Note: You can also install Elasticsearch \(and Kibana\) using RPM/DEB packages. 
 
 ## Set Up Kibana
 
-To install Kibana, download it from the official website and extract it. Kibana is an HTML/CSS/JavaScript application \([download](https://www.elastic.co/downloads/kibana)\). Use the binary for 64-bit Linux systems. For this article, we download the binary for macOS.
+To install Kibana, download it from the official website and extract it. Kibana is an HTML/CSS/JavaScript application \([download](https://www.elastic.co/downloads/kibana)\). Use the binary for 64-bit Linux systems.
 
 ```text
 $ curl -O https://artifacts.elastic.co/downloads/kibana/kibana-6.1.0-linux-x86_64.tar.gz

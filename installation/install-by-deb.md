@@ -1,6 +1,6 @@
 # Install by DEB Package \(Debian/Ubuntu\)
 
-This article explains how to install stable versions of deb packages, the stable Fluentd distribution packages maintained by [Treasure Data, Inc](http://www.treasuredata.com/) and [Calyptia, Inc.](https://www.calyptia.com/).
+This article explains how to install stable versions of `td-agent` deb packages, the stable Fluentd distribution packages maintained by [Treasure Data, Inc](http://www.treasuredata.com/) and [Calyptia, Inc.](https://www.calyptia.com/).
 
 ## What is `td-agent`?
 
@@ -16,7 +16,7 @@ That is why [Calyptia, Inc.](https://www.calyptia.com/) provides **the alternati
 
 This installation guide is for `td-agent` v3/v4 and `calyptia-fluentd` v1. `td-agent` v3/v4 and `calyptia-fluentd` use fluentd v1 in the core. See [this page](../quickstart/td-agent-v2-vs-v3-vs-v4.md) for the comparison and supported OS.
 
-## Using to install `td-agent`
+## Installing `td-agent`
 
 ### Step 0: Before Installation
 
@@ -26,7 +26,7 @@ Please follow the [Pre-installation Guide](before-install.md) to configure your 
 
 NOTE: If your OS is not supported, consider [gem installation](install-by-gem.md) instead.
 
-NOTE: Treasure Data does not verify Debian packages. If you have any problem with debian packages, send a patch to [`fluent-package-builder`](https://github.com/fluent-plugins-nursery/fluent-package-builder) repository.
+NOTE: Treasure Data does not verify Debian packages. If you have any problem with Debian packages, send a patch to [`fluent-package-builder`](https://github.com/fluent-plugins-nursery/fluent-package-builder) repository.
 
 A shell script is provided to automate the installation process for each version. The shell script registers a new apt repository at `/etc/apt/sources.list.d/treasure-data.list` and installs the `td-agent` deb package.
 

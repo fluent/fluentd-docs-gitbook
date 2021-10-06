@@ -71,11 +71,8 @@ Ruby has several GC parameters to tune GC performance and you can configure thes
 
 Here's a quote from the documentation:
 
-```text
-Do full GC when the number of old objects is more than R * N
-  where R is this factor and
-  N is the number of old objects just after last full GC.
-```
+> Do full GC when the number of old objects is more than R * N
+> where R is this factor and N is the number of old objects just after last full GC.
 
 So, the default GC behavior does not call full GC until the number of old objects reaches `2.0 * before old objects`. This improves the throughput but it grows the total memory usage. This setting is not good for the low resource environment e.g. a small container. For such cases, try `RUBY_GC_HEAP_OLDOBJECT_LIMIT_FACTOR=0.9` or `RUBY_GC_HEAP_OLDOBJECT_LIMIT_FACTOR=1.2`.
 

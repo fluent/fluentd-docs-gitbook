@@ -35,7 +35,7 @@ Since applications runs in Pods and multiple Pods might exists across multiple n
 
 For [Kubernetes](https://kubernetes.io), a [DaemonSet](https://kubernetes.io/docs/admin/daemons/) ensures that all \(or some\) nodes run a copy of a _pod_. To solve log collection, we are going to implement a Fluentd DaemonSet.
 
-Fluentd is flexible enough and have the proper plugins to distribute logs to different third-party applications like databases or cloud services, so the principal question is to know: _Where the logs will be stored?_. Once we got that question answered, we can move forward configuring our DaemonSet.
+Fluentd is flexible enough and has the proper plugins to distribute logs to different third-party applications like databases or cloud services, so the principal question is _Where will the logs be stored?_. Once we got that question answered, we can move forward configuring our DaemonSet.
 
 The following steps will focus on sending the logs to an Elasticsearch Pod:
 

@@ -1,6 +1,6 @@
 # Post Installation Guide
 
-This article discusses the post-installation steps for the new Fluentd users assuming that Fluentd has been installed using the `td-agent` package.
+This article discusses the post-installation steps for new Fluentd users assuming that Fluentd has been installed using the `td-agent` package.
 
 ## System Administration
 
@@ -8,7 +8,7 @@ This article discusses the post-installation steps for the new Fluentd users ass
 
 #### Configuration File
 
-After the successful installation, a `td-agent` instance will be up and running with a predefined template configuration file.
+After successful installation, a `td-agent` instance will be up and running with a predefined template configuration file.
 
 The default path for this configuration file is:
 

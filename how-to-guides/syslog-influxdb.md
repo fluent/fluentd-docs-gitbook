@@ -55,7 +55,7 @@ Once it is installed, you can run it with:
 $ sudo systemctl start chronograf
 ```
 
-Then, go to localhost:8888 \(or wherever you are hosting Chronograf\) to access Chronograf's web console which is the successor of InfluxDB's web console.
+Then, go to localhost:8888 \(or wherever you are hosting Chronograf\) to access Chronograf's web console which is the successor to InfluxDB's web console.
 
 Create a database called `test`. This is where we will be storing `syslog` data:
 

@@ -26,9 +26,9 @@ In such systems, several delivery guarantees are possible:
 
   is the most desirable.
 
-If the system "**can't lose a single event**", and must also transfer "**exactly once**", then the system must stop ingesting events when it runs out of write capacity. The proper approach would be to use synchronous logging and return errors when the event cannot be accepted.
+If the system "**can't lose a single event**" and must also transfer "**exactly once**", then the system must stop ingesting events when it runs out of write capacity. The proper approach would be to use synchronous logging and return errors when the event cannot be accepted.
 
-That's why Fluentd provides '**at most once**' and '**at least once**' transfers. To collect massive amounts of data without impacting application performance, a data logger must transfer data asynchronously. This improves performance at the cost of potential delivery failures.
+That's why Fluentd provides "**at most once**" and "**at least once**" transfers. To collect massive amounts of data without impacting application performance, a data logger must transfer data asynchronously. This improves performance at the cost of potential delivery failures.
 
 However, most failure scenarios are preventable. The following sections describe how to set up Fluentd's topology for high-availability.
 
@@ -38,9 +38,9 @@ To configure Fluentd for high-availability, we assume that your network consists
 
 ![Fluentd&apos;s High-Availability Overview](../.gitbook/assets/fluentd_ha%20%281%29%20%281%29%20%281%29.png)
 
-'**log forwarders**' are typically installed on every node to receive local events. Once an event is received, they forward it to the 'log aggregators' through the network. For log forwarders, [fluent-bit](https://fluentbit.io/) is also good candidate for light-weight processing.
+'**Log forwarders**' are typically installed on every node to receive local events. Once an event is received, they forward it to the 'log aggregators' through the network. For log forwarders, [fluent-bit](https://fluentbit.io/) is also good candidate for light-weight processing.
 
-'**log aggregators**' are daemons that continuously receive events from the log forwarders. They buffer the events and periodically upload the data into the cloud.
+'**Log aggregators**' are daemons that continuously receive events from the log forwarders. They buffer the events and periodically upload the data into the cloud.
 
 Fluentd can act as either a log forwarder or a log aggregator, depending on its configuration. The next sections describe the respective setups. We assume that the active log aggregator has an IP **192.168.0.1** and the backup has IP **192.168.0.2**.
 
@@ -112,7 +112,7 @@ The incoming logs are buffered, then periodically uploaded to the cloud. If the 
 
 When a log forwarder receives events from applications, the events are first written into a disk buffer \(specified by `<buffer>`'s `path`\). After every `flush_interval`, the buffered data is forwarded to aggregators.
 
-This process is inherently robust against data loss. If a log forwarder's fluentd process dies then on its restart the buffered data is properly transferred to its aggregator. If the network between forwarders and aggregators breaks, the data transfer is automatically retried.
+This process is inherently robust against data loss. If a log forwarder's fluentd process dies, then on its restart, the buffered data is properly transferred to its aggregator. If the network between forwarders and aggregators breaks, the data transfer is automatically retried.
 
 However, possible message loss scenarios do exist:
 
@@ -126,7 +126,7 @@ However, possible message loss scenarios do exist:
 
 When log aggregators receive events from log forwarders, the events are first written into a disk buffer \(specified by `<buffer>`'s `path`\). After every `flush_interval`, the buffered data is uploaded to the cloud.
 
-This process is inherently robust against data loss. If a log aggregator's fluentd process dies then on its restart the data from the log forwarder is properly retransferred. If the network between aggregators and the cloud breaks, the data transfer is automatically retried.
+This process is inherently robust against data loss. If a log aggregator's fluentd process dies, then on its restart, the data from the log forwarder is properly retransferred. If the network between aggregators and the cloud breaks, the data transfer is automatically retried.
 
 However, possible message loss scenarios do exist:
 

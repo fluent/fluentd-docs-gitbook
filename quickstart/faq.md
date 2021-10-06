@@ -46,13 +46,13 @@ There are several reasons:
 
   used `host:port`. Check port conflict between processes/plugins.
 
-* If you get `Permission denied` error, you try to use a well-known
+* If you get `Permission denied` error, you likely tried to use a well-known
 
-  port. Search `well-known ports` for how to use well-known ports. Use
+  port without permission. Search `well-known ports` for how to use well-known ports.
 
-  `capabilities` or something.
+  Use `capabilities` or something.
 
-If you get other errors, google it.
+If you get other errors, Google it.
 
 ### fluentd raises `tzinfo` conflict error after installed plugins
 
@@ -73,7 +73,7 @@ See also: [Lifecycle of a Fluentd event](life-of-a-fluentd-event.md) or [Config 
 
 ### File buffer does not work properly, why?
 
-`file` buffer has limitations. Check [buf\_file article](../buffer/file.md#limitation).
+`file` buffer has limitations. Check [`buf_file` article](../buffer/file.md#limitation).
 
 ### I got encoding error inside the plugin. How to fix it?
 

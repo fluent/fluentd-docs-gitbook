@@ -87,7 +87,7 @@ You sometimes hit unexpected shutdown with non-zero exit status like this:
 2016-01-01 00:00:02 +0800 [info]: process finished code=6
 ```
 
-If the problem happens inside Ruby e.g. segmentation fault, C extension bug, etc., you cannot get the complete log when `fluentd` process is daemonized. For example, `td-agent` launches fluentd with `--daemon` option. In `td-agent` case, you can get the complete log with following command to simulate `/etc/init.d/td-agent start` without daemonize:
+If the problem happens inside Ruby e.g. segmentation fault, C extension bug, etc., you cannot get the complete log when `fluentd` process is daemonized. For example, `td-agent` launches fluentd with `--daemon` option. In `td-agent` case, you can get the complete log with following command to simulate `/etc/init.d/td-agent start` without daemonizing (run in the foreground):
 
 ```text
 $ sudo LD_PRELOAD=/opt/td-agent/embedded/lib/libjemalloc.so /usr/sbin/td-agent -c /etc/td-agent/td-agent.conf --user td-agent --group td-agent
