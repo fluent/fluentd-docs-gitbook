@@ -12,7 +12,7 @@ Follow these recommendations:
 
 It is highly recommended that you set up an NTP daemon \(e.g. [`chrony`](https://chrony.tuxfamily.org/), `ntpd`, etc.\) on the node to have an accurate current timestamp. This is crucial for all the production-grade logging services.
 
-For Amazon Web Services users, we recommend using [AWS-hosted NTP server](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/set-time.html).
+For Amazon Web Services users, we recommend using the [AWS-hosted NTP server](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/set-time.html).
 
 ## Increase the Maximum Number of File Descriptors
 
@@ -68,9 +68,9 @@ fs.protected_hardlinks = 1
 fs.protected_symlinks = 1
 ```
 
-This settings are almost enough for time-of-check to time-of-use \(TOCTOU, TOCTTOU or TOC/TOU\) which is a class of software bugs.
+This settings are almost enough for time-of-check to time-of-use (TOCTOU, TOCTTOU or TOC/TOU) which are class of software bugs.
 
-If you turned off these protection, please turn on them.
+If you turned off these protections, please turn on them.
 
 Use `sysctl -p` command or reboot your node for the changes to take effect.
 

@@ -65,7 +65,7 @@ $ fluentd -c in_http.conf
 
 ## Event Structure
 
-A Fluentd event consists three components:
+A Fluentd event consists of three components:
 
 * `tag`: Specifies the origin where an event comes from. It is used for
 
@@ -74,7 +74,7 @@ A Fluentd event consists three components:
 * `time`: Specifies the time when an event happens with nanosecond resolution.
 * `record`: Specifies the actual log as a JSON object.
 
-The input plugin is responsible for generating the Fluentd event from data sources. For example, `in_tail` generates events from text lines. If you have the following apache log:
+The input plugin is responsible for generating the Fluentd event from data sources. For example, `in_tail` generates events from text lines. If you have the following Apache log:
 
 ```text
 192.168.0.1 - - [28/Feb/2013:12:00:00 +0900] "GET / HTTP/1.1" 200 777
@@ -218,7 +218,7 @@ The new configuration contains a `@label` parameter under `source` indicating th
 
 ### Buffers
 
-In this example, we use `stdout`, the non-buffered output. But in production, you use outputs in buffered mode e.g. `forward`, `mongodb`, `s3` and etc. Output plugin in buffered mode first stores the received events into buffers and then writes out buffers to a destination after meeting flush conditions. So, using the buffered output, you do not see the received events immediately unlike `stdout` non-buffered output.
+In this example, we use `stdout`, the non-buffered output. But in production, you use outputs in buffered mode e.g. `forward`, `mongodb`, `s3` and etc. An output plugin using buffered mode first stores the received events into buffers and then writes out buffers to a destination after meeting flush conditions. So, using the buffered output, you do not see the received events immediately unlike `stdout` non-buffered output.
 
 Buffer is important for reliability and throughput. See [Output](../output/) and [Buffer](../buffer/) articles.
 

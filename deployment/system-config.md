@@ -1,6 +1,6 @@
 # System Configuration
 
-This article describes the Fluentd's system configurations for `<system>` section and command-line options.
+This article describes Fluentd's system configurations for the `<system>` section and command-line options.
 
 ## Overview
 

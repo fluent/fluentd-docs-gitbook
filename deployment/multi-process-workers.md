@@ -8,7 +8,7 @@ This feature can simply replace `fluent-plugin-multiprocess`.
 
 By default, one instance of `fluentd` launches a supervisor and a worker. A worker consists of input/filter/output plugins.
 
-Multi-process workers feature launches multiple workers and use a separate process per worker. `fluentd` provides several features for multi-process workers, so you can get multi-process merits.
+The **multi-process workers** feature launches multiple workers and use a separate process per worker. `fluentd` provides several features for multi-process workers.
 
 ![Multi-process Workers](../.gitbook/assets/multi-process-workers%20%281%29%20%281%29.png)
 
