@@ -417,6 +417,17 @@ If you see this message:
 
 It means that `fluentd` does not have read permission for `/path/to/file`. Check your fluentd and target files permission.
 
+**Note**: When `td-agent` is launched by systemd, the default user of the `td-agent` process is the `td-agent` user.
+You must ensure that this user has read permission to the tailed `/path/to/file`. For instance, on Ubuntu,
+the default Nginx access file `/var/log/nginx/access.log` is mode `0640` and owned by `www-data:adm`. In
+this case, several options are available to allow read access:
+
+1. Add the `td-agent` user to the `adm` group, e.g. through `usermod -aG`, or
+2. Use the [`cap_dac_read_search` capability](../deployment/linux-capability#capability-handling-on-in_tail)
+   to allow the invoking user to read the file without otherwise changing its permission bits or ownership.
+
+A bug exists in Fluentd 1.13.x where it may suppress warning logs about unreadable files. (See Fluentd PR [#3478](https://github.com/fluent/fluentd/pull/3478).)
+
 ### `logrotate` Setting
 
 `logrotate` has the `nocreate` parameter and it does not create a new file if log rotation is triggered. It means `in_tail` cannot find the new file to tail.
