@@ -248,7 +248,8 @@ Following is a snippet of `README.md` showing the project skeleton generated wit
 
 For example:
 
-```text
+<!--- four backquotes are used because the block contains three backquotes for markup -->
+````text
 # fluent-plugin-http2
 
 [Fluentd](https://fluentd.org/) input plugin to do something.
@@ -258,11 +259,11 @@ TODO: write description for you plugin.
 ## Installation
 
 ### RubyGems
+
+```
+$ gem install fluent-plugin-http2
 ```
 
-$ gem install fluent-plugin-http2
-
-```text
 ### Bundler
 
 Add following line to your Gemfile:
@@ -273,7 +274,7 @@ gem "fluent-plugin-http2"
 
 And then execute:
 
-```text
+```
 $ bundle
 ```
 
@@ -281,7 +282,7 @@ $ bundle
 
 You can generate configuration template:
 
-```text
+```
 $ fluent-plugin-config-format input http2
 ```
 
@@ -289,11 +290,10 @@ You can copy and paste generated documents here.
 
 ## Copyright
 
-* Copyright\(c\) 2017- John Doe
+* Copyright(c) 2017- John Doe
 * License
   * Apache License, Version 2.0
-
-    \`\`\`
+````
 
 You should write the plugin description and configurations.
 
@@ -328,9 +328,6 @@ For more details, see `fluent-plugin-config-format --help`.
 ## Further Reading
 
 * [Slides: Fluentd v0.14 Plugin API Details](http://www.slideshare.net/tagomoris/fluentd-v014-plugin-api-details)
-* [Slides: Dive into Fluentd Plugin](http://www.slideshare.net/repeatedly/dive-into-fluentd-plugin-v012)
-
-  \(outdated\)
+* [Slides: Dive into Fluentd Plugin](http://www.slideshare.net/repeatedly/dive-into-fluentd-plugin-v012) (outdated)
 
 If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open). [Fluentd](http://www.fluentd.org/) is an open-source project under [Cloud Native Computing Foundation \(CNCF\)](https://cncf.io/). All components are available under the Apache 2 License.
-
