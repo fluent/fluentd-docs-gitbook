@@ -253,7 +253,7 @@ Tries to resolve hostname from IP addresses or not. Cannot set `false` when `sou
 | :--- | :--- | :--- |
 | bool | false | 1.14.0 |
 
-Enables the TCP keepalive for sockets. See [socket article](../plugin-helper-overview/api-plugin-helper-socket.md#send_keepalive_packet-usecase) for more details.
+Enables the TCP keepalive for sockets. See [socket article](../plugin-helper-overview/api-plugin-helper-socket.md#send_keepalive_packet-use-case) for more details.
 
 ### `source_hostname_key`
 
@@ -381,4 +381,3 @@ If other parts are different, the `syslog` parser cannot parse your message. To 
 * [Input Plugin Overview](./)
 
 If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open). [Fluentd](http://www.fluentd.org/) is an open-source project under [Cloud Native Computing Foundation \(CNCF\)](https://cncf.io/). All components are available under the Apache 2 License.
-
