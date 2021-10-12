@@ -67,7 +67,7 @@ The `&block` is invoked with the new connection as a parameter.
   * `linger_timeout`: the timeout \(seconds\) to set `SO_LINGER`
   * `recv_timeout`: the timeout \(seconds\) to set `SO_RECVTIMEO`
   * `send_timeout`: the timeout \(seconds\) to set `SO_SNDTIMEO`
-  * `send_keepalive_packet`: if `true`, enable TCP keep-alive via `SO_KEEPALIVE`. See also [socket article](api-plugin-helper-socket.md#send_keepalive_packet-usecase).
+  * `send_keepalive_packet`: if `true`, enable TCP keep-alive via `SO_KEEPALIVE`. See also [socket article](api-plugin-helper-socket.md#send_keepalive_packet-use-case).
 
 Example:
 
@@ -119,7 +119,7 @@ The `&block` is invoked with parameter\(s\) on data.
   * `linger_timeout`: the timeout \(seconds\) to set `SO_LINGER`
   * `recv_timeout`: the timeout \(seconds\) to set `SO_RECVTIMEO`
   * `send_timeout`: the timeout \(seconds\) to set `SO_SNDTIMEO`
-  * `send_keepalive_packet`: if `true`, enable TCP keep-alive via `SO_KEEPALIVE`. See also [socket article](api-plugin-helper-socket.md#send_keepalive_packet-usecase).
+  * `send_keepalive_packet`: if `true`, enable TCP keep-alive via `SO_KEEPALIVE`. See also [socket article](api-plugin-helper-socket.md#send_keepalive_packet-use-case).
 
 Code example:
 
@@ -290,4 +290,3 @@ Fluent::Plugin::InForwardCNChecker.new
 * [`out_forward`](../output/forward.md)
 
 If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open). [Fluentd](http://www.fluentd.org/) is an open-source project under [Cloud Native Computing Foundation \(CNCF\)](https://cncf.io/). All components are available under the Apache 2 License.
-

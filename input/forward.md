@@ -108,7 +108,7 @@ The connections will be disconnected right after receiving a message, if `true`.
 | :--- | :--- | :--- |
 | bool | false | 1.4.2 |
 
-Enables the TCP keepalive for sockets. See [socket article](../plugin-helper-overview/api-plugin-helper-socket.md#send_keepalive_packet-usecase) for more details.
+Enables the TCP keepalive for sockets. See [socket article](../plugin-helper-overview/api-plugin-helper-socket.md#send_keepalive_packet-use-case) for more details.
 
 ### `chunk_size_limit`
 
@@ -165,7 +165,7 @@ This section is for using SSL transport:
 </transport>
 ```
 
-See **How to Enable TLS Encryption** section for how to use and see [Configuration Example](../plugin-helper-overview/api-plugin-helper-server.md#configuration-example) for all supported parameters.
+See [**How to Enable TLS Encryption**](#how-to-enable-tls-encryption) section for how to use and see [Configuration Example](../plugin-helper-overview/api-plugin-helper-server.md#configuration-example) for all supported parameters.
 
 Without `<transport tls>`, `in_forward` uses raw TCP.
 
@@ -370,7 +370,7 @@ $ echo -e '\x93\xa9debug.tls\xceZr\xbc1\x81\xa3foo\xa3bar' | \
   openssl s_client -connect localhost:24224
 ```
 
-If you can confirm TLS encryption has been set up correctly, please proceed to the configuration of the [`out_forward`](../output/forward.md#how-to-connect-to-a-tls/ssl-enabled-server) server.
+If you can confirm TLS encryption has been set up correctly, please proceed to the configuration of the [`out_forward`](../output/forward.md#how-to-connect-to-a-tls-ssl-enabled-server) server.
 
 ### How to Enable TLS Mutual Authentication
 
@@ -446,4 +446,3 @@ With this configuration, the three \(3\) workers share the port `24224`. No need
 See [Docker Logging](http://www.fluentd.org/guides/recipes/docker-logging) driver use case.
 
 If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open). [Fluentd](http://www.fluentd.org/) is an open-source project under [Cloud Native Computing Foundation \(CNCF\)](https://cncf.io/). All components are available under the Apache 2 License.
-
