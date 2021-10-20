@@ -14,6 +14,18 @@ fluent-gem install fluent-plugin-grep
 
 Ruby does not guarantee the C extension API compatibility between its major versions. If you update Fluentd's Ruby version, you should reinstall the plugins that depend on C extension.
 
+### Do not use unreliable plugins
+
+Any fluentd plugin can unknowingly break fluentd completely (and possibly break other plugins) by requiring some incompatible modules.
+
+There is no way to block this kind of situation. This is because the problem itself is derived from plug-in mechanism, and that's Lightweight Language.
+One solution is "Do not use unreliable plugins".
+
+Generally speaking, plug-in mechanism can break core functionality not only Fluentd but also in most other software.
+We shouldn't use unreliable plugins in any software.
+
+We recommend to send feedback to plugin owner if you faced such a fault in plugins.
+
 ### If Using `td-agent`, Use `/usr/sbin/td-agent-gem`
 
 If you are using `td-agent`, make sure that you use `td-agent-gem` command to install gems for it. Otherwise, you won't be able to find the **installed** plugins.

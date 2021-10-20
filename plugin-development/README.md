@@ -51,6 +51,15 @@ It is recommended to use the new v1 plugin API for writing new plugins.
 
 If you have a problem with any existing plugins or a new feature idea, sending a patch is better. If the plugin author is non-active, try to become its new plugin maintainer first. Forking a plugin and release its alternative version, e.g. `fluent-plugin-xxx-alt` is considered the last option.
 
+### Be careful not breaking Fluentd's core functionality
+
+Any fluentd plugin can unknowingly break fluentd completely (and possibly break other plugins) by requiring some incompatible modules.
+
+One typical example is reloading `yajl/json_gem` from plugin. (`yajl/json_gem` compatibility layer is problematic, not for `yajl` itself)
+It breaks a functionality to parse Fluentd's configuration completely.
+
+Fluentd's plug-in mechanism has a merit to extend functionality, but plugin developer must be careful a possibility of breaking it.
+
 ## Writing Plugins
 
 To create a plugin as a Ruby script \(to put it in `/etc/fluent/plugin/` directory\), create a `<TYPE>_<NAME>.rb` file in any editor/IDE of your choice.
