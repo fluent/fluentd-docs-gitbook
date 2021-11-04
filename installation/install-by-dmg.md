@@ -78,6 +78,8 @@ Download and install the `.dmg` package:
 * [calyptia-fluentd v1](https://calyptia-fluentd.s3.us-east-2.amazonaws.com/index.html?prefix=1/macos/)
 
 NOTE: If your OS is not supported, consider [gem installation](install-by-gem.md) instead.
+NOTE: Since calyptia-fluentd v1.3.1, intel version and apple silicon version of packages are provided.
+`-intel` suffix is for Intel version and `-apple` suffix is for Apple Silicon.
 
 ### Step 2: Launch `calyptia-fluentd`
 
