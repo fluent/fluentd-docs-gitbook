@@ -136,7 +136,7 @@ exclude_path ["/path/to/*.gz", "/path/to/*.zip"]
 | :--- | :--- | :--- |
 | bool | false | 1.12.0 |
 
-Enable combination of `*` in path with rotation inside same directory and `read_from_head true`.
+Avoid to read rotated files duplicately. You should set `true` when you use `*` or  `strftime` format in `path`.
 
 ```text
 path /path/to/*
@@ -176,9 +176,11 @@ Skips the refresh of the watch list on startup. This reduces the startup time wh
 
 Starts to read the logs from the head of the file or the last read position recorded in `pos_file`, not tail.
 
-If you use `*` or `strftime` format as `path` and new files may be added into such paths while tailing, you should set this parameter to `true`. Otherwise some logs in newly added files may be lost. On the other hand you should guarantee that the log rotation will not occur in `*` directory in that case to avoid log duplication. Or you can use `follow_inodes true` to avoid such log duplication, which is available as of v1.12.0.
+Notes:
 
-Note that `in_tail` tries to read a file during the startup phase when this is `true`. So that if the target file is too large and takes a long time to read it, other plugins are blocked to start until the reading is finished. You can avoid it by `skip_refresh_on_startup`.
+* `in_tail` tries to read a file during the startup phase when this is `true`. So that if the target file is too large and takes a long time to read it, other plugins are blocked to start until the reading is finished. You can avoid it by `skip_refresh_on_startup`.
+* **For Fluentd <= v1.14.2**: If you use `*` or `strftime` format as `path` and new files may be added into such paths while tailing, you should set this parameter to `true`. Otherwise some logs in newly added files may be lost. On the other hand you should guarantee that the log rotation will not occur in `*` directory in that case to avoid log duplication. Or you can use `follow_inodes true` to avoid such log duplication, which is available as of v1.12.0.
+  * From Fluentd v1.14.3, `in_tail` reads newly added files from head automatically even if `read_from_head` is `false`. `read_from_head false` is affected only on start up.
 
 ### `encoding`, `from_encoding`
 
