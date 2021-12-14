@@ -160,6 +160,20 @@ Responds with an empty GIF image of 1x1 pixel \(rather than an empty string\).
 
 Respond status code with 204. This option will be deprecated at v2 because fluentd v2 will respond 204 as default.
 
+### `authorization_token`
+
+| type | default | version |
+| :--- | :--- | :--- |
+| string | nil\(disabled\) | v1.14.4 |
+
+If you set `Basic <<Base64 encoded string>>` to `authorization_token`, `in_http` verifies `Authorization` HTTP header as token for authentication.
+This authorization_token can handle not only Basic authentication but also other types of authentications.
+`authentication_token` will be interpreted as `<type>` and `<credentials>`:
+
+```
+Authorization: <type> <credentials>
+```
+
 ### `<transport>` Section
 
 | type | default | available values | version |
