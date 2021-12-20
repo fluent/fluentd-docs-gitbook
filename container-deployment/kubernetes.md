@@ -57,7 +57,7 @@ The cloned repository contains several configurations that allow to deploy Fluen
 
 This repository has several presets for Alpine/Debian with popular outputs:
 
-* [DaemonSet preset settings](https://github.com/fluent/fluentd-kubernetes-daemonset/tree/master/docker-image/v0.12)
+* [DaemonSet preset settings](https://github.com/fluent/fluentd-kubernetes-daemonset/tree/master/docker-image/v1.14)
 
 ## Logging to Elasticsearch
 
