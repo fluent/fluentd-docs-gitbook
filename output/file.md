@@ -25,7 +25,7 @@ It is included in Fluentd's core.
 
 Please see the [Configuration File](../configuration/config-file.md) article for the basic structure and syntax of the configuration file.
 
-For `<buffer>`, refer to [Buffer Section Configuration](../configuration/buffer-section.md).
+For `<buffer>`, refer to [`<buffer>` Section](#less-than-buffer-greater-than-section).
 
 ## Plugin Helpers
 
@@ -58,7 +58,7 @@ path /path/to/${tag}/${key1}/file.%Y%m%d
 </buffer>
 ```
 
-See [Buffer Section Configurations](../configuration/buffer-section.md) for more detail.
+See [`<buffer>` Section](#less-than-buffer-greater-than-section) for more detail.
 
 The `path` parameter is used as `<buffer>`'s `path` in this plugin.
 
@@ -111,6 +111,34 @@ Deprecated parameter. Use `<format>` instead.
 Add event `time` and event `tag` to record.
 
 See [Inject Section Configurations](../configuration/inject-section.md) for more details.
+
+### `<buffer>` Section
+
+See [Buffer Section Configurations](../configuration/buffer-section.md) for more details.
+
+#### `@type`
+
+| type | default | version |
+| :--- | :--- | :--- |
+| string | file | 0.14.9 |
+
+Overwrites the default value in this plugin.
+
+#### `chunk_keys`
+
+| type | default | version |
+| :--- | :--- | :--- |
+| array | time | 0.14.9 |
+
+Overwrites the default value in this plugin.
+
+#### `timekey`
+
+| type | default | version |
+| :--- | :--- | :--- |
+| time | 86400 | 0.14.9 |
+
+Overwrites the default value in this plugin.
 
 ### `utc`
 

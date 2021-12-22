@@ -450,6 +450,18 @@ For more details, see [Secondary Output](./#secondary-output).
 
 Verify that a connection can be made with one of `out_forward` nodes at the time of startup.
 
+### `<buffer>`
+
+See [Buffer Section Configurations](../configuration/buffer-section.md) for more details.
+
+#### `chunk_keys`
+
+| type | default | version |
+| :--- | :--- | :--- |
+| array | tag | 0.14.9 |
+
+Overwrites the default value in this plugin.
+
 ## Tips and Tricks
 
 ### How to connect to a TLS/SSL enabled server?
