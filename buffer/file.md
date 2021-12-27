@@ -9,49 +9,11 @@ The `file` buffer plugin provides a persistent buffer implementation. It uses fi
 
 ### `path`
 
-| type | required | default | version |
-| :--- | :---: | :--- | :--- |
-| string | ✔ |  | 0.9.0 |
+| type | default | version |
+| :--- | :--- | :--- |
+| string | nil | TBD |
 
-The path where buffer chunks are stored. The '\*' is replaced with random characters. This parameter is required.
-
-This parameter must be unique to avoid the race condition problem. For example, you cannot use a fixed path parameter in `fluent-plugin-forest`. `${tag}` or similar placeholder is needed. Of course, this parameter must also be unique between fluentd instances.
-
-In addition, `path` should not be another `path` prefix. For example, the following configuration does not work well. `/var/log/fluent/foo` resumes `/var/log/fluent/foo.bar`'s buffer files during start phase and it causes `No such file or directory` in `/var/log/fluent/foo.bar` side.
-
-```text
-<match pattern1>
-  <buffer>
-    @type file
-    path /var/log/fluent/foo
-  </buffer>
-</match>
-
-<match pattern2>
-  <buffer>
-    @type file
-    path /var/log/fluent/foo.bar
-  </buffer>
-</match>
-```
-
-Here is the correct version to avoid the prefix problem:
-
-```text
-<match pattern1>
-  <buffer>
-    @type file
-    path /var/log/fluent/foo.baz
-  </buffer>
-</match>
-
-<match pattern2>
-  <buffer>
-    @type file
-    path /var/log/fluent/foo.bar
-  </buffer>
-</match>
-```
+The path where buffer chunks are stored.
 
 Please make sure that you have **enough space in the path directory**. Running out of disk space is a problem frequently reported by users.
 
@@ -87,10 +49,6 @@ This parameter is useful when `.log` is not fit for your environment. See also [
 ```
 
 ## Tips
-
-### Multi-Process Environment
-
-If you use this plugin under the multi-process environment, you need to use `@id`/`root_dir` parameters instead of fixed `path` parameter. See [Multi Process Workers](../deployment/multi-process-workers.md#root_dir-id-parameter) article.
 
 ## Limitation
 
