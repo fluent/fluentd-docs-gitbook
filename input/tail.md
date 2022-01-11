@@ -236,8 +236,7 @@ If you work with a big cluster with high volume of log, you can use this paramet
 | :--- | :--- | :--- |
 | size | nil | 1.14.4 |
 
-The maximum line length which should be ignored.
-The longer line is just skipped.
+The maximum length of a line. Longer lines than it will be just skipped.
 
 If you see `BufferChunkOverflowError` exception frequently, it means that incoming data is too long.
 If such a long line is unexpected incoming data and want to ignore it, then set a smaller value than `chunk_limit_size` in `<buffer>` section.
