@@ -232,6 +232,17 @@ This value should be equal or greater than 8192.
 
 If you work with a big cluster with high volume of log, you can use this parameter to avoid network saturation and make it easier to calculate the max throughput per node. To restrict shipping log volumes per second, set a positive number.
 
+### `max_line_size`
+
+| type | default | version |
+| :--- | :--- | :--- |
+| size | nil | 1.14.4 |
+
+The maximum length of a line. Longer lines than it will be just skipped.
+
+If you see `BufferChunkOverflowError` exception frequently, it means that incoming data is too long.
+If such a long line is unexpected incoming data and want to ignore it, then set a smaller value than `chunk_limit_size` in `<buffer>` section.
+
 ### `multiline_flush_interval`
 
 | type | default | version |
