@@ -473,7 +473,7 @@ If you have set up [TLS/SSL encryption](../input/forward.md#how-to-enable-tls/ss
   @type forward
   transport tls
   <server>
-    host 192.168.1.2
+    host example.com
     port 24224
   </server>
 </match>
@@ -486,9 +486,10 @@ If you are using a self-singed certificate, copy the certificate file to the for
   @type forward
   transport tls
   tls_cert_path /path/to/fluentd.crt # Set the path to the certificate file.
-  tls_verify_hostname true           # Set false to ignore cert hostname.
   <server>
-    host 192.168.1.2
+    # Set the remote server name. This name should match the Common Name
+    # field in the certificate.
+    host example.com
     port 24224
   </server>
 </match>
