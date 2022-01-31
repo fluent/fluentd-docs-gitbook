@@ -122,9 +122,9 @@ If the above multiple headers are sent, the value of `REMOTE_ADDR` will be `host
 | :--- | :--- | :--- |
 | array | nil\(disabled\) | 0.14.0 |
 
-Whitelist domains for CORS.
+Whitelist domains for CORS.  If this is not set, CORS is not allowed.
 
-If you set `["domain1", "domain2"]` to `cors_allow_origins`, `in_http` returns `403` to access from other domains. Since Fluentd v1.2.6, you can use a wildcard character `*` to allow requests from any origins.
+If you set `["domain1", "domain2"]` to `cors_allow_origins`, `in_http` returns `403` to access from other domains. Since Fluentd v1.2.6, you can use a wildcard character `*` to allow requests from any origins.  
 
 Example:
 
@@ -135,6 +135,18 @@ Example:
   cors_allow_origins ["*"]
 </source>
 ```
+
+You can also use the wildcard `*` in a string to match based prefix and/or suffix.  Example:
+
+```text
+<source>
+  @type http
+  port 9880
+  cors_allow_origins ["*.mydomain.com", "app.*.mydomain.com]
+</source>
+```
+
+Note: only a single `*` is supported per entry
 
 ### `cors_allow_credentials`
 
