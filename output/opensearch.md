@@ -18,7 +18,7 @@ $ fluent-gem install fluent-plugin-opensearch
 
 ## Example Configuration
 
-Here is a simple working configuration which should serve as a good starting point for most users:
+Here is a simple working configuration for OpenSearch instance that is running on localhost:
 
 ```text
 <match my.logs>
