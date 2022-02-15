@@ -1,6 +1,6 @@
 # opensearch
 
-The `out_opensearch` Output plugin writes records into Opensearch. By default, it creates records using [bulk api](https://opensearch.org/docs/latest/opensearch/rest-api/document-apis/bulk/) which performs multiple indexing operations in a single API call. This reduces overhead and can greatly increase indexing speed. This means that when you first import records using the plugin, records are not immediately pushed to OpenSearch.
+The `out_opensearch` Output plugin writes records into OpenSearch. By default, it creates records using [bulk api](https://opensearch.org/docs/latest/opensearch/rest-api/document-apis/bulk/) which performs multiple indexing operations in a single API call. This reduces overhead and can greatly increase indexing speed. This means that when you first import records using the plugin, records are not immediately pushed to OpenSearch.
 
 Records will be sent to OpenSearch when the `chunk_keys` condition has been met. To change the output frequency, please specify the `time` in `chunk_keys` and specify `timekey` value in the configuration.
 
