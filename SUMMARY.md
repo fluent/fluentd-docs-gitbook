@@ -79,6 +79,7 @@
   * [s3](output/s3.md)
   * [kafka](output/kafka.md)
   * [elasticsearch](output/elasticsearch.md)
+  * [opensearch](output/opensearch.md)
   * [mongo](output/mongo.md)
   * [mongo\_replset](output/mongo_replset.md)
   * [rewrite\_tag\_filter](output/rewrite_tag_filter.md)

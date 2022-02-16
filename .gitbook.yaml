@@ -89,6 +89,7 @@ redirects:
   v1.0/articles/out_exec: plugins/output/exec.md
   v1.0/articles/out_mongo_replset: plugins/output/mongo_replset.md
   v1.0/articles/out_relabel: plugins/output/relabel.md
+  v1.0/articles/out_opensearch: plugins/output/opensearch.md
 
   # Plugin/Filter
   v1.0/articles/filter_geoip: plugins/filter/geoip.md
