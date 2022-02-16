@@ -8,12 +8,16 @@ This document does not describe all the parameters. For details, refer to the **
 
 ## Installation
 
-Since `out_opensearch` has been included in the standard distribution of `td-agent` since v4.4.0 and the alternative distribution of `calyptia-fluentd` since v1.3.4, `td-agent`/`calyptia-fluentd` users do not need to install it manually.
+Since `out_opensearch` has been included in the alternative distribution of `calyptia-fluentd` since v1.3.4, `calyptia-fluentd` users do not need to install it manually.
 
-If you have installed Fluentd without `td-agent` or `calyptia-fluentd`, please install this plugin using `fluent-gem`:
+If you have installed Fluentd without `calyptia-fluentd`, please install this plugin using `fluent-gem` or `td-agent-gem` (for td-agent users):
 
 ```text
 $ fluent-gem install fluent-plugin-opensearch
+```
+
+```text
+$ td-agent-gem install fluent-plugin-opensearch
 ```
 
 ## Example Configuration
