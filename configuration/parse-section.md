@@ -89,7 +89,7 @@ The default value of the following parameters will be overridden by the individu
 
     parameter and set it to `time` by default.
 
-* **`null_value_pattern`** \(string\) \(optional\): Specify null value pattern.
+* **`null_value_pattern`** \(regexp\) \(optional\): Specify null value pattern.
   * Default: `nil`
 * **`null_empty_string`** \(bool\) \(optional\): If `true`, empty string field is
 
