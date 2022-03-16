@@ -238,6 +238,7 @@ For code example, please refer to [`api-plugin-base`](../plugin-development/api-
 * `--workers NUM`: Specifies the number of workers under supervisor.
 * `--user USER`: Changes user.
 * `--group GROUP`: Changes group.
+* `--umask UMASK`: Specifies umask to use, in octal form. Defaults to 0.
 * `-o`, `--log PATH`: Specifies the log file path.
 * `--log-rotate-age AGE`: Specifies the generations to keep rotated log files.
 * `--log-rotate-size BYTES`: Sets the byte size to rotate log files.
