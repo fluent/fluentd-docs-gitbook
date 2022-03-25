@@ -161,20 +161,56 @@ Options:
 Control `fluentd` process using [Signals](signals.md) or Windows Event.
 
 ```text
-Usage: fluent-ctl COMMAND PID
+Usage: fluent-ctl COMMAND PID_OR_SVCNAME
 
 Commands:
   shutdown
   restart
   flush
   reload
+  dump
 ```
 
 ### Example
 
+You can specify the process id of the supervisor process.
+
 ```text
 fluent-ctl shutdown 11111
 ```
+
+If you run Fluentd as a Windows service, then you have to specify the svcname (the name of the Windows service).
+
+```text
+fluent-ctl dump fluentdwinsvc
+```
+
+### About `dump`
+
+This function is mainly for Windows.
+
+On Windows, this makes all Fluentd processes (including all worker processes) dump their internal status to the system temp directory (`C:\\Windows\\Temp`). This is the same behavior as sending SIGCONT to all processes on non-Windows. 
+
+Since this uses [SIGDUMP](https://github.com/frsyuki/sigdump), you can change the output path by specifying `SIGDUMP_PATH` environment variable. Note that the path has to be a file path.
+
+```Powershell
+$ $env:SIGDUMP_PATH="/sigdump/sigdump.log" # The directory `sidgump` has to exist.
+$ fuentd -c ...
+$ fluent-ctl dump {PID_OR_SVCNAME} # At another shell.
+```
+
+Then Fluentd dumps files as following. Each process id is automatically added to the path.
+
+```text
+... [info]: fluent/log.rb:330:info: dump to /sigdump/sigdump-41544.log.
+... [info]: #0 fluent/log.rb:330:info: dump to /sigdump/sigdump-21152.log.
+... [info]: #1 fluent/log.rb:330:info: dump to /sigdump/sigdump-15656.log.
+...
+```
+
+As for non-Windows, you don't have to use this function because you can manually send SIGCONT to each process. Although you can use this function on non-Windows, this just sends SIGCONT to the supervisor process, so you can get only the status of the supervisor process.
+
+The same feature is available in [RPC](rpc.md). On non-Windows, You can use this to easily get all processes' status.
 
 ## `fluent-cap-ctl`
 
