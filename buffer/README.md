@@ -30,7 +30,7 @@ You can think of a chunk as a cargo box. A buffer plugin uses a chunk as a light
 
 Internally, a buffer plugin has two separated places to store its chunks: _"stage"_ where chunks get filled with events, and _"queue"_ where chunks wait before the transportation. Every newly-created chunk starts from _stage_, then proceeds to _queue_ in time \(and subsequently gets transferred to the destination\).
 
-[![Fluentd-v0.14 Plugin API Overview](../.gitbook/assets/fluentd-v0.14-plugin-api-overview.png)](https://github.com/fluent/fluentd-docs-gitbook/tree/da81ba70252eaa863cc28fc888584c59d6fc14d3/images/fluentd-v0.14-plugin-api-overview.png)
+![Fluentd-v0.14 Plugin API Overview](../.gitbook/assets/fluentd-v0.14-plugin-api-overview.png)
 
 ## Control Retry Behavior
 

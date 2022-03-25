@@ -164,7 +164,7 @@ It's working properly if td-agent process outputs:
 test.event: {"k", "v"}
 ```
 
-[![Td-agent Windows Prompt](../.gitbook/assets/td-agent-windows-prompt.png)](https://github.com/fluent/fluentd-docs-gitbook/tree/da81ba70252eaa863cc28fc888584c59d6fc14d3/images/td-agent-windows-prompt.png)
+![Td-agent Windows Prompt](../.gitbook/assets/td-agent-windows-prompt.png)
 
 ### Step 3: Register `td-agent` to Windows Service
 
