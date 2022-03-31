@@ -204,7 +204,7 @@ Default: `72` \(hours\)
 
 #### `retry_max_times`
 
-The maximum number of times to retry to flush while failing. If `retry_timeout` is the default, the number is 17 with exponential backoff.
+The maximum number of times to retry to flush while failing. If `retry_timeout` is the default, the number is 18 with exponential backoff.
 
 Default: `nil`
 
