@@ -21,6 +21,7 @@ Usage: fluentd [options]
         --workers NUM                specify the number of workers under supervisor
         --user USER                  change user
         --group GROUP                change group
+        --umask UMASK                change umask
     -o, --log PATH                   log file path
         --log-rotate-age AGE         generations to keep rotated log files
         --log-rotate-size BYTES      sets the byte size to rotate log files
