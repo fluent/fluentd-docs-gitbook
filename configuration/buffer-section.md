@@ -494,7 +494,11 @@ Following are the flushing parameters for chunks to optimize performance \(laten
   * Default: 72h
   * The maximum time \(seconds\) to retry to flush again the failed chunks,
 
-    until the plugin discards the buffer chunks
+    until the plugin discards the buffer chunks.
+
+    If the next retry is going to exceed this time limit, the last retry
+
+    will be made at exactly this time limit.
 * `retry_forever` \[bool\]
   * Default: `false`
   * If true, plugin will ignore `retry_timeout` and `retry_max_times`
