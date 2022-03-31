@@ -86,6 +86,8 @@ With this configuration, the emitted tag is `prod.INCOMING_TAG`, e.g. `prod.app.
 
 The timeout used to set the linger option.
 
+This parameter is deprecated since v1.14.6. Use `<transport>` directive instead.
+
 ### `resolve_hostname`
 
 | type | default | version |
@@ -156,7 +158,29 @@ This iterates incoming events. So, if you send larger chunks to `in_forward`, it
 
 ### `<transport>` Section
 
-This section is for using SSL transport:
+This section is for setting TLS transport or some general transport configurations.
+
+#### General configuration
+
+##### `linger_timeout`
+
+| type | default | available transport type | version |
+| :--- | :--- | :--- | :--- |
+| integer | 0 | tcp, tls | 1.14.6 |
+
+The timeout \(seconds\) to set `SO_LINGER`.
+
+The default value `0` is to send RST rather than FIN to avoid lots of connections sitting in TIME_WAIT on closing.
+
+You can set positive value to send FIN on closing.
+
+```text
+<transport tcp>
+  linger_timeout 1
+</transport>
+```
+
+#### TLS configuration
 
 ```text
 <transport tls>

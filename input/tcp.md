@@ -137,9 +137,35 @@ You will get something like below:
 
 | type | default | available values | version |
 | :--- | :--- | :--- | :--- |
-| enum | udp | tls | 0.14.12 |
+| enum | tcp | tcp, tls | 0.14.12 |
 
-This section is for using TLS transport.
+This section is for setting TLS transport or some general transport configurations.
+
+#### General configuration
+
+##### `linger_timeout`
+
+| type | default | available transport type | version |
+| :--- | :--- | :--- | :--- |
+| integer | 0 | tcp, tls | 1.14.6 |
+
+The timeout \(seconds\) to set `SO_LINGER`.
+
+The default value `0` is to send RST rather than FIN to avoid lots of connections sitting in TIME_WAIT on closing.
+
+You can set positive value to send FIN on closing.
+
+```text
+<source>
+  @type tcp
+  # other plugin parameters
+  <transport tcp>
+    linger_timeout 1
+  </transport>
+</source>
+```
+
+#### TLS configuration
 
 ```text
 <transport tls>
@@ -147,6 +173,8 @@ This section is for using TLS transport.
   # ...
 </transport>
 ```
+
+See [**How to Enable TLS Encryption**](#how-to-enable-tls-encryption) section for how to use and see [Configuration Example](../plugin-helper-overview/api-plugin-helper-server.md#configuration-example) for all supported parameters.
 
 Without `<transport tls>`, `in_tcp` uses raw TCP.
 

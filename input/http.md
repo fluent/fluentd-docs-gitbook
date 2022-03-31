@@ -166,7 +166,29 @@ Respond status code with 204. This option will be deprecated at v2 because fluen
 | :--- | :--- | :--- | :--- |
 | enum | tcp | tcp, tls | 1.5.0 |
 
-This section is for using TLS transport.
+This section is for setting TLS transport or some general transport configurations.
+
+#### General configuration
+
+##### `linger_timeout`
+
+| type | default | available transport type | version |
+| :--- | :--- | :--- | :--- |
+| integer | 0 | tcp, tls | 1.14.6 |
+
+The timeout \(seconds\) to set `SO_LINGER`.
+
+The default value `0` is to send RST rather than FIN to avoid lots of connections sitting in TIME_WAIT on closing.
+
+You can set positive value to send FIN on closing.
+
+```text
+<transport tcp>
+  linger_timeout 1
+</transport>
+```
+
+#### TLS configuration
 
 ```text
 <transport tls>
