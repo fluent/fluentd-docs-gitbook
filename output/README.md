@@ -181,6 +181,18 @@ If the bottom chunk write out fails, it will remain in the queue and Fluentd wil
 
 Writing out the bottom chunk is considered to be a failure if `Output#write` or `Output#try_write` method throws an exception.
 
+The retry timings of `retry_timeout: 100s`.
+
+| N-th retry | Elapsed |
+| :---       | :---    |
+| 1th        | 1s      |
+| 2th        | 3s      |
+| 3th        | 7s      |
+| 4th        | 15s     |
+| 5th        | 31s     |
+| 6th        | 63s     |
+| 7th        | 100s    |
+
 #### `retry_type`
 
 Specifies how to wait for the next retry to flush buffer.
@@ -198,13 +210,13 @@ Default: `false`
 
 #### `retry_timeout`
 
-The maximum seconds to retry to flush while failing, until the plugin discards the buffer chunks.
+The maximum seconds to retry to flush while failing, until the plugin discards the buffer chunks. If the next retry is going to exceed this time limit, the last retry will be made at exactly this time limit.
 
-Default: `72` \(hours\)
+Default: `72h` \(72 hours\)
 
 #### `retry_max_times`
 
-The maximum number of times to retry to flush while failing. If `retry_timeout` is the default, the number is 17 with exponential backoff.
+The maximum number of times to retry to flush while failing. If `retry_timeout` is the default, the number is 18 with exponential backoff.
 
 Default: `nil`
 
@@ -267,6 +279,38 @@ This example sends logs to Elasticsearch using a file buffer `/var/log/td-agent/
 ```
 
 NOTE: `<secondary>` plugin receives the primary's buffer chunk directly. So, you need to check if your secondary plugin works with the primary setting.
+
+The retry timings of `retry_timeout: 100s` with the secondary.
+
+| N-th retry | Elapsed | Output plugin |
+| :---       | :---    | :---          |
+| 1th        | 1s      | primary       |
+| 2th        | 3s      | primary       |
+| 3th        | 7s      | primary       |
+| 4th        | 15s     | primary       |
+| 5th        | 31s     | primary       |
+| 6th        | 63s     | primary       |
+| 7th        | 80s     | secondary     |
+| 8th        | 81s     | secondary     |
+| 9th        | 83s     | secondary     |
+| 10th       | 87s     | secondary     |
+| 11th       | 95s     | secondary     |
+| 12th       | 100s    | secondary     |
+
+The retry timings of `retry_max_times: 10` with the secondary.
+
+| N-th retry | Elapsed | Output plugin |
+| :---       | :---    | :---          |
+| 1th        | 1s      | primary       |
+| 2th        | 3s      | primary       |
+| 3th        | 7s      | primary       |
+| 4th        | 15s     | primary       |
+| 5th        | 31s     | primary       |
+| 6th        | 63s     | primary       |
+| 7th        | 127s    | primary       |
+| 8th        | 255s    | primary       |
+| 9th        | 511s    | primary       |
+| 10th       | 818s    | secondary     |
 
 If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open). [Fluentd](http://www.fluentd.org/) is an open-source project under [Cloud Native Computing Foundation \(CNCF\)](https://cncf.io/). All components are available under the Apache 2 License.
 

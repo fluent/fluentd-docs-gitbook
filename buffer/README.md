@@ -41,7 +41,7 @@ A chunk can fail to be written out to the destination for a number of reasons. T
 By default, Fluentd increases the wait interval exponentially for each retry attempt. For example, assuming that the initial wait interval is set to 1 second and the exponential factor is 2, each attempt occurs at the following time points:
 
 ```text
-1 2   4       8               16
+0 1   3       7               15
 x-x---x-------x---------------x-------------------------
 │ │   │       │               └─  4th retry (wait = 8s)
 │ │   │       └─────────────────  3th retry (wait = 4s)

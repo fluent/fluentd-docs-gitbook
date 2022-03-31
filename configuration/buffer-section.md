@@ -494,7 +494,11 @@ Following are the flushing parameters for chunks to optimize performance \(laten
   * Default: 72h
   * The maximum time \(seconds\) to retry to flush again the failed chunks,
 
-    until the plugin discards the buffer chunks
+    until the plugin discards the buffer chunks.
+
+    If the next retry is going to exceed this time limit, the last retry
+
+    will be made at exactly this time limit.
 * `retry_forever` \[bool\]
   * Default: `false`
   * If true, plugin will ignore `retry_timeout` and `retry_max_times`
@@ -546,7 +550,8 @@ With `exponential_backoff`, `retry_wait` interval will be calculated as below:
 * c: constant factor, `@retry_wait`
 * b: base factor, `@retry_exponential_backoff_base`
 * k: number of retry times
-* total retry time: `c + c * b^1 + (...) + c*b^k = c*b^(k+1) - 1`
+* total retry time: `c + c*b^1 + (...) + c*b^(k-1) = c*(b^k - 1) / (b - 1)`
+  * = `2^k - 1` by default
 
 If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open). [Fluentd](http://www.fluentd.org/) is an open-source project under [Cloud Native Computing Foundation \(CNCF\)](https://cncf.io/). All components are available under the Apache 2 License.
 
