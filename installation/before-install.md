@@ -61,16 +61,16 @@ These kernel options were originally taken from the presentation [How Netflix Tu
 
 Fluentd sometimes uses predictable paths for dumping, writing files, and so on. This default settings for the protections are in `/etc/sysctl.d/10-link-restrictions.conf`, or `/usr/lib/sysctl.d/50-default.conf` or elsewhere.
 
-For symlink attack protection, check the following parameters are set up as `1`:
+For symlink attack protection, check the following parameters are set to `1`:
 
 ```text
 fs.protected_hardlinks = 1
 fs.protected_symlinks = 1
 ```
 
-This settings are almost enough for time-of-check to time-of-use (TOCTOU, TOCTTOU or TOC/TOU) which are class of software bugs.
+This settings are almost enough for time-of-check to time-of-use (TOCTOU, TOCTTOU or TOC/TOU), which are a class of software bugs.
 
-If you turned off these protections, please turn on them.
+If you turned off these protections, please turn them on.
 
 Use `sysctl -p` command or reboot your node for the changes to take effect.
 
