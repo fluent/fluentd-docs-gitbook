@@ -178,9 +178,11 @@ This section is for setting TLS transport or some general transport configuratio
 
 The timeout \(seconds\) to set `SO_LINGER`.
 
-The default value `0` is to send RST rather than FIN to avoid lots of connections sitting in TIME_WAIT on closing.
+The default value `0` is to send RST rather than FIN to avoid lots of connections sitting in TIME_WAIT on closing on non-Windows.
 
-You can set positive value to send FIN on closing.
+You can set positive value to send FIN on closing on non-Windows.
+
+(On Windows, Fluentd sends FIN when `linger_timeout` is `0` too).
 
 ```text
 <transport tcp>
