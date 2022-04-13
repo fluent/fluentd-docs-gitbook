@@ -19,6 +19,7 @@
   * [Post Installation Guide](installation/post-installation-guide.md)
 * [Configuration](configuration/README.md)
   * [Config File Syntax](configuration/config-file.md)
+  * [Config File Syntax (YAML)](configuration/config-file-yaml.md)
   * [Routing Examples](configuration/routing-examples.md)
   * [Config: Common Parameters](configuration/plugin-common-parameters.md)
   * [Config: Parse Section](configuration/parse-section.md)
