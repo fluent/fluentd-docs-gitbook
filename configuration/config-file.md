@@ -64,7 +64,7 @@ The configuration file consists of the following directives:
 
 Let's actually create a configuration file step by step.
 
-## 1. `source`: where all the data come from
+## 1. `source`: where all the data comes from
 
 Fluentd input sources are enabled by selecting and configuring the desired input plugins using **source** directives. Fluentd standard input plugins include `http` and `forward`. The `http` provides an HTTP endpoint to accept incoming HTTP messages whereas `forward` provides a TCP endpoint to accept TCP packets. Of course, it can be both at the same time. You may add multiple `source` configurations as required.
 
