@@ -30,7 +30,6 @@ As evident from the output above, each endpoint returns a JSON object as its res
 | `/api/processes.interruptWorkers` | [SIGINT](signals.md#sigint-or-sigterm) | Stops the daemon. |
 | `/api/processes.killWorkers` | [SIGTERM](signals.md#sigint-or-sigterm) | Stops the daemon. |
 | `/api/processes.flushBuffersAndKillWorkers` | [SIGUSR1](signals.md#sigusr1) and [SIGTERM](signals.md#sigint-or-sigterm) | Flushes buffer and stops the daemon. |
-| `/api/processes.dump` | [SIGCONT](signals.md#sigcont) | Make all Fluentd processes dump their status. |
 | `/api/plugins.flushBuffers` | [SIGUSR1](signals.md#sigusr1) | Flushes the buffered messages. |
 | `/api/config.gracefulReload` | [SIGUSR2](signals.md#sigusr2) | Reloads configuration. |
 | `/api/config.reload` | [SIGHUP](signals.md#sighup) | Reloads configuration. |

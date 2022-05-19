@@ -210,8 +210,6 @@ Then Fluentd dumps files as following. Each process id is automatically added to
 
 As for non-Windows, you don't have to use this function because you can manually send SIGCONT to each process. Although you can use this function on non-Windows, this just sends SIGCONT to the supervisor process, so you can get only the status of the supervisor process.
 
-The same feature is available in [RPC](rpc.md). On non-Windows, You can use this to easily get all processes' status.
-
 ## `fluent-cap-ctl`
 
 Control Linux Capability for Fluentd. See [Linux Capability](linux-capability.md) article.
