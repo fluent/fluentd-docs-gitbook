@@ -30,6 +30,13 @@ NOTE: Treasure Data does not verify Debian packages. If you have any problem wit
 
 A shell script is provided to automate the installation process for each version. The shell script registers a new apt repository at `/etc/apt/sources.list.d/treasure-data.list` and installs the `td-agent` deb package.
 
+For Ubuntu Jammy:
+
+```bash
+# td-agent 4 (experimental)
+curl -fsSL https://toolbelt.treasuredata.com/sh/install-ubuntu-jammy-td-agent4.sh | sh
+```
+
 For Ubuntu Focal:
 
 ```bash
@@ -42,7 +49,7 @@ For Ubuntu Bionic:
 ```bash
 # td-agent 4
 curl -fsSL https://toolbelt.treasuredata.com/sh/install-ubuntu-bionic-td-agent4.sh | sh
-# td-agent 3
+# td-agent 3 (EOL)
 curl -fsSL https://toolbelt.treasuredata.com/sh/install-ubuntu-bionic-td-agent3.sh | sh
 ```
 
@@ -51,15 +58,8 @@ For Ubuntu Xenial:
 ```bash
 # td-agent 4
 curl -fsSL https://toolbelt.treasuredata.com/sh/install-ubuntu-xenial-td-agent4.sh | sh
-# td-agent 3
+# td-agent 3 (EOL)
 curl -fsSL https://toolbelt.treasuredata.com/sh/install-ubuntu-xenial-td-agent3.sh | sh
-```
-
-For Ubuntu Trusty:
-
-```bash
-# td-agent 3
-curl -fsSL https://toolbelt.treasuredata.com/sh/install-ubuntu-trusty-td-agent3.sh | sh
 ```
 
 For Debian Bullseye:
@@ -74,22 +74,8 @@ For Debian Buster:
 ```bash
 # td-agent 4
 curl -fsSL https://toolbelt.treasuredata.com/sh/install-debian-buster-td-agent4.sh | sh
-# td-agent 3
+# td-agent 3 (EOL)
 curl -fsSL https://toolbelt.treasuredata.com/sh/install-debian-buster-td-agent3.sh | sh
-```
-
-For Debian Stretch:
-
-```bash
-# td-agent 3
-curl -fsSL https://toolbelt.treasuredata.com/sh/install-debian-stretch-td-agent3.sh | sh
-```
-
-For Debian Jessie:
-
-```bash
-# td-agent 3
-curl -fsSL https://toolbelt.treasuredata.com/sh/install-debian-jessie-td-agent3.sh | sh
 ```
 
 ### Step 2: Launch Daemon
