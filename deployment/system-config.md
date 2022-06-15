@@ -16,6 +16,14 @@ System Configuration is one way to set up system-wide configuration such as enab
 
 Specifies the number of workers.
 
+### `restart_worker_interval`
+
+| type | default | version |
+| :--- | :--- | :--- |
+| time | 0 | 1.15.0 |
+
+Specifies interval to restart workers that has stopped for some reason. By default, Fluentd immediately restarts stopped workers. You can use this option for stopping workers for a certain period of time.
+
 ### `root_dir`
 
 | type | default | version |
