@@ -17,16 +17,6 @@ It is included in Fluentd's core.
   <parse>
     @type apache2
   </parse>
-  <group>
-    rate_period 30s
-    <rule>
-      match {
-          namespace: /space1|space2|space2/,
-          podname: /app.*/,
-      }
-      limit 200
-    </rule>
-  </group>
 </source>
 ```
 
@@ -413,7 +403,7 @@ The `@log_level` option allows the user to set different levels of logging for e
 Refer to the [Logging](../deployment/logging.md) for more details.
 
 
-### `<group>` Section \(highly recommended\)
+### `<group>` Section
 
 The `in_tail` plugin can assign each log file to a group, based on user defined rules. The `limit` parameter controls the total number of lines collected for a group within a `rate_period` time interval.
 
@@ -574,4 +564,4 @@ Example,
   </rule>
 ```
 
-In this case, rules with more constraints, i.e., greater number of `match` hash keys will be given a higher priority. So a file will be assigned to `Rule2` if it can be assigned to both `Rule1` and `Rule2`. 
+In this case, rules with more constraints, i.e., greater number of `match` hash keys will be given a higher priority. So a file will be assigned to `Rule2` if it can be assigned to both `Rule1` and `Rule2`.
