@@ -141,7 +141,7 @@ Removes the newline from the end of the incoming payload.
 | :--- | :--- | :--- |
 | true | false | 0.14.10 |
 
-`in_tcp` uses the parser plugin to parse the payload.
+`in_udp` uses the parser plugin to parse the payload.
 
 For more details:
 
