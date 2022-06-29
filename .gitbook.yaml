@@ -36,6 +36,7 @@ redirects:
   v1.0/articles/format-section: configuration/format-section.md
   v1.0/articles/parse-section: configuration/parse-section.md
   v1.0/articles/config-file: configuration/config-file.md
+  v1.0/articles/config-file-yaml: configuration/config-file-yaml.md
   v1.0/articles/storage-section: configuration/storage-section.md
 
   # Deployment
