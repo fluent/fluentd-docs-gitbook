@@ -65,6 +65,8 @@ $ fluentd .. -vv
 
 Fluentd uses [SIGDUMP](https://github.com/frsyuki/sigdump) for dumping fluentd internal information to a local file, e.g. thread dump, object allocation, etc. If you have a problem with fluentd like process hang, please send `SIGCONT` to fluentd parent and child processes.
 
+On Windows, you can use [fluent-ctl](command-line-option.md#fluent-ctl).
+
 ## High CPU Usage Issue
 
 If `fluentd` suddenly hits unexpected high CPU usage problem, there are several reasons:
