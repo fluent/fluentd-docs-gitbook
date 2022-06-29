@@ -161,7 +161,7 @@ Options:
 Control `fluentd` process using [Signals](signals.md) or Windows Event.
 
 ```text
-Usage: fluent-ctl COMMAND PID_OR_SVCNAME
+Usage: fluent-ctl COMMAND [PID_OR_SVCNAME]
 
 Commands:
   shutdown
@@ -179,10 +179,10 @@ You can specify the process id of the supervisor process.
 fluent-ctl shutdown 11111
 ```
 
-If you run Fluentd as a Windows service, then you have to specify the svcname (the name of the Windows service).
+If you run Fluentd as a Windows service, then you can omit `PID_OR_SVCNAME` when the service name is the default value `fluentdwinsvc`.
 
 ```text
-fluent-ctl dump fluentdwinsvc
+fluent-ctl dump
 ```
 
 ### About `dump`
@@ -196,7 +196,7 @@ Since this uses [SIGDUMP](https://github.com/frsyuki/sigdump), you can change th
 ```Powershell
 $ $env:SIGDUMP_PATH="/sigdump/sigdump.log" # The directory `sidgump` has to exist.
 $ fuentd -c ...
-$ fluent-ctl dump {PID_OR_SVCNAME} # At another shell.
+$ fluent-ctl dump # At another shell.
 ```
 
 Then Fluentd dumps files as following. Each process id is automatically added to the path.
