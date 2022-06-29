@@ -402,6 +402,80 @@ The `@log_level` option allows the user to set different levels of logging for e
 
 Refer to the [Logging](../deployment/logging.md) for more details.
 
+
+### `<group>` Section
+
+The `in_tail` plugin can assign each log file to a group, based on user defined rules. The `limit` parameter controls the total number of lines collected for a group within a `rate_period` time interval.
+
+Example: 
+
+```text
+# group rules -- 1
+<group>
+  rate_period 5s
+
+  <rule>
+    match {
+        namespace: /shopping/,
+        podname: /frontend/,
+    }
+    limit 1000
+  </rule>
+</group>
+
+# group rules -- 2
+<group>
+  <rule>
+    match {
+        directoy: /payment/
+    }
+    limit 2000
+  </rule>
+</group>
+```
+
+#### `pattern`
+
+| type | default | version |
+| :--- | :--- | :--- |
+| regexp | `/^\/var\/log\/containers\/(?<podname>[a-z0-9]([-a-z0-9]*[a-z0-9])?(\/[a-z0-9]([-a-z0-9]*[a-z0-9])?)*)_(?<namespace>[^_]+)_(?<container>.+)-(?<docker_id>[a-z0-9]{64})\.log$/`| 1.15 |
+
+Specifies the regular expression for extracting metadata (namespace, podname) from log file path. Default value of the pattern regexp extracts information about `namespace`, `podname`, `docker_id`, `container` of the log (K8s specific). 
+
+You can also add custom named captures in `pattern` for custom grouping of log files. For example, 
+```text
+    pattern /^\/home\/logs\/(?<file>.+)\.log$/
+```
+In this example, filename will be extracted and used to form groups.
+
+#### `rate_period`
+
+| type | default | version |
+| :--- | :--- | :--- |
+| time | 60 \(seconds\) | 1.15 |
+
+Time period in which the group line limit is applied. `in_tail` resets the counter after every `rate_period` interval.
+
+#### `<rule>` Section \(required\)
+
+Grouping rules for log files.
+
+##### match
+
+| type | default | version |
+| :--- | :--- | :--- |
+| hash | {"namespace": /./, "podname": /./} | 1.15 |
+
+`match` parameter is used to check if a file belongs to a particular group based on hash keys (named captures from `pattern`) and hash values (regexp)
+
+##### limit
+
+| type | default | version |
+| :--- | :--- | :--- |
+| integer | -1 | 1.15 |
+
+Maximum number of lines allowed from a group in `rate_period` time interval. The default value of `-1` doesn't throttle log files of that group.
+
 ## Learn More
 
 * [Input Plugin Overview](./)
@@ -469,3 +543,25 @@ path C:\\path\\to\\*\\foo.log
 
 If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open). [Fluentd](http://www.fluentd.org/) is an open-source project under [Cloud Native Computing Foundation \(CNCF\)](https://cncf.io/). All components are available under the Apache 2 License.
 
+### What happens when a file can be assigned to more than one group? 
+
+Example,
+
+```text
+  <rule> ## Rule1
+    match {
+      namespace: /monitoring/
+    } 
+    limit 100
+  </rule>
+
+  <rule> ## Rule2
+    match {
+      namespace: /monitoring/,
+      podname: /logger/,
+    }
+    limit 2000
+  </rule>
+```
+
+In this case, rules with more constraints, i.e., greater number of `match` hash keys will be given a higher priority. So a file will be assigned to `Rule2` if it can be assigned to both `Rule1` and `Rule2`.
