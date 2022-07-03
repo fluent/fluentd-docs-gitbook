@@ -357,7 +357,7 @@ config:
   # If you do, Fluentd will just emit events without applying the filter.
 
   - filter:
-      $tag:myapp.access>
+      $tag: myapp.access
       $type: record_transformer
       ...
 
@@ -374,8 +374,8 @@ When using YAML format syntax in Fluentd configuration, you can use `!fluent/s "
 ```text
 config:
   - match:
-    $tag: fluent/s "app.#{ENV['FLUENTD_TAG']}"
-    $type: stdout
+      $tag: fluent/s "app.#{ENV['FLUENTD_TAG']}"
+      $type: stdout
 ```
 
 If you set the environment variable `FLUENTD_TAG` to `dev`, this evaluates to `app.dev`.
@@ -439,10 +439,10 @@ Example \# 2: map plugin
 ```text
 config:
   - match:
-    $tag:tag
-    $type: map
-    map: '[["code." + tag, time, { "code" => record["code"].to_i}], ["time." + tag, time, { "time" => record["time"].to_i}]]'
-    multi: true
+      $tag:tag
+      $type: map
+      map: '[["code." + tag, time, { "code" => record["code"].to_i}], ["time." + tag, time, { "time" => record["time"].to_i}]]'
+      multi: true
 ```
 
 This restriction will be removed with the configuration parser improvement.
