@@ -291,21 +291,21 @@ The `!include` YAML tag can be used under sections to share the same parameters:
 ```text
 # config file
 config:
-  - match pattern>
-    $type: forward
-    # ...
-    buffer:
-      $type: file
-      path: /path/to/buffer/forward
-      <<: !include /path/to/out_buf_params.yaml
+  - match:
+      $type: forward
+      # ...
+      buffer:
+        $type: file
+        path: /path/to/buffer/forward
+        <<: !include /path/to/out_buf_params.yaml
 
-  - match pattern>
-    $type: elasticsearch
-    # ...
-    buffer:
-      $type: file
-      path: /path/to/buffer/es
-      <<: !include /path/to/out_buf_params.yaml
+  - match:
+      $type: elasticsearch
+      # ...
+      buffer:
+        $type: file
+        path: /path/to/buffer/es
+        <<: !include /path/to/out_buf_params.yaml
 
 # /path/to/out_buf_params.yaml
 flush_interval:    5s
@@ -313,7 +313,7 @@ total_limit_size:  100m
 chunk_limit_size:  1m
 ```
 
-Note that, in the middle of element case of `!include` YAML tag usage, users must use `<<` syntax to inlcude other YAML objects successfully.
+Note that, in the middle of element case of `!include` YAML tag usage, users must use `<<:` syntax to include other YAML objects successfully.
 
 ### Note on Match Order
 
