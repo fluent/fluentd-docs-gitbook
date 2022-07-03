@@ -507,7 +507,7 @@ These parameters are reserved and are prefixed with an `@` symbol:
 
 * `@label`: specifies the label symbol. See
 
-  [label](config-file.md#5-group-filter-and-output-the-ldquolabelrdquo-directive)
+  [label](config-file.md#5-group-filter-and-output-the-label-directive)
 
   section.
 
