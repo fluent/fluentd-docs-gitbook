@@ -22,7 +22,8 @@ Normal Fluentd configuration syntax has the following the list of directives:
 3. **`filter`** directives determine the event processing pipelines
 4. **`system`** directives set system-wide configuration
 5. **`label`** directives group the output and filter for internal routing
-6. **`@include`** directives include other files
+6. **`worker`** directives limit to the specific workers
+7. **`@include`** directives include other files
 
 In YAML configuration world, we reconstructed them for YAML format.
 
@@ -240,7 +241,68 @@ The `@ROOT` label is a builtin label used for getting root router by plugin's `e
 
 This label is introduced since v1.14.0 to assign a label back to the default route. For example, timed-out event records are handled by the concat filter can be sent to the default route.
 
-## 6. Reuse your config: the `!include` YAML tag
+## 6. Limit to specific workers: the `worker` element
+
+When setting up multiple workers, you can use the **worker** element to limit plugins to run on specific workers.
+
+This is useful for input and output plugins that do not support multiple workers.
+
+You can use the `$arg N` or `$arg N-M` to specify workers. The number is a zero-based worker index.
+
+See [Multi Process Workers](../deployment/multi-process-workers.md) article for details about multiple workers.
+
+Here is a configuration example:
+
+```text
+system:
+  workers: 4
+
+config:
+  - source:
+      $type: sample
+      tag: test.allworkers
+      sample: "{\"message\": \"Run with all workers.\"}"
+
+  - worker:
+      $arg: 0
+      config:
+        - source:
+            $type: sample
+            tag: test.oneworker
+            sample: "{\"message\": \"Run with only worker-0.\"}"
+
+  - worker:
+      $arg: 0-1
+      config:
+        - source:
+            $type: sample
+            tag: test.someworkers
+            sample: "{\"message\": \"Run with worker-0 and worker-1.\"}"
+
+  - filter:
+      $type: record_transformer
+      $tag: test.**
+      record:
+        worker_id: !fluent/s "#{worker_id}"
+
+  - match:
+      $type: stdout
+      $tag: test.**
+```
+
+The outputs of this config are as follows:
+
+```text
+... test.allworkers: {"message":"Run with all workers.","worker_id":"0"}
+... test.allworkers: {"message":"Run with all workers.","worker_id":"1"}
+... test.allworkers: {"message":"Run with all workers.","worker_id":"2"}
+... test.allworkers: {"message":"Run with all workers.","worker_id":"3"}
+... test.oneworker: {"message":"Run with only worker-0.","worker_id":"0"}
+... test.someworkers: {"message":"Run with worker-0 and worker-1.","worker_id":"0"}
+... test.someworkers: {"message":"Run with worker-0 and worker-1.","worker_id":"1"}
+```
+
+## 7. Reuse your config: the `!include` YAML tag
 
 The element in separate configuration files can be imported using the **!include** element:
 
