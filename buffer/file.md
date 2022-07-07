@@ -52,7 +52,7 @@ So there is no need to specify a unique path for each worker.
 </match>
 ```
 
-This config outputs the buffer chunk files as follows. The directly `worker{worker_id}` is automatically created.
+This config outputs the buffer chunk files as follows. The directory `worker{worker_id}` is automatically created.
 
 ```text
 /var/log/fluentd/buf/worker0/buffer.b58eec11d08ca8143b40e4d303510e0bb.log
@@ -81,8 +81,8 @@ then you can omit this parameter.
 </match>
 ```
 
-This config outputs the buffer chunk files as follows. The directly `{root_dir}/worker{worker_id}/{@id}/buffer` is used for the path.
-In this case, the `worker{worker_id}` directly is created even for a single worker.
+This config outputs the buffer chunk files as follows. The directory `{root_dir}/worker{worker_id}/{@id}/buffer` is used for the path.
+In this case, the `worker{worker_id}` directory is created even for a single worker.
 
 ```text
 /var/log/fluentd/worker0/test_id/buffer/buffer.b58eec11d08ca8143b40e4d303510e0bb.log
