@@ -13,7 +13,7 @@ The `file` buffer plugin provides a persistent buffer implementation. It uses fi
 | :--- | :--- | :--- |
 | string | nil | TBD |
 
-The directry path where buffer chunks are stored. Don't share this directory path with other buffers.
+The directory path where buffer chunks are stored. Don't share this directory path with other buffers.
 Be sure to specify a unique path for each buffer.
 
 ```text
