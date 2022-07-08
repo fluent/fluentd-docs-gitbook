@@ -9,48 +9,84 @@ The `file` buffer plugin provides a persistent buffer implementation. It uses fi
 
 ### `path`
 
-| type | required | default | version |
-| :--- | :---: | :--- | :--- |
-| string | ✔ |  | 0.9.0 |
+| type | default | version |
+| :--- | :--- | :--- |
+| string | nil | 0.9.0 |
 
-The path where buffer chunks are stored. The '\*' is replaced with random characters. This parameter is required.
-
-This parameter must be unique to avoid the race condition problem. For example, you cannot use a fixed path parameter in `fluent-plugin-forest`. `${tag}` or similar placeholder is needed. Of course, this parameter must also be unique between fluentd instances.
-
-In addition, `path` should not be another `path` prefix. For example, the following configuration does not work well. `/var/log/fluent/foo` resumes `/var/log/fluent/foo.bar`'s buffer files during start phase and it causes `No such file or directory` in `/var/log/fluent/foo.bar` side.
+The directory path where buffer chunks are stored. Don't share this directory path with other buffers.
+Be sure to specify a unique path for each buffer.
 
 ```text
-<match pattern1>
+<match pattern>
+  ...
   <buffer>
     @type file
-    path /var/log/fluent/foo
-  </buffer>
-</match>
-
-<match pattern2>
-  <buffer>
-    @type file
-    path /var/log/fluent/foo.bar
+    path /var/log/fluent/buf
   </buffer>
 </match>
 ```
 
-Here is the correct version to avoid the prefix problem:
+This config outputs the buffer chunk files as follows. The file name is `buffer.b{chunk_id}{path_suffix}`.
 
 ```text
-<match pattern1>
-  <buffer>
-    @type file
-    path /var/log/fluent/foo.baz
-  </buffer>
-</match>
+/var/log/fluentd/buf/buffer.b58eec11d08ca8143b40e4d303510e0bb.log
+/var/log/fluentd/buf/buffer.b58eec11d08ca8143b40e4d303510e0bb.log.meta
+```
 
-<match pattern2>
+With [multiple workers](../deployment/multi-process-workers.md), a directory is automatically created for each worker.
+So there is no need to specify a unique path for each worker.
+
+```text
+<system>
+  workers 2
+</system>
+
+...
+
+<match pattern>
+  ...
   <buffer>
     @type file
-    path /var/log/fluent/foo.bar
+    path /var/log/fluent/buf
   </buffer>
 </match>
+```
+
+This config outputs the buffer chunk files as follows. The directory `worker{worker_id}` is automatically created.
+
+```text
+/var/log/fluentd/buf/worker0/buffer.b58eec11d08ca8143b40e4d303510e0bb.log
+/var/log/fluentd/buf/worker0/buffer.b58eec11d08ca8143b40e4d303510e0bb.log.meta
+
+/var/log/fluentd/buf/worker1/buffer.b5e2a5aca2bcd9818ad6718845ddc456a.log
+/var/log/fluentd/buf/worker1/buffer.b5e2a5aca2bcd9818ad6718845ddc456a.log.meta
+```
+
+If you specify `root_dir` in [system configuration](../deployment/system-config.md) and [@id](../configuration/plugin-common-parameters.md#id) of the plugin,
+then you can omit this parameter.
+
+```text
+<system>
+  root_dir /var/log/fluentd
+</system>
+
+...
+
+<match pattern>
+  @id test_id
+  ...
+  <buffer>
+    @type file
+  </buffer>
+</match>
+```
+
+This config outputs the buffer chunk files as follows. The directory `{root_dir}/worker{worker_id}/{@id}/buffer` is used for the path.
+In this case, the `worker{worker_id}` directory is created even for a single worker.
+
+```text
+/var/log/fluentd/worker0/test_id/buffer/buffer.b58eec11d08ca8143b40e4d303510e0bb.log
+/var/log/fluentd/worker0/test_id/buffer/buffer.b58eec11d08ca8143b40e4d303510e0bb.log.meta
 ```
 
 Please make sure that you have **enough space in the path directory**. Running out of disk space is a problem frequently reported by users.
@@ -75,22 +111,47 @@ Changes the suffix of the buffer file.
 
 This parameter is useful when `.log` is not fit for your environment. See also [this issue's comment](https://github.com/fluent/fluentd/issues/2236#issuecomment-514733974).
 
-## Example
+## Tips
+
+### Customize a filename of the buffer chunk
+
+You can customize the prefix of filename (`buffer` by default) by adding `.*` to the end of the `path` parameter.
 
 ```text
 <match pattern>
+  ...
   <buffer>
     @type file
-    path /var/log/fluent/myapp.*.buffer
+    path /var/log/fluent/buf/custom.*
   </buffer>
 </match>
 ```
 
-## Tips
+This config outputs the buffer chunk files as follows. The prefix `buffer` is changed to `custom`.
 
-### Multi-Process Environment
+```text
+/var/log/fluentd/buf/custom.b58eec11d08ca8143b40e4d303510e0bb.log
+/var/log/fluentd/buf/custom.b58eec11d08ca8143b40e4d303510e0bb.log.meta
+```
 
-If you use this plugin under the multi-process environment, you need to use `@id`/`root_dir` parameters instead of fixed `path` parameter. See [Multi Process Workers](../deployment/multi-process-workers.md#root_dir-id-parameter) article.
+You can also customize the entire filename by adding `.*.` to the `path` parameter.
+
+```text
+<match pattern>
+  ...
+  <buffer>
+    @type file
+    path /var/log/fluent/buf/custom_prefix.*.custom_suffix
+  </buffer>
+</match>
+```
+
+This config outputs the buffer chunk files as follows. In this case, `path_suffix` parameter is not used.
+
+```text
+/var/log/fluentd/buf/custom_prefix.b58eec11d08ca8143b40e4d303510e0bb.custom_suffix
+/var/log/fluentd/buf/custom_prefix.b58eec11d08ca8143b40e4d303510e0bb.custom_suffix.meta
+```
 
 ## Limitation
 

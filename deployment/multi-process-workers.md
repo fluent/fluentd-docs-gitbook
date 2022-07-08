@@ -131,45 +131,6 @@ As of Fluentd v1.4.0, `<worker N-M>` syntax has been introduced:
 
 With this directive, you can specify multiple workers per worker directive.
 
-### `root_dir/@id` parameter
-
-These parameters must be specified when you use the file buffer.
-
-With multi-process workers, you cannot use the fixed `path` configuration for file buffer because it conflicts buffer file path between processes.
-
-```text
-<system>
-  workers 2
-</system>
-
-<match pattern>
-  @type forward
-  <buffer>
-    @type file
-    path /var/log/fluentd/forward # This is not allowed
-  </buffer>
-</match>
-```
-
-Instead of a fixed configuration, fluentd provides the dynamic buffer path based on `root_dir` and `@id` parameters. The stored path is `${root_dir}/worker${worker index}/${plugin @id}/buffer` directory.
-
-```text
-<system>
-  workers 2
-  root_dir /var/log/fluentd
-</system>
-
-<match pattern>
-  @type forward
-  @id out_fwd
-  <buffer>
-    @type file
-  </buffer>
-</match>
-```
-
-With this configuration, `forward` output buffer files are stored into `/var/log/fluentd/worker0/out_fwd/buffer` and `/var/log/fluentd/worker1/out_fwd/buffer` directories.
-
 ## Operation
 
 Each worker consumes memory and disk space separately. Take care while configuring buffer spaces and monitoring memory/disk consumption.

@@ -31,7 +31,7 @@ The `@id` parameter specifies a unique name for the configuration. It is used as
 </match>
 ```
 
-This parameter should be specified for all the plugins to enable `root_dir` and `workers` feature globally.
+This parameter should be specified for all the plugins to enable `root_dir` feature globally.
 
 See also: [System Configuration](../deployment/system-config.md)
 
