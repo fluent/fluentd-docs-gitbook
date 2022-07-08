@@ -56,7 +56,7 @@ Let's actually create a configuration file step by step.
 
 Fluentd input sources are enabled by selecting and configuring the desired input plugins using **source** elements. Fluentd standard input plugins include `http` and `forward`. The `http` provides an HTTP endpoint to accept incoming HTTP messages whereas `forward` provides a TCP endpoint to accept TCP packets. Of course, it can be both at the same time. You may add multiple `source` configurations as required.
 
-```text
+```yaml
 config:
   # Receive events from 24224/tcp
   # This is used by log forwarding and the fluent-cat command
@@ -80,7 +80,7 @@ You can add new input sources by writing your own plugins. For further informati
 
 The **match** element looks for events with **match**ing tags and processes them. The most common use of the `match` element is to output events to other systems. For this reason, the plugins that correspond to the `match` element are called **output plugins**. Fluentd standard output plugins include `file` and `forward`. Let's add those to our configuration file.
 
-```text
+```yaml
 config:
   # Receive events from 24224/tcp
   # This is used by log forwarding and the fluent-cat command
@@ -117,7 +117,7 @@ Input -> filter 1 -> ... -> filter N -> Output
 
 Let's add standard `record_transformer` filter to `match` example.
 
-```text
+```yaml
 config:
   # http://this.host:9880/myapp.access?json={"event":"data"}
   - source:
@@ -153,7 +153,7 @@ System-wide configurations are set by `system` element. Most of them are also av
 
 Example:
 
-```text
+```yaml
 system:
   # equal to -qq option
   log_level: error
@@ -168,7 +168,7 @@ See also [System Configuration](../deployment/system-config.md) article for more
 
 If this parameter is set, fluentd supervisor and worker process names are changed.
 
-```text
+```yaml
 system:
   process_name: fluentd1
 ```
@@ -191,7 +191,7 @@ The `label` element's parameter is a builtin plugin parameter so `$name` paramet
 
 Here is a configuration example:
 
-```text
+```yaml
 config:
   - source:
       $type: forward
@@ -253,7 +253,7 @@ See [Multi Process Workers](../deployment/multi-process-workers.md) article for 
 
 Here is a configuration example:
 
-```text
+```yaml
 system:
   workers: 4
 
@@ -306,7 +306,7 @@ The outputs of this config are as follows:
 
 The element in separate configuration files can be imported using the **!include** element:
 
-```text
+```yaml
 config:
   # Include config files in the ./config.d directory
   - !include config.d/*.conf
@@ -314,7 +314,7 @@ config:
 
 The `!include` YAML tag supports regular file path, glob pattern, and http URL conventions:
 
-```text
+```yaml
 config:
   # absolute path
   - !include /path/to/config.conf
@@ -333,7 +333,7 @@ config:
 
 Note that for the glob pattern, files are expanded in alphabetical order. If there are `a.conf` and `b.conf` then fluentd parses `a.conf` first. But, you should not write the configuration that depends on this order. It is so error-prone, therefore, use multiple separate `!include` YAML tags for safety.
 
-```text
+```yaml
 config:
   # If you have a.conf, b.conf, ..., z.conf and a.conf / z.conf are important
 
@@ -350,7 +350,7 @@ config:
 
 The `!include` YAML tag can be used under sections to share the same parameters:
 
-```text
+```yaml
 # config file
 config:
   - match:
@@ -381,7 +381,7 @@ Note that, in the middle of element case of `!include` YAML tag usage, users mus
 
 Fluentd tries to match tags in the order that they appear in the config file. So, if you have the following configuration:
 
-```text
+```yaml
 config:
   # '**' matches all tags. Bad :(
   - match:
@@ -396,7 +396,7 @@ config:
 
 then `myapp.access` is never matched. Wider match patterns should be defined after tight match patterns.
 
-```text
+```yaml
 config:
   - match:
       $tag: myapp.access
@@ -413,7 +413,7 @@ Of course, if you use two same patterns, the second `match` is never matched. If
 
 The common pitfall is when you put a `filter` element after `match` element. It will never work since events never go through the filter for the reason explained above.
 
-```text
+```yaml
 config:
   # You should NOT put this <filter> block after the <match> block below.
   # If you do, Fluentd will just emit events without applying the filter.
@@ -433,7 +433,7 @@ config:
 
 When using YAML format syntax in Fluentd configuration, you can use `!fluent/s "#{...}"` to embed arbitrary Ruby code into match patterns. Here is an example:
 
-```text
+```yaml
 config:
   - match:
       $tag: fluent/s "app.#{ENV['FLUENTD_TAG']}"
@@ -466,7 +466,7 @@ This section describes some useful features for the configuration file.
 
 You can write multiline values for `"` quoted string, array and hash values.
 
-```text
+```yaml
 str_param: "foo  # Converts to "foo bar". As NL interpretation will be required for continuos newlines.
 bar"
 
@@ -488,7 +488,7 @@ Fluentd assumes `[` or `{` is a start of array / hash. So, if you want to set `[
 
 Example \# 1: mail plugin
 
-```text
+```yaml
 config:
   - match:
       $tag: '**'
@@ -498,7 +498,7 @@ config:
 
 Example \# 2: map plugin
 
-```text
+```yaml
 config:
   - match:
       $tag:tag
@@ -514,14 +514,14 @@ This restriction will be removed with the configuration parser improvement.
 
 You can evaluate the Ruby code with `!fluent/s #{}` in `"` quoted string. This is useful for setting machine information e.g. hostname.
 
-```text
+```yaml
 host_param:  !fluent/s "#{Socket.gethostname}" # host_param is actual hostname like `webserver1`.
 env_param:  !fluent/s  "foo-#{ENV['FOO_BAR']}" # NOTE that foo-"#{ENV["FOO_BAR"]}" doesn't work.
 ```
 
 In YAML config format, `hostname` and `worker_id` shortcuts are also available:
 
-```text
+```yaml
 host_param: !fluent/s "#{hostname}"  # This is same with Socket.gethostname
 $id:        !fluent/s "out_foo#{worker_id}" # This is same with ENV["SERVERENGINE_WORKER_ID"]
 ```
@@ -530,14 +530,14 @@ The `worker_id` shortcut is useful under multiple workers. For example, for a se
 
 Helper methods `use_nil` and `use_default` are available:
 
-```text
+```yaml
 some_param:  !fluent/s "#{ENV['FOOBAR'] || use_nil}"     # Replace with nil if ENV["FOOBAR"] isn't set
 some_param:  !fluent/s "#{ENV['FOOBAR'] || use_default}" # Replace with the default value if ENV["FOOBAR"] isn't set
 ```
 
 Note that these methods not only replace the embedded Ruby code but the entire string with `nil` or a default value.
 
-```text
+```yaml
 some_path: !fluent/s "#{use_nil}/some/path" # some_path is nil, not "/some/path"
 ```
 
@@ -545,7 +545,7 @@ some_path: !fluent/s "#{use_nil}/some/path" # some_path is nil, not "/some/path"
 
 The backslash `\` is interpreted as an escape character. You need `\` for setting `"`, `\r`, `\n`, `\t`, `\` or several characters in double-quoted string literal.
 
-```text
+```yaml
 str_param:   "foo\nbar" # \n is interpreted as actual LF character
 ```
 
