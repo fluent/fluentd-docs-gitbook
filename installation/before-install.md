@@ -49,6 +49,10 @@ net.ipv4.tcp_max_syn_backlog = 8096
 net.ipv4.tcp_slow_start_after_idle = 0
 net.ipv4.tcp_tw_reuse = 1
 net.ipv4.ip_local_port_range = 10240 65535
+# If forward uses port 24224, reserve that port number for use as an ephemeral port.
+# If another port, e.g., monitor_agent uses port 24220, add a comma-separated list of port numbers.
+# net.ipv4.ip_local_reserved_ports = 24220,24224
+net.ipv4.ip_local_reserved_ports = 24224
 ```
 
 Use `sysctl -p` command or reboot your node for the changes to take effect.
