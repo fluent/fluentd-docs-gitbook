@@ -4,11 +4,12 @@ This article describes how to monitor Fluentd.
 
 ## Fluentd Metrics Monitoring
 
-Fluentd can expose internal metrics via REST API, and works with monitoring tools such as [`Prometheus`](https://prometheus.io/), [`Datadog`](https://www.datadoghq.com/), etc. Our recommendation is to use `Prometheus`, since we will be collaborating more in the future under the [CNCF \(Cloud Native Computing Foundation\)](https://www.cncf.io/).
+Fluentd can expose internal metrics via REST API, and works with monitoring tools such as [`Prometheus`](https://prometheus.io/), [`Datadog`](https://www.datadoghq.com/), [`New Relic`](https://one.newrelic.com/) etc. Our recommendation is to use `Prometheus`, since we will be collaborating more in the future under the [CNCF \(Cloud Native Computing Foundation\)](https://www.cncf.io/).
 
 * [Monitoring Fluentd \(Prometheus\)](monitoring-prometheus.md)
 * [Monitoring Fluentd \(Datadog\)](https://docs.datadoghq.com/integrations/fluentd/)
 * [Monitoring Fluentd \(REST API\)](monitoring-rest-api.md)
+* [Monitoring Fluentd \(New Relic\)](https://newrelic.com/instant-observability/fluentd-plugin-for-logs/f556df41-4cff-4e22-a4aa-e674e4d6ade8)
 
 ## Process Monitoring
 
