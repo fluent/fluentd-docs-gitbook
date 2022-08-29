@@ -2,7 +2,7 @@
 
 ## Supported Platforms
 
-[Treasure Data, Inc.](https://www.treasuredata.com) maintains stable packages for Fluentd and canonical plugins as Treasure Agent \(the package is called `td-agent`\). `td-agent` has v2, v3 and v4. [Calyptia, Inc.](https://calyptia.com/) maintains stable packages as Calyptia-fluentd as another option. Supported OS is the same as td-agent v4 currently.
+[ClearCode, Inc.](https://www.clear-code.com) maintains stable packages for Fluentd and canonical plugins as Treasure Agent \(the package is called `td-agent`\). `td-agent` has v2, v3 and v4. [Calyptia, Inc.](https://calyptia.com/) maintains stable packages as Calyptia-fluentd as another option. Supported OS is the same as td-agent v4 currently.
 
 | Platform | v2 | v3 | v4\(x86\_64\) | v4\(Arm64\) |
 | :--- | :---: | :---: | :---: | :---: |
@@ -55,5 +55,5 @@ This is for v0.12 and old distribution users. We don't recommend this version fo
 * [macOS](../installation/install-by-dmg.md)
 * [RubyGems](../installation/install-by-gem.md)
 
-If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open). [Fluentd](http://www.fluentd.org/) is an open-source project under [Cloud Native Computing Foundation \(CNCF\)](https://cncf.io/). All components are available under the Apache 2 License.
+If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open). [Fluentd](http://www.fluentd.org/) is an open-source project under [Cloud Native Computing Foundation \(CNCF\)](https://cncf.io/). All components are available under under [the Apache License 2.0.](https://www.apache.org/licenses/LICENSE-2.0)
 
