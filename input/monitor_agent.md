@@ -184,7 +184,7 @@ The following list shows the available query parameters:
 
 | Parameter | Value | Explanation |
 | :--- | :--- | :--- |
-| `debug` | Constant | Expose additional internal metrics |
+| `debug` | Constant | Expose additional internal metrics. Note that sensitive configuration value (password and so on) will be shown without obfuscating |
 | `with_ivars` | Variable names | Expose the specified instance variables of each plugin |
 | `with_config` | Boolean | Override the configuration option with\_config |
 | `with_retry` | Boolean | Override the configuration option with\_retry |
