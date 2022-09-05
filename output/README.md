@@ -163,7 +163,7 @@ Supported modes:
 
 * `throw_exception` \(default\)
 
-  This mode throws the`BufferOverflowError` exception to the input plugin. How `BufferOverflowError` is handled depends on the input plugins, e.g. tail input stops reading new lines, forward input returns an error to forward output. This action is suitable for streaming.
+  This mode throws the`BufferOverflowError` exception to the input plugin. How `BufferOverflowError` is handled depends on the input plugins, e.g. tail input stops reading new lines. This action is suitable for streaming.
 
 * `block`
 
