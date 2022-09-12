@@ -416,8 +416,8 @@ Example:
 
   <rule>
     match {
-        namespace: /shopping/,
-        podname: /frontend/,
+        "namespace": "/shopping/",
+        "podname": "/frontend/",
     }
     limit 1000
   </rule>
@@ -464,9 +464,9 @@ Grouping rules for log files.
 
 | type | default | version |
 | :--- | :--- | :--- |
-| hash | {"namespace": /./, "podname": /./} | 1.15 |
+| hash | {"namespace": "/./", "podname": "/./"} | 1.15 |
 
-`match` parameter is used to check if a file belongs to a particular group based on hash keys (named captures from `pattern`) and hash values (regexp)
+`match` parameter is used to check if a file belongs to a particular group based on hash keys (named captures from `pattern`) and hash values (regexp in string)
 
 ##### limit
 
