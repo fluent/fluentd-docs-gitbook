@@ -71,7 +71,7 @@ One of Fluentd's big strengths is it's ability to parse logs into a standardized
 
 **Suggestions:**
 
-* Use online tools such as [Rubular.com](https://rubular.com) and [fluentular](https://fluentular.com) with a sample of the log file as well as the regex. This will give you a clear example of what the end match groups will look like as well as allow you to validate Ruby timeformat.
+* Use online tools such as [Rubular.com](https://rubular.com) and [fluentular](https://fluentular.herokuapp.com/) with a sample of the log file as well as the regex. This will give you a clear example of what the end match groups will look like as well as allow you to validate Ruby timeformat.
 * Check existing parsers for well-known formats you may be able to use one of the parsers that Fluentd already includes [https://docs.fluentd.org/parser](https://docs.fluentd.org/parser). Note: you can also checkout [Fluent Bit parsers](https://github.com/fluent/fluent-bit/blob/master/conf/parsers.conf) for additional examples as both projects use Ruby regular expressions
 * Check multi-line logs have proper configuration settings. Multi-line logs need to have specific settings set in the parser to work properly, make sure these are all set.
 

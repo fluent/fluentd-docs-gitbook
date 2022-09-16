@@ -70,7 +70,7 @@ $ sudo systemctl status td-agent.service
 ● td-agent.service - td-agent: Fluentd based data collector for Treasure Data
    Loaded: loaded (/lib/systemd/system/td-agent.service; disabled; vendor preset: enabled)
    Active: active (running) since Thu 2017-12-07 15:12:27 PST; 6min ago
-     Docs: https://docs.treasuredata.com/articles/td-agent
+     Docs: https://docs.treasuredata.com/display/public/PD/Installing+td-agent+on+RHEL+and+CentOS
   Process: 53192 ExecStart = /opt/td-agent/embedded/bin/fluentd --log /var/log/td-agent/td-agent.log --daemon /var/run/td-agent/td-agent.pid (code = exited, statu
  Main PID: 53198 (fluentd)
    CGroup: /system.slice/td-agent.service
