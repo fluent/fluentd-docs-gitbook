@@ -224,6 +224,34 @@ You need admin privilege to execute `td-agent-gem` command. For upgrade users si
 
 This change is for fixing [CVE-2020-28169](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-28169).
 
+### Uninstall td-agent v3 being registered to Windows Service
+
+When you uninstall td-agent v3, you should take care to see if it is registered to Windows Service, since td-agent v3 doesn't automatically unregister itself.
+If it is registered, you must unregister it manually before uninstalling it.
+
+**NOTE**: If you uninstall td-agent v3 without unregistering it, the service remains after uninstalling and causes the v4 installation to fail.
+You need to reinstall td-agent v3 and unregister the service with the following steps.
+
+You can check if it is registered with the following Powershell command:
+
+```text
+PS> Get-Service fluentdwinsvc
+```
+
+You can unregister td-agent v3 with the following steps:
+
+* Stop the service with the following Powershell command:
+
+```text
+PS> Stop-Service fluentdwinsvc
+```
+
+* Open `Td-agent Command Prompt` with administrative privileges and type the following command:
+
+```text
+> fluentd --reg-winsvc u
+```
+
 ## `calyptia-fluentd` v1
 
 ### Step 1: Install `calyptia-fluentd`
