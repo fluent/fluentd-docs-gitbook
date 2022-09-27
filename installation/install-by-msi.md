@@ -115,7 +115,7 @@ The log file will be located at `C:/opt/td-agent/td-agent.log` as we specified i
 
 ### Step 6: Install Plugins
 
-Open `Td-agent Command Prompt` and use `fluent-gem` command:
+Open `Td-agent Command Prompt` and use `td-agent-gem` command:
 
 ```text
 C:\opt\td-agent> td-agent-gem install fluent-plugin-xyz --version=1.2.3
