@@ -202,7 +202,7 @@ By default, Fluentd does not rotate log files. You need to specify `rotate_age` 
 
 NOTE: When enabling log rotation on Windows, log files are separated into `log-supervisor-0.log`, `log-0.log`, ..., `log-N.log` where `N` is `generation - 1` due to the system limitation. Windows does not permit delete and rename files simultaneously owned by another process.
 
-Please see also [Log Rotation Setting](logging.md#Log-Rotation-Setting).
+Please see also [Log Rotation Setting](logging.md#log-rotation-setting).
 
 #### `rotate_size`
 
@@ -216,7 +216,7 @@ By default, Fluentd does not rotate log files. You need to specify `rotate_age` 
 
 NOTE: When enabling log rotation on Windows, log files are separated into `log-supervisor-0.log`, `log-0.log`, ..., `log-N.log` where `N` is `generation - 1` due to the system limitation. Windows does not permit delete and rename files simultaneously owned by another process.
 
-Please see also [Log Rotation Setting](logging.md#Log-Rotation-Setting).
+Please see also [Log Rotation Setting](logging.md#log-rotation-setting).
 
 #### `enable_input_metrics`
 
