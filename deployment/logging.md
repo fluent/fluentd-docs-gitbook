@@ -156,7 +156,25 @@ $ fluentd -o /path/to/log_file
 
 ### Log Rotation Setting
 
-By default, Fluentd does not rotate log files. You can configure this behavior via command-line options:
+By default, Fluentd does not rotate log files. You can configure this behavior via system-config after v1.13.0.
+
+It can be configured through `<log>` directive under `<system>`:
+
+```text
+<system>
+  <log>
+    rotate_age 5
+    rotate_size 1048576
+  </log>
+</system>
+```
+
+You need to specify [`rotate_age`](system-config.md#rotate_age) or [`rotate_size`](system-config.md#rotate_size) options explicitly to enable log rotation.
+
+NOTE: You can omit one of these 2 options to use the default value, but if you omit both of them, log rotation is disabled.
+Actually, an external library manages these default values, resulting in this complication.
+
+You can use command-line options too (mainly for before v1.13.0):
 
 #### `--log-rotate-age AGE`
 
