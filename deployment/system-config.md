@@ -198,6 +198,12 @@ Specifies time format.
 
 Specifies `daily`, `weekly`, `monthly` or integer which indicates age of log rotation.
 
+By default, Fluentd does not rotate log files. You need to specify `rotate_age` or `rotate_size` options explicitly to enable log rotation.
+
+NOTE: When enabling log rotation on Windows, log files are separated into `log-supervisor-0.log`, `log-0.log`, ..., `log-N.log` where `N` is `generation - 1` due to the system limitation. Windows does not permit delete and rename files simultaneously owned by another process.
+
+Please see also [Log Rotation Setting](logging.md#Log-Rotation-Setting).
+
 #### `rotate_size`
 
 | type | default | version |
@@ -205,6 +211,12 @@ Specifies `daily`, `weekly`, `monthly` or integer which indicates age of log rot
 | size | 1048576 | 1.13.0 |
 
 Specifies log file size limitation.
+
+By default, Fluentd does not rotate log files. You need to specify `rotate_age` or `rotate_size` options explicitly to enable log rotation.
+
+NOTE: When enabling log rotation on Windows, log files are separated into `log-supervisor-0.log`, `log-0.log`, ..., `log-N.log` where `N` is `generation - 1` due to the system limitation. Windows does not permit delete and rename files simultaneously owned by another process.
+
+Please see also [Log Rotation Setting](logging.md#Log-Rotation-Setting).
 
 #### `enable_input_metrics`
 
