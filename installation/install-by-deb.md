@@ -88,17 +88,19 @@ Use `/lib/systemd/system/td-agent` script to `start`, `stop`, or `restart` the a
 $ sudo systemctl start td-agent.service
 $ sudo systemctl status td-agent.service
 ● td-agent.service - td-agent: Fluentd based data collector for Treasure Data
-   Loaded: loaded (/lib/systemd/system/td-agent.service; disabled; vendor preset: enabled)
-   Active: active (running) since Thu 2017-12-07 15:12:27 PST; 6min ago
-     Docs: https://docs.treasuredata.com/display/public/PD/Installing+td-agent+on+Ubuntu+and+Debian
-  Process: 53192 ExecStart = /opt/td-agent/embedded/bin/fluentd --log /var/log/td-agent/td-agent.log --daemon /var/run/td-agent/td-agent.pid (code = exited, statu
- Main PID: 53198 (fluentd)
-   CGroup: /system.slice/td-agent.service
-           ├─53198 /opt/td-agent/embedded/bin/ruby /opt/td-agent/embedded/bin/fluentd --log /var/log/td-agent/td-agent.log --daemon /var/run/td-agent/td-agent
-           └─53203 /opt/td-agent/embedded/bin/ruby -Eascii-8bit:ascii-8bit /opt/td-agent/embedded/bin/fluentd --log /var/log/td-agent/td-agent.log --daemon /v
+    Loaded: loaded (/lib/systemd/system/td-agent.service; enabled; vendor preset: enabled)
+    Active: active (running) since Tue 2022-09-20 05:28:25 JST; 1 week 0 days ago
+      Docs: https://docs.treasuredata.com/display/public/PD/About+Treasure+Data%27s+Server-Side+Agent
+  Main PID: 2417 (fluentd)
+    Tasks: 8 (limit: 38328)
+    Memory: 52.2M
+      CPU: 56.868s
+    CGroup: /system.slice/td-agent.service
+            ├─2417 /opt/td-agent/bin/ruby /opt/td-agent/bin/fluentd --log /var/log/td-agent/td-agent.log --daemon /var/run/td-agent/td-agent.pid
+            └─2420 /opt/td-agent/bin/ruby -Eascii-8bit:ascii-8bit /opt/td-agent/bin/fluentd --log /var/log/td-agent/td-agent.log --daemon /var/run/td-agent/t>
 
-Dec 07 15:12:27 ubuntu systemd[1]: Starting td-agent: Fluentd based data collector for Treasure Data...
-Dec 07 15:12:27 ubuntu systemd[1]: Started td-agent: Fluentd based data collector for Treasure Data.
+Sept 9 20 05:28:24 Ryzen systemd[1]: Starting td-agent: Fluentd based data collector for Treasure Data...
+Sept 9 20 05:28:25 Ryzen systemd[1]: Started td-agent: Fluentd based data collector for Treasure Data.
 ```
 
 To customize `systemd` behavior, put your `td-agent.service` in `/etc/systemd/system`.
