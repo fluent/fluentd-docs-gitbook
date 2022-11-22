@@ -167,6 +167,17 @@ You can set positive value to send FIN on closing on non-Windows.
 </source>
 ```
 
+##### `send_keepalive_packet`
+
+| type | default | available transport type | version |
+| :--- | :--- | :--- | :--- |
+| bool | false | tcp, tls | 1.15.0 |
+
+Enable `SO_KEEPALIVE` on the underlying TCP sockets.
+
+This is useful when you connect to Fluentd over firewalls or proxies and
+want to prevent connections from being closed automatically.
+
 #### TLS configuration
 
 ```text
