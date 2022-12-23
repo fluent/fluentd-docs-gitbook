@@ -168,7 +168,7 @@ Force disable the shared socket which is for listening a same port across multip
 
 | type | default | version |
 | :--- | :--- | :--- |
-| bool | false | 1.15.1 |
+| bool | false | 1.15.2 |
 
 Enable JIT for worker processes. Internally, this configuration enables Ruby's `--jit` command-line option.
 
