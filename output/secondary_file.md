@@ -99,6 +99,16 @@ This makes parallel file processing easy. But if you want to disable this behavi
 dump.bin
 ```
 
+### `compress`
+
+| type | default | version |
+| :--- | :--- | :--- |
+| enum | text | 1.0.0 |
+
+Supported compress types: `text`, `gzip`
+
+When `gzip` is specified, `.gz` is automatically added to the output file path as its suffix.
+
 ## How to resend secondary file
 
 The secondary file can be resend by `fluent-cat` command.
