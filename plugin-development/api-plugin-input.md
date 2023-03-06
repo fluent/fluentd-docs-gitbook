@@ -114,6 +114,7 @@ Fluentd also provides the test drivers for plugins. You can write tests for your
 # test/plugin/test_in_your_own.rb
 
 require 'test/unit'
+require 'fluent/test'
 require 'fluent/test/driver/input'
 
 # Your own plugin
