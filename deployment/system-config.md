@@ -194,7 +194,7 @@ Specifies time format.
 
 | type | default | version |
 | :--- | :--- | :--- |
-| enum or integer | 5 | 1.13.0 |
+| enum or integer | 7 | 1.13.0 |
 
 Specifies `daily`, `weekly`, `monthly` or integer which indicates age of log rotation.
 
