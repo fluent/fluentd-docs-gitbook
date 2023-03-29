@@ -171,7 +171,7 @@ You can set positive value to send FIN on closing on non-Windows.
 
 | type | default | available transport type | version |
 | :--- | :--- | :--- | :--- |
-| bool | false | tcp, tls | 1.15.0 |
+| bool | false | tcp, tls | 1.16.0 |
 
 Enable `SO_KEEPALIVE` on the underlying TCP sockets.
 
