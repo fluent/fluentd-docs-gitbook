@@ -114,6 +114,32 @@ Here are the patterns when an unrecoverable error happens:
 
   moved to the backup directory.
 
+#### Detecting chunk file corruption when Fluentd starts up
+
+When starting up, Fluentd loads all remaining chunk files.
+
+Some chunk files are possibly corrupted after Fluentd stopped abnormally, such as due to a power failure.
+Since v1.16.0, those corrupted files are considered **unrecoverable** too and are moved to the backup directory at starting up of Fluentd.
+(Before v1.16.0, those files are just deleted.)
+
+Note that depending on how corrupt the file is, it may not be detected.
+In such cases, some corrupted data will flow to subsequent processes and cause unexpected errors.
+
+Since v1.16.0, in order to narrow down the range of data that possibly be corrupted, if corruption is detected in even one of the files,
+information on other files remaining at starting up is also output to the log.
+
+```
+[info]: #0 fluent/log.rb:330:info: starting fluentd worker pid=920781 ppid=920761 worker=0
+[error]: #0 [test_id] found broken chunk file during resume. path="/test/fluentd/buffer/buffer.b5f32232e76a4d1bdfdbeed36c384b03b.log" mode=:staged err_msg="staged meta file is broken. no implicit conversion of Symbol into Integer"
+[warn]: #0 [test_id] bad chunk is moved to /test/fluentd/forwarder/backup/worker0/test_id/5f32232e76a4d1bdfdbeed36c384b03b.log
+[info]: #0 [test_id] Since a broken chunk file was found, it is possible that other files remaining at the time of resuming were also broken. Here is the list of the files.
+[info]: #0 [test_id]   /test/fluentd/buffer/buffer.b5f32716d7292f8138b36fd759abf7207.log: created_at=2023-01-26 18:08:16 +0900 modified_at=2023-01-26 18:08:17 +0900
+[info]: #0 [test_id]   /test/fluentd/buffer/buffer.b5f32716d734618fef772d3ae48fd577a.log: created_at=2023-01-26 18:08:16 +0900 modified_at=2023-01-26 18:08:17 +0900
+[info]: #0 fluent/log.rb:330:info: fluentd worker is now running worker=0
+```
+
+If data corruption occurs due to an abnormal termination, please take the necessary recovery process based on these information.
+
 ### Configuration Example
 
 Following is a complete configuration that covers all the parameters controlling the retry behaviors:
