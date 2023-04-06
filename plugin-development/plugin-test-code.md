@@ -9,7 +9,6 @@ You can write test code with any other testing framework such as `RSpec`, `minit
 Fluentd provides useful Test Drivers according to plugin type. We can write maintainable test code for plugins using them. We can write helper.rb for output plugin as follows:
 
 ```ruby
-$LOAD_PATH.unshift(File.expand_path("../../", __FILE__))
 require "test-unit"
 require "fluent/test"
 require "fluent/test/driver/output"
