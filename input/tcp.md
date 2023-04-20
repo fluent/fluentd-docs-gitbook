@@ -133,6 +133,14 @@ You will get something like below:
 }
 ```
 
+### `message_length_limit`
+
+| type | default | version |
+| :--- | :--- | :--- |
+| size | nil \(no limit\) | 1.16.1 |
+
+The maximum number of bytes for the message.
+
 ### `<transport>` Section
 
 | type | default | available values | version |
