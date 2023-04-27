@@ -373,8 +373,9 @@ If only timestamp is different, configure `time_format` in `<parse>` may help.
 
 If other parts are different, the `syslog` parser cannot parse your message. To resolve the problem, there are several approaches:
 
-* Use `regex` parser or write your parser
-* Use `in_udp`/`in_tcp` with other parsers
+* Use `in_udp`/`in_tcp` with other parsers (recommended)
+* Use `regexp` parser or write your parser
+  * Note that `in_syslog` consumes the priority literal implicitly without `with_priority true` in parser configuration, so in parse side, it can't be extracted.
 
 ## Learn More
 
