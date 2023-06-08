@@ -76,7 +76,7 @@ The `@label` parameter is to route the input events to `<label>` sections, the s
   # ...
 </source>
 
-<label @access_log>
+<label @access_logs>
   <match **>
     @type file
     path ...
