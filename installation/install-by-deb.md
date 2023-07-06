@@ -49,6 +49,9 @@ For Ubuntu Bionic:
 ```bash
 # td-agent 4
 curl -fsSL https://toolbelt.treasuredata.com/sh/install-ubuntu-bionic-td-agent4.sh | sh
+```
+
+```bash
 # td-agent 3 (EOL)
 curl -fsSL https://toolbelt.treasuredata.com/sh/install-ubuntu-bionic-td-agent3.sh | sh
 ```
@@ -58,6 +61,9 @@ For Ubuntu Xenial:
 ```bash
 # td-agent 4
 curl -fsSL https://toolbelt.treasuredata.com/sh/install-ubuntu-xenial-td-agent4.sh | sh
+```
+
+```bash
 # td-agent 3 (EOL)
 curl -fsSL https://toolbelt.treasuredata.com/sh/install-ubuntu-xenial-td-agent3.sh | sh
 ```
@@ -74,6 +80,9 @@ For Debian Buster:
 ```bash
 # td-agent 4
 curl -fsSL https://toolbelt.treasuredata.com/sh/install-debian-buster-td-agent4.sh | sh
+```
+
+```bash
 # td-agent 3 (EOL)
 curl -fsSL https://toolbelt.treasuredata.com/sh/install-debian-buster-td-agent3.sh | sh
 ```

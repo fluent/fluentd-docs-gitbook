@@ -35,7 +35,9 @@ Download and execute the install script with `curl`:
 ```text
 # td-agent 4
 $ curl -L https://toolbelt.treasuredata.com/sh/install-redhat-td-agent4.sh | sh
+```
 
+```text
 # td-agent 3
 $ curl -L https://toolbelt.treasuredata.com/sh/install-redhat-td-agent3.sh | sh
 ```
@@ -51,7 +53,9 @@ For Amazon Linux 2:
 ```text
 # td-agent 4
 $ curl -L https://toolbelt.treasuredata.com/sh/install-amazon2-td-agent4.sh | sh
+```
 
+```text
 # td-agent 3
 $ curl -L https://toolbelt.treasuredata.com/sh/install-amazon2-td-agent3.sh | sh
 ```
