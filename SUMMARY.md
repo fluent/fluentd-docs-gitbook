@@ -17,6 +17,12 @@
   * [Install by Ruby Gem](installation/install-by-gem.md)
   * [Install from Source](installation/install-from-source.md)
   * [Post Installation Guide](installation/post-installation-guide.md)
+  * Obsolete Installation
+    * Treasure Agent v3 (EOL) Installation
+      * [Install by RPM Package v3 \(Red Hat Linux\)](installation/install-by-rpm-td-agent-v3.md)
+      * [Install by DEB Package v3 \(Debian/Ubuntu\)](installation/install-by-deb-td-agent-v3.md)
+      * [Install by .dmg Package v3 \(macOS\)](installation/install-by-dmg-td-agent-v3.md)
+      * [Install by .msi Installer v3 \(Windows\)](installation/install-by-msi-td-agent-v3.md)
 * [Configuration](configuration/README.md)
   * [Config File Syntax](configuration/config-file.md)
   * [Config File Syntax (YAML)](configuration/config-file-yaml.md)
