@@ -18,6 +18,8 @@ This installation guide is for `td-agent` v3/v4 and `calyptia-fluentd` v1. `td-a
 
 ## Installing `td-agent`
 
+NOTE: About deprecated [Treasure Agent (td-agent) 3 will not be maintained anymore](https://www.fluentd.org/blog/schedule-for-td-agent-3-eol), see [Install by DEB Package  v3](install-by-deb-td-agent-v3.md).
+
 ### Step 0: Before Installation
 
 Please follow the [Pre-installation Guide](before-install.md) to configure your OS properly.
@@ -51,21 +53,11 @@ For Ubuntu Bionic:
 curl -fsSL https://toolbelt.treasuredata.com/sh/install-ubuntu-bionic-td-agent4.sh | sh
 ```
 
-```bash
-# td-agent 3 (EOL)
-curl -fsSL https://toolbelt.treasuredata.com/sh/install-ubuntu-bionic-td-agent3.sh | sh
-```
-
 For Ubuntu Xenial:
 
 ```bash
 # td-agent 4
 curl -fsSL https://toolbelt.treasuredata.com/sh/install-ubuntu-xenial-td-agent4.sh | sh
-```
-
-```bash
-# td-agent 3 (EOL)
-curl -fsSL https://toolbelt.treasuredata.com/sh/install-ubuntu-xenial-td-agent3.sh | sh
 ```
 
 For Debian Bullseye:
@@ -80,11 +72,6 @@ For Debian Buster:
 ```bash
 # td-agent 4
 curl -fsSL https://toolbelt.treasuredata.com/sh/install-debian-buster-td-agent4.sh | sh
-```
-
-```bash
-# td-agent 3 (EOL)
-curl -fsSL https://toolbelt.treasuredata.com/sh/install-debian-buster-td-agent3.sh | sh
 ```
 
 ### Step 2: Launch Daemon
