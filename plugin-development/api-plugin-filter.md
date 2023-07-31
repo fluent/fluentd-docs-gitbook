@@ -43,7 +43,7 @@ end
 
 ## Methods
 
-A filter plugin overrides the one of `filter`/`filter_with_time`/`filter_steam` method.
+A filter plugin overrides the one of `filter`/`filter_with_time`/`filter_stream` method.
 
 #### `#filter(tag, time, record)`
 
@@ -83,7 +83,7 @@ def filter_with_time(tag, time, record)
 end
 ```
 
-#### `#filter_steam(tag, es)`
+#### `#filter_stream(tag, es)`
 
 This method implements the event stream based filtering logic. If you hard to implement the logic with `filter`, e.g. need to handle multiple records in one processing, use this method.
 
