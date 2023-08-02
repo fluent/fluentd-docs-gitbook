@@ -1,12 +1,12 @@
 # Install by .dmg Package \(macOS\)
 
-This article explains how to install `td-agent`, the stable Fluentd distribution package maintained by [Treasure Data, Inc](https://www.treasuredata.com/), on macOS.
+This article explains how to install stable versions of `fluent-package` dmg packages, the stable Fluentd distribution packages maintained by [Fluentd Project](https://www.fluentd.org/) and `calyptia-fluentd` which is maintained by [Calyptia, Inc.](https://www.calyptia.com/) on macOS.
 
-## What is `td-agent`?
+## What is `fluent-package`?
 
 Fluentd is written in Ruby for flexibility, with performance-sensitive parts in C. However, some users may have difficulty installing and operating a Ruby daemon.
 
-That is why [Treasure Data, Inc](http://www.treasuredata.com/) provides **the stable distribution of Fluentd**, called `td-agent`. The differences between Fluentd and `td-agent` can be found [here](https://www.fluentd.org/faqs).
+That is why [Fluentd Project](https://www.fluentd.org/) provides **the stable distribution of Fluentd**, called `fluent-package`. The differences between Fluentd and `fluent-package` can be found [here](https://www.fluentd.org/faqs).
 
 ## What is `calyptia-fluentd`?
 
@@ -16,59 +16,63 @@ That is why [Calyptia, Inc.](https://www.calyptia.com/) provides **the alternati
 
 For macOS, `td-agent` is distributed as `.dmg` installer.
 
-## `td-agent` v4
+## `fluent-package` v5
 
-NOTE: About deprecated [Treasure Agent (td-agent) 3 will not be maintained anymore](https://www.fluentd.org/blog/schedule-for-td-agent-3-eol), see [Install by .dmg Package \(macOS\)](install-by-dmg-td-agent-v3.md).
+NOTE:
 
-### Step 1: Install `td-agent`
+* About Treasure Agent (td-agent) v4, see [Install by .dmg Package \(macOS\)](install-by-dmg-td-agent-v4.md).
+* About deprecated [Treasure Agent (td-agent) 3 will not be maintained anymore](https://www.fluentd.org/blog/schedule-for-td-agent-3-eol), see [Install by DEB Package  v3](install-by-deb-td-agent-v3.md).
+* `fluent-package` will be shipped for **testing purpose only**. We plans to migrate to homebrew ecosystem in the future.
+
+### Step 1: Install `fluent-package`
 
 Download and install the `.dmg` package:
 
-* [td-agent v4](https://td-agent-package-browser.herokuapp.com/4/macosx)
+* [fluent-package v5](https://td-agent-package-browser.herokuapp.com/5/macosx)
 
 NOTE: If your OS is not supported, consider [gem installation](install-by-gem.md) instead.
 
-### Step 2: Launch `td-agent`
+### Step 2: Launch `fluentd`
 
-Use `launchctl` command to launch `td-agent`. Make sure that the daemon is started correctly. Checks logs \(`/var/log/td-agent/td-agent.log`\).
+Use `launchctl` command to launch `fluentd`. Make sure that the daemon is started correctly. Checks logs \(`/var/log/fluent/fluentd.log`\).
 
 ```text
-$ sudo launchctl load /Library/LaunchDaemons/td-agent.plist
-$ less /var/log/td-agent/td-agent.log
-2018-01-01 16:55:03 -0700 [info]: starting fluentd-1.0.2
-2018-01-01 16:55:03 -0700 [info]: reading config file path="/etc/td-agent/td-agent.conf"
+$ sudo launchctl load /Library/LaunchDaemons/fluentd.plist
+$ less /var/log/fluent/fluentd.log
+2023-08-01 16:55:03 -0700 [info]: starting fluentd-1.16.2
+2023-08-01 16:55:03 -0700 [info]: reading config file path="/etc/fluent/fluentd.conf"
 ```
 
-The configuration file is located at `/etc/td-agent/td-agent.conf` and the plugin directory is at `/etc/td-agent/plugin`.
+The configuration file is located at `/etc/fluent/fluentd.conf` and the plugin directory is at `/etc/fluent/plugin`.
 
 To stop the agent, run this command:
 
 ```text
-$ sudo launchctl unload /Library/LaunchDaemons/td-agent.plist
+$ sudo launchctl unload /Library/LaunchDaemons/fluentd.plist
 ```
 
 ### Step 3: Post Sample Logs via HTTP
 
-The default configuration \(`/etc/td-agent/td-agent.conf`\) is to receive logs at an HTTP endpoint and route them to `stdout`. For `td-agent` logs, see `/var/log/td-agent/td-agent.log`.
+The default configuration \(`/etc/fluent/fluentd.conf`\) is to receive logs at an HTTP endpoint and route them to `stdout`. For `fluentd` logs, see `/var/log/fluent/fluentd.log`.
 
 You can post sample log records with `curl` command:
 
 ```text
 $ curl -X POST -d 'json={"json":"message"}' http://localhost:8888/debug.test
-$ tail -n 1 /var/log/td-agent/td-agent.log
-2018-01-01 17:51:47 -0700 debug.test: {"json":"message"}
+$ tail -n 1 /var/log/fluent/fluentd.log
+2023-08-01 17:51:47 -0700 debug.test: {"json":"message"}
 ```
 
-### Uninstall td-agent
+### Uninstall fluent-package
 
-On macOS, `td-agent` does not provide any uninstallation app like `rpm` / `deb` on Ubuntu.
+On macOS, `fluent-package` does not provide any uninstallation app like `rpm` / `deb` on Ubuntu.
 
-To uninstall `td-agent` from macOS, remove these files / directories:
+To uninstall `fluent-package` from macOS, remove these files / directories:
 
-* `/Library/LaunchDaemons/td-agent.plist`
-* `/etc/td-agent`
-* `/opt/td-agent`
-* `/var/log/td-agent`
+* `/Library/LaunchDaemons/fluentd.plist`
+* `/etc/fluent`
+* `/opt/fluent`
+* `/var/log/fluent`
 
 ## `calyptia-fluentd` v1
 

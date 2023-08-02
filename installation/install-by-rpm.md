@@ -1,12 +1,12 @@
 # Install by RPM Package \(Red Hat Linux\)
 
-This article explains how to install the `td-agent` rpm package, the stable Fluentd distribution package maintained by [Treasure Data, Inc](http://www.treasuredata.com/).
+This article explains how to install stable versions of `fluent-package` rpm packages, the stable Fluentd distribution packages maintained by [Fluentd Project](https://www.fluentd.org/) and `calyptia-fluentd` which is maintained by [Calyptia, Inc.](https://www.calyptia.com/).
 
-## What is `td-agent`?
+## What is `fluent-package`?
 
 Fluentd is written in Ruby for flexibility, with performance-sensitive parts in C. However, some users may have difficulty installing and operating a Ruby daemon.
 
-That is why [Treasure Data, Inc](http://www.treasuredata.com/) provides **the stable distribution of Fluentd**, called `td-agent`. The differences between Fluentd and `td-agent` can be found [here](https://www.fluentd.org/faqs).
+That is why [Fluentd Project](https://www.fluentd.org/) provides **the stable distribution of Fluentd**, called `fluent-package` (formerly known as `td-agent`). The differences between Fluentd and `fluent-package` can be found [here](https://www.fluentd.org/faqs).
 
 ## What is `calyptia-fluentd`?
 
@@ -14,11 +14,16 @@ Our Calyptia also knows that Fluentd is written in Ruby for flexibility, with pe
 
 That is why [Calyptia, Inc.](https://www.calyptia.com/) provides **the alternative stable distribution of Fluentd**, called `calyptia-fluentd`. The differences between `td-agent` and `calyptia-fluentd` are bundled and running Ruby versions for now.
 
-This installation guide is for `td-agent` v3/v4 and `calyptia-fluentd` v1. `td-agent` v3/v4 and `calyptia-fluentd` use fluentd v1 in the core. See [this page](../quickstart/td-agent-v2-vs-v3-vs-v4.md) for the comparison and supported OS.
+This installation guide is for `fluent-package` v5 and `calyptia-fluentd` v1. `fluent-package` v5 and `calyptia-fluentd` use fluentd v1 in the core. See [fluent-package-v5-vs-td-agent](../quickstart/fluent-package-v5-vs-td-agent.md) or [td-agent-v2-vs-v3-vs-v4](../quickstart/td-agent-v2-vs-v3-vs-v4.md) for the comparison and supported OS.
 
-## Using to install `td-agent`
+## Using to install `fluent-packge`
 
-NOTE: About deprecated [Treasure Agent (td-agent) 3 will not be maintained anymore](https://www.fluentd.org/blog/schedule-for-td-agent-3-eol), see [Install by RPM Package  v3](install-by-rpm-td-agent-v3.md).
+NOTE:
+
+* About Treasure Agent (td-agent) v4, See [Install by RPM Package v4](install-by-rpm-td-agent-v4.md).
+* About deprecated [Treasure Agent (td-agent) 3 will not be maintained anymore](https://www.fluentd.org/blog/schedule-for-td-agent-3-eol), see [Install by DEB Package  v3](install-by-deb-td-agent-v3.md).
+* `fluent-package` will be shipped in two flavors - normal release version and LTS (Long Term Support) version. See [Scheduled support lifecycle announcement about Fluent Package](https://www.fluentd.org/blog/fluent-package-scheduled-lifecycle) about difference between this two flavors.
+* If you upgrade from `td-agent` v4, See [Upgrade to fluent-package v5](https://www.fluentd.org/blog/upgrade-td-agent-v4-to-v5).
 
 ### Step 0: Before Installation
 
@@ -35,89 +40,78 @@ NOTE: If your OS is not supported, consider [gem installation](install-by-gem.md
 Download and execute the install script with `curl`:
 
 ```text
-# td-agent 4
-$ curl -L https://toolbelt.treasuredata.com/sh/install-redhat-td-agent4.sh | sh
+# fluent-package 5 (LTS)
+$ curl -fsSL https://toolbelt.treasuredata.com/sh/install-redhat-fluent-package5-lts.sh | sh
 ```
 
-Executing this script will automatically install `td-agent` on your machine. This shell script registers a new `rpm` repository at `/etc/yum.repos.d/td.repo` and installs `td-agent`.
+```text
+# fluent-package 5
+$ curl -fsSL https://toolbelt.treasuredata.com/sh/install-redhat-fluent-package5.sh | sh
+```
 
-We use `$releasever` for repository path in the script and `$releasever` should be the major version only like `"7"`. If your environment uses some other format like `"7.2"`, change it to the major version only or set up TD repository manually.
+Executing this script will automatically install `fluent-package` on your machine. This shell script registers a new `rpm` repository at `/etc/yum.repos.d/fluent-package.repo` (or `/etc/yum.repos.d/fluent-package-lts.repo`) and installs `fluent-package`.
+
+We use `$releasever` for repository path in the script and `$releasever` should be the major version only like `"7"`. If your environment uses some other format like `"7.2"`, change it to the major version only or set up .repo file manually.
 
 #### Amazon Linux
+
+For Amazon Linux 2023:
+
+```text
+# fluent-package 5 (LTS)
+$ curl -fsSL https://toolbelt.treasuredata.com/sh/install-amazon2023-fluent-package5-lts.sh | sh
+```
+
+```text
+# fluent-package 5
+$ curl -fsSL https://toolbelt.treasuredata.com/sh/install-amazon2023-fluent-package5.sh | sh
+```
 
 For Amazon Linux 2:
 
 ```text
-# td-agent 4
-$ curl -L https://toolbelt.treasuredata.com/sh/install-amazon2-td-agent4.sh | sh
+# fluent-package 5 (LTS)
+$ curl -fsSL https://toolbelt.treasuredata.com/sh/install-amazon2-fluent-package5-lts.sh | sh
+```
+
+```text
+# fluent-package 5
+$ curl -fsSL https://toolbelt.treasuredata.com/sh/install-amazon2-fluent-package5.sh | sh
 ```
 
 ### Step 2: Launch Daemon
 
-`td-agent` provides two \(2\) scripts:
-
-#### `systemd`
-
-Use `/usr/lib/systemd/system/td-agent` script to `start`, `stop`, or `restart` the agent:
+Use `/usr/lib/systemd/system/fluentd` service to `start`, `stop`, or `restart` the agent:
 
 ```text
-$ sudo systemctl start td-agent.service
-$ sudo systemctl status td-agent.service
-● td-agent.service - td-agent: Fluentd based data collector for Treasure Data
-   Loaded: loaded (/usr/lib/systemd/system/td-agent.service; enabled; vendor preset: disabled)
-   Active: active (running) since Tue 2022-09-27 06:14:36 UTC; 1s ago
-     Docs: https://docs.treasuredata.com/display/public/PD/About+Treasure+Data%27s+Server-Side+Agent
-  Process: 33953 ExecStart=/opt/td-agent/bin/fluentd --log $TD_AGENT_LOG_FILE --daemon /var/run/td-agent/td-agent.pid $TD_AGENT_OPTIONS (code=exited, status=0>
- Main PID: 33959 (fluentd)
-    Tasks: 10 (limit: 4958)
-   Memory: 78.1M
-   CGroup: /system.slice/td-agent.service
-           ├─33959 /opt/td-agent/bin/ruby /opt/td-agent/bin/fluentd --log /var/log/td-agent/td-agent.log --daemon /var/run/td-agent/td-agent.pid
-           └─33962 /opt/td-agent/bin/ruby -Eascii-8bit:ascii-8bit /opt/td-agent/bin/fluentd --log /var/log/td-agent/td-agent.log --daemon /var/run/td-agent/td>
+$ sudo systemctl start fluentd.service
+$ sudo systemctl status fluentd.service
+* fluentd.service - fluentd: All in one package of Fluentd
+   Loaded: loaded (/usr/lib/systemd/system/fluentd.service; enabled; vendor preset: disabled)
+   Active: active (running) since Wed 2023-08-02 05:35:16 UTC; 41s ago
+     Docs: https://docs.fluentd.org/
+  Process: 1901 ExecStart=/opt/fluent/bin/fluentd --log $FLUENT_PACKAGE_LOG_FILE --daemon /var/run/fluent/fluentd.pid $FLUENT_PACKAGE_OPTIONS (code=exited, status=0/SUCCESS)
+ Main PID: 1907 (fluentd)
+   CGroup: /system.slice/fluentd.service
+           |-1907 /opt/fluent/bin/ruby /opt/fluent/bin/fluentd --log /var/log/fluent/fluentd.log --daemon /var/run/fluent/fluentd.pid
+           `-1910 /opt/fluent/bin/ruby -Eascii-8bit:ascii-8bit /opt/fluent/bin/fluentd --log /var/log/fluent/fluentd.log --daemon /var/ru...
+
 ```
 
-To customize `systemd` behavior, put your `td-agent.service` in `/etc/systemd/system`.
+To customize `systemd` behavior, put your `fluentd.service` in `/etc/systemd/system`.
 
-NOTE: In `td-agent` 4, the path is different i.e. `/opt/td-agent/bin` instead of `/opt/td-agent/embedded/bin`.
-
-#### `init.d`
-
-This is for CentOS 6, non-`systemd` based system.
-
-Use `/etc/init.d/td-agent` script to `start`, `stop`, or `restart` the agent:
-
-```text
-$ sudo /etc/init.d/td-agent start
-Starting td-agent: [  OK  ]
-$ sudo /etc/init.d/td-agent status
-td-agent (pid  21678) is running...
-```
-
-The following commands are supported:
-
-```text
-$ sudo /etc/init.d/td-agent start
-$ sudo /etc/init.d/td-agent stop
-$ sudo /etc/init.d/td-agent restart
-$ sudo /etc/init.d/td-agent status
-```
-
-Please make sure your configuration file path is:
-
-```text
-/etc/td-agent/td-agent.conf
-```
+NOTE: In `fluent-package` v5, the path is different i.e. `/opt/fluent/bin` instead of `/opt/td-agent/bin`.
 
 ### Step 3: Post Sample Logs via HTTP
 
-The default configuration \(`/etc/td-agent/td-agent.conf`\) is to receive logs at an HTTP endpoint and route them to `stdout`. For `td-agent` logs, see `/var/log/td-agent/td-agent.log`.
+The default configuration \(`/etc/fluent/fluentd.conf`\) is to receive logs at an HTTP endpoint and route them to `stdout`. For `fluentd` logs, see `/var/log/fluent/fluentd.log`.
 
 You can post sample log records with `curl` command:
 
 ```text
 $ curl -X POST -d 'json={"json":"message"}' http://localhost:8888/debug.test
-$ tail -n 1 /var/log/td-agent/td-agent.log
-2018-01-01 17:51:47 -0700 debug.test: {"json":"message"}
+$ tail -n 1 /var/log/fluent/fluentd.log
+2023-08-02 05:37:29.185634777 +0000 debug.test: {"json":"message"}
 ```
 
 ## Using to install `calyptia-fluentd`

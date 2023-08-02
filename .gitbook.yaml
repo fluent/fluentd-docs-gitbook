@@ -25,6 +25,10 @@ redirects:
   v1.0/articles/before-install: install/before-install.md
   v1.0/articles/install-by-gem: install/install-by-gem.md
   v1.0/articles/install-by-deb: install/install-by-deb.md
+  v1.0/articles/install-by-dmg-td-agent-v4: install/install-by-dmg-td-agent-v4.md
+  v1.0/articles/install-by-msi-td-agent-v4: install/install-by-msi-td-agent-v4.md
+  v1.0/articles/install-by-rpm-td-agent-v4: install/install-by-rpm-td-agent-v4.md
+  v1.0/articles/install-by-deb-td-agent-v4: install/install-by-deb-td-agent-v4.md
   v1.0/articles/install-by-dmg-td-agent-v3: install/install-by-dmg-td-agent-v3.md
   v1.0/articles/install-by-msi-td-agent-v3: install/install-by-msi-td-agent-v3.md
   v1.0/articles/install-by-rpm-td-agent-v3: install/install-by-rpm-td-agent-v3.md
