@@ -1,10 +1,10 @@
 # Support
 
-## Mailing List \(Google Groups\)
+## Community Forum \(GitHub Discussions\)
 
-Got a question? Have some cool Fluentd-related projects? The mailing list is the place to be:
+Got a question? Have some cool Fluentd-related projects? The GitHub discussion is the place to be:
 
-* [Mailing List](https://groups.google.com/forum/#!forum/fluentd)
+* [Fluentd Discussions](https://github.com/fluent/fluentd/discussions)
 
 ## Slack
 
