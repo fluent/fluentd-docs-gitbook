@@ -9,8 +9,8 @@ If you need additional help we also recommend the following options
 **Community Support**
 
 * [Fluent Slack Channel](https://slack.fluentd.org)
-* [Fluentd Google Group](https://groups.google.com/g/fluentd)
-* [Fluentd GitHub](https://github.com/fluent/fluentd)
+* [Fluentd GitHub Discussions](https://github.com/fluent/fluentd/discussions)
+* [Fluentd GitHub Issues](https://github.com/fluent/fluentd/issues)
 
 **Enterprise Support**
 
