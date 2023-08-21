@@ -125,7 +125,7 @@ Fluentd manages plugins as Ruby gems but stores them in their dedicated director
 A special program `fluent-gem` is used to manage plugin gems. For example, the following command installs a plugin to connect to S3 \(including both `in_s3` and `out_s3` plugins\):
 
 ```text
- $ sudo /usr/sbin/fluent-gem install fluent-plugin-s3
+ $ sudo fluent-gem install fluent-plugin-s3
 ```
 
 #### `td-agent`
