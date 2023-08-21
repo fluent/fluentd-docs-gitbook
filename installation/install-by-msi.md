@@ -86,8 +86,8 @@ Now `fluentd` starts listening to Windows Eventlog, and will print records to st
 
 ### Step 5: Run `fluentd` as Windows service
 
-Since version 5.0.0, `fluentd` is registered as a Windows service permanently by the msi installer,
-but not enabled by default. You must start `fluentd` service manually.
+Fluentd is registered as a Windows service permanently by the msi installer.
+Since version 5.0.0, the service does not automatically start after installed. You must manually start it.
 
 Choose one of your preferred way:
 
