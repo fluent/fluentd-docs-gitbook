@@ -26,7 +26,7 @@ $ sudo systemctl restart fluentd
 
 #### Logging
 
-By default, `td-agent` writes its operation logs to the following file:
+By default, Fluentd writes its operation logs to the following file:
 
 ```text
 /var/log/fluent/fluentd.log
