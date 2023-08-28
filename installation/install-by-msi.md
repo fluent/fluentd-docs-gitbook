@@ -16,7 +16,7 @@ Currently two versions of distributions are available.
 
 NOTE:
 
-* About `td-agent` v4, See [Install by .msi Installer v4 (Windows)](install-by-msi-td-agent-v4.html).
+* About `td-agent` v4, See [Install by .msi Installer v4 (Windows)](install-by-msi-td-agent-v4.md).
 * About deprecated [Treasure Agent (td-agent) 3 will not be maintained anymore](https://www.fluentd.org/blog/schedule-for-td-agent-3-eol), see [Install by msi Package  v3](install-by-msi-td-agent-v3.md).
 
 ## What is `calyptia-fluentd`?
