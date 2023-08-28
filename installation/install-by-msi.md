@@ -1,21 +1,23 @@
 # Install by .msi Installer \(Windows\)
 
-The recommended way to install Fluentd on Windows is to use MSI installers of `td-agent`.
+The recommended way to install Fluentd on Windows is to use MSI installers of `fluent-package`.
 
-## What is `td-agent`?
+## What is `fluent-package`?
 
-`td-agent` is a packaged distribution of Fluentd.
+`fluent-package` is a packaged distribution of Fluentd which is formerly known as `td-agent`.
 
 * Includes Ruby and other library dependencies \(since most Windows machines don't have them installed\).
 * Includes a set of commonly-used 3rd-party plugins such as `out_es`.
-* Originally developed by [Treasure Data, Inc](http://www.treasuredata.com/) \(hence the name\).
 
-Currently two versions of `td-agent` are available.
+Currently two versions of distributions are available.
 
-* `td-agent` v4 packages Fluentd 1.11.x \(or later\). This version is recommended.
-* `td-agent` v3 packages Fluentd 1.10.x \(or below\).
+* `fluent-package` v5 package \(Fluentd 1.16.2 or later\). This version is recommended.
+* `td-agent` v4 package \(Fluentd 1.16.1 or below\).
 
-NOTE: About deprecated [Treasure Agent (td-agent) 3 will not be maintained anymore](https://www.fluentd.org/blog/schedule-for-td-agent-3-eol), see [Install by msi Package  v3](install-by-msi-td-agent-v3.md).
+NOTE:
+
+* About `td-agent` v4, See [Install by .msi Installer v4 (Windows)](install-by-msi-td-agent-v4.html).
+* About deprecated [Treasure Agent (td-agent) 3 will not be maintained anymore](https://www.fluentd.org/blog/schedule-for-td-agent-3-eol), see [Install by msi Package  v3](install-by-msi-td-agent-v3.md).
 
 ## What is `calyptia-fluentd`?
 
@@ -29,23 +31,18 @@ Currently, calyptia-fluentd is on v1 only.
 
 * `calyptia-fluentd` v1 packages Fluentd 1.12.x \(or later\).
 
-## `td-agent` v4
+## `fluent-package` v5
 
-### Step 1: Install `td-agent`
+### Step 1: Install `fluent-package`
 
-Download the latest MSI installer from [the download page](https://td-agent-package-browser.herokuapp.com/4/windows). Run the installer and follow the wizard.
+Download the latest MSI installer from [the download page](https://td-agent-package-browser.herokuapp.com/5/windows). Run the installer and follow the wizard.
+If you want to use Long Term Support version, use [LTS](https://td-agent-package-browser.herokuapp.com/lts/5/windows).
 
-![td-agent installation wizard](../.gitbook/assets/td-agent4-wizard.png)
+![fluent-package installation wizard](../.gitbook/assets/fluent-package5-wizard.png)
 
-Alternatively `td-agent` can be installed with [winget](https://www.microsoft.com/en-us/p/app-installer/9nblggh4nns1):
+### Step 2: Set up `fluentd.conf`
 
-```text
-> winget install td-agent
-```
-
-### Step 2: Set up `td-agent.conf`
-
-Open `C:/opt/td-agent/etc/td-agent/td-agent.conf` with a text editor. Replace the configuration with the following content:
+Open `C:/opt/fluent/etc/fluent/fluentd.conf` with a text editor. Replace the configuration with the following content:
 
 ```text
 <source>
@@ -58,7 +55,7 @@ Open `C:/opt/td-agent/etc/td-agent/td-agent.conf` with a text editor. Replace th
   <storage>
     @type local
     persistent true
-    path C:\opt\td-agent\winlog.json
+    path C:\opt\fluent\winlog.json
   </storage>
 </source>
 
@@ -67,29 +64,36 @@ Open `C:/opt/td-agent/etc/td-agent/td-agent.conf` with a text editor. Replace th
 </match>
 ```
 
-### Step 3: Launch Td-agent Command Prompt
+### Step 3: Launch Fluent Package Command Prompt with Administrator privilege
 
-Open Windows Start menu, and search `Td-agent Command Prompt`. In most environments, the program will be found right under the "Recently Added" section.
+Open Windows Start menu, and search `Fluent Package Command Prompt`. In most environments, the program will be found right under the "Recently Added" section or "Best match" section.
 
-![Windows start menu and Td-agent Command Prompt](../.gitbook/assets/td-agent4-menu.png)
+![Windows start menu and Fluent Package Command Prompt](../.gitbook/assets/fluent-package5-menu.png)
 
-`Td-agent Command Prompt` is basically `cmd.exe`, with a few PATH tweaks for `td-agent` programs. Use this program whenever you need to interact with `td-agent`.
+`Fluent Package Command Prompt` is basically `cmd.exe`, with a few PATH tweaks for Fluentd programs. Use this program whenever you need to interact with Fluentd.
 
-### Step 4: Run `td-agent`
+### Step 4: Run `fluentd`
 
-Type the following command into `Td-agent Command Prompt`:
+Type the following command into `Fluent Package Command Prompt` with Administrator privilege:
 
 ```text
-C:\opt\td-agent> td-agent
+C:\opt\fluent> fluentd
 ```
 
-Now `td-agent` starts listening to Windows Eventlog, and will print records to stdout as they occur.
+Now `fluentd` starts listening to Windows Eventlog, and will print records to stdout as they occur.
 
-![Td-agent Command Prompt](../.gitbook/assets/td-agent4-prompt.png)
+![Fluent Package Command Prompt](../.gitbook/assets/fluent-package5-prompt.png)
 
-### Step 5: Run `td-agent` as Windows service
+### Step 5: Run `fluentd` as Windows service
 
-Since version 4.0.0, `td-agent` is registered as a Windows service permanently by the msi installer. You can start `td-agent` service manually.
+Fluentd is registered as a Windows service permanently by the msi installer.
+Since version 5.0.0, the service does not automatically start after installed. You must manually start it.
+
+Choose one of your preferred way:
+
+* Using GUI
+* Using `net.ext`
+* Using Powershell Cmdlet
 
 #### Using GUI
 
@@ -113,14 +117,14 @@ PS> Start-Service fluentdwinsvc
 
 Note that using `fluentdwinsvc` is needed to start Fluentd service from the command-line. `fluentdwinsvc` is the service name and it should be passed to `net.exe` or `Start-Service` Cmdlet.
 
-The log file will be located at `C:/opt/td-agent/td-agent.log` as we specified in Step 3.
+The log file will be located at `C:/opt/fluent/fluentd.log` as we specified in Step 3.
 
 ### Step 6: Install Plugins
 
-Open `Td-agent Command Prompt` and use `td-agent-gem` command:
+Open `Fluent Package Command Prompt` and use `fluent-gem` command:
 
 ```text
-C:\opt\td-agent> td-agent-gem install fluent-plugin-xyz --version=1.2.3
+C:\opt\fluent> fluent-gem install fluent-plugin-xyz --version=1.2.3
 ```
 
 ## `calyptia-fluentd` v1
