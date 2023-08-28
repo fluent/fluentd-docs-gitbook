@@ -1,8 +1,38 @@
 # Post Installation Guide
 
-This article discusses the post-installation steps for new Fluentd users assuming that Fluentd has been installed using the `td-agent` package.
+This article discusses the post-installation steps for new Fluentd users assuming that Fluentd has been installed using the `fluent-package`, `td-agent` and `calyptia-fluentd` package.
 
 ## System Administration
+
+### For `fluent-package`
+
+#### Configuration File
+
+After successful installation, a `fluent-package` instance will be up and running with a predefined template configuration file.
+
+The default path for this configuration file is:
+
+```text
+/etc/fluent/fluentd.conf
+```
+
+You may edit this configuration file according to your own use case.
+
+After editing the configuration file, restart `fluentd` using `systemctl` command:
+
+```text
+$ sudo systemctl restart fluentd
+```
+
+#### Logging
+
+By default, Fluentd writes its operation logs to the following file:
+
+```text
+/var/log/fluent/fluentd.log
+```
+
+For more verbose logs, read the article on [Troubleshooting](../deployment/trouble-shooting.md).
 
 ### For `td-agent`
 
@@ -89,6 +119,14 @@ The following configuration uses the `in_forward` plugin as an input source and 
 ### Plugin Management
 
 Fluentd manages plugins as Ruby gems but stores them in their dedicated directory separated from the normal Ruby gems.
+
+#### `fluent-package`
+
+A special program `fluent-gem` is used to manage plugin gems. For example, the following command installs a plugin to connect to S3 \(including both `in_s3` and `out_s3` plugins\):
+
+```text
+ $ sudo fluent-gem install fluent-plugin-s3
+```
 
 #### `td-agent`
 
