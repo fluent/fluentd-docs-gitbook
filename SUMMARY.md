@@ -8,6 +8,7 @@
   * [FAQ](quickstart/faq.md)
   * [Logo](quickstart/logo.md)
   * [td-agent v2 vs v3 vs v4](quickstart/td-agent-v2-vs-v3-vs-v4.md)
+  * [fluent-package v5 vs td-agent v4](quickstart/fluent-package-v5-vs-td-agent.md)
 * [Installation](installation/README.md)
   * [Before Installation](installation/before-install.md)
   * [Install by RPM Package \(Red Hat Linux\)](installation/install-by-rpm.md)
