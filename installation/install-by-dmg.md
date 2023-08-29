@@ -22,7 +22,9 @@ NOTE:
 
 * About Treasure Agent (td-agent) v4, see [Install by .dmg Package \(macOS\)](install-by-dmg-td-agent-v4.md).
 * About deprecated [Treasure Agent (td-agent) 3 will not be maintained anymore](https://www.fluentd.org/blog/schedule-for-td-agent-3-eol), see [Install by DEB Package  v3](install-by-deb-td-agent-v3.md).
-* `fluent-package` will be shipped for **testing purpose only**. We plans to migrate to homebrew ecosystem in the future.
+* `fluent-package` is not be shipped yet, we plan to migrate to homebrew ecosystem in the future.
+
+<!-- Revise instructions when fluent-package with homebrew was released
 
 ### Step 1: Install `fluent-package`
 
@@ -73,6 +75,8 @@ To uninstall `fluent-package` from macOS, remove these files / directories:
 * `/etc/fluent`
 * `/opt/fluent`
 * `/var/log/fluent`
+
+-->
 
 ## `calyptia-fluentd` v1
 
