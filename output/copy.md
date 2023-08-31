@@ -149,9 +149,9 @@ If plugin1's emit/format raises an error, plugin2 is not executed. If you want t
 </match>
 ```
 
-### `ignore_if_prev_successes` argument
+### `ignore_if_prev_success` argument
 
-Since Fluentd v1.12.2, you can use `ignore_if_prev_successes` to define fallback outputs. For example:
+Since Fluentd v1.12.2, you can use `ignore_if_prev_success` to define fallback outputs. For example:
 
 ```text
 <match app.**>
