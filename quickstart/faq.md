@@ -2,13 +2,10 @@
 
 ## Which version of Ruby does `fluentd` support?
 
-Latest fluentd works on Ruby 2.4 or later.
+Latest fluentd works on Ruby 2.5 or later.
 
-If you want to run fluentd on ruby 2.3 or earlier, use fluentd 1.8 or earlier versions.
-
-### When will `td-agent` be released with Fluentd v1?
-
-Use td-agent 3. It includes v1.
+Though the minimum required version is Ruby 2.5 or later, we recommend using `fluentd` with more
+newer stable version.
 
 ## What is the difference between v1 or v0.14?
 
@@ -20,9 +17,9 @@ No difference. v1 is built on top of v0.14. Use v1 for a newer installation. We 
 
 The timestamps of Fluentd and its logger libraries depend on your system's clock. It is highly recommended that you set up NTP on your nodes so that your clocks remain synced with the correct clocks.
 
-### I installed `td-agent` and want to add custom plugins. How do I do it?
+### I installed `td-agent`/`fluent-package` and want to add custom plugins. How do I do it?
 
-Use td-agent bundled gem. See [this section](../deployment/plugin-management.md) for more information.
+Use the bundled gem system. See [this section](../deployment/plugin-management.md) for more information.
 
 ### How can I match \(send\) an event to multiple outputs?
 
@@ -56,7 +53,7 @@ If you get other errors, Google it.
 
 ### fluentd raises `tzinfo` conflict error after installed plugins
 
-Fluentd supports tzinfo v1.1 or later and recent td-agent / official images install tzinfo v2 by default. The problem is several plugins depend on ActiveSupport and ActiveSupport doesn't support tzinfo v2. To resolve this problem, there are 2 approaches.
+Fluentd supports tzinfo v1.1 or later and recent td-agent / fluent-package / official images install tzinfo v2 by default. The problem is several plugins depend on ActiveSupport and ActiveSupport doesn't support tzinfo v2. To resolve this problem, there are 2 approaches.
 
 * Uninstall tzinfo v2 and install tzinfo v1.1 manually
 * Update plugin to remove ActiveSupport dependency. ActiveSupport is mainly for Ruby on Rails,
