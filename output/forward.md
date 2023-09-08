@@ -333,6 +333,11 @@ Allows self-signed certificates or not.
 
 Verifies hostname of servers and certificates or not in TLS transport.
 
+If the following conditions are met, you must set `tls_verify_hostname false` explicitly to forward events correctly:
+
+* specify `host` in `<server>` section with IP address, not hostname
+* specify server certificate file with `tls_cert_path` which contains common name (CN) field with IP address, not hostname
+
 ### `tls_cert_path`
 
 | type | default | version |
