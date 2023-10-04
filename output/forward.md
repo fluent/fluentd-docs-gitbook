@@ -484,7 +484,7 @@ If you have set up [TLS/SSL encryption](../input/forward.md#how-to-enable-tls/ss
 </match>
 ```
 
-If you are using a self-singed certificate, copy the certificate file to the forwarding server, then add the following settings:
+If you are using a self-signed certificate, copy the certificate file to the forwarding server, then add the following settings:
 
 ```text
 <match debug.**>
