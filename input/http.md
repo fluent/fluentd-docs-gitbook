@@ -22,12 +22,14 @@ For the full list of the configurable options, see the [Parameters](http.md#para
 
 ## Basic Usage
 
-Here is a simple example to post a record using `curl`.
+Here is a simple example to post a record using `curl`, which uses the default Content-Type `application/x-www-form-urlencoded`
 
 ```text
 # Post a record with the tag "app.log"
 $ curl -X POST -d 'json={"foo":"bar"}' http://localhost:9880/app.log
 ```
+
+**For more details regarding the message body syntax and `Content-Type` see [How to use HTTP Content-Type Header](http.md#how-to-use-http-content-type-header)**
 
 By default, timestamps are assigned to each record on arrival. You can override the timestamp using the `time` parameter:
 
@@ -48,6 +50,7 @@ var req = new XMLHttpRequest();
 req.open('POST', 'http://localhost:9880/debug.log');
 req.send(form);
 ```
+
 
 For more advanced usage, please read the [Tips and Tricks](http.md#tips-and-tricks) section.
 
@@ -225,7 +228,12 @@ $ curl -X POST -d "msgpack=$msgpack" http://localhost:9880/app.log
 
 ### How to use HTTP Content-Type header?
 
-`in_http` plugin recognizes HTTP `Content-Type` header in the incoming requests. For example, you can send a JSON payload without the `json=` prefix:
+`in_http` plugin recognizes HTTP `Content-Type` header in the incoming requests.
+
+By default `curl` uses `-H "Content-Type: application/x-www-form-urlencoded"`, which allows the use of the syntax `json=` and `msgpack=` as seen on the previous examples.
+ 
+
+However, you can send a JSON payload without the `json=` prefix by setting the content type `application/json`:
 
 ```text
 $ curl -X POST -d '{"foo":"bar"}' -H 'Content-Type: application/json' \
@@ -316,6 +324,25 @@ If you use this plugin under the multi-process environment, the port will be sha
 With this configuration, three \(3\) workers share 9880 port. No need for an additional port. Incoming data will be routed to three \(3\) workers automatically.
 
 ## Troubleshooting
+
+### Why `in_http` splits the messages from my log when using `json=` syntax ?
+
+This happens when using the content type `application/x-www-form-urlencoded`. 
+It is a limitation of the HTTP spec, you either need to encode the message or you can use the content type `application/json`.
+
+For example:
+
+```text
+
+# bad
+curl -X POST --location "http://localhost:9880/app.loge" \
+        -d "json=[{\"log\":\"message ; remaining message\"}]"
+# good
+curl -X POST --location "http://localhost:9880/app.log" \
+        -H "Content-Type: application/json" \
+        -d "{\"log\":\"message ; remaining message\"}"
+```
+
 
 ### Why `in_http` removes '+' from my log?
 
