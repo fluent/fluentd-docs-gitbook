@@ -17,15 +17,15 @@ This document assumes that you have a Kubernetes cluster running or at least a l
 
 Before getting started, make sure you understand or have a basic idea about the following concepts from Kubernetes:
 
-* [Node](https://kubernetes.io/docs/admin/node/)
+* [Node](https://kubernetes.io/docs/concepts/architecture/nodes/)
 
   > A node is a worker machine in Kubernetes, previously known as a minion. A node may be a VM or physical machine, depending on the cluster. Each node has the services necessary to run pods and is managed by the master components...
 
-* [Pod](https://kubernetes.io/docs/user-guide/pods/)
+* [Pod](https://kubernetes.io/docs/concepts/workloads/pods/)
 
   > A pod \(as in a pod of whales or pea pod\) is a group of one or more containers \(such as Docker containers\), the shared storage for those containers, and options about how to run the containers. Pods are always co-located and co-scheduled, and run in a shared context...
 
-* [DaemonSet](https://kubernetes.io/docs/admin/daemons/)
+* [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/)
 
   > A DaemonSet ensures that all \(or some\) nodes run a copy of a pod. As nodes are added to the cluster, pods are added to them. As nodes are removed from the cluster, those pods are garbage collected. Deleting a DaemonSet will clean up the pods it created...
 
@@ -33,7 +33,7 @@ Since applications runs in Pods and multiple Pods might exists across multiple n
 
 ## Fluentd DaemonSet
 
-For [Kubernetes](https://kubernetes.io), a [DaemonSet](https://kubernetes.io/docs/admin/daemons/) ensures that all \(or some\) nodes run a copy of a _pod_. To solve log collection, we are going to implement a Fluentd DaemonSet.
+For [Kubernetes](https://kubernetes.io), a [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) ensures that all \(or some\) nodes run a copy of a _pod_. To solve log collection, we are going to implement a Fluentd DaemonSet.
 
 Fluentd is flexible enough and has the proper plugins to distribute logs to different third-party applications like databases or cloud services, so the principal question is _Where will the logs be stored?_. Once we got that question answered, we can move forward configuring our DaemonSet.
 
