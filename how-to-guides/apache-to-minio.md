@@ -49,7 +49,6 @@ Now let's add settings for storing the incoming data in your Minio server. Since
   s3_endpoint ENDPOINT          # The endpoint URL (like "http://localhost:9000/")
   s3_region us-east-1           # See the region settings of your Minio server
   path logs/                    # This prefix is added to each file
-  force_path_style true         # This prevents AWS SDK from breaking endpoint URL
   time_slice_format %Y%m%d%H%M  # This timestamp is added to each file name
 
   <buffer time>
