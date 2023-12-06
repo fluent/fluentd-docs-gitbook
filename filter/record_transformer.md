@@ -296,7 +296,7 @@ ${record.dig("top", "nest1", "nest2")}
 
 ### I got `unknown placeholder ${record['msg']} found` error, why?
 
-Without `enable_ruby`, `${}` placeholder supports only double-quoted string for record field access. So, use `${record["key"]}` instead of `${record['key']}`.
+Without `enable_ruby`, `${}` placeholder supports only double-quoted string for record field access. So, use `${record["key"]}` instead of `${record['key']}`. This could also happen when the input does not contain `key`.
 
 ## Learn More
 
