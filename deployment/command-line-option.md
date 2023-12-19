@@ -77,6 +77,9 @@ Usage: fluent-cat [options] <tag>
         --msgpack                    same as: -f msgpack
         --none                       same as: -f none
         --message-key KEY            key field for none format (default: message)
+        --time-as-integer            Send time as integer for v0.12 or earlier
+        --retry-limit N              Specify the number of retry limit (default: 5)
+        --event-time TIME_STRING     Specify the time expression string (default: nil)
 ```
 
 ### Example
