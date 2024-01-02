@@ -269,9 +269,10 @@ pos_file /var/log/td-agent/tmp/access.log.pos
 
 Don't share `pos_file` between `in_tail` configurations. It causes unexpected behavior e.g. corrupt `pos_file` content.
 
-`in_tail` removes the untracked file position at startup. It means that the content of `pos_file` keeps growing until a restart when you tails lots of files with the dynamic path setting.
-
-This [issue](https://github.com/fluent/fluentd/issues/1126) will be fixed in future.
+`in_tail` removes the untracked file position at startup.
+It means that the content of `pos_file` keeps growing until a restart when you tail
+lots of files with the dynamic path setting.
+This issue can be solved by using `pos_file_compaction_interval`.
 
 ### `pos_file_compaction_interval`
 
