@@ -1,7 +1,8 @@
 {
 	"title": "Fluentd 1.0 Documentation",
 	"plugins": [
-		"addcssjs"
+		"addcssjs",
+		"hints"
 	],
 
 	"pluginsConfig": {
