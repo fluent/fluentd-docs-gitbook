@@ -15,9 +15,11 @@ Currently two versions of `td-agent` are available.
 * `td-agent` v4 packages Fluentd 1.11.x \(or later\). This version is recommended.
 * `td-agent` v3 packages Fluentd 1.10.x \(or below\).
 
-NOTE: As [Treasure Agent (td-agent) 3 will not be maintained anymore](https://www.fluentd.org/blog/schedule-for-td-agent-3-eol), recommend to [Upgrade td-agent from v3 to v4](https://www.fluentd.org/blog/upgrade-td-agent-v3-to-v4).
-
 ## `td-agent` v3
+
+{% hint style='danger' %}
+NOTE: As [Treasure Agent (td-agent) 3 will not be maintained anymore](https://www.fluentd.org/blog/schedule-for-td-agent-3-eol), recommend to [Upgrade td-agent from v3 to v4](https://www.fluentd.org/blog/upgrade-td-agent-v3-to-v4).
+{% endhint %}
 
 ### Step 1: Install `td-agent`
 

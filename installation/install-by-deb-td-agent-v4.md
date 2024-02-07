@@ -12,7 +12,13 @@ This installation guide is for `td-agent` v4. `td-agent` v4 use fluentd v1 in th
 
 ## Installing `td-agent`
 
+{% hint style='info' %}
+NOTE: As [Drop schedule announcement about EOL of Treasure Agent (td-agent) 4](https://www.fluentd.org/blog/schedule-for-td-agent-4-eol), recommend to [Upgrade to fluent-package v5](https://www.fluentd.org/blog/upgrade-td-agent-v4-to-v5).
+{% endhint %}
+
+{% hint style='danger' %}
 NOTE: About deprecated [Treasure Agent (td-agent) 3 will not be maintained anymore](https://www.fluentd.org/blog/schedule-for-td-agent-3-eol), see [Install by DEB Package  v3](install-by-deb-td-agent-v3.md).
+{% endhint %}
 
 ### Step 0: Before Installation
 

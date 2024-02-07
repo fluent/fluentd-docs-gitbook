@@ -14,11 +14,6 @@ Currently two versions of distributions are available.
 * `fluent-package` v5 package \(Fluentd 1.16.2 or later\). This version is recommended.
 * `td-agent` v4 package \(Fluentd 1.16.1 or below\).
 
-NOTE:
-
-* About `td-agent` v4, See [Install by .msi Installer v4 (Windows)](install-by-msi-td-agent-v4.md).
-* About deprecated [Treasure Agent (td-agent) 3 will not be maintained anymore](https://www.fluentd.org/blog/schedule-for-td-agent-3-eol), see [Install by msi Package  v3](install-by-msi-td-agent-v3.md).
-
 ## What is `calyptia-fluentd`?
 
 `calyptia-fluentd` is the alternative distribution of Fluentd.
@@ -32,6 +27,13 @@ Currently, calyptia-fluentd is on v1 only.
 * `calyptia-fluentd` v1 packages Fluentd 1.12.x \(or later\).
 
 ## `fluent-package` v5
+
+{% hint style='info' %}
+NOTE:
+
+* About deprecated [Treasure Agent (td-agent) v4 (EOL)](https://www.fluentd.org/blog/schedule-for-td-agent-4-eol), see [Install by .msi Installer v4 (Windows)](install-by-msi-td-agent-v4.md).
+* About deprecated [Treasure Agent (td-agent) 3 will not be maintained anymore](https://www.fluentd.org/blog/schedule-for-td-agent-3-eol), see [Install by msi Package  v3](install-by-msi-td-agent-v3.md).
+{% endhint %}
 
 ### Step 1: Install `fluent-package`
 
