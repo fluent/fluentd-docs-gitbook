@@ -10,9 +10,11 @@ That is why [Treasure Data, Inc](http://www.treasuredata.com/) provides **the st
 
 For macOS, `td-agent` is distributed as `.dmg` installer.
 
-NOTE: About deprecated [Treasure Agent (td-agent) 3 will not be maintained anymore](https://www.fluentd.org/blog/schedule-for-td-agent-3-eol), see [Install by .dmg Package \(macOS\)](install-by-dmg-td-agent-v3.md).
-
 ## Step 1: Install `td-agent`
+
+{% hint style='danger' %}
+NOTE: About deprecated [Treasure Agent (td-agent) 3 will not be maintained anymore](https://www.fluentd.org/blog/schedule-for-td-agent-3-eol), see [Install by .dmg Package \(macOS\)](install-by-dmg-td-agent-v3.md).
+{% endhint %}
 
 Download and install the `.dmg` package:
 
