@@ -97,6 +97,8 @@ If the date is `20140401`, Fluentd starts to watch the files in `/path/to/2014/0
 
 By default, You should not use `*` with log rotation because it may cause the log duplication. To avoid log duplication, you need to set `follow_inodes true` in the configuration.
 
+If you want to use other glob patterns such as `[]` and `?`, you need to set up `use_extended_glob true` as described in the `use_extended_glob` section.
+
 ### `path_timezone`
 
 | type | default | version |
@@ -112,6 +114,15 @@ path_timezone "+00"
 ```
 
 For timezone format, see [Timezone Section](../configuration/format-section.md#time-parameters).
+
+### `use_extended_glob`
+
+| type | default | version |
+| :--- | :--- | :--- |
+| bool | false | 1.17.0 |
+
+This parameter permits to extend glob patterns on `path` parameter.
+When turning on, users can use `[]` and `?` in glob patterns.
 
 ### `exclude_path`
 
