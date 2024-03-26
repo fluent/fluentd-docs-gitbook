@@ -119,10 +119,10 @@ For timezone format, see [Timezone Section](../configuration/format-section.md#t
 
 | type | default | available values | version |
 | :--- | :--- | :--- |:--- |
-| enum | with\_wildcards | with\_wildcards/extended | 1.17.0 |
+| enum | with\_wildcards | with\_wildcards/always | 1.17.0 |
 
 This parameter permits to extend glob patterns on `path` and `exclude_path` parameters.
-When specifying `extended`, users can use `[]` and `?` in glob patterns.
+When specifying `always`, users can use `[]` and `?` in glob patterns.
 
 ### `exclude_path`
 
