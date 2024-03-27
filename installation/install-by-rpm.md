@@ -191,7 +191,7 @@ Please make sure your configuration file path is:
 
 ### Step 3: Post Sample Logs via HTTP
 
-The default configuration \(`/etc/calyptia-fluentd/calyptia-faluentd.conf`\) is to receive logs at an HTTP endpoint and route them to `stdout`. For `calyptia-fluentd` logs, see `/var/log/calyptia-fluentd/calyptia-fluentd.log`.
+The default configuration \(`/etc/calyptia-fluentd/calyptia-fluentd.conf`\) is to receive logs at an HTTP endpoint and route them to `stdout`. For `calyptia-fluentd` logs, see `/var/log/calyptia-fluentd/calyptia-fluentd.log`.
 
 You can post sample log records with `curl` command:
 
