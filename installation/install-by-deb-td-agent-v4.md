@@ -32,45 +32,51 @@ NOTE: Treasure Data does not verify Debian packages. If you have any problem wit
 
 A shell script is provided to automate the installation process for each version. The shell script registers a new apt repository at `/etc/apt/sources.list.d/treasure-data.list` and installs the `td-agent` deb package.
 
-For Ubuntu Jammy:
+#### For Ubuntu Jammy:
+
+##### td-agent 4 (experimental)
 
 ```bash
-# td-agent 4 (experimental)
 curl -fsSL https://toolbelt.treasuredata.com/sh/install-ubuntu-jammy-td-agent4.sh | sh
 ```
 
-For Ubuntu Focal:
+#### For Ubuntu Focal:
+
+##### td-agent 4 (EOL)
 
 ```bash
-# td-agent 4
 curl -fsSL https://toolbelt.treasuredata.com/sh/install-ubuntu-focal-td-agent4.sh | sh
 ```
 
-For Ubuntu Bionic:
+#### For Ubuntu Bionic:
+
+##### td-agent 4 (EOL)
 
 ```bash
-# td-agent 4
 curl -fsSL https://toolbelt.treasuredata.com/sh/install-ubuntu-bionic-td-agent4.sh | sh
 ```
 
-For Ubuntu Xenial:
+#### For Ubuntu Xenial:
+
+##### td-agent 4 (EOL)
 
 ```bash
-# td-agent 4
 curl -fsSL https://toolbelt.treasuredata.com/sh/install-ubuntu-xenial-td-agent4.sh | sh
 ```
 
-For Debian Bullseye:
+#### For Debian Bullseye:
+
+##### td-agent 4 (EOL)
 
 ```bash
-# td-agent 4
 curl -fsSL https://toolbelt.treasuredata.com/sh/install-debian-bullseye-td-agent4.sh | sh
 ```
 
-For Debian Buster:
+#### For Debian Buster:
+
+##### td-agent 4 (EOL)
 
 ```bash
-# td-agent 4
 curl -fsSL https://toolbelt.treasuredata.com/sh/install-debian-buster-td-agent4.sh | sh
 ```
 

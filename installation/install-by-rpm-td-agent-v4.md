@@ -34,9 +34,10 @@ NOTE: If your OS is not supported, consider [gem installation](install-by-gem.md
 
 Download and execute the install script with `curl`:
 
-```text
-# td-agent 4
-$ curl -L https://toolbelt.treasuredata.com/sh/install-redhat-td-agent4.sh | sh
+##### td-agent 4 (EOL)
+
+```bash
+curl -L https://toolbelt.treasuredata.com/sh/install-redhat-td-agent4.sh | sh
 ```
 
 Executing this script will automatically install `td-agent` on your machine. This shell script registers a new `rpm` repository at `/etc/yum.repos.d/td.repo` and installs `td-agent`.
@@ -47,9 +48,10 @@ We use `$releasever` for repository path in the script and `$releasever` should 
 
 For Amazon Linux 2:
 
-```text
-# td-agent 4
-$ curl -L https://toolbelt.treasuredata.com/sh/install-amazon2-td-agent4.sh | sh
+##### td-agent 4 (EOL)
+
+```bash
+curl -L https://toolbelt.treasuredata.com/sh/install-amazon2-td-agent4.sh | sh
 ```
 
 ### Step 2: Launch Daemon
