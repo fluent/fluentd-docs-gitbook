@@ -97,6 +97,8 @@ If the date is `20140401`, Fluentd starts to watch the files in `/path/to/2014/0
 
 By default, You should not use `*` with log rotation because it may cause the log duplication. To avoid log duplication, you need to set `follow_inodes true` in the configuration.
 
+If you want to use other glob patterns such as `[]` and `?`, you need to set up `glob_policy extended` as described in the `glob_policy` section.
+
 ### `path_timezone`
 
 | type | default | version |
@@ -112,6 +114,19 @@ path_timezone "+00"
 ```
 
 For timezone format, see [Timezone Section](../configuration/format-section.md#time-parameters).
+
+### `glob_policy`
+
+| type | default | available values | version |
+| :--- | :--- | :--- |:--- |
+| enum | backward\_compatible | backward\_compatible/extended/always | 1.17.0 |
+
+This parameter permits to extend glob patterns on `path` and `exclude_path` parameters.
+When specifying `extended`, users can use `[]` and `?` in glob patterns.
+When specifying `always`, users can use `[]`, `?`, and additonally `{}` in glob patterns.
+
+However, `always` option is not able to use with the default value of `path_delimiter`.
+When using the default value of `path_delimiter`, it will be marked as `Fluent::ConfigError`.
 
 ### `exclude_path`
 
