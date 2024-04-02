@@ -16,7 +16,7 @@ That is why [Calyptia, Inc.](https://www.calyptia.com/) provides **the alternati
 
 This installation guide is for `fluent-package` v5 and `calyptia-fluentd` v1. `fluent-package` v5 and `calyptia-fluentd` use fluentd v1 in the core. See [fluent-package-v5-vs-td-agent](../quickstart/fluent-package-v5-vs-td-agent.md) or [td-agent-v2-vs-v3-vs-v4](../quickstart/td-agent-v2-vs-v3-vs-v4.md) for the comparison and supported OS.
 
-## Using to install `fluent-packge`
+## Using to install `fluent-package`
 
 {% hint style='info' %}
 NOTE:
