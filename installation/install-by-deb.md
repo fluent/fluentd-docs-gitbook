@@ -37,51 +37,59 @@ NOTE: If your OS is not supported, consider [gem installation](install-by-gem.md
 
 A shell script is provided to automate the installation process for each version. The shell script registers a new apt repository at `/etc/apt/sources.list.d/fluent.sources` (or `/etc/apt/sources.list.d/fluent-lts.sources`) and installs the `fluent-package` deb package.
 
-For Ubuntu Jammy:
+#### For Ubuntu Jammy:
+
+##### fluent-package 5 (LTS)
 
 ```bash
-# fluent-package 5 (LTS)
 curl -fsSL https://toolbelt.treasuredata.com/sh/install-ubuntu-jammy-fluent-package5-lts.sh | sh
 ```
 
+##### fluent-package 5
+
 ```bash
-# fluent-package 5
 curl -fsSL https://toolbelt.treasuredata.com/sh/install-ubuntu-jammy-fluent-package5.sh | sh
 ```
 
-For Ubuntu Focal:
+#### For Ubuntu Focal:
+
+##### fluent-package 5 (LTS)
 
 ```bash
-# fluent-package 5 (LTS)
 curl -fsSL https://toolbelt.treasuredata.com/sh/install-ubuntu-focal-fluent-package5-lts.sh | sh
 ```
 
+##### fluent-package 5
+
 ```bash
-# fluent-package 5
 curl -fsSL https://toolbelt.treasuredata.com/sh/install-ubuntu-focal-fluent-package5.sh | sh
 ```
 
-For Debian Bookworm:
+#### For Debian Bookworm:
+
+##### fluent-package 5 (LTS)
 
 ```bash
-# fluent-package 5 (LTS)
 curl -fsSL https://toolbelt.treasuredata.com/sh/install-debian-bookworm-fluent-package5-lts.sh | sh
 ```
 
+##### fluent-package 5
+
 ```bash
-# fluent-package 5
 curl -fsSL https://toolbelt.treasuredata.com/sh/install-debian-bookworm-fluent-package5.sh | sh
 ```
 
-For Debian Bullseye:
+#### For Debian Bullseye:
+
+##### fluent-package 5 (LTS)
 
 ```bash
-# fluent-package 5 (LTS)
 curl -fsSL https://toolbelt.treasuredata.com/sh/install-debian-bullseye-fluent-package5-lts.sh | sh
 ```
 
+##### fluent-package 5
+
 ```bash
-# fluent-package 5
 curl -fsSL https://toolbelt.treasuredata.com/sh/install-debian-bullseye-fluent-package5.sh | sh
 ```
 
