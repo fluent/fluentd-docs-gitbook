@@ -63,7 +63,7 @@ The default value of the following parameters will be overridden by the individu
 
 * **`types`** \(hash\) \(optional\): Specify types for converting field into another
 
-  type. See below "The detail of types parameter" section.
+  type. See below the detail of "types Parameter" section.
 
   * Default: `nil`
   * string-based hash: `field1:type, field2:type, field3:type:option, field4:type:option`
