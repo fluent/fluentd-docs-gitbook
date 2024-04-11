@@ -59,6 +59,10 @@ Here's the list of built-in parser plugins:
 
 ### Parse Parameters
 
+{% hint style='info' %}
+NOTE: It depends on parser implementation whether plugin supports the following parse parameters. See each plugin's documentation in detail.
+{% endhint %}
+
 The default value of the following parameters will be overridden by the individual parser plugins:
 
 * **`types`** \(hash\) \(optional\): Specify types for converting field into another

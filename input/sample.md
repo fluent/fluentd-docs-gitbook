@@ -37,6 +37,10 @@ Please see the [Config File](../configuration/config-file.md) article for the ba
 
 See [Common Parameters](../configuration/plugin-common-parameters.md).
 
+{% hint style='info' %}
+NOTE: sample plugin doesn't support specific [Parse Parameters](../configuration/parse-section.md) in `<parse>` section.
+{% endhint %}
+
 ### `@type`
 
 The value must be `sample`.
