@@ -66,13 +66,9 @@ The default value of the following parameters will be overridden by the individu
   type. See below "The detail of types parameter" section.
 
   * Default: `nil`
-  * string-based hash: \`field1:type, field2:type, field3:type:option,
+  * string-based hash: `field1:type, field2:type, field3:type:option, field4:type:option`
 
-    field4:type:option\`
-
-  * JSON format: \`{"field1":"type", "field2":"type", "field3":"type:option",
-
-    "field4":"type:option"}\`
+  * JSON format: `{"field1":"type", "field2":"type", "field3":"type:option", "field4":"type:option"}`
 
   * example: `types user_id:integer,paid:bool,paid_usd_amount:float`
 
