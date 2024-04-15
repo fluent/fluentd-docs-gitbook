@@ -59,20 +59,20 @@ Here's the list of built-in parser plugins:
 
 ### Parse Parameters
 
+{% hint style='info' %}
+NOTE: It depends on an input plugin's capabilities whether can handle a `<parse>` section or not. See each plugin's documentation in detail.
+{% endhint %}
+
 The default value of the following parameters will be overridden by the individual parser plugins:
 
 * **`types`** \(hash\) \(optional\): Specify types for converting field into another
 
-  type. See below "The detail of types parameter" section.
+  type. See below the details of the "types Parameter" section.
 
   * Default: `nil`
-  * string-based hash: \`field1:type, field2:type, field3:type:option,
+  * string-based hash: `field1:type, field2:type, field3:type:option, field4:type:option`
 
-    field4:type:option\`
-
-  * JSON format: \`{"field1":"type", "field2":"type", "field3":"type:option",
-
-    "field4":"type:option"}\`
+  * JSON format: `{"field1":"type", "field2":"type", "field3":"type:option", "field4":"type:option"}`
 
   * example: `types user_id:integer,paid:bool,paid_usd_amount:float`
 
