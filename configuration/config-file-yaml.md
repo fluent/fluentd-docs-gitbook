@@ -50,6 +50,8 @@ Under `config` object, Fluentd will handle the following elements:
 7. **`$name`** defines label directive **name** equivalent objects (e.g. \<label **name**\>)
 8. **`$type`** specifies `@type` or `type` for instantiating plugin type
 
+NOTE: `$log_level` isn't supported now. If you want to change log_level per plugin, you can use `log_level` (without `$`) although it is deprecated. 
+
 Let's actually create a configuration file step by step.
 
 ## 1. `source`: where all the data come from
