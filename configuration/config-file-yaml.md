@@ -553,8 +553,11 @@ str_param:   "foo\nbar" # \n is interpreted as actual LF character
 ```
 
 ### Parse setting
-You can use `parse:` to set up parse.
+
+You can use `parse:` to set up the parser for the input plugin.
+
 Example: in_tail plugin
+
 ```yaml
 config:
   - source:
