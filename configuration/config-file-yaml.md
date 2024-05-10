@@ -552,4 +552,21 @@ The backslash `\` is interpreted as an escape character. You need `\` for settin
 str_param:   "foo\nbar" # \n is interpreted as actual LF character
 ```
 
+### Parse setting
+
+You can use `parse:` to set up the parser for the input plugin.
+
+Example: in_tail plugin
+
+```yaml
+config:
+  - source:
+      $type: tail
+      tag: sample
+      path: /tmp/test.log
+      pos_file: /tmp/tail-test.pos
+      parse: 
+        $type: none
+```
+
 If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open). [Fluentd](http://www.fluentd.org/) is an open-source project under [Cloud Native Computing Foundation \(CNCF\)](https://cncf.io/). All components are available under the Apache 2 License.
