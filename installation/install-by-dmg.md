@@ -83,6 +83,10 @@ To uninstall `fluent-package` from macOS, remove these files / directories:
 
 ## `calyptia-fluentd` v1
 
+### Prerequisite: Install ruby 3.x
+
+Install ruby version 3.x using brew and update the path variable.
+
 ### Step 1: Install `calyptia-fluentd`
 
 Download and install the `.dmg` package:
