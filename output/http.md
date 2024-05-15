@@ -189,6 +189,14 @@ See also [Ruby document](https://docs.ruby-lang.org/en/master/Net/HTTP.html#attr
 
 The TLS timeout in seconds.
 
+### `reuse_connections`
+
+| type | default | version |
+| :--- | :--- | :--- |
+| bool | false | 1.17.0 |
+
+Try to reuse connections. This will improve performance.
+
 ### `tls_ca_cert_path`
 
 | type | default | version |
