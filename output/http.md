@@ -273,7 +273,20 @@ The list of retryable response codes. If the response code is included in this l
 
 ### `<auth>` Section
 
-Specifies HTTP authentication:
+Specifies HTTP authentication.
+
+#### `method`
+
+| type | default | available values | version |
+| :--- | :--- | :--- | :--- |
+| enum | basic | basic/aws\_sigv4 | basic:1.7.0 / aws\_sigv4:1.17.0 |
+
+The method for HTTP authentication.
+
+* `basic`: basic authentication
+* `aws_sigv4`: [AWS Signature Version 4](https://docs.aws.amazon.com/AmazonS3/latest/API/sig-v4-authenticating-requests.html)
+
+#### Parameters for `method basic`
 
 ```text
 <auth>
@@ -283,15 +296,7 @@ Specifies HTTP authentication:
 </auth>
 ```
 
-#### `method`
-
-| type | default | available values | version |
-| :--- | :--- | :--- | :--- |
-| enum | basic | basic | 1.7.0 |
-
-The method for HTTP authentication. Now only `basic`.
-
-#### `username`
+##### `username`
 
 | type | default | version |
 | :--- | :--- | :--- |
@@ -299,13 +304,56 @@ The method for HTTP authentication. Now only `basic`.
 
 The username for basic authentication.
 
-#### `password`
+##### `password`
 
 | type | default | version |
 | :--- | :--- | :--- |
 | string | nil | 1.7.0 |
 
 The password for basic authentication.
+
+#### Parameters for `method aws_sigv4`
+
+Parameters for [AWS Signature Version 4](https://docs.aws.amazon.com/AmazonS3/latest/API/sig-v4-authenticating-requests.html).
+
+```text
+<auth>
+  method aws_sigv4
+  aws_service osis
+  aws_region us-east-1
+  aws_role_arn arn:aws:iam::123456789012:role/MyRole
+</auth>
+```
+
+##### `aws_service`
+
+| type | default | version |
+| :--- | :--- | :--- |
+| string | nil | 1.17.0 |
+
+The AWS service to authenticate against.
+
+This parameter is required when you specify `aws_sigv4` for `method`.
+
+##### `aws_region`
+
+| type | default | version |
+| :--- | :--- | :--- |
+| string | nil | 1.17.0 |
+
+The AWS region to use when authenticating.
+
+This parameter is required when you specify `aws_sigv4` for `method`.
+
+##### `aws_role_arn`
+
+| type | default | version |
+| :--- | :--- | :--- |
+| string | nil | 1.17.0 |
+
+The AWS role ARN to assume when authenticating.
+
+This parameter is optional when you specify `aws_sigv4` for `method`. If you provide it, Fluentd will assume that AWS role and send requests signing from that role. Otherwise, Fluentd will use the credentials found by the [credential provider chain](https://docs.aws.amazon.com/sdk-for-ruby/v3/developer-guide/setup-config.html) as defined in the AWS documentation.
 
 ## Common Output / Buffer parameters
 
