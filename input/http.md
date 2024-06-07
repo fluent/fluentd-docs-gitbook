@@ -51,8 +51,8 @@ msgpack=`echo -e "msgpack=\x81\xa3foo\xa3bar"`
 curl -X POST -d "$msgpack" http://localhost:9880/app.log
 ```
 
-Some `Content-Type` other than `application/x-www-form-urlencoded` support specific formats.
-In that case, the format type specification as `json=` in the data is not necessary.
+Some Media Types other than `application/x-www-form-urlencoded` support specific formats.
+If those Media Types are specified with `Content-Type: `, the prefix such as `json=` is not necessary for posting data.
 
 Example: Post JSON data with `Content-Type: application/json`:
 
@@ -267,12 +267,12 @@ If you use the default `<parse>` setting, the data format depends on the `Conten
 
 By default `curl` uses `-H "Content-Type: application/x-www-form-urlencoded"`, which allows the use of the prefix `json=`, `ndjson=`, and `msgpack=` as seen on the previous examples.
 
-On the other hand, some `Content-Type` other than `application/x-www-form-urlencoded` support specific formats.
-In that case, the prefix such as `json=` in the data is not necessary.
+On the other hand, some Media Types other than `application/x-www-form-urlencoded` support specific formats.
+If those Media Types are specified with `Content-Type: `, the prefix such as `json=` is not necessary for posting data.
 
-Here is the list of supported `Content-Type`:
+Here is the list of supported Media Types:
 
-| `Content-Type`           | data format | version |
+| Media Types              | data format | version |
 | :---                     | :---        | :---    |
 | `application/json`       | JSON        | -       |
 | `application/csp-report` | JSON        | 1.17.0  |
