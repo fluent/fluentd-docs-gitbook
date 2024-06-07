@@ -22,11 +22,43 @@ For the full list of the configurable options, see the [Parameters](http.md#para
 
 ## Basic Usage
 
-Here is a simple example to post a record using `curl`, which uses the default Content-Type `application/x-www-form-urlencoded`
+By default, the data format depends on the `Content-Type`.
+In summary, you can send the follwoing format.
 
-```text
-# Post a record with the tag "app.log"
-$ curl -X POST -d 'json={"foo":"bar"}' http://localhost:9880/app.log
+* `json`
+* `ndjson`
+* `msgpack`
+
+Here is a simple example to post a record using `curl`, which uses the default Content-Type `application/x-www-form-urlencoded`.
+
+Example: post JSON data with the tag "app.log":
+
+```bash
+curl -X POST -d 'json={"foo":"bar"}' http://localhost:9880/app.log
+```
+
+Example: post NDJSON data with the tag "app.log":
+
+```bash
+ndjson=`echo -e 'ndjson={"k1":"v1"}\n{"k2":"v2"}\n'`
+curl -X POST -d "$ndjson" http://localhost:9880/app.log
+```
+
+Example: post MessagePack data with the tag "app.log":
+
+```bash
+msgpack=`echo -e "msgpack=\x81\xa3foo\xa3bar"`
+curl -X POST -d "$msgpack" http://localhost:9880/app.log
+```
+
+Some Media Types other than `application/x-www-form-urlencoded` support specific formats.
+If those Media Types are specified with `Content-Type: `, the prefix such as `json=` is not necessary for posting data.
+
+Example: Post JSON data with `Content-Type: application/json`:
+
+```bash
+curl -X POST -d '{"foo":"bar"}' -H 'Content-Type: application/json' \
+  http://localhost:9880/app.log
 ```
 
 **For more details regarding the message body syntax and `Content-Type` see [How to use HTTP Content-Type Header](http.md#how-to-use-http-content-type-header)**
@@ -230,23 +262,38 @@ $ curl -X POST -d "msgpack=$msgpack" http://localhost:9880/app.log
 
 `in_http` plugin recognizes HTTP `Content-Type` header in the incoming requests.
 
-By default `curl` uses `-H "Content-Type: application/x-www-form-urlencoded"`, which allows the use of the syntax `json=` and `msgpack=` as seen on the previous examples.
- 
+If you use the default `<parse>` setting, the data format depends on the `Content-Type`.
+(If you set the `<parse>` directive to use a specific Parser, the `Content-Type` is not used).
 
-However, you can send a JSON payload without the `json=` prefix by setting the content type `application/json`:
+By default `curl` uses `-H "Content-Type: application/x-www-form-urlencoded"`, which allows the use of the prefix `json=`, `ndjson=`, and `msgpack=` as seen on the previous examples.
 
-```text
-$ curl -X POST -d '{"foo":"bar"}' -H 'Content-Type: application/json' \
+On the other hand, some Media Types other than `application/x-www-form-urlencoded` support specific formats.
+If those Media Types are specified with `Content-Type: `, the prefix such as `json=` is not necessary for posting data.
+
+Here is the list of supported Media Types:
+
+| Media Types              | data format | version |
+| :---                     | :---        | :---    |
+| `application/json`       | JSON        | -       |
+| `application/csp-report` | JSON        | 1.17.0  |
+| `application/msgpack`    | MessagePack | -       |
+| `application/x-ndjson`   | NDJSON      | 1.14.5  |
+
+Examples:
+
+```bash
+curl -X POST -d '{"foo":"bar"}' -H 'Content-Type: application/json' \
   http://localhost:9880/app.log
 ```
 
-To use MessagePack, set the content type to `application/msgpack`:
-
-```text
-$ msgpack=`echo -e "\x81\xa3foo\xa3bar"`
-$ curl -X POST -d "$msgpack" -H 'Content-Type: application/msgpack' \
+```bash
+msgpack=`echo -e "\x81\xa3foo\xa3bar"`
+curl -X POST -d "$msgpack" -H 'Content-Type: application/msgpack' \
   http://localhost:9880/app.log
 ```
+
+Also, you can use `multipart/form-data`.
+For more details about `multipart/form-data`, please see [Why `in_http` removes '+' from my log](http.md#why-in_http-removes--from-my-log).
 
 ### Handle Other Formats using Parser Plugins
 
