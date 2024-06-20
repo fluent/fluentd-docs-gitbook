@@ -1,16 +1,10 @@
 # Plugin Development
 
-## Installing Custom Plugins
+## Overview
 
-To install a plugin, put the Ruby script in `/etc/fluent/plugin` directory.
+With fluentd, you can install and create custom plugins.
 
-Alternatively, you can create a Ruby Gem package that includes:
-
-```text
-lib/fluent/plugin/<TYPE>_<NAME>.rb
-```
-
-The `TYPE` prefix could be:
+To install or create a custom plugin, the file name need to be `<TYPE>_<NAME>.rb`. Note that `TYPE` is a prefix indicating the type of plugin, and could be:
 
 | prefix | plugin type |
 | :---: | :---: |
@@ -23,6 +17,15 @@ The `TYPE` prefix could be:
 | `buf` | buffer |
 | `sd` | service discovery |
 
+## Installing Custom Plugins
+
+To install a plugin, put the Ruby script in `/etc/fluent/plugin` directory. (The file name needs to have the `TYPE` prefix.)
+Alternatively, you can create a Ruby Gem package that includes:
+
+```text
+lib/fluent/plugin/<TYPE>_<NAME>.rb
+```
+
 For example, an email output plugin would have the path:
 
 ```text
@@ -30,35 +33,6 @@ lib/fluent/plugin/out_mail.rb
 ```
 
 The packaged gem can be distributed and installed using RubyGems. For further information, see the [list of Fluentd plugins](http://www.fluentd.org/plugins) for third-party plugins.
-
-## Overview
-
-The following slides can help understand how Fluentd works before diving into writing custom plugins.
-
-These slides are from [Naotoshi Seo's](https://github.com/sonots) [RubyKaigi 2014 talk](http://rubykaigi.org/2014/presentation/S-NaotoshiSeo/).
-
-The slides are based on Fluentd v0.12. There are many differences between v0.12 and v1 API, but it may help build an understanding of overall Fluentd's design.
-
-### Fluentd Version and Plugin API
-
-Fluentd now has two active versions, v1 and v0.12. v1 is the current stable with the brand-new Plugin API. v0.12 is the old stable and it has the old Plugin API.
-
-The important point is v1 supports v1 and v0.12 APIs. It means the plugin for v0.12 works with v1.
-
-It is recommended to use the new v1 plugin API for writing new plugins.
-
-### Send a patch or fork?
-
-If you have a problem with any existing plugins or a new feature idea, sending a patch is better. If the plugin author is non-active, try to become its new plugin maintainer first. Forking a plugin and release its alternative version, e.g. `fluent-plugin-xxx-alt` is considered the last option.
-
-### Be careful not breaking Fluentd's core functionality
-
-Any fluentd plugin can unknowingly break fluentd completely (and possibly break other plugins) by requiring some incompatible modules.
-
-One typical example is reloading `yajl/json_gem` from plugin. (`yajl/json_gem` compatibility layer is problematic, not for `yajl` itself)
-It breaks a functionality to parse Fluentd's configuration completely.
-
-Fluentd's plug-in mechanism has a merit to extend functionality, but plugin developer must be careful a possibility of breaking it.
 
 ## Writing Plugins
 
@@ -333,6 +307,36 @@ $ fluent-plugin-config-format -c input dummy
 ```
 
 For more details, see `fluent-plugin-config-format --help`.
+
+## Note
+
+The following slides can help understand how Fluentd works before diving into writing custom plugins.
+
+These slides are from [Naotoshi Seo's](https://github.com/sonots) [RubyKaigi 2014 talk](http://rubykaigi.org/2014/presentation/S-NaotoshiSeo/).
+
+The slides are based on Fluentd v0.12. There are many differences between v0.12 and v1 API, but it may help build an understanding of overall Fluentd's design.
+
+### Fluentd Version and Plugin API
+
+Fluentd now has two active versions, v1 and v0.12. v1 is the current stable with the brand-new Plugin API. v0.12 is the old stable and it has the old Plugin API.
+
+The important point is v1 supports v1 and v0.12 APIs. It means the plugin for v0.12 works with v1.
+
+It is recommended to use the new v1 plugin API for writing new plugins.
+
+### Send a patch or fork?
+
+If you have a problem with any existing plugins or a new feature idea, sending a patch is better. If the plugin author is non-active, try to become its new plugin maintainer first. Forking a plugin and release its alternative version, e.g. `fluent-plugin-xxx-alt` is considered the last option.
+
+### Be careful not breaking Fluentd's core functionality
+
+Any fluentd plugin can unknowingly break fluentd completely (and possibly break other plugins) by requiring some incompatible modules.
+
+One typical example is reloading `yajl/json_gem` from plugin. (`yajl/json_gem` compatibility layer is problematic, not for `yajl` itself)
+It breaks a functionality to parse Fluentd's configuration completely.
+
+Fluentd's plug-in mechanism has a merit to extend functionality, but plugin developer must be careful a possibility of breaking it.
+
 
 ## Further Reading
 
