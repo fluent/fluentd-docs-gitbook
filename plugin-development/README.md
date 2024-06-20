@@ -1,6 +1,7 @@
 # Plugin Development
 
 ## Overview
+
 With fluentd, you can install and create custom plugins.
 
 To install or create a custom plugin, the file name need to be `<TYPE>_<NAME>.rb`. Note that `TYPE` is a prefix indicating the type of plugin, and could be:
@@ -18,7 +19,7 @@ To install or create a custom plugin, the file name need to be `<TYPE>_<NAME>.rb
 
 ## Installing Custom Plugins
 
-To install a plugin, put the Ruby script in `/etc/fluent/plugin` directory.(The file name need to `TYPE` prefix.)
+To install a plugin, put the Ruby script in `/etc/fluent/plugin` directory. (The file name needs to have the `TYPE` prefix.)
 Alternatively, you can create a Ruby Gem package that includes:
 
 ```text
