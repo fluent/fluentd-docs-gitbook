@@ -37,7 +37,7 @@ It is highly recommended to set up `ntpd` on the node to prevent invalid timesta
 
 NOTE: If your OS is not supported, consider [gem installation](install-by-gem.md) instead.
 
-#### Red Hat / CentOS
+#### Red Hat
 
 Download and execute the install script with `curl`:
 
@@ -55,7 +55,11 @@ curl -fsSL https://toolbelt.treasuredata.com/sh/install-redhat-fluent-package5.s
 
 Executing this script will automatically install `fluent-package` on your machine. This shell script registers a new `rpm` repository at `/etc/yum.repos.d/fluent-package.repo` (or `/etc/yum.repos.d/fluent-package-lts.repo`) and installs `fluent-package`.
 
-We use `$releasever` for repository path in the script and `$releasever` should be the major version only like `"7"`. If your environment uses some other format like `"7.2"`, change it to the major version only or set up .repo file manually.
+We use `$releasever` for repository path in the script and `$releasever` should be the major version only like `"9"`. If your environment uses some other format like `"9.2"`, change it to the major version only or set up .repo file manually.
+
+{% hint style='danger' %}
+Since v5.0.4, RHEL 7 / CentOS 7 is not supported anymore because CentOS 7 has reached EOL (June, 2024). Please consider migrating to another release.
+{% endhint %}
 
 #### Amazon Linux
 
