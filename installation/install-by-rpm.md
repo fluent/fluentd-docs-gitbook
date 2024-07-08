@@ -58,7 +58,7 @@ Executing this script will automatically install `fluent-package` on your machin
 We use `$releasever` for repository path in the script and `$releasever` should be the major version only like `"7"`. If your environment uses some other format like `"7.2"`, change it to the major version only or set up .repo file manually.
 
 {% hint style='danger' %}
-Since v5.0.4, RHEL 7 / CentOS 7 was not supported anymore because CentOS 7 had reached EOL (June, 2024). Please consider migrating to the other release.
+Since v5.0.4, RHEL 7 / CentOS 7 is not supported anymore because CentOS 7 has reached EOL (June, 2024). Please consider migrating to another release.
 {% endhint %}
 
 #### Amazon Linux
