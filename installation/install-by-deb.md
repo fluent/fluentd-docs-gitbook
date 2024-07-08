@@ -37,6 +37,20 @@ NOTE: If your OS is not supported, consider [gem installation](install-by-gem.md
 
 A shell script is provided to automate the installation process for each version. The shell script registers a new apt repository at `/etc/apt/sources.list.d/fluent.sources` (or `/etc/apt/sources.list.d/fluent-lts.sources`) and installs the `fluent-package` deb package.
 
+#### For Ubuntu Noble:
+
+##### fluent-package 5 (LTS)
+
+```bash
+curl -fsSL https://toolbelt.treasuredata.com/sh/install-ubuntu-noble-fluent-package5-lts.sh | sh
+```
+
+##### fluent-package 5
+
+```bash
+curl -fsSL https://toolbelt.treasuredata.com/sh/install-ubuntu-noble-fluent-package5.sh | sh
+```
+
 #### For Ubuntu Jammy:
 
 ##### fluent-package 5 (LTS)
