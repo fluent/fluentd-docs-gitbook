@@ -77,7 +77,7 @@ Other options specify HDFS's NameNode host and port.
 
 Append operations are not enabled by default. Please put these configurations into your `hdfs-site.xml` file and restart the whole cluster:
 
-```markup
+```text
 <property>
   <name>dfs.webhdfs.enabled</name>
   <value>true</value>
