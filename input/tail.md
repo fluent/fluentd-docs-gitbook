@@ -123,7 +123,7 @@ For timezone format, see [Timezone Section](../configuration/format-section.md#t
 
 This parameter permits to extend glob patterns on `path` and `exclude_path` parameters.
 When specifying `extended`, users can use `[]` and `?` in glob patterns.
-When specifying `always`, users can use `[]`, `?`, and additonally `{}` in glob patterns.
+When specifying `always`, users can use `[]`, `?`, and additionally `{}` in glob patterns.
 
 However, `always` option is not able to use with the default value of `path_delimiter`.
 When using the default value of `path_delimiter`, it will be marked as `Fluent::ConfigError`.

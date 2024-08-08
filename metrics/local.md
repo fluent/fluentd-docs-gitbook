@@ -24,7 +24,7 @@ With this configuration:
 </system>
 ```
 
-The above configuration will save the internal metrics for plugins on memory. As a result, you can retrive metrics from memory and also you can replace with your custom metrics plugin.
+The above configuration will save the internal metrics for plugins on memory. As a result, you can retrieve metrics from memory and also you can replace with your custom metrics plugin.
 
 Actually, @type local metrics plugin has equivalent functionality for previous single value based Ruby instance variables.
 This behavior will be changed by other 3rd party plugins.

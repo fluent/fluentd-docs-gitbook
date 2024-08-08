@@ -23,7 +23,7 @@ For the full list of the configurable options, see the [Parameters](http.md#para
 ## Basic Usage
 
 By default, the data format depends on the `Content-Type`.
-In summary, you can send the follwoing format.
+In summary, you can send the following format.
 
 * `json`
 * `ndjson`
