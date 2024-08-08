@@ -111,7 +111,7 @@ This parameter is deprecated since v1.8.1. Use `copy_mode` instead.
 
 `out_copy` shares a record between `store` plugins by default.
 
-If `true`, `out_copy` passes dumped record to each `store` plugin. This behavior is similar to `copy_mode shallow`.
+If `true`, `out_copy` passes dupped record to each `store` plugin. This behavior is similar to `copy_mode shallow`.
 
 ### `<store>` Section
 
