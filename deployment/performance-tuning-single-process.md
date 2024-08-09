@@ -74,7 +74,11 @@ Here's a quote from the documentation:
 > Do full GC when the number of old objects is more than R * N
 > where R is this factor and N is the number of old objects just after last full GC.
 
-So, the default GC behavior does not call full GC until the number of old objects reaches `2.0 * before old objects`. This improves the throughput but it grows the total memory usage. This setting is not good for the low resource environment e.g. a small container. For such cases, try `RUBY_GC_HEAP_OLDOBJECT_LIMIT_FACTOR=0.9` or `RUBY_GC_HEAP_OLDOBJECT_LIMIT_FACTOR=1.2`.
+So, the default GC behavior does not call full GC until the number of old objects reaches `2.0 * before old objects`. This improves the throughput but it grows the total memory usage. This setting is not good for the low resource environment e.g. a small container. For such cases, try `RUBY_GC_HEAP_OLDOBJECT_LIMIT_FACTOR=1.2`.
+
+{% hint style='danger' %}
+Do not set a value lower than `1.0` unless there is a special reason, because there are cases where setting a value lower than `1.0` causes a performance degrade. e.g. delay of launching Fluentd.
+{% endhint %}
 
 See [Ruby 2.1 Garbage Collection: ready for production](https://samsaffron.com/archive/2014/04/08/ruby-2-1-garbage-collection-ready-for-production) and [Watching and Understanding the Ruby 2.1 Garbage Collector at Work](https://thorstenball.com/blog/2014/03/12/watching-understanding-ruby-2.1-garbage-collector/) articles for more detail.
 
