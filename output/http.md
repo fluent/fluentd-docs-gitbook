@@ -120,6 +120,14 @@ Using the array format of JSON. This parameter is used and valid only for json f
 ...
 ```
 
+### `compress`
+
+| type | default | available values | version |
+| :--- | :--- | :--- | :--- |
+| enum | text | text/gzip | 1.17.1 |
+
+The option to compress HTTP request body.
+
 ### `<format>` Directive
 
 The format of the payload. The default `@type` is `json`.
