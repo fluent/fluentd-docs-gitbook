@@ -105,5 +105,22 @@ The sample data to be generated. It should be either an array of JSON hashes or 
 
 If you use fluentd v1.11.1 or earlier, use `dummy`.
 
-If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open). [Fluentd](http://www.fluentd.org/) is an open-source project under [Cloud Native Computing Foundation \(CNCF\)](https://cncf.io/). All components are available under the Apache 2 License.
+### `reuse_record`
 
+| type | default | version |
+| :--- | :--- | :--- |
+| bool | false | 1.17.1 |
+
+If specified, it reuses the previously generated sample data.
+This is the default behavior in v1.17.0 or older version of Fluentd.
+
+Since v1.17.1, the default behavior was changed to copy sample data 
+by default to avoid the impact of destructive changes by subsequent plugins.
+
+The new default behavior (`reuse_record false`) increases the load when generating large amounts of sample data.
+You can use this new parameter to have the same performance as before with `reuse_record`.
+
+Note that there is one exception not to reuse the sample data even though `reuse_record` is specified.
+If `auto_increment_key` was specified, `reuse_record` will be ignored.
+
+If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open). [Fluentd](http://www.fluentd.org/) is an open-source project under [Cloud Native Computing Foundation \(CNCF\)](https://cncf.io/). All components are available under the Apache 2 License.
