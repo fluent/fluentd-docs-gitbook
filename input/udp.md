@@ -135,6 +135,14 @@ The maximum number of bytes for the message.
 
 Removes the newline from the end of the incoming payload.
 
+### `receive_buffer_size`
+
+| type | default | version |
+| :--- | :--- | :--- |
+| size | nil | 1.0.1 |
+
+The max size of socket receive buffer. This is used in `SO_RCVBUF` socket option.
+
 ### `<parse>` Section
 
 | required | multi | version |
