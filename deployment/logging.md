@@ -170,7 +170,7 @@ You can also configure the log file path using the `<log>` directive under `<sys
 $ fluentd -o /path/to/log_file
 ```
 
-### Log Rotation Setting
+## Log Rotation Setting
 
 By default, Fluentd does not rotate log files. You can configure this behavior via system-config after v1.13.0.
 
@@ -192,7 +192,7 @@ Actually, an external library manages these default values, resulting in this co
 
 You can use command-line options too (mainly for before v1.13.0):
 
-#### `--log-rotate-age AGE`
+### `--log-rotate-age AGE`
 
 `AGE` is an integer or a string:
 
@@ -201,7 +201,7 @@ You can use command-line options too (mainly for before v1.13.0):
 
 NOTE: When `--log-rotate-age` is specified on Windows, log files are separated into `log-supervisor-0.log`, `log-0.log`, ..., `log-N.log` where `N` is `generation - 1` due to the system limitation. Windows does not permit delete and rename files simultaneously owned by another process.
 
-#### `--log-rotate-size BYTES`
+### `--log-rotate-size BYTES`
 
 The byte size to rotate log files. This is applied when `--log-rotate-age` is specified with integer:
 
