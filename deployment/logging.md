@@ -148,9 +148,25 @@ end
 
 ## Output to Log File
 
+### By Command Line Option
+
 By default, Fluentd outputs to the standard output. Use `-o` command line option to specify the file instead:
 
 ```text
+$ fluentd -o /path/to/log_file
+```
+
+### By Config File
+
+You can also configure the log file path using the `<log>` directive under `<system>`:
+
+```text
+<system>
+  <log>
+    path /path/to/log_file
+  </log>
+</system>
+
 $ fluentd -o /path/to/log_file
 ```
 
