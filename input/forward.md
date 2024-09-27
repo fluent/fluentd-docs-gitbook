@@ -174,7 +174,9 @@ The default value `0` is to send RST rather than FIN to avoid lots of connection
 
 You can set positive value to send FIN on closing on non-Windows.
 
-(On Windows, Fluentd sends FIN when `linger_timeout` is `0` too).
+{% hint style='info' %}
+On Windows, Fluentd sends FIN without depending on this setting.
+{% endhint %}
 
 ```text
 <transport tcp>

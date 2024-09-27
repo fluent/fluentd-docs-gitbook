@@ -26,8 +26,41 @@ The **`transport`** section must be under `<match>`, `<source>`, and `<filter>` 
 
 ## Parameters
 
-* `protocol` \[enum: `tcp`/`udp`/`tls`\]
+### Protocol
+
+The protocol is specified as the argument of `<transport>` section.
+
+```
+<transport PROTOCOL>
+</transport>
+```
+
+* \[enum: `tcp`/`udp`/`tls`\]
   * Default: `tcp`
+
+### General Setting
+
+#### `linger_timeout`
+
+| type | default | available transport type | version |
+| :--- | :--- | :--- | :--- |
+| integer | 0 | tcp, tls | 1.14.6 |
+
+The timeout \(seconds\) to set `SO_LINGER`.
+
+The default value `0` is to send RST rather than FIN to avoid lots of connections sitting in TIME_WAIT on closing.
+
+You can set positive value to send FIN on closing.
+
+{% hint style='info' %}
+On Windows, Fluentd sends FIN without depending on this setting.
+{% endhint %}
+
+```
+<transport tcp>
+  linger_timeout 1
+</transport>
+```
 
 ### TLS Setting
 
