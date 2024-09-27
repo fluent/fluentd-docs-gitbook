@@ -148,6 +148,7 @@ The maximum number of bytes for the message.
 | enum | tcp | tcp, tls | 0.14.12 |
 
 This section is for setting TLS transport or some general transport configurations.
+See [Config: Transport Section](../configuration/transport-section.md) for all supported parameters.
 
 #### General configuration
 

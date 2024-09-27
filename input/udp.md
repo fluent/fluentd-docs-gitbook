@@ -141,7 +141,18 @@ Removes the newline from the end of the incoming payload.
 | :--- | :--- | :--- |
 | size | nil | 1.0.1 |
 
+This is a deprecated parameter. Use `receive_buffer_size` in `<transport>` section instead.
+
 The max size of socket receive buffer. This is used in `SO_RCVBUF` socket option.
+
+### `<transport>` Section
+
+| type | default | available values | version |
+| :--- | :--- | :--- | :--- |
+| enum | udp | udp | 1.18.0 |
+
+This section is for some general transport configurations.
+See [Config: Transport Section](../configuration/transport-section.md) for all supported parameters.
 
 ### `<parse>` Section
 
