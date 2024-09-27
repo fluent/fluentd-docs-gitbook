@@ -158,7 +158,7 @@ $ fluentd -o /path/to/log_file
 
 ### By Config File
 
-You can also configure the log file path using the `<log>` directive under `<system>`:
+Since v1.18.0, You can also configure the log file path using the `<log>` directive under `<system>`:
 
 ```text
 <system>
