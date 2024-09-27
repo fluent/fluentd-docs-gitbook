@@ -166,8 +166,6 @@ You can also configure the log file path using the `<log>` directive under `<sys
     path /path/to/log_file
   </log>
 </system>
-
-$ fluentd -o /path/to/log_file
 ```
 
 ## Log Rotation Setting
