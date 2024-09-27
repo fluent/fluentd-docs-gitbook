@@ -182,6 +182,8 @@ Enable JIT for worker processes. Internally, this configuration enables Ruby's `
 
 Specifies the log file path.
 
+Please see also [Output to Log File](logging.md#output-to-log-file).
+
 #### `format`
 
 | type | default | version |
