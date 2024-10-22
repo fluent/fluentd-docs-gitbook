@@ -11,9 +11,8 @@
 
 ## Enterprise
 
-[Calyptia](https://www.calyptia.com), from [fluentd.org/enterprise](https://www.fluentd.org/enterprise), offers an enterprise UI on top of Fluentd and Fluent Bit. Please visit their site for more information
+[Chronosphere Telemetry Pipeline](https://chronosphere.io/platform/telemetry-pipeline/) provides an enterprise UI on top of Fluentd and Fluent Bit. Please visit their site for more information.
 
-![](../.gitbook/assets/image.png)
 
 ## Getting Started
 

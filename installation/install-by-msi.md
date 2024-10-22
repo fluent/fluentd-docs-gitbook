@@ -20,7 +20,7 @@ Currently two versions of distributions are available.
 
 * Includes Ruby and other library dependencies \(since most Windows box are not installed\).
 * Includes a set of frequently-used 3rd party plugins such as `out_elasticsearch` and `in_windows_eventlog2`.
-* This alternative agent is developed by [Calyptia, Inc.](https://www.calyptia.com/).
+* This alternative agent is developed by [Chronosphere](https://chronosphere.io) after its acuisition of Calyptia.
 
 Currently, calyptia-fluentd is on v1 only.
 

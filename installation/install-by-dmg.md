@@ -1,6 +1,6 @@
 # Install by .dmg Package \(macOS\)
 
-This article explains how to install stable versions of `fluent-package` dmg packages, the stable Fluentd distribution packages maintained by [Fluentd Project](https://www.fluentd.org/) and `calyptia-fluentd` which is maintained by [Calyptia, Inc.](https://www.calyptia.com/) on macOS.
+This article explains how to install stable versions of `fluent-package` dmg packages, the stable Fluentd distribution packages maintained by [Fluentd Project](https://www.fluentd.org/) and `calyptia-fluentd` which is maintained by [Chronosphere](https://chronosphere.io) after its acquisition of Calyptia on macOS.
 
 ## What is `fluent-package`?
 
@@ -10,9 +10,9 @@ That is why [Fluentd Project](https://www.fluentd.org/) provides **the stable di
 
 ## What is `calyptia-fluentd`?
 
-Our Calyptia also knows that Fluentd is written in Ruby for flexibility, with performance-sensitive parts in C. However, some users may have difficulty installing and operating a Ruby daemon. And `td-agent` is still seated on Ruby 2.7 due to compatibility reasons and Ruby versioning policy, `calyptia-fluentd` uses Ruby 3 instead of Ruby 2.7 for now.
+Fluentd is written in Ruby for flexibility, with performance-sensitive parts in C. However, some users may have difficulty installing and operating a Ruby daemon. And `td-agent` is still seated on Ruby 2.7 due to compatibility reasons and Ruby versioning policy, `calyptia-fluentd` uses Ruby 3 instead of Ruby 2.7 for now.
 
-That is why [Calyptia, Inc.](https://www.calyptia.com/) provides **the alternative stable distribution of Fluentd**, called `calyptia-fluentd`. The differences between `td-agent` and `calyptia-fluentd` are bundled and running Ruby versions for now.
+That is why Chronosphere (formerly Calyptia) provides **the alternative stable distribution of Fluentd**, called `calyptia-fluentd`. The differences between `td-agent` and `calyptia-fluentd` are bundled and running Ruby versions for now.
 
 For macOS, `td-agent` is distributed as `.dmg` installer.
 
