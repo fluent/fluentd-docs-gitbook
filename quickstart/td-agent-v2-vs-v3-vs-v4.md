@@ -2,7 +2,7 @@
 
 ## Supported Platforms
 
-[ClearCode, Inc.](https://www.clear-code.com) maintains stable packages for Fluentd and canonical plugins as Treasure Agent \(the package is called `td-agent`\). `td-agent` has v2, v3 and v4. [Calyptia, Inc.](https://calyptia.com/) maintains stable packages as Calyptia-fluentd as another option. Supported OS is the same as td-agent v4 currently.
+[ClearCode, Inc.](https://www.clear-code.com) maintains stable packages for Fluentd and canonical plugins as Treasure Agent \(the package is called `td-agent`\). `td-agent` has v2, v3 and v4. [Chronosphere](https://chronosphere.io/) (formerly Calyptia) maintains stable packages as Calyptia-fluentd as another option. Supported OS is the same as td-agent v4 currently.
 
 | Platform | v2 | v3 | v4\(x86\_64\) | v4\(Arm64\) |
 | :--- | :---: | :---: | :---: | :---: |
