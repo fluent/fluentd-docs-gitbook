@@ -167,9 +167,6 @@ Let's add standard `record_transformer` filter to `match` example.
 </match>
 ```
 
-Visualization of configuration: [https://link.calyptia.com/6mk](https://link.calyptia.com/6mk) \(sign-up required\)
-
-![Visualization from Calyptia](../.gitbook/assets/screen-shot-2021-03-16-at-12.57.45-pm.png)
 
 The received event `{"event":"data"}` goes to `record_transformer` filter first. The `record_transformer` filter adds `host_param` field to the event; and, then the filtered event `{"event":"data","host_param":"webserver1"}` goes to the `file` output plugin.
 
@@ -261,9 +258,6 @@ Here is a configuration example:
 </label>
 ```
 
-Visualization of configuration: [https://link.calyptia.com/dxn](https://link.calyptia.com/dxn) \(sign-up required\)
-
-![Visualization from Calyptia](../.gitbook/assets/screen-shot-2021-03-16-at-12.59.05-pm.png)
 
 In this configuration, `forward` events are routed to `record_transformer` filter / `elasticsearch` output and `in_tail` events are routed to `grep` filter / `s3` output inside `@SYSTEM` label.
 
@@ -587,9 +581,6 @@ The configuration file can be validated without starting the plugins using the `
 $ fluentd --dry-run -c fluent.conf
 ```
 
-## Config Validator
-
-You can use the Calyptia Cloud advisor for tips on Fluentd configuration. Sign up required at https://cloud.calyptia.com.
 
 ## Format Tips
 
