@@ -118,9 +118,7 @@ A **Filter** behaves like a rule to pass or reject an event. The following confi
 </match>
 ```
 
-Fluentd configuration visualization link: [https://link.calyptia.com/gjl](https://link.calyptia.com/gjl) \(sign-up required\)
-
-![Visualization from Calyptia](../.gitbook/assets/screen-shot-2021-03-16-at-12.50.12-pm.png)
+![Visualization](../.gitbook/assets/screen-shot-2021-03-16-at-12.50.12-pm.png)
 
 As you can see, the new **Filter** definition will be a mandatory step to pass before the control goes to the **Match** section. The **Filter** basically will accept or reject the **Event** based on its `type` and rule. For our example we want to discard any user **logout** action. We only care about the **logins**. The way to accomplish this, is doing a `grep` inside the **Filter** to exclude any message on which `action` key have the **logout** string.
 
@@ -210,9 +208,7 @@ This new implementation called **Labels**, aims to solve the configuration file 
 </label>
 ```
 
-Fluentd configuration visualization: [https://link.calyptia.com/guh](https://link.calyptia.com/guh) \(sign-up required\)
-
-![Visualization from Calyptia](../.gitbook/assets/screen-shot-2021-03-16-at-12.51.26-pm.png)
+![Visualization](../.gitbook/assets/screen-shot-2021-03-16-at-12.51.26-pm.png)
 
 The new configuration contains a `@label` parameter under `source` indicating that the further steps will take place on the `@STAGING` label section. The expectation is that every event reported on the **Source**, the **Routing Engine** will continue processing on `@STAGING`. Hence, it will skip the old filter definition.
 
