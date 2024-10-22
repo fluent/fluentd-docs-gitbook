@@ -53,6 +53,6 @@ And this `local` type plugin should be used by default.
 
 NOTE: This 3rd party metrics plugin list does not fully covers all of them.
 
-* [fluent-plugin-metrics-cmetrics](https://github.com/calyptia/fluent-plugin-metrics-cmetrics)
+* [fluent-plugin-metrics-cmetrics](https://github.com/chronosphereio/calyptia-fluent-plugin-metrics-cmetrics)
 
 If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open). [Fluentd](http://www.fluentd.org/) is an open-source project under [Cloud Native Computing Foundation \(CNCF\)](https://cncf.io/). All components are available under the Apache 2 License.
