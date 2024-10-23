@@ -62,6 +62,20 @@ On Windows, Fluentd sends FIN without depending on this setting.
 </transport>
 ```
 
+#### `receive_buffer_size`
+
+| type | default | available transport type | version |
+| :--- | :--- | :--- | :--- |
+| integer | nil | tcp, udp, tls | 1.18.0 |
+
+The max size of socket receive buffer for TCP/UDP. This is used in `SO_RCVBUF` socket option.
+
+```text
+<transport udp>
+  receive_buffer_size 4194304
+</transport>
+```
+
 ### TLS Setting
 
 * `version`: \[enum: `TLS1_1`/`TLS1_2`/`TLS1_3`\]

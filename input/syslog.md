@@ -103,7 +103,8 @@ The protocol of the `syslog` transport.
 </source>
 ```
 
-See **How to Enable TLS Encryption** section for how to use and see [Configuration Example](../plugin-helper-overview/api-plugin-helper-server.md#configuration-example) for all supported parameters.
+This section is for setting TLS transport or some general transport configurations.
+See **How to Enable TLS Encryption** section for how to use and see [Configuration Example](../plugin-helper-overview/api-plugin-helper-server.md#configuration-example) and [Config: Transport Section](../configuration/transport-section.md) for all supported parameters.
 
 ### `message_length_limit`
 
