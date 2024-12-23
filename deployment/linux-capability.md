@@ -181,3 +181,19 @@ Fluentd, which is running by a non-root user, does not complain with `Permission
 
 If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open). [Fluentd](http://www.fluentd.org/) is an open-source project under [Cloud Native Computing Foundation \(CNCF\)](https://cncf.io/). All components are available under the Apache 2 License.
 
+## Capability handling on docker container
+If you would like to collect logs from a file as a non-root user, you can use `CAP_DAC_READ_SEARCH` Linux capabilities.
+However, `CAP_DAC_READ_SEARCH` now cannot be used on docker container by default.
+
+When using `CAP_DAC_READ_SEARCH` in a Docker container, you need to add the `--cap-add DAC_READ_SEARCH` option to the `docker run` command.
+Or, if you are using `docker compose`, you need to add `cap_add` to the service definition.
+
+```yml
+    cap_add:
+    - DAC_READ_SEARCH
+```
+
+Please refer to the Docker documentation for more information:
+
+- [Runtime privilege and Linux capabilities](https://docs.docker.com/engine/containers/run/#runtime-privilege-and-linux-capabilities)
+- [cap_add](https://docs.docker.com/reference/compose-file/services/#cap_add)
