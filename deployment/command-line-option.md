@@ -33,6 +33,7 @@ Usage: fluentd [options]
         --suppress-repeated-stacktrace [VALUE]
                                      suppress repeated stacktrace
         --without-source             invoke a fluentd without input plugins
+        --with-source-only           Invoke a fluentd only with input plugins. The data is stored in a temporary buffer. Send SIGWINCH to cancel this mode and process the data (Not supported on Windows).
         --use-v1-config              Use v1 configuration format (default)
         --use-v0-config              Use v0 configuration format
         --strict-config-value        Parse config values strictly
@@ -53,6 +54,7 @@ Usage: fluentd [options]
 * `--suppress-config-dump`: Fluentd starts without configuration dump. If you do not want to show the configuration in fluentd logs, e.g. it contains private keys, then this option is useful.
 * `--suppress-repeated-stacktrace`: If `true`, suppresses the stacktrace in fluentd logs. Since v0.12, this option is `true` by default.
 * `--without-source`: Fluentd starts without input plugins. This option is useful for flushing buffers with no new incoming events.
+* `--with-source-only` (Not supported on Windows): See [Source Only Mode](source-only-mode.md) for details.
 * `-i`, `--inline-config`: If fluentd is used on XaaS which does not support persistent disks, this option is useful.
 * `--no-supervisor`: If you want to use your supervisor tools, this option avoids double supervisor.
 

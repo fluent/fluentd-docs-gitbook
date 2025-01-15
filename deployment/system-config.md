@@ -100,6 +100,20 @@ Logs event verbosely.
 
 Invokes fluentd without input plugins.
 
+### `with_source_only`
+
+| type | default | version |
+| :--- | :--- | :--- |
+| bool | nil | 1.18.0 |
+
+Not supported on Windows.
+
+Invokes a fluentd only with input plugins.
+
+See [Source Only Mode](source-only-mode.md) for details.
+
+See also [source_only_buffer section](#less-than-source_only_buffer-greater-than-section).
+
 ### `rpc_endpoint`
 
 | type | default | version |
@@ -245,6 +259,68 @@ Specifies whether measuring input metrics should be enabled or not.
 Specifies whether measuring record size metrics should be enabled or not.
 It can be useful for calculating flow rate on Fluentd instances.
 
+### `<source_only_buffer>` section
+
+The temporary buffer setting for [Source Only Mode](source-only-mode.md).
+
+#### `flush_thread_count`
+
+| type    | default | version |
+| :---    | :---    | :---    |
+| integer | 1       | 1.18.0  |
+
+See [Output Plugins - flush_thread_count](../output#flush_thread_count) for details.
+
+#### `overflow_action`
+
+| type | default           | version |
+| :--- | :---              | :---    |
+| enum | drop_oldest_chunk | 1.18.0  |
+
+See [Output Plugins - overflow_action](../output#overflow_action) for details.
+
+#### `path`
+
+| type   | default                                | version |
+| :---   | :---                                   | :---    |
+| string | nil (use unique path for the instance) | 1.18.0  |
+
+Set this option when recovering buffers ([Source Only Mode - Recovery](source-only-mode.md#Recovery)).
+
+See [Buffer Plugins - file - path](../buffer/file.md#path) for details.
+
+#### `flush_interval`
+
+| type    | default | version |
+| :---    | :---    | :---    |
+| integer | 10      | 1.18.0  |
+
+See [Output Plugins - flush_interval](../output#flush_interval) for details.
+
+#### `chunk_limit_size`
+
+| type | default | version |
+| :--- | :---    | :---    |
+| size | 256MB   | 1.18.0  |
+
+See [Buffer Section Configurations - Buffering Parameters](../configuration/buffer-section.md#buffering-parameters) for details.
+
+#### `total_limit_size`
+
+| type | default | version |
+| :--- | :---    | :---    |
+| size | 64GB    | 1.18.0  |
+
+See [Buffer Section Configurations - Buffering Parameters](../configuration/buffer-section.md#buffering-parameters) for details.
+
+#### `compress`
+
+| type | default | version |
+| :--- | :---    | :---    |
+| enum | text    | 1.18.0  |
+
+See [Buffer Section Configurations - Buffering Parameters](../configuration/buffer-section.md#buffering-parameters) for details.
+
 ### `Fluent::SystemConfig::Mixin` Methods
 
 #### `.system_config`
@@ -285,6 +361,7 @@ For code example, please refer to [`api-plugin-base`](../plugin-development/api-
 * `--emit-error-log-interval SECONDS`: Suppresses the interval \(seconds\) to emit error logs.
 * `--suppress-repeated-stacktrace [VALUE]`: Suppress the repeated stacktrace.
 * `--without-source`: Invokes fluentd without input plugins.
+* `--with-source-only` (Not supported on Windows): Invokes a fluentd only with input plugins. See [Source Only Mode](source-only-mode.md) for details.
 * `--use-v1-config`: Uses v1 configuration format \(default\).
 * `--use-v0-config`: Uses v0 configuration format.
 * `--strict-config-value`: Parses the configuration values strictly. Invalid numerical or boolean values are rejected. Fluentd raises configuration error exceptions instead of replacing them with `0` or `true` implicitly.
