@@ -1,0 +1,48 @@
+# Zero-downtime restart
+
+This feature allows a complete restart of Fluentd without bringing down some input plugins.
+
+Supported standard input plugins are as follows.
+
+| supported input plugin | version |
+| :---                   | :---    |
+| in_udp                 | v1.18.0 |
+| in_tcp                 | v1.18.0 |
+| in_syslog              | v1.18.0 |
+
+If these input plugins are down, client applications may fail to send data.
+If that client does not have a resend feature, the data will be lost.
+
+You can use this feature to completely restart Fluentd without losing data for these plugins.
+
+## How to use this feature
+
+You can use this feature in the following ways.
+
+* [Signals - SIGUSR2](signals.md#sigusr2)
+* [RPC](rpc.md)
+
+## Mechanism of zero-downtime restart
+
+![zero-downtime restart mechanism](../.gitbook/assets/fluentd-zero-downtime-restart-mechanism.png)
+
+1. The old supervisor receives `SIGUSR2`.
+2. Spawn a new supervisor.
+3. Take over shared sockets.
+4. Launch new workers, and stop old processes in parallel.
+   * Launch new workers with [Source Only Mode](source-only-mode.md).
+     * In addition to source-only mode, further limit the starting pluings to only those that support this feature.
+     * Data received by the new workers are stored in the temporary buffer of source-only mode.
+   * Send `SIGTERM` to the old supervisor after `10s` delay.
+5. The old supervisor stops and sends `SIGWINCH` to the new one.
+6. The new workers starts to run fully.
+   * The temporary buffer of source-only mode starts to load.
+
+You can configure the temporary buffer.
+See [Source Only Mode](source-only-mode.md) for details.
+
+## Plugins: how to support this feature
+
+See [How to Write Input Plugin - zero_downtime_restart_ready?](../plugin-development/api-plugin-input.md#zero_downtime_restart_ready).
+
+If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open). [Fluentd](http://www.fluentd.org/) is an open-source project under [Cloud Native Computing Foundation \(CNCF\)](https://cncf.io/). All components are available under the Apache 2 License.
