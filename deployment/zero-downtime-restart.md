@@ -12,9 +12,7 @@ Supported standard input plugins are as follows.
 | in_syslog              | v1.18.0 |
 
 If these input plugins are down, client applications may fail to send data.
-If that client does not have a resend feature, the data will be lost.
-
-You can use this feature to completely restart Fluentd without losing data for these plugins.
+You can use this feature to completely restart Fluentd without losing data for these plugins even if that client does not have a resend feature.
 
 ## How to use this feature
 
