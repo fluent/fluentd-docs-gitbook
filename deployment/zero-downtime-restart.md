@@ -25,14 +25,14 @@ You can use this feature in the following ways.
 
 ![zero-downtime restart mechanism](../.gitbook/assets/fluentd-zero-downtime-restart-mechanism.png)
 
-1. The old supervisor receives `SIGUSR2`.
+1. Receive `SIGUSR2`.
 2. Spawn a new supervisor.
 3. Take over shared sockets.
 4. Launch new workers, and stop old processes in parallel.
    * Launch new workers with [Source Only Mode](source-only-mode.md).
-     * In addition to source-only mode, further limit the starting pluings to only those that support this feature.
+     * In addition to the source-only mode limitation, Fluentd further limits the starting pluings to only those that support this feature.
      * Data received by the new workers are stored in the temporary buffer of source-only mode.
-     * For details on the temporary buffer, see [Source ONLY MODE - Temporary file buffer](source-only-mode.md#temporary-file-buffer).
+     * For details on the temporary buffer, see [Source Only Mode - Temporary file buffer](source-only-mode.md#temporary-file-buffer).
    * Send `SIGTERM` to the old supervisor after `10s` delay.
 5. The old supervisor stops and sends `SIGWINCH` to the new one.
 6. The new workers starts to run fully.
