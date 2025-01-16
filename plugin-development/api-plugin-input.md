@@ -119,7 +119,7 @@ To do this, the following condition must be met:
 This is because there is a period when the old process and the new process run in parallel during a zero-downtime restart.
 
 After addressing the following considerations and ensuring there are no issues, override this method.
-Then, the plugin will not experience downtime with zero-downtime restart.
+Then, the plugin will succeed with zero-downtime restart.
 
 * Handling Files
   * When handling files, there is a possibility of conflict.
