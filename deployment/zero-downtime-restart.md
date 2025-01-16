@@ -1,6 +1,7 @@
 # Zero-downtime restart
 
-This feature allows a complete restart of Fluentd without bringing down some input plugins.
+This feature supports a complete restart of Fluentd.
+This restarts Fluentd so that some input plugins don't have down time.
 
 Supported standard input plugins are as follows.
 

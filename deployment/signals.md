@@ -37,7 +37,8 @@ Windows:
 
 #### Zero-downtime restart
 
-This feature allows a complete restart of Fluentd without bringing down some input plugins, such as `in_udp` or `in_tcp`.
+This feature supports a complete restart of Fluentd.
+This restarts Fluentd so that some input plugins don't have down time.
 
 See [Zero-downtime restart](zero-downtime-restart.md) for details.
 
