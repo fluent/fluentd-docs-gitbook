@@ -49,7 +49,7 @@ This method does not cause socket downtime, so if there is no need to restart th
 
 **Comparison with Graceful reload**
 
-You can still use Graceful reload feature by sending `SIGUSR2` directly to the worker processor or using [RPC](rpc.md) even after v1.18.0.
+You can still use Graceful reload feature by sending `SIGUSR2` directly to the worker process or using [RPC](rpc.md) even after v1.18.0.
 
 This allows you to reload without restarting the process, but there are some limitations.
 Please use zero-downtime restart or `SIGHUP` unless there is a special reason.
