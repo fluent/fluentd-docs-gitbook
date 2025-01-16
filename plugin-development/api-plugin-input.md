@@ -102,7 +102,31 @@ router.emit(tag, time, {:foo => 'bar'})
 
 ## Methods
 
-There are no specific methods for the Input plugins.
+### zero_downtime_restart_ready?
+
+To support [Zero-downtime restart](../deployment/zero-downtime-restart.md), you can override this method to return `true`.
+
+```ruby
+def zero_downtime_restart_ready?
+  true
+end
+```
+
+To do this, the following condition must be met:
+
+* This plugin can run in parallel with another Fluentd.
+
+This is because there is a period when the old process and the new process run in parallel during a zero-downtime restart.
+
+After addressing the following considerations and ensuring there are no issues, override this method.
+Then, the plugin will succeed with zero-downtime restart.
+
+* Handling Files
+  * When handling files, there is a possibility of conflict.
+  * Basically, input plugins that handle files should not support Zero-downtime restart.
+* Handling Sockets
+  * A socket provided as a shared socket by [server plugin helper](../plugin-helper-overview/api-plugin-helper-server.md) is shared between the old and new processes. So, such a plugin can support Zero-downtime restart.
+  * When handling sockets on your own, be careful to avoid conflicts.
 
 ## Writing Tests
 

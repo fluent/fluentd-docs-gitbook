@@ -57,6 +57,7 @@
   * [Linux Capability](deployment/linux-capability.md)
   * [Command Line Option](deployment/command-line-option.md)
   * [Source Only Mode](deployment/source-only-mode.md)
+  * [Zero-downtime restart](deployment/zero-downtime-restart.md)
 * [Container Deployment](container-deployment/README.md)
   * [Docker Image](container-deployment/install-by-docker.md)
   * [Docker Logging Driver](container-deployment/docker-logging-driver.md)
