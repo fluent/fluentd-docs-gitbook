@@ -62,7 +62,7 @@ Reloads the configuration file by gracefully re-constructing the data pipeline. 
 Limitations:
 
 * A change to System Configuration (`<system>`) is ignored.
-* All plugins must not use class variable when restarting.
+* All plugins must not use class variable.
 
 ### SIGHUP
 
