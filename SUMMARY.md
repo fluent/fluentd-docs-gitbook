@@ -6,6 +6,7 @@
   * [Support](quickstart/support.md)
   * [FAQ](quickstart/faq.md)
   * [Logo](quickstart/logo.md)
+  * [fluent-package v5 vs td-agent v4](quickstart/fluent-package-v5-vs-td-agent.md)
 * [Installation](installation/README.md)
   * [Before Installation](installation/before-install.md)
   * [Install by RPM Package \(Red Hat Linux\)](installation/install-by-rpm.md)
@@ -197,5 +198,4 @@
 * [Appendix](appendix/README.md)
   * [Update from v0.12 to v1](appendix/update-from-v0.12.md)
   * [td-agent v2 vs v3 vs v4](appendix/td-agent-v2-vs-v3-vs-v4.md)
-  * [fluent-package v5 vs td-agent v4](appendix/fluent-package-v5-vs-td-agent.md)
 
