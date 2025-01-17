@@ -1,5 +1,9 @@
 # td-agent v2 vs v3 vs v4
 
+{% hint style='danger' %}
+The series of td-agent had already reached End of Life (EOL). td-agent should not be newly installed because no support, no new release and no security updates anymore.
+{% endhint %}
+
 ## Supported Platforms
 
 [ClearCode, Inc.](https://www.clear-code.com) maintains stable packages for Fluentd and canonical plugins as Treasure Agent \(the package is called `td-agent`\). `td-agent` has v2, v3 and v4. [Chronosphere](https://chronosphere.io/) (formerly Calyptia) maintains stable packages as Calyptia-fluentd as another option. Supported OS is the same as td-agent v4 currently.
@@ -49,10 +53,10 @@ This is for v0.12 and old distribution users. We don't recommend this version fo
 
 ## How to Install
 
-* [Ubuntu/Debian](../installation/install-by-deb.md)
-* [RedHat/CentOS](../installation/install-by-rpm.md)
-* [Windows](../installation/install-by-msi.md)
-* [macOS](../installation/install-by-dmg.md)
+* [Ubuntu/Debian](../installation/install-by-deb-td-agent-v4.md)
+* [RedHat/CentOS](../installation/install-by-rpm-td-agent-v4.md)
+* [Windows](../installation/install-by-msi-td-agent-v4.md)
+* [macOS](../installation/install-by-dmg-td-agent-v4.md)
 * [RubyGems](../installation/install-by-gem.md)
 
 If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open). [Fluentd](http://www.fluentd.org/) is an open-source project under [Cloud Native Computing Foundation \(CNCF\)](https://cncf.io/). All components are available under under [the Apache License 2.0.](https://www.apache.org/licenses/LICENSE-2.0)
