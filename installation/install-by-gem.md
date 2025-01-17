@@ -8,7 +8,7 @@ Please follow the [Pre-installation Guide](before-install.md) to configure your 
 
 ## Step 1: Install Ruby Interpreter
 
-Install Ruby `>= 2.4` on your local environment. In addition, install `ruby-dev` package via Package Manager to build native extension gems.
+Install Ruby `>= 2.7` on your local environment. In addition, install `ruby-dev` package via Package Manager to build native extension gems.
 
 ## Step 2: Install Fluentd Gem
 

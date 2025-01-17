@@ -9,13 +9,13 @@ redirects:
 
   # Overview
   v1.0/articles/support: overview/support.md
-  v1.0/articles/update-from-v0.12: overview/update-from-v0.12.md
+  v1.0/articles/update-from-v0.12: appendix/update-from-v0.12.md
   v1.0/articles/life-of-a-fluentd-event: overview/life-of-a-fluentd-event.md
   v1.0/articles/logo: overview/logo.md
   v1.0/articles/faq: overview/faq.md
-  v1.0/articles/td-agent-v2-vs-v3: overview/td-agent-v2-vs-v3-vs-v4.md
-  v1.0/articles/fluent-package-v5-vs-td-agent-v4: overview/fluent-package-v5-vs-td-agent.md
-  quickstart/td-agent-v2-vs-v3: overview/td-agent-v2-vs-v3-vs-v4.md
+  v1.0/articles/td-agent-v2-vs-v3: appendix/td-agent-v2-vs-v3-vs-v4.md
+  v1.0/articles/fluent-package-v5-vs-td-agent-v4: quickstart/fluent-package-v5-vs-td-agent.md
+  quickstart/td-agent-v2-vs-v3: appendix/td-agent-v2-vs-v3-vs-v4.md
 
   # Install
   v1.0/articles/install-by-dmg: install/install-by-dmg.md

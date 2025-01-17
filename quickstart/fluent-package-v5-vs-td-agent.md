@@ -1,5 +1,10 @@
 # fluent-package v5 vs td-agent v4
 
+{% hint style='danger' %}
+The series of td-agent had already reached End of Life (EOL). td-agent should not be newly installed because of no support, no new release and no security updates anymore.
+Use fluent-package instead!
+{% endhint %}
+
 ## Supported Platforms
 
 [Fluentd Project](https://www.fluentd.org) maintains stable packages for Fluentd and canonical plugins as Fluent Package \(the package is called `fluent-package`\)
