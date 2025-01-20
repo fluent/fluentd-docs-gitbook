@@ -11,7 +11,10 @@ That is why [Treasure Data, Inc](http://www.treasuredata.com/) provides **the st
 ## Installing `td-agent`
 
 {% hint style='danger' %}
-NOTE: As [Treasure Agent (td-agent) 3 will not be maintained anymore](https://www.fluentd.org/blog/schedule-for-td-agent-3-eol), recommend to [Upgrade td-agent from v3 to v4](https://www.fluentd.org/blog/upgrade-td-agent-v3-to-v4).
+This article contains deprecated td-agent (EOL) information: SHOULD NOT use td-agent anymore.
+
+* As [Treasure Agent (td-agent) 3 will not be maintained anymore](https://www.fluentd.org/blog/schedule-for-td-agent-3-eol), recommend to [Upgrade td-agent from v3 to v4](https://www.fluentd.org/blog/upgrade-td-agent-v3-to-v4).
+* Do not directly upgrade from v3 to fluent-package v5. Such a workflow is not supported. It causes a trouble. Upgrade in stages. (v3 to v4, then v4 to v5)
 {% endhint %}
 
 ### Step 0: Before Installation
