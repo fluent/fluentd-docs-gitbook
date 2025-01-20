@@ -23,7 +23,7 @@
   * [Install from Source](installation/install-from-source.md)
   * [Post Installation Guide](installation/post-installation-guide.md)
   * Obsolete Installation
-    * Treasure Agent v4 Installation
+    * Treasure Agent v4 (EOL) Installation
       * [Install by RPM Package v4 \(Red Hat Linux\)](installation/install-by-rpm-td-agent-v4.md)
       * [Install by DEB Package v4 \(Debian/Ubuntu\)](installation/install-by-deb-td-agent-v4.md)
       * [Install by .dmg Package v4 \(macOS\)](installation/install-by-dmg-td-agent-v4.md)
