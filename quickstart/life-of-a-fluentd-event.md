@@ -224,9 +224,7 @@ Once the events are reported by the [Fluentd](http://fluend.org) engine on the *
 
 ## Learn More
 
-* [Fluentd v0.12 Blog Announcement](http://www.fluentd.org/blog/fluentd-v0.12-is-released)
-* [Fluentd v0.14 Blog Announcement](http://www.fluentd.org/blog/fluentd-v0.14.0-has-been-released)
-* [Fluentd v1.0 Blog Announcement](http://www.fluentd.org/blog/fluentd-v1.0)
+Fluentd is maintained continuously and released periodically. Follow [official blog announcement with `announcement` tag](https://www.fluentd.org/blog/tag/announcement).
 
 If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open). [Fluentd](http://www.fluentd.org/) is an open-source project under [Cloud Native Computing Foundation \(CNCF\)](https://cncf.io/). All components are available under [the Apache License 2.0.](https://www.apache.org/licenses/LICENSE-2.0)
 
