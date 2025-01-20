@@ -30,9 +30,7 @@ For simplicity, this article will describe how to set up a one-node configuratio
 
 The Amazon S3 Output plugin is included in the latest version of Fluentd's deb/rpm package. If you want to use RubyGems to install the plugin, please use `gem install fluent-plugin-s3`.
 
-* [Debian Package](../installation/install-by-deb.md)
-* [RPM Package](../installation/install-by-rpm.md)
-* [Ruby gem](../installation/install-by-gem.md)
+* [Installation](../installation/)
 
 ## Configuration
 

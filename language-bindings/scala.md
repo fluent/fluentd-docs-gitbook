@@ -13,12 +13,9 @@ This article explains how to use it.
 
 ## Installing Fluentd
 
-Please refer to the following documents to install fluentd:
+Please refer to the following document to install Fluentd:
 
-* [Install Fluentd with rpm Package](../installation/install-by-rpm.md)
-* [Install Fluentd with deb Package](../installation/install-by-deb.md)
-* [Install Fluentd with Ruby Gem](../installation/install-by-gem.md)
-* [Install Fluentd from source](../installation/install-from-source.md)
+* [Installation](../installation/)
 
 ## Modifying the Config File
 
