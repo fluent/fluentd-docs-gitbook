@@ -18,22 +18,26 @@ redirects:
   quickstart/td-agent-v2-vs-v3: appendix/td-agent-v2-vs-v3-vs-v4.md
 
   # Install
-  v1.0/articles/install-by-dmg: install/install-by-dmg.md
-  v1.0/articles/post-installation-guide: install/post-installation-guide.md
-  v1.0/articles/install-by-msi: install/install-by-msi.md
-  v1.0/articles/install-from-source: install/install-from-source.md
-  v1.0/articles/install-by-rpm: install/install-by-rpm.md
-  v1.0/articles/before-install: install/before-install.md
-  v1.0/articles/install-by-gem: install/install-by-gem.md
-  v1.0/articles/install-by-deb: install/install-by-deb.md
-  v1.0/articles/install-by-dmg-td-agent-v4: install/install-by-dmg-td-agent-v4.md
-  v1.0/articles/install-by-msi-td-agent-v4: install/install-by-msi-td-agent-v4.md
-  v1.0/articles/install-by-rpm-td-agent-v4: install/install-by-rpm-td-agent-v4.md
-  v1.0/articles/install-by-deb-td-agent-v4: install/install-by-deb-td-agent-v4.md
-  v1.0/articles/install-by-dmg-td-agent-v3: install/install-by-dmg-td-agent-v3.md
-  v1.0/articles/install-by-msi-td-agent-v3: install/install-by-msi-td-agent-v3.md
-  v1.0/articles/install-by-rpm-td-agent-v3: install/install-by-rpm-td-agent-v3.md
-  v1.0/articles/install-by-deb-td-agent-v3: install/install-by-deb-td-agent-v3.md
+  v1.0/articles/install-by-dmg: installation/README.md
+  v1.0/articles/post-installation-guide: installation/post-installation-guide.md
+  v1.0/articles/install-by-msi: installation/README.md
+  v1.0/articles/install-from-source: installation/install-from-source.md
+  v1.0/articles/install-by-rpm: installation/README.md
+  v1.0/articles/before-install: installation/before-install.md
+  v1.0/articles/install-by-gem: installation/install-by-gem.md
+  v1.0/articles/install-by-deb: installation/README.md
+  v1.0/articles/install-by-dmg-td-agent-v4: installation/install-by-dmg-td-agent-v4.md
+  v1.0/articles/install-by-msi-td-agent-v4: installation/install-by-msi-td-agent-v4.md
+  v1.0/articles/install-by-rpm-td-agent-v4: installation/install-by-rpm-td-agent-v4.md
+  v1.0/articles/install-by-deb-td-agent-v4: installation/install-by-deb-td-agent-v4.md
+  v1.0/articles/install-by-dmg-td-agent-v3: installation/install-by-dmg-td-agent-v3.md
+  v1.0/articles/install-by-msi-td-agent-v3: installation/install-by-msi-td-agent-v3.md
+  v1.0/articles/install-by-rpm-td-agent-v3: installation/install-by-rpm-td-agent-v3.md
+  v1.0/articles/install-by-deb-td-agent-v3: installation/install-by-deb-td-agent-v3.md
+  installation/install-by-rpm: installation/README.md
+  installation/install-by-deb: installation/README.md
+  installation/install-by-msi: installation/README.md
+  installation/install-by-dmg: installation/README.md
 
   # Configuration
   v1.0/articles/extract-section: configuration/extract-section.md
