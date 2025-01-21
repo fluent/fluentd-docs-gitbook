@@ -10,7 +10,7 @@ The following services are required to be set up correctly:
 * [Minio](https://minio.io/download/)
 * [Apache](https://httpd.apache.org/)
 
-Also, if you have installed Fluentd through RubyGems \(without `td-agent`\), please install the [`out_s3`](../output/s3.md) plugin manually:
+Also, if you have installed Fluentd through RubyGems \(without `fluent-package`\), please install the [`out_s3`](../output/s3.md) plugin manually:
 
 ```text
 $ sudo fluent-gem install fluent-plugin-s3
@@ -20,21 +20,23 @@ $ sudo fluent-gem install fluent-plugin-s3
 
 ### Input Settings
 
-In this example, we use the access log file as an input source, so save the following `<source>` settings to `/etc/td-agent/td-agent.conf`:
+In this example, we use the access log file as an input source, so save the following `<source>` settings to `/etc/fluent/fluentd.conf`:
 
 ```text
 <source>
   @type tail
   format apache2
   path /var/log/apache2/access.log
-  pos_file /var/log/td-agent/apache.access.log.pos
+  pos_file /var/log/fluent/apache.access.log.pos
   tag minio.apache.access
 </source>
 ```
 
+{% hint style='info' %}
 NOTE: If you are using the standalone version of Fluentd, use `/etc/fluent/fluent.conf` instead.
+{% endhint %}
 
-Before proceeding, please confirm that the access log file has proper file permission. If the log file is not readable by the `td-agent`/`fluentd`, the rest of this article will not work.
+Before proceeding, please confirm that the access log file has proper file permission. If the log file is not readable by the `fluent-package`/`fluentd`, the rest of this article will not work.
 
 ### Output Settings
 
@@ -53,7 +55,7 @@ Now let's add settings for storing the incoming data in your Minio server. Since
 
   <buffer time>
     @type file
-    path /var/log/td-agent/s3
+    path /var/log/fluent/s3
     timekey 60m                 # Flush the accumulated chunks every hour
     timekey_wait 1m             # Wait for 60 seconds before flushing
     timekey_use_utc true        # Use this option if you prefer UTC timestamps
