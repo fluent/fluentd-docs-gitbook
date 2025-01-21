@@ -13,7 +13,9 @@ For macOS, `td-agent` is distributed as `.dmg` installer.
 ## Step 1: Install `td-agent`
 
 {% hint style='danger' %}
-NOTE: About deprecated [Treasure Agent (td-agent) 3 will not be maintained anymore](https://www.fluentd.org/blog/schedule-for-td-agent-3-eol), see [Install by .dmg Package \(macOS\)](install-by-dmg-td-agent-v3.md).
+This article contains deprecated td-agent (EOL) information: SHOULD NOT use td-agent anymore.
+
+* `fluent-package` (successor of `td-agent`) for macOS is not be shipped yet, we plan to migrate to homebrew ecosystem in the future.
 {% endhint %}
 
 Download and install the `.dmg` package:
