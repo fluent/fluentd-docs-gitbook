@@ -30,11 +30,10 @@ Fluentd does these three \(3\) things:
 For simplicity, this article will describe how to set up a one-node configuration. Please install the following software on the same node:
 
 * [Fluentd](http://fluentd.org/)
-* [MongoDB Output Plugin](../output/mongo.md)
 * [MongoDB](http://www.mongodb.org/)
 * Apache \(with the Combined Log Format\)
 
-The MongoDB Output plugin is included in the latest version of Fluentd's deb/rpm package. If you want to use RubyGems to install the plugin, please use `gem install fluent-plugin-mongo`.
+You can install Fluentd via major packaging systems.
 
 * [Installation](../installation/)
 
@@ -42,9 +41,17 @@ For MongoDB, please refer to the following downloads page:
 
 * [MongoDB Downloads](http://www.mongodb.org/downloads)
 
+## Install MongoDB Plugin
+
+Since MongoDB plugin is not bundled with `fluent-package`, please install it manually:
+
+```text
+$ sudo fluent-gem install fluent-plugin-mongo
+```
+
 ## Configuration
 
-Let's start configuring Fluentd. If you used the deb/rpm package, Fluentd's config file is located at `/etc/td-agent/td-agent.conf`. Otherwise, it is located at `/etc/fluentd/fluentd.conf`.
+Let's start configuring Fluentd. If you used the deb/rpm package, Fluentd's config file is located at `/etc/fluent/fluentd.conf`.
 
 ### Tail Input
 
@@ -54,7 +61,7 @@ For the input source, we will set up Fluentd to track the recent Apache logs \(t
 <source>
   @type tail
   path /var/log/apache2/access_log
-  pos_file /var/log/td-agent/apache2.access_log.pos
+  pos_file /var/log/fluent/apache2.access_log.pos
   <parse>
     @type apache2
   </parse>
