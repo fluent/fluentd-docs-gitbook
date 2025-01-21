@@ -11,7 +11,9 @@ That is why [Treasure Data, Inc](http://www.treasuredata.com/) provides **the st
 ## `td-agent` v3
 
 {% hint style='danger' %}
-NOTE: As [Treasure Agent (td-agent) 3 will not be maintained anymore](https://www.fluentd.org/blog/schedule-for-td-agent-3-eol), recommend to [Upgrade td-agent from v3 to v4](https://www.fluentd.org/blog/upgrade-td-agent-v3-to-v4).
+This article contains deprecated td-agent (EOL) information: SHOULD NOT use td-agent anymore.
+
+* `fluent-package` (successor of `td-agent`) for macOS is not be shipped yet, we plan to migrate to homebrew ecosystem in the future.
 {% endhint %}
 
 ### Step 1: Install `td-agent`

@@ -13,8 +13,8 @@ You can also see [fluent-package-v5-vs-td-agent](../quickstart/fluent-package-v5
 
 ## How to install `fluent-package`
 
-{% hint style='info' %}
-NOTE:
+{% hint style='danger' %}
+The following are deprecated td-agent (EOL) information:
 
 * About deprecated [Treasure Agent (td-agent) v4 (EOL)](https://www.fluentd.org/blog/schedule-for-td-agent-4-eol), see [Install by .msi Installer v4 (Windows)](install-by-msi-td-agent-v4.md).
 * About deprecated [Treasure Agent (td-agent) 3 will not be maintained anymore](https://www.fluentd.org/blog/schedule-for-td-agent-3-eol), see [Install by msi Package  v3](install-by-msi-td-agent-v3.md).
