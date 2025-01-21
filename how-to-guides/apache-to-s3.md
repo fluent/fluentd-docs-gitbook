@@ -34,7 +34,7 @@ The Amazon S3 Output plugin is included in the latest version of Fluentd's deb/r
 
 ## Configuration
 
-Let's start configuring Fluentd. If you used the deb/rpm package, Fluentd's config file is located at `/etc/td-agent/td-agent.conf`. Otherwise, it is located at `/etc/fluentd/fluentd.conf`.
+Let's start configuring Fluentd. If you used the deb/rpm package, Fluentd's config file is located at `/etc/fluent/fluentd.conf`.
 
 ### Tail Input
 
@@ -44,7 +44,7 @@ For the input source, we will set up Fluentd to track the recent Apache logs \(t
 <source>
   @type tail
   path /var/log/apache2/access_log
-  pos_file /var/log/td-agent/apache2.access_log.pos
+  pos_file /var/log/fluent/apache2.access_log.pos
   <parse>
     @type apache2
   </parse>
@@ -86,7 +86,7 @@ The output destination will be Amazon S3. The output configuration should look l
 
   <buffer>
     @type file
-    path /var/log/td-agent/s3
+    path /var/log/fluent/s3
     timekey 3600  # 1 hour
     timekey_wait 10m
     chunk_limit_size 256m
