@@ -30,7 +30,7 @@ You can use this feature in the following ways.
 3. Take over shared sockets.
 4. Launch new workers, and stop old processes in parallel.
    * Launch new workers with [Source Only Mode](source-only-mode.md).
-     * In addition to the source-only mode limitation, Fluentd further limits the starting pluings to only those that support this feature.
+     * In addition to the source-only mode limitation, Fluentd further limits the starting plugins to only those that support this feature.
      * Data received by the new workers are stored in the temporary buffer of source-only mode.
      * For details on the temporary buffer, see [Source Only Mode - Temporary file buffer](source-only-mode.md#temporary-file-buffer).
    * Send `SIGTERM` to the old supervisor after `10s` delay.
