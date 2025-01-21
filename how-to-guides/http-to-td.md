@@ -16,16 +16,30 @@ The figure below shows the high-level architecture:
 
 ![TreasureData Architecture](../.gitbook/assets/treasuredata_architecture.png)
 
-## Install
+## Prerequisites
 
-For simplicity, this article will describe how to set up a one-node configuration. Please install the following software on the same node:
+The following software/services are required to be set up correctly:
 
-* [Fluentd](http://fluentd.org/)
+* [Fluentd](https://www.fluentd.org/)
 * [TD Output Plugin](https://github.com/treasure-data/fluent-plugin-td)
+* Your Treasure Data (CDP) Services Account
 
-The TD Output plugin is included in Fluentd's deb/rpm package \(`td-agent`\) by default. If you want to use RubyGems to install the plugin, please use `gem install fluent-plugin-td`.
+For simplicity, this article will describe how to set up a one-node configuration.
+Please install the above prerequisites software/services on the same node.
+
+You can install Fluentd via major packaging systems.
 
 * [Installation](../installation/)
+
+### Install plugin
+
+If `out_td` (fluent-plugin-td) is not installed yet, please install it manually.
+
+See [Plugin Management](..//installation/post-installation-guide#plugin-management) section how to install fluent-plugin-td on your environment.
+
+{% hint style='info' %}
+If you use `fluent-package`, out_td (fluent-plugin-td) is bundled by default.
+{% endhint %}
 
 ## Sign Up
 
@@ -42,7 +56,7 @@ kdfasklj218dsakfdas0983120
 
 ## Fluentd Configuration
 
-Let's start configuring Fluentd. If you used the deb/rpm package, Fluentd's config file is located at `/etc/td-agent/td-agent.conf`. Otherwise, it is located at `/etc/fluentd/fluentd.conf`.
+Let's start configuring Fluentd. If you used the deb/rpm package, Fluentd's config file is located at `/etc/fluent/fluentd.conf`.
 
 ### HTTP Input
 
@@ -67,7 +81,7 @@ The output destination will be Treasure Data. The output configuration should lo
   use_ssl true
   <buffer>
     @type file
-    path /var/log/td-agent/buffer/td
+    path /var/log/fluent/buffer/td
   </buffer>
 </match>
 ```
@@ -81,7 +95,7 @@ To test the configuration, just post the JSON to Fluentd. Sending a `USR1` signa
 ```text
 $ curl -X POST -d 'json={"action":"login","user":2}' \
   http://localhost:8888/td.testdb.www_access
-$ kill -USR1 `cat /var/run/td-agent/td-agent.pid`
+$ kill -USR1 `cat /var/run/fluent/fluentd.pid`
 ```
 
 Next, please use the `td tables` command. If the count is not zero, the data was imported successfully.
