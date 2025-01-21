@@ -53,10 +53,10 @@ See also [Changes from Treasure Agent 3](https://github.com/fluent-plugins-nurse
 
 ## How to Install
 
-* [Ubuntu/Debian](../installation/install-by-deb-fluent-package.md)
-* [RedHat/CentOS](../installation/install-by-rpm-fluent-package.md)
-* [Windows](../installation/install-by-msi-fluent-package.md)
-* [macOS](../installation/install-by-dmg-fluent-package.md)
+* [Ubuntu/Debian](../installation/install-fluent-package/install-by-deb-fluent-package.md)
+* [RedHat/CentOS](../installation/install-fluent-package/install-by-rpm-fluent-package.md)
+* [Windows](../installation/install-fluent-package/install-by-msi-fluent-package.md)
+* [macOS](../installation/install-fluent-package/install-by-dmg-fluent-package.md)
 * [RubyGems](../installation/install-by-gem.md)
 
 If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open). [Fluentd](http://www.fluentd.org/) is an open-source project under [Cloud Native Computing Foundation \(CNCF\)](https://cncf.io/). All components are available under under [the Apache License 2.0.](https://www.apache.org/licenses/LICENSE-2.0)
