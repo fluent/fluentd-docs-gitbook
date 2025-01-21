@@ -25,13 +25,16 @@ Fluentd does these three \(3\) things:
 
 3. It writes the buffered data to MongoDB periodically.
 
-## Install
+## Prerequisites
 
-For simplicity, this article will describe how to set up a one-node configuration. Please install the following software on the same node:
+The following software/services are required to be set up correctly:
 
-* [Fluentd](http://fluentd.org/)
+* [Fluentd](https://www.fluentd.org/)
 * [MongoDB](http://www.mongodb.org/)
-* Apache \(with the Combined Log Format\)
+* [Apache](https://httpd.apache.org/) (with the Combined Log Format)
+
+For simplicity, this article will describe how to set up a one-node configuration.
+Please install the above prerequisites software/services on the same node.
 
 You can install Fluentd via major packaging systems.
 
@@ -43,11 +46,9 @@ For MongoDB, please refer to the following downloads page:
 
 ## Install MongoDB Plugin
 
-Since MongoDB plugin is not bundled with `fluent-package`, please install it manually:
+If [`out_mongo`](../output/mongo.md) (fluent-plugin-mongo) is not installed yet, please install it manually.
 
-```text
-$ sudo fluent-gem install fluent-plugin-mongo
-```
+See [Plugin Management](..//installation/post-installation-guide#plugin-management) section how to install fluent-plugin-mongo on your environment.
 
 ## Configuration
 

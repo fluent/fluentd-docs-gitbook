@@ -19,18 +19,31 @@ Fluentd does three \(3\) things:
 
 3. It writes the buffered data to Amazon S3 periodically.
 
-## Install
+## Prerequisites
 
-For simplicity, this article will describe how to set up a one-node configuration. Please install the following software on the same node:
+The following software/services are required to be set up correctly:
 
-* [Fluentd](http://fluentd.org/)
+* [Fluentd](https://www.fluentd.org/)
 * [Amazon S3 Output Plugin](../output/s3.md)
 * Your Amazon Web Services Account
-* Apache \(with the Combined Log Format\)
+* [Apache](https://httpd.apache.org/) (with the Combined Log Format)
 
-The Amazon S3 Output plugin is included in the latest version of Fluentd's deb/rpm package. If you want to use RubyGems to install the plugin, please use `gem install fluent-plugin-s3`.
+For simplicity, this article will describe how to set up a one-node configuration.
+Please install the above prerequisites software on the same node.
+
+You can install Fluentd via major packaging systems.
 
 * [Installation](../installation/)
+
+### Install plugin
+
+If [`out_s3` (fluent-plugin-s3)](../out/s3.md) is not installed yet, please install it manually.
+
+See [Plugin Management](..//installation/post-installation-guide#plugin-management) section how to install fluent-plugin-s3 on your environment.
+
+{% hint style='info' %}
+If you use `fluent-package`, out_s3 (fluent-plugin-s3) is bundled by default.
+{% endhint %}
 
 ## Configuration
 
