@@ -20,9 +20,7 @@ You need to [sign up](https://apps.sematext.com/ui/registration) and create an A
 
 In this guide you'll install `td-agent`, the stable release of Fluentd. Please refer to the guides below for detailed installation steps:
 
-* [Debian Package](../installation/install-by-deb.md)
-* [RPM Package](../installation/install-by-rpm.md)
-* [Ruby gem](../installation/install-by-gem.md)
+* [Installation](../installation/)
 
 Next, install the Elasticsearch plugin for Fluentd `fluent-plugin-elasticsearch`:
 

@@ -50,7 +50,7 @@ The second command starts Fluentd as a daemon. If you want to stop its daemon, y
 
 It is highly recommended to set up `ntpd` on the node to prevent invalid timestamps in your logs.
 
-For large deployments, you must use [`jemalloc`](http://www.canonware.com/jemalloc/) to avoid memory fragmentation. This is already included in the [`rpm`](install-by-rpm.md) and [`deb`](install-by-deb.md) packages.
+For large deployments, you must use [`jemalloc`](http://www.canonware.com/jemalloc/) to avoid memory fragmentation. This is already included in the [`rpm`](install-by-rpm-fluent-package.md) and [`deb`](install-by-deb-fluent-package.md) packages.
 
 ## Troubleshooting
 

@@ -32,9 +32,7 @@ For simplicity, this article will describe how to set up a one-node configuratio
 
 You can install Fluentd via major packaging systems.
 
-* [Debian Package](../installation/install-by-deb.md)
-* [RPM Package](../installation/install-by-rpm.md)
-* [Ruby gem](../installation/install-by-gem.md)
+* [Installation](../installation/)
 
 ## Install Kinesis Plugin
 

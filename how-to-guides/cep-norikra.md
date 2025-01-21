@@ -30,9 +30,7 @@ For the sake of simplicity, this guide will set up a one-node configuration. Ple
 
 Fluentd can be installed through RubyGems or via deb/rpm packages.
 
-* [Debian Package](../installation/install-by-deb.md)
-* [RPM Package](../installation/install-by-rpm.md)
-* [Ruby gem](../installation/install-by-gem.md)
+* [Installation](../installation/)
 
 `fluent-plugin-norikra` can be installed with the `gem install fluent-plugin-norikra` \(or `fluent-gem`\) command.
 

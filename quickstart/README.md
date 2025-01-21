@@ -10,13 +10,11 @@ Fluentd's scalability has been proven in the field: its largest user currently c
 
 ## Step 1: Installing Fluentd
 
-Please follow the installation/quickstart guides below that matches your environment.
+You can install Fluentd as a package, Ruby gem, or from source.
 
-* [Install Fluentd by RPM package](../installation/install-by-rpm.md) \(Red Hat Linux\)
-* [Install Fluentd by Deb package](../installation/install-by-deb.md) \(Ubuntu/Debian Linux\)
-* [Install Fluentd by MSI package](../installation/install-by-msi.md) \(Windows msi\)
-* [Install Fluentd by Ruby Gem](../installation/install-by-gem.md)
-* [Install Fluentd from source](../installation/install-from-source.md)
+Please see the following article for details.
+
+* [Installation](../installation/)
 
 ## Step 2: Use Cases
 
