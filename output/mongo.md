@@ -17,10 +17,10 @@ Fluentd enables your apps to insert records to MongoDB asynchronously with batch
 
 ## Install
 
-`out_mongo` is not included in `td-agent`, by default. Fluentd gem users will need to install the `fluent-plugin-mongo` gem using the following command:
+`out_mongo` is not included in `fluent-package`, by default. Fluentd gem users will need to install the `fluent-plugin-mongo` gem using the following command:
 
 ```text
-$ fluent-gem install fluent-plugin-mongo
+$ sudo fluent-gem install fluent-plugin-mongo
 ```
 
 For more details, see [Plugin Management](../deployment/plugin-management.md).
