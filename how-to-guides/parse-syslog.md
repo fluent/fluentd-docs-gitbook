@@ -13,7 +13,7 @@ In this guide, we assume you are running [`fluent-package`](https://www.fluentd.
 
 ## Setting Up `rsyslogd`
 
-Open `/etc/rsyslogd.d/90-fluentd.conf` and append the following line:
+Create `/etc/rsyslogd.d/90-fluentd.conf` and append the following line:
 
 ```text
 *.* @127.0.0.1:5140
