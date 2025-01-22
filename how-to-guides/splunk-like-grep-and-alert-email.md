@@ -1,28 +1,28 @@
 # Email Alerting like Splunk
 
-[Splunk](http://www.splunk.com/) is a great tool for searching logs. One of its key features is the ability to `grep` logs and send alert emails when certain conditions are met.
+[Splunk](https://www.splunk.com/) is a great tool for searching logs. One of its key features is the ability to `grep` logs and send alert emails when certain conditions are met.
 
 In this little HowTo article, we will show you how to build a similar system using Fluentd. More specifically, we will create a system that sends an alert email when it detects a 5xx HTTP status code in an Apache access log.
 
 If you want a more general introduction to use Fluentd as a free alternative to Splunk, see the article ["Free Alternative to Splunk Using Fluentd"](free-alternative-to-splunk-by-fluentd.md).
 
-## Installing the Requisites
+## Prerequisites
 
-[Install](../installation/) Fluentd if you haven't yet.
+The following software/services are required to be set up correctly:
 
-Please install `fluent-plugin-grepcounter` by running:
+* [Fluentd](https://www.fluentd.org/)
+* [Grep Counter Output Plugin](https://github.com/fluent-plugins-nursery/fluent-plugin-grepcounter) (fluent-plugin-grepcounter)
+* [Mail Output Plugin](https://github.com/u-ichi/fluent-plugin-mail) (fluent-plugin-mail)
 
-```text
-$ sudo /usr/sbin/td-agent-gem install fluent-plugin-grepcounter
-```
+You can install Fluentd via major packaging systems.
 
-Next, please install `fluent-plugin-mail` by running:
+* [Installation](../installation/)
 
-```text
-$ sudo /usr/sbin/td-agent-gem install fluent-plugin-mail
-```
+### Install Grep Counter/Mail Plugin
 
-Note: If you installed Fluentd using RubyGems, use `gem` command instead of `td-agent-gem`.
+If `out_grepcounter` (fluent-plugin-grepcounter) and `out_mail` (fluent-plugin-mail) are not installed yet, please install it manually.
+
+See [Plugin Management](..//installation/post-installation-guide#plugin-management) section how to install fluent-plugin-mongo on your environment.
 
 ## Configuration
 
@@ -70,7 +70,7 @@ Here is the full configuration example \(copy and edit as needed\):
 </match>
 ```
 
-Save your settings to `/etc/td-agent/td-agent.conf` \(If you installed Fluentd without `td-agent`, save the content as `alert-email.conf` instead\).
+Save your settings to `/etc/fluent/fluentd.conf` \(If you installed Fluentd without `fluent-package`, save the content as `alert-email.conf` instead\).
 
 Before proceeding, please confirm:
 
@@ -80,7 +80,7 @@ Before proceeding, please confirm:
 
 * The access log file has proper file permission. You need to make
 
-  the file readable to the `td-agent`/`fluentd` daemon.
+  the file readable to the `fluentd` daemon.
 
 ### How this Configuration Works
 
@@ -94,13 +94,11 @@ In this way, fluentd now works as an email alerting system that monitors the web
 
 ## Test the Configuration
 
-After saving the configuration, restart the `td-agent` process:
+After saving the configuration, restart the `fluentd` process:
 
 ```text
-# for init.d users
-$ sudo /etc/init.d/td-agent restart
 # for systemd users
-$ sudo systemctl restart td-agent
+$ sudo systemctl restart fluentd
 ```
 
 If you installed the standalone version of Fluentd, launch the `fluentd` process manually:
@@ -119,8 +117,8 @@ Admittedly, this is a contrived example. In reality, you would set the threshold
 
 You can learn more about Fluentd and its plugins by:
 
-* exploring other [plugins](http://fluentd.org/plugin/)
-* asking questions on the [mailing list](https://groups.google.com/forum/#!forum/fluentd)
+* exploring other [plugins](https://fluentd.org/plugin/)
+* asking questions on the [GitHub Discussions](https://github.com/fluent/fluentd/discussions)
 * [signing up for our newsletters](https://www.fluentd.org/newsletter)
 
 If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open). [Fluentd](http://www.fluentd.org/) is an open-source project under [Cloud Native Computing Foundation \(CNCF\)](https://cncf.io/). All components are available under the Apache 2 License.
