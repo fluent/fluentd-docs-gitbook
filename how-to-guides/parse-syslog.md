@@ -9,11 +9,11 @@ In this tutorial, we will show how to use Fluentd to filter and parse different 
 * A basic understanding of Fluentd
 * A running instance of `rsyslogd`
 
-In this guide, we assume you are running [`td-agent`](https://www.fluentd.org/download) on Ubuntu.
+In this guide, we assume you are running [`fluent-package`](https://www.fluentd.org/download/fluent_package) on Ubuntu.
 
 ## Setting Up `rsyslogd`
 
-Open `/etc/rsyslogd.conf` and append the following line:
+Create `/etc/rsyslogd.d/90-fluentd.conf` and append the following line:
 
 ```text
 *.* @127.0.0.1:5140
@@ -35,7 +35,7 @@ In this section, we will evolve our Fluentd configuration step-by-step.
 
 First, let's configure Fluentd to listen to syslog messages.
 
-Open `/etc/td-agent/td-agent.conf` and put the following configuration:
+Open `/etc/fluent/fluentd.conf` and put the following configuration:
 
 ```text
 <source>
@@ -51,16 +51,16 @@ Open `/etc/td-agent/td-agent.conf` and put the following configuration:
 
 This is the most basic setup: it listens to all syslog messages and outputs them to the standard output.
 
-Now please restart `td-agent`:
+Now please restart `fluentd`:
 
 ```text
-$ sudo systemctl restart td-agent
+$ sudo systemctl restart fluentd
 ```
 
 Let's confirm data is coming in:
 
 ```text
-$ less /var/log/td-agent/td-agent.log
+$ less /var/log/fluent/fluentd.log
 ```
 
 ### Step 2: Extract `syslog` Messages from `sudo`
@@ -140,10 +140,10 @@ Here is the final configuration:
 </match>
 ```
 
-Then restart `td-agent`:
+Then restart `fluentd`:
 
 ```text
-$ sudo systemctl restart td-agent
+$ sudo systemctl restart fluentd
 ```
 
 Let's execute some comment with `sudo`:
@@ -152,10 +152,10 @@ Let's execute some comment with `sudo`:
 $ sudo cat /var/log/auth.log
 ```
 
-Now, you should have a line like this in `/var/log/td-agent/td-agent.log`:
+Now, you should have a line like this in `/var/log/fluent/fluentd.log`:
 
 ```text
-2018-09-27 16:00:01.000000000 +0900 system.authpriv.notice: {"sudoer":"root","command":"/bin/cat"}
+2025-01-21 08:51:04.625222474 +0000 system.authpriv.notice: {"sudoer":"root","command":"/usr/bin/cat /var/log/auth.log"}
 ```
 
 There it is, as you can see in the line!
