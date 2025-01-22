@@ -8,7 +8,7 @@ This article explains how to use [Fluentd](https://www.fluentd.org/) and [Norikr
 
 However, Fluentd is not primarily designed for stream processing. We must restart Fluentd after making modifications to its configuration/code, making it unsuitable for running _both_ short-span \(seconds or minutes\) calculations and long-span \(hours or days\) calculations. If we restart Fluentd to perform a short-span calculation, all existing internal statuses of short and long span calculations are lost. For large scale stream processing platforms, code/processes must be added/removed without any such losses.
 
-[Norikra](https://norikra.github.io/) is an open-source stream processing server based on [Esper](https://github.com/espertechinc/esper) by [EsperTech](http://www.espertech.com). It allows you to subscribe/unsubscribe to data streams anytime and add/remove SQL queries anytime. [Norikra](https://norikra.github.io/) is written by [@tagomoris](https://github.com/tagomoris), a committer of the Fluentd project.
+[Norikra](https://norikra.github.io/) is an open-source stream processing server based on [Esper](https://github.com/espertechinc/esper) by [EsperTech](https://www.espertech.com/). It allows you to subscribe/unsubscribe to data streams anytime and add/remove SQL queries anytime. [Norikra](https://norikra.github.io/) is written by [@tagomoris](https://github.com/tagomoris), a committer of the Fluentd project.
 
 This article will show you how to integrate [Fluentd](https://fluentd.org/), [Norikra](https://norikra.github.io/), and the [Fluentd norikra plugin](https://github.com/norikra/fluent-plugin-norikra) to create a robust stream data processing platform.
 
@@ -18,21 +18,23 @@ The figure below shows the high-level architecture:
 
 ![Fluentd + Norikra Overview](../.gitbook/assets/fluentd-norikra-overview%20%281%29%20%282%29.png)
 
-## Installation
+## Prerequisites
 
-For the sake of simplicity, this guide will set up a one-node configuration. Please install the following on the same node:
+The following software/services are required to be set up correctly:
 
 * [Fluentd](https://fluentd.org/)
 * [Fluentd Norikra Plugin](https://github.com/norikra/fluent-plugin-norikra/)
 * [Norikra](https://norikra.github.io/)
 
-### Installing Fluentd and fluentd-plugin-norikra
-
-Fluentd can be installed through RubyGems or via deb/rpm packages.
+You can install Fluentd via major packaging systems.
 
 * [Installation](../installation/)
 
-`fluent-plugin-norikra` can be installed with the `gem install fluent-plugin-norikra` \(or `fluent-gem`\) command.
+### Installing Fluentd Norikra Plugin
+
+If `out_norikra` (fluent-plugin-norikra) is not installed yet, please install it manually.
+
+See [Plugin Management](..//installation/post-installation-guide#plugin-management) section how to install fluent-plugin-norikra on your environment.
 
 ### Installing Norikra
 
@@ -60,7 +62,7 @@ You can also check the current Norikra's status via the WebUI \([http://localhos
 
 ## Fluentd Configuration
 
-We'll now configure Fluentd. If you used the deb/rpm package, Fluentd's config file is located at `/etc/td-agent/td-agent.conf`. Otherwise, it is located at `/etc/fluentd/fluentd.conf`.
+We'll now configure Fluentd. If you used the deb/rpm package, Fluentd's config file is located at `/etc/fluent/fluentd.conf`.
 
 ### HTTP Input
 
