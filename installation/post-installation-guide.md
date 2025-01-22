@@ -36,6 +36,12 @@ For more verbose logs, read the article on [Troubleshooting](../deployment/troub
 
 ### For `td-agent`
 
+{% hint style='danger' %}
+As td-agent had reached EOL, SHOULD NOT use td-agent anymore.
+
+Recommend to [Upgrade to fluent-package v5](https://www.fluentd.org/blog/upgrade-td-agent-v4-to-v5).
+{% endhint %}
+
 #### Configuration File
 
 After successful installation, a `td-agent` instance will be up and running with a predefined template configuration file.
@@ -129,6 +135,12 @@ A special program `fluent-gem` is used to manage plugin gems. For example, the f
 ```
 
 #### `td-agent`
+
+{% hint style='danger' %}
+As td-agent had reached EOL, SHOULD NOT use td-agent anymore.
+
+Recommend to [Upgrade to fluent-package v5](https://www.fluentd.org/blog/upgrade-td-agent-v4-to-v5).
+{% endhint %}
 
 A special program `td-agent-gem` is used to manage plugin gems. For example, the following command installs a plugin to connect to S3 \(including both `in_s3` and `out_s3` plugins\):
 
