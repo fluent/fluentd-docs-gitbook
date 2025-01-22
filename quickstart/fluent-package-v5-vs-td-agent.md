@@ -12,18 +12,21 @@ which is formerly known as `td-agent`.
 
 | Platform | v4\(x86\_64\) | v4\(Arm64\) | v5\(x86\_64\) | v5\(Arm64\) |
 | :--- | :---: | :---: | :---: | :---: |
-| RedHat/CentOS 7 | ✔ | ✔ | ✔ | ✔ |
+| RedHat/CentOS 7 | ✔ | ✔ | - (\*1) | - (\*1) |
 | RedHat/CentOS 8 | ✔ | ✔ | ✔ | ✔ |
 | RedHat/CentOS 9 | ✔ | ✔ | ✔ | ✔ |
 | Amazon Linux 2 |  ✔ | ✔ | ✔ | ✔ |
 | Amazon Linux 2023 | - | - |  ✔ | ✔ |
 | Ubuntu Focal | ✔ | ✔ | ✔ | ✔ |
 | Ubuntu Jammy | ✔ | ✔ | ✔ | ✔ |
+| Ubuntu Noble | - | - | ✔ | ✔ |
 | Debian Buster | ✔ | ✔ | - | - |
 | Debian Bullseye | ✔ | ✔ | ✔ | ✔ |
 | Debian Bookworm | - | - | ✔ | ✔ |
-| macOS | ✔ | - | ✔ | - |
+| macOS | ✔ | - | - | - |
 | Windows | ✔ | - | ✔ |  - |
+
+\*1: Since v5.0.4, RHEL 7 / CentOS 7 is not supported anymore because CentOS 7 has reached EOL (June, 2024).
 
 ## Features
 
