@@ -23,12 +23,14 @@ In this example, Fluentd does three \(3\) things:
 
 3. It writes the buffered data to Amazon Kinesis periodically.
 
-## Install
+## Prerequisites
 
-For simplicity, this article will describe how to set up a one-node configuration. Please install the following software on the same node:
+The following software/services are required to be set up correctly:
 
-* [Fluentd](http://fluentd.org/)
-* Apache \(with the Combined Log Format\)
+
+* [Fluentd](https://www.fluentd.org/)
+* [Apache](https://httpd.apache.org/) (with the Combined Log Format)
+* [Kinesis Output plugin](https://github.com/awslabs/aws-fluent-plugin-kinesis)
 
 You can install Fluentd via major packaging systems.
 
@@ -36,15 +38,13 @@ You can install Fluentd via major packaging systems.
 
 ## Install Kinesis Plugin
 
-Since Amazon Kinesis plugin is not bundled with `td-agent` package, please install it manually:
+If `out_kinesis_streams` (fluent-plugin-kinesis) is not installed yet, please install it manually.
 
-```text
-$ sudo /usr/sbin/td-agent-gem install fluent-plugin-kinesis
-```
+See [Plugin Management](..//installation/post-installation-guide#plugin-management) section how to install fluent-plugin-kinesis on your environment.
 
 ## Configuration
 
-Let's start configuring Fluentd. If you used the deb/rpm package, Fluentd's config file is located at `/etc/td-agent/td-agent.conf`. Otherwise, it is located at `/etc/fluentd/fluentd.conf`.
+Let's start configuring Fluentd. If you used the deb/rpm package, Fluentd's config file is located at `/etc/fluent/fluentd.conf`.
 
 ### Tail Input
 
@@ -54,7 +54,7 @@ For the input source, we will set up Fluentd to track the recent Apache logs \(t
 <source>
   @type tail
   path /var/log/apache2/access_log
-  pos_file /var/log/td-agent/apache2.access_log.pos
+  pos_file /var/log/fluent/apache2.access_log.pos
   <parse>
     @type apache2
   </parse>
@@ -126,13 +126,11 @@ For those who are interested in security, all communication between Fluentd and 
 
 ## Test
 
-Restart `td-agent` to make sure that the configuration change is available:
+Restart `fluentd` to make sure that the configuration change is available:
 
 ```text
-# init
-$ sudo /etc/init.d/td-agent restart
 # systemd
-$ sudo systemctl restart td-agent.service
+$ sudo systemctl restart fluentd
 ```
 
 To test the configuration, just have a couple of accesses to your Apache server. This example uses the `ab` \(Apache Bench\) program:
