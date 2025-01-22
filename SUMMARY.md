@@ -150,7 +150,7 @@
   * [Send Apache Logs to S3](how-to-guides/apache-to-s3.md)
   * [Send Apache Logs to Minio](how-to-guides/apache-to-minio.md)
   * [Send Apache Logs to Mongodb](how-to-guides/apache-to-mongodb.md)
-  * [Send Syslog Data to Graylog](how-to-guides/graylog2.md)
+  * [Send Syslog Data to Graylog](how-to-guides/graylog.md)
   * [Send Syslog Data to InfluxDB](how-to-guides/syslog-influxdb.md)
   * [Send Syslog Data to Sematext](how-to-guides/logs-to-sematext.md)
   * [Data Analytics with Treasure Data](how-to-guides/http-to-td.md)

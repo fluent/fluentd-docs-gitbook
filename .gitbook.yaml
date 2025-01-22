@@ -155,7 +155,8 @@ redirects:
   v1.0/articles/parse-syslog: guides/parse-syslog.md
   v1.0/articles/http-to-hdfs: guides/http-to-hdfs.md
   v1.0/articles/kinesis-stream: guides/kinesis-stream.md
-  v1.0/articles/graylog2: guides/graylog2.md
+  # redirect renamed graylog guide
+  v1.0/articles/graylog2: how-to-guides/graylog.md
   v1.0/articles/apache-to-s3: guides/apache-to-s3.md
   v1.0/articles/syslog-influxdb: guides/syslog-influxdb.md
   v1.0/articles/splunk-like-grep-and-alert-email: guides/splunk-like-grep-and-alert-email.md
