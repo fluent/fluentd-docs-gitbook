@@ -4,17 +4,25 @@ This article explains how to use Fluentd to aggregate and transport Apache logs 
 
 ## Prerequisites
 
-The following services are required to be set up correctly:
+The following software/services are required to be set up correctly:
 
-* [Fluentd](../installation/)
-* [Minio](https://minio.io/download/)
-* [Apache](https://httpd.apache.org/)
+* [Fluentd](https://www.fluentd.org/)
+* [Minio](https://minio.io/download/) (S3 Compatible Storage)
+* [Apache](https://httpd.apache.org/) (with the Combined Log Format)
 
-Also, if you have installed Fluentd through RubyGems \(without `fluent-package`\), please install the [`out_s3`](../output/s3.md) plugin manually:
+You can install Fluentd via major packaging systems.
 
-```text
-$ sudo fluent-gem install fluent-plugin-s3
-```
+* [Installation](../installation/)
+
+### Install plugin
+
+If [`out_s3`](../output/s3.md) (fluent-plugin-s3) is not installed yet, please install it manually.
+
+See [Plugin Management](..//installation/post-installation-guide#plugin-management) section how to install fluent-plugin-s3 on your environment.
+
+{% hint style='info' %}
+If you use `fluent-package`, out_s3 (fluent-plugin-s3) is bundled by default.
+{% endhint %}
 
 ## Configuration
 
