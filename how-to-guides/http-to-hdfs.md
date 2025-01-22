@@ -16,25 +16,40 @@ The figure below shows the high-level architecture:
 
 ![HTTP-to-HDFS Overview](../.gitbook/assets/http-to-hdfs.png)
 
-## Install
+## Prerequisites
+
+The following software/services are required to be set up correctly:
+
+* [Fluentd](https://www.fluentd.org/)
+* Apache HDFS
+* [WebHDFS Output Plugin](https://github.com/fluent/fluent-plugin-webhdfs/) ([`out_webhdfs`](../output/webhdfs.md))
 
 For simplicity, this article will describe how to set up a one-node configuration. Please install the following software on the same node:
 
-* [Fluentd](http://fluentd.org/)
-* [WebHDFS Output Plugin](https://github.com/fluent/fluent-plugin-webhdfs/)
-
-  \([`out_webhdfs`](../output/webhdfs.md)\)
-
-* Apache HDFS
-
-The WebHDFS Output plugin is included in the latest version of Fluentd's deb/rpm package \(v1.1.10 or later\). If you want to use RubyGems to install the plugin, please use `gem install fluent-plugin-webhdfs`.
+You can install Fluentd via major packaging systems.
 
 * [Installation](../installation/)
-* For CDH, please refer to the [downloads page](https://www.cloudera.com/downloads.html)
+
+For Cloudera CDH, please refer to the [downloads page](https://www.cloudera.com/downloads.html)
+
+{% hint style='info' %}
+NOTE: CDH (Cloudera Distributed Hadoop) was discontinued. Superseded by Cloudera's CDP Private Cloud.
+{% endhint %}
+
+
+### Install plugin
+
+If `out_webhdfs` (fluent-plugin-webhdfs) is not installed yet, please install it manually.
+
+See [Plugin Management](..//installation/post-installation-guide#plugin-management) section how to install fluent-plugin-webhdfs on your environment.
+
+{% hint style='info' %}
+If you use `fluent-package`, out_webhdfs (fluent-plugin-webhdfs) is bundled by default.
+{% endhint %}
 
 ## Fluentd Configuration
 
-Let's start configuring Fluentd. If you used the deb/rpm package, Fluentd's config file is located at `/etc/td-agent/td-agent.conf`. Otherwise, it is located at `/etc/fluentd/fluentd.conf`.
+Let's start configuring Fluentd. If you used the deb/rpm package, Fluentd's config file is located at `/etc/fluent/fluentd.conf`.
 
 ### HTTP Input
 
@@ -101,7 +116,7 @@ To test the configuration, just post the JSON to Fluentd \(we use the `curl` com
 ```text
 $ curl -X POST -d 'json={"action":"login","user":2}' \
   http://localhost:8888/hdfs.access.test
-$ kill -USR1 `cat /var/run/td-agent/td-agent.pid`
+$ kill -USR1 `cat /var/run/fluent/fluentd.pid`
 ```
 
 We can then access HDFS to see the stored data:
