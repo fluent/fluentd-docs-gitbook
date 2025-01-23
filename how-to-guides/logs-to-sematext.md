@@ -12,23 +12,27 @@ In this guide, we'll cover the installation, setup, and basic use of this log ma
 
 ## Prerequisites
 
+The following software/services are required to be set up correctly:
+
+* [Fluentd](https://www.fluentd.org/)
+* [Sematext](https://sematext.com/)
+
+You can install Fluentd via major packaging systems.
+
+* [Installation](../installation/)
+
 ### Set Up Sematext
 
 You need to [sign up](https://apps.sematext.com/ui/registration) and create an App. Read more in the docs [here](https://sematext.com/docs/).
 
-### Set Up Fluentd \(`td-agent`\)
 
-In this guide you'll install `td-agent`, the stable release of Fluentd. Please refer to the guides below for detailed installation steps:
+### Install Elasticsearch Plugin
 
-* [Installation](../installation/)
+If [`out_elasticsearch`](../output/elasticsearch.md) (fluent-plugin-elasticsearch) is not installed yet, please install it manually.
 
-Next, install the Elasticsearch plugin for Fluentd `fluent-plugin-elasticsearch`:
+See [Plugin Management](..//installation/post-installation-guide#plugin-management) section how to install fluent-plugin-elasticsearch on your environment.
 
-```text
-$ sudo /usr/sbin/td-agent-gem install fluent-plugin-elasticsearch --no-document
-```
-
-Now you'll configure the `td-agent` \(Fluentd\) to interface properly with Elasticsearch. Please edit `/etc/td-agent/td-agent.conf` as shown below:
+Now you'll configure the `fluent-package` \(Fluentd\) to interface properly with Elasticsearch. Please edit `/etc/fluent/fluentd.conf` as shown below:
 
 ```text
 # Switch to debug if you need to debug
@@ -47,10 +51,6 @@ Now you'll configure the `td-agent` \(Fluentd\) to interface properly with Elast
 <source>
   @type forward
 </source>
-
-<filter **>
-  @type stdout
-</filter>
 
 <match syslog.**>
   @type elasticsearch
@@ -72,19 +72,15 @@ Now you'll configure the `td-agent` \(Fluentd\) to interface properly with Elast
 </match>
 ```
 
-Once everything has been set up and configured, start `td-agent`:
+Once everything has been set up and configured, start `fluentd`:
 
 ```text
-# init
-$ sudo /etc/init.d/td-agent start
-
-# or systemd
-$ sudo systemctl start td-agent.service
+$ sudo systemctl start fluentd
 ```
 
 ## Set Up `rsyslogd`
 
-Finally, configure forwarding logs from your `rsyslogd` to Fluentd. Please add the following line to your `/etc/rsyslog.conf`, and restart `rsyslog`. This will forward your local syslog to Fluentd, and Fluentd will forward the logs to Sematext:
+Finally, configure forwarding logs from your `rsyslogd` to Fluentd. Create `/etc/rsyslog.d/90-fluentd.conf`, and restart `rsyslog`. This will forward your local syslog to Fluentd, and Fluentd will forward the logs to Sematext:
 
 ```text
 *.* @127.0.0.1:42185
@@ -93,7 +89,7 @@ Finally, configure forwarding logs from your `rsyslogd` to Fluentd. Please add t
 Please restart the `rsyslog` service once the modification is complete:
 
 ```text
-$ sudo /etc/init.d/rsyslog restart
+$ sudo systemctl restart rsyslog
 ```
 
 ## Store and Search Logs
@@ -120,7 +116,7 @@ To manually send logs to Sematext, please use the `logger` command:
 $ logger -t test foobar
 ```
 
-When debugging your `td-agent` configuration, using [`filter_stdout`](../filter/stdout.md) will be useful. All the logs including errors can be found at `/etc/td-agent/td-agent.log`.
+When debugging your `fluent-package` configuration, using [`filter_stdout`](../filter/stdout.md) will be useful. All the logs including errors can be found at `/etc/fluent/fluentd.log`.
 
 ```text
 <filter **>
