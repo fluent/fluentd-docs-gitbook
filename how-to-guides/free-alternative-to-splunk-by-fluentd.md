@@ -18,7 +18,7 @@ In this guide, we will go over the installation, setup, and basic use of this co
 * [Fluentd](https://www.fluentd.org/)
 * [Elasticsearch](https://www.elastic.co/elasticsearch)
 * [Kibana](https://www.elastic.co/kibana)
-* [Fluentd Elasticsearch Plugin]()
+* [Fluentd Elasticsearch Plugin](../output/elasticsearch.md)
 
 You can install Fluentd via major packaging systems.
 
