@@ -1,6 +1,6 @@
 # Free Alternative To Splunk
 
-[Splunk](http://www.splunk.com/) is a great tool for searching logs, but its high cost makes it prohibitive for many teams. In this article, we present a free and open-source alternative to Splunk by combining three open source projects: Elasticsearch, Kibana, and Fluentd.
+[Splunk](https://www.splunk.com/) is a great tool for searching logs, but its high cost makes it prohibitive for many teams. In this article, we present a free and open-source alternative to Splunk by combining three open source projects: Elasticsearch, Kibana, and Fluentd.
 
 ![Kibana Visualization](../.gitbook/assets/kibana6-screenshot-visualize.png)
 
@@ -10,29 +10,39 @@ By combining these three tools \(Fluentd + Elasticsearch + Kibana\) we get a sca
 
 ![Fluentd + Elasticsearch + Kibana](../.gitbook/assets/fluentd-elasticsearch-kibana.png)
 
-In this guide, we will go over the installation, setup, and basic use of this combined log search solution. This article was tested on Ubuntu 16.04 and CentOS 7.4. **If you're not familiar with Fluentd**, please learn more about Fluentd first.
+In this guide, we will go over the installation, setup, and basic use of this combined log search solution. This article was tested on Ubuntu 24.04. **If you're not familiar with Fluentd**, please learn more about Fluentd first.
 
 ## Prerequisites
 
+* Java runtime (OpenJDK - JRE 21)
+* [Fluentd](https://www.fluentd.org/)
+* [Elasticsearch](https://www.elastic.co/elasticsearch)
+* [Kibana](https://www.elastic.co/kibana)
+* [Fluentd Elasticsearch Plugin](../output/elasticsearch.md)
+
+You can install Fluentd via major packaging systems.
+
+* [Installation](../installation/)
+
 ### Java for Elasticsearch
 
-Please confirm that Java version 8 or higher is installed:
+Please confirm that Java version 21 or higher is installed:
 
 ```text
-$ java -version
-openjdk version "1.8.0_151"
-OpenJDK Runtime Environment (build 1.8.0_151-b12)
-OpenJDK 64-Bit Server VM (build 25.151-b12, mixed mode)
+$ java --version
+openjdk 21.0.5 2024-10-15
+OpenJDK Runtime Environment (build 21.0.5+11-Ubuntu-1ubuntu124.04)
+OpenJDK 64-Bit Server VM (build 21.0.5+11-Ubuntu-1ubuntu124.04, mixed mode, sharing)
 ```
 
-## Set Up Elasticsearch
+### Set Up Elasticsearch
 
 To install Elasticsearch, please download and extract the Elasticsearch package as shown below:
 
 ```text
-$ curl -O https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-6.1.0.tar.gz
-$ tar -xf elasticsearch-6.1.0.tar.gz
-$ cd elasticsearch-6.1.0
+$ curl -O https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-8.17.1-linux-x86_64.tar.gz
+$ tar -xf elasticsearch-8.17.1-linux-x86_64.tar.gz
+$ cd elasticsearch-8.17.1
 ```
 
 Once the installation is complete, start Elasticsearch:
@@ -41,16 +51,20 @@ Once the installation is complete, start Elasticsearch:
 $ ./bin/elasticsearch
 ```
 
-Note: You can also install Elasticsearch \(and Kibana\) using RPM/DEB packages. For details, please refer to [the official instructions](https://www.elastic.co/downloads).
+{% hint style='info' %}
+* You can also install Elasticsearch \(and Kibana\) using RPM/DEB packages. For details, please refer to [the official instructions](https://www.elastic.co/downloads).
+* You can create enrollment token for kinaba. Use `./bin/elasticsearch-create-enrollment-token -s kibana`.
+* You can reset default password for `elastic`, Use `./bin/elasticsearch-reset-password -u elastic`.
+{% endhint %}
 
-## Set Up Kibana
+### Set Up Kibana
 
 To install Kibana, download it from the official website and extract it. Kibana is an HTML/CSS/JavaScript application \([download](https://www.elastic.co/downloads/kibana)\). Use the binary for 64-bit Linux systems.
 
 ```text
-$ curl -O https://artifacts.elastic.co/downloads/kibana/kibana-6.1.0-linux-x86_64.tar.gz
-$ tar -xf kibana-6.1.0-linux-x86_64.tar.gz
-$ cd kibana-6.1.0-linux-x86_64
+$ curl -O https://artifacts.elastic.co/downloads/kibana/kibana-8.17.1-linux-x86_64.tar.gz
+$ tar -xf kibana-8.17.1-linux-x86_64.tar.gz
+$ cd kibana-8.17.1-linux-x86_64
 ```
 
 Once the installation is complete, start Kibana i.e. `./bin/kibana`. You can modify its configuration file \(`config/kibana.yml`\).
@@ -61,19 +75,17 @@ $ ./bin/kibana
 
 Access `http://localhost:5601` in your browser.
 
-## Set Up Fluentd \(`td-agent`\)
+## Set Up Fluentd \(`fluent-package`\)
 
-In this section, we'll install `td-agent`, the stable release of Fluentd. Please refer to the guides below for detailed instructions:
+You can install Fluentd via major packaging systems.
 
 * [Installation](../installation/)
 
-Next, we'll install the Elasticsearch plugin for Fluentd: fluent-plugin-elasticsearch. Then, install `fluent-plugin-elasticsearch` as follows:
+Next, we'll install the Elasticsearch plugin for Fluentd: fluent-plugin-elasticsearch. Then, install `fluent-plugin-elasticsearch`.
 
-```text
-$ sudo /usr/sbin/td-agent-gem install fluent-plugin-elasticsearch --no-document
-```
+See [Plugin Management](..//installation/post-installation-guide#plugin-management) section how to install fluent-plugin-elasticsearch on your environment.
 
-We'll configure td-agent \(Fluentd\) to interface properly with Elasticsearch. Please modify `/etc/td-agent/td-agent.conf` as shown below:
+We'll configure fluent-package \(Fluentd\) to interface properly with Elasticsearch. Please modify `/etc/fluent/fluentd.conf` as shown below:
 
 ```text
 # get logs from syslog
@@ -90,27 +102,34 @@ We'll configure td-agent \(Fluentd\) to interface properly with Elasticsearch. P
 
 <match syslog.**>
   @type elasticsearch
+  host localhost
+  user elastic
+  password (ELASTIC_USER_PASSWORD_HERE)
   logstash_format true
+  scheme https
+  ssl_verify false
+  include_timestamp true
   <buffer>
     flush_interval 10s # for testing
   </buffer>
 </match>
 ```
 
+{% hint style='warning' %}
+In this article, it disables verification of TLS explicitly for elasticsearch because of demonstration. Do not disable on production.
+{% endhint %}
+
 `fluent-plugin-elasticsearch` comes with a `logstash_format` option that allows Kibana to search through the stored event logs in Elasticsearch.
 
-Once everything has been set up and configured, start `td-agent`:
+Once everything has been set up and configured, start `fluentd`:
 
 ```text
-# init
-$ sudo /etc/init.d/td-agent start
-# or systemd
-$ sudo systemctl start td-agent.service
+$ sudo systemctl start fluentd
 ```
 
 ## Set Up `rsyslogd`
 
-The final step is to forward the logs from your `rsyslogd` to `fluentd`. Please add the following line to `/etc/rsyslog.conf`, and restart `rsyslog`. This will forward the local syslogs to Fluentd, and Fluentd in turn will forward the logs to Elasticsearch.
+The final step is to forward the logs from your `rsyslogd` to `fluentd`. Please create the file with following line to `/etc/rsyslog.d/90-fluentd.conf`, and restart `rsyslog`. This will forward the local syslogs to Fluentd, and Fluentd in turn will forward the logs to Elasticsearch.
 
 ```text
 *.* @127.0.0.1:42185
@@ -119,9 +138,6 @@ The final step is to forward the logs from your `rsyslogd` to `fluentd`. Please 
 Please restart the `rsyslog` service once the modification is complete:
 
 ```text
-# init
-$ sudo /etc/init.d/rsyslog restart
-# or systemd
 $ sudo systemctl restart rsyslog
 ```
 
@@ -147,7 +163,7 @@ To manually send logs to Elasticsearch, please use the `logger` command:
 $ logger -t test foobar
 ```
 
-When debugging your `td-agent` configuration, using [`filter_stdout`](../filter/stdout.md) will be useful. All the logs including errors can be found at `/etc/td-agent/td-agent.log`.
+When debugging your `fluentd` configuration, using [`filter_stdout`](../filter/stdout.md) will be useful. All the logs including errors can be found at `/etc/fluent/fluentd.log`.
 
 ```text
 <filter syslog.**>
@@ -156,7 +172,13 @@ When debugging your `td-agent` configuration, using [`filter_stdout`](../filter/
 
 <match syslog.**>
   @type elasticsearch
+  host localhost
+  user elastic
+  password (ELASTIC_USER_PASSWORD_HERE)
   logstash_format true
+  scheme https
+  ssl_verify false
+  include_timestamp true
   <buffer>
     flush_interval 10s # for testing
   </buffer>
