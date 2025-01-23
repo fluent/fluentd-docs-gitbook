@@ -41,7 +41,7 @@ New stable. Major feature updates to `fluent-package` v5 are as follows:
 * Fluentd v1.16.2 ~
 * Added support for Amazon Linux 2023
 * Added support for Debian Bookworm
-* Added support for Ubuntu Noble
+* Added support for Ubuntu Noble (since v5.0.4)
 * Shipped through 2 channels. See [Scheduled support lifecycle announcement about Fluent Package](https://www.fluentd.org/blog/fluent-package-scheduled-lifecycle) for details.
   * Normal release
   * Long Term Support (LTS)
