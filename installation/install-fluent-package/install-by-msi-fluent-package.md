@@ -9,7 +9,7 @@ The recommended way to install Fluentd on Windows is to use MSI installers of `f
 * Includes Ruby and other library dependencies \(since most Windows machines don't have them installed\).
 * Includes a set of commonly-used 3rd-party plugins such as `in_windows_eventlog2`.
 
-You can also see [fluent-package-v5-vs-td-agent](../quickstart/fluent-package-v5-vs-td-agent.md) for the comparison and supported OS.
+You can also see [fluent-package-v5-vs-td-agent](../quickstart/fluent-package-v5-vs-td-agent.md).
 
 ## How to install `fluent-package`
 
