@@ -74,7 +74,8 @@ See also [Changes from Treasure Agent 3](https://github.com/fluent-plugins-nurse
 
 Please use `fluent-package` v5 instead of `td-agent` v4 because:
 
-fluent-package is the successor to td-agent and keeps backward compatibility.
+`fluent-package` is the successor to `td-agent` and keeps backward compatibility.
+
 * The series of td-agent had already reached End of Life (EOL).
 * Some of the components embedded into td-agent, including Ruby, had already reached EOL.
 * td-agent v4 has several known bugs, such as the [in_tail](../input/tail.md) bug.
