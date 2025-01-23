@@ -4,11 +4,7 @@ This article explains how to install stable versions of `fluent-package` rpm pac
 
 ## What is `fluent-package`?
 
-Fluentd is written in Ruby for flexibility, with performance-sensitive parts in C. However, some users may have difficulty installing and operating a Ruby daemon.
-
-That is why [Fluentd Project](https://www.fluentd.org/) provides **the stable distribution of Fluentd**, called `fluent-package` (formerly known as `td-agent`). The differences between Fluentd and `fluent-package` can be found [here](https://www.fluentd.org/faqs).
-
-You can also see [fluent-package-v5-vs-td-agent](../quickstart/fluent-package-v5-vs-td-agent.md) for the comparison and supported OS.
+Please see [fluent-package-v5-vs-td-agent](../quickstart/fluent-package-v5-vs-td-agent.md).
 
 ## How to install `fluent-package`
 
