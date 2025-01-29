@@ -90,4 +90,10 @@ You are now ready to collect real logs with Fluentd. Refer to the following tuto
   * [Store Apache Log into MongoDB](../how-to-guides/apache-to-mongodb.md)
   * [Data Collection into HDFS](../how-to-guides/http-to-hdfs.md)
 
+{% hint style='info' %}
+There are some commercial supports for Fluentd, see [Enterprise Services](https://www.fluentd.org/enterprise_services).
+If you use Fluentd on production, Let's share your use-case/testimonial on [Testimonials](https://www.fluentd.org/testimonials) page.
+Please consider to feedback via [GitHub](https://github.com/fluent/fluentd-website/issues/new?template=testimonials.yml).
+{% endhint %}
+
 If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open). [Fluentd](http://www.fluentd.org/) is an open-source project under [Cloud Native Computing Foundation \(CNCF\)](https://cncf.io/). All components are available under the Apache 2 License.
