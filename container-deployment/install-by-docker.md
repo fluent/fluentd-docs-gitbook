@@ -19,7 +19,8 @@ Then, download Fluentd edge-debian's \(edge-debian means latest version of Fluen
 $ docker pull fluent/fluentd:edge-debian
 ```
 
-Debian and Alpine Linux version is available for Fluentd image. Debian version is recommended officially since it has [`jemalloc`](https://github.com/jemalloc/jemalloc) support. However, the Alpine image is smaller.
+Debian and Alpine Linux versions are available for Fluentd image. Debian version is recommended officially since it has [`jemalloc`](https://github.com/jemalloc/jemalloc) support. However, the Alpine image is smaller.
+And, Windows server version is also available.
 
 ## Step 2: Launch Fluentd Container
 
@@ -43,10 +44,11 @@ Finally, you can run Fluentd with `docker run` command:
 
 ```text
 $ docker run -p 9880:9880 -v $(pwd)/tmp:/fluentd/etc fluent/fluentd:edge-debian -c /fluentd/etc/fluentd.conf
-2021-03-16 09:11:32 +0000 [info]: parsing config file is succeeded path="/fluentd/etc/fluentd.conf"
-2021-03-16 09:11:32 +0000 [info]: gem 'fluentd' version '1.11.5'
-2021-03-16 09:11:32 +0000 [warn]: define <match fluent.**> to capture fluentd logs in top level is deprecated. Use <label @FLUENT_LOG> instead
-2021-03-16 09:11:32 +0000 [info]: using configuration file: <ROOT>
+2025-02-04 01:57:09 +0000 [info]: init supervisor logger path=nil rotate_age=nil rotate_size=nil
+2025-02-04 01:57:09 +0000 [info]: parsing config file is succeeded path="/fluentd/etc/fluentd.conf"
+2025-02-04 01:57:09 +0000 [info]: gem 'fluentd' version '1.16.7'
+2025-02-04 01:57:09 +0000 [warn]: define <match fluent.**> to capture fluentd logs in top level is deprecated. Use <label @FLUENT_LOG> instead
+2025-02-04 01:57:09 +0000 [info]: using configuration file: <ROOT>
   <source>
     @type http
     port 9880
@@ -56,15 +58,16 @@ $ docker run -p 9880:9880 -v $(pwd)/tmp:/fluentd/etc fluent/fluentd:edge-debian 
     @type stdout
   </match>
 </ROOT>
-2021-03-16 09:11:32 +0000 [info]: starting fluentd-1.11.5 pid=7 ruby="2.6.6"
-2021-03-16 09:11:32 +0000 [info]: spawn command to main:  cmdline=["/usr/local/bin/ruby", "-Eascii-8bit:ascii-8bit", "/usr/local/bundle/bin/fluentd", "-c", "/fluentd/etc/fluentd.conf", "-p", "/fluentd/plugins", "--under-supervisor"]
-2021-03-16 09:11:33 +0000 [info]: adding match pattern="**" type="stdout"
-2021-03-16 09:11:33 +0000 [info]: adding source type="http"
-2021-03-16 09:11:33 +0000 [warn]: #0 define <match fluent.**> to capture fluentd logs in top level is deprecated. Use <label @FLUENT_LOG> instead
-2021-03-16 09:11:33 +0000 [info]: #0 starting fluentd worker pid=16 ppid=7 worker=0
-2021-03-16 09:11:33 +0000 [info]: #0 fluentd worker is now running worker=0
-2021-03-16 09:11:33.025408358 +0000 fluent.info: {"pid":16,"ppid":7,"worker":0,"message":"starting fluentd worker pid=16 ppid=7 worker=0"}
-2021-03-16 09:11:33.026503372 +0000 fluent.info: {"worker":0,"message":"fluentd worker is now running worker=0"}
+2025-02-04 01:57:09 +0000 [info]: starting fluentd-1.16.7 pid=7 ruby="3.2.6"
+2025-02-04 01:57:09 +0000 [info]: spawn command to main:  cmdline=["/usr/local/bin/ruby", "-Eascii-8bit:ascii-8bit", "/usr/local/bundle/bin/fluentd", "-c", "/fluentd/etc/fluentd.conf", "--plugin", "/fluentd/plugins", "--under-supervisor"]
+2025-02-04 01:57:10 +0000 [info]: #0 init worker0 logger path=nil rotate_age=nil rotate_size=nil
+2025-02-04 01:57:10 +0000 [info]: adding match pattern="**" type="stdout"
+2025-02-04 01:57:10 +0000 [info]: adding source type="http"
+2025-02-04 01:57:10 +0000 [warn]: #0 define <match fluent.**> to capture fluentd logs in top level is deprecated. Use <label @FLUENT_LOG> instead
+2025-02-04 01:57:10 +0000 [info]: #0 starting fluentd worker pid=16 ppid=7 worker=0
+2025-02-04 01:57:10 +0000 [info]: #0 fluentd worker is now running worker=0
+2025-02-04 01:57:10.255688431 +0000 fluent.info: {"pid":16,"ppid":7,"worker":0,"message":"starting fluentd worker pid=16 ppid=7 worker=0"}
+2025-02-04 01:57:10.266084977 +0000 fluent.info: {"worker":0,"message":"fluentd worker is now running worker=0"}
 ```
 
 ## Step 3: Post Sample Logs via HTTP
@@ -79,11 +82,11 @@ Use `docker ps` command to retrieve container ID and use `docker logs` command t
 
 ```text
 $ docker ps -a
-CONTAINER ID        IMAGE                          COMMAND                  CREATED              STATUS              PORTS                                         NAMES
-775a8e192f2b        fluent/fluentd:edge-debian   "tini -- /bin/entryp…"   About a minute ago   Up About a minute   5140/tcp, 24224/tcp, 0.0.0.0:9880->9880/tcp   tender_leakey
+CONTAINER ID   IMAGE                        COMMAND                   CREATED         STATUS         PORTS                                                            NAMES
+5f0ac46c5b35   fluent/fluentd:edge-debian   "tini -- /bin/entryp…"   5 minutes ago   Up 5 minutes   5140/tcp, 24224/tcp, 0.0.0.0:9880->9880/tcp, :::9880->9880/tcp   great_mcclintock
 
-$ docker logs 775a8e192f2b | tail -n 1
-2021-03-16 09:12:15.257351750 +0000 sample.test: {"json":"message"}
+$ docker logs 5f0ac46c5b35 | tail -n 1
+2025-02-04 02:00:53.842179032 +0000 sample.test: {"json":"message"}
 ```
 
 ## Next Steps
