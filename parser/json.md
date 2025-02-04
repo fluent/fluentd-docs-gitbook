@@ -14,7 +14,7 @@ See [Parse Section Configurations](../configuration/parse-section.md).
 
 Sets the JSON parser. If you have a problem with the configured parser, check the other available parser types.
 
-NOTE: If you want to enable `json_parser oj` by default, The `oj` gem must be installed separately. This is because `oj` gem is not required from fluentd by default. If `oj` gem is not installed, `yajl` is used as a fallback.
+NOTE: If you want to enable `json_parser oj` by default, The `oj` gem must be installed separately. This is because `oj` gem is not required from fluentd by default. If `oj` gem is not installed, `json` is used as a fallback. (The fallback has been changed from `yajl` to `json` since v1.19.0.)
 
 Here is a simple comparison:
 
