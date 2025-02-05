@@ -31,13 +31,12 @@ Create `docker-compose.yml` for [Docker Compose](https://docs.docker.com/compose
 With the YAML file below, you can create and start all the services \(in this case, Apache, Fluentd, Elasticsearch, Kibana\) by one command:
 
 ```text
-version: "3"
 services:
   web:
     image: httpd
     ports:
-      - "80:80"
-    links:
+      - "8080:80"
+    depends_on:
       - fluentd
     logging:
       driver: "fluentd"
@@ -49,26 +48,36 @@ services:
     build: ./fluentd
     volumes:
       - ./fluentd/conf:/fluentd/etc
-    links:
-      - "elasticsearch"
+    depends_on:
+      # Launch fluentd after that elasticsearch is ready to connect
+      elasticsearch:
+        condition: service_healthy
     ports:
       - "24224:24224"
       - "24224:24224/udp"
 
   elasticsearch:
-    image: docker.elastic.co/elasticsearch/elasticsearch:7.13.1
+    image: docker.elastic.co/elasticsearch/elasticsearch:8.17.1
     container_name: elasticsearch
+    hostname: elasticsearch
     environment:
-      - "discovery.type=single-node"
-    expose:
-      - "9200"
+      - discovery.type=single-node
+      - xpack.security.enabled=false # Disable security for testing
+    healthcheck:
+      # Check whether service is ready
+      test: ["CMD", "curl", "-f", "http://localhost:9200/_cluster/health"]
+      interval: 10s
+      retries: 5
+      timeout: 5s
     ports:
-      - "9200:9200"
+      - 9200:9200
 
   kibana:
-    image: docker.elastic.co/kibana/kibana:7.13.1
-    links:
-      - "elasticsearch"
+    image: docker.elastic.co/kibana/kibana:8.17.1
+    depends_on:
+      # Launch fluentd after that elasticsearch is ready to connect
+      elasticsearch:
+        condition: service_healthy
     ports:
       - "5601:5601"
 ```
@@ -82,9 +91,9 @@ Create `fluentd/Dockerfile` with the following content using the Fluentd [offici
 ```text
 # fluentd/Dockerfile
 
-FROM fluent/fluentd:v1.12.0-debian-1.0
+FROM fluent/fluentd:edge-debian
 USER root
-RUN ["gem", "install", "fluent-plugin-elasticsearch", "--no-document", "--version", "5.0.3"]
+RUN ["gem", "install", "fluent-plugin-elasticsearch", "--no-document", "--version", "5.4.3"]
 USER fluent
 ```
 
@@ -128,18 +137,18 @@ NOTE: The detail of used parameters for `@type elasticsearch`, see [Elasticsearc
 Let's start the containers:
 
 ```text
-$ docker-compose up --detach
+$ docker compose up --detach
 ```
 
 Use `docker ps` command to verify that the four \(4\) containers are up and running:
 
 ```text
 $ docker ps
-CONTAINER ID   IMAGE                                                  COMMAND                  CREATED         STATUS         PORTS                                                                                                    NAMES
-60a8c3c8fcab   httpd                                                  "httpd-foreground"       6 minutes ago   Up 6 minutes   0.0.0.0:80->80/tcp, :::80->80/tcp                                                                        fluentd-elastic-kibana_web_1
-43df4d266636   fluentd-elastic-kibana_fluentd                         "tini -- /bin/entryp…"   6 minutes ago   Up 6 minutes   5140/tcp, 0.0.0.0:24224->24224/tcp, 0.0.0.0:24224->24224/udp, :::24224->24224/tcp, :::24224->24224/udp   fluentd-elastic-kibana_fluentd_1
-6a63ad1ddef1   docker.elastic.co/kibana/kibana:7.13.1                 "/bin/tini -- /usr/l…"   6 minutes ago   Up 6 minutes   0.0.0.0:5601->5601/tcp, :::5601->5601/tcp                                                                fluentd-elastic-kibana_kibana_1
-6168bd075497   docker.elastic.co/elasticsearch/elasticsearch:7.13.1   "/bin/tini -- /usr/l…"   6 minutes ago   Up 6 minutes   0.0.0.0:9200->9200/tcp, :::9200->9200/tcp, 9300/tcp                                                      elasticsearch
+CONTAINER ID   IMAGE                                                  COMMAND                   CREATED          STATUS                    PORTS                                                                                                    NAMES
+7a489886d856   httpd                                                  "httpd-foreground"        36 seconds ago   Up 14 seconds             0.0.0.0:8080->80/tcp, [::]:8080->80/tcp                                                                  fluentd-elastic-kibana-web-1
+36ded62da733   fluentd-elastic-kibana-fluentd                         "tini -- /bin/entryp…"    36 seconds ago   Up 15 seconds             5140/tcp, 0.0.0.0:24224->24224/tcp, 0.0.0.0:24224->24224/udp, :::24224->24224/tcp, :::24224->24224/udp   fluentd-elastic-kibana-fluentd-1
+254b7692966f   docker.elastic.co/kibana/kibana:8.17.1                 "/bin/tini -- /usr/l…"    36 seconds ago   Up 15 seconds             0.0.0.0:5601->5601/tcp, :::5601->5601/tcp                                                                fluentd-elastic-kibana-kibana-1
+187d3e5c2e08   docker.elastic.co/elasticsearch/elasticsearch:8.17.1   "/bin/tini -- /usr/l…"    37 seconds ago   Up 35 seconds (healthy)   0.0.0.0:9200->9200/tcp, :::9200->9200/tcp, 9300/tcp                                                      elasticsearch
 ```
 
 ## Step 3: Generate `httpd` Access Logs
@@ -147,32 +156,21 @@ CONTAINER ID   IMAGE                                                  COMMAND   
 Use `curl` command to generate some access logs like this:
 
 ```text
-$ curl http://localhost:80/[1-10]
-<html><body><h1>It works!</h1></body></html>
-<html><body><h1>It works!</h1></body></html>
-<html><body><h1>It works!</h1></body></html>
-<html><body><h1>It works!</h1></body></html>
-<html><body><h1>It works!</h1></body></html>
-<html><body><h1>It works!</h1></body></html>
-<html><body><h1>It works!</h1></body></html>
-<html><body><h1>It works!</h1></body></html>
-<html><body><h1>It works!</h1></body></html>
+$ curl http://localhost:8080/
 <html><body><h1>It works!</h1></body></html>
 ```
 
 ## Step 4: Confirm Logs from Kibana
 
-Browse to `http://localhost:5601/app/management/kibana/indexPatterns` and set up the index name pattern for Kibana. Specify `fluentd-*` to `Index name or pattern` and click `Create`.
+Browse to [`http://localhost:5601/app/discover#/`](http://localhost:5601/app/discover#/) and create data view.
+![Kibana Discover](../.gitbook/assets/8.17_efk-kibana-discover-start-page.png)
 
-![Kibana Index](../.gitbook/assets/7.10_efk-kibana-index.png) ![Kibana Timestamp](../.gitbook/assets/7.10_efk-kibana-timestamp.png)
+Specify `fluentd-*` to `Index pattern` and click `Save data view to Kibana`.
+![Kibana Discover](../.gitbook/assets/8.17_efk-kibana-create-data-view.png)
 
 Then, go to `Discover` tab to check the logs. As you can see, logs are properly collected into the Elasticsearch + Kibana, via Fluentd.
 
-![Kibana Discover](../.gitbook/assets/7.10_efk-kibana-discover.png)
-
-## Code
-
-The code is available at [https://github.com/digikin/fluentd-elastic-kibana](https://github.com/digikin/fluentd-elastic-kibana).
+![Kibana Discover](../.gitbook/assets/8.17_efk-kibana-discover.png)
 
 ## Learn More
 
