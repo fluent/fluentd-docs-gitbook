@@ -46,7 +46,7 @@ New stable. Major feature updates to `fluent-package` v5 are as follows:
   * Normal release
   * Long Term Support (LTS)
 * Added new features:
-  * Zero-downtime restart / udpate
+  * Zero-downtime restart / update
     * [fluent-package v5.2.0 has been released](https://www.fluentd.org/blog/fluent-package-v5.2.0-has-been-released)
     * [Zero-downtime restart](../deployment/zero-downtime-restart.md)
 * Fixed some serious bugs:
@@ -87,7 +87,7 @@ How to install `fluent-package`:
 * [Windows](../installation/install-fluent-package/install-by-msi-fluent-package.md)
 * [RubyGems](../installation/install-by-gem.md)
 
-How to updgrade to `fluent-pacakge`:
+How to upgrade to `fluent-package`:
 
 * [Upgrade to fluent-package v5](https://www.fluentd.org/blog/upgrade-td-agent-v4-to-v5).
 

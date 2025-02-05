@@ -45,7 +45,7 @@ This configuration adds the geolocation information to `apache.access`:
   # Specify one or more geoip lookup field which has ip address (default: host)
   geoip_lookup_keys  host
 
-  # Specify optional geoip database (using bundled GeoLiteCity databse by default)
+  # Specify optional geoip database (using bundled GeoLiteCity database by default)
   # geoip_database    "/path/to/your/GeoIPCity.dat"
   # Specify optional geoip2 database (using bundled GeoLite2 database by default)
   # geoip2_database   "/path/to/your/GeoLite2-City.mmdb"

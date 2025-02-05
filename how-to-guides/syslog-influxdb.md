@@ -119,7 +119,7 @@ You can install Chronograf via major packaging systems.
 * [Install Chronograf](https://docs.influxdata.com/chronograf/v1/introduction/installation/)
 
 {% hint style='info' %}
-Setup Chronograf "InfluxDB v2 Auth" to connect with InfludDB v2. See [Use Chronograf with InfluxDB OSS](https://docs.influxdata.com/influxdb/v2/tools/chronograf/).
+Setup Chronograf "InfluxDB v2 Auth" to connect with InfluxDB v2. See [Use Chronograf with InfluxDB OSS](https://docs.influxdata.com/influxdb/v2/tools/chronograf/).
 {% endhint %}
 
 Then, go to http://localhost:8888 and clicking on `Explore` brings up the query interface that **lets you write SQL queries against your log data**.
