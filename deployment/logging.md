@@ -132,7 +132,7 @@ Under high loaded environment, output destination sometimes becomes unstable and
 </system>
 ```
 
-This is similar to `ignore_repeated_log_inteval` but covers more usecases. For example, if the plugin generates several log messages in one action, logs are not repeated:
+This is similar to `ignore_repeated_log_interval` but covers more usecases. For example, if the plugin generates several log messages in one action, logs are not repeated:
 
 ```text
 # Retry generates several type messages. ignore_repeated_log_interval can't suppress these messages

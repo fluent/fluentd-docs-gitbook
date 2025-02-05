@@ -53,7 +53,7 @@ $ ./bin/elasticsearch
 
 {% hint style='info' %}
 * You can also install Elasticsearch \(and Kibana\) using RPM/DEB packages. For details, please refer to [the official instructions](https://www.elastic.co/downloads).
-* You can create enrollment token for kinaba. Use `./bin/elasticsearch-create-enrollment-token -s kibana`.
+* You can create enrollment token for kibana. Use `./bin/elasticsearch-create-enrollment-token -s kibana`.
 * You can reset default password for `elastic`, Use `./bin/elasticsearch-reset-password -u elastic`.
 {% endhint %}
 

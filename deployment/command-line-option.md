@@ -200,8 +200,8 @@ On Windows, this makes all Fluentd processes (including all worker processes) du
 Since this uses [SIGDUMP](https://github.com/frsyuki/sigdump), you can change the output path by specifying `SIGDUMP_PATH` environment variable. Note that the path has to be a file path.
 
 ```Powershell
-$ $env:SIGDUMP_PATH="/sigdump/sigdump.log" # The directory `sidgump` has to exist.
-$ fuentd -c ...
+$ $env:SIGDUMP_PATH="/sigdump/sigdump.log" # The directory `sigdump` has to exist.
+$ fluentd -c ...
 $ fluent-ctl dump # At another shell.
 ```
 

@@ -96,7 +96,7 @@ $ sudo systemctl restart rsyslog
 
 Once Fluentd receives logs from `rsyslog` and ships them to Sematext, you can view, search and visualize the log data using prebuilt Dashboards, by creating custom Dashboards, or with Kibana.
 
-First of all, open up the Seamtext UI and access your App. You'll see prebuilt dashboards with full-text search, filters, and alerts out-of-the-box.
+First of all, open up the Sematext UI and access your App. You'll see prebuilt dashboards with full-text search, filters, and alerts out-of-the-box.
 
 ![Sematext: Configure Logs](../.gitbook/assets/sematext-configure-logs.png)
 
