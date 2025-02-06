@@ -219,6 +219,24 @@ Filtered Events:
 
 If the logs are typical stacktraces, consider using [`detect-exceptions`](https://github.com/GoogleCloudPlatform/fluent-plugin-detect-exceptions) plugin instead.
 
+**NOTE**:
+For plugins with the simple file structure, such as `fluent-plugin-concat`, `plugins` directory can be used instead of creating custom docker image.
+
+Prepare the `plugins` directory and copy the plugin file:
+
+```text
+$ mkdir $(pwd)/plugins
+
+$ git clone https://github.com/fluent-plugins-nursery/fluent-plugin-concat.git /tmp/fluent-plugin-concat
+$ cp /tmp/fluent-plugin-concat/lib/fluent/plugin/filter_concat.rb $(pwd)/plugins
+```
+
+Launch the Fluentd container with `plugins` directory mounted:
+
+```
+$ docker run -it -p 24224:24224 -v $(pwd)/plugins:/fluentd/plugins -v $(pwd)/demo.conf:/fluentd/etc/demo.conf -e FLUENTD_CONF=demo.conf fluent/fluentd:edge-debian
+```
+
 ## Driver Options
 
 The [Fluentd Logging Driver](https://docs.docker.com/engine/admin/logging/fluentd/) supports following options through the `--log-opt` Docker command-line argument:
