@@ -9,15 +9,15 @@ The recommended way to install Fluentd on Windows is to use MSI installers of `f
 * Includes Ruby and other library dependencies \(since most Windows machines don't have them installed\).
 * Includes a set of commonly-used 3rd-party plugins such as `in_windows_eventlog2`.
 
-You can also see [fluent-package-v5-vs-td-agent](../quickstart/fluent-package-v5-vs-td-agent.md).
+You can also see [fluent-package-v5-vs-td-agent](../../quickstart/fluent-package-v5-vs-td-agent.md).
 
 ## How to install `fluent-package`
 
 {% hint style='danger' %}
 The following are deprecated td-agent (EOL) information:
 
-* About deprecated [Treasure Agent (td-agent) v4 (EOL)](https://www.fluentd.org/blog/schedule-for-td-agent-4-eol), see [Install by .msi Installer v4 (Windows)](install-by-msi-td-agent-v4.md).
-* About deprecated [Treasure Agent (td-agent) 3 will not be maintained anymore](https://www.fluentd.org/blog/schedule-for-td-agent-3-eol), see [Install by msi Package  v3](install-by-msi-td-agent-v3.md).
+* About deprecated [Treasure Agent (td-agent) v4 (EOL)](https://www.fluentd.org/blog/schedule-for-td-agent-4-eol), see [Install by .msi Installer v4 (Windows)](../install-by-msi-td-agent-v4.md).
+* About deprecated [Treasure Agent (td-agent) 3 will not be maintained anymore](https://www.fluentd.org/blog/schedule-for-td-agent-3-eol), see [Install by msi Package  v3](../install-by-msi-td-agent-v3.md).
 * Do not directly upgrade from v3 to v5. Such a workflow is not supported. It causes a trouble. Upgrade in stages. (v3 to v4, then v4 to v5)
 {% endhint %}
 
@@ -26,7 +26,7 @@ The following are deprecated td-agent (EOL) information:
 Download the latest MSI installer from [the download page](https://td-agent-package-browser.herokuapp.com/5/windows). Run the installer and follow the wizard.
 If you want to use Long Term Support version, use [LTS](https://td-agent-package-browser.herokuapp.com/lts/5/windows).
 
-![fluent-package installation wizard](../.gitbook/assets/fluent-package5-wizard.png)
+![fluent-package installation wizard](../../.gitbook/assets/fluent-package5-wizard.png)
 
 ### Step 2: Set up `fluentd.conf`
 
@@ -56,7 +56,7 @@ Open `C:/opt/fluent/etc/fluent/fluentd.conf` with a text editor. Replace the con
 
 Open Windows Start menu, and search `Fluent Package Command Prompt`. In most environments, the program will be found right under the "Recently Added" section or "Best match" section.
 
-![Windows start menu and Fluent Package Command Prompt](../.gitbook/assets/fluent-package5-menu.png)
+![Windows start menu and Fluent Package Command Prompt](../../.gitbook/assets/fluent-package5-menu.png)
 
 `Fluent Package Command Prompt` is basically `cmd.exe`, with a few PATH tweaks for Fluentd programs. Use this program whenever you need to interact with Fluentd.
 
@@ -70,7 +70,7 @@ C:\opt\fluent> fluentd
 
 Now `fluentd` starts listening to Windows Eventlog, and will print records to stdout as they occur.
 
-![Fluent Package Command Prompt](../.gitbook/assets/fluent-package5-prompt.png)
+![Fluent Package Command Prompt](../../.gitbook/assets/fluent-package5-prompt.png)
 
 ### Step 5: Run `fluentd` as Windows service
 
@@ -120,19 +120,19 @@ C:\opt\fluent> fluent-gem install fluent-plugin-xyz --version=1.2.3
 You are now ready to collect real logs with Fluentd. Refer to the following tutorials on how to collect data from various sources:
 
 * Basic Configuration
-  * [Config File](../configuration/config-file.md)
+  * [Config File](../../configuration/config-file.md)
 * Application Logs
-  * [Ruby](../language-bindings/ruby.md)
-  * [Java](../language-bindings/java.md)
-  * [Python](../language-bindings/python.md)
-  * [PHP](../language-bindings/php.md)
-  * [Perl](../language-bindings/perl.md)
-  * [Node.js](../language-bindings/nodejs.md)
-  * [Scala](../language-bindings/scala.md)
+  * [Ruby](../../language-bindings/ruby.md)
+  * [Java](../../language-bindings/java.md)
+  * [Python](../../language-bindings/python.md)
+  * [PHP](../../language-bindings/php.md)
+  * [Perl](../../language-bindings/perl.md)
+  * [Node.js](../../language-bindings/nodejs.md)
+  * [Scala](../../language-bindings/scala.md)
 * Examples
-  * [Store Apache Log into Amazon S3](../how-to-guides/apache-to-s3.md)
-  * [Store Apache Log into MongoDB](../how-to-guides/apache-to-mongodb.md)
-  * [Data Collection into HDFS](../how-to-guides/http-to-hdfs.md)
+  * [Store Apache Log into Amazon S3](../../how-to-guides/apache-to-s3.md)
+  * [Store Apache Log into MongoDB](../../how-to-guides/apache-to-mongodb.md)
+  * [Data Collection into HDFS](../../how-to-guides/http-to-hdfs.md)
 
 {% hint style='info' %}
 There are some commercial supports for Fluentd, see [Enterprise Services](https://www.fluentd.org/enterprise_services).
