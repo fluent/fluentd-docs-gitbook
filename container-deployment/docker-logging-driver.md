@@ -82,8 +82,8 @@ By default, the Fluentd logging driver will try to find a local Fluentd instance
 The following command will run a base Ubuntu container and print some messages to the standard output:
 
 ```text
-$ docker run --log-driver=fluentd ubuntu echo "Hello Fluentd\!"
-Hello Fluentd!
+$ docker run --log-driver=fluentd ubuntu echo "Hello Fluentd"
+Hello Fluentd
 ```
 
 Note that we have launched the container specifying the Fluentd logging driver i.e. `--log-driver=fluentd`.
@@ -93,7 +93,7 @@ Note that we have launched the container specifying the Fluentd logging driver i
 Now, you should see the incoming messages from the container in Fluentd logs:
 
 ```text
-2025-02-04 07:52:46.000000000 +0000 a4289c14a0ba: {"container_id":"a4289c14a0ba4716deff4d2aadc2b9a51331c0b9a5d631115060ffda959b2bc3","container_name":"/vigilant_babbage","source":"stdout","log":"Hello Fluentd!"}
+2025-02-04 07:52:46.000000000 +0000 a4289c14a0ba: {"container_id":"a4289c14a0ba4716deff4d2aadc2b9a51331c0b9a5d631115060ffda959b2bc3","container_name":"/vigilant_babbage","source":"stdout","log":"Hello Fluentd"}
 ```
 
 At this point, you will notice that the incoming messages are in JSON format, have a timestamp, are tagged with the `container_id` and contain general information from the source container along with the message.
