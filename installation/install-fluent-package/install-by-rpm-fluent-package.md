@@ -4,7 +4,7 @@ This article explains how to install stable versions of `fluent-package` rpm pac
 
 ## What is `fluent-package`?
 
-Please see [fluent-package-v5-vs-td-agent](../quickstart/fluent-package-v5-vs-td-agent.md).
+Please see [fluent-package-v5-vs-td-agent](../../quickstart/fluent-package-v5-vs-td-agent.md).
 
 ## How to install `fluent-package`
 
@@ -25,13 +25,13 @@ The following are deprecated td-agent (EOL) information:
 
 ### Step 0: Before Installation
 
-Please follow the [Pre-installation Guide](before-install.md) to configure your OS properly.
+Please follow the [Pre-installation Guide](../before-install.md) to configure your OS properly.
 
 ### Step 1: Install from `rpm` Repository
 
-It is highly recommended to set up `ntpd` on the node to prevent invalid timestamps in the logs. See [Pre-installation Guide](before-install.md).
+It is highly recommended to set up `ntpd` on the node to prevent invalid timestamps in the logs. See [Pre-installation Guide](../before-install.md).
 
-NOTE: If your OS is not supported, consider [gem installation](install-by-gem.md) instead.
+NOTE: If your OS is not supported, consider [gem installation](../install-by-gem.md) instead.
 
 #### Red Hat
 
@@ -127,15 +127,15 @@ $ tail -n 1 /var/log/fluent/fluentd.log
 You are now ready to collect real logs with Fluentd. Refer to the following tutorials on how to collect data from various sources:
 
 * Basic Configuration
-  * [Config File](../configuration/config-file.md)
+  * [Config File](../../configuration/config-file.md)
 * Application Logs
-  * [Ruby](../language-bindings/ruby.md), [Java](../language-bindings/java.md), [Python](../language-bindings/python.md), [PHP](../language-bindings/php.md),
+  * [Ruby](../../language-bindings/ruby.md), [Java](../../language-bindings/java.md), [Python](../../language-bindings/python.md), [PHP](../../language-bindings/php.md),
 
-    [Perl](../language-bindings/perl.md), [Node.js](../language-bindings/nodejs.md), [Scala](../language-bindings/scala.md)
+    [Perl](../../language-bindings/perl.md), [Node.js](../../language-bindings/nodejs.md), [Scala](../../language-bindings/scala.md)
 * Examples
-  * [Store Apache Log into Amazon S3](../how-to-guides/apache-to-s3.md)
-  * [Store Apache Log into MongoDB](../how-to-guides/apache-to-mongodb.md)
-  * [Data Collection into HDFS](../how-to-guides/http-to-hdfs.md)
+  * [Store Apache Log into Amazon S3](../../how-to-guides/apache-to-s3.md)
+  * [Store Apache Log into MongoDB](../../how-to-guides/apache-to-mongodb.md)
+  * [Data Collection into HDFS](../../how-to-guides/http-to-hdfs.md)
 
 {% hint style='info' %}
 There are some commercial supports for Fluentd, see [Enterprise Services](https://www.fluentd.org/enterprise_services).
