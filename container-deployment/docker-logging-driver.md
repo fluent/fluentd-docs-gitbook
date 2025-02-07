@@ -6,8 +6,6 @@ The old-fashioned way is to write these messages into a log file, but that inher
 
 On Docker v1.6, the concept of [**logging drivers**](https://docs.docker.com/engine/admin/logging/overview/) was introduced. The Docker engine is aware of the output interfaces that manage the application messages.
 
-![Fluentd Docker](https://www.fluentd.org/assets/img/recipes/fluentd_docker.png)
-
 For Docker v1.8, we have implemented a native [**Fluentd Docker logging driver**](https://docs.docker.com/engine/admin/logging/fluentd/). Now, you are able to have a unified and structured logging system with the simplicity and high performance of [Fluentd](http://fluentd.org).
 
 NOTE: Currently, the Fluentd logging driver doesn't support sub-second precision.
@@ -38,7 +36,7 @@ Create `demo.conf` with the following configuration:
   bind 0.0.0.0
 </source>
 
-<match *>
+<match **>
   @type stdout
 </match>
 ```
@@ -48,14 +46,16 @@ Create `demo.conf` with the following configuration:
 Now, start an instance of Fluentd like this:
 
 ```text
-$ docker run -it -p 24224:24224 -v $(pwd)/demo.conf:/fluentd/etc/demo.conf -e FLUENTD_CONF=demo.conf fluent/fluentd:latest
+$ docker run -it -p 24224:24224 -v $(pwd)/demo.conf:/fluentd/etc/demo.conf -e FLUENTD_CONF=demo.conf fluent/fluentd:edge-debian
 ```
 
 On successful start, you should see the Fluentd startup logs:
 
 ```text
-2019-08-21 00:51:02 +0000 [info]: parsing config file is succeeded path="/fluentd/etc/demo.conf"
-2019-08-21 00:51:02 +0000 [info]: using configuration file: <ROOT>
+2025-02-04 07:52:25 +0000 [info]: init supervisor logger path=nil rotate_age=nil rotate_size=nil
+2025-02-04 07:52:25 +0000 [info]: parsing config file is succeeded path="/fluentd/etc/demo.conf"
+2025-02-04 07:52:26 +0000 [info]: gem 'fluentd' version '1.16.7'
+2025-02-04 07:52:26 +0000 [info]: using configuration file: <ROOT>
   <source>
     @type forward
     port 24224
@@ -65,27 +65,25 @@ On successful start, you should see the Fluentd startup logs:
     @type stdout
   </match>
 </ROOT>
-2019-08-21 00:51:02 +0000 [info]: starting fluentd-1.3.2 pid=6 ruby="2.5.2"
-2019-08-21 00:51:02 +0000 [info]: spawn command to main:  cmdline=["/usr/bin/ruby", "-Eascii-8bit:ascii-8bit", "/usr/bin/fluentd", "-c", "/fluentd/etc/demo.conf", "-p", "/fluentd/plugins", "--under-supervisor"]
-2019-08-21 00:51:02 +0000 [info]: gem 'fluentd' version '1.3.2'
-2019-08-21 00:51:02 +0000 [info]: adding match pattern="*" type="stdout"
-2019-08-21 00:51:02 +0000 [info]: adding source type="forward"
-2019-08-21 00:51:02 +0000 [info]: #0 starting fluentd worker pid=16 ppid=6 worker=0
-2019-08-21 00:51:02 +0000 [info]: #0 listening port port=24224 bind="0.0.0.0"
-2019-08-21 00:51:02 +0000 [info]: #0 fluentd worker is now running worker=0
+2025-02-04 07:52:26 +0000 [info]: starting fluentd-1.16.7 pid=7 ruby="3.2.6"
+2025-02-04 07:52:26 +0000 [info]: spawn command to main:  cmdline=["/usr/local/bin/ruby", "-Eascii-8bit:ascii-8bit", "/usr/local/bundle/bin/fluentd", "--config", "/fluentd/etc/demo.conf", "--plugin", "/fluentd/plugins", "--under-supervisor"]
+2025-02-04 07:52:26 +0000 [info]: #0 init worker0 logger path=nil rotate_age=nil rotate_size=nil
+2025-02-04 07:52:26 +0000 [info]: adding match pattern="*" type="stdout"
+2025-02-04 07:52:26 +0000 [info]: adding source type="forward"
+2025-02-04 07:52:26 +0000 [info]: #0 starting fluentd worker pid=16 ppid=7 worker=0
+2025-02-04 07:52:26 +0000 [info]: #0 listening port port=24224 bind="0.0.0.0"
+2025-02-04 07:52:26 +0000 [info]: #0 fluentd worker is now running worker=0
 ```
 
 ### Step 3: Start Docker Container with Fluentd Driver
 
 By default, the Fluentd logging driver will try to find a local Fluentd instance \(Step \# 2\) listening for connections on the TCP port `24224`. Note that the container will not start if it cannot connect to the Fluentd instance.
 
-![Integration of Docker with Fluentd](https://www.fluentd.org/assets/img/recipes/fluentd_docker_integrated.png)
-
 The following command will run a base Ubuntu container and print some messages to the standard output:
 
 ```text
-$ docker run --log-driver=fluentd ubuntu echo "Hello Fluentd!"
-Hello Fluentd!
+$ docker run --log-driver=fluentd ubuntu echo "Hello Fluentd"
+Hello Fluentd
 ```
 
 Note that we have launched the container specifying the Fluentd logging driver i.e. `--log-driver=fluentd`.
@@ -95,7 +93,7 @@ Note that we have launched the container specifying the Fluentd logging driver i
 Now, you should see the incoming messages from the container in Fluentd logs:
 
 ```text
-2019-08-21 00:52:28.000000000 +0000 ece4524df531: {"source":"stdout","log":"Hello Fluentd!","container_id":"ece4524df531ed6ded4253c145a53bead9b049241aa12c5a59ab83e3a14a96b4","container_name":"/inspiring_montalcini"}
+2025-02-04 07:52:46.000000000 +0000 a4289c14a0ba: {"container_id":"a4289c14a0ba4716deff4d2aadc2b9a51331c0b9a5d631115060ffda959b2bc3","container_name":"/vigilant_babbage","source":"stdout","log":"Hello Fluentd"}
 ```
 
 At this point, you will notice that the incoming messages are in JSON format, have a timestamp, are tagged with the `container_id` and contain general information from the source container along with the message.
@@ -105,6 +103,7 @@ At this point, you will notice that the incoming messages are in JSON format, ha
 The application log is stored in the `"log"` field in the record. You can parse this log before sending it to the destinations by using [`filter_parser`](../filter/parser.md).
 
 ```text
+# filter configuration
 <filter docker.**>
   @type parser
   key_name log
@@ -113,25 +112,66 @@ The application log is stored in the `"log"` field in the record. You can parse 
     @type json # apache2, nginx, etc.
   </parse>
 </filter>
+
+<source>
+  @type forward
+  port 24224
+  bind 0.0.0.0
+</source>
+
+<match **>
+  @type stdout
+</match>
 ```
 
-Original Event:
+Then you provide the log message with JSON format:
 
 ```text
-2019-07-22 03:36:39.000000000 +0000 6e8a14315069: {"log":"{\"key\":\"value\"}","container_id":"6e8a1431506936b8568a284f2b0dd4853c250ad85ab7a497f05c4d371f6c3ae6","container_name":"/laughing_beaver","source":"stdout"}
+$ docker run --log-driver=fluentd --log-opt tag=docker ubuntu echo "{\"key\":\"value\"}"
+```
+
+About `--log-opt tag=...`, please refer at [Driver Options](#driver-options) section.
+
+Original Event (without filter plugin):
+
+```text
+2025-02-04 08:20:07.000000000 +0000 docker: {"container_id":"291757f94709abd945ba07c7769c46a5c011f014119c0c56b79e287b00dad4ab","container_name":"/awesome_euler","source":"stdout","log":"{\"key\":\"value\"}"}
 ```
 
 Filtered Event:
 
 ```text
-2019-07-22 03:35:59.395952500 +0000 bac5426337a6: {"container_id":"bac5426337a611fc3b7a0b318c3c45981d2acd80f5c5651088bebb8f1f962583","container_name":"/nostalgic_euler","source":"stdout","log":"{\"key\":\"value\"}","key":"value"}
+2025-02-04 08:20:37.969077831 +0000 docker: {"container_id":"291757f94709abd945ba07c7769c46a5c011f014119c0c56b79e287b00dad4ab","container_name":"/awesome_euler","source":"stdout","log":"{\"key\":\"value\"}","key":"value"}
 ```
 
 ### Additional Step 2: Concatenate Multiple Lines Log Messages
 
 The application log is stored in the `log` field of the record. You can concatenate these logs by using [`fluent-plugin-concat`](https://github.com/fluent-plugins-nursery/fluent-plugin-concat) filter before sending it to the destinations.
 
+At first, you need to create custom docker image due to install the `fluent-plugin-concat` gem in the Fluentd container.
+
+Create `Dockerfile` with the following content:
+
 ```text
+# Dockerfile
+FROM fluent/fluentd:edge-debian
+
+USER root
+RUN fluent-gem install fluent-plugin-concat
+
+USER fluent
+```
+
+Build the custom image:
+
+```text
+$ docker build . -t fluentd-test
+```
+
+Then, create the configuration file `demo.conf` with the following content:
+
+```text
+# filter configuration
 <filter docker.**>
   @type concat
   key log
@@ -139,23 +179,63 @@ The application log is stored in the `log` field of the record. You can concaten
   multiline_start_regexp /^-e:2:in `\/'/
   multiline_end_regexp /^-e:4:in/
 </filter>
+
+<source>
+  @type forward
+  port 24224
+  bind 0.0.0.0
+</source>
+
+<match **>
+  @type stdout
+</match>
 ```
 
-Original Events:
+Launch the Fluentd container:
+
+```
+$ docker run -it -p 24224:24224 -v $(pwd)/demo.conf:/fluentd/etc/demo.conf -e FLUENTD_CONF=demo.conf fluentd-test
+```
+
+Then you provide the log message contains newlines:
 
 ```text
-2016-04-13 14:45:55 +0900 docker.28cf38e21204: {"container_id":"28cf38e212042225f5f80a56fac08f34c8f0b235e738900c4e0abcf39253a702","container_name":"/romantic_dubinsky","source":"stdout","log":"-e:2:in `/'"}
-2016-04-13 14:45:55 +0900 docker.28cf38e21204: {"source":"stdout","log":"-e:2:in `do_division_by_zero'","container_id":"28cf38e212042225f5f80a56fac08f34c8f0b235e738900c4e0abcf39253a702","container_name":"/romantic_dubinsky"}
-2016-04-13 14:45:55 +0900 docker.28cf38e21204: {"source":"stdout","log":"-e:4:in `<main>'","container_id":"28cf38e212042225f5f80a56fac08f34c8f0b235e738900c4e0abcf39253a702","container_name":"/romantic_dubinsky"}
+$ docker run --log-driver=fluentd --log-opt tag=docker ubuntu echo "-e:2:in \`/'"$'\n'"-e:2:in \`do_division_by_zero'"$'\n'"-e:4:in \`<main>'"
+```
+
+Original Events (without filter plugin):
+
+```text
+2025-02-04 09:18:12.000000000 +0000 docker: {"container_id":"6998df1c3ad699d40abb58ab9f5cd4cd4ee51fb1bf99389deed64c2ffe439418","container_name":"/vigilant_ganguly","source":"stdout","log":"-e:2:in `/'"}
+2025-02-04 09:18:12.000000000 +0000 docker: {"container_id":"6998df1c3ad699d40abb58ab9f5cd4cd4ee51fb1bf99389deed64c2ffe439418","container_name":"/vigilant_ganguly","source":"stdout","log":"-e:2:in `do_division_by_zero'"}
+2025-02-04 09:18:12.000000000 +0000 docker: {"container_id":"6998df1c3ad699d40abb58ab9f5cd4cd4ee51fb1bf99389deed64c2ffe439418","container_name":"/vigilant_ganguly","source":"stdout","log":"-e:4:in `<main>'"}
 ```
 
 Filtered Events:
 
 ```text
-2016-04-13 14:45:55 +0900 docker.28cf38e21204: {"container_id":"28cf38e212042225f5f80a56fac08f34c8f0b235e738900c4e0abcf39253a702","container_name":"/romantic_dubinsky","source":"stdout","log":"-e:2:in `/'\n-e:2:in `do_division_by_zero'\n-e:4:in `<main>'"}
+2025-02-04 09:18:30.000000000 +0000 docker: {"container_id":"6998df1c3ad699d40abb58ab9f5cd4cd4ee51fb1bf99389deed64c2ffe439418","container_name":"/vigilant_ganguly","source":"stdout","log":"-e:2:in `/'\n-e:2:in `do_division_by_zero'\n-e:4:in `<main>'"}
 ```
 
 If the logs are typical stacktraces, consider using [`detect-exceptions`](https://github.com/GoogleCloudPlatform/fluent-plugin-detect-exceptions) plugin instead.
+
+**NOTE**:
+For plugins with the simple file structure, such as `fluent-plugin-concat`, `plugins` directory can be used instead of creating custom docker image.
+
+Prepare the `plugins` directory and copy the plugin file:
+
+```text
+$ mkdir $(pwd)/plugins
+
+$ git clone https://github.com/fluent-plugins-nursery/fluent-plugin-concat.git /tmp/fluent-plugin-concat
+$ cp /tmp/fluent-plugin-concat/lib/fluent/plugin/filter_concat.rb $(pwd)/plugins
+```
+
+Launch the Fluentd container with `plugins` directory mounted:
+
+```
+$ docker run -it -p 24224:24224 -v $(pwd)/plugins:/fluentd/plugins -v $(pwd)/demo.conf:/fluentd/etc/demo.conf -e FLUENTD_CONF=demo.conf fluent/fluentd:edge-debian
+```
 
 ## Driver Options
 
