@@ -1,0 +1,23 @@
+name: Add check with codespell
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.head_ref || github.sha }}-${{ github.workflow }}
+  cancel-in-progress: true
+
+jobs:
+  spell-check:
+    name: check spelling with codespell
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - name: Install codespell
+        run: pip install codespell
+      - name: Run codespell
+        run: codespell
