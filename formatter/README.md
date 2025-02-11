@@ -16,7 +16,7 @@ This article gives an overview of the Formatter Plugin.
 
 ## Overview
 
-Sometimes, the output format for an output plugin does not meet one's needs. Fluentd has a pluggable system called Formatter that lets the user extend and re-use custom output formats.
+Sometimes, the output format for an output plugin does not meet one's needs. Fluentd has a pluggable system called Formatter that lets the user extend and reuse custom output formats.
 
 ## How To Use
 

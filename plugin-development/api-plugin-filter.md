@@ -32,7 +32,7 @@ module Fluent::Plugin
     # end
 
     def filter(tag, time, record)
-      # Since our example is a pass-thru filter, it does nothing and just
+      # Since our example is a pass-through filter, it does nothing and just
       # returns the record as-is.
       # If returns nil, that records are ignored.
       record

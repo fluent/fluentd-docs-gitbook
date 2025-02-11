@@ -470,7 +470,7 @@ This section describes some useful features for the configuration file.
 You can write multiline values for `"` quoted string, array and hash values.
 
 ```yaml
-str_param: "foo  # Converts to "foo bar". As NL interpretation will be required for continuos newlines.
+str_param: "foo  # Converts to "foo bar". As NL interpretation will be required for continuous newlines.
 bar"
 
 str_param: "foo  # Converts to "foo\nbar".
