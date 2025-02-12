@@ -1,0 +1,4 @@
+[codespell]
+skip = node_modules, _book, images
+count =
+ignore-words-list = aNULL, userA, followings
