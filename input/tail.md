@@ -443,7 +443,7 @@ Example:
 <group>
   <rule>
     match {
-        directoy: /payment/
+        directory: /payment/
     }
     limit 2000
   </rule>

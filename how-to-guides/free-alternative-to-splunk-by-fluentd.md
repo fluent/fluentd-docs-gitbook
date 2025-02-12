@@ -145,7 +145,7 @@ $ sudo systemctl restart rsyslog
 
 Once Fluentd receives some event logs from `rsyslog` and has flushed them to Elasticsearch, you can view, search and visualize the log data using Kibana.
 
-For starters, let's access `http://localhost:5601` and click the `Set up index patters` button in the upper-right corner of the screen.
+For starters, let's access `http://localhost:5601` and click the `Set up index patterns` button in the upper-right corner of the screen.
 
 ![Kibana Top Menu](../.gitbook/assets/kibana6-screenshot-topmenu.png)
 
