@@ -19,8 +19,8 @@ NOTE:
 {% hint style='danger' %}
 The following are deprecated td-agent (EOL) information:
 
-* About [Treasure Agent (td-agent) v4 (EOL)](https://www.fluentd.org/blog/schedule-for-td-agent-4-eol), See [Install by RPM Package v4](install-by-rpm-td-agent-v4.md).
-* About [Treasure Agent (td-agent) 3 will not be maintained anymore](https://www.fluentd.org/blog/schedule-for-td-agent-3-eol), see [Install by DEB Package  v3](install-by-deb-td-agent-v3.md).
+* About [Treasure Agent (td-agent) v4 (EOL)](https://www.fluentd.org/blog/schedule-for-td-agent-4-eol), See [Install by RPM Package v4](../install-by-rpm-td-agent-v4.md).
+* About [Treasure Agent (td-agent) 3 will not be maintained anymore](https://www.fluentd.org/blog/schedule-for-td-agent-3-eol), see [Install by DEB Package  v3](../install-by-deb-td-agent-v3.md).
 {% endhint %}
 
 ### Step 0: Before Installation
