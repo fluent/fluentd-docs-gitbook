@@ -95,6 +95,12 @@ path /path/to/a/*,/path/to/b/c.log
 
 If the date is `20140401`, Fluentd starts to watch the files in `/path/to/2014/04/01` directory. See also `read_from_head` parameter.
 
+Using `**` for path globbing is supported.
+
+```text
+path /path/to/**/some.log
+```
+
 By default, You should not use `*` with log rotation because it may cause the log duplication. To avoid log duplication, you need to set `follow_inodes true` in the configuration.
 
 If you want to use other glob patterns such as `[]` and `?`, you need to set up `glob_policy extended` as described in the `glob_policy` section.
