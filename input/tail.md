@@ -95,6 +95,12 @@ path /path/to/a/*,/path/to/b/c.log
 
 If the date is `20140401`, Fluentd starts to watch the files in `/path/to/2014/04/01` directory. See also `read_from_head` parameter.
 
+Using `**` for path globbing is supported.
+
+```text
+path /path/to/**/some.log
+```
+
 By default, You should not use `*` with log rotation because it may cause the log duplication. To avoid log duplication, you need to set `follow_inodes true` in the configuration.
 
 If you want to use other glob patterns such as `[]` and `?`, you need to set up `glob_policy extended` as described in the `glob_policy` section.
@@ -423,7 +429,7 @@ Refer to the [Logging](../deployment/logging.md) for more details.
 
 The `in_tail` plugin can assign each log file to a group, based on user defined rules. The `limit` parameter controls the total number of lines collected for a group within a `rate_period` time interval.
 
-Example: 
+Example:
 
 ```text
 # group rules -- 1
@@ -456,9 +462,9 @@ Example:
 | :--- | :--- | :--- |
 | regexp | `/^\/var\/log\/containers\/(?<podname>[a-z0-9]([-a-z0-9]*[a-z0-9])?(\/[a-z0-9]([-a-z0-9]*[a-z0-9])?)*)_(?<namespace>[^_]+)_(?<container>.+)-(?<docker_id>[a-z0-9]{64})\.log$/`| 1.15 |
 
-Specifies the regular expression for extracting metadata (namespace, podname) from log file path. Default value of the pattern regexp extracts information about `namespace`, `podname`, `docker_id`, `container` of the log (K8s specific). 
+Specifies the regular expression for extracting metadata (namespace, podname) from log file path. Default value of the pattern regexp extracts information about `namespace`, `podname`, `docker_id`, `container` of the log (K8s specific).
 
-You can also add custom named captures in `pattern` for custom grouping of log files. For example, 
+You can also add custom named captures in `pattern` for custom grouping of log files. For example,
 ```text
     pattern /^\/home\/logs\/(?<file>.+)\.log$/
 ```
@@ -559,7 +565,7 @@ path C:\\path\\to\\*\\foo.log
 
 If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open). [Fluentd](http://www.fluentd.org/) is an open-source project under [Cloud Native Computing Foundation \(CNCF\)](https://cncf.io/). All components are available under the Apache 2 License.
 
-### What happens when a file can be assigned to more than one group? 
+### What happens when a file can be assigned to more than one group?
 
 Example,
 
@@ -567,7 +573,7 @@ Example,
   <rule> ## Rule1
     match {
       namespace: /monitoring/
-    } 
+    }
     limit 100
   </rule>
 
