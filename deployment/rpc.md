@@ -26,7 +26,7 @@ As evident from the output above, each endpoint returns a JSON object as its res
 ## HTTP Endpoints
 
 | Endpoint                                    | Replacement of                                                            | Description                                                     | Version |
-| :---                                        | :---:                                                                     | :---:                                                           |         |
+| :---                                        | :---:                                                                     | :---:                                                           | :---:   |
 | `/api/processes.interruptWorkers`           | [SIGINT](signals.md#sigint-or-sigterm)                                    | Stops the daemon.                                               | v1.0    |
 | `/api/processes.killWorkers`                | [SIGTERM](signals.md#sigint-or-sigterm)                                   | Stops the daemon.                                               | v1.0    |
 | `/api/processes.zeroDowntimeRestart`        | [SIGUSR2](signals.md#sigusr2)                                             | Restarts Fluentd with zero-downtime. (Not supported on Windows) | v1.18   |
