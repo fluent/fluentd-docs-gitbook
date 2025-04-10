@@ -2,7 +2,7 @@
 
 The `http_server` helper creates an HTTP server. This helper was introduced in v1.6.0.
 
-It supports [`async-http`](https://github.com/socketry/async-http)-based server to improve the performance. If `async-http` gem is not installed, this helper uses the standard [`webrick`](https://github.com/ruby/webrick) server instead.
+It supports [`async-http`](https://github.com/socketry/async-http)-based server to improve the performance.
 
 Here is an example:
 
