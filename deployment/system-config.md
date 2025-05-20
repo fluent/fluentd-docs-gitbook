@@ -194,6 +194,8 @@ Enable JIT for worker processes. Internally, this configuration enables Ruby's `
 
 Specifies whether measuring input metrics should be enabled or not.
 
+Deprecated parameter. Since v1.19.0, this parameter is always enabled.
+
 ### `enable_size_metrics`
 
 | type | default | version |
