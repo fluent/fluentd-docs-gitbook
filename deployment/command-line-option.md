@@ -38,6 +38,7 @@ Usage: fluentd [options]
         --use-v0-config              Use v0 configuration format
         --strict-config-value        Parse config values strictly
         --enable-input-metrics       [DEPRECATED] Enable input plugin metrics on fluentd
+        --disable-input-metrics      Disable input plugin metrics on fluentd
         --enable-size-metrics        Enable plugin record size metrics on fluentd
     -v, --verbose                    increase verbose level (-v: debug, -vv: trace)
     -q, --quiet                      decrease verbose level (-q: warn, -qq: error)
