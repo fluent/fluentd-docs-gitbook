@@ -12,7 +12,23 @@ See also: [Lifecycle of a Fluentd Event](../quickstart/life-of-a-fluentd-event.m
 
 ## Config File Location
 
-#### RPM, Deb or DMG
+### RPM, Deb or DMG
+
+#### fluent-package
+
+If you install Fluentd using the `fluent-package` packages, the config file should be at `/etc/fluent/fluentd.conf`.
+
+```text
+$ sudo vi /etc/fluent/fluentd.conf
+```
+
+#### td-agent (EOL)
+
+{% hint style='warning' %}
+As `td-agent` had already reached EOL, we recommend to use `fluent-package` (the successor to `td-agent`).
+
+* [fluent-package v5 vs td-agent v4](../quickstart/fluent-package-v5-vs-td-agent.md)
+{% endhint %}
 
 If you install Fluentd using the `td-agent` packages, the config file should be at `/etc/td-agent/td-agent.conf`.
 
@@ -20,7 +36,7 @@ If you install Fluentd using the `td-agent` packages, the config file should be 
 $ sudo vi /etc/td-agent/td-agent.conf
 ```
 
-#### Gem
+### Gem
 
 If you install Fluentd using the Ruby Gem, you can create the configuration file using the following commands:
 
