@@ -190,6 +190,7 @@
   * [Plugin Helper: Event Loop](plugin-helper-overview/api-plugin-helper-event_loop.md)
   * [Plugin Helper: Extract](plugin-helper-overview/api-plugin-helper-extract.md)
   * [Plugin Helper: Formatter](plugin-helper-overview/api-plugin-helper-formatter.md)
+  * [Plugin Helper: Metrics](plugin-helper-overview/api-plugin-helper-metrics.md)
   * [Plugin Helper: Inject](plugin-helper-overview/api-plugin-helper-inject.md)
   * [Plugin Helper: Parser](plugin-helper-overview/api-plugin-helper-parser.md)
   * [Plugin Helper: Record Accessor](plugin-helper-overview/api-plugin-helper-record_accessor.md)

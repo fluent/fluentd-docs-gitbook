@@ -23,6 +23,7 @@ It will include `Timer`, `Storage`. and `CompatParameters` plugin helpers.
 * [`extract`](api-plugin-helper-extract.md)
 * [`formatter`](api-plugin-helper-formatter.md)
 * [`inject`](api-plugin-helper-inject.md)
+* [`metrics`](api-plugin-helper-metrics.md)
 * [`parser`](api-plugin-helper-parser.md)
 * [`record_accessor`](api-plugin-helper-record_accessor.md)
 * [`server`](api-plugin-helper-server.md)
