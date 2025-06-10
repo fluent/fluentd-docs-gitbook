@@ -35,7 +35,7 @@ You can install Fluentd via major packaging systems.
 
 If `out_td` (fluent-plugin-td) is not installed yet, please install it manually.
 
-See [Plugin Management](..//installation/post-installation-guide#plugin-management) section how to install fluent-plugin-td on your environment.
+See [Plugin Management](../installation/post-installation-guide#plugin-management) section how to install fluent-plugin-td on your environment.
 
 {% hint style='info' %}
 If you use `fluent-package`, out_td (fluent-plugin-td) is bundled by default.

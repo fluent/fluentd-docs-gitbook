@@ -56,7 +56,7 @@ You can install Fluentd via major packaging systems.
 
 If `out_gelf` (fluent-plugin-gelf-hs) is not installed yet, please install it manually.
 
-See [Plugin Management](..//installation/post-installation-guide#plugin-management) section how to install fluent-plugin-gelf-hs on your environment.
+See [Plugin Management](../installation/post-installation-guide#plugin-management) section how to install fluent-plugin-gelf-hs on your environment.
 
 Then, configure `/etc/fluent/fluentd.conf` as follows:
 
