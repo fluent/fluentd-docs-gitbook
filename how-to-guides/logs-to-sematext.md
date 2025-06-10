@@ -30,7 +30,7 @@ You need to [sign up](https://apps.sematext.com/ui/registration) and create an A
 
 If [`out_elasticsearch`](../output/elasticsearch.md) (fluent-plugin-elasticsearch) is not installed yet, please install it manually.
 
-See [Plugin Management](..//installation/post-installation-guide#plugin-management) section how to install fluent-plugin-elasticsearch on your environment.
+See [Plugin Management](../installation/post-installation-guide#plugin-management) section how to install fluent-plugin-elasticsearch on your environment.
 
 Now you'll configure the `fluent-package` \(Fluentd\) to interface properly with Elasticsearch. Please edit `/etc/fluent/fluentd.conf` as shown below:
 

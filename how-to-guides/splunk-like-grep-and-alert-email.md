@@ -22,7 +22,7 @@ You can install Fluentd via major packaging systems.
 
 If `out_grepcounter` (fluent-plugin-grepcounter) and `out_mail` (fluent-plugin-mail) are not installed yet, please install it manually.
 
-See [Plugin Management](..//installation/post-installation-guide#plugin-management) section how to install fluent-plugin-mongo on your environment.
+See [Plugin Management](../installation/post-installation-guide#plugin-management) section how to install fluent-plugin-mongo on your environment.
 
 ## Configuration
 
