@@ -231,6 +231,14 @@ You can get the list of supported encodings with this command:
 $ ruby -e 'p Encoding.name_list.sort'
 ```
 
+{% hint style='danger' %}
+Caution: From v0.14.12 to v1.18.x, there was a bug.
+
+* You need to specify both `encoding` and `from_encoding`.
+* If you specify only `encoding`, `String#encode` will be executed unintentionally. **It can break the data.**
+* To change only the encoding info as metadata, without transforming the string data itself (`String#force_encoding`), you need to specify the same encoding for both `encoding` and `from_encoding`.
+{% endhint %}
+
 ### `read_lines_limit`
 
 | type | default | version |
