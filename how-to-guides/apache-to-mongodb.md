@@ -48,7 +48,7 @@ For MongoDB, please refer to the following downloads page:
 
 If [`out_mongo`](../output/mongo.md) (fluent-plugin-mongo) is not installed yet, please install it manually.
 
-See [Plugin Management](../installation/post-installation-guide#plugin-management) section how to install fluent-plugin-mongo on your environment.
+See [Plugin Management](../installation/post-installation-guide.md#plugin-management) section how to install fluent-plugin-mongo on your environment.
 
 ## Configuration
 

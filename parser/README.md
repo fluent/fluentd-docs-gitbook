@@ -47,7 +47,7 @@ the default Nginx access file `/var/log/nginx/access.log` is mode `0640` and own
 this case, several options are available to allow read access:
 
 1. Add the `td-agent` user to the `adm` group, e.g. through `usermod -aG`, or
-2. Use the [`cap_dac_read_search` capability](../deployment/linux-capability#capability-handling-on-in_tail)
+2. Use the [`cap_dac_read_search` capability](../deployment/linux-capability.md#capability-handling-on-in_tail)
    to allow the invoking user to read the file without otherwise changing its permission bits or ownership.
 
 ## List of Built-in Parsers

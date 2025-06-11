@@ -447,11 +447,11 @@ If you set the environment variable `FLUENTD_TAG` to `dev`, this evaluates to `a
 
 ## Supported Data Types for Values
 
-Please refer to: [Supported Data Types for Values | Fluentd official document](./config-file#supported-data-types-for-values)
+Please refer to: [Supported Data Types for Values | Fluentd official document](./config-file.md#supported-data-types-for-values)
 
 ## Common Plugin Parameters
 
-Please refer to: [Common Plugin Parameters | Fluentd official document](./config-file#common-plugin-parameters)
+Please refer to: [Common Plugin Parameters | Fluentd official document](./config-file.md#common-plugin-parameters)
 
 ## Check Configuration File
 
