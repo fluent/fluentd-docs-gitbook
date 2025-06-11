@@ -34,7 +34,7 @@ You can install Fluentd via major packaging systems.
 
 If `out_norikra` (fluent-plugin-norikra) is not installed yet, please install it manually.
 
-See [Plugin Management](../installation/post-installation-guide#plugin-management) section how to install fluent-plugin-norikra on your environment.
+See [Plugin Management](../installation/post-installation-guide.md#plugin-management) section how to install fluent-plugin-norikra on your environment.
 
 ### Installing Norikra
 

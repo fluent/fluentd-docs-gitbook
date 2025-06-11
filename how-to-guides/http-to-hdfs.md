@@ -41,7 +41,7 @@ NOTE: CDH (Cloudera Distributed Hadoop) was discontinued. Superseded by Cloudera
 
 If `out_webhdfs` (fluent-plugin-webhdfs) is not installed yet, please install it manually.
 
-See [Plugin Management](../installation/post-installation-guide#plugin-management) section how to install fluent-plugin-webhdfs on your environment.
+See [Plugin Management](../installation/post-installation-guide.md#plugin-management) section how to install fluent-plugin-webhdfs on your environment.
 
 {% hint style='info' %}
 If you use `fluent-package`, out_webhdfs (fluent-plugin-webhdfs) is bundled by default.
