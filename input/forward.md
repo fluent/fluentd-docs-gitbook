@@ -132,11 +132,12 @@ The warning size limit of the received chunk. If the chunk size is larger than t
 
 | type | default | version |
 | :--- | :--- | :--- |
-| bool | false | 0.14.0 |
+| bool | true | 0.14.0 |
 
 Skips the invalid incoming event.
 
 This option is useful for forwarder, not aggregator.
+Since v1.19.0, the default value is changed to `true`.
 
 ### `source_address_key`
 
