@@ -259,6 +259,37 @@ NOTE: When enabling log rotation on Windows, log files are separated into `log-s
 
 Please see also [Log Rotation Setting](logging.md#log-rotation-setting).
 
+#### `forced_stacktrace_level`
+
+| type | default | version |
+| :--- | :---    | :---    |
+| enum | "none"  | 1.19.0  |
+
+Specifies `none` or the log level e.g. `trace`, `debug`, `info`, `warn`, `error`, or `fatal`.
+
+If you set a log level, log levels of stacktraces are forced to that level.
+
+Example:
+
+```
+<system>
+  log_level info # This is the default. You can omit this.
+  <log>
+    forced_stacktrace_level info
+  </log>
+</system>
+```
+
+This setting results in the following behavior:
+
+* All stacktraces initially with `info` level (`log_level`) or higher will be forcibly logged with `info` level (`forced_stacktrace_level`).
+
+Note that stacktraces that do not meet `log_level` are discarded in advance.
+Thanks to this, there's no concern that `trace` or `debug`-level stacktraces being excessively output as `info`-level logs.
+
+You can use this option to exclude all stacktraces from an alerting system if monitoring Fluentd's log files directly.
+(You don't need this feature if using [@FLUENT_LOG](logging.md#capture-fluentd-logs) because stacktraces are not routed into the `@FLUENT_LOG` label.)
+
 ### `<source_only_buffer>` section
 
 The temporary buffer setting for [Source Only Mode](source-only-mode.md).
