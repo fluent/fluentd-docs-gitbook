@@ -186,6 +186,23 @@ Force disable the shared socket which is for listening a same port across multip
 
 Enable JIT for worker processes. Internally, this configuration enables Ruby's `--jit` command-line option.
 
+### `enable_input_metrics`
+
+| type | default | version |
+| :--- | :---    | :---    |
+| bool | nil     | 1.14.0  |
+
+Specifies whether measuring input metrics should be enabled or not.
+
+### `enable_size_metrics`
+
+| type | default | version |
+| :--- | :---    | :---    |
+| bool | nil     | 1.14.0  |
+
+Specifies whether measuring record size metrics should be enabled or not.
+It can be useful for calculating flow rate on Fluentd instances.
+
 ### `<log>` section
 
 #### `path`
@@ -241,23 +258,6 @@ By default, Fluentd does not rotate log files. You need to specify `rotate_age` 
 NOTE: When enabling log rotation on Windows, log files are separated into `log-supervisor-0.log`, `log-0.log`, ..., `log-N.log` where `N` is `generation - 1` due to the system limitation. Windows does not permit delete and rename files simultaneously owned by another process.
 
 Please see also [Log Rotation Setting](logging.md#log-rotation-setting).
-
-#### `enable_input_metrics`
-
-| type | default | version |
-| :--- | :---    | :---    |
-| bool | nil     | 1.14.0  |
-
-Specifies whether measuring input metrics should be enabled or not.
-
-#### `enable_size_metrics`
-
-| type | default | version |
-| :--- | :---    | :---    |
-| bool | nil     | 1.14.0  |
-
-Specifies whether measuring record size metrics should be enabled or not.
-It can be useful for calculating flow rate on Fluentd instances.
 
 ### `<source_only_buffer>` section
 
