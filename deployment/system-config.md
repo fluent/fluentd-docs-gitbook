@@ -267,7 +267,7 @@ Please see also [Log Rotation Setting](logging.md#log-rotation-setting).
 
 Specifies `none` or the log level e.g. `trace`, `debug`, `info`, `warn`, `error`, or `fatal`.
 
-If you set a log level, log levels of stacktraces are forced to that level.
+If you set a log level for `forced_stacktrace_level`, log levels of stacktraces are forced to that level.
 
 Example:
 
