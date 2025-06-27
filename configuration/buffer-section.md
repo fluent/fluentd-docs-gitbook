@@ -417,13 +417,13 @@ Following are the configuration parameters for buffer plugin and its chunks:
 
     buffer chunks.
 
-  * Fluentd will decompress these compressed chunks automatically before
+  * Fluentd will decompress these compressed chunks automatically when
 
-    passing them to the output plugin \(The exceptional case is when the
+    the output plugin sends the chunk to the destination. \(The exceptional
 
-    output plugin can transfer data in compressed form. In this case, the
+    case is when the output plugin can transfer data in compressed form.
 
-    data will be passed to the plugin as is\).
+    In this case, the data will be passed to the destination as is\).
 
   * The default`text` means that no compression is applied.
 
