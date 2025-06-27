@@ -10,6 +10,8 @@
 
   the parameter is not configured.
 
+  **NOTE**: It doesn't perform type conversion such as `time` type, and the specified default value is used as is.
+
 ```ruby
 # Required parameter: The configuration must have this parameter like 'param1 10'.
 config_param :param1, :integer
