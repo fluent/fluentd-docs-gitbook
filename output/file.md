@@ -162,7 +162,20 @@ The suffix for output result.
 
 ### `compress`
 
-Compresses flushed files using `gzip`. No compression is performed by default.
+| type | default |
+| :--- | :---    |
+| enum | text    |
+
+Compresses flushed files.
+
+No compression is performed by default.
+
+Supported values:
+
+* `text`
+* `gz`
+* `gzip`
+* `zstd` (since v1.19.0)
 
 ### `recompress`
 
