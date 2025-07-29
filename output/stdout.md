@@ -43,6 +43,16 @@ where the first part shows the output `time`, the second part shows the `tag`, a
 
 The value must be `stdout`.
 
+### `use_logger`
+
+| type | default | version |
+| :--- | :---    | :---    |
+| bool | true    | 1.19.0  |
+
+If [Fluentd logger](../deployment/logging.md) outputs logs to a file, this plugin outputs events to the file as well.
+
+If setting `false`, this plugin outputs events to STDOUT independently of Fluentd logger.
+
 ### `<buffer>` Section
 
 See [Buffer Section Configurations](../configuration/buffer-section.md) for more details.
