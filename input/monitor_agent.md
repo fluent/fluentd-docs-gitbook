@@ -120,14 +120,18 @@ Here is how the output looks like in JSON:
       "plugin_category": "input",
       "type": "monitor_agent",
       "output_plugin": false,
-      "retry_count": null
+      "retry_count": null,
+      "emit_records": 0,
+      "emit_size": 0
     },
     {
       "plugin_id": "in_forward",
       "plugin_category": "input",
       "type": "forward",
       "output_plugin": false,
-      "retry_count": null
+      "retry_count": null,
+      "emit_records": 0,
+      "emit_size": 0
     },
     {
       "plugin_id": "out_es",
@@ -135,8 +139,22 @@ Here is how the output looks like in JSON:
       "type": "elasticsearch",
       "output_plugin": true,
       "buffer_queue_length": 0,
+      "buffer_timekeys": [],
       "buffer_total_queued_size": 0,
       "retry_count": 0,
+      "emit_records": 0,
+      "emit_size": 0,
+      "emit_count": 0,
+      "write_count": 0,
+      "write_secondary_count": 0,
+      "rollback_count": 0,
+      "slow_flush_count": 0,
+      "flush_time_count": 0,
+      "drop_oldest_chunk_count": 0,
+      "buffer_stage_length": 0,
+      "buffer_stage_byte_size": 0,
+      "buffer_queue_byte_size": 0,
+      "buffer_available_buffer_space_ratios": 100.0,
       "retry": {}
     }
   ]
@@ -152,18 +170,32 @@ If the output plugin is in retry status, additional fields are added to `retry`.
 Here is the response:
 
 ```text
-{ 
+{
   "plugin_id": "out_es",
   "plugin_category": "output",
   "type": "elasticsearch",
   "output_plugin": true,
   "buffer_queue_length": 1,
-  "buffer_total_queued_size": 0,
-  "retry_count": 3,
+  "buffer_timekeys": [],
+  "buffer_total_queued_size": 117,
+  "retry_count": 4,
+  "emit_records": 1,
+  "emit_size": 0,
+  "emit_count": 1,
+  "write_count": 4,
+  "write_secondary_count": 0,
+  "rollback_count": 4,
+  "slow_flush_count": 0,
+  "flush_time_count": 0,
+  "drop_oldest_chunk_count": 0,
+  "buffer_stage_length": 0,
+  "buffer_stage_byte_size": 0,
+  "buffer_queue_byte_size": 117,
+  "buffer_available_buffer_space_ratios": 100.0,
   "retry": {
-    "start": "2018-01-30 22:42:47 +0900",
-    "steps": 2,
-    "next_time": "2018-01-30 22:42:52 +0900"
+    "start": "2025-05-29 16:05:36 +0900",
+    "steps": 3,
+    "next_time": "2025-05-29 16:05:52 +0900"
   }
 }
 ```
