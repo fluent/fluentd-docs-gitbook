@@ -95,6 +95,7 @@ Request supports these following methods:
 * `query`: returns query which is `query_string` parsed by `CGI.parse`
 * `body`: returns the request body
 * `path`: returns the request path
+* `headers`: returns `Protocol::HTTP::Headers` object to read the request headers (since v1.19.0)
 
 #### Response
 
