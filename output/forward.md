@@ -293,6 +293,42 @@ Enable client-side DNS round robin. Uniform randomly pick an IP address to send 
 
 Ignores DNS resolution and errors at startup time.
 
+### `compress`
+
+| type | default | version |
+| :--- | :---    | :---    |
+| enum | text    | 0.14.7  |
+
+Since v0.14.7, Fluentd supports transparent data compression. You can use this feature to reduce the transferred payload size.
+
+Example:
+
+```text
+<match debug.**>
+  @type forward
+  compress gzip
+  <server>
+    host 192.168.1.2
+    port 24224
+  </server>
+</match>
+```
+
+You do not need any configuration in the receiving server. Data compression is auto-detected and handled transparently by the destination node.
+
+Supported values:
+
+* `text`
+* `gzip`
+* `zstd` (Experimental) (since v1.19.0)
+
+{% hint style='info' %}
+`zstd` is an experimental feature supported since v1.19.0.
+Please make sure that the destination server also supports this feature before using it.
+
+* [in_forward plugin](../input/forward.md) supports it since v1.19.0.
+{% endhint %}
+
 ### `tls_version`
 
 | type | default | available | version |
@@ -603,25 +639,6 @@ If you want to connect to a server that requires [password authentication](../in
 ```
 
 Note that, as to the option `self_hostname`, you need to set the name of the server on which your `out_forward` instance is running. In the current implementation, it is considered invalid if your `in_forward` and `out_forward` share the same `hostname`.
-
-### How to enable `gzip` compression?
-
-Since v0.14.7, Fluentd supports transparent data compression. You can use this feature to reduce the transferred payload size.
-
-To enable this feature, set the `compress` option as follows:
-
-```text
-<match debug.**>
-  @type forward
-  compress gzip
-  <server>
-    host 192.168.1.2
-    port 24224
-  </server>
-</match>
-```
-
-You do not need any configuration in the receiving server. Data compression is auto-detected and handled transparently by the destination node.
 
 ### What is a Phi accrual failure detector?
 

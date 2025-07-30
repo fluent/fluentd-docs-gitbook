@@ -411,9 +411,9 @@ Following are the configuration parameters for buffer plugin and its chunks:
     fd resources when output destination has a problem. This parameter
 
     mitigates such situations.
-* `compress` \[enum: `text`/`gzip`\]
+* `compress` \[ enum: `text` / `gzip` / `zstd`\(since v1.19.0\) \]
   * Default: `text`
-  * If `gzip` is set, Fluentd compresses data records before writing to
+  * If `gzip`/`zstd` is set, Fluentd compresses data records before writing to
 
     buffer chunks.
 
