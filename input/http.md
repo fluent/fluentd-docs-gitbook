@@ -161,6 +161,9 @@ Whitelist domains for CORS.
 
 If you set `["domain1", "domain2"]` to `cors_allow_origins`, `in_http` returns `403` to access from other domains. Since Fluentd v1.2.6, you can use a wildcard character `*` to allow requests from any origins.
 
+Since v1.19.0, Fluentd allows empty `Origin` header requests to prevent rejection of non-cross-origin requests or requests from non-browser clients such as apps or scripts.
+Before v1.19.0, you need to include `nil` or `*` to allow empty `Origin` header requests.
+
 Example:
 
 ```text
