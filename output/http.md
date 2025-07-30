@@ -249,7 +249,7 @@ The verify mode of TLS.
 
 | type | default | available values | version |
 | :--- | :--- | :--- | :--- |
-| enum | TLSv1\_2 | TLSv1\_2/TLSv1\_1 | 1.7.0 |
+| enum | TLSv1\_2 | TLSv1\_3(since 1.19.0)/TLSv1\_2/TLSv1\_1 | 1.7.0 |
 
 The default version of TLS.
 
