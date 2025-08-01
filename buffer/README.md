@@ -77,7 +77,37 @@ Fluentd will abort the attempt to transfer the failing chunks on the following c
 
    \(default: `72h`\)
 
-In these events, **all chunks in the queue are discarded.** If you want to avoid this, you can enable `retry_forever` to make Fluentd retry indefinitely.
+Before v1.19.0 (fluent-package v6), **all chunks in the queue are discarded** in these events.
+If you want to avoid this, you can enable `retry_forever` to make Fluentd retry indefinitely or enable `secondary` output.
+
+Since v1.19.0 (fluent-package v6), the file buffer plugins ([`buf_file`](file.md) and [`buf_file_single`](file_single.md)) provide a safer and more user-friendly feature.
+They evacuate the chunk files in the queue to the following directory before clearing the queue.
+
+```text
+${root_dir}/buffer/${plugin_id}/
+```
+
+`${root_dir}` is determined by the parameter `root_dir` in `<system>`.
+If you do not configure this parameter, it will be `/tmp/fluent/`.
+
+After the issues, such as network failures, are resolved, you can recover these chunks by moving the evacuated chunk files back to the plugin's buffer directory and restarting Fluentd.
+
+{% hint style='info' %}
+If the plugin runs with multi-worker, the original buffer directory should be separated per worker. The evacuated chunk files can be restored to any worker's directory.
+{% endhint %}
+
+{% hint style='info' %}
+You can use [zero-downtime restart](../deployment/zero-downtime-restart.md) to prevent downtime of some input plugins like `in_tcp`.
+{% endhint %}
+
+{% hint style='info' %}
+For third-party buffer plugins, it is necessary to implement a function to support this feature.
+Please see [How to Write Buffer Plugin](../plugin-development/api-plugin-buffer.md) for details.
+{% endhint %}
+
+{% hint style='warning' %}
+Please note that [`buf_memory`](memory.md) does not support this feature.
+{% endhint %}
 
 ### Handling Unrecoverable Errors
 
