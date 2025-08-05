@@ -23,10 +23,10 @@ The following are deprecated td-agent (EOL) information:
 
 ### Step 1: Install `fluent-package`
 
-Download the latest MSI installer from [the download page](https://td-agent-package-browser.herokuapp.com/5/windows). Run the installer and follow the wizard.
-If you want to use Long Term Support version, use [LTS](https://td-agent-package-browser.herokuapp.com/lts/5/windows).
+Download the latest MSI installer from [the download page](https://fluentd.cdn.cncf.io/6/windows/index.html). Run the installer and follow the wizard.
+If you want to use Long Term Support version, use [v6 LTS](https://fluentd.cdn.cncf.io/lts/6/windows/index.html).
 
-![fluent-package installation wizard](../../.gitbook/assets/fluent-package5-wizard.png)
+![fluent-package installation wizard](../../.gitbook/assets/fluent-package6-wizard.png)
 
 ### Step 2: Set up `fluentd.conf`
 
@@ -70,7 +70,7 @@ C:\opt\fluent> fluentd
 
 Now `fluentd` starts listening to Windows Eventlog, and will print records to stdout as they occur.
 
-![Fluent Package Command Prompt](../../.gitbook/assets/fluent-package5-prompt.png)
+![Fluent Package Command Prompt](../../.gitbook/assets/fluent-package6-prompt.png)
 
 ### Step 5: Run `fluentd` as Windows service
 
