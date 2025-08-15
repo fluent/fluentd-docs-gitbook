@@ -189,6 +189,11 @@ Creates symlink to temporary buffered file when `buffer_type` is `file`. No syml
 
 This is disabled on Windows.
 
+### `symlink_path_use_relative`
+
+Specify whether it creates symlink using relative path in `symlink_path`. The absolute path is used by default.
+This parameter is introduced since v1.19.0.
+
 #### `@log_level`
 
 The `@log_level` option allows the user to set different levels of logging for each plugin.
