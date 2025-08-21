@@ -1,24 +1,15 @@
 # Overview
 
-Let's get started with **Fluentd**! **Fluentd** is a fully free and fully open-source log collector that instantly enables you to have a '**Log Everything**' architecture with [125+ types of systems](https://www.fluentd.org/plugins).
-
-![Fluentd Architecture](../.gitbook/assets/fluentd-architecture%20%281%29%20%282%29%20%282%29%20%282%29%20%283%29.png)
-
-Fluentd treats logs as JSON, a popular machine-readable format. It is written primarily in C with a thin-Ruby wrapper that gives users flexibility.
-
-Fluentd's scalability has been proven in the field: its largest user currently collects logs from **50,000+ servers**.
+* Fluentd
+  * 👀treats logs -- as -- JSON👀
+  * written | C + thin-Ruby wrapper
+  * can collect logs -- from -- **50,000+ servers**
 
 ## Step 1: Installing Fluentd
-
-You can install Fluentd as a package, Ruby gem, or from source.
-
-Please see the following article for details.
 
 * [Installation](../installation/)
 
 ## Step 2: Use Cases
-
-The following articles cover the typical use cases of Fluentd:
 
 * Use Cases
   * [Data Search like Splunk](../how-to-guides/free-alternative-to-splunk-by-fluentd.md)
@@ -31,14 +22,11 @@ The following articles cover the typical use cases of Fluentd:
   * [Config File](../configuration/config-file.md)
 * Application Logs
   * [Ruby](../language-bindings/ruby.md), [Java](../language-bindings/java.md), [Python](../language-bindings/python.md), [PHP](../language-bindings/php.md),
-
     [Perl](../language-bindings/perl.md), [Node.js](../language-bindings/nodejs.md), [Scala](../language-bindings/scala.md)
 * Happy Users :\)
   * [Users](https://www.fluentd.org/testimonials)
 
 ## Step 3: Learn More
-
-The following articles will provide detailed information about Fluentd:
 
 * [Architecture Overview](https://www.fluentd.org/architecture)
 * [Lifecycle of a Fluentd Event](life-of-a-fluentd-event.md)
@@ -51,6 +39,3 @@ The following articles will provide detailed information about Fluentd:
   * [Formatter Plugins](../formatter/)
 * [High Availability Configuration](../deployment/high-availability.md)
 * [FAQ](faq.md)
-
-If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open). [Fluentd](http://www.fluentd.org/) is an open-source project under [Cloud Native Computing Foundation \(CNCF\)](https://cncf.io/). All components are available under [the Apache License 2.0.](https://www.apache.org/licenses/LICENSE-2.0)
-
