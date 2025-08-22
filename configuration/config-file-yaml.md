@@ -1,7 +1,7 @@
 # Config File Syntax (YAML)
 
-This article describes the basic concepts of Fluentd configuration file syntax for yaml format.
-
+* goal
+  * Fluentd configuration file syntax | 👀yaml format👀
 
 ## Introduction: The Lifecycle of a Fluentd Event
 

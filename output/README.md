@@ -1,22 +1,23 @@
 # Output Plugins
 
-Fluentd has nine \(9\) types of plugins:
+* Fluentd's types of plugins
+  * [Input](../input/)
+  * [Parser](../parser/)
+  * [Filter](../filter/)
+  * [Output](./)
+  * [Formatter](../formatter/)
+  * [Storage](../storage/)
+  * [Service Discovery](../service_discovery/)
+  * [Buffer](../buffer/)
+  * [Metrics](../metrics/)
 
-* [Input](../input/)
-* [Parser](../parser/)
-* [Filter](../filter/)
-* [Output](./)
-* [Formatter](../formatter/)
-* [Storage](../storage/)
-* [Service Discovery](../service_discovery/)
-* [Buffer](../buffer/)
-* [Metrics](../metrics/)
-
-This article gives an overview of the Output Plugin.
+* goal
+  * Fluent's output plugin
 
 ## Overview
 
-Fluentd v1.0 output plugins have three \(3\) buffering and flushing modes:
+* Fluentd v1.0 output plugins
+  * have TODO: three \(3\) buffering and flushing modes:
 
 * **Non-Buffered** mode does not buffer data and write out results
 

@@ -1,22 +1,19 @@
 # Config File Syntax
 
-This article describes the basic concepts of Fluentd configuration file syntax.
+* goal
+  * Fluentd configuration file syntax
 
 ## Introduction: The Lifecycle of a Fluentd Event
 
-Here is a brief overview of the lifecycle of a Fluentd event to help you understand the rest of this page:
-
-The configuration file allows the user to control the input and output behavior of Fluentd by 1\) selecting input and output plugins; and, 2\) specifying the plugin parameters. The file is required for Fluentd to operate properly.
-
-See also: [Lifecycle of a Fluentd Event](../quickstart/life-of-a-fluentd-event.md)
+* see [here](../quickstart/life-of-a-fluentd-event.md)
 
 ## Config File Location
 
 ### RPM, Deb or DMG
 
-#### fluent-package
+#### [fluent-package](../installation/install-fluent-package)
 
-If you install Fluentd using the `fluent-package` packages, the config file should be at `/etc/fluent/fluentd.conf`.
+* place | "/etc/fluent/fluentd.conf"
 
 ```text
 $ sudo vi /etc/fluent/fluentd.conf
@@ -24,13 +21,7 @@ $ sudo vi /etc/fluent/fluentd.conf
 
 #### td-agent (EOL)
 
-{% hint style='warning' %}
-As `td-agent` had already reached EOL, we recommend to use `fluent-package` (the successor to `td-agent`).
-
-* [fluent-package v5 vs td-agent v4](../quickstart/fluent-package-v5-vs-td-agent.md)
-{% endhint %}
-
-If you install Fluentd using the `td-agent` packages, the config file should be at `/etc/td-agent/td-agent.conf`.
+* place | "/etc/td-agent/td-agent.conf"
 
 ```text
 $ sudo vi /etc/td-agent/td-agent.conf
@@ -38,7 +29,7 @@ $ sudo vi /etc/td-agent/td-agent.conf
 
 ### Gem
 
-If you install Fluentd using the Ruby Gem, you can create the configuration file using the following commands:
+* TODO: If you install Fluentd using the Ruby Gem, you can create the configuration file using the following commands:
 
 ```text
 $ sudo fluentd --setup /etc/fluent
@@ -49,40 +40,51 @@ Sending a `SIGHUP` signal will reload the config file.
 
 ### Docker
 
-For a Docker container, the default location of the config file is `/fluentd/etc/fluent.conf`. To mount a config file from outside of Docker, use a `bind-mount`.
+* by default,
+  * "/fluentd/etc/fluent.conf"
 
-```text
-docker run -ti --rm -v /path/to/dir:/fluentd/etc fluentd -c /fluentd/etc/<conf-file>
-```
+* if you want to mount the config file | outside of Docker -> use a `bind-mount`
 
-#### `FLUENT_CONF` Environment Variable
+    ```text
+    docker run -ti --rm -v /path/to/dir:/fluentd/etc fluentd -c /fluentd/etc/<conf-file>
+    ```
 
-You can change the default configuration file location via `FLUENT_CONF`. For example, `/etc/td-agent/td-agent.conf` is specified via `FLUENT_CONF` inside `td-agent` scripts.
+* `FLUENT_CONF`
+  * == environment variable / set configuration file location 
 
-#### `-c` option
+### `-c` CL's option
 
-See [Command Line Option](../deployment/command-line-option.md) article.
+* see [Command Line Option](../deployment/command-line-option.md)
 
 ## Character Encoding
 
-Fluentd assumes configuration file is `UTF-8` or `ASCII`.
+* Fluentd's assumption
+  * configuration file's encoding
+    * `UTF-8` OR
+    * `ASCII`
 
 ## List of Directives
 
-The configuration file consists of the following directives:
-
-1. **`source`** directives determine the input sources
-2. **`match`** directives determine the output destinations
-3. **`filter`** directives determine the event processing pipelines
-4. **`system`** directives set system-wide configuration
-5. **`label`** directives group the output and filter for internal routing
-6. **`worker`** directives limit to the specific workers
-7. **`@include`** directives include other files
-
-Let's actually create a configuration file step by step.
+* configuration file's directives
+  1. **`source`**
+     1. determine the input sources
+  2. **`match`**
+     1. determine the output destinations
+  3. **`filter`**
+     1. determine the event processing pipelines
+  4. **`system`**
+     1. set system-wide configuration
+  5. **`label`**
+     1. group the output
+     2. filter for internal routing
+  6. **`worker`**
+     1. limit to the specific workers
+  7. **`@include`**
+     1. include other files
 
 ## 1. `source`: where all the data comes from
 
+* TODO: 
 Fluentd input sources are enabled by selecting and configuring the desired input plugins using **source** directives. Fluentd standard input plugins include `http` and `forward`. The `http` provides an HTTP endpoint to accept incoming HTTP messages whereas `forward` provides a TCP endpoint to accept TCP packets. Of course, it can be both at the same time. You may add multiple `source` configurations as required.
 
 ```text

@@ -1,230 +1,274 @@
 # Life of a Fluentd event
 
-The following article gives a general overview of how events are processed by [Fluentd](http://fluentd.org) with examples. It covers the complete lifecycle including **Setup**, **Inputs**, **Filters**, **Matches** and **Labels**.
+* goal
+  * how events are processed -- by -- Fluentd
+    * events lifecycle
+      * **Setup**,
+      * **Inputs**,
+      * **Filters**,
+      * **Matches**
+      * **Labels**
 
 ## Basic Setup
 
-The configuration file is the fundamental piece to connect all things together, as it allows to define which **Inputs** or listeners [Fluentd](http://fluentd.org) will have and set up common matching rules to route the **Event** data to a specific **Output**.
+* configuration file
+  * ⚠️required by Fluentd⚠️
+  * types
+    * [common](../configuration/config-file.md)
+    * [.yaml](../configuration/config-file-yaml.md)
+  * allows
+    * controlling Fluentd's behavior input -- output, by setting up
+      * **Inputs** or listeners
+        * == -- via -- input & output plugins
+      * matching rules / **Event** data is routed -- to a -- specific **Output**
+        * == -- via -- plugin parameters
 
-We will use the [`in_http`](../input/http.md) and the [`out_stdout`](../output/stdout.md) plugins as examples to describe the events cycle. The following is a basic definition on the configuration file to specify an `http` input, for short: we will be listening for **HTTP Requests**:
+* _Example:_ TODO: set up the example
+  * [`in_http`](../input/http.md) plugins
+    * == listen for HTTP Requests
+  * [`out_stdout`](../output/stdout.md) plugins
+ 
+    ```text, title=configurationFile
+    <source>
+      @type http        // -- for -- `http` input 
+      port 8888         // HTTP server will be listening | TCP port `8888` 
+      bind 0.0.0.0
+    </source>
+    ```
 
-```text
-<source>
-  @type http
-  port 8888
-  bind 0.0.0.0
-</source>
-```
+    ```text, title=matchingRule
+    <match test.cycle>      // rule: incoming rule / tag == test.cycle 
+      @type stdout          // incoming requests are printed | standard output 
+    </match>
+    ```
 
-The definition specifies that an HTTP server will be listening on TCP port `8888`.
+  * if you want to test -> use `curl`
 
-Now, let's define a **Matching** rule to print the incoming requests to the standard output:
+    ```text
+    $ curl -i -X POST -d 'json={"action":"login","user":2}' http://localhost:8888/test.cycle
+    HTTP/1.1 200 OK
+    Content-type: text/plain
+    Connection: Keep-Alive
+    Content-length: 0
+    ```
+  * Fluentd's logs
 
-```text
-<match test.cycle>
-  @type stdout
-</match>
-```
-
-The **Match** sets a rule where each **Incoming** event that arrives with a **Tag** equals to `test.cycle`, will match and use the **Output** plugin type called `stdout`. At this point we have an **Input** type, a _Match_ and an **Output**.
-
-Let's test this setup using `curl`:
-
-```text
-$ curl -i -X POST -d 'json={"action":"login","user":2}' http://localhost:8888/test.cycle
-HTTP/1.1 200 OK
-Content-type: text/plain
-Connection: Keep-Alive
-Content-length: 0
-```
-
-The Fluentd logs should look like this:
-
-```text
-$ fluentd -c in_http.conf
-2019-12-16 18:58:15 +0900 [info]: parsing config file is succeeded path="in_http.conf"
-2019-12-16 18:58:15 +0900 [info]: gem 'fluentd' version '1.8.0'
-2019-12-16 18:58:15 +0900 [info]: using configuration file: <ROOT>
-  <source>
-    @type http
-    port 8888
-    bind "0.0.0.0"
-  </source>
-  <match test.cycle>
-    @type stdout
-  </match>
-</ROOT>
-2019-12-16 18:58:15 +0900 [info]: starting fluentd-1.8.0 pid=44323 ruby="2.4.6"
-2019-12-16 18:58:15 +0900 [info]: spawn command to main:  cmdline=["/path/to/ruby", "-Eascii-8bit:ascii-8bit", "/path/to/fluentd", "-c", "in_http.conf", "--under-supervisor"]
-2019-12-16 18:58:16 +0900 [info]: adding match pattern="test.cycle" type="stdout"
-2019-12-16 18:58:16 +0900 [info]: adding source type="http"
-2019-12-16 18:58:16 +0900 [info]: #0 starting fluentd worker pid=44336 ppid=44323 worker=0
-2019-12-16 18:58:16 +0900 [info]: #0 fluentd worker is now running worker=0
-2019-12-16 18:58:27.888557000 +0900 test.cycle: {"action":"login","user":2}
-```
+    ```text
+    $ fluentd -c in_http.conf
+    2019-12-16 18:58:15 +0900 [info]: parsing config file is succeeded path="in_http.conf"
+    2019-12-16 18:58:15 +0900 [info]: gem 'fluentd' version '1.8.0'
+    2019-12-16 18:58:15 +0900 [info]: using configuration file: <ROOT>
+      <source>
+        @type http
+        port 8888
+        bind "0.0.0.0"
+      </source>
+      <match test.cycle>
+        @type stdout
+      </match>
+    </ROOT>
+    2019-12-16 18:58:15 +0900 [info]: starting fluentd-1.8.0 pid=44323 ruby="2.4.6"
+    2019-12-16 18:58:15 +0900 [info]: spawn command to main:  cmdline=["/path/to/ruby", "-Eascii-8bit:ascii-8bit", "/path/to/fluentd", "-c", "in_http.conf", "--under-supervisor"]
+    2019-12-16 18:58:16 +0900 [info]: adding match pattern="test.cycle" type="stdout"
+    2019-12-16 18:58:16 +0900 [info]: adding source type="http"
+    2019-12-16 18:58:16 +0900 [info]: #0 starting fluentd worker pid=44336 ppid=44323 worker=0
+    2019-12-16 18:58:16 +0900 [info]: #0 fluentd worker is now running worker=0
+    2019-12-16 18:58:27.888557000 +0900 test.cycle: {"action":"login","user":2}
+    ```
 
 ## Event Structure
 
-A Fluentd event consists of three components:
+* Fluentd's event ==
+  * `tag`
+    * == origin | event comes from
+    * uses
+      * route messages 
+  * `time`
+    * == time | event happens / nanosecond resolution
+  * `record`
+    * == actual log -- as a -- JSON object
 
-* `tag`: Specifies the origin where an event comes from. It is used for
+* input plugin
+  * responsible for
+    * FROM data sources, generate -- the -- Fluentd event 
+      * _Example:_ `in_tail`: FROM text lines, generate events
 
-  message routing.
-
-* `time`: Specifies the time when an event happens with nanosecond resolution.
-* `record`: Specifies the actual log as a JSON object.
-
-The input plugin is responsible for generating the Fluentd event from data sources. For example, `in_tail` generates events from text lines. If you have the following Apache log:
-
-```text
-192.168.0.1 - - [28/Feb/2013:12:00:00 +0900] "GET / HTTP/1.1" 200 777
-```
-
-You get the following Fluentd event:
-
-```text
-tag: apache.access         # set by configuration
-time: 1362020400.000000000 # 28/Feb/2013:12:00:00 +0900
-record: {"user":"-","method":"GET","code":200,"size":777,"host":"192.168.0.1","path":"/"}
-```
+        ```text
+        192.168.0.1 - - [28/Feb/2013:12:00:00 +0900] "GET / HTTP/1.1" 200 777
+        ```
+        Fluent event
+        ```text
+        tag: apache.access         # set by configuration
+        time: 1362020400.000000000 # 28/Feb/2013:12:00:00 +0900
+        record: {"user":"-","method":"GET","code":200,"size":777,"host":"192.168.0.1","path":"/"}
+        ```
 
 ## Processing Events
 
-When a **Setup** is defined, the **Router Engine** contains several predefined rules to apply to different input data. Internally, an **Event** will pass through a chain of procedures that may alter its lifecycle.
-
-Now, we will expand on our previous basic example and add more steps in our **Setup** to demonstrate how the **Events** cycle can be altered. We will do this through the new **Filters** implementation.
+* in order
+  * == from top-to-bottom
+* AFTER defining a **Setup**
+  * **Router Engine**
+    * 's predefined rules
+      * apply | SEVERAL input data
 
 ### Filters
 
-A **Filter** behaves like a rule to pass or reject an event. The following configuration adds a **Filter** definition:
+* ' behavior
+  * == rule's behavior
+    * pass an event OR 
+    * reject an event
 
-```text
-<source>
-  @type http
-  port 8888
-  bind 0.0.0.0
-</source>
+* _Example:_ ONLY show 1 `login` message -- TODO: set up the example
 
-<filter test.cycle>
-  @type grep
-  <exclude>
-    key action
-    pattern ^logout$
-  </exclude>
-</filter>
+    ```text, title=configurationFile
+    <source>
+      @type http
+      port 8888
+      bind 0.0.0.0
+    </source>
+    
+    // BEFORE match rule
+    <filter test.cycle>
+      @type grep            // based on type
+      <exclude>             // reject user **logout** action
+        key action
+        pattern ^logout$
+      </exclude>
+    </filter>
+    
+    <match test.cycle>
+      @type stdout
+    </match>
+    ```
 
-<match test.cycle>
-  @type stdout
-</match>
-```
+    ![Visualization](../.gitbook/assets/screen-shot-2021-03-16-at-12.50.12-pm.png)
 
-![Visualization](../.gitbook/assets/screen-shot-2021-03-16-at-12.50.12-pm.png)
+    if you want to test -> use `curl`
 
-As you can see, the new **Filter** definition will be a mandatory step to pass before the control goes to the **Match** section. The **Filter** basically will accept or reject the **Event** based on its `type` and rule. For our example we want to discard any user **logout** action. We only care about the **logins**. The way to accomplish this, is doing a `grep` inside the **Filter** to exclude any message on which `action` key have the **logout** string.
+    ```text
+    $ curl -i -X POST -d 'json={"action":"login","user":2}' http://localhost:8888/test.cycle
+    HTTP/1.1 200 OK
+    Content-type: text/plain
+    Connection: Keep-Alive
+    Content-length: 0
+    
+    $ curl -i -X POST -d 'json={"action":"logout","user":2}' http://localhost:8888/test.cycle
+    HTTP/1.1 200 OK
+    Content-type: text/plain
+    Connection: Keep-Alive
+    Content-length: 0
+    ```
 
-From a terminal, run the following two `curl` commands containing different `action` values:
+    `logout` event has been discarded:
 
-```text
-$ curl -i -X POST -d 'json={"action":"login","user":2}' http://localhost:8888/test.cycle
-HTTP/1.1 200 OK
-Content-type: text/plain
-Connection: Keep-Alive
-Content-length: 0
-
-$ curl -i -X POST -d 'json={"action":"logout","user":2}' http://localhost:8888/test.cycle
-HTTP/1.1 200 OK
-Content-type: text/plain
-Connection: Keep-Alive
-Content-length: 0
-```
-
-Fluentd logs show only one `login` message. The `logout` event has been discarded:
-
-```text
-$ fluentd -c in_http.conf
-2019-12-16 19:07:39 +0900 [info]: parsing config file is succeeded path="in_http.conf"
-2019-12-16 19:07:39 +0900 [info]: gem 'fluentd' version '1.8.0'
-2019-12-16 19:07:39 +0900 [info]: using configuration file: <ROOT>
-  <source>
-    @type http
-    port 8888
-    bind "0.0.0.0"
-  </source>
-  <filter test.cycle>
-    @type grep
-    <exclude>
-      key "action"
-      pattern ^logout$
-    </exclude>
-  </filter>
-  <match test.cycle>
-    @type stdout
-  </match>
-</ROOT>
-2019-12-16 19:07:39 +0900 [info]: starting fluentd-1.8.0 pid=44435 ruby="2.4.6"
-2019-12-16 19:07:39 +0900 [info]: spawn command to main:  cmdline=["/path/to/ruby", "-Eascii-8bit:ascii-8bit", "/path/to/fluentd", "-c", "in_http.conf", "--under-supervisor"]
-2019-12-16 19:07:40 +0900 [info]: adding filter pattern="test.cycle" type="grep"
-2019-12-16 19:07:40 +0900 [info]: adding match pattern="test.cycle" type="stdout"
-2019-12-16 19:07:40 +0900 [info]: adding source type="http"
-2019-12-16 19:07:40 +0900 [info]: #0 starting fluentd worker pid=44448 ppid=44435 worker=0
-2019-12-16 19:07:40 +0900 [info]: #0 fluentd worker is now running worker = 0
-2019-12-16 19:08:06.934660000 +0900 test.cycle: {"action":"login","user":2}
-```
-
-As you can see, the **Events** follow a _step-by-step cycle_ where they are processed in order, from top-to-bottom. The new engine allows to integrate many **Filters** as required. Also, considering that the configuration file may grow and start getting a bit complex for the readers, a new feature called **Labels** has been introduced to solve this potential problem.
+    ```text
+    $ fluentd -c in_http.conf
+    2019-12-16 19:07:39 +0900 [info]: parsing config file is succeeded path="in_http.conf"
+    2019-12-16 19:07:39 +0900 [info]: gem 'fluentd' version '1.8.0'
+    2019-12-16 19:07:39 +0900 [info]: using configuration file: <ROOT>
+      <source>
+        @type http
+        port 8888
+        bind "0.0.0.0"
+      </source>
+      <filter test.cycle>
+        @type grep
+        <exclude>
+          key "action"
+          pattern ^logout$
+        </exclude>
+      </filter>
+      <match test.cycle>
+        @type stdout
+      </match>
+    </ROOT>
+    2019-12-16 19:07:39 +0900 [info]: starting fluentd-1.8.0 pid=44435 ruby="2.4.6"
+    2019-12-16 19:07:39 +0900 [info]: spawn command to main:  cmdline=["/path/to/ruby", "-Eascii-8bit:ascii-8bit", "/path/to/fluentd", "-c", "in_http.conf", "--under-supervisor"]
+    2019-12-16 19:07:40 +0900 [info]: adding filter pattern="test.cycle" type="grep"
+    2019-12-16 19:07:40 +0900 [info]: adding match pattern="test.cycle" type="stdout"
+    2019-12-16 19:07:40 +0900 [info]: adding source type="http"
+    2019-12-16 19:07:40 +0900 [info]: #0 starting fluentd worker pid=44448 ppid=44435 worker=0
+    2019-12-16 19:07:40 +0900 [info]: #0 fluentd worker is now running worker = 0
+    2019-12-16 19:08:06.934660000 +0900 test.cycle: {"action":"login","user":2}
+    ```
 
 ### Labels
 
-This new implementation called **Labels**, aims to solve the configuration file complexity and allows to define new **Routing** sections that do not follow the top-to-bottom order, instead they act like linked references. Taking the previous example, we will modify the setup as follows:
+* uses
+  * reduce the configuration file complexity
+* allows
+  * define NEW **Routing** sections /
+    * NOT follow the top-to-bottom order
+    * == linked references
 
-```text
-<source>
-  @type http
-  bind 0.0.0.0
-  port 8888
-  @label @STAGING
-</source>
+* _Example:_
 
-<filter test.cycle>
-  @type grep
-  <exclude>
-    key action
-    pattern ^login$
-  </exclude>
-</filter>
+    ```text, title=configurationFile
+    <source>
+      @type http
+      bind 0.0.0.0
+      port 8888
+      @label @STAGING
+    </source>
+    
+    <filter test.cycle>
+      @type grep
+      <exclude>
+        key action
+        pattern ^login$
+      </exclude>
+    </filter>
+    
+    <label @STAGING>             // | @STAGING, **Routing Engine** keep on processing the events / reported | **Source**
+      <filter test.cycle>
+        @type grep
+        <exclude>
+          key action
+          pattern ^logout$
+        </exclude>
+      </filter>
+    
+      <match test.cycle>
+        @type stdout
+      </match>
+    </label>
+    ```
 
-<label @STAGING>
-  <filter test.cycle>
-    @type grep
-    <exclude>
-      key action
-      pattern ^logout$
-    </exclude>
-  </filter>
-
-  <match test.cycle>
-    @type stdout
-  </match>
-</label>
-```
-
-![Visualization](../.gitbook/assets/screen-shot-2021-03-16-at-12.51.26-pm.png)
-
-The new configuration contains a `@label` parameter under `source` indicating that the further steps will take place on the `@STAGING` label section. The expectation is that every event reported on the **Source**, the **Routing Engine** will continue processing on `@STAGING`. Hence, it will skip the old filter definition.
+    ![Visualization](../.gitbook/assets/screen-shot-2021-03-16-at-12.51.26-pm.png)
 
 ### Buffers
 
-In this example, we use `stdout`, the non-buffered output. But in production, you use outputs in buffered mode e.g. `forward`, `mongodb`, `s3` and etc. An output plugin using buffered mode first stores the received events into buffers and then writes out buffers to a destination after meeting flush conditions. So, using the buffered output, you do not see the received events immediately unlike `stdout` non-buffered output.
+* Buffer
+  * allows
+    * reliability
+    * throughput
+  * see [Buffer](../buffer/)
 
-Buffer is important for reliability and throughput. See [Output](../output/) and [Buffer](../buffer/) articles.
+* `stdout`
+  * == non-buffered output
+  * use cases
+    * non production
+
+* `forward`, `mongodb`, `s3`
+  * == buffered outputs
+    * how does it work?
+      * stores the received events | buffers
+      * AFTER meeting flush conditions, writes out buffers | destination after
+    * you do NOT see the received events IMMEDIATELY
+  * use cases
+    * production
 
 ## Conclusion
 
-Once the events are reported by the [Fluentd](http://fluend.org) engine on the **Source**, they are processed step-by-step or inside a referenced **Label**. Any **Event** may be filtered out at any moment. The new **Routing Engine** behavior provides more flexibility and makes easier the processing before reaching the **Output** plugin.
+* | events are reported by the Fluentd engine | **Source**,
+  * events
+    * are processed
+      * step-by-step OR
+      * | referenced **Label**
+    * can be filtered out | ANY moment
 
-## Learn More
-
-Fluentd is maintained continuously and released periodically. Follow [official blog announcement with `announcement` tag](https://www.fluentd.org/blog/tag/announcement).
-
-If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open). [Fluentd](http://www.fluentd.org/) is an open-source project under [Cloud Native Computing Foundation \(CNCF\)](https://cncf.io/). All components are available under [the Apache License 2.0.](https://www.apache.org/licenses/LICENSE-2.0)
-
+* **Routing Engine** 
+  * enables
+    * MORE flexibility
+    * easier processing, BEFORE reaching the **Output** plugin
