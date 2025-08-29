@@ -16,6 +16,7 @@ This installation guide is for `td-agent` v4. `td-agent` v4 use fluentd v1 in th
 This article contains deprecated td-agent (EOL) information: SHOULD NOT use td-agent anymore.
 
 * As [Drop schedule announcement about EOL of Treasure Agent (td-agent) 4](https://www.fluentd.org/blog/schedule-for-td-agent-4-eol), recommend to [Upgrade to fluent-package v5](https://www.fluentd.org/blog/upgrade-td-agent-v4-to-v5).
+* Package archive was migrated from [packages.treasuredata.com](https://packages.treasuredata.com) to [fluentd.cdn.cncf.io](https://fluentd.cdn.cncf.io/index.html). Need to migrate `baseurl` in td.repo by yourself or just disable it.
 {% endhint %}
 
 ### Step 0: Before Installation

@@ -11,7 +11,7 @@ Please see [fluent-package-v5-vs-td-agent](../../quickstart/fluent-package-v5-vs
 {% hint style='info' %}
 NOTE:
 
-* `fluent-package` will be shipped in two flavors - normal release version and LTS (Long Term Support) version. See [Scheduled support lifecycle announcement about Fluent Package](https://www.fluentd.org/blog/fluent-package-scheduled-lifecycle) about difference between this two flavors.
+* `fluent-package` will be shipped in two flavors - normal release version and LTS (Long Term Support) version. See [Scheduled support lifecycle announcement about Fluent Package v6](https://www.fluentd.org/blog/fluent-package-v6-scheduled-lifecycle) about difference between this two flavors.
 * If you upgrade from `td-agent` v4, See [Upgrade to fluent-package v5](https://www.fluentd.org/blog/upgrade-td-agent-v4-to-v5).
 * Do not directly upgrade from v3 to v5. Such a workflow is not supported. It causes a trouble. Upgrade in stages. (v3 to v4, then v4 to v5)
 {% endhint %}
@@ -37,16 +37,28 @@ NOTE: If your OS is not supported, consider [gem installation](../install-by-gem
 
 Download and execute the install script with `curl`:
 
+##### fluent-package 6 (LTS)
+
+```bash
+curl -fsSL https://fluentd.cdn.cncf.io/sh/install-redhat-fluent-package6-lts.sh | sh
+```
+
+##### fluent-package 6
+
+```bash
+curl -fsSL https://fluentd.cdn.cncf.io/sh/install-redhat-fluent-package6.sh | sh
+```
+
 ##### fluent-package 5 (LTS)
 
 ```bash
-curl -fsSL https://toolbelt.treasuredata.com/sh/install-redhat-fluent-package5-lts.sh | sh
+curl -fsSL https://fluentd.cdn.cncf.io/sh/install-redhat-fluent-package5-lts.sh | sh
 ```
 
 ##### fluent-package 5
 
 ```bash
-curl -fsSL https://toolbelt.treasuredata.com/sh/install-redhat-fluent-package5.sh | sh
+curl -fsSL https://fluentd.cdn.cncf.io/sh/install-redhat-fluent-package5.sh | sh
 ```
 
 Executing this script will automatically install `fluent-package` on your machine. This shell script registers a new `rpm` repository at `/etc/yum.repos.d/fluent-package.repo` (or `/etc/yum.repos.d/fluent-package-lts.repo`) and installs `fluent-package`.
@@ -61,30 +73,46 @@ Since v5.0.4, RHEL 7 / CentOS 7 is not supported anymore because CentOS 7 has re
 
 ##### For Amazon Linux 2023:
 
+###### fluent-package 6 (LTS)
+
+```bash
+curl -fsSL https://fluentd.cdn.cncf.io/sh/install-amazon2023-fluent-package6-lts.sh | sh
+```
+
+###### fluent-package 6
+
+```bash
+curl -fsSL https://fluentd.cdn.cncf.io/sh/install-amazon2023-fluent-package6.sh | sh
+```
+
 ###### fluent-package 5 (LTS)
 
 ```bash
-curl -fsSL https://toolbelt.treasuredata.com/sh/install-amazon2023-fluent-package5-lts.sh | sh
+curl -fsSL https://fluentd.cdn.cncf.io/sh/install-amazon2023-fluent-package5-lts.sh | sh
 ```
 
 ###### fluent-package 5
 
 ```bash
-curl -fsSL https://toolbelt.treasuredata.com/sh/install-amazon2023-fluent-package5.sh | sh
+curl -fsSL https://fluentd.cdn.cncf.io/sh/install-amazon2023-fluent-package5.sh | sh
 ```
 
 ##### For Amazon Linux 2:
 
+{% hint style='info' %}
+fluent-package v6 will not be shipped for Amazon Linux 2.
+{% endhint %}
+
 ###### fluent-package 5 (LTS)
 
 ```bash
-curl -fsSL https://toolbelt.treasuredata.com/sh/install-amazon2-fluent-package5-lts.sh | sh
+curl -fsSL https://fluentd.cdn.cncf.io/sh/install-amazon2-fluent-package5-lts.sh | sh
 ```
 
 ###### fluent-package 5
 
 ```bash
-curl -fsSL https://toolbelt.treasuredata.com/sh/install-amazon2-fluent-package5.sh | sh
+curl -fsSL https://fluentd.cdn.cncf.io/sh/install-amazon2-fluent-package5.sh | sh
 ```
 
 ### Step 2: Launch Daemon

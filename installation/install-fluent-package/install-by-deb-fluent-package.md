@@ -11,7 +11,7 @@ Please see [fluent-package-v5-vs-td-agent](../../quickstart/fluent-package-v5-vs
 {% hint style='info' %}
 NOTE:
 
-* `fluent-package` will be shipped in two flavors - normal release version and LTS (Long Term Support) version. See [Scheduled support lifecycle announcement about Fluent Package](https://www.fluentd.org/blog/fluent-package-scheduled-lifecycle) about difference between this two flavors.
+* `fluent-package` will be shipped in two flavors - normal release version and LTS (Long Term Support) version. See [Scheduled support lifecycle announcement about Fluent Package v6](https://www.fluentd.org/blog/fluent-package-v6-scheduled-lifecycle) about difference between this two flavors.
 * If you upgrade from `td-agent` v4, See [Upgrade to fluent-package v5](https://www.fluentd.org/blog/upgrade-td-agent-v4-to-v5).
 * Do not directly upgrade from v3 to v5. Such a workflow is not supported. It causes a trouble. Upgrade in stages. (v3 to v4, then v4 to v5)
 {% endhint %}
@@ -35,72 +35,130 @@ A shell script is provided to automate the installation process for each version
 
 #### For Ubuntu Noble:
 
+##### fluent-package 6 (LTS)
+
+```bash
+curl -fsSL https://fluentd.cdn.cncf.io/sh/install-ubuntu-noble-fluent-package6-lts.sh | sh
+```
+
+##### fluent-package 6
+
+```bash
+curl -fsSL https://fluentd.cdn.cncf.io/sh/install-ubuntu-noble-fluent-package6.sh | sh
+```
+
 ##### fluent-package 5 (LTS)
 
 ```bash
-curl -fsSL https://toolbelt.treasuredata.com/sh/install-ubuntu-noble-fluent-package5-lts.sh | sh
+curl -fsSL https://fluentd.cdn.cncf.io/sh/install-ubuntu-noble-fluent-package5-lts.sh | sh
 ```
 
 ##### fluent-package 5
 
 ```bash
-curl -fsSL https://toolbelt.treasuredata.com/sh/install-ubuntu-noble-fluent-package5.sh | sh
+curl -fsSL https://fluentd.cdn.cncf.io/sh/install-ubuntu-noble-fluent-package5.sh | sh
 ```
 
 #### For Ubuntu Jammy:
 
+##### fluent-package 6 (LTS)
+
+```bash
+curl -fsSL https://fluentd.cdn.cncf.io/sh/install-ubuntu-jammy-fluent-package6-lts.sh | sh
+```
+
+##### fluent-package 6
+
+```bash
+curl -fsSL https://fluentd.cdn.cncf.io/sh/install-ubuntu-jammy-fluent-package6.sh | sh
+```
+
 ##### fluent-package 5 (LTS)
 
 ```bash
-curl -fsSL https://toolbelt.treasuredata.com/sh/install-ubuntu-jammy-fluent-package5-lts.sh | sh
+curl -fsSL https://fluentd.cdn.cncf.io/sh/install-ubuntu-jammy-fluent-package5-lts.sh | sh
 ```
 
 ##### fluent-package 5
 
 ```bash
-curl -fsSL https://toolbelt.treasuredata.com/sh/install-ubuntu-jammy-fluent-package5.sh | sh
+curl -fsSL https://fluentd.cdn.cncf.io/sh/install-ubuntu-jammy-fluent-package5.sh | sh
 ```
 
 #### For Ubuntu Focal:
 
+{% hint style='info' %}
+fluent-package v6 will not be shipped for Ubuntu Focal.
+{% endhint %}
+
 ##### fluent-package 5 (LTS)
 
 ```bash
-curl -fsSL https://toolbelt.treasuredata.com/sh/install-ubuntu-focal-fluent-package5-lts.sh | sh
+curl -fsSL https://fluentd.cdn.cncf.io/sh/install-ubuntu-focal-fluent-package5-lts.sh | sh
 ```
 
 ##### fluent-package 5
 
 ```bash
-curl -fsSL https://toolbelt.treasuredata.com/sh/install-ubuntu-focal-fluent-package5.sh | sh
+curl -fsSL https://fluentd.cdn.cncf.io/sh/install-ubuntu-focal-fluent-package5.sh | sh
+```
+
+#### For Debian Trixie:
+
+##### fluent-package 6
+
+```bash
+curl -fsSL https://fluentd.cdn.cncf.io/sh/install-debian-trixie-fluent-package6-lts.sh | sh
+```
+
+##### fluent-package 6
+
+```bash
+curl -fsSL https://fluentd.cdn.cncf.io/sh/install-debian-trixie-fluent-package6.sh | sh
 ```
 
 #### For Debian Bookworm:
 
+##### fluent-package 6 (LTS)
+
+```bash
+curl -fsSL https://fluentd.cdn.cncf.io/sh/install-debian-bookworm-fluent-package6-lts.sh | sh
+```
+
+##### fluent-package 6
+
+```bash
+curl -fsSL https://fluentd.cdn.cncf.io/sh/install-debian-bookworm-fluent-package6.sh | sh
+```
+
 ##### fluent-package 5 (LTS)
 
 ```bash
-curl -fsSL https://toolbelt.treasuredata.com/sh/install-debian-bookworm-fluent-package5-lts.sh | sh
+curl -fsSL https://fluentd.cdn.cncf.io/sh/install-debian-bookworm-fluent-package5-lts.sh | sh
 ```
 
 ##### fluent-package 5
 
 ```bash
-curl -fsSL https://toolbelt.treasuredata.com/sh/install-debian-bookworm-fluent-package5.sh | sh
+curl -fsSL https://fluentd.cdn.cncf.io/sh/install-debian-bookworm-fluent-package5.sh | sh
 ```
 
 #### For Debian Bullseye:
 
+{% hint style='info' %}
+fluent-package v6 will not be shipped for Debian Bullseye.
+{% endhint %}
+
 ##### fluent-package 5 (LTS)
 
 ```bash
-curl -fsSL https://toolbelt.treasuredata.com/sh/install-debian-bullseye-fluent-package5-lts.sh | sh
+curl -fsSL https://fluentd.cdn.cncf.io/sh/install-debian-bullseye-fluent-package5-lts.sh | sh
 ```
 
 ##### fluent-package 5
 
 ```bash
-curl -fsSL https://toolbelt.treasuredata.com/sh/install-debian-bullseye-fluent-package5.sh | sh
+curl -fsSL https://fluentd.cdn.cncf.io/sh/install-debian-bullseye-fluent-package5.sh | sh
 ```
 
 ### Step 2: Launch Daemon

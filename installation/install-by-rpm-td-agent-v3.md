@@ -15,7 +15,7 @@ This article contains deprecated td-agent (EOL) information: SHOULD NOT use td-a
 
 * As [Treasure Agent (td-agent) 3 will not be maintained anymore](https://www.fluentd.org/blog/schedule-for-td-agent-3-eol), recommend to [Upgrade td-agent from v3 to v4](https://www.fluentd.org/blog/upgrade-td-agent-v3-to-v4).
 * Do not directly upgrade from v3 to fluent-package v5. Such a workflow is not supported. It causes a trouble. Upgrade in stages. (v3 to v4, then v4 to v5)
-
+* Package archive was migrated from [packages.treasuredata.com](https://packages.treasuredata.com) to [fluentd.cdn.cncf.io](https://fluentd.cdn.cncf.io/index.html). Need to migrate `baseurl` in td.repo by yourself or just disable it.
 {% endhint %}
 
 ### Step 0: Before Installation

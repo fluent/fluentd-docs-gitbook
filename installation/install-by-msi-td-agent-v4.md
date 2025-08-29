@@ -21,9 +21,10 @@ Currently two versions of `td-agent` are available.
 This article contains deprecated td-agent (EOL) information: SHOULD NOT use td-agent anymore.
 
 * As [Drop schedule announcement about EOL of Treasure Agent (td-agent) 4](https://www.fluentd.org/blog/schedule-for-td-agent-4-eol), recommend to [Upgrade to fluent-package v5](https://www.fluentd.org/blog/upgrade-td-agent-v4-to-v5).
+* Package archive was migrated from [packages.treasuredata.com](https://packages.treasuredata.com) to [fluentd.cdn.cncf.io](https://fluentd.cdn.cncf.io/index.html).
 {% endhint %}
 
-Download the latest MSI installer from [the download page](https://td-agent-package-browser.herokuapp.com/4/windows). Run the installer and follow the wizard.
+Download the latest MSI installer from [the download page](https://fluentd.cdn.cncf.io/4/windows/index.html). Run the installer and follow the wizard.
 
 ![td-agent installation wizard](../.gitbook/assets/td-agent4-wizard.png)
 
