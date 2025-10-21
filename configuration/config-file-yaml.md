@@ -465,6 +465,69 @@ $ fluentd --dry-run -c fluent.yaml
 
 This section describes some useful features for the configuration file.
 
+### Section
+
+Points:
+
+* You can configure a section by using its name as the key.
+* You can configure multiple sections by using Array as the value.
+
+Here are examples.
+
+Parse Section:
+
+```yaml
+config:
+  - source:
+      $type: tail
+      tag: sample
+      path: /tmp/test.log
+      pos_file: /tmp/tail-test.pos
+      parse: 
+        $type: none
+```
+
+Buffer Section:
+
+```yaml
+config:
+  - match:
+      $type: stdout
+      $tag: test.**
+      buffer:
+        $arg: tag, time
+        $type: memory
+```
+
+Inject/Format Section:
+
+```yaml
+config:
+  - match:
+      $type: stdout
+      $tag: test.**
+      inject:
+        time_key: timestamp
+        time_type: string
+      format:
+        $type: csv
+        fields: timestamp, message
+```
+
+Multiple Section:
+
+```yaml
+config:
+  - match:
+      $type: copy
+      $tag: test.**
+      store:
+        - $type: relabel
+          $label: "@foo"
+        - $type: relabel
+          $label: "@bar"
+```
+
 ### Multiline support for " quoted string, array and hash values
 
 You can write multiline values for `"` quoted string, array and hash values.
@@ -550,23 +613,6 @@ The backslash `\` is interpreted as an escape character. You need `\` for settin
 
 ```yaml
 str_param:   "foo\nbar" # \n is interpreted as actual LF character
-```
-
-### Parse setting
-
-You can use `parse:` to set up the parser for the input plugin.
-
-Example: in_tail plugin
-
-```yaml
-config:
-  - source:
-      $type: tail
-      tag: sample
-      path: /tmp/test.log
-      pos_file: /tmp/tail-test.pos
-      parse: 
-        $type: none
 ```
 
 If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open). [Fluentd](http://www.fluentd.org/) is an open-source project under [Cloud Native Computing Foundation \(CNCF\)](https://cncf.io/). All components are available under the Apache 2 License.
