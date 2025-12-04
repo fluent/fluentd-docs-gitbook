@@ -34,6 +34,8 @@ Please see the [Configuration File](../configuration/config-file.md) article for
 
 When using the JSON format in `<parse>` section, this plugin uses the `Yajl` library to parse the program output. `Yajl` buffers data internally so the output is not always instantaneous.
 
+If the buffering by `Yajl` parser is problematic for you even though you expect instantaneous response, you can tweak [`stream_buffer_size`](../parser/json.md) parameter in `<parse>` section.
+
 ## Supported Modes
 
 * Synchronous
