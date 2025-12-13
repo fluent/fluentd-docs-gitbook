@@ -23,15 +23,17 @@ It is included in Fluentd's core.
 </match>
 ```
 
+With this configuration, files named `/var/log/fluent/myapp.{%Y%m%d}.log.gz` will be generated at one-day intervals.
+
 Please see the [Configuration File](../configuration/config-file.md) article for the basic structure and syntax of the configuration file.
 
 For `<buffer>`, refer to [`<buffer>` Section](#less-than-buffer-greater-than-section).
 
 ## Plugin Helpers
 
-* [`formatter`](../plugin-helper-overview/api-plugin-helper-formatter.md)
-* [`inject`](../plugin-helper-overview/api-plugin-helper-inject.md)
-* [`compat_parameters`](../plugin-helper-overview/api-plugin-helper-compat_parameters.md)
+- [`formatter`](../plugin-helper-overview/api-plugin-helper-formatter.md)
+- [`inject`](../plugin-helper-overview/api-plugin-helper-inject.md)
+- [`compat_parameters`](../plugin-helper-overview/api-plugin-helper-compat_parameters.md)
 
 ## Parameters
 
@@ -43,9 +45,9 @@ The value must be `file`.
 
 ### `path`
 
-| type | default | version |
-| :--- | :--- | :--- |
-| string | required parameter | 0.14.0 |
+| type   | default            | version |
+| :----- | :----------------- | :------ |
+| string | required parameter | 0.14.0  |
 
 The path of the file. The actual path is path + time + ".log" by default. The `path` parameter supports placeholders, so you can embed `time`, `tag` and `record` fields in the path.
 
@@ -67,8 +69,8 @@ Initially, you may see a file which looks like `/path/to/file.%Y%m%d/buffer.b569
 ### `append`
 
 | type | default | version |
-| :--- | :--- | :--- |
-| bool | false | 0.14.0 |
+| :--- | :------ | :------ |
+| bool | false   | 0.14.0  |
 
 Determines whether the flushed chunk is appended to an existing file or not. The default is not appended. By default, `out_file` flushes each chunk to a different path.
 
@@ -118,25 +120,25 @@ See [Buffer Section Configurations](../configuration/buffer-section.md) for more
 
 #### `@type`
 
-| type | default | version |
-| :--- | :--- | :--- |
-| string | file | 0.14.9 |
+| type   | default | version |
+| :----- | :------ | :------ |
+| string | file    | 0.14.9  |
 
 Overwrites the default value in this plugin.
 
 #### `chunk_keys`
 
-| type | default | version |
-| :--- | :--- | :--- |
-| array | time | 0.14.9 |
+| type  | default | version |
+| :---- | :------ | :------ |
+| array | time    | 0.14.9  |
 
 Overwrites the default value in this plugin.
 
 #### `timekey`
 
 | type | default | version |
-| :--- | :--- | :--- |
-| time | 86400 | 0.14.9 |
+| :--- | :------ | :------ |
+| time | 86400   | 0.14.9  |
 
 Overwrites the default value in this plugin.
 
@@ -147,23 +149,23 @@ Deprecated parameter. Use `timekey_use_utc` in `<buffer>` instead.
 ### `add_path_suffix`
 
 | type | default | version |
-| :--- | :--- | :--- |
-| bool | true | 0.14.9 |
+| :--- | :------ | :------ |
+| bool | true    | 0.14.9  |
 
 Add path suffix or not. See also the `path_suffix` parameter.
 
 ### `path_suffix`
 
-| type | default | version |
-| :--- | :--- | :--- |
-| string | ".log" | 0.14.9 |
+| type   | default | version |
+| :----- | :------ | :------ |
+| string | ".log"  | 0.14.9  |
 
 The suffix for output result.
 
 ### `compress`
 
 | type | default |
-| :--- | :---    |
+| :--- | :------ |
 | enum | text    |
 
 Compresses flushed files.
@@ -172,10 +174,10 @@ No compression is performed by default.
 
 Supported values:
 
-* `text`
-* `gz`
-* `gzip`
-* `zstd` (since v1.19.0)
+- `text`
+- `gz`
+- `gzip`
+- `zstd` (since v1.19.0)
 
 ### `recompress`
 
@@ -206,8 +208,8 @@ Please see the [logging](../deployment/logging.md) article for further details.
 
 For common output / buffer parameters, please check the following articles:
 
-* [Output Plugin Overview](./)
-* [Buffer Section Configuration](../configuration/buffer-section.md)
+- [Output Plugin Overview](./)
+- [Buffer Section Configuration](../configuration/buffer-section.md)
 
 ## FAQ
 
@@ -278,4 +280,3 @@ $ tree /tmp/logs/
 ```
 
 If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open). [Fluentd](http://www.fluentd.org/) is an open-source project under [Cloud Native Computing Foundation \(CNCF\)](https://cncf.io/). All components are available under the Apache 2 License.
-
