@@ -13,13 +13,12 @@ NOTE:
 
 * `fluent-package` will be shipped in two flavors - normal release version and LTS (Long Term Support) version. See [Scheduled support lifecycle announcement about Fluent Package v6](https://www.fluentd.org/blog/fluent-package-v6-scheduled-lifecycle) about difference between this two flavors.
 * If you upgrade from `td-agent` v4, See [Upgrade to fluent-package v5](https://www.fluentd.org/blog/upgrade-td-agent-v4-to-v5).
-* Do not directly upgrade from v4 to v6. Such a workflow is not supported. It causes a trouble. Upgrade in stages. (v4 to v5, then v5 to v6)
+* Do not directly upgrade from v3 to v5. Such a workflow is not supported. It causes a trouble. Upgrade in stages. (v3 to v4, then v4 to v5)
 {% endhint %}
 
 {% hint style='danger' %}
-The following are deprecated (EOL) fluent-package and td-agent information:
+The following are deprecated fluent-package and td-agent (EOL) information:
 
-* About [Fluent Package (fluent-package) v5 (EOL)](https://www.fluentd.org/blog/schedule-for-fluent-package-5-eol), See [Install by DEB Package v5](./install-by-deb-fluent-package-v5.md).
 * About [Treasure Agent (td-agent) v4 (EOL)](https://www.fluentd.org/blog/schedule-for-td-agent-4-eol), See [Install by DEB Package v4](../install-by-deb-td-agent-v4.md).
 * About [Treasure Agent (td-agent) 3 will not be maintained anymore](https://www.fluentd.org/blog/schedule-for-td-agent-3-eol), see [Install by DEB Package  v3](../install-by-deb-td-agent-v3.md).
 {% endhint %}
@@ -36,58 +35,80 @@ A shell script is provided to automate the installation process for each version
 
 #### For Ubuntu Noble:
 
-##### fluent-package 6 (LTS)
+##### fluent-package 5 (LTS)
 
 ```bash
-curl -fsSL https://fluentd.cdn.cncf.io/sh/install-ubuntu-noble-fluent-package6-lts.sh | sh
+curl -fsSL https://fluentd.cdn.cncf.io/sh/install-ubuntu-noble-fluent-package5-lts.sh | sh
 ```
 
-##### fluent-package 6
+##### fluent-package 5
 
 ```bash
-curl -fsSL https://fluentd.cdn.cncf.io/sh/install-ubuntu-noble-fluent-package6.sh | sh
+curl -fsSL https://fluentd.cdn.cncf.io/sh/install-ubuntu-noble-fluent-package5.sh | sh
 ```
 
 #### For Ubuntu Jammy:
 
-##### fluent-package 6 (LTS)
+##### fluent-package 5 (LTS)
 
 ```bash
-curl -fsSL https://fluentd.cdn.cncf.io/sh/install-ubuntu-jammy-fluent-package6-lts.sh | sh
+curl -fsSL https://fluentd.cdn.cncf.io/sh/install-ubuntu-jammy-fluent-package5-lts.sh | sh
 ```
 
-##### fluent-package 6
+##### fluent-package 5
 
 ```bash
-curl -fsSL https://fluentd.cdn.cncf.io/sh/install-ubuntu-jammy-fluent-package6.sh | sh
+curl -fsSL https://fluentd.cdn.cncf.io/sh/install-ubuntu-jammy-fluent-package5.sh | sh
 ```
 
-#### For Debian Trixie:
+#### For Ubuntu Focal:
 
-##### fluent-package 6
+{% hint style='info' %}
+fluent-package v6 will not be shipped for Ubuntu Focal.
+{% endhint %}
+
+##### fluent-package 5 (LTS)
 
 ```bash
-curl -fsSL https://fluentd.cdn.cncf.io/sh/install-debian-trixie-fluent-package6-lts.sh | sh
+curl -fsSL https://fluentd.cdn.cncf.io/sh/install-ubuntu-focal-fluent-package5-lts.sh | sh
 ```
 
-##### fluent-package 6
+##### fluent-package 5
 
 ```bash
-curl -fsSL https://fluentd.cdn.cncf.io/sh/install-debian-trixie-fluent-package6.sh | sh
+curl -fsSL https://fluentd.cdn.cncf.io/sh/install-ubuntu-focal-fluent-package5.sh | sh
 ```
 
 #### For Debian Bookworm:
 
-##### fluent-package 6 (LTS)
+##### fluent-package 5 (LTS)
 
 ```bash
-curl -fsSL https://fluentd.cdn.cncf.io/sh/install-debian-bookworm-fluent-package6-lts.sh | sh
+curl -fsSL https://fluentd.cdn.cncf.io/sh/install-debian-bookworm-fluent-package5-lts.sh | sh
 ```
 
-##### fluent-package 6
+##### fluent-package 5
 
 ```bash
-curl -fsSL https://fluentd.cdn.cncf.io/sh/install-debian-bookworm-fluent-package6.sh | sh
+curl -fsSL https://fluentd.cdn.cncf.io/sh/install-debian-bookworm-fluent-package5.sh | sh
+```
+
+#### For Debian Bullseye:
+
+{% hint style='info' %}
+fluent-package v6 will not be shipped for Debian Bullseye.
+{% endhint %}
+
+##### fluent-package 5 (LTS)
+
+```bash
+curl -fsSL https://fluentd.cdn.cncf.io/sh/install-debian-bullseye-fluent-package5-lts.sh | sh
+```
+
+##### fluent-package 5
+
+```bash
+curl -fsSL https://fluentd.cdn.cncf.io/sh/install-debian-bullseye-fluent-package5.sh | sh
 ```
 
 ### Step 2: Launch Daemon

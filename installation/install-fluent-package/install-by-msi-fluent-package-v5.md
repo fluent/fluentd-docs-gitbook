@@ -14,9 +14,8 @@ You can also see [fluent-package-v5-vs-td-agent](../../quickstart/fluent-package
 ## How to install `fluent-package`
 
 {% hint style='danger' %}
-The following are deprecated (EOL) fluent-package and td-agent information:
+The following are deprecated fluent-package and td-agent (EOL) information:
 
-* About [Fluent Package (fluent-package) v5 (EOL)](https://www.fluentd.org/blog/schedule-for-fluent-package-5-eol), See [Install by .msi Package v5](./install-by-msi-fluent-package-v5.md).
 * About deprecated [Treasure Agent (td-agent) v4 (EOL)](https://www.fluentd.org/blog/schedule-for-td-agent-4-eol), see [Install by .msi Installer v4 (Windows)](../install-by-msi-td-agent-v4.md).
 * About deprecated [Treasure Agent (td-agent) 3 will not be maintained anymore](https://www.fluentd.org/blog/schedule-for-td-agent-3-eol), see [Install by msi Package  v3](../install-by-msi-td-agent-v3.md).
 * Do not directly upgrade from v3 to v5. Such a workflow is not supported. It causes a trouble. Upgrade in stages. (v3 to v4, then v4 to v5)
@@ -24,11 +23,9 @@ The following are deprecated (EOL) fluent-package and td-agent information:
 
 ### Step 1: Install `fluent-package`
 
-Download the latest version of MSI installer from [the download page for Long Term Support version](https://fluentd.cdn.cncf.io/lts/6/windows/index.html).
+Download the latest version of MSI installer from [the download page for Long Term Support version](https://fluentd.cdn.cncf.io/lts/5/windows/index.html).
 Run the installer and follow the wizard.
-If you want to use the normal release version, use [the download page for normal release version](https://fluentd.cdn.cncf.io/6/windows/index.html).
-
-![fluent-package installation wizard](../../.gitbook/assets/fluent-package6-wizard.png)
+If you want to use the normal release version, use [the download page for normal release version](https://fluentd.cdn.cncf.io/5/windows/index.html).
 
 ### Step 2: Set up `fluentd.conf`
 
