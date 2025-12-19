@@ -23,6 +23,10 @@
   * [Install from Source](installation/install-from-source.md)
   * [Post Installation Guide](installation/post-installation-guide.md)
   * Obsolete Installation
+    * Fluent Package v5 (EOL) Installation
+      * [Install by RPM Package v5 \(Red Hat Linux\)](installation/install-fluent-package/install-by-rpm-fluent-package-v5.md)
+      * [Install by DEB Package v5 \(Debian/Ubuntu\)](installation/install-fluent-package/install-by-deb-fluent-package-v5.md)
+      * [Install by .msi Installer v5 \(Windows\)](installation/install-fluent-package/install-by-msi-fluent-package-v5.md)
     * Treasure Agent v4 (EOL) Installation
       * [Install by RPM Package v4 \(Red Hat Linux\)](installation/install-by-rpm-td-agent-v4.md)
       * [Install by DEB Package v4 \(Debian/Ubuntu\)](installation/install-by-deb-td-agent-v4.md)
