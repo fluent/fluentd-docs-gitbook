@@ -64,7 +64,7 @@ curl -fsSL https://fluentd.cdn.cncf.io/sh/install-ubuntu-jammy-fluent-package6.s
 
 #### For Debian Trixie:
 
-##### fluent-package 6
+##### fluent-package 6 (LTS)
 
 ```bash
 curl -fsSL https://fluentd.cdn.cncf.io/sh/install-debian-trixie-fluent-package6-lts.sh | sh
