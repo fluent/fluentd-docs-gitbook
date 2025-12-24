@@ -11,7 +11,6 @@ Please see [fluent-package-v5-vs-td-agent](../../quickstart/fluent-package-v5-vs
 {% hint style='info' %}
 NOTE:
 
-* `fluent-package` will be shipped in two flavors - normal release version and LTS (Long Term Support) version. See [Scheduled support lifecycle announcement about Fluent Package v6](https://www.fluentd.org/blog/fluent-package-v6-scheduled-lifecycle) about difference between this two flavors.
 * If you upgrade from `td-agent` v4, See [Upgrade to fluent-package v5](https://www.fluentd.org/blog/upgrade-td-agent-v4-to-v5).
 * Do not directly upgrade from v3 to v5. Such a workflow is not supported. It causes a trouble. Upgrade in stages. (v3 to v4, then v4 to v5)
 {% endhint %}
@@ -19,6 +18,7 @@ NOTE:
 {% hint style='danger' %}
 The following are deprecated fluent-package and td-agent (EOL) information:
 
+* As [Drop schedule announcement about EOL of Fluent Package v5](https://www.fluentd.org/blog/schedule-for-fluent-package-5-eol), recommend to upgrade to Fluent Package v6. See [Upgrade Guide for fluent-package v6](https://www.fluentd.org/blog/upgrade-guide-for-fluent-package-v6).
 * About [Treasure Agent (td-agent) v4 (EOL)](https://www.fluentd.org/blog/schedule-for-td-agent-4-eol), See [Install by RPM Package v4](../install-by-rpm-td-agent-v4.md).
 * About [Treasure Agent (td-agent) 3 will not be maintained anymore](https://www.fluentd.org/blog/schedule-for-td-agent-3-eol), see [Install by DEB Package  v3](../install-by-deb-td-agent-v3.md).
 {% endhint %}
