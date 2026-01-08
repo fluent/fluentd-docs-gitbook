@@ -23,7 +23,7 @@ Normal Fluentd configuration syntax has the following the list of directives:
 4. **`system`** directives set system-wide configuration
 5. **`label`** directives group the output and filter for internal routing
 6. **`worker`** directives limit to the specific workers
-7. **`@include`** directives include other files
+7. **`!include`** directives include other files
 
 In YAML configuration world, we reconstructed them for YAML format.
 
