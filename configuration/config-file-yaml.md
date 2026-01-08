@@ -49,7 +49,8 @@ Under `config` object, Fluentd will handle the following elements:
 6. **`$arg`** defines directive **arg**'s equivalent objects (e.g. \<DIRECTIVE **arg**\>)
 7. **`$name`** defines label directive **name** equivalent objects (e.g. \<label **name**\>)
 8. **`$type`** specifies `@type` or `type` for instantiating plugin type
-9. **`$log_level`** specifies `@log_level` per plugin
+9. **`$id`** specifies plugin id
+10. **`$log_level`** specifies `@log_level` per plugin
 
 NOTE: `$log_level` is supported since Fluentd v1.17.1 or v1.16.6. If you want to change log_level per plugin on 1.17.0/v1.16.5 or older versions, you can use `log_level` (without `$`) although it is deprecated.
 
