@@ -313,7 +313,7 @@ The element in separate configuration files can be imported using the **!include
 ```yaml
 config:
   # Include config files in the ./config.d directory
-  - !include config.d/*.conf
+  - !include config.d/*.yaml
 ```
 
 The `!include` YAML tag supports regular file path, glob pattern, and http URL conventions:
@@ -321,33 +321,33 @@ The `!include` YAML tag supports regular file path, glob pattern, and http URL c
 ```yaml
 config:
   # absolute path
-  - !include /path/to/config.conf
+  - !include /path/to/config.yaml
 
   # if using a relative path, the YAML tag will use
   # the dirname of this config file to expand the path
-  - !include extra.conf
+  - !include extra.yaml
 
   # glob match pattern
-  - !include config.d/*.conf
+  - !include config.d/*.yaml
 
   # http
-  - !include http://example.com/fluent.conf
+  - !include http://example.com/fluent.yaml
 ```
 
 
-Note that for the glob pattern, files are expanded in alphabetical order. If there are `a.conf` and `b.conf` then fluentd parses `a.conf` first. But, you should not write the configuration that depends on this order. It is so error-prone, therefore, use multiple separate `!include` YAML tags for safety.
+Note that for the glob pattern, files are expanded in alphabetical order. If there are `a.yaml` and `b.yaml` then fluentd parses `a.yaml` first. But, you should not write the configuration that depends on this order. It is so error-prone, therefore, use multiple separate `!include` YAML tags for safety.
 
 ```yaml
 config:
-  # If you have a.conf, b.conf, ..., z.conf and a.conf / z.conf are important
+  # If you have a.yaml, b.yaml, ..., z.yaml and a.yaml / z.yaml are important
 
   # This is bad
-  - !include *.conf
+  - !include *.yaml
 
   # This is good
-  - !include a.conf
-  - !include config.d/*.conf
-  - !include z.conf
+  - !include a.yaml
+  - !include config.d/*.yaml
+  - !include z.yaml
 ```
 
 ### Share the Same Parameters
