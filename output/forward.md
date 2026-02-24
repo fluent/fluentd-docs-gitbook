@@ -446,6 +446,14 @@ Enables the keepalive connection.
 
 Timeout for keepalive. Default value is `nil` which means to keep the connection alive as long as possible.
 
+### `send_keepalive_packet`
+
+| type | default | version |
+| :--- | :--- | :--- |
+| bool | false | 1.20.0 |
+
+Enables the TCP keepalive for sockets. See [socket article](../plugin-helper-overview/api-plugin-helper-socket.md#send_keepalive_packet-use-case) for more details.
+
 ### `<security>` Section
 
 | required | multi | version |
