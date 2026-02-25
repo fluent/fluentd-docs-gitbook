@@ -4,6 +4,11 @@ The `file_single` buffer plugin provides a persistent buffer implementation. It 
 
 `file_single` is similar to `file_file` but it does not have the metadata file.
 
+{% hint style='info' %}
+In the following examples, it assumes pre-configured chunk keys by default with `<buffer>`.
+If you want to understand buffer behavior precisely, see [Buffer Section Configuration](../configuration/buffer-section.md) documentation.
+{% endhint %}
+
 ## Example Configuration
 
 ```text
