@@ -2,6 +2,11 @@
 
 The `file` buffer plugin provides a persistent buffer implementation. It uses files to store buffer chunks on disk.
 
+{% hint style='info' %}
+In the following examples, it assumes pre-configured chunk keys by default with `<buffer>`.
+If you want to understand buffer behavior precisely, see [Buffer Section Configuration](../configuration/buffer-section.md) documentation.
+{% endhint %}
+
 ## Parameters
 
 * [Common Parameters](../configuration/plugin-common-parameters.md)
