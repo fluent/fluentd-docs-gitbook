@@ -71,6 +71,9 @@ In case of no or blank chunk key, the output plugin writes all the matched event
                                                  |
 12:00:25 ssh.login  {"key1":"yay","key2":100}  --|
 ```
+{% hint style='info' %}
+Blank chunk keys should be used for simple stream transfers (via forward or http plugin) or when the output target destination does not depend on the key. (e.g. stdout)
+{% endhint %}
 
 ### Tag
 
@@ -220,6 +223,11 @@ Buffer chunk keys may be specified empty by using `[]` as the `buffer` section a
 ```
 
 This is particularly useful when the output plugin has its own default chunk keys and it needs to disable those.
+
+{% hint style='info' %}
+Empty Keys might be useful for CI because it suppress chunk splitting and simplify internal flush behavior.
+As a side effect, you can't specify placeholder which uses chunk metadata (e.g timekey, "${tag}" in path and so on)
+{% endhint %}
 
 ## Placeholders
 
