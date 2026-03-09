@@ -99,7 +99,7 @@ With `auto`, the plugin decides the chunk format by `formatted_to_msgpack_binary
 <buffer key1,key2> # NG. multiple field keys are not supported
 ```
 
-This limitation will be removed by adding the metadata header in the file.
+This limitation will be removed by adding the metadata header in the file in the future.
 
 ### Remote File System is Not Supported
 
