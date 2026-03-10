@@ -71,6 +71,12 @@ If you want to specific `time`, `tag` or any `record` fields - placeholders in t
 (Thus, blank chunk keys `<buffer>` or empty keys `<buffer []>` is not allowed. It causes configuration error.)
 {% endhint %}
 
+{% hint style='warning' %}
+`path` is implicitly used as file buffer path if file buffer path is not explicitly configured in `<buffer>` section.
+In such a case, it must not contain `[` or `]` in the actually evaluated `path`. See  [`<buffer>` limitation](../buffer/file.md#limitation) about detail.
+
+{% endhint %}
+
 ### `append`
 
 | type | default | version |
