@@ -462,6 +462,7 @@ Following are the flushing parameters for chunks to optimize performance \(laten
     into chunks
 * `flush_interval` \[time\]
   * Default: 60s
+  * The interval time to check whether buffer should be flushed or not. It depends on chunk key or flush mode whether the buffer will be flushed or not, so it doesn't mean always flushed in this duration if the condition is not matched to be flushed.
 * `flush_thread_count` \[integer\]
   * Default: 1
   * The number of threads to flush/write chunks in parallel
