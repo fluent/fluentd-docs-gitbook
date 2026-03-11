@@ -71,6 +71,9 @@ In case of no or blank chunk key, the output plugin writes all the matched event
                                                  |
 12:00:25 ssh.login  {"key1":"yay","key2":100}  --|
 ```
+{% hint style='info' %}
+Blank chunk keys should be used for simple stream transfers (via forward or http plugin) or when the output target destination does not depend on the key. (e.g. stdout)
+{% endhint %}
 
 ### Tag
 
@@ -220,6 +223,11 @@ Buffer chunk keys may be specified empty by using `[]` as the `buffer` section a
 ```
 
 This is particularly useful when the output plugin has its own default chunk keys and it needs to disable those.
+
+{% hint style='info' %}
+Empty Keys might be useful for CI because it suppress chunk splitting and simplify internal flush behavior.
+As a side effect, you can't specify placeholder which uses chunk metadata (e.g timekey, "${tag}" in path and so on)
+{% endhint %}
 
 ## Placeholders
 
@@ -454,6 +462,7 @@ Following are the flushing parameters for chunks to optimize performance \(laten
     into chunks
 * `flush_interval` \[time\]
   * Default: 60s
+  * The interval time to check whether buffer should be flushed or not. It depends on chunk key or flush mode whether the buffer will be flushed or not, so it doesn't mean always flushed in this duration if the condition is not matched to be flushed.
 * `flush_thread_count` \[integer\]
   * Default: 1
   * The number of threads to flush/write chunks in parallel

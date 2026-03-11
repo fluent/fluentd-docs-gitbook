@@ -66,6 +66,17 @@ The `path` parameter is used as `<buffer>`'s `path` in this plugin.
 
 Initially, you may see a file which looks like `/path/to/file.%Y%m%d/buffer.b5692238db04045286097f56f361028db.log`. This is an intermediate buffer file \(`b5692238db04045286097f56f361028db` identifies the buffer\). Once the content of the buffer has been completely [flushed](../buffer/file.md), you will see the output file without the trailing identifier.
 
+{% hint style='info' %}
+If you want to specific `time`, `tag` or any `record` fields - placeholders in the path, you must specify them as `<buffer>` chunk keys.
+(Thus, blank chunk keys `<buffer>` or empty keys `<buffer []>` is not allowed. It causes configuration error.)
+{% endhint %}
+
+{% hint style='warning' %}
+`path` is implicitly used as file buffer path if file buffer path is not explicitly configured in `<buffer>` section.
+In such a case, it must not contain `[` or `]` in the actually evaluated `path`. See  [`<buffer>` limitation](../buffer/file.md#limitation) about detail.
+
+{% endhint %}
+
 ### `append`
 
 | type | default | version |

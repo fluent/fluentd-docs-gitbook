@@ -160,7 +160,16 @@ This config outputs the buffer chunk files as follows. In this case, `path_suffi
 
 ## Limitation
 
+{% hint style='warning' %}
 Caution: `file` buffer implementation depends on the characteristics of the local file system. Don't use `file` buffer on remote file systems e.g. NFS, GlusterFS, HDFS, etc. We observed major data loss by using the remote file system.
+{% endhint %}
+
+{% hint style='warning' %}
+`path` is implicitly used as file buffer path if file buffer path is not explicitly configured in `<buffer>` section.
+In such a case, it must not contain `[` or `]` in the actually evaluated `path`.
+If such a character was included in the path, it might be trouble (ignored) after restarting of Fluentd during resuming buffer handling process.
+As a workaround, override `path` parameter in `<buffer>` section which does not contain such a character.
+{% endhint %}
 
 If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open). [Fluentd](http://www.fluentd.org/) is an open-source project under [Cloud Native Computing Foundation \(CNCF\)](https://cncf.io/). All components are available under the Apache 2 License.
 
