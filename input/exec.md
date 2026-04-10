@@ -72,7 +72,7 @@ The interval time between periodic program runs. If not specified, command scrip
 
 | type | default | version |
 | :--- | :--- | :--- |
-| time | nil | 1.19.0 |
+| time | nil | 1.20.0 |
 
 Command (program) execution timeout. If the command runs longer than this value, the child process is killed.
 
