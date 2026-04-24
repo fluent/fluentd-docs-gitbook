@@ -34,6 +34,18 @@ NOTE: If your OS is not supported, consider [gem installation](../install-by-gem
 
 A shell script is provided to automate the installation process for each version. The shell script registers a new apt repository at `/etc/apt/sources.list.d/fluent.sources` (or `/etc/apt/sources.list.d/fluent-lts.sources`) and installs the `fluent-package` deb package.
 
+#### For Ubuntu Resolute:
+
+##### fluent-package 6 (LTS)
+
+```bash
+curl -fsSL https://fluentd.cdn.cncf.io/sh/install-ubuntu-resolute-fluent-package6-lts.sh | sh
+```
+
+{% hint style='info' %}
+fluent-package for normal release version is not ready yet. LTS version is recommended now.
+{% endhint %}
+
 #### For Ubuntu Noble:
 
 ##### fluent-package 6 (LTS)
