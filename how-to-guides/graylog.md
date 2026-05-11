@@ -5,12 +5,10 @@ This article explains how to set up Fluentd with [Graylog](https://www.graylog.o
 ## Prerequisites
 
 * Basic Understanding of Fluentd
-* Linux Server (Ubuntu 24.04 LTS is not supported yet. Use 20.04 or 22.04)
+* Linux Server (Ubuntu 26.04 LTS is not supported yet. Use 22.04 or 24.04)
 * [Fluentd](https://www.fluentd.org/)
-* [MongoDB Community Server](https://www.mongodb.com/try/download/community), Use 7.0.
-* [Graylog](https://graylog.org/), Use 6.1.
-
-<!-- Ubuntu 24.04LTS is not officially supported for Graylog2 6.0-->
+* [MongoDB Community Server](https://www.mongodb.com/try/download/community), Use 8.0.
+* [Graylog](https://graylog.org/), Use 7.1.
 
 You can install Fluentd via major packaging systems.
 
@@ -19,10 +17,6 @@ You can install Fluentd via major packaging systems.
 You can install MongoDB via major packaging systems.
 
 * [MongoDB Community Server](https://www.mongodb.com/try/download/community)
-
-{% hint style='warning' %}
-Use MongoDB 7.x because Graylog 6.1 does not support MongoDB 8.x.
-{% endhint %}
 
 You can install Graylog Data Node and Server on Ubuntu.
 
