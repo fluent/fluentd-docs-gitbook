@@ -18,10 +18,6 @@ You can install MongoDB via major packaging systems.
 
 * [MongoDB Community Server](https://www.mongodb.com/try/download/community)
 
-{% hint style='warning' %}
-Use MongoDB 7.x because Graylog 6.1 does not support MongoDB 8.x.
-{% endhint %}
-
 You can install Graylog Data Node and Server on Ubuntu.
 
 * [Ubuntu Installation](https://go2docs.graylog.org/current/downloading_and_installing_graylog/ubuntu_installation.htm)
