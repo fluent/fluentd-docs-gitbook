@@ -108,7 +108,7 @@ Various [output plugins](../output/) are available for writing records to other 
   * [Output to MongoDB](../output/mongo.md) or [MongoDB ReplicaSet](../output/mongo_replset.md)
   * [Output to Hadoop](../output/webhdfs.md)
   * [Output to File](../output/file.md)
-  * [etc...](http://fluentd.org/plugin/)
+  * [etc...](https://www.fluentd.org/plugins/)
 
 ### High-Availability Configurations of Fluentd
 
