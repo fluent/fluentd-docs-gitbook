@@ -58,7 +58,7 @@ Output plugins in v1 can control keys of buffer chunking by configurations, dyna
 
 See this list of available plugins to find out more about other Output plugins:
 
-* [other plugins](http://fluentd.org/plugin/)
+* [other plugins](https://www.fluentd.org/plugins/)
 
 ## Difference between v1.0 and v0.12
 

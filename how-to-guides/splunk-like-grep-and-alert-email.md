@@ -117,7 +117,7 @@ Admittedly, this is a contrived example. In reality, you would set the threshold
 
 You can learn more about Fluentd and its plugins by:
 
-* exploring other [plugins](https://fluentd.org/plugin/)
+* exploring other [plugins](https://www.fluentd.org/plugins/)
 * asking questions on the [GitHub Discussions](https://github.com/fluent/fluentd/discussions)
 * [signing up for our newsletters](https://www.fluentd.org/newsletter)
 
