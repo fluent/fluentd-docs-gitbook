@@ -61,6 +61,38 @@ endpoint http://example.com/api/${tag}-${key}
 
 See [Buffer Section Configurations](../configuration/buffer-section.md) for more details.
 
+Since v1.19.3, if a placeholder is used in the host part of the endpoint, [`allowed_hosts`](#allowed_hosts) must also be set. A placeholder used only in the path or the query string is not affected.
+
+### `allowed_hosts`
+
+| type | default | version |
+| :--- | :--- | :--- |
+| array | `[]` | 1.19.3 |
+
+The list of hosts permitted as the destination of the request.
+
+This is required when a placeholder in `endpoint` changes the host of the request. Since placeholders are expanded with the values in the incoming records, an unexpected record could otherwise make Fluentd send the data to an arbitrary host. This parameter restricts the destination to the hosts you explicitly list.
+
+```text
+endpoint http://${tag}:8080/api
+allowed_hosts ["known-host.example.com", "another-host.example.com"]
+<buffer tag>
+  # buffer parameters
+</buffer>
+```
+
+The validation is performed for each chunk on flush, and only when the expanded host differs from the host written in `endpoint`. Therefore, this parameter has no effect in the following cases:
+
+* `endpoint` has no placeholder at all.
+* `endpoint` has placeholders only in the path or the query string,
+
+  e.g. `http://example.com/api/${tag}`.
+
+If the expanded host differs from the one in `endpoint` and it is not permitted, `Fluent::UnrecoverableError` is raised:
+
+* `allowed_hosts` is empty.
+* `allowed_hosts` does not include the expanded host.
+
 ### `http_method`
 
 | type | default | available values | version |
@@ -467,4 +499,3 @@ And, receiver `in_http` configuration should be:
 But, we recommend to use in/out [`forward`](forward.md) plugin to communicate with two Fluentd instances due to `at-most-once` and `at-least-once` semantics for rigidity.
 
 If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open). [Fluentd](http://www.fluentd.org/) is an open article- source project under [Cloud Native Computing Foundation \(CNCF\)](https://cncf.io/). All components are available under the Apache 2 License.
-
