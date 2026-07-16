@@ -78,7 +78,9 @@ You can set this option to true to add the `config` field to the response.
 
 Since v1.19.3, the default value is changed to `false`.
 
+{% hint style='danger' %}
 Note that the `config` field may contain sensitive values such as passwords. Enable this option only if you understand the risk.
+{% endhint %}
 
 ### `include_retry`
 
@@ -100,7 +102,9 @@ You can set this option to true to allow the debug information to be exposed via
 
 Unless this option is enabled, those query parameters are ignored.
 
+{% hint style='danger' %}
 Note that the debug information exposes the internal states of each plugin, including sensitive configuration values without obfuscating. Enable this option only if you understand the risk.
+{% endhint %}
 
 ## Configuration Example
 
@@ -293,4 +297,3 @@ Three \(3\) HTTP servers will be launched with:
 Note that you may need to set `worker_id` to `@id` parameter. See [config article](../configuration/config-file.md#embedded-ruby-code).
 
 If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open). [Fluentd](http://www.fluentd.org/) is an open-source project under [Cloud Native Computing Foundation \(CNCF\)](https://cncf.io/). All components are available under the Apache 2 License.
-
