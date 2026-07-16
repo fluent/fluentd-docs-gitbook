@@ -434,6 +434,25 @@ Following are the configuration parameters for buffer plugin and its chunks:
     In this case, the data will be passed to the destination as is\).
 
   * The default`text` means that no compression is applied.
+* `decompression_size_limit` \[size\] \(since v1.19.3\)
+  * Default: 256MB
+  * The size limit of the decompressed chunk.
+  * This is effective only when `compress` is set to `gzip` or `zstd`.
+  * If the decompressed size exceeds this value, Fluentd aborts the
+
+    decompression and raises
+
+    `Fluent::Plugin::Extractor::SizeLimitError` instead of consuming
+
+    memory without a bound. This is an unrecoverable error, so the chunk
+
+    is moved to `secondary` or the backup directory. See
+
+    [Handling Unrecoverable Errors](../buffer/#handling-unrecoverable-errors).
+
+  * This parameter is available for `buf_file`, `buf_file_single` and
+
+    `buf_memory`.
 
 ### Flushing Parameters
 
