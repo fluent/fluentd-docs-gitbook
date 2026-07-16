@@ -24,36 +24,38 @@ $ curl http://host:24220/api/plugins.json
   "plugins":[
     {
       "plugin_id":"object:3fec669d6ac4",
+      "plugin_category":"input",
       "type":"forward",
       "output_plugin":false,
-      "config":{
-        "type":"forward"
-      }
+      "retry_count":null,
+      "emit_records":0,
+      "emit_size":0
     },
     {
       "plugin_id":"object:3fec669dfa48",
+      "plugin_category":"input",
       "type":"monitor_agent",
       "output_plugin":false,
-      "config":{
-        "type":"monitor_agent",
-        "port":"24220"
-      }
+      "retry_count":null,
+      "emit_records":0,
+      "emit_size":0
     },
     {
       "plugin_id":"object:3fec66aead48",
+      "plugin_category":"output",
       "type":"forward",
       "output_plugin":true,
       "buffer_queue_length":0,
       "buffer_total_queued_size":0,
       "retry_count":0,
-      "config":{
-        "type":"forward",
-        "host":"192.168.0.11"
-      }
+      "emit_records":0,
+      "emit_size":0
     }
   ]
 }
 ```
+
+Since v1.19.3, the `config` and `retry` fields are not included by default. Set `include_config` or `include_retry` to `true` if you need them.
 
 See [`in_monitor_agent`](../input/monitor_agent.md) article for more detail.
 

@@ -72,17 +72,35 @@ The interval time between event emits. This will be used when `tag` is configure
 
 | type | default | version |
 | :--- | :--- | :--- |
-| bool | true | 0.14.0 |
+| bool | false | 0.14.0 |
 
-You can set this option to false to remove the `config` field from the response.
+You can set this option to true to add the `config` field to the response.
+
+Since v1.19.3, the default value is changed to `false`.
+
+Note that the `config` field may contain sensitive values such as passwords. Enable this option only if you understand the risk.
 
 ### `include_retry`
 
 | type | default | version |
 | :--- | :--- | :--- |
-| bool | true | 0.14.11 |
+| bool | false | 0.14.11 |
 
-You can set this option to false to remove the `retry` field from the response.
+You can set this option to true to add the `retry` field to the response.
+
+Since v1.19.3, the default value is changed to `false`.
+
+### `include_debug_info`
+
+| type | default | version |
+| :--- | :--- | :--- |
+| bool | false | 1.19.3 |
+
+You can set this option to true to allow the debug information to be exposed via the `debug` and `with_ivars` query parameters.
+
+Unless this option is enabled, those query parameters are ignored.
+
+Note that the debug information exposes the internal states of each plugin, including sensitive configuration values without obfuscating. Enable this option only if you understand the risk.
 
 ## Configuration Example
 
@@ -92,7 +110,7 @@ Here is a configuration example using `in_monitor_agent`:
 <source>
   @type monitor_agent
   @id in_monitor_agent
-  include_config false
+  include_retry true
 </source>
 
 <source>
@@ -165,6 +183,8 @@ If the plugin is an output plugin with the buffer settings, the metrics include 
 
 ### `retry`
 
+The `retry` field is included only when `include_retry` is set to `true`.
+
 If the output plugin is in retry status, additional fields are added to `retry`. For example, if the Elasticsearch plugin fails to flush the buffer.
 
 Here is the response:
@@ -216,13 +236,15 @@ The following list shows the available query parameters:
 
 | Parameter | Value | Explanation |
 | :--- | :--- | :--- |
-| `debug` | Constant | Expose additional internal metrics. Note that sensitive configuration value (password and so on) will be shown without obfuscating |
-| `with_ivars` | Variable names | Expose the specified instance variables of each plugin |
-| `with_config` | Boolean | Override the configuration option with\_config |
-| `with_retry` | Boolean | Override the configuration option with\_retry |
+| `debug` | Constant | Expose additional internal metrics. Requires `include_debug_info true` |
+| `with_ivars` | Variable names | Expose the specified instance variables of each plugin. Requires `include_debug_info true` |
 | `tag` | Event tag | Only show plugins that matches the specified tag |
 | `@id` | Plugin id | Filter plugins by plugin id |
 | `@type` | Plugin type | Filter plugins by plugin type |
+
+Since v1.19.3, `debug` and `with_ivars` are ignored unless `include_debug_info` is set to `true` in the configuration.
+
+Since v1.19.3, the `with_config` and `with_retry` query parameters are no longer available. The `config` and `retry` fields are controlled only by the `include_config` and `include_retry` parameters in the configuration file.
 
 ### How to emit metrics as events
 
