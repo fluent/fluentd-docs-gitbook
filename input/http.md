@@ -118,6 +118,16 @@ The bind address to listen to.
 
 The size limit of the POSTed element.
 
+### `decompression_size_limit`
+
+| type | default | version |
+| :--- | :--- | :--- |
+| size | 256MB | 1.19.3 |
+
+The size limit of the decompressed element.
+
+This is effective only when the request has the `Content-Encoding` header with `gzip` or `deflate`. If the decompressed size exceeds this value, the request is rejected with `400 Bad Request`.
+
 ### `keepalive_timeout`
 
 | type | default | version |
@@ -358,6 +368,8 @@ $ curl --data-binary @json.gz -H "Content-Encoding: gzip" \
 ```
 
 You do not need any configuration to enable this feature.
+
+Since v1.19.3, the decompressed payload size is limited to 256MB by default. A request whose payload exceeds the limit is rejected with `400 Bad Request`. Use [`decompression_size_limit`](#decompression_size_limit) to change the limit.
 
 ### Multi-process Environment
 

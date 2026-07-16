@@ -316,6 +316,8 @@ Example:
 
 You do not need any configuration in the receiving server. Data compression is auto-detected and handled transparently by the destination node.
 
+Since v1.19.3, the receiving `in_forward` limits the decompressed chunk size to 256MB by default. See [`in_forward`](../input/forward.md#decompression_size_limit) if you need to send larger chunks.
+
 Supported values:
 
 * `text`

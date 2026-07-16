@@ -128,6 +128,18 @@ The size limit of the received chunk. If the chunk size is larger than this valu
 
 The warning size limit of the received chunk. If the chunk size is larger than this value, a warning message will be sent.
 
+### `decompression_size_limit`
+
+| type | default | version |
+| :--- | :--- | :--- |
+| size | 256MB | 1.19.3 |
+
+The size limit of the decompressed chunk.
+
+This is effective only when the sender transfers the data in compressed form. See [`out_forward`](../output/forward.md#compress) for the compression feature.
+
+If the decompressed size exceeds this value, the chunk is not processed. Fluentd logs an error and closes the connection.
+
 ### `skip_invalid_event`
 
 | type | default | version |
