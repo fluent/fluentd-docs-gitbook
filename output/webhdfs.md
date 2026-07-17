@@ -6,7 +6,10 @@ The `out_webhdfs` Output plugin writes records into HDFS \(Hadoop Distributed Fi
 
 The file will be created when the `timekey` condition has been met. To change the output frequency, please modify the `timekey` value.
 
-This document does not describe all the parameters. For more details, see the **Further Reading** section.
+{% hint style='warning' %}
+This document doesn't describe all/most of parameters. For details, refer to the **Further Reading** section.
+If you afford to improve this article, please send pull request to https://github.com/fluent/fluentd-docs-gitbook
+{% endhint %}
 
 ## Install
 

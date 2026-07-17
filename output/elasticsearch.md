@@ -6,7 +6,10 @@ The `out_elasticsearch` Output plugin writes records into Elasticsearch. By defa
 
 Records will be sent to Elasticsearch when the `chunk_keys` condition has been met. To change the output frequency, please specify the `time` in `chunk_keys` and specify `timekey` value in the configuration.
 
-This document does not describe all the parameters. For details, refer to the **Further Reading** section.
+{% hint style='warning' %}
+This document doesn't describe all/most of parameters. For details, refer to the **Further Reading** section.
+If you afford to improve this article, please send pull request to https://github.com/fluent/fluentd-docs-gitbook
+{% endhint %}
 
 ## Installation
 
