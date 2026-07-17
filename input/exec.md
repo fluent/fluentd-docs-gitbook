@@ -99,6 +99,9 @@ Refer these for more details about `parse` section:
 * [Parser Plugin Overview](../parser/)
 * [Parse Section Configuration](../configuration/parse-section.md)
 
+If you specify `format` in `<source>`, there is a case that `<parse>` section could be omitted.
+But that is deprecated v0.12 compatible notation, recommend to specify `<parse>` section explicitly.
+
 #### `@type`
 
 | type | default | version |
@@ -136,6 +139,8 @@ Overwrites the default value in this plugin.
 | required | multi | version |
 | :--- | :--- | :--- |
 | false | false | 0.14.9 |
+
+If you specify `tag` in `<source>`, `<extract>` section could be omitted.
 
 See [Extract section configurations](../configuration/extract-section.md).
 
