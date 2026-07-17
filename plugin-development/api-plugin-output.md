@@ -346,6 +346,10 @@ It extracts placeholders in the given string using the values in chunk.
 
 Return value is a `String`.
 
+Since v1.19.3, this method raises `Fluent::UnrecoverableError` if a value substituted into `${tag}` or `${key}` attempts a path traversal, e.g. a tag containing `../` or beginning with `/`. See [Path Boundary Validation](../configuration/buffer-section.md#path-boundary-validation).
+
+Since the check lives in this method, every plugin using it is protected without any change. If your plugin builds paths from tags or record fields on its own, without `#extract_placeholders`, you need to validate them yourself.
+
 ### `#commit_write(chunk_id)`
 
 It tells Fluentd that the specified chunk should be committed. That chunk will be purged after this method call.

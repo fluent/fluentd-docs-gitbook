@@ -278,6 +278,29 @@ Any key is acceptable as a chunk key. If a key other than specified in the chunk
 </match>
 ```
 
+### Path Boundary Validation
+
+Since v1.19.3, Fluentd validates the values substituted into `${tag}` and `${key}` placeholders to prevent unintended path traversal. Because tags and record fields come from incoming events, an unexpected event could otherwise make a plugin like `out_file` create or access a file outside of the intended directory.
+
+A value is rejected if it contains a parent directory reference \(`../` or `..\`\) or if it begins with a path separator \(`/` or `\`\):
+
+```text
+# tag: "../etc/cron.d" or "/etc/passwd"
+<match **>
+  @type file
+  path /data/${tag}/access.log  #=> Fluent::UnrecoverableError
+  <buffer tag>
+    # ...
+  </buffer>
+</match>
+```
+
+The validation also detects the case where an invalid component appears only after the substitution, e.g. `${a}${b}` where `a` is `.` and `b` is `./`. A `../` written in the configuration itself is not affected.
+
+`Fluent::UnrecoverableError` is raised when the validation fails, so the chunk is not retried. It is moved to `secondary` or the backup directory. See [Handling Unrecoverable Errors](../buffer/#handling-unrecoverable-errors).
+
+Note that this validation is applied only where a placeholder is actually used. A tag containing `../` is harmless as long as the target parameter has no `${tag}` placeholder.
+
 ### Chunk ID
 
 `${chunk_id}` will be replaced with internal chunk id. No need to specify `chunk_id` in chunk keys.
@@ -582,4 +605,3 @@ With `exponential_backoff`, `retry_wait` interval will be calculated as below:
   * = `2^k - 1` by default
 
 If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open). [Fluentd](http://www.fluentd.org/) is an open-source project under [Cloud Native Computing Foundation \(CNCF\)](https://cncf.io/). All components are available under the Apache 2 License.
-
