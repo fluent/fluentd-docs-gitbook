@@ -2,6 +2,11 @@
 
 The `in_windows_eventlog` Input plugin allows Fluentd to read events from the Windows Event Log.
 
+{% hint style='warning' %}
+This document doesn't describe all/most of parameters. For details, refer to the **Further Reading** section.
+If you afford to improve this article, please send pull request to https://github.com/fluent/fluentd-docs-gitbook
+{% endhint %}
+
 ## Installation
 
 `in_windows_eventlog` is included in `td-agent` 3 MSI by default. Fluentd gem users will need to install the `fluent-plugin-windows-eventlog` gem using the following command:

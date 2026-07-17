@@ -2,6 +2,11 @@
 
 The `out_rewrite_tag_filter` Output plugin provides a rule-based mechanism for rewriting tags.
 
+{% hint style='warning' %}
+This document doesn't describe all/most of parameters. For details, refer to the **Further Reading** section.
+If you afford to improve this article, please send pull request to https://github.com/fluent/fluentd-docs-gitbook
+{% endhint %}
+
 ## How It Works
 
 The plugin is configured by defining a list of rules containing conditional statements and information on how to rewrite the matching tags.
@@ -503,6 +508,10 @@ In this case, `rewrite_tag_filter` causes an infinite loop because the fluentd's
   # ...
 </match>
 ```
+
+## Further Reading
+
+* [`fluent-plugin-rewrite-tag-filter`](https://github.com/fluent/fluent-plugin-rewrite-tag-filter)
 
 If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open). [Fluentd](http://www.fluentd.org/) is an open-source project under [Cloud Native Computing Foundation \(CNCF\)](https://cncf.io/). All components are available under the Apache 2 License.
 

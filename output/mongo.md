@@ -6,7 +6,10 @@ The `out_mongo` Output plugin writes records into [MongoDB](http://mongodb.org/)
 
 If you're using `ReplicaSet`, please see the [`out_mongo_replset`](mongo_replset.md) article instead.
 
-This document does not describe all the parameters. For details, check the **Further Reading** section.
+{% hint style='warning' %}
+This document doesn't describe all/most of parameters. For details, refer to the **Further Reading** section.
+If you afford to improve this article, please send pull request to https://github.com/fluent/fluentd-docs-gitbook
+{% endhint %}
 
 ## Why Fluentd with MongoDB?
 
