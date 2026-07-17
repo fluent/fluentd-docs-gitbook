@@ -280,7 +280,7 @@ Any key is acceptable as a chunk key. If a key other than specified in the chunk
 
 ### Path Boundary Validation
 
-Since v1.19.3, Fluentd validates the values substituted into `${tag}` and `${key}` placeholders so that they cannot cross an unintended path boundary. Because tags and record fields come from incoming events, an unexpected event could otherwise make a plugin like `out_file` create or access a file outside of the intended directory.
+Since v1.19.3, Fluentd validates the values substituted into `${tag}` and `${key}` placeholders to prevent unintended path traversal. Because tags and record fields come from incoming events, an unexpected event could otherwise make a plugin like `out_file` create or access a file outside of the intended directory.
 
 A value is rejected if it contains a parent directory reference \(`../` or `..\`\) or if it begins with a path separator \(`/` or `\`\):
 
