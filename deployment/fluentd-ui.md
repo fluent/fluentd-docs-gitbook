@@ -7,7 +7,9 @@
 * Configure Fluentd settings such as config file, pid file path, etc.
 * View Fluentd log with simple error viewer
 
-`fluentd-ui` does not work with `fluentd` v1 and `td-agent` 3 and 4 do not include it. This content is for v0.12 for now.
+{% hint style='danger' %}
+`fluentd-ui` does not maintained anymore. It won't work with `fluent-package`. This content is for v0.12 for now.
+{% endhint %}
 
 ## Enterprise
 
