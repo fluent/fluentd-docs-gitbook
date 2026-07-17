@@ -4,7 +4,7 @@ This article explains how to install Fluentd from source \(git repository\). Thi
 
 ## Step 1: Install Ruby Interpreter
 
-Install Ruby `>= 2.7` and `bundler` on your local environment.
+Install Ruby `>= 3.2` and `bundler` on your local environment.
 
 ## Step 2: Fetch Source Code
 
@@ -27,9 +27,6 @@ Fetching gem metadata from https://rubygems.org/.........
 ...
 Your bundle is complete!
 Use `bundle show [gemname]` to see where a bundled gem is installed.
-$ bundle exec rake build
-fluentd xxx built to pkg/fluentd-xxx.gem.
-$ gem install pkg/fluentd-xxx.gem
 ```
 
 ## Step 4: Run
@@ -37,8 +34,8 @@ $ gem install pkg/fluentd-xxx.gem
 Run the following commands to verify the Fluentd installation:
 
 ```text
-$ fluentd --setup ./fluent
-$ fluentd -c ./fluent/fluent.conf -vv &
+$ bundle exec fluentd --setup ./fluent
+$ bundle exec fluentd -c ./fluent/fluent.conf -vv &
 $ echo '{"json":"message"}' | fluent-cat debug.test
 ```
 
