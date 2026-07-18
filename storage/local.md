@@ -1,6 +1,6 @@
 # local
 
-The `local` storage plugin stores the key-value pair into JSON file on local storage.
+The `local` storage plugin stores the key-value pair into a JSON file on local storage.
 
 ## Parameters
 

@@ -8,14 +8,14 @@ Fluentd is written in Ruby for flexibility, with performance-sensitive parts in 
 
 That is why [Treasure Data, Inc](http://www.treasuredata.com/) provides **the stable distribution of Fluentd**, called `td-agent`. The differences between Fluentd and `td-agent` can be found [here](https://www.fluentd.org/faqs).
 
-For macOS, `td-agent` is distributed as `.dmg` installer.
+For macOS, `td-agent` is distributed as a `.dmg` installer.
 
 ## Step 1: Install `td-agent`
 
 {% hint style='danger' %}
 This article contains deprecated td-agent (EOL) information: SHOULD NOT use td-agent anymore.
 
-* `fluent-package` (successor of `td-agent`) for macOS is not be shipped yet, we plan to migrate to homebrew ecosystem in the future.
+* `fluent-package` (successor of `td-agent`) for macOS is not shipped yet, we plan to migrate to homebrew ecosystem in the future.
 * Package archive was migrated from [packages.treasuredata.com](https://packages.treasuredata.com) to [fluentd.cdn.cncf.io](https://fluentd.cdn.cncf.io/index.html).
 {% endhint %}
 

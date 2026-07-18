@@ -37,7 +37,7 @@ Then, from the dropdown, choose `GELF UDP` and click on `Launch new input`, whic
 Now, Graylog is ready to accept messages from Fluentd over UDP. It is time to configure Fluentd.
 
 {% hint style='info' %}
-There might be a case that modal dialogue will not shown when clicking `Launch new input`. Check your browser configuration.
+There might be a case that modal dialogue will not be shown when clicking `Launch new input`. Check your browser configuration.
 {% endhint %}
 
 ### Fluentd
@@ -50,7 +50,7 @@ You can install Fluentd via major packaging systems.
 
 If `out_gelf` (fluent-plugin-gelf-hs) is not installed yet, please install it manually.
 
-See [Plugin Management](../installation/post-installation-guide.md#plugin-management) section how to install fluent-plugin-gelf-hs on your environment.
+See [Plugin Management](../installation/post-installation-guide.md#plugin-management) section for how to install fluent-plugin-gelf-hs on your environment.
 
 Then, configure `/etc/fluent/fluentd.conf` as follows:
 

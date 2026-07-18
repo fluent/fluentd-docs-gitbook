@@ -34,7 +34,7 @@ Then, run the initial setup process and create/configure the following:
 * Create proper operation token
 * Set `fluent` organization
 * Create `test` bucket
-* Crete access API token
+* Create access API token
 
 See [Set up InfluxDB](https://docs.influxdata.com/influxdb/v2/get-started/setup/).
 
@@ -62,10 +62,10 @@ Next, install the InfluxDB output plugin:
 
 If [`out_influxdb`](https://github.com/influxdata/influxdb-plugin-fluent) (fluent-plugin-influxdb-v2) is not installed yet, please install it manually.
 
-See [Plugin Management](../installation/post-installation-guide.md#plugin-management) section how to install fluent-plugin-influxdb-v2 on your environment.
+See [Plugin Management](../installation/post-installation-guide.md#plugin-management) section for how to install fluent-plugin-influxdb-v2 on your environment.
 
 {% hint style='warning' %}
-Do not install fluent-plugin-influxdb, it does not support for InfluxDB v2.
+Do not install fluent-plugin-influxdb, it does not support InfluxDB v2.
 {% endhint %}
 
 Finally, configure `/etc/fluent/fluentd.conf` as follows:

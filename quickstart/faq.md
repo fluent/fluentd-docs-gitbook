@@ -2,14 +2,14 @@
 
 ## Which version of Ruby does `fluentd` support?
 
-Latest fluentd works on Ruby 3.2 or later.
+The latest fluentd works on Ruby 3.2 or later.
 
-Though the minimum required version is Ruby 3.2 or later, we recommend using `fluentd` with more
+Though the minimum required version is Ruby 3.2 or later, we recommend using `fluentd` with a
 newer stable version.
 
-## What is the difference between v1 or v0.14?
+## What is the difference between v1 and v0.14?
 
-No difference. v1 is built on top of v0.14. Use v1 for a newer installation. We use v1 or v1.x on our document.
+No difference. v1 is built on top of v0.14. Use v1 for a newer installation. We use v1 or v1.x in our document.
 
 ## Operations
 
@@ -51,7 +51,7 @@ There are several reasons:
 
 If you get other errors, Google it.
 
-### fluentd raises `tzinfo` conflict error after installed plugins
+### fluentd raises `tzinfo` conflict error after installing plugins
 
 Fluentd supports tzinfo v1.1 or later and recent td-agent / fluent-package / official images install tzinfo v2 by default. The problem is several plugins depend on ActiveSupport and ActiveSupport doesn't support tzinfo v2. To resolve this problem, there are 2 approaches.
 
@@ -60,7 +60,7 @@ Fluentd supports tzinfo v1.1 or later and recent td-agent / fluent-package / off
 
   so using ActiveSupport for several convenient methods is overengineering.
 
-Former is easier approach.
+The former is the easier approach.
 
 ### I got `no patterns matched` in the log, why?
 

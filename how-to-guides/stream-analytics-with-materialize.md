@@ -18,7 +18,7 @@ Fluentd and Fluent bit are vendor-neutral open-source log and metric collectors 
 
 ![](https://lh5.googleusercontent.com/4n8paH_K5rkJHtcn9l8PhBpI9c6vyPKJxO19KIwxDs1vsFtonfGfQbypcoDlhEBG3y7JrTooVtmJol9DdQgQfb2vR_mS589c0wQDlgEhfsrGjv4UCWDEDneRmrAj79pXpJqzv-o)
 
-If you’d like to start playing with this, here are step-by-step instructions to get setup in 15 minutes or less:
+If you’d like to start playing with this, here are step-by-step instructions to get set up in 15 minutes or less:
 
 1. [Install FluentBit](https://docs.fluentbit.io/manual/installation/getting-started-with-fluent-bit) or [Fluentd](https://docs.fluentd.org/installation) and use any of the many input plugins to read from Syslog, Network data, Kubernetes, Docker containers, Application log files, and more 
 2. Leverage Fluent Bit or Fluentd’s ability to write to JSON with the following output configurations

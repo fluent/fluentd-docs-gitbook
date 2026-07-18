@@ -340,7 +340,7 @@ key_values {"key1": "value1", "key2": "value2"} # written in JSON
 key_values key1:value1,key2:value2
 ```
 
-This configurations will be converted to:
+This configuration will be converted to:
 
 ```ruby
 { key1: "value1", key2: "value2" }

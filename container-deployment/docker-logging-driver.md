@@ -1,6 +1,6 @@
 # Docker Logging Driver
 
-The article describes how to implement a unified logging system for your [Docker](http://www.docker.com) containers. An application in a production environment requires to register certain events or problems during its runtime.
+The article describes how to implement a unified logging system for your [Docker](http://www.docker.com) containers. An application in a production environment needs to register certain events or problems during its runtime.
 
 The old-fashioned way is to write these messages into a log file, but that inherits certain problems. Specifically, when we try to perform some analysis over the registers, or on the other hand, if the application has multiple instances running, the scenario becomes even more complex.
 
@@ -130,7 +130,7 @@ Then you provide the log message with JSON format:
 $ docker run --log-driver=fluentd --log-opt tag=docker ubuntu echo "{\"key\":\"value\"}"
 ```
 
-About `--log-opt tag=...`, please refer at [Driver Options](#driver-options) section.
+About `--log-opt tag=...`, please refer to the [Driver Options](#driver-options) section.
 
 Original Event (without filter plugin):
 
@@ -148,7 +148,7 @@ Filtered Event:
 
 The application log is stored in the `log` field of the record. You can concatenate these logs by using [`fluent-plugin-concat`](https://github.com/fluent-plugins-nursery/fluent-plugin-concat) filter before sending it to the destinations.
 
-At first, you need to create custom docker image due to install the `fluent-plugin-concat` gem in the Fluentd container.
+At first, you need to create a custom docker image to install the `fluent-plugin-concat` gem in the Fluentd container.
 
 Create `Dockerfile` with the following content:
 
@@ -197,7 +197,7 @@ Launch the Fluentd container:
 $ docker run -it -p 24224:24224 -v $(pwd)/demo.conf:/fluentd/etc/demo.conf -e FLUENTD_CONF=demo.conf fluentd-test
 ```
 
-Then you provide the log message contains newlines:
+Then you provide the log message containing newlines:
 
 ```text
 $ docker run --log-driver=fluentd --log-opt tag=docker ubuntu echo "-e:2:in \`/'"$'\n'"-e:2:in \`do_division_by_zero'"$'\n'"-e:4:in \`<main>'"
@@ -262,7 +262,7 @@ $ docker run --log-driver=fluentd --log-opt fluentd-address=192.168.2.4:24225 ub
 $ docker run --log-driver=fluentd --log-opt tag=docker.my_new_tag ubuntu echo "..."
 ```
 
-Additionally, this option allows to specify some internal variables such as `{{.ID}}`, `{{.FullID}}` or `{{.Name}}` like this:
+Additionally, this option allows you to specify some internal variables such as `{{.ID}}`, `{{.FullID}}` or `{{.Name}}` like this:
 
 ```text
 $ docker run --log-driver=fluentd --log-opt tag=docker.{{.ID}} ubuntu echo "..."

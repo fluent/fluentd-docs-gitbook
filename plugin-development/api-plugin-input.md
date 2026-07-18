@@ -130,7 +130,7 @@ Then, the plugin will succeed with zero-downtime restart.
 
 ## Writing Tests
 
-Fluentd input plugin has one or more points to be tested. Others aspects \(parsing configurations, controlling buffers, retries, flushes, etc.\) are controlled by the Fluentd core.
+Fluentd input plugin has one or more points to be tested. Other aspects \(parsing configurations, controlling buffers, retries, flushes, etc.\) are controlled by the Fluentd core.
 
 Fluentd also provides the test drivers for plugins. You can write tests for your own plugins very easily:
 

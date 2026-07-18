@@ -6,7 +6,7 @@ Records will be sent to OpenSearch when the `chunk_keys` condition has been met.
 
 {% hint style='warning' %}
 This document doesn't describe all/most of parameters. For details, refer to the **Further Reading** section.
-If you afford to improve this article, please send pull request to https://github.com/fluent/fluentd-docs-gitbook
+If you can afford to improve this article, please send a pull request to https://github.com/fluent/fluentd-docs-gitbook
 {% endhint %}
 
 ## Installation
@@ -59,7 +59,7 @@ The port number of your OpenSearch node \(default: `9200`\).
 
 ### `hosts` \(optional\)
 
-If you want to connect to more than one OpenSearch nodes, specify this option in the following format:
+If you want to connect to more than one OpenSearch node, specify this option in the following format:
 
 ```text
 hosts host1:port1,host2:port2,host3:port3

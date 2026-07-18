@@ -94,13 +94,13 @@ Control target IO:
 | :--- | :--- | :--- |
 | false | false | 0.14.9 |
 
-Refer these for more details about `parse` section:
+Refer to these for more details about `parse` section:
 
 * [Parser Plugin Overview](../parser/)
 * [Parse Section Configuration](../configuration/parse-section.md)
 
 If you specify `format` in `<source>`, there is a case that `<parse>` section could be omitted.
-But that is deprecated v0.12 compatible notation, recommend to specify `<parse>` section explicitly.
+But that is deprecated v0.12 compatible notation. We recommend specifying `<parse>` section explicitly.
 
 #### `@type`
 

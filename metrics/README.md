@@ -20,7 +20,7 @@ Sometimes, the input/filter/output plugin needs to save its internal metrics in 
 
 ## How To Use
 
-On Fluentd core, metrics plugin will handled on `<metrics>` on `<system>` to set up easily.
+On Fluentd core, metrics plugin will be handled on `<metrics>` on `<system>` to set up easily.
 
 Here is an example with `metrics_local`:
 
@@ -51,7 +51,7 @@ And this `local` type plugin should be used by default.
 
 ## List of 3rd party metrics plugins
 
-NOTE: This 3rd party metrics plugin list does not fully covers all of them.
+NOTE: This 3rd party metrics plugin list does not fully cover all of them.
 
 * [fluent-plugin-metrics-cmetrics](https://github.com/chronosphereio/calyptia-fluent-plugin-metrics-cmetrics)
 

@@ -6,11 +6,11 @@ The `out_mongo_replset` Output plugin writes records into [MongoDB](http://mongo
 
 This plugin is for users using ReplicaSet. If you are not using `ReplicaSet`, please see the [`out_mongo`](mongo.md) article instead.
 
-This plugin has breaking changes since 0.8.0 due to mongo-ruby driver's breaking changes. If you are using a prior 0.7.x series, please be careful to upgrade 1.0.0 or later versions.
+This plugin has breaking changes since 0.8.0 due to mongo-ruby driver's breaking changes. If you are using a prior 0.7.x series, please be careful to upgrade to 1.0.0 or later versions.
 
 {% hint style='warning' %}
 This document doesn't describe all/most of parameters. For details, refer to the **Further Reading** section.
-If you afford to improve this article, please send pull request to https://github.com/fluent/fluentd-docs-gitbook
+If you can afford to improve this article, please send a pull request to https://github.com/fluent/fluentd-docs-gitbook
 {% endhint %}
 
 ## Why Fluentd with MongoDB?

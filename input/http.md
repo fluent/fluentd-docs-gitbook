@@ -438,7 +438,7 @@ curl -X POST -F 'json={"message":"foo+bar"}' http://localhost:9880/app.log
 
 ### How to Enable TLS Encryption?
 
-Since v1.5.0, `in_http` support TLS transport. Here is a configuration example with HTTPS client:
+Since v1.5.0, `in_http` supports TLS transport. Here is a configuration example with HTTPS client:
 
 ```text
 <source>

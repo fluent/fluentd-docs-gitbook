@@ -54,7 +54,7 @@ A debug port for local communication is recommended for troubleshooting. The fol
 You can attach the process using the `fluent-debug` command through `dRuby`.
 
 {% hint style='warning' %}
-Since v1.19.3 or later, the default value of `bind` parameter was changed from '0.0.0.0' to '127.0.0.1'. If you want to allow access from remote, change it manually to '0.0.0.0'. Be careful to do it by your own risk that because this debug feature has no access control and allow to execute any valid code.
+Since v1.19.3 or later, the default value of `bind` parameter was changed from '0.0.0.0' to '127.0.0.1'. If you want to allow access from remote, change it manually to '0.0.0.0'. Be careful to do it at your own risk because this debug feature has no access control and allows executing any valid code.
 {% endhint %}
 
 If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open). [Fluentd](http://www.fluentd.org/) is an open-source project under [Cloud Native Computing Foundation \(CNCF\)](https://cncf.io/). All components are available under the Apache 2 License.

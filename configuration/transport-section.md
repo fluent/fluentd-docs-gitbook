@@ -95,7 +95,7 @@ The max size of socket receive buffer for TCP/UDP. This is used in `SO_RCVBUF` s
   * Default: `false`
   * Version: 1.18.0
   * Specifies whether it must use FIPS mode with OpenSSL. If `true`, Fluentd will check FIPS mode is supported in your environment, if not, just aborts.
-    If `false`, it does nothing and don't care FIPS mode with OpenSSL.
+    If `false`, it does nothing and doesn't care about FIPS mode with OpenSSL.
 
 If you want to accept multiple TLS protocols, use `min_version`/`max_version` instead of `version`. To support the old style, fluentd accepts `TLS1_1` and `TLSv1_1` values.
 

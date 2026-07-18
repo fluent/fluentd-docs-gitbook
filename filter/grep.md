@@ -74,7 +74,7 @@ Specifies the filtering rule. This directive contains either `<regexp>` or `<exc
 </and>
 ```
 
-This is same as below:
+This is the same as below:
 
 ```text
 <regexp>
@@ -122,7 +122,7 @@ Specifies the filtering rule. This directive contains either `<regexp>` or `<exc
 </or>
 ```
 
-This is same as below:
+This is the same as below:
 
 ```text
 <exclude>

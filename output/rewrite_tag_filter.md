@@ -4,7 +4,7 @@ The `out_rewrite_tag_filter` Output plugin provides a rule-based mechanism for r
 
 {% hint style='warning' %}
 This document doesn't describe all/most of parameters. For details, refer to the **Further Reading** section.
-If you afford to improve this article, please send pull request to https://github.com/fluent/fluentd-docs-gitbook
+If you can afford to improve this article, please send a pull request to https://github.com/fluent/fluentd-docs-gitbook
 {% endhint %}
 
 ## How It Works
@@ -17,7 +17,7 @@ When a message is handled by the plugin, the rules are tested one by one in orde
 
 #### Basic Example
 
-This in an example of how to use this plugin to rewrite tags. In the example, records tagged with `app.component` will have their tag prefixed with the value of the key `message`:
+This is an example of how to use this plugin to rewrite tags. In the example, records tagged with `app.component` will have their tag prefixed with the value of the key `message`:
 
 ```text
 <match app.component>
@@ -98,7 +98,7 @@ For more details, see [Plugin Management](../deployment/plugin-management.md).
 
 ## Configuration Example
 
-By design, the configuration drops some pattern records first and then it re-emits the next matched record as the new tag name. The example configuration shown below gives an example on how the plugin can be used to define a number of rules that examine values from different keys and sets the tag depending on the regular expression configured in each rule.
+By design, the configuration drops some pattern records first and then it re-emits the next matched record as the new tag name. The example configuration shown below gives an example on how the plugin can be used to define a number of rules that examine values from different keys and set the tag depending on the regular expression configured in each rule.
 
 The tag value is later used to decide whether the log event shall be dropped or not.
 

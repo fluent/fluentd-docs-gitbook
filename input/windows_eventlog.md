@@ -4,7 +4,7 @@ The `in_windows_eventlog` Input plugin allows Fluentd to read events from the Wi
 
 {% hint style='warning' %}
 This document doesn't describe all/most of parameters. For details, refer to the **Further Reading** section.
-If you afford to improve this article, please send pull request to https://github.com/fluent/fluentd-docs-gitbook
+If you can afford to improve this article, please send a pull request to https://github.com/fluent/fluentd-docs-gitbook
 {% endhint %}
 
 ## Installation

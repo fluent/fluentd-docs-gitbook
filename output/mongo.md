@@ -8,7 +8,7 @@ If you're using `ReplicaSet`, please see the [`out_mongo_replset`](mongo_replset
 
 {% hint style='warning' %}
 This document doesn't describe all/most of parameters. For details, refer to the **Further Reading** section.
-If you afford to improve this article, please send pull request to https://github.com/fluent/fluentd-docs-gitbook
+If you can afford to improve this article, please send a pull request to https://github.com/fluent/fluentd-docs-gitbook
 {% endhint %}
 
 ## Why Fluentd with MongoDB?

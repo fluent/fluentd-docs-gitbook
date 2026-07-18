@@ -22,7 +22,7 @@ Specifies the number of workers.
 | :--- | :--- | :--- |
 | time | 0 | 1.15.0 |
 
-Specifies interval to restart workers that has stopped for some reason. By default, Fluentd immediately restarts stopped workers. You can use this option for stopping workers for a certain period of time.
+Specifies interval to restart workers that have stopped for some reason. By default, Fluentd immediately restarts stopped workers. You can use this option for stopping workers for a certain period of time.
 
 ### `root_dir`
 
@@ -176,7 +176,7 @@ Parses config values strictly. Invalid numerical or boolean values are not allow
 | :--- | :--- | :--- |
 | bool | nil | 1.12.1 |
 
-Force disable the shared socket which is for listening a same port across multiple worker processes. When the shared socket is enabled \(it's the default behavior\), a socket is always created to enable workers to communicate with the supervisor. On Windows, it consumes a dynamic \(a.k.a ephemeral\) TCP port. If you don't prefer it, set this option as `true`. When it's disabled, you may not use plugins that listen a port such as in\_forward, in\_http and in\_syslog.
+Force disable the shared socket which is for listening on the same port across multiple worker processes. When the shared socket is enabled \(it's the default behavior\), a socket is always created to enable workers to communicate with the supervisor. On Windows, it consumes a dynamic \(a.k.a ephemeral\) TCP port. If you don't prefer it, set this option as `true`. When it's disabled, you may not use plugins that listen on a port such as in\_forward, in\_http and in\_syslog.
 
 ### `config_include_dir`
 

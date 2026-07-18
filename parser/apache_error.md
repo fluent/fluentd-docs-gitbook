@@ -8,7 +8,7 @@ See [Parse Section Configurations](../configuration/parse-section.md).
 
 ## Regexp patterns
 
-This is regexp pattern of this plugin:
+This is the regexp pattern of this plugin:
 
 ```text
 expression /^\[[^ ]* (?<time>[^\]]*)\] \[(?<level>[^\]]*)\](?: \[pid (?<pid>[^\]]*)\])? \[client (?<client>[^\]]*)\] (?<message>.*)$/

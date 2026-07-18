@@ -115,7 +115,7 @@ Parser plugins have a method to parse input \(text\) data to a structured record
 
 #### `#parse(text, &block)`
 
-It gets input data as `text`, and call `&block` to feed the results of the parser. The input `text` may contain two or more records so that means the parser plugin might call the `&block` two or more times for one argument.
+It gets input data as `text`, and calls `&block` to feed the results of the parser. The input `text` may contain two or more records so that means the parser plugin might call the `&block` two or more times for one argument.
 
 Parser plugins must implement this method.
 

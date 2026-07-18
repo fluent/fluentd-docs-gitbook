@@ -16,7 +16,7 @@ Here is an example of `out_forward` updating the targets to get the SRV record f
     proto tcp
     hostname example.com
   </service_discovery>
-</source>
+</match>
 ```
 
 ## Parameters

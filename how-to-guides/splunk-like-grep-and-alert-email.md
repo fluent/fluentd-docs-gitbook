@@ -20,9 +20,9 @@ You can install Fluentd via major packaging systems.
 
 ### Install Grep Counter/Mail Plugin
 
-If `out_grepcounter` (fluent-plugin-grepcounter) and `out_mail` (fluent-plugin-mail) are not installed yet, please install it manually.
+If `out_grepcounter` (fluent-plugin-grepcounter) and `out_mail` (fluent-plugin-mail) are not installed yet, please install them manually.
 
-See [Plugin Management](../installation/post-installation-guide.md#plugin-management) section how to install fluent-plugin-mongo on your environment.
+See [Plugin Management](../installation/post-installation-guide.md#plugin-management) section for how to install fluent-plugin-mongo on your environment.
 
 ## Configuration
 
@@ -88,7 +88,7 @@ The configuration above consists of three main parts:
 
 1. The first `<source>` block sets the `httpd` log file as an event source for the daemon.
 2. The second `<match>` block tells Fluentd to count the number of 5xx responses per time window \(3 seconds\). If the number exceeds \(or is equal to\) the given threshold, Fluentd will emit an event with the tag `error_5xx.apache.access`.
-3. The third `<match>` block accepts events with the tag `error_5xx.apache.access`, and send an email to `alert@example.com` per event.
+3. The third `<match>` block accepts events with the tag `error_5xx.apache.access`, and sends an email to `alert@example.com` per event.
 
 In this way, fluentd now works as an email alerting system that monitors the web service for you.
 

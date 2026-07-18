@@ -1,6 +1,6 @@
 # ltsv
 
-The `ltsv` formatter plugin output an event as [LTSV](http://ltsv.org).
+The `ltsv` formatter plugin outputs an event as [LTSV](http://ltsv.org).
 
 ```text
 field1[label_delimiter]value1[delimiter]field2[label_delimiter]value2[newline]
@@ -49,7 +49,7 @@ Specify newline characters.
 | :--- | :--- | :--- |
 | string | \`\` \(SPACE\) | 1.12.2 |
 
-Safe replacement to substitute delimiters characters in records.
+Safe replacement to substitute delimiter characters in records.
 
 ## Example
 

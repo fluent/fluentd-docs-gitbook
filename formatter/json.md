@@ -1,6 +1,6 @@
 # json
 
-The `json` formatter plugin format an event to JSON.
+The `json` formatter plugin formats an event to JSON.
 
 By default, `json` formatter result doesn't contain `tag` and `time` fields.
 

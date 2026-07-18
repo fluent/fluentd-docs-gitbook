@@ -4,7 +4,7 @@ The following article gives a general overview of how events are processed by [F
 
 ## Basic Setup
 
-The configuration file is the fundamental piece to connect all things together, as it allows to define which **Inputs** or listeners [Fluentd](http://fluentd.org) will have and set up common matching rules to route the **Event** data to a specific **Output**.
+The configuration file is the fundamental piece to connect all things together, as it allows you to define which **Inputs** or listeners [Fluentd](http://fluentd.org) will have and set up common matching rules to route the **Event** data to a specific **Output**.
 
 We will use the [`in_http`](../input/http.md) and the [`out_stdout`](../output/stdout.md) plugins as examples to describe the events cycle. The following is a basic definition on the configuration file to specify an `http` input, for short: we will be listening for **HTTP Requests**:
 
@@ -26,7 +26,7 @@ Now, let's define a **Matching** rule to print the incoming requests to the stan
 </match>
 ```
 
-The **Match** sets a rule where each **Incoming** event that arrives with a **Tag** equals to `test.cycle`, will match and use the **Output** plugin type called `stdout`. At this point we have an **Input** type, a _Match_ and an **Output**.
+The **Match** sets a rule where each **Incoming** event that arrives with a **Tag** equal to `test.cycle`, will match and use the **Output** plugin type called `stdout`. At this point we have an **Input** type, a _Match_ and an **Output**.
 
 Let's test this setup using `curl`:
 
@@ -120,7 +120,7 @@ A **Filter** behaves like a rule to pass or reject an event. The following confi
 
 ![Visualization](../.gitbook/assets/screen-shot-2021-03-16-at-12.50.12-pm.png)
 
-As you can see, the new **Filter** definition will be a mandatory step to pass before the control goes to the **Match** section. The **Filter** basically will accept or reject the **Event** based on its `type` and rule. For our example we want to discard any user **logout** action. We only care about the **logins**. The way to accomplish this, is doing a `grep` inside the **Filter** to exclude any message on which `action` key have the **logout** string.
+As you can see, the new **Filter** definition will be a mandatory step to pass before the control goes to the **Match** section. The **Filter** basically will accept or reject the **Event** based on its `type` and rule. For our example we want to discard any user **logout** action. We only care about the **logins**. The way to accomplish this, is doing a `grep` inside the **Filter** to exclude any message on which the `action` key has the **logout** string.
 
 From a terminal, run the following two `curl` commands containing different `action` values:
 
@@ -171,11 +171,11 @@ $ fluentd -c in_http.conf
 2019-12-16 19:08:06.934660000 +0900 test.cycle: {"action":"login","user":2}
 ```
 
-As you can see, the **Events** follow a _step-by-step cycle_ where they are processed in order, from top-to-bottom. The new engine allows to integrate many **Filters** as required. Also, considering that the configuration file may grow and start getting a bit complex for the readers, a new feature called **Labels** has been introduced to solve this potential problem.
+As you can see, the **Events** follow a _step-by-step cycle_ where they are processed in order, from top-to-bottom. The new engine allows you to integrate many **Filters** as required. Also, considering that the configuration file may grow and start getting a bit complex for the readers, a new feature called **Labels** has been introduced to solve this potential problem.
 
 ### Labels
 
-This new implementation called **Labels**, aims to solve the configuration file complexity and allows to define new **Routing** sections that do not follow the top-to-bottom order, instead they act like linked references. Taking the previous example, we will modify the setup as follows:
+This new implementation called **Labels**, aims to solve the configuration file complexity and allows you to define new **Routing** sections that do not follow the top-to-bottom order, instead they act like linked references. Taking the previous example, we will modify the setup as follows:
 
 ```text
 <source>
@@ -214,13 +214,13 @@ The new configuration contains a `@label` parameter under `source` indicating th
 
 ### Buffers
 
-In this example, we use `stdout`, the non-buffered output. But in production, you use outputs in buffered mode e.g. `forward`, `mongodb`, `s3` and etc. An output plugin using buffered mode first stores the received events into buffers and then writes out buffers to a destination after meeting flush conditions. So, using the buffered output, you do not see the received events immediately unlike `stdout` non-buffered output.
+In this example, we use `stdout`, the non-buffered output. But in production, you use outputs in buffered mode e.g. `forward`, `mongodb`, `s3`, etc. An output plugin using buffered mode first stores the received events into buffers and then writes out buffers to a destination after meeting flush conditions. So, using the buffered output, you do not see the received events immediately unlike `stdout` non-buffered output.
 
 Buffer is important for reliability and throughput. See [Output](../output/) and [Buffer](../buffer/) articles.
 
 ## Conclusion
 
-Once the events are reported by the [Fluentd](http://fluend.org) engine on the **Source**, they are processed step-by-step or inside a referenced **Label**. Any **Event** may be filtered out at any moment. The new **Routing Engine** behavior provides more flexibility and makes easier the processing before reaching the **Output** plugin.
+Once the events are reported by the [Fluentd](http://fluentd.org) engine on the **Source**, they are processed step-by-step or inside a referenced **Label**. Any **Event** may be filtered out at any moment. The new **Routing Engine** behavior provides more flexibility and makes easier the processing before reaching the **Output** plugin.
 
 ## Learn More
 

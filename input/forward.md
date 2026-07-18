@@ -337,7 +337,7 @@ The array of usernames.
 
 ## Protocol
 
-This plugin accepts both JSON or [MessagePack](http://msgpack.org/) messages and automatically detects which one is used. Internally, Fluentd uses MessagePack as it is more efficient than JSON.
+This plugin accepts both JSON and [MessagePack](http://msgpack.org/) messages and automatically detects which one is used. Internally, Fluentd uses MessagePack as it is more efficient than JSON.
 
 The time value is an `EventTime` or a platform-specific integer and is based on the output of Ruby's `Time.now.to_i` function. On Linux, BSD, and Mac systems, this is the number of seconds since 1970.
 
@@ -441,7 +441,7 @@ $ openssl s_client -connect localhost:24224 \
 
 If the connection gets established successfully, your setup is working fine.
 
-+For `fluentd` and `fluent-bit` combination, see Banzai Cloud article: [Secure logging on Kubernetes with Fluentd and Fluent Bit](https://banzaicloud.com/blog/k8s-logging-tls/).
+For `fluentd` and `fluent-bit` combination, see Banzai Cloud article: [Secure logging on Kubernetes with Fluentd and Fluent Bit](https://banzaicloud.com/blog/k8s-logging-tls/).
 
 ### How to Enable Password Authentication
 

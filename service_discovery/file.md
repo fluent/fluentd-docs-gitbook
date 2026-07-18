@@ -14,7 +14,7 @@ Here is an example with `out_forward` updating targets by sending data:
     @type file
     path "/etc/fluentd/sd.yaml"
   </service_discovery>
-</source>
+</match>
 ```
 
 Here is an example of target list file \(`/etc/fluentd/sd.yaml`\):

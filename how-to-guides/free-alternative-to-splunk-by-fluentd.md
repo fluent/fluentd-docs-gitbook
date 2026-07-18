@@ -53,8 +53,8 @@ $ ./bin/elasticsearch
 
 {% hint style='info' %}
 * You can also install Elasticsearch \(and Kibana\) using RPM/DEB packages. For details, please refer to [the official instructions](https://www.elastic.co/downloads).
-* You can create enrollment token for kibana. Use `./bin/elasticsearch-create-enrollment-token -s kibana`.
-* You can reset default password for `elastic`, Use `./bin/elasticsearch-reset-password -u elastic`.
+* You can create an enrollment token for kibana. Use `./bin/elasticsearch-create-enrollment-token -s kibana`.
+* You can reset the default password for `elastic`, Use `./bin/elasticsearch-reset-password -u elastic`.
 {% endhint %}
 
 ### Set Up Kibana
@@ -83,7 +83,7 @@ You can install Fluentd via major packaging systems.
 
 Next, we'll install the Elasticsearch plugin for Fluentd: fluent-plugin-elasticsearch. Then, install `fluent-plugin-elasticsearch`.
 
-See [Plugin Management](../installation/post-installation-guide.md#plugin-management) section how to install fluent-plugin-elasticsearch on your environment.
+See [Plugin Management](../installation/post-installation-guide.md#plugin-management) section for how to install fluent-plugin-elasticsearch on your environment.
 
 We'll configure fluent-package \(Fluentd\) to interface properly with Elasticsearch. Please modify `/etc/fluent/fluentd.conf` as shown below:
 

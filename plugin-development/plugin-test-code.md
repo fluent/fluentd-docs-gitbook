@@ -41,7 +41,7 @@ The recommended fluentd plugin project structure is:
 
 ## Plugin Test Driver Overview
 
-There are some useful Test Drivers for plugin testing. We can write test code for plugins as following:
+There are some useful Test Drivers for plugin testing. We can write test code for plugins as follows:
 
 ```ruby
 # Load the module that defines common initialization method (Required)
@@ -112,7 +112,7 @@ end
 
 ## Test Driver Base API
 
-The methods in this section are available for all Test Driver.
+The methods in this section are available for all Test Drivers.
 
 ### `initialize(klass, opts: {}, &block)`
 
@@ -480,7 +480,7 @@ d.filtered_records
 * `wait_flush_completion`: if `true`, waiting for `flush` to complete
 * `force_flush_retry`: if `true`, retrying flush forcibly
 
-Run Test Driver. This Test Driver will be stop running immediately after evaluating the `block` if given.
+Run Test Driver. This Test Driver will stop running immediately after evaluating the `block` if given.
 
 Otherwise, you must register conditions to stop running Test Driver.
 

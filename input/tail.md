@@ -555,7 +555,7 @@ This parameter does not fit the typical application log use cases, so check your
 
 `in_tail` stops reading the new lines and pos file updates until `BufferOverflowError` is resolved. After resolving `BufferOverflowError`, resume emitting new lines and pos file updates.
 
-### `in_tail` is sometimes stopped when monitor lots of files. How to avoid it?
+### `in_tail` is sometimes stopped when monitoring lots of files. How to avoid it?
 
 Try to set `enable_stat_watcher false` in `in_tail` setting. We got several reports that `in_tail` is stopped when `*` is included in `path`, and the problem is resolved by disabling the `inotify` events.
 

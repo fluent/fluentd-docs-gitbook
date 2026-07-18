@@ -51,7 +51,7 @@ Like the `<match>` directive for output plugins, `<filter>` matches against a ta
 </filter>
 ```
 
-Only the events whose `message` field contain `cool` get the new field `hostname` with the machine's hostname as its value.
+Only the events whose `message` field contains `cool` get the new field `hostname` with the machine's hostname as its value.
 
 Users can create their own custom plugins with a bit of Ruby. See [this section](../plugin-development/#filter-plugins) for more information.
 

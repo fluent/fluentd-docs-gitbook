@@ -20,7 +20,7 @@ Linux capabilities grant privileges to processes and executables that are otherw
 
 Fluentd uses the [`capng_c` gem](https://github.com/fluent-plugins-nursery/capng_c) to handle Linux capabilities.
 
-Add this line to your Fluentd' or td-agent's Gemfile:
+Add this line to your Fluentd's or td-agent's Gemfile:
 
 ```ruby
 gem 'capng_c'
@@ -183,7 +183,7 @@ If this article is incorrect or outdated, or omits critical information, please 
 
 ## Capability handling on docker container
 If you would like to collect logs from a file as a non-root user, you can use `CAP_DAC_READ_SEARCH` Linux capabilities.
-However, `CAP_DAC_READ_SEARCH` now cannot be used on docker container by default.
+However, `CAP_DAC_READ_SEARCH` now cannot be used on a docker container by default.
 
 When using `CAP_DAC_READ_SEARCH` in a Docker container, you need to add the `--cap-add DAC_READ_SEARCH` option to the `docker run` command.
 Or, if you are using `docker compose`, you need to add `cap_add` to the service definition.

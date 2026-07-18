@@ -318,7 +318,7 @@ If your syslog uses octet counting mode, set `frame_type octet_count` in `in_sys
 
 ### How to Enable TLS Encryption
 
-Since v1.5.0, `in_syslog` support TLS transport. Here is the configuration example with `rsyslog`:
+Since v1.5.0, `in_syslog` supports TLS transport. Here is the configuration example with `rsyslog`:
 
 * `in_syslog`
 
@@ -370,7 +370,7 @@ With this configuration, 3 workers share 5140 port. No need of an additional por
 
 First, check your message format follows RFC3164/RFC5424 or not. Some systems say RFC3164/RFC5424 but it sends non-RFC3164/RFC5424 message, e.g. invalid priority, different timestamp, lack/add fields.
 
-If only timestamp is different, configure `time_format` in `<parse>` may help.
+If only timestamp is different, configuring `time_format` in `<parse>` may help.
 
 If other parts are different, the `syslog` parser cannot parse your message. To resolve the problem, there are several approaches:
 

@@ -19,7 +19,7 @@ The following are deprecated (EOL) fluent-package and td-agent information:
 * About [Fluent Package (fluent-package) v5 (EOL)](https://www.fluentd.org/blog/schedule-for-fluent-package-5-eol), See [Install by .msi Package v5](./install-by-msi-fluent-package-v5.md).
 * About deprecated [Treasure Agent (td-agent) v4 (EOL)](https://www.fluentd.org/blog/schedule-for-td-agent-4-eol), see [Install by .msi Installer v4 (Windows)](../install-by-msi-td-agent-v4.md).
 * About deprecated [Treasure Agent (td-agent) 3 will not be maintained anymore](https://www.fluentd.org/blog/schedule-for-td-agent-3-eol), see [Install by msi Package  v3](../install-by-msi-td-agent-v3.md).
-* Do not directly upgrade from v3 to v5. Such a workflow is not supported. It causes a trouble. Upgrade in stages. (v3 to v4, then v4 to v5)
+* Do not directly upgrade from v3 to v5. Such a workflow is not supported. It causes trouble. Upgrade in stages. (v3 to v4, then v4 to v5)
 {% endhint %}
 
 ### Step 1: Install `fluent-package`
@@ -77,12 +77,12 @@ Now `fluentd` starts listening to Windows Eventlog, and will print records to st
 ### Step 5: Run `fluentd` as Windows service
 
 Fluentd is registered as a Windows service permanently by the msi installer.
-Since version 5.0.0, the service does not automatically start after installed. You must manually start it.
+Since version 5.0.0, the service does not automatically start after installation. You must manually start it.
 
-Choose one of your preferred way:
+Choose one of your preferred ways:
 
 * Using GUI
-* Using `net.ext`
+* Using `net.exe`
 * Using Powershell Cmdlet
 
 #### Using GUI

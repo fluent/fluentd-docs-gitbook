@@ -203,7 +203,7 @@ For the `types` parameter, the following types are supported:
 
 * **`time_format_fallbacks`** \(\) \(optional\): uses the specified time format as a fallback in the specified order.
 
-  You can parse undetermined time format by using `time_format_fallbacks`. This options is enabled when `time_type` is `mixed`.
+  You can parse undetermined time format by using `time_format_fallbacks`. This option is enabled when `time_type` is `mixed`.
 
   * Default: `nil`
 

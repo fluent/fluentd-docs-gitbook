@@ -111,7 +111,7 @@ When `gzip` is specified, `.gz` is automatically added to the output file path a
 
 ## How to resend secondary file
 
-The secondary file can be resend by `fluent-cat` command.
+The secondary file can be resent by `fluent-cat` command.
 
 Here is the example to resend `dump.bin.0` to `127.0.0.1:24224` using `fluent-cat`.
 

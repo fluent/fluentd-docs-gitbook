@@ -115,7 +115,7 @@ The proxy for HTTP request.
 | :--- | :--- | :--- |
 | string | nil | 1.7.0 |
 
-`Content-Type` for HTTP request. `out_http` automatically set `Content-Type` for built-in formatters when this parameter is not specified.
+`Content-Type` for HTTP request. `out_http` automatically sets `Content-Type` for built-in formatters when this parameter is not specified.
 
 Here is a table:
 
@@ -132,7 +132,7 @@ Here is a table:
 | :--- | :--- | :--- |
 | bool | false | 1.10.4 |
 
-Using the array format of JSON. This parameter is used and valid only for json format. When `json_array` as true, Content-Type should be `application/json` and be able to use JSON data for the HTTP request body.
+Using the array format of JSON. This parameter is used and valid only for json format. When `json_array` is true, Content-Type should be `application/json` and be able to use JSON data for the HTTP request body.
 
 * `json_array true`
 
@@ -496,6 +496,6 @@ And, receiver `in_http` configuration should be:
 </source>
 ```
 
-But, we recommend to use in/out [`forward`](forward.md) plugin to communicate with two Fluentd instances due to `at-most-once` and `at-least-once` semantics for rigidity.
+But, we recommend using in/out [`forward`](forward.md) plugin to communicate with two Fluentd instances due to `at-most-once` and `at-least-once` semantics for rigidity.
 
-If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open). [Fluentd](http://www.fluentd.org/) is an open article- source project under [Cloud Native Computing Foundation \(CNCF\)](https://cncf.io/). All components are available under the Apache 2 License.
+If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open). [Fluentd](http://www.fluentd.org/) is an open-source project under [Cloud Native Computing Foundation \(CNCF\)](https://cncf.io/). All components are available under the Apache 2 License.

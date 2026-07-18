@@ -4,7 +4,7 @@
 
 With fluentd, you can install and create custom plugins.
 
-To install or create a custom plugin, the file name need to be `<TYPE>_<NAME>.rb`. Note that `TYPE` is a prefix indicating the type of plugin, and could be:
+To install or create a custom plugin, the file name needs to be `<TYPE>_<NAME>.rb`. Note that `TYPE` is a prefix indicating the type of plugin, and could be:
 
 | prefix | plugin type |
 | :---: | :---: |
@@ -65,7 +65,7 @@ end
 
 See the respective plugin development article, "How to write XXX plugin", for API details.
 
-A single Ruby script is easy to write but hard to test, manage, version. publish, etc.
+A single Ruby script is easy to write but hard to test, manage, version, publish, etc.
 
 If you want to publish a plugin under version control, you should use `bundle gem` to create the plugin source tree and then `git init` it. It requires the `bundler` gem in your Ruby environment.
 
@@ -167,7 +167,7 @@ The **copy** output plugin copies the matched events to the multiple output plug
 </match>
 ```
 
-You can use **stdout** filter instead of **copy** and **stdout** combination. The result is the same as above but more simpler.
+You can use **stdout** filter instead of **copy** and **stdout** combination. The result is the same as above but simpler.
 
 ```text
 <source>
@@ -193,7 +193,7 @@ Fluent::Test::Driver::Output  # Test driver for output plugins.
 Fluent::Test::Driver::Filter  # Test driver for filter plugins.
 ```
 
-It is strongly recommended to use `test-unit` as the unit test library. Fluentd's test drivers assume that the test code uses it. Add `test-unit`as the development dependency in your `gemspec`, add `Rake` task to run tests in your `Rakefile` and write test code in `test/plugin/test_in_my_awesome.rb`.
+It is strongly recommended to use `test-unit` as the unit test library. Fluentd's test drivers assume that the test code uses it. Add `test-unit` as the development dependency in your `gemspec`, add `Rake` task to run tests in your `Rakefile` and write test code in `test/plugin/test_in_my_awesome.rb`.
 
 **gemspec**
 
@@ -326,16 +326,16 @@ It is recommended to use the new v1 plugin API for writing new plugins.
 
 ### Send a patch or fork?
 
-If you have a problem with any existing plugins or a new feature idea, sending a patch is better. If the plugin author is non-active, try to become its new plugin maintainer first. Forking a plugin and release its alternative version, e.g. `fluent-plugin-xxx-alt` is considered the last option.
+If you have a problem with any existing plugins or a new feature idea, sending a patch is better. If the plugin author is non-active, try to become its new plugin maintainer first. Forking a plugin and releasing its alternative version, e.g. `fluent-plugin-xxx-alt` is considered the last option.
 
-### Be careful not breaking Fluentd's core functionality
+### Be careful not to break Fluentd's core functionality
 
 Any fluentd plugin can unknowingly break fluentd completely (and possibly break other plugins) by requiring some incompatible modules.
 
 One typical example is reloading `yajl/json_gem` from plugin. (`yajl/json_gem` compatibility layer is problematic, not for `yajl` itself)
 It breaks a functionality to parse Fluentd's configuration completely.
 
-Fluentd's plug-in mechanism has a merit to extend functionality, but plugin developer must be careful a possibility of breaking it.
+Fluentd's plug-in mechanism has a merit to extend functionality, but plugin developer must be careful about the possibility of breaking it.
 
 
 ## Further Reading

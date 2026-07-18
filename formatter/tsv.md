@@ -1,6 +1,6 @@
 # tsv
 
-The `tsv` formatter plugin converts an event as TSV.
+The `tsv` formatter plugin converts an event to TSV.
 
 ```text
 value1[delimiter]value2[newline]
@@ -59,7 +59,7 @@ In non-Windows:
 192.168.0.1\t777\tPUT\n
 ```
 
-In non-Windows:
+In Windows:
 
 ```text
 192.168.0.1\t777\tPUT\r\n

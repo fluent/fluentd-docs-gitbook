@@ -1,6 +1,6 @@
 # single\_value
 
-The `single_value` formatter plugin output the value of a single field instead of the whole record.
+The `single_value` formatter plugin outputs the value of a single field instead of the whole record.
 
 This formatter is often used in conjunction with [`none` parser](../parser/none.md) in input plugin.
 

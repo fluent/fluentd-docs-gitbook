@@ -105,7 +105,7 @@ Overwrites the default value in this plugin.
 #### Common Buffer / Output parameters
 
 In addition, you can configure other common settings.
-Please see the followings for details.
+Please see the following for details.
 
 * [Buffer Section Configurations](../configuration/buffer-section.md)
 * [Buffer Plugin Overview](../buffer/)

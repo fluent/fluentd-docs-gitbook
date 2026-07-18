@@ -11,9 +11,9 @@ Please see [fluent-package-v5-vs-td-agent](../../quickstart/fluent-package-v5-vs
 {% hint style='info' %}
 NOTE:
 
-* `fluent-package` will be shipped in two flavors - normal release version and LTS (Long Term Support) version. See [Scheduled support lifecycle announcement about Fluent Package v6](https://www.fluentd.org/blog/fluent-package-v6-scheduled-lifecycle) about difference between this two flavors.
+* `fluent-package` will be shipped in two flavors - normal release version and LTS (Long Term Support) version. See [Scheduled support lifecycle announcement about Fluent Package v6](https://www.fluentd.org/blog/fluent-package-v6-scheduled-lifecycle) about difference between these two flavors.
 * If you upgrade from `td-agent` v4, See [Upgrade to fluent-package v5](https://www.fluentd.org/blog/upgrade-td-agent-v4-to-v5).
-* Do not directly upgrade from v4 to v6. Such a workflow is not supported. It causes a trouble. Upgrade in stages. (v4 to v5, then v5 to v6)
+* Do not directly upgrade from v4 to v6. Such a workflow is not supported. It causes trouble. Upgrade in stages. (v4 to v5, then v5 to v6)
 {% endhint %}
 
 {% hint style='danger' %}

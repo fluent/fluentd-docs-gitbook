@@ -1,6 +1,6 @@
 # csv
 
-The `csv` formatter plugin output an event as CSV.
+The `csv` formatter plugin outputs an event as CSV.
 
 ```text
 "value1"[delimiter]"value2"[delimiter]"value3"[newline]

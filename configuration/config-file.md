@@ -25,7 +25,7 @@ $ sudo vi /etc/fluent/fluentd.conf
 #### td-agent (EOL)
 
 {% hint style='warning' %}
-As `td-agent` had already reached EOL, we recommend to use `fluent-package` (the successor to `td-agent`).
+As `td-agent` had already reached EOL, we recommend using `fluent-package` (the successor to `td-agent`).
 
 * [fluent-package v5 vs td-agent v4](../quickstart/fluent-package-v5-vs-td-agent.md)
 {% endhint %}
@@ -289,7 +289,7 @@ If `<label @ERROR>` is set, the events are routed to this label when the related
 
 The `@ROOT` label is a builtin label used for getting root router by plugin's `event_emitter_router` API.
 
-This label is introduced since v1.14.0 to assign a label back to the default route. For example, timed-out event records are handled by the concat filter can be sent to the default route.
+This label is introduced since v1.14.0 to assign a label back to the default route. For example, timed-out event records handled by the concat filter can be sent to the default route.
 
 ## 6. Limit to specific workers: the `worker` directive
 

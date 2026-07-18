@@ -113,7 +113,7 @@ Above incoming event is parsed as:
 
 ```text
 time:
-2021-06-24 14:33:35.475115751 +0900 (It vary on parsed timestamp)
+2021-06-24 14:33:35.475115751 +0900 (It varies on parsed timestamp)
 
 record:
 {
@@ -162,7 +162,7 @@ Without `reserve_data`, the result is:
 | :--- | :--- | :--- |
 | bool | false | 1.2.2 |
 
-Removes `key_name` field when parsing is succeeded.
+Removes `key_name` field when parsing succeeds.
 
 ```text
 <filter foo.bar>

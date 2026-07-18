@@ -14,7 +14,7 @@ It is included in Fluentd's core.
 </source>
 ```
 
-This configuration launches HTTP server with 24220 port and get metrics:
+This configuration launches HTTP server with 24220 port and gets metrics:
 
 ```text
 $ curl http://host:24220/api/plugins.json
@@ -224,7 +224,7 @@ Here is the response:
 }
 ```
 
-`steps` field in `retry` show the number of flush failures, so next is the third try. `retry_count` is the total number of flush failures. This value is cleared when `fluentd` restarts, not when retry succeeds.
+`steps` field in `retry` shows the number of flush failures, so next is the third try. `retry_count` is the total number of flush failures. This value is cleared when `fluentd` restarts, not when retry succeeds.
 
 ## Tips and Tricks
 
@@ -242,7 +242,7 @@ The following list shows the available query parameters:
 | :--- | :--- | :--- |
 | `debug` | Constant | Expose additional internal metrics. Requires `include_debug_info true` |
 | `with_ivars` | Variable names | Expose the specified instance variables of each plugin. Requires `include_debug_info true` |
-| `tag` | Event tag | Only show plugins that matches the specified tag |
+| `tag` | Event tag | Only show plugins that match the specified tag |
 | `@id` | Plugin id | Filter plugins by plugin id |
 | `@type` | Plugin type | Filter plugins by plugin type |
 
