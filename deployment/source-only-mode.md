@@ -45,7 +45,7 @@ Please see the following for details.
 
 ### Recovery
 
-If Fluentd stops with the temporary buffer remained, you need to recover the buffer to launch Fluentd with source-only mode again.
+If Fluentd stops with the temporary buffer remaining, you need to recover the buffer to launch Fluentd with source-only mode again.
 
 Note that a different path will be used each time unless you configure the temporary buffer path explicitly.
 In this case, you can recover the buffer as follows.
@@ -54,7 +54,7 @@ In this case, you can recover the buffer as follows.
 1. Start Fluentd with source-only mode again.
 1. Send `SIGWINCH` to the supervisor to load the buffer.
 
-If this recovery is necessary, i.e., Fluentd stops with the temporary buffer remained, the following warning log will be displayed.
+If this recovery is necessary, i.e., Fluentd stops with the temporary buffer remaining, the following warning log will be displayed.
 You can confirm the path to configure by this log.
 
 ```

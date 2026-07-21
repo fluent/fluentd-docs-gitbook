@@ -49,7 +49,7 @@ Since v1.13.0, `discovery_manager` is almost automatically configured only by ca
 #### Parameters
 
 * `title`: Thread name. Must be unique. \(required\)
-* `static_default_service_directive`: The directive name of each service when "static" service discovery is enabled in default.
+* `static_default_service_directive`: The directive name of each service when "static" service discovery is enabled by default.
 * `load_balancer`: object which has two methods \#rebalance and \#select\_service.
 * `custom_build_method`: The custom method to build the service.
 * `interval`: Time interval for updating target service.
@@ -74,7 +74,7 @@ It manages service discovery functionalities such as updating target services an
 
 * [`out_forward`](../output/forward.md)
 
-## Migration guide from `service_discovery_create_manager` to more simpler helper method
+## Migration guide from `service_discovery_create_manager` to a simpler helper method
 
 Here is the guide to migrate to newer API which is available since v1.13.0.
 

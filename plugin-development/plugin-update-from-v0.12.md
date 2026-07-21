@@ -78,7 +78,7 @@ Add a Requirements section to `README.md` like this:
 | &gt;= 1.0.0 | &gt;= v1 | &gt;= 2.4 |
 | &lt; 1.0.0 | &gt;= v0.12.0 | &gt;= 2.1 |
 
-This helps that plugin users can understand plugin requirements.
+This helps plugin users understand plugin requirements.
 
 ### 6. Release New Version
 
@@ -468,7 +468,7 @@ For more details, see [Understanding Chunking and Metadata](api-plugin-output.md
 
 For the multi-output plugins \(sub-class of `Fluent::MultiOutput`\), there are many points to be considered.
 
-If the plugin uses `<store>` sections and instantiates plugins per each store section, use `Fluent::Plugin::MultiOutput`. See code to know how to use it: `lib/fluent/plugin/multi_output.rb` or some built-in plugins such as`out_copy` and `out_roundrobin`.
+If the plugin uses `<store>` sections and instantiates plugins per each store section, use `Fluent::Plugin::MultiOutput`. See code to know how to use it: `lib/fluent/plugin/multi_output.rb` or some built-in plugins such as `out_copy` and `out_roundrobin`.
 
 Otherwise, your plugin does something curious for Fluentd. Read code of `lib/fluent/plugin/output.rb` and `lib/fluent/plugin/bare_output.rb`, and consider which is better for your plugin. But, it is advised against using `Fluent::Plugin::BareOutput` for most use cases.
 

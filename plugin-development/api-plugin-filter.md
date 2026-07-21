@@ -85,10 +85,10 @@ end
 
 #### `#filter_stream(tag, es)`
 
-This method implements the event stream based filtering logic. If you hard to implement the logic with `filter`, e.g. need to handle multiple records in one processing, use this method.
+This method implements the event stream based filtering logic. If you find it hard to implement the logic with `filter`, e.g. need to handle multiple records in one processing, use this method.
 
 * `tag`: is a `String`,
-* `es` is a `Fluent::EventStream` classes. See [EventStream code](https://github.com/fluent/fluentd/blob/master/lib/fluent/event.rb)
+* `es` is a `Fluent::EventStream` class. See [EventStream code](https://github.com/fluent/fluentd/blob/master/lib/fluent/event.rb)
 
 The return value of this method should be `MultiEventStream`. If it is `nil`, the event will be discarded.
 

@@ -34,7 +34,7 @@ You can install Fluentd via major packaging systems.
 
 If `out_norikra` (fluent-plugin-norikra) is not installed yet, please install it manually.
 
-See [Plugin Management](../installation/post-installation-guide.md#plugin-management) section how to install fluent-plugin-norikra on your environment.
+See [Plugin Management](../installation/post-installation-guide.md#plugin-management) section for how to install fluent-plugin-norikra on your environment.
 
 ### Installing Norikra
 
@@ -95,7 +95,7 @@ The output destination will be Norikra. The output configuration should look lik
 
 The `<match>` section specifies the glob pattern used to look for the matching tags. If the tag of a log is matched, the respective `match` configuration is used \(i.e. the log is routed accordingly\).
 
-The `norikra` attribute specifies the Norikra server's RPC host and port \(default: `26571`\). By `target_map_tag true` and `remove_tag_prefix data`, `out_norikra` handle the rest of tags \(e.g. `foo` for `data.foo`\) as the target, which is the name of the set of events as same as table name of RDBMS.
+The `norikra` attribute specifies the Norikra server's RPC host and port \(default port: `26571`\). With `target_map_tag true` and `remove_tag_prefix data`, `out_norikra` handles the rest of tags \(e.g. `foo` for `data.foo`\) as the target. A target is the name of a set of events, similar to a table name in an RDBMS.
 
 The `<default>` section specifies which fields are sent to the Norikra server. We can also specify these sets per target with `<target NAME>...</target>`. For more details, refer to [`fluent-plugin-norikra`](https://github.com/norikra/fluent-plugin-norikra).
 

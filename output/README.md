@@ -18,7 +18,7 @@ This article gives an overview of the Output Plugin.
 
 Fluentd v1.0 output plugins have three \(3\) buffering and flushing modes:
 
-* **Non-Buffered** mode does not buffer data and write out results
+* **Non-Buffered** mode does not buffer data and writes out results
 
   immediately.
 
@@ -173,7 +173,7 @@ Supported modes:
 
 * `drop_oldest_chunk`
 
-  This mode drops the oldest chunks. This mode is useful for monitoring system destinations. For monitoring, newer events are important than older.
+  This mode drops the oldest chunks. This mode is useful for monitoring system destinations. For monitoring, newer events are more important than older.
 
 ### Control Retrying
 
@@ -254,7 +254,7 @@ For other configuration parameters available in `<buffer>` section, see [Buffer 
 
 ## Secondary Output
 
-In `buffered` mode, the user can specify `<secondary>` with any output plugin in `<match>` configuration. If plugins continue to fail writing buffer chunks and exceeds the timeout threshold for retries, then output plugins will delegate the writing of the buffer chunk to the secondary plugin.
+In `buffered` mode, the user can specify `<secondary>` with any output plugin in `<match>` configuration. If plugins continue to fail writing buffer chunks and exceed the timeout threshold for retries, then output plugins will delegate the writing of the buffer chunk to the secondary plugin.
 
 `<secondary>` is useful for backup when destination servers are unavailable, e.g. `forward`, `mongo`, etc. We strongly recommend `out_secondary_file` plugin for `<secondary>`.
 

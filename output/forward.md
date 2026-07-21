@@ -189,7 +189,7 @@ Use service discovery plugin instead of fixed `<server>` list. See also [Service
 | :--- | :--- | :--- |
 | bool | false | 0.14.0 |
 
-Changes the protocol to **at-least-once**. The plugin waits the ack from destination's `in_forward` plugin.
+Changes the protocol to **at-least-once**. The plugin waits for the ack from destination's `in_forward` plugin.
 
 ### `ack_response_timeout`
 
@@ -561,7 +561,7 @@ Valid logical store names are:
 * WEBHOSTING
 * REMOTE DESKTOP
 
-Logical store name is case-insensitive. Note that this section configurations work only for Windows.
+Logical store name is case-insensitive. Note that these section configurations work only for Windows.
 
 ```text
 <match debug.**>
@@ -595,7 +595,7 @@ If you are using a self-signed certificate, export the certificate file from Win
 </match>
 ```
 
-Note that these configuration works for root certificate which is put in Windows Certstore. Currently, the chained certificate is not supported.
+Note that this configuration works for root certificate which is put in Windows Certstore. Currently, the chained certificate is not supported.
 
 Certificate thumbprint is able to obtain with [`certutil`](https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/certutil) command.
 

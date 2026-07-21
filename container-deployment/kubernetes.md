@@ -29,7 +29,7 @@ Before getting started, make sure you understand or have a basic idea about the 
 
   > A DaemonSet ensures that all \(or some\) nodes run a copy of a pod. As nodes are added to the cluster, pods are added to them. As nodes are removed from the cluster, those pods are garbage collected. Deleting a DaemonSet will clean up the pods it created...
 
-Since applications runs in Pods and multiple Pods might exists across multiple nodes, we need a specific Fluentd-Pod that takes care of log collection on each node: Fluentd DaemonSet.
+Since applications run in Pods and multiple Pods might exist across multiple nodes, we need a specific Fluentd-Pod that takes care of log collection on each node: Fluentd DaemonSet.
 
 ## Fluentd DaemonSet
 
@@ -41,7 +41,7 @@ The following steps will focus on sending the logs to an Elasticsearch Pod:
 
 ### Get Fluentd DaemonSet sources
 
-We have created a Fluentd DaemonSet that have the proper rules and container image ready to get started:
+We have created a Fluentd DaemonSet that has the proper rules and container image ready to get started:
 
 * [https://github.com/fluent/fluentd-kubernetes-daemonset](https://github.com/fluent/fluentd-kubernetes-daemonset)
 
@@ -53,7 +53,7 @@ $ git clone https://github.com/fluent/fluentd-kubernetes-daemonset
 
 ### DaemonSet Content
 
-The cloned repository contains several configurations that allow to deploy Fluentd as a DaemonSet. The Docker container image distributed on the repository also comes pre-configured so that Fluentd can gather all the logs from the Kubernetes node's environment and append the proper metadata to the logs.
+The cloned repository contains several configurations that allow you to deploy Fluentd as a DaemonSet. The Docker container image distributed on the repository also comes pre-configured so that Fluentd can gather all the logs from the Kubernetes node's environment and append the proper metadata to the logs.
 
 This repository has several presets for Alpine/Debian with popular outputs:
 
@@ -100,7 +100,7 @@ This YAML file contains two relevant environment variables that are used by Flue
 | :--- | :--- | :---: |
 | `FLUENT_ELASTICSEARCH_HOST` | Specify the host name or IP address. | `elasticsearch-logging` |
 | `FLUENT_ELASTICSEARCH_PORT` | Elasticsearch TCP port | 9200 |
-| `FLUENT_ELASTICSEARCH_SSL_VERIFY` | Whether verify SSL certificates or not. | `true` |
+| `FLUENT_ELASTICSEARCH_SSL_VERIFY` | Whether to verify SSL certificates or not. | `true` |
 | `FLUENT_ELASTICSEARCH_SSL_VERSION` | Specify the version of TLS. | `TLSv1_2` |
 
 Any relevant change needs to be done in the YAML file before deployment. The defaults assume that at least one Elasticsearch Pod **elasticsearch-logging** exists in the cluster.

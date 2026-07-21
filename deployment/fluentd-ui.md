@@ -8,7 +8,7 @@
 * View Fluentd log with simple error viewer
 
 {% hint style='danger' %}
-`fluentd-ui` does not maintained anymore. It won't work with `fluent-package`. This content is for v0.12 for now.
+`fluentd-ui` is not maintained anymore. It won't work with `fluent-package`. This content is for v0.12 for now.
 {% endhint %}
 
 ## Enterprise

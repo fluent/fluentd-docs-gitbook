@@ -124,7 +124,7 @@ For `NEW_FIELD` and `NEW_VALUE`, a special syntax `${}` allows the user to gener
 
   [`Socket.gethostname`](https://docs.ruby-lang.org/en/trunk/Socket.html#method-c-gethostname).
 
-You can also access to a certain portion of a tag using the following notations:
+You can also access a certain portion of a tag using the following notations:
 
 * `tag_parts[N]` refers to the `Nth` part of the tag.
 * `tag_prefix[N]` refers to the `[0..N]` part of the tag.
@@ -163,7 +163,7 @@ foo_${record["key"]} bar_${record["value"]}
 nested_value ${record["payload"]["key"]}
 ```
 
-By historical reason, `enable_ruby true` is too slow. If you need this option, consider `record_modifier` filter instead. See also `Need more performance?` section.
+For historical reasons, `enable_ruby true` is too slow. If you need this option, consider `record_modifier` filter instead. See also `Need more performance?` section.
 
 ### `auto_typecast`
 

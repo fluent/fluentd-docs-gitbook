@@ -73,7 +73,7 @@ The command \(program\) to execute. The `out_exec_filter` plugin passes the inco
 
 The number of spawned processes for `command`.
 
-If the number is larger than 2, fluentd uses spawned processes by round robin fashion.
+If the number is larger than 2, fluentd uses spawned processes in a round robin fashion.
 
 ### `child_respawn`
 

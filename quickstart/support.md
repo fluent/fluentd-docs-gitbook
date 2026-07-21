@@ -35,7 +35,7 @@ If you are interested in what's new in each version, please refer to the followi
 * [td-agent's ChangeLog](https://github.com/fluent/fluent-package-builder/blob/master/CHANGELOG-v4.md) (End of Life in Dec, 2023)
 
 {% hint style='danger' %}
-The series of td-agent had already reached End of Life (EOL). td-agent should not be newly installed because no support, no new release and no security updates anymore.
+The series of td-agent had already reached End of Life (EOL). td-agent should not be newly installed because of no support, no new release and no security updates anymore.
 Use fluent-package instead. See [Upgrade to fluent-package v5](https://www.fluentd.org/blog/upgrade-td-agent-v4-to-v5) for migration.
 {% endhint %}
 

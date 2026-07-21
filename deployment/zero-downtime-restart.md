@@ -35,7 +35,7 @@ You can use this feature in the following ways.
      * For details on the temporary buffer, see [Source Only Mode - Temporary file buffer](source-only-mode.md#temporary-file-buffer).
    * Send `SIGTERM` to the old supervisor after `10s` delay.
 5. The old supervisor stops and sends `SIGWINCH` to the new one.
-6. The new workers starts to run fully.
+6. The new workers start to run fully.
    * The temporary buffer of source-only mode starts to load.
 
 ## Plugins: how to support this feature

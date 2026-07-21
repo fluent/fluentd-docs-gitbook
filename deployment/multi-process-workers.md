@@ -8,7 +8,7 @@ This feature can simply replace `fluent-plugin-multiprocess`.
 
 By default, one instance of `fluentd` launches a supervisor and a worker. A worker consists of input/filter/output plugins.
 
-The **multi-process workers** feature launches multiple workers and use a separate process per worker. `fluentd` provides several features for multi-process workers.
+The **multi-process workers** feature launches multiple workers and uses a separate process per worker. `fluentd` provides several features for multi-process workers.
 
 ![Multi-process Workers](../.gitbook/assets/multi-process-workers%20%281%29%20%281%29.png)
 
@@ -211,7 +211,7 @@ You may see following error in the fluentd logs:
 2018-10-01 10:00:00 +0900 [error]: config error file="/path/to/fluentd.conf" error_class=Fluent::ConfigError error="Plugin 'tail' does not support multi workers configuration (Fluent::Plugin::TailInput)"
 ```
 
-This means that the configured plugin does not support multi-process workers. All configured plugins must support multi-process workers. See "Multi-Process Worker and Plugins" section above.
+This means that the configured plugin does not support multi-process workers. All configured plugins must support multi-process workers. See "Multi-Process Workers and Plugins" section above.
 
 If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open). [Fluentd](http://www.fluentd.org/) is an open-source project under [Cloud Native Computing Foundation \(CNCF\)](https://cncf.io/). All components are available under the Apache 2 License.
 

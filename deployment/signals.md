@@ -44,7 +44,7 @@ See [Zero-downtime restart](zero-downtime-restart.md) for details.
 
 **Comparison with SIGHUP**
 
-`SIGHUP` gracefully restarting the worker process to reload.
+`SIGHUP` gracefully restarts the worker process to reload.
 
 This method does not cause socket downtime, so if there is no need to restart the supervisor, `SIGHUP` is a lighter zero-downtime restart method.
 

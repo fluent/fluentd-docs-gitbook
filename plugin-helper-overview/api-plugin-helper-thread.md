@@ -1,6 +1,6 @@
 # Plugin Helper: Thread
 
-The `thread` plugin helper manages threads and these threads are integrated with plugins. No need manual run or shutdown in the plugin.
+The `thread` plugin helper manages threads and these threads are integrated with plugins. No need for manual run or shutdown in the plugin.
 
 Here is an example:
 

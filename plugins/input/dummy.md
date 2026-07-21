@@ -3,7 +3,7 @@
 `in_dummy` has been renamed `in_sample` since Fluentd v1.11.12.
 See [`sample` input plugin](/input/sample.md) article for more details.
 
-You can keep to use following configuration in v1:
+You can keep using the following configuration in v1:
 
 ```text
 <source>

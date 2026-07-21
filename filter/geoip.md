@@ -106,7 +106,7 @@ Specifies one or more geoip lookup fields containing the IP address.
 
 See [`record_accessor`](../plugin-helper-overview/api-plugin-helper-record_accessor.md) about nested attributes.
 
-**NOTE**: Since v1.3.0 does not interpret `host.ip` as a nested attribute.
+**NOTE**: Since v1.3.0, Fluentd does not interpret `host.ip` as a nested attribute.
 
 ### `geoip_lookup_key`
 

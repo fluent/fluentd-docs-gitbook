@@ -61,9 +61,9 @@ These kernel options were originally taken from the presentation [How Netflix Tu
 
 ## Use sticky bit symlink/hardlink protection
 
-**NOTE:** CentOS 7 or later, Ubuntu 18.04 \(bionic\) or later, and Debian GNU/Linux 10 \(buster\) or later are supported these parameters.
+**NOTE:** CentOS 7 or later, Ubuntu 18.04 \(bionic\) or later, and Debian GNU/Linux 10 \(buster\) or later support these parameters.
 
-Fluentd sometimes uses predictable paths for dumping, writing files, and so on. This default settings for the protections are in `/etc/sysctl.d/10-link-restrictions.conf`, or `/usr/lib/sysctl.d/50-default.conf` or elsewhere.
+Fluentd sometimes uses predictable paths for dumping, writing files, and so on. These default settings for the protections are in `/etc/sysctl.d/10-link-restrictions.conf`, or `/usr/lib/sysctl.d/50-default.conf` or elsewhere.
 
 For symlink attack protection, check the following parameters are set to `1`:
 
@@ -72,7 +72,7 @@ fs.protected_hardlinks = 1
 fs.protected_symlinks = 1
 ```
 
-This settings are almost enough for time-of-check to time-of-use (TOCTOU, TOCTTOU or TOC/TOU) which are a class of software bugs.
+These settings are almost enough for time-of-check to time-of-use (TOCTOU, TOCTTOU or TOC/TOU) which is a class of software bugs.
 
 If you turned off these protections, please turn them on.
 

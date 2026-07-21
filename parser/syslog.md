@@ -30,7 +30,7 @@ Specifies the event time format for the RFC-5424 protocol.
 
 Specifies the protocol format. Supported values are `rfc3164`, `rfc5424` and `auto`. Default is `rfc3164`. If your `syslog` uses `rfc5424`, use `rfc5424` instead.
 
-`auto` is useful when this parser receives both `rfc3164` and `rfc5424` message. `syslog` parser detects message format by using message prefix.
+`auto` is useful when this parser receives both `rfc3164` and `rfc5424` messages. `syslog` parser detects message format by using message prefix.
 
 ### `with_priority`
 

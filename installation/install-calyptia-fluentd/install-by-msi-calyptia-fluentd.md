@@ -4,9 +4,9 @@
 
 `calyptia-fluentd` is the alternative distribution of Fluentd.
 
-* Includes Ruby and other library dependencies \(since most Windows box are not installed\).
+* Includes Ruby and other library dependencies \(since most Windows boxes are not installed\).
 * Includes a set of frequently-used 3rd party plugins such as `out_elasticsearch` and `in_windows_eventlog2`.
-* This alternative agent is developed by [Chronosphere](https://chronosphere.io) after its acuisition of Calyptia.
+* This alternative agent is developed by [Chronosphere](https://chronosphere.io) after its acquisition of Calyptia.
 
 Currently, calyptia-fluentd is on v1 only.
 
@@ -20,7 +20,7 @@ Download the latest MSI installer from [the download page](https://calyptia-flue
 
 ![calyptia-fluentd installation wizard](../.gitbook/assets/calyptia-fluentd1-wizard.png)
 
-**Note:** Calyptia-Fluentd is a drop-in-replacement agent of other Fluentd stable distribution. Currently, we use the same Windows Service name which is `fluentdwinsvc`. This is because when you already installed other agent which register Windows Service as `fluentdwinsvc`, you must uninstall already installed Windows Service which uses `fluentdwinsvc` as service name.
+**Note:** Calyptia-Fluentd is a drop-in-replacement agent of other Fluentd stable distribution. Currently, we use the same Windows Service name which is `fluentdwinsvc`. This is because when you already installed other agent which registers Windows Service as `fluentdwinsvc`, you must uninstall already installed Windows Service which uses `fluentdwinsvc` as service name.
 
 ### Step 2: Set up `calyptia-fluentd.conf`
 
@@ -88,7 +88,7 @@ PS> Start-Service fluentdwinsvc
 
 Note that using `fluentdwinsvc` is needed to start Fluentd service from the command-line. `fluentdwinsvc` is the service name and it should be passed to `net.exe` or `Start-Service` Cmdlet.
 
-The log file will be located at `C:/opt/calyptia-fluentd/calyptia-fleuntd.log` as we specified in Step 3.
+The log file will be located at `C:/opt/calyptia-fluentd/calyptia-fluentd.log` as we specified in Step 3.
 
 ### Step 6: Install Plugins
 

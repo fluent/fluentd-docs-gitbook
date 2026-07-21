@@ -69,12 +69,12 @@ On Windows, you can use [fluent-ctl](command-line-option.md#fluent-ctl).
 
 ## High CPU Usage Issue
 
-If `fluentd` suddenly hits unexpected high CPU usage problem, there are several reasons:
+If `fluentd` suddenly hits an unexpected high CPU usage problem, there are several reasons:
 
 * a plugin has a race condition or similar bug
 * dependent gems have a bug
 * regular expression with broken data
-* system calls has a bug, e.g. `inotify` with lots of files
+* system calls have a bug, e.g. `inotify` with lots of files
 
 In such cases, you can use `perf` tool on recent Linux to investigate the problem. See [Linux perf Examples](http://www.brendangregg.com/perf.html) page. If you want to know which call causes the problem, [`pid2line.rb`](https://gist.github.com/nurse/0619b6af90df140508c2) is useful.
 

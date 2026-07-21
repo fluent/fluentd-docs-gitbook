@@ -79,7 +79,7 @@ If you do not specify the `@log_level` parameter, the plugin will use the global
 
 ## Log Format
 
-Following format are supported:
+Following formats are supported:
 
 * `text` \(default\)
 * `json`
@@ -122,7 +122,7 @@ Fluentd provides two parameters to suppress log/stacktrace messages
 </system>
 ```
 
-Under high loaded environment, output destination sometimes becomes unstable and it causes lots of same log message. This parameter mitigates such situation.
+Under high loaded environment, output destination sometimes becomes unstable and it causes lots of same log messages. This parameter mitigates such situation.
 
 ### `ignore_same_log_interval`
 
@@ -158,7 +158,7 @@ $ fluentd -o /path/to/log_file
 
 ### By Config File
 
-Since v1.18.0, You can also configure the log file path using the `<log>` directive under `<system>`:
+Since v1.18.0, you can also configure the log file path using the `<log>` directive under `<system>`:
 
 ```text
 <system>

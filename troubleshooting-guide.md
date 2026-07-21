@@ -67,7 +67,7 @@ Missing data in your backend destination can also be a wildcard error that needs
 
 ## My logs are being parsed incorrectly
 
-One of Fluentd's big strengths is it's ability to parse logs into a standardized format based on custom formats or well-known formats. However writing regular expressions can be hard to validate and ensure that the proper fields are working. Here are a few tips I recommend
+One of Fluentd's big strengths is its ability to parse logs into a standardized format based on custom formats or well-known formats. However writing regular expressions can be hard to validate and ensure that the proper fields are working. Here are a few tips I recommend
 
 **Suggestions:**
 

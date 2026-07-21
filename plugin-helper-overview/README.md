@@ -12,7 +12,7 @@ Example:
 helpers :timer, :storage, :compat_parameters
 ```
 
-It will include `Timer`, `Storage`. and `CompatParameters` plugin helpers.
+It will include `Timer`, `Storage`, and `CompatParameters` plugin helpers.
 
 ## Built-in Plugin Helpers
 

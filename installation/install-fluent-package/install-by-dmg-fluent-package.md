@@ -11,7 +11,7 @@ Please see [fluent-package-v5-vs-td-agent](../../quickstart/fluent-package-v5-vs
 {% hint style='info' %}
 NOTE:
 
-* `fluent-package` is not be shipped yet, we plan to migrate to homebrew ecosystem in the future.
+* `fluent-package` is not shipped yet, we plan to migrate to homebrew ecosystem in the future.
 {% endhint %}
 
 {% hint style='danger' %}

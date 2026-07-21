@@ -44,7 +44,7 @@ Here is an example with `in_sample`:
 
 ## List of 3rd party storage plugins
 
-NOTE: This 3rd party storage plugin list does not fully covers all of them.
+NOTE: This 3rd party storage plugin list does not fully cover all of them.
 
 * [fluent-plugin-storage-leveldb](https://github.com/cosmo0920/fluent-plugin-storage-leveldb)
 * [fluent-plugin-storage-memcached](https://github.com/cosmo0920/fluent-plugin-storage-memcached)
@@ -53,7 +53,7 @@ NOTE: This 3rd party storage plugin list does not fully covers all of them.
 
 ## List of 3rd party Plugins with Storage support
 
-NOTE: This 3rd party plugin list does not fully covers all of them.
+NOTE: This 3rd party plugin list does not fully cover all of them.
 
 * [fluent-plugin-systemd](https://github.com/fluent-plugin-systemd/fluent-plugin-systemd)
 * [fluent-plugin-windows-eventlog](https://github.com/fluent/fluent-plugin-windows-eventlog)

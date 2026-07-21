@@ -1,6 +1,6 @@
 # Command Line Option
 
-This article describes the command-line tools and its options in `fluentd` project.
+This article describes the command-line tools and their options in `fluentd` project.
 
 ## `fluentd`
 

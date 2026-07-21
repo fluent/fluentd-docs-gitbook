@@ -21,10 +21,10 @@ Any fluentd plugin can unknowingly break fluentd completely (and possibly break 
 There is no way to block this kind of situation. This is because the problem itself is derived from plug-in mechanism, and that's Lightweight Language.
 One solution is "Do not use unreliable plugins".
 
-Generally speaking, plug-in mechanism can break core functionality not only Fluentd but also in most other software.
+Generally speaking, plug-in mechanism can break core functionality not only in Fluentd but also in most other software.
 We shouldn't use unreliable plugins in any software.
 
-We recommend to send feedback to plugin owner if you faced such a fault in plugins.
+We recommend sending feedback to plugin owner if you faced such a fault in plugins.
 
 ### If Using `td-agent`, Use `/usr/sbin/td-agent-gem`
 
@@ -80,7 +80,7 @@ For `td-agent`, Fluentd uses the `/etc/td-agent/plugin` directory instead of `/e
 
 Fluentd and plugins are evolving so you may hit an unexpected error with the latest version e.g. regression by a new feature, remove a deprecated parameter, change library dependency, etc. To avoid these problems, we recommend fixing fluentd and plugin version on production. If you want to update fluentd or plugins, check the behavior first on your test environment. For example, td-agent fixes fluentd and plugins version in each release.
 
-Fluentd plugins are RubyGems and RubyGems installs the latest version by default. So we don't recommend to execute following commands on production:
+Fluentd plugins are RubyGems and RubyGems installs the latest version by default. So we don't recommend executing the following commands on production:
 
 * `gem install fluentd`
 * `gem install fluent-plugin-elasticsearch`

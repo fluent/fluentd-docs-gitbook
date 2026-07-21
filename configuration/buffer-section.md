@@ -405,16 +405,16 @@ Following are the configuration parameters for buffer plugin and its chunks:
 
 * `chunk_limit_size` \[size\]
   * Default: 8MB \(memory\) / 256MB \(file\)
-  * The max size of each chunks: events will be written into chunks until
+  * The max size of each chunk: events will be written into chunks until
 
-    the size of chunks become this size
+    the size of chunks becomes this size
 * `chunk_limit_records` \[integer\]
   * Optional
-  * The max number of events that each chunks can store in it
+  * The max number of events that each chunk can store in it
 * `total_limit_size` \[size\]
   * Default: 512MB \(memory\) / 64GB \(file\)
   * The size limitation of this buffer plugin instance
-  * Once the total size of stored buffer reached this threshold, all append
+  * Once the total size of stored buffer reaches this threshold, all append
 
     operations will fail with error \(and data will be lost\)
 * `queue_limit_length` \[integer\]

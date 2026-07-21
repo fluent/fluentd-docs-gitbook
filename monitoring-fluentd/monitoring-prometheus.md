@@ -2,7 +2,7 @@
 
 This article describes how to monitor Fluentd via [Prometheus](https://prometheus.io/).
 
-Since both Prometheus and Fluentd are under [CNCF \(Cloud Native Computing Foundation\)](https://www.cncf.io/), Fluentd project is recommending to use Prometheus by default to monitor Fluentd.
+Since both Prometheus and Fluentd are under [CNCF \(Cloud Native Computing Foundation\)](https://www.cncf.io/), the Fluentd project recommends using Prometheus by default to monitor Fluentd.
 
 ## Installation
 

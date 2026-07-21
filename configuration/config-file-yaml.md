@@ -15,7 +15,7 @@ See also: [Lifecycle of a Fluentd Event](../quickstart/life-of-a-fluentd-event.m
 
 Fluentd starts to support YAML configuration format but this is not 1-by-1 correspondence for Fluentd config file syntax.
 
-Normal Fluentd configuration syntax has the following the list of directives:
+Normal Fluentd configuration syntax has the following list of directives:
 
 1. **`source`** directives determine the input sources
 2. **`match`** directives determine the output destinations
@@ -42,7 +42,7 @@ Under `config` object, Fluentd will handle the following elements:
 ### Special YAML elements
 
 1. **`!include`** defines including rules for other files
-2. **`!fluent/s`** defines Fluentd string format that is equivalent for double quoted string
+2. **`!fluent/s`** defines Fluentd string format that is equivalent to double quoted string
 3. **`!fluent/json`** defines Fluentd JSON format that is used for Hash type object
 4. **`$tag`** defines tag for output plugin
 5. **`$label`** defines label routes for input plugin
@@ -243,7 +243,7 @@ If `$label` with  `$name: '@ERROR'` is set, the events are routed to this label 
 
 The `@ROOT` label is a builtin label used for getting root router by plugin's `event_emitter_router` API.
 
-This label is introduced since v1.14.0 to assign a label back to the default route. For example, timed-out event records are handled by the concat filter can be sent to the default route.
+This label is introduced since v1.14.0 to assign a label back to the default route. For example, timed-out event records handled by the concat filter can be sent to the default route.
 
 ## 6. Limit to specific workers: the `worker` element
 

@@ -8,7 +8,7 @@ Fluentd is written in Ruby for flexibility, with performance-sensitive parts in 
 
 That is why Chronosphere (formerly Calyptia) provides **the alternative stable distribution of Fluentd**, called `calyptia-fluentd`.
 
-For macOS, `td-agent` is distributed as `.dmg` installer.
+For macOS, `td-agent` is distributed as a `.dmg` installer.
 
 ## How to install `calyptia-fluentd`
 

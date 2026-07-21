@@ -42,7 +42,7 @@ This method executes `child_process` with the given parameters and routine.
 * `parallel`: `true`/`false`. Default is `false`.
 * `mode`: \[`:read`, `:write`\]. Default is \[`:read`, `:write`\].
 * `stderr`: Connect stderr or not. Default is `:discard`.
-* `env`: Environment valuables. Default is {}.
+* `env`: Environment variables. Default is {}.
 * `unsetenv`: `true`/`false`. Default is `false`
 * `chdir`: Working directory. Default is `nil`.
 * `internal_encoding`: Internal character encoding. Default is `utf-8`.

@@ -75,7 +75,7 @@ by admin(uid=0)"}
 
 For security reasons, it is worth knowing which user performed what using `sudo`. In order to do so, we need to parse the message field. In other words, we need to extract `syslog` messages from `sudo` and handle them differently.
 
-For this purpose, we can use the [`grep`](../filter/grep.md) filter plugin. It examines the fields of events, and filter them based on regular expression patterns. In the following example, Fluentd filters out events that come from `sudo` and contain command data:
+For this purpose, we can use the [`grep`](../filter/grep.md) filter plugin. It examines the fields of events, and filters them based on regular expression patterns. In the following example, Fluentd filters out events that come from `sudo` and contain command data:
 
 ```text
 <source>
@@ -146,7 +146,7 @@ Then restart `fluentd`:
 $ sudo systemctl restart fluentd
 ```
 
-Let's execute some comment with `sudo`:
+Let's execute some command with `sudo`:
 
 ```text
 $ sudo cat /var/log/auth.log

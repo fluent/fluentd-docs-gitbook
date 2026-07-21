@@ -1,6 +1,6 @@
 # Post Installation Guide
 
-This article discusses the post-installation steps for new Fluentd users assuming that Fluentd has been installed using the `fluent-package`, `td-agent` and `calyptia-fluentd` package.
+This article discusses the post-installation steps for new Fluentd users assuming that Fluentd has been installed using the `fluent-package`, `td-agent` and `calyptia-fluentd` packages.
 
 ## System Administration
 

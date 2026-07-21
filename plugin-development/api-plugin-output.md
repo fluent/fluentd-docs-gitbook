@@ -108,7 +108,7 @@ This mode is available when the `#process` method is implemented.
 
 ### Sync-Buffered Mode
 
-In this mode, the output plugin temporarily stores events in a buffer and send them later. The exact buffering behavior is fine-tunable through configuration parameters.
+In this mode, the output plugin temporarily stores events in a buffer and sends them later. The exact buffering behavior is fine-tunable through configuration parameters.
 
 The most notable benefit of this mode is that it enables you to leverage the native retry mechanism. The errors such as network failures are transparently handled by Fluentd and you do not need to implement an error-handling mechanism by yourself.
 
@@ -116,7 +116,7 @@ This mode is available when the `#write` method is implemented.
 
 ### Async-Buffered Mode
 
-In this mode, the output plugin temporarily stores events in a buffer and send them later. The major difference with the synchronous mode is that this mode allows you to defer the acknowledgment of transferred records. For example, you can implement the **at-least-once** semantics using this mode.
+In this mode, the output plugin temporarily stores events in a buffer and sends them later. The major difference with the synchronous mode is that this mode allows you to defer the acknowledgment of transferred records. For example, you can implement the **at-least-once** semantics using this mode.
 
 Please read "How To Use Asynchronous Buffered Mode" for details.
 
@@ -158,7 +158,7 @@ It is important to note that the methods that decide modes are called in `#start
 
 For more details, see [Buffer](../configuration/buffer-section.md) section.
 
-Fluentd creates buffer chunks to store events. Each buffer chunks should be written at once, without any re-chunking. In Fluentd v1.0, users can specify chunk keys by themselves using `<buffer CHUNK_KEYS>` section.
+Fluentd creates buffer chunks to store events. Each buffer chunk should be written at once, without any re-chunking. In Fluentd v1.0, users can specify chunk keys by themselves using `<buffer CHUNK_KEYS>` section.
 
 Example:
 
@@ -212,7 +212,7 @@ Buffer configuration provides `flush_mode` to control the mode. Here are its sup
 * `interval`: 1, 2 and 3 are enabled
 * `immediate`: 4 is enabled
 
-Default is `lazy` if `time` is specified as the chunk key, `interval` otherwise. If `flush_mode` is explicitly configured, the plugin used the configured mode.
+Default is `lazy` if `time` is specified as the chunk key, `interval` otherwise. If `flush_mode` is explicitly configured, the plugin uses the configured mode.
 
 ### How to Change the Default Values for Parameters
 
@@ -275,7 +275,7 @@ The serialization format to store events in a buffer may be customized by overri
 
 Generally, it is not needed. Fluentd has its own serialization format and there are many benefits to just use the default one. For example, it transparently allows you to iterate through records via `chunk.each`.
 
-An exceptional case is when the chunks need to sent to the destination without any further processing. For example, `out_file` overrides `#format` so that it can produce chunk files that exactly look like the final outputs. By doing this, `out_file` can flush data just by moving chunk files to the destination path.
+An exceptional case is when the chunks need to be sent to the destination without any further processing. For example, `out_file` overrides `#format` so that it can produce chunk files that exactly look like the final outputs. By doing this, `out_file` can flush data just by moving chunk files to the destination path.
 
 For further details, read the interface definition of the `#format` method below.
 
@@ -378,7 +378,7 @@ Return value is a `String`.
 
 ### `es.each(&block)`
 
-`EventStream#each` receives a block argument and call it for each event \(`time` and `record`\).
+`EventStream#each` receives a block argument and calls it for each event \(`time` and `record`\).
 
 Example:
 

@@ -8,7 +8,7 @@ Fluentd is written in Ruby for flexibility, with performance-sensitive parts in 
 
 That is why [Treasure Data, Inc](http://www.treasuredata.com/) provides **the stable distribution of Fluentd**, called `td-agent`. The differences between Fluentd and `td-agent` can be found [here](https://www.fluentd.org/faqs).
 
-This installation guide is for `td-agent` v4. `td-agent` v4 use fluentd v1 in the core. See [this page](../quickstart/td-agent-v2-vs-v3-vs-v4.md) for the comparison and supported OS.
+This installation guide is for `td-agent` v4. `td-agent` v4 uses fluentd v1 in the core. See [this page](../quickstart/td-agent-v2-vs-v3-vs-v4.md) for the comparison and supported OS.
 
 ## Installing `td-agent`
 

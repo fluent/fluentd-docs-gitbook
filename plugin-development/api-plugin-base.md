@@ -134,7 +134,7 @@ Defines a section to construct structured \(nested\) configuration.
   * `param_name`: The section name.
   * `final`: If `true`, the subclass of this class cannot override this section.
 
-    For example, the third0party plugins cannot override the buffer section.
+    For example, the third-party plugins cannot override the buffer section.
 
   * `init`: If `true`, the parameters in this section must have default values.
 
