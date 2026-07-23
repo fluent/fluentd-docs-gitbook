@@ -140,6 +140,20 @@ Message has the message size prefix to delimit:
 
 See also [RFC 6587](https://tools.ietf.org/html/rfc6587#section-3.4).
 
+### `delimiter`
+
+| type | default | version |
+| :--- | :--- | :--- |
+| string | `"\n"` \(newline\) | 1.5.0 |
+
+The delimiter between syslog messages in one TCP connection. Since a TCP stream has no message boundary, `in_syslog` splits the received bytes at every occurrence of this string and handles each part as one syslog message. The delimiter itself is not included in the message.
+
+This is not a pattern but a plain string, so a delimiter of two or more characters can also be specified.
+
+This parameter is used only when the transport protocol is `tcp` or `tls`. With `udp`, one datagram is always handled as one message, so this parameter has no effect.
+
+It is also ignored when `frame_type` is `octet_count`, because in that framing the message length prefix determines the message boundary and the prefix is always separated from the message by a single space.
+
 ### `format`
 
 Deprecated parameter. Use `<parse>` instead.
@@ -310,7 +324,7 @@ Please see the [logging article](../deployment/logging.md) for further details.
 
 ## TCP Protocol and Message Delimiter
 
-This plugin assumes `\n` for delimiter character between syslog messages in one TCP connection by default. If you use syslog library in your application with `<transport tcp>`, add `\n` to your syslog message. See also [rfc6587](https://tools.ietf.org/html/rfc6587#section-3.4.2).
+This plugin assumes `\n` for delimiter character between syslog messages in one TCP connection by default. If you use syslog library in your application with `<transport tcp>`, add `\n` to your syslog message. See also [rfc6587](https://tools.ietf.org/html/rfc6587#section-3.4.2). If your application uses another character, set it with the `delimiter` parameter.
 
 If your syslog uses octet counting mode, set `frame_type octet_count` in `in_syslog` configuration. See also `frame_type` parameter.
 
