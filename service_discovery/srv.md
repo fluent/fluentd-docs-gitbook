@@ -37,7 +37,7 @@ Service without the underscore in [RFC2782](https://tools.ietf.org/html/rfc2782)
 
 | type | default | version |
 | :--- | :--- | :--- |
-| string | `nil` | 1.10.0 |
+| string | `tcp` | 1.10.0 |
 
 Proto without the underscore in [RFC2782](https://tools.ietf.org/html/rfc2782).
 
@@ -100,4 +100,3 @@ The username for authentication.
 The password for authentication.
 
 If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open). [Fluentd](http://www.fluentd.org/) is an open-source project under [Cloud Native Computing Foundation \(CNCF\)](https://cncf.io/). All components are available under the Apache 2 License.
-
