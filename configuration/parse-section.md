@@ -46,6 +46,7 @@ The `@type` parameter specifies the type of the parser plugin.
 Here's the list of built-in parser plugins:
 
 * [`regexp`](../parser/regexp.md)
+* [`apache`](../parser/apache.md)
 * [`apache2`](../parser/apache2.md)
 * [`apache_error`](../parser/apache_error.md)
 * [`nginx`](../parser/nginx.md)
