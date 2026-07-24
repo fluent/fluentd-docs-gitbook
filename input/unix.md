@@ -35,7 +35,7 @@ Fluentd will use the environment variable `FLUENT_SOCKET` if defined.
 
 | type | default | version |
 | :---: | :---: | :---: |
-| integer | nil | 0.14.0 |
+| integer | nil | 0.14.1 |
 
 The backlog of Unix Domain Socket.
 
