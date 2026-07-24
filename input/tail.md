@@ -482,7 +482,7 @@ In this example, filename will be extracted and used to form groups.
 
 | type | default | version |
 | :--- | :--- | :--- |
-| time | 60 \(seconds\) | 1.15 |
+| time | 5 \(seconds\) | 1.15.0 |
 
 Time period in which the group line limit is applied. `in_tail` resets the counter after every `rate_period` interval.
 

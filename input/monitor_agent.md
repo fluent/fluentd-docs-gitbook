@@ -64,7 +64,7 @@ If you set this parameter, this plugin emits metrics as records. See "Reuse plug
 
 | type | default | version |
 | :--- | :--- | :--- |
-| integer | 60 | 0.14.0 |
+| time | 60 | 0.12.17 |
 
 The interval time between event emits. This will be used when `tag` is configured.
 

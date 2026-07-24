@@ -169,9 +169,9 @@ For historical reasons, `enable_ruby true` is too slow. If you need this option,
 
 | type | default | version |
 | :--- | :--- | :--- |
-| bool | false | 0.14.0 |
+| bool | true | 0.14.9 |
 
-Automatically casts the field types. Default is `false`.
+Automatically casts the field types. Default is `true`.
 
 LIMITATION: This option is effective only for field values comprised of a single placeholder.
 
@@ -303,4 +303,3 @@ Without `enable_ruby`, `${}` placeholder supports only double-quoted string for 
 * [Filter Plugin Overview](./)
 
 If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open). [Fluentd](http://www.fluentd.org/) is an open-source project under [Cloud Native Computing Foundation \(CNCF\)](https://cncf.io/). All components are available under the Apache 2 License.
-
