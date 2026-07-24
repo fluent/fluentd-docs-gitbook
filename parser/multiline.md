@@ -4,7 +4,14 @@ The `multiline` parser plugin parses multiline logs. This plugin is the multilin
 
 The `multiline` parser parses log with `formatN` and `format_firstline` parameters. `format_firstline` is for detecting the start line of the multiline log. `formatN`, where N's range is \[1..20\], is the list of Regexp format for multiline log.
 
-Unlike other parser plugins, this plugin needs special code in input plugin e.g. handle `format_firstline`. So, currently, `in_tail` plugin works with `multiline` but other input plugins do not work with it.
+{% hint style='warning' %}
+This parser plugin itself does not join multiple lines. The logic to buffer lines and detect the start of each record is implemented in `in_tail`.
+
+* `<parse>` in `in_tail`: works as described in this article.
+* `<parse>` section under `<filter>` \([`filter_parser`](../filter/parser.md)\) and other plugins which receive already-split events: cannot join separate events into one record. It can only parse a value which already contains newline characters.
+
+To concatenate multiple events into one record after the input stage, use [`fluent-plugin-concat`](https://github.com/fluent-plugins-nursery/fluent-plugin-concat).
+{% endhint %}
 
 ## Parameters
 
