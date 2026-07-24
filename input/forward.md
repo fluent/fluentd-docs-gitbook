@@ -92,7 +92,7 @@ This parameter is deprecated since v1.14.6. Use `<transport>` directive instead.
 
 | type | default | version |
 | :--- | :--- | :--- |
-| bool | false | 0.14.10 |
+| bool | nil | 0.14.10 |
 
 Tries to resolve hostname from IP addresses or not.
 
