@@ -155,7 +155,7 @@ This is not a pattern but a plain string, so a delimiter of two or more characte
 <source>
   @type tcp
   tag tcp.events
-  delimiter "||"
+  delimiter "||"  # It will work expectedly if it splits with '||' against incoming "foo||bar", not work for 'foo|bar'.
   <parse>
     @type json
   </parse>
