@@ -169,7 +169,7 @@ For historical reasons, `enable_ruby true` is too slow. If you need this option,
 
 | type | default | version |
 | :--- | :--- | :--- |
-| bool | true | 0.14.0 |
+| bool | true | 0.14.9 |
 
 Automatically casts the field types. Default is `true`.
 
