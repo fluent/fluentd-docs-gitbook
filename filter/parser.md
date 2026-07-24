@@ -20,6 +20,10 @@ It is included in the Fluentd's core.
 
 `filter_parser` uses built-in parser plugins and your own customized parser plugin, so you can reuse the predefined formats like `apache2`, `json`, etc. See [Parser Plugin Overview](../parser/) for more details
 
+{% hint style='warning' %}
+`filter_parser` receives events which are already split, so `multiline` cannot join them into one record. See [`multiline`](../parser/multiline.md) for the details.
+{% endhint %}
+
 With this example, if you receive this event:
 
 ```text
