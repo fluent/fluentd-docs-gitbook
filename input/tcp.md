@@ -141,6 +141,29 @@ You will get something like below:
 
 The maximum number of bytes for the message.
 
+### `delimiter`
+
+| type | default | version |
+| :--- | :--- | :--- |
+| string | `"\n"` \(newline\) | 0.10.51 |
+
+The payload is read up to this character. Since a TCP stream has no message boundary, `in_tcp` splits the received bytes at every occurrence of this string and passes each part to the `<parse>` section. The delimiter itself is not included in the parsed message.
+
+This is not a pattern but a plain string, so a delimiter of two or more characters can also be specified:
+
+```text
+<source>
+  @type tcp
+  tag tcp.events
+  delimiter "||"  # It will work expectedly if it splits with '||' against incoming "foo||bar", not work for 'foo|bar'.
+  <parse>
+    @type json
+  </parse>
+</source>
+```
+
+When `message_length_limit` is set and the data received before the next delimiter exceeds that limit, the buffer is cleared and the remaining bytes are discarded until the next delimiter arrives. The subsequent messages are processed as usual.
+
 ### `<transport>` Section
 
 | type | default | available values | version |
@@ -313,4 +336,3 @@ $ openssl s_client -connect localhost:20001 \
 If the connection gets established successfully, your setup is working fine.
 
 If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open). [Fluentd](http://www.fluentd.org/) is an open-source project under [Cloud Native Computing Foundation \(CNCF\)](https://cncf.io/). All components are available under the Apache 2 License.
-
