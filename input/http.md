@@ -132,7 +132,7 @@ This is effective only when the request has the `Content-Encoding` header with `
 
 | type | default | version |
 | :--- | :--- | :--- |
-| time | 10 \(seconds\) | 0.14.0 |
+| time | 10 \(seconds\) | 0.10.0 |
 
 The timeout limit for keeping the connection alive.
 
