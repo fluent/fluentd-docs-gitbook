@@ -85,6 +85,7 @@
   * [syslog](input/syslog.md)
   * [exec](input/exec.md)
   * [sample](input/sample.md)
+  * [dummy](input/dummy.md)
   * [monitor\_agent](input/monitor_agent.md)
   * [windows\_eventlog](input/windows_eventlog.md)
 * [Output Plugins](output/README.md)
