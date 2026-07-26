@@ -12,11 +12,11 @@ That is why Chronosphere (formerly Calyptia) provides **the alternative stable d
 
 ### Step 0: Before Installation
 
-Please follow the [Pre-installation Guide](before-install.md) to configure your OS properly.
+Please follow the [Pre-installation Guide](../before-install.md) to configure your OS properly.
 
 ### Step 1: Install from Apt Repository
 
-NOTE: If your OS is not supported, consider [gem installation](install-by-gem.md) instead.
+NOTE: If your OS is not supported, consider [gem installation](../install-by-gem.md) instead.
 
 A shell script is provided to automate the installation process for each version. The shell script registers a new apt repository at `/etc/apt/sources.list.d/calyptia-fluentd.sources` and installs the `calyptia-fluentd` deb package.
 
@@ -94,14 +94,14 @@ $ sudo tail -n 1 /var/log/calyptia-fluentd/calyptia-fluentd.log
 You are now ready to collect real logs with Fluentd. Refer to the following tutorials on how to collect data from various sources:
 
 * Basic Configuration
-  * [Config File](../configuration/config-file.md)
+  * [Config File](../../configuration/config-file.md)
 * Application Logs
-  * [Ruby](../language-bindings/ruby.md), [Java](../language-bindings/java.md), [Python](../language-bindings/python.md), [PHP](../language-bindings/php.md),
+  * [Ruby](../../language-bindings/ruby.md), [Java](../../language-bindings/java.md), [Python](../../language-bindings/python.md), [PHP](../../language-bindings/php.md),
 
-    [Perl](../language-bindings/perl.md), [Node.js](../language-bindings/nodejs.md), [Scala](../language-bindings/scala.md)
+    [Perl](../../language-bindings/perl.md), [Node.js](../../language-bindings/nodejs.md), [Scala](../../language-bindings/scala.md)
 * Examples
-  * [Store Apache Log into Amazon S3](../how-to-guides/apache-to-s3.md)
-  * [Store Apache Log into MongoDB](../how-to-guides/apache-to-mongodb.md)
-  * [Data Collection into HDFS](../how-to-guides/http-to-hdfs.md)
+  * [Store Apache Log into Amazon S3](../../how-to-guides/apache-to-s3.md)
+  * [Store Apache Log into MongoDB](../../how-to-guides/apache-to-mongodb.md)
+  * [Data Collection into HDFS](../../how-to-guides/http-to-hdfs.md)
 
 If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open). [Fluentd](http://www.fluentd.org/) is an open-source project under [Cloud Native Computing Foundation \(CNCF\)](https://cncf.io/). All components are available under the Apache 2 License.

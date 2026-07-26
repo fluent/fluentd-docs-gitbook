@@ -22,7 +22,7 @@ Download and install the `.dmg` package:
 
 * [calyptia-fluentd v1](https://calyptia-fluentd.s3.us-east-2.amazonaws.com/index.html?prefix=1/macos/)
 
-NOTE: If your OS is not supported, consider [gem installation](install-by-gem.md) instead.
+NOTE: If your OS is not supported, consider [gem installation](../install-by-gem.md) instead.
 NOTE: Since calyptia-fluentd v1.3.1, intel version and apple silicon version of packages are provided.
 `-intel` suffix is for Intel version and `-apple` suffix is for Apple Silicon.
 
@@ -73,14 +73,14 @@ To uninstall `calyptia-fluentd` from macOS, remove these files / directories:
 You are now ready to collect real logs with Fluentd. Refer to the following tutorials on how to collect data from various sources:
 
 * Basic Configuration
-  * [Config File](../configuration/config-file.md)
+  * [Config File](../../configuration/config-file.md)
 * Application Logs
-  * [Ruby](../language-bindings/ruby.md), [Java](../language-bindings/java.md), [Python](../language-bindings/python.md), [PHP](../language-bindings/php.md),
+  * [Ruby](../../language-bindings/ruby.md), [Java](../../language-bindings/java.md), [Python](../../language-bindings/python.md), [PHP](../../language-bindings/php.md),
 
-    [Perl](../language-bindings/perl.md), [Node.js](../language-bindings/nodejs.md), [Scala](../language-bindings/scala.md)
+    [Perl](../../language-bindings/perl.md), [Node.js](../../language-bindings/nodejs.md), [Scala](../../language-bindings/scala.md)
 * Examples
-  * [Store Apache Log into Amazon S3](../how-to-guides/apache-to-s3.md)
-  * [Store Apache Log into MongoDB](../how-to-guides/apache-to-mongodb.md)
-  * [Data Collection into HDFS](../how-to-guides/http-to-hdfs.md)
+  * [Store Apache Log into Amazon S3](../../how-to-guides/apache-to-s3.md)
+  * [Store Apache Log into MongoDB](../../how-to-guides/apache-to-mongodb.md)
+  * [Data Collection into HDFS](../../how-to-guides/http-to-hdfs.md)
 
 If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open). [Fluentd](http://www.fluentd.org/) is an open-source project under [Cloud Native Computing Foundation \(CNCF\)](https://cncf.io/). All components are available under the Apache 2 License.

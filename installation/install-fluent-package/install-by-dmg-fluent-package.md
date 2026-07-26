@@ -29,7 +29,7 @@ Download and install the `.dmg` package:
 
 * [fluent-package v5](https://td-agent-package-browser.herokuapp.com/5/macosx)
 
-NOTE: If your OS is not supported, consider [gem installation](install-by-gem.md) instead.
+NOTE: If your OS is not supported, consider [gem installation](../install-by-gem.md) instead.
 
 ### Step 2: Launch `fluentd`
 

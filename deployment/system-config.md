@@ -328,7 +328,7 @@ See [Output Plugins - overflow_action](../output#overflow_action) for details.
 | :---   | :---                                   | :---    |
 | string | nil (use unique path for the instance) | 1.18.0  |
 
-Set this option when recovering buffers ([Source Only Mode - Recovery](source-only-mode.md#Recovery)).
+Set this option when recovering buffers ([Source Only Mode - Recovery](source-only-mode.md#recovery)).
 
 See [Buffer Plugins - file - path](../buffer/file.md#path) for details.
 
