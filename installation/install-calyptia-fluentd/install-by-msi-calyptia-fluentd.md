@@ -18,7 +18,7 @@ Currently, calyptia-fluentd is on v1 only.
 
 Download the latest MSI installer from [the download page](https://calyptia-fluentd.s3.us-east-2.amazonaws.com/index.html?prefix=1/windows/). Run the installer and follow the wizard.
 
-![calyptia-fluentd installation wizard](../.gitbook/assets/calyptia-fluentd1-wizard.png)
+![calyptia-fluentd installation wizard](../../.gitbook/assets/calyptia-fluentd1-wizard.png)
 
 **Note:** Calyptia-Fluentd is a drop-in-replacement agent of other Fluentd stable distribution. Currently, we use the same Windows Service name which is `fluentdwinsvc`. This is because when you already installed other agent which registers Windows Service as `fluentdwinsvc`, you must uninstall already installed Windows Service which uses `fluentdwinsvc` as service name.
 
@@ -103,18 +103,18 @@ C:\opt\calyptia-fluentd> calyptia-fluentd-gem install fluent-plugin-xyz --versio
 You are now ready to collect real logs with Fluentd. Refer to the following tutorials on how to collect data from various sources:
 
 * Basic Configuration
-  * [Config File](../configuration/config-file.md)
+  * [Config File](../../configuration/config-file.md)
 * Application Logs
-  * [Ruby](../language-bindings/ruby.md)
-  * [Java](../language-bindings/java.md)
-  * [Python](../language-bindings/python.md)
-  * [PHP](../language-bindings/php.md)
-  * [Perl](../language-bindings/perl.md)
-  * [Node.js](../language-bindings/nodejs.md)
-  * [Scala](../language-bindings/scala.md)
+  * [Ruby](../../language-bindings/ruby.md)
+  * [Java](../../language-bindings/java.md)
+  * [Python](../../language-bindings/python.md)
+  * [PHP](../../language-bindings/php.md)
+  * [Perl](../../language-bindings/perl.md)
+  * [Node.js](../../language-bindings/nodejs.md)
+  * [Scala](../../language-bindings/scala.md)
 * Examples
-  * [Store Apache Log into Amazon S3](../how-to-guides/apache-to-s3.md)
-  * [Store Apache Log into MongoDB](../how-to-guides/apache-to-mongodb.md)
-  * [Data Collection into HDFS](../how-to-guides/http-to-hdfs.md)
+  * [Store Apache Log into Amazon S3](../../how-to-guides/apache-to-s3.md)
+  * [Store Apache Log into MongoDB](../../how-to-guides/apache-to-mongodb.md)
+  * [Data Collection into HDFS](../../how-to-guides/http-to-hdfs.md)
 
 If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open). [Fluentd](http://www.fluentd.org/) is an open-source project under [Cloud Native Computing Foundation \(CNCF\)](https://cncf.io/). All components are available under the Apache 2 License.

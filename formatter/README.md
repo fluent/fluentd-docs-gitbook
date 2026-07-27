@@ -48,7 +48,7 @@ The output changes to
 
 i.e., each line is a single JSON object without "time" and "tag" fields. If you want to include "time" and "tag", use [Inject section](../configuration/inject-section.md).
 
-See [this section](../plugin-development/#text-formatter-plugins) to learn how to develop a custom formatter.
+See [this section](../plugin-development/api-plugin-formatter.md) to learn how to develop a custom formatter.
 
 ## List of Built-in Formatters
 

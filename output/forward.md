@@ -509,7 +509,7 @@ Overwrites the default value in this plugin.
 
 ### How to connect to a TLS/SSL enabled server?
 
-If you have set up [TLS/SSL encryption](../input/forward.md#how-to-enable-tls/ssl-encryption) for the receiving server, you need to tell the output forwarder to use encryption by setting the `transport` parameter:
+If you have set up [TLS/SSL encryption](../input/forward.md#how-to-enable-tls-encryption) for the receiving server, you need to tell the output forwarder to use encryption by setting the `transport` parameter:
 
 ```text
 <match debug.**>
@@ -542,7 +542,7 @@ After updating the settings, please confirm that the forwarded data is being rec
 
 ### How to connect to a TLS/SSL enabled server with Windows Certstore Certificate?
 
-If you have set up [TLS/SSL encryption](../input/forward.md#how-to-enable-tls/ssl-encryption) in the receiving server, you need to tell the output forwarder to use encryption by setting the `transport` parameter.
+If you have set up [TLS/SSL encryption](../input/forward.md#how-to-enable-tls-encryption) in the receiving server, you need to tell the output forwarder to use encryption by setting the `transport` parameter.
 
 Valid logical store names are:
 

@@ -37,7 +37,7 @@ You can install Fluentd via major packaging systems.
 
 ### Install plugin
 
-If [`out_s3` (fluent-plugin-s3)](../output/s3) is not installed yet, please install it manually.
+If [`out_s3` (fluent-plugin-s3)](../output/s3.md) is not installed yet, please install it manually.
 
 See [Plugin Management](../installation/post-installation-guide.md#plugin-management) section for how to install fluent-plugin-s3 on your environment.
 
