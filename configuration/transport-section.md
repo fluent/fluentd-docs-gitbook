@@ -158,7 +158,7 @@ For `<transport tls>`:
   * Default: Mountain View
 * `generate_cert_common_name`: \[string\]
   * Default: `nil`
-* `generate_cert_expiration`: \[integer\]
+* `generate_cert_expiration`: \[time\]
   * Default: \(60 \* 60 \* 24 = 86400\) \* 365 \* 10 = 10 years
 
 ## Cert Digest Algorithm Parameter

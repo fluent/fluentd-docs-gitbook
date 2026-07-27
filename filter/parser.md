@@ -199,7 +199,7 @@ If `true`, invalid string is replaced with safe characters and re-parse it.
 
 | type | default | version |
 | :--- | :--- | :--- |
-| string | false | 0.14.9 |
+| string | nil | 0.14.9 |
 
 Stores the parsed values with the specified key name prefix.
 
@@ -226,7 +226,7 @@ With above configuration, here is the result:
 
 | type | default | version |
 | :--- | :--- | :--- |
-| string | false | 0.14.9 |
+| string | nil | 0.14.9 |
 
 Stores the parsed values as a hash value in a field.
 
