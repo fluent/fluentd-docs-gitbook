@@ -1,6 +1,6 @@
 # Ruby
 
-The [`fluent-logger-ruby`](http://github.com/fluent/fluent-logger-ruby) library is used to post records from Ruby applications to Fluentd.
+The [`fluent-logger-ruby`](https://github.com/fluent/fluent-logger-ruby) library is used to post records from Ruby applications to Fluentd.
 
 This article explains how to use it.
 

@@ -32,7 +32,7 @@ The parser type used to parse the log line.
 
 * `normal` uses Ruby's
 
-  [`CSV.parse_line`](http://ruby-doc.org/stdlib-2.4.1/libdoc/csv/rdoc/CSV.html#method-c-parse_line)
+  [`CSV.parse_line`](https://ruby-doc.org/stdlib-2.4.1/libdoc/csv/rdoc/CSV.html#method-c-parse_line)
 
   method.
 

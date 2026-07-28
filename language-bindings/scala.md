@@ -46,7 +46,7 @@ $ sudo systemctl restart td-agent.service
 Add the following lines to `build.sbt`:
 
 ```text
-resolvers += "Apache Maven Central Repository" at "http://repo.maven.apache.org/maven2/"
+resolvers += "Apache Maven Central Repository" at "https://repo.maven.apache.org/maven2/"
 
 libraryDependencies += "org.fluentd" %% "fluent-logger-scala" % "(version)"
 ```

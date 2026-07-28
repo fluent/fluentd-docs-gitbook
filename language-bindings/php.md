@@ -1,6 +1,6 @@
 # PHP
 
-The [`fluent-logger-php`](http://github.com/fluent/fluent-logger-php) library is used to post records from PHP applications to Fluentd.
+The [`fluent-logger-php`](https://github.com/fluent/fluent-logger-php) library is used to post records from PHP applications to Fluentd.
 
 This article explains how to use it.
 

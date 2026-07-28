@@ -50,7 +50,7 @@ The most recent version of `@fluent-org/logger` can be found [here](https://www.
 
 ### A Sample Application
 
-Here is a sample [Express](http://expressjs.com/) app using `@fluent-org/logger`:
+Here is a sample [Express](https://expressjs.com/) app using `@fluent-org/logger`:
 
 #### `package.json`
 

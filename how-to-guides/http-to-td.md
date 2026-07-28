@@ -128,7 +128,7 @@ Result     :
 +-----+
 ```
 
-It is not advisable to send sensitive user information to the cloud. To assist with this need, `out_tdlog` comes with some anonymization systems. For more details, see [Treasure Data plugin](http://github.com/treasure-data/fluent-plugin-td/).
+It is not advisable to send sensitive user information to the cloud. To assist with this need, `out_tdlog` comes with some anonymization systems. For more details, see [Treasure Data plugin](https://github.com/treasure-data/fluent-plugin-td/).
 
 ## Conclusion
 
@@ -139,7 +139,7 @@ Fluentd + Treasure Data gives you a data collection and analysis system in days,
 * [Fluentd Architecture](https://www.fluentd.org/architecture)
 * [Fluentd Get Started](../quickstart/)
 * [Treasure Data](https://www.fluentd.org/treasuredata)
-* [Treasure Data: Documentation](http://docs.treasuredata.com/)
+* [Treasure Data: Documentation](https://docs.treasuredata.com/)
 
 If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open). [Fluentd](https://www.fluentd.org/) is an open-source project under [Cloud Native Computing Foundation \(CNCF\)](https://cncf.io/). All components are available under the Apache 2 License.
 

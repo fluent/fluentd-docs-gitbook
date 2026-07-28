@@ -2,7 +2,7 @@
 
 ![Fluentd + Kubernetes](../.gitbook/assets/fluentd_kubernetes.png)
 
-[Kubernetes](http://kubernetes.io) provides two logging endpoints for applications and cluster logs:
+[Kubernetes](https://kubernetes.io) provides two logging endpoints for applications and cluster logs:
 
 1. Stackdriver Logging for use with Google Cloud Platform; and,
 2. Elasticsearch.

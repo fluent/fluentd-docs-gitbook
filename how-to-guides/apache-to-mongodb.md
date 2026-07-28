@@ -4,9 +4,9 @@ This article explains how to use [Fluentd](https://fluentd.org/)'s MongoDB Outpu
 
 ## Background
 
-[Fluentd](https://fluentd.org/) is an advanced open-source log collector originally developed at [Treasure Data, Inc](http://www.treasuredata.com/). Because Fluentd handles logs as semi-structured data streams, the ideal database should have strong support for semi-structured data. Several candidates meet this criterion, but we believe [MongoDB](http://www.mongodb.org/) is the market leader.
+[Fluentd](https://fluentd.org/) is an advanced open-source log collector originally developed at [Treasure Data, Inc](https://www.treasuredata.com/). Because Fluentd handles logs as semi-structured data streams, the ideal database should have strong support for semi-structured data. Several candidates meet this criterion, but we believe [MongoDB](https://www.mongodb.org/) is the market leader.
 
-MongoDB is an open-source, document-oriented database developed at [MongoDB, Inc](http://www.mongodb.com/). It is schema-free and uses a JSON-like format to manage semi-structured data.
+MongoDB is an open-source, document-oriented database developed at [MongoDB, Inc](https://www.mongodb.com/). It is schema-free and uses a JSON-like format to manage semi-structured data.
 
 This article will show you how to use [Fluentd](https://fluentd.org/) to import Apache logs into MongoDB.
 
@@ -30,7 +30,7 @@ Fluentd does these three \(3\) things:
 The following software/services are required to be set up correctly:
 
 * [Fluentd](https://www.fluentd.org/)
-* [MongoDB](http://www.mongodb.org/)
+* [MongoDB](https://www.mongodb.org/)
 * [Apache](https://httpd.apache.org/) (with the Combined Log Format)
 
 For simplicity, this article will describe how to set up a one-node configuration.
@@ -42,7 +42,7 @@ You can install Fluentd via major packaging systems.
 
 For MongoDB, please refer to the following downloads page:
 
-* [MongoDB Downloads](http://www.mongodb.org/downloads)
+* [MongoDB Downloads](https://www.mongodb.org/downloads)
 
 ## Install MongoDB Plugin
 

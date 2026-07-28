@@ -42,9 +42,9 @@ For large deployments, you must use [`jemalloc`](http://www.canonware.com/jemall
 
 The Fluentd gem does not come with `/etc/init.d/` scripts. You should use Process Management tools such as:
 
-* [`daemontools`](http://cr.yp.to/daemontools.html)
-* [`runit`](http://smarden.org/runit/)
-* [`supervisord`](http://supervisord.org/)
+* [`daemontools`](https://cr.yp.to/daemontools.html)
+* [`runit`](https://smarden.org/runit/)
+* [`supervisord`](https://supervisord.org/)
 * [`upstart`](http://upstart.ubuntu.com/)
 * `systemd`
 

@@ -8,7 +8,7 @@ The recommended way to install Fluentd on Windows is to use MSI installers of `t
 
 * Includes Ruby and other library dependencies \(since most Windows machines don't have them installed\).
 * Includes a set of commonly-used 3rd-party plugins such as `out_es`.
-* Originally developed by [Treasure Data, Inc](http://www.treasuredata.com/) \(hence the name\).
+* Originally developed by [Treasure Data, Inc](https://www.treasuredata.com/) \(hence the name\).
 
 Currently two versions of `td-agent` are available.
 

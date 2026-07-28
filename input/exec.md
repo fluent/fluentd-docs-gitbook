@@ -184,7 +184,7 @@ If you already have a script that runs periodically \(say, via `cron`\) that you
 
 The only requirement for the script is that it outputs TSV, JSON or MessagePack.
 
-For example, this [script](https://gist.github.com/kiyoto/1bd903ad1bdd6ac51fcc) scrapes the front page of [Hacker News](http://news.ycombinator.com) and scrapes information about each post:
+For example, this [script](https://gist.github.com/kiyoto/1bd903ad1bdd6ac51fcc) scrapes the front page of [Hacker News](https://news.ycombinator.com) and scrapes information about each post:
 
 Suppose that script is called `hn.rb`. Then, you can run it every 5 minutes with the following configuration:
 
