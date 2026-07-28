@@ -32,7 +32,7 @@ For example, an email output plugin would have the path:
 lib/fluent/plugin/out_mail.rb
 ```
 
-The packaged gem can be distributed and installed using RubyGems. For further information, see the [list of Fluentd plugins](http://www.fluentd.org/plugins) for third-party plugins.
+The packaged gem can be distributed and installed using RubyGems. For further information, see the [list of Fluentd plugins](https://www.fluentd.org/plugins) for third-party plugins.
 
 ## Writing Plugins
 
@@ -343,4 +343,4 @@ Fluentd's plug-in mechanism has a merit to extend functionality, but plugin deve
 * [Slides: Fluentd v0.14 Plugin API Details](http://www.slideshare.net/tagomoris/fluentd-v014-plugin-api-details)
 * [Slides: Dive into Fluentd Plugin](http://www.slideshare.net/repeatedly/dive-into-fluentd-plugin-v012) (outdated)
 
-If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open). [Fluentd](http://www.fluentd.org/) is an open-source project under [Cloud Native Computing Foundation \(CNCF\)](https://cncf.io/). All components are available under the Apache 2 License.
+If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open). [Fluentd](https://www.fluentd.org/) is an open-source project under [Cloud Native Computing Foundation \(CNCF\)](https://cncf.io/). All components are available under the Apache 2 License.

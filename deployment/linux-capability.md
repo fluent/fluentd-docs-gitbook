@@ -179,7 +179,7 @@ $ bundle exec fluentd -c in_tail_camouflage_permission.conf
 
 Fluentd, which is running by a non-root user, does not complain with `Permission denied`. Users can retrieve root files' contents on a non-root process, yay!
 
-If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open). [Fluentd](http://www.fluentd.org/) is an open-source project under [Cloud Native Computing Foundation \(CNCF\)](https://cncf.io/). All components are available under the Apache 2 License.
+If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open). [Fluentd](https://www.fluentd.org/) is an open-source project under [Cloud Native Computing Foundation \(CNCF\)](https://cncf.io/). All components are available under the Apache 2 License.
 
 ## Capability handling on docker container
 If you would like to collect logs from a file as a non-root user, you can use `CAP_DAC_READ_SEARCH` Linux capabilities.

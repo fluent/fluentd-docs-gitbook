@@ -1,6 +1,6 @@
 # Fluentd UI
 
-[fluentd-ui](https://github.com/fluent/fluentd-ui) is a browser-based [fluentd](http://fluentd.org/) and [td-agent](https://docs.treasuredata.com/display/public/PD/About+Treasure+Data%27s+Server-Side+Agent) manager that supports the following operations:
+[fluentd-ui](https://github.com/fluent/fluentd-ui) is a browser-based [fluentd](https://fluentd.org/) and [td-agent](https://docs.treasuredata.com/display/public/PD/About+Treasure+Data%27s+Server-Side+Agent) manager that supports the following operations:
 
 * Install, uninstall, and upgrade Fluentd plugins
 * Start/stop/restart fluentd process
@@ -78,5 +78,5 @@ The default account credentials are:
 
 ![](../.gitbook/assets/05.png)
 
-If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open). [Fluentd](http://www.fluentd.org/) is an open-source project under [Cloud Native Computing Foundation \(CNCF\)](https://cncf.io/). All components are available under the Apache 2 License.
+If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open). [Fluentd](https://www.fluentd.org/) is an open-source project under [Cloud Native Computing Foundation \(CNCF\)](https://cncf.io/). All components are available under the Apache 2 License.
 

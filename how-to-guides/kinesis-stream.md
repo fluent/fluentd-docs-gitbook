@@ -1,16 +1,16 @@
 # Stream Processing with Kinesis
 
-This article explains how to use [Fluentd](http://fluentd.org/)'s [Amazon Kinesis](https://aws.amazon.com/kinesis/) Output plugin \([`out_kinesis`](https://github.com/awslabs/aws-fluent-plugin-kinesis)\) to aggregate semi-structured logs in real-time. Kinesis plugin is developed and published by Amazon Web Services officially.
+This article explains how to use [Fluentd](https://fluentd.org/)'s [Amazon Kinesis](https://aws.amazon.com/kinesis/) Output plugin \([`out_kinesis`](https://github.com/awslabs/aws-fluent-plugin-kinesis)\) to aggregate semi-structured logs in real-time. Kinesis plugin is developed and published by Amazon Web Services officially.
 
 ![Fluentd + Kinesis](../.gitbook/assets/fluentd-kinesis%20%281%29%20%281%29%20%281%29.png)
 
 ## Background
 
-[Fluentd](http://fluentd.org/) is an advanced open-source log collector originally developed at [Treasure Data, Inc](http://www.treasuredata.com/). Because Fluentd can collect logs from various sources, [Amazon Kinesis](https://aws.amazon.com/kinesis/) is one of the popular destinations for the output.
+[Fluentd](https://fluentd.org/) is an advanced open-source log collector originally developed at [Treasure Data, Inc](http://www.treasuredata.com/). Because Fluentd can collect logs from various sources, [Amazon Kinesis](https://aws.amazon.com/kinesis/) is one of the popular destinations for the output.
 
 Amazon Kinesis is a platform for streaming data on AWS, offering powerful services to make it easy to load and analyze streaming data, and also providing the ability for you to build custom streaming data applications for specialized needs.
 
-This article will show you how to use [Fluentd](http://fluentd.org/) to import Apache logs into Amazon Kinesis.
+This article will show you how to use [Fluentd](https://fluentd.org/) to import Apache logs into Amazon Kinesis.
 
 ## Mechanism
 
@@ -143,7 +143,7 @@ $ ab -n 100 -c 10 http://localhost/
 
 #### Why we need Fluentd, while Kinesis also offers client libraries?
 
-A lot of people use Fluentd + Kinesis, simply because they want to have more choices for [inputs](http://www.fluentd.org/datasources) and [outputs](http://www.fluentd.org/dataoutputs). For inputs, Fluentd has a lot more community-contributed plugins and libraries. For outputs, you can send not only Kinesis, but multiple destinations like Amazon S3, local file storage, etc.
+A lot of people use Fluentd + Kinesis, simply because they want to have more choices for [inputs](https://www.fluentd.org/datasources) and [outputs](https://www.fluentd.org/dataoutputs). For inputs, Fluentd has a lot more community-contributed plugins and libraries. For outputs, you can send not only Kinesis, but multiple destinations like Amazon S3, local file storage, etc.
 
 ## Conclusion
 
@@ -156,5 +156,5 @@ Fluentd with Amazon Kinesis makes the realtime log collection simple, easy, and 
 * [Amazon Kinesis](https://aws.amazon.com/kinesis/)
 * [Amazon Kinesis Output Plugin](https://github.com/awslabs/aws-fluent-plugin-kinesis) \(Made by Amazon Web Services\)
 
-If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open). [Fluentd](http://www.fluentd.org/) is an open-source project under [Cloud Native Computing Foundation \(CNCF\)](https://cncf.io/). All components are available under the Apache 2 License.
+If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open). [Fluentd](https://www.fluentd.org/) is an open-source project under [Cloud Native Computing Foundation \(CNCF\)](https://cncf.io/). All components are available under the Apache 2 License.
 

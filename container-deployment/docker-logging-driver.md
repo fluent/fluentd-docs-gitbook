@@ -6,15 +6,15 @@ The old-fashioned way is to write these messages into a log file, but that inher
 
 On Docker v1.6, the concept of [**logging drivers**](https://docs.docker.com/engine/admin/logging/overview/) was introduced. The Docker engine is aware of the output interfaces that manage the application messages.
 
-For Docker v1.8, we have implemented a native [**Fluentd Docker logging driver**](https://docs.docker.com/engine/admin/logging/fluentd/). Now, you are able to have a unified and structured logging system with the simplicity and high performance of [Fluentd](http://fluentd.org).
+For Docker v1.8, we have implemented a native [**Fluentd Docker logging driver**](https://docs.docker.com/engine/admin/logging/fluentd/). Now, you are able to have a unified and structured logging system with the simplicity and high performance of [Fluentd](https://fluentd.org).
 
 NOTE: Currently, the Fluentd logging driver doesn't support sub-second precision.
 
 ## Getting Started
 
-Using the Docker logging mechanism with [Fluentd](http://www.fluentd.org) is a straightforward step. To get started, make sure you have the following prerequisites:
+Using the Docker logging mechanism with [Fluentd](https://www.fluentd.org) is a straightforward step. To get started, make sure you have the following prerequisites:
 
-* A basic understanding of [Fluentd](http://www.fluentd.org)
+* A basic understanding of [Fluentd](https://www.fluentd.org)
 * A basic understanding of Docker
 * A basic understanding of [Docker logging drivers](https://docs.docker.com/engine/admin/logging/overview/)
 * Docker v1.8+
@@ -282,5 +282,5 @@ In a production environment, you must use one of the container orchestration too
 
 * [Logging Architecture](https://kubernetes.io/docs/concepts/cluster-administration/logging/)
 
-If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open). [Fluentd](http://www.fluentd.org/) is an open-source project under [Cloud Native Computing Foundation \(CNCF\)](https://cncf.io/). All components are available under the Apache 2 License.
+If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open). [Fluentd](https://www.fluentd.org/) is an open-source project under [Cloud Native Computing Foundation \(CNCF\)](https://cncf.io/). All components are available under the Apache 2 License.
 
