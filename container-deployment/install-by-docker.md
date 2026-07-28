@@ -1,6 +1,6 @@
 # Docker Image
 
-This article explains how to use the official [Fluentd Docker image](https://hub.docker.com/r/fluent/fluentd/), maintained by [Treasure Data, Inc](http://www.treasuredata.com/).
+This article explains how to use the official [Fluentd Docker image](https://hub.docker.com/r/fluent/fluentd/), maintained by [Treasure Data, Inc](https://www.treasuredata.com/).
 
 * [Fluentd official Docker image](https://hub.docker.com/r/fluent/fluentd/)
 * [Fluentd official Docker image \(Source\)](https://github.com/fluent/fluentd-docker-image)

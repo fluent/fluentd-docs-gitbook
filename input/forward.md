@@ -337,7 +337,7 @@ The array of usernames.
 
 ## Protocol
 
-This plugin accepts both JSON and [MessagePack](http://msgpack.org/) messages and automatically detects which one is used. Internally, Fluentd uses MessagePack as it is more efficient than JSON.
+This plugin accepts both JSON and [MessagePack](https://msgpack.org/) messages and automatically detects which one is used. Internally, Fluentd uses MessagePack as it is more efficient than JSON.
 
 The time value is an `EventTime` or a platform-specific integer and is based on the output of Ruby's `Time.now.to_i` function. On Linux, BSD, and Mac systems, this is the number of seconds since 1970.
 

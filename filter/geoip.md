@@ -140,7 +140,7 @@ Set backend library.
 
 #### Plot Realtime Access Statistics on a World Map using Elasticsearch and Kibana
 
-The `country_code` field is needed to visualize access statistics on a world map using [Kibana](http://www.elasticsearch.org/overview/kibana/).
+The `country_code` field is needed to visualize access statistics on a world map using [Kibana](https://www.elasticsearch.org/overview/kibana/).
 
 Required plugins:
 

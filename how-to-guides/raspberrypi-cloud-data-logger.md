@@ -1,6 +1,6 @@
 # Cloud Data Logging with Raspberry Pi
 
-[Raspberry Pi](http://www.raspberrypi.org/) is a credit-card-sized single-board computer. Because it is low-cost and easy to equip with various types of sensors, using Raspberry Pi as a cloud data logger is one of its ideal use cases.
+[Raspberry Pi](https://www.raspberrypi.org/) is a credit-card-sized single-board computer. Because it is low-cost and easy to equip with various types of sensors, using Raspberry Pi as a cloud data logger is one of its ideal use cases.
 
 ![Cloud Data Logger by Raspberry Pi](../.gitbook/assets/raspberry-pi-cloud-data-logger.png)
 
@@ -10,7 +10,7 @@ This article introduces how to transport sensor data from Raspberry Pi to the cl
 
 [Raspbian](http://www.raspbian.org/) is a free operating system based on Debian, optimized for the Raspberry Pi. Please install Raspbian on your Raspberry Pi by following the instructions in the blog post below:
 
-* [Getting Started with Raspberry Pi: Installing Raspbian](http://www.andrewmunsell.com/blog/getting-started-raspberry-pi-install-raspbian)
+* [Getting Started with Raspberry Pi: Installing Raspbian](https://www.andrewmunsell.com/blog/getting-started-raspberry-pi-install-raspbian)
 
 ## Install Fluentd
 

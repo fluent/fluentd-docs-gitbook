@@ -1,10 +1,10 @@
 # Data Collection with Hadoop \(HDFS\)
 
-This article explains how to use [Fluentd](https://fluentd.org/)'s [WebHDFS Output plugin](http://github.com/fluent/fluent-plugin-webhdfs/) to aggregate semi-structured logs into Hadoop HDFS.
+This article explains how to use [Fluentd](https://fluentd.org/)'s [WebHDFS Output plugin](https://github.com/fluent/fluent-plugin-webhdfs/) to aggregate semi-structured logs into Hadoop HDFS.
 
 ## Background
 
-[Fluentd](https://fluentd.org/) is an advanced open-source log collector originally developed at [Treasure Data, Inc](http://www.treasuredata.com/). Fluentd is specifically designed to solve the big-data log collection problem. A lot of users are using Fluentd with MongoDB, and have found that it doesn't scale well for now.
+[Fluentd](https://fluentd.org/) is an advanced open-source log collector originally developed at [Treasure Data, Inc](https://www.treasuredata.com/). Fluentd is specifically designed to solve the big-data log collection problem. A lot of users are using Fluentd with MongoDB, and have found that it doesn't scale well for now.
 
 HDFS \(Hadoop\) is a natural alternative for storing and processing a huge amount of data. It supports an HTTP interface called WebHDFS in addition to its Java library.
 
@@ -128,14 +128,14 @@ drwxr-xr-x   - 1 supergroup          0 2012-10-22 09:40 /log/20121022_14/access.
 
 ## Conclusion
 
-Fluentd with WebHDFS makes the realtime log collection simple, robust and scalable! [@tagomoris](http://github.com/tagomoris) has already been using this plugin to collect 20,000 msgs/sec, 1.5 TB/day without any major problems for several months now.
+Fluentd with WebHDFS makes the realtime log collection simple, robust and scalable! [@tagomoris](https://github.com/tagomoris) has already been using this plugin to collect 20,000 msgs/sec, 1.5 TB/day without any major problems for several months now.
 
 ## Learn More
 
 * [Fluentd Architecture](https://www.fluentd.org/architecture)
 * [Fluentd Get Started](../quickstart/)
 * [WebHDFS Output Plugin](../output/webhdfs.md)
-* [Slides: Fluentd and WebHDFS](http://www.slideshare.net/tagomoris/fluentd-and-webhdfs)
+* [Slides: Fluentd and WebHDFS](https://www.slideshare.net/tagomoris/fluentd-and-webhdfs)
 
 If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open). [Fluentd](https://www.fluentd.org/) is an open-source project under [Cloud Native Computing Foundation \(CNCF\)](https://cncf.io/). All components are available under the Apache 2 License.
 

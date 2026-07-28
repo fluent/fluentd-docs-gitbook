@@ -1,12 +1,12 @@
 # Install by DEB Package v3 \(Debian/Ubuntu\)
 
-This article explains how to install the `td-agent` deb package, the stable Fluentd distribution package maintained by [Treasure Data, Inc](http://www.treasuredata.com/).
+This article explains how to install the `td-agent` deb package, the stable Fluentd distribution package maintained by [Treasure Data, Inc](https://www.treasuredata.com/).
 
 ## What is `td-agent`?
 
 Fluentd is written in Ruby for flexibility, with performance-sensitive parts in C. However, some users may have difficulty installing and operating a Ruby daemon.
 
-That is why [Treasure Data, Inc](http://www.treasuredata.com/) provides **the stable distribution of Fluentd**, called `td-agent`. The differences between Fluentd and `td-agent` can be found [here](https://www.fluentd.org/faqs).
+That is why [Treasure Data, Inc](https://www.treasuredata.com/) provides **the stable distribution of Fluentd**, called `td-agent`. The differences between Fluentd and `td-agent` can be found [here](https://www.fluentd.org/faqs).
 
 ## Installing `td-agent`
 

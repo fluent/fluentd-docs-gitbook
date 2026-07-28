@@ -1,12 +1,12 @@
 # Install by RPM Package v3 \(Red Hat Linux\)
 
-This article explains how to install the `td-agent` rpm package, the stable Fluentd distribution package maintained by [Treasure Data, Inc](http://www.treasuredata.com/).
+This article explains how to install the `td-agent` rpm package, the stable Fluentd distribution package maintained by [Treasure Data, Inc](https://www.treasuredata.com/).
 
 ## What is `td-agent`?
 
 Fluentd is written in Ruby for flexibility, with performance-sensitive parts in C. However, some users may have difficulty installing and operating a Ruby daemon.
 
-That is why [Treasure Data, Inc](http://www.treasuredata.com/) provides **the stable distribution of Fluentd**, called `td-agent`. The differences between Fluentd and `td-agent` can be found [here](https://www.fluentd.org/faqs).
+That is why [Treasure Data, Inc](https://www.treasuredata.com/) provides **the stable distribution of Fluentd**, called `td-agent`. The differences between Fluentd and `td-agent` can be found [here](https://www.fluentd.org/faqs).
 
 ## How to install `td-agent`
 

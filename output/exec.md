@@ -28,7 +28,7 @@ Please see the [Configuration File](../configuration/config-file.md) article for
 
 This example illustrates how to run FizzBuzz with `out_exec`.
 
-We assume that the input file is specified by the last argument in the command line \(`ARGV[-1]`\). The following script `fizzbuzz.py` runs [FizzBuzz](http://en.wikipedia.org/wiki/Fizz_buzz) against the new-line delimited sequence of natural numbers \(1, 2, 3...\) and writes the output to `foobar.out`:
+We assume that the input file is specified by the last argument in the command line \(`ARGV[-1]`\). The following script `fizzbuzz.py` runs [FizzBuzz](https://en.wikipedia.org/wiki/Fizz_buzz) against the new-line delimited sequence of natural numbers \(1, 2, 3...\) and writes the output to `foobar.out`:
 
 ```text
 #!/usr/bin/env python

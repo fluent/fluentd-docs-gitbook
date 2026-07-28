@@ -6,7 +6,7 @@ This article explains how to use [Fluentd](https://fluentd.org/)'s [Amazon Kines
 
 ## Background
 
-[Fluentd](https://fluentd.org/) is an advanced open-source log collector originally developed at [Treasure Data, Inc](http://www.treasuredata.com/). Because Fluentd can collect logs from various sources, [Amazon Kinesis](https://aws.amazon.com/kinesis/) is one of the popular destinations for the output.
+[Fluentd](https://fluentd.org/) is an advanced open-source log collector originally developed at [Treasure Data, Inc](https://www.treasuredata.com/). Because Fluentd can collect logs from various sources, [Amazon Kinesis](https://aws.amazon.com/kinesis/) is one of the popular destinations for the output.
 
 Amazon Kinesis is a platform for streaming data on AWS, offering powerful services to make it easy to load and analyze streaming data, and also providing the ability for you to build custom streaming data applications for specialized needs.
 
@@ -122,7 +122,7 @@ The `random_partition_key true` option will generate the partition key via UUID 
 
 For additional configurations, see [Kinesis Output plugin](https://github.com/awslabs/aws-fluent-plugin-kinesis).
 
-For those who are interested in security, all communication between Fluentd and Amazon Kinesis are done via HTTPS. If you do not want to have AES keys in the configuration file, [IAM Role-based authentication](http://docs.aws.amazon.com/kinesis/latest/dev/controlling-access.html) is available too for EC2 nodes.
+For those who are interested in security, all communication between Fluentd and Amazon Kinesis are done via HTTPS. If you do not want to have AES keys in the configuration file, [IAM Role-based authentication](https://docs.aws.amazon.com/kinesis/latest/dev/controlling-access.html) is available too for EC2 nodes.
 
 ## Test
 

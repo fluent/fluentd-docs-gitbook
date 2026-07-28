@@ -2,7 +2,7 @@
 
 ![](../.gitbook/assets/mongo%20%283%29.png)
 
-The `out_mongo` Output plugin writes records into [MongoDB](http://mongodb.org/), the emerging document-oriented database system.
+The `out_mongo` Output plugin writes records into [MongoDB](https://mongodb.org/), the emerging document-oriented database system.
 
 If you're using `ReplicaSet`, please see the [`out_mongo_replset`](mongo_replset.md) article instead.
 

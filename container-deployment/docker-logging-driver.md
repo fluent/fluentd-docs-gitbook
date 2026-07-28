@@ -1,6 +1,6 @@
 # Docker Logging Driver
 
-The article describes how to implement a unified logging system for your [Docker](http://www.docker.com) containers. An application in a production environment needs to register certain events or problems during its runtime.
+The article describes how to implement a unified logging system for your [Docker](https://www.docker.com) containers. An application in a production environment needs to register certain events or problems during its runtime.
 
 The old-fashioned way is to write these messages into a log file, but that inherits certain problems. Specifically, when we try to perform some analysis over the registers, or on the other hand, if the application has multiple instances running, the scenario becomes even more complex.
 

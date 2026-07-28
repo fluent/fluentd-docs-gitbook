@@ -312,7 +312,7 @@ For more details, see `fluent-plugin-config-format --help`.
 
 The following slides can help understand how Fluentd works before diving into writing custom plugins.
 
-These slides are from [Naotoshi Seo's](https://github.com/sonots) [RubyKaigi 2014 talk](http://rubykaigi.org/2014/presentation/S-NaotoshiSeo/).
+These slides are from [Naotoshi Seo's](https://github.com/sonots) [RubyKaigi 2014 talk](https://rubykaigi.org/2014/presentation/S-NaotoshiSeo/).
 
 The slides are based on Fluentd v0.12. There are many differences between v0.12 and v1 API, but it may help build an understanding of overall Fluentd's design.
 
@@ -340,7 +340,7 @@ Fluentd's plug-in mechanism has a merit to extend functionality, but plugin deve
 
 ## Further Reading
 
-* [Slides: Fluentd v0.14 Plugin API Details](http://www.slideshare.net/tagomoris/fluentd-v014-plugin-api-details)
-* [Slides: Dive into Fluentd Plugin](http://www.slideshare.net/repeatedly/dive-into-fluentd-plugin-v012) (outdated)
+* [Slides: Fluentd v0.14 Plugin API Details](https://www.slideshare.net/tagomoris/fluentd-v014-plugin-api-details)
+* [Slides: Dive into Fluentd Plugin](https://www.slideshare.net/repeatedly/dive-into-fluentd-plugin-v012) (outdated)
 
 If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open). [Fluentd](https://www.fluentd.org/) is an open-source project under [Cloud Native Computing Foundation \(CNCF\)](https://cncf.io/). All components are available under the Apache 2 License.
