@@ -39,5 +39,5 @@ Appendix:
 
 * `/api/config.gracefulReload`: This is the replacement of `SIGUSR2` before v1.18. Please use `/api/processes.zeroDowntimeRestart` or `/api/config.reload` unless there is a special reason. See [SIGUSR2](signals.md#sigusr2) for details.
 
-If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open). [Fluentd](http://www.fluentd.org/) is an open-source project under [Cloud Native Computing Foundation \(CNCF\)](https://cncf.io/). All components are available under the Apache 2 License.
+If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open). [Fluentd](https://www.fluentd.org/) is an open-source project under [Cloud Native Computing Foundation \(CNCF\)](https://cncf.io/). All components are available under the Apache 2 License.
 

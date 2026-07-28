@@ -1,14 +1,14 @@
 # Send Apache Logs to Mongodb
 
-This article explains how to use [Fluentd](http://fluentd.org/)'s MongoDB Output plugin \([`out_mongo`](../output/mongo.md)\) to aggregate semi-structured logs in realtime.
+This article explains how to use [Fluentd](https://fluentd.org/)'s MongoDB Output plugin \([`out_mongo`](../output/mongo.md)\) to aggregate semi-structured logs in realtime.
 
 ## Background
 
-[Fluentd](http://fluentd.org/) is an advanced open-source log collector originally developed at [Treasure Data, Inc](http://www.treasuredata.com/). Because Fluentd handles logs as semi-structured data streams, the ideal database should have strong support for semi-structured data. Several candidates meet this criterion, but we believe [MongoDB](http://www.mongodb.org/) is the market leader.
+[Fluentd](https://fluentd.org/) is an advanced open-source log collector originally developed at [Treasure Data, Inc](http://www.treasuredata.com/). Because Fluentd handles logs as semi-structured data streams, the ideal database should have strong support for semi-structured data. Several candidates meet this criterion, but we believe [MongoDB](http://www.mongodb.org/) is the market leader.
 
 MongoDB is an open-source, document-oriented database developed at [MongoDB, Inc](http://www.mongodb.com/). It is schema-free and uses a JSON-like format to manage semi-structured data.
 
-This article will show you how to use [Fluentd](http://fluentd.org/) to import Apache logs into MongoDB.
+This article will show you how to use [Fluentd](https://fluentd.org/) to import Apache logs into MongoDB.
 
 ## Mechanism
 
@@ -156,5 +156,5 @@ Fluentd + MongoDB makes real-time log collection simple, easy, and robust.
 * [MongoDB Output Plugin](../output/mongo.md)
 * [MongoDB ReplicaSet Output Plugin](../output/mongo_replset.md)
 
-If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open). [Fluentd](http://www.fluentd.org/) is an open-source project under [Cloud Native Computing Foundation \(CNCF\)](https://cncf.io/). All components are available under the Apache 2 License.
+If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open). [Fluentd](https://www.fluentd.org/) is an open-source project under [Cloud Native Computing Foundation \(CNCF\)](https://cncf.io/). All components are available under the Apache 2 License.
 

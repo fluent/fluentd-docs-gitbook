@@ -1,14 +1,14 @@
 # Data Collection with Hadoop \(HDFS\)
 
-This article explains how to use [Fluentd](http://fluentd.org/)'s [WebHDFS Output plugin](http://github.com/fluent/fluent-plugin-webhdfs/) to aggregate semi-structured logs into Hadoop HDFS.
+This article explains how to use [Fluentd](https://fluentd.org/)'s [WebHDFS Output plugin](http://github.com/fluent/fluent-plugin-webhdfs/) to aggregate semi-structured logs into Hadoop HDFS.
 
 ## Background
 
-[Fluentd](http://fluentd.org/) is an advanced open-source log collector originally developed at [Treasure Data, Inc](http://www.treasuredata.com/). Fluentd is specifically designed to solve the big-data log collection problem. A lot of users are using Fluentd with MongoDB, and have found that it doesn't scale well for now.
+[Fluentd](https://fluentd.org/) is an advanced open-source log collector originally developed at [Treasure Data, Inc](http://www.treasuredata.com/). Fluentd is specifically designed to solve the big-data log collection problem. A lot of users are using Fluentd with MongoDB, and have found that it doesn't scale well for now.
 
 HDFS \(Hadoop\) is a natural alternative for storing and processing a huge amount of data. It supports an HTTP interface called WebHDFS in addition to its Java library.
 
-This article will show you how to use [Fluentd](http://fluentd.org/) to receive data from HTTP and stream it into HDFS.
+This article will show you how to use [Fluentd](https://fluentd.org/) to receive data from HTTP and stream it into HDFS.
 
 ## Architecture
 
@@ -137,5 +137,5 @@ Fluentd with WebHDFS makes the realtime log collection simple, robust and scalab
 * [WebHDFS Output Plugin](../output/webhdfs.md)
 * [Slides: Fluentd and WebHDFS](http://www.slideshare.net/tagomoris/fluentd-and-webhdfs)
 
-If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open). [Fluentd](http://www.fluentd.org/) is an open-source project under [Cloud Native Computing Foundation \(CNCF\)](https://cncf.io/). All components are available under the Apache 2 License.
+If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open). [Fluentd](https://www.fluentd.org/) is an open-source project under [Cloud Native Computing Foundation \(CNCF\)](https://cncf.io/). All components are available under the Apache 2 License.
 

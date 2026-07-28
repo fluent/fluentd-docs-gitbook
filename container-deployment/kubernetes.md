@@ -7,7 +7,7 @@
 1. Stackdriver Logging for use with Google Cloud Platform; and,
 2. Elasticsearch.
 
-Behind the scenes, there is a logging agent that takes care of the log collection, parsing and distribution: [Fluentd](http://www.fluentd.org).
+Behind the scenes, there is a logging agent that takes care of the log collection, parsing and distribution: [Fluentd](https://www.fluentd.org).
 
 This document focuses on how to deploy Fluentd in Kubernetes and extend the possibilities to have different destinations for your logs.
 
@@ -105,5 +105,5 @@ This YAML file contains two relevant environment variables that are used by Flue
 
 Any relevant change needs to be done in the YAML file before deployment. The defaults assume that at least one Elasticsearch Pod **elasticsearch-logging** exists in the cluster.
 
-If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open). [Fluentd](http://www.fluentd.org/) is an open-source project under [Cloud Native Computing Foundation \(CNCF\)](https://cncf.io/). All components are available under the Apache 2 License.
+If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open). [Fluentd](https://www.fluentd.org/) is an open-source project under [Cloud Native Computing Foundation \(CNCF\)](https://cncf.io/). All components are available under the Apache 2 License.
 

@@ -1,10 +1,10 @@
 # Life of a Fluentd event
 
-The following article gives a general overview of how events are processed by [Fluentd](http://fluentd.org) with examples. It covers the complete lifecycle including **Setup**, **Inputs**, **Filters**, **Matches** and **Labels**.
+The following article gives a general overview of how events are processed by [Fluentd](https://fluentd.org) with examples. It covers the complete lifecycle including **Setup**, **Inputs**, **Filters**, **Matches** and **Labels**.
 
 ## Basic Setup
 
-The configuration file is the fundamental piece to connect all things together, as it allows you to define which **Inputs** or listeners [Fluentd](http://fluentd.org) will have and set up common matching rules to route the **Event** data to a specific **Output**.
+The configuration file is the fundamental piece to connect all things together, as it allows you to define which **Inputs** or listeners [Fluentd](https://fluentd.org) will have and set up common matching rules to route the **Event** data to a specific **Output**.
 
 We will use the [`in_http`](../input/http.md) and the [`out_stdout`](../output/stdout.md) plugins as examples to describe the events cycle. The following is a basic definition on the configuration file to specify an `http` input, for short: we will be listening for **HTTP Requests**:
 
@@ -220,11 +220,11 @@ Buffer is important for reliability and throughput. See [Output](../output/) and
 
 ## Conclusion
 
-Once the events are reported by the [Fluentd](http://fluentd.org) engine on the **Source**, they are processed step-by-step or inside a referenced **Label**. Any **Event** may be filtered out at any moment. The new **Routing Engine** behavior provides more flexibility and makes easier the processing before reaching the **Output** plugin.
+Once the events are reported by the [Fluentd](https://fluentd.org) engine on the **Source**, they are processed step-by-step or inside a referenced **Label**. Any **Event** may be filtered out at any moment. The new **Routing Engine** behavior provides more flexibility and makes easier the processing before reaching the **Output** plugin.
 
 ## Learn More
 
 Fluentd is maintained continuously and released periodically. Follow [official blog announcement with `announcement` tag](https://www.fluentd.org/blog/tag/announcement).
 
-If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open). [Fluentd](http://www.fluentd.org/) is an open-source project under [Cloud Native Computing Foundation \(CNCF\)](https://cncf.io/). All components are available under [the Apache License 2.0.](https://www.apache.org/licenses/LICENSE-2.0)
+If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open). [Fluentd](https://www.fluentd.org/) is an open-source project under [Cloud Native Computing Foundation \(CNCF\)](https://cncf.io/). All components are available under [the Apache License 2.0.](https://www.apache.org/licenses/LICENSE-2.0)
 
