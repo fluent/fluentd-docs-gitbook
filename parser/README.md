@@ -53,6 +53,7 @@ this case, several options are available to allow read access:
 ## List of Built-in Parsers
 
 * [`regexp`](regexp.md)
+* [`apache`](apache.md)
 * [`apache2`](apache2.md)
 * [`apache_error`](apache_error.md)
 * [`nginx`](nginx.md)

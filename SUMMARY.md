@@ -117,6 +117,7 @@
   * [stdout](filter/stdout.md)
 * [Parser Plugins](parser/README.md)
   * [regexp](parser/regexp.md)
+  * [apache](parser/apache.md)
   * [apache2](parser/apache2.md)
   * [apache\_error](parser/apache_error.md)
   * [nginx](parser/nginx.md)
