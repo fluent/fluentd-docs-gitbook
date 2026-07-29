@@ -534,7 +534,7 @@ The common causes are:
 
 * Reading starts in the middle of a record, for example right after a log rotation, or on startup when `read_from_head` is `false`. In this case the warning is temporary and harmless: only the incomplete head of the record at the starting position is skipped, and the subsequent complete records are processed normally.
 * `format_firstline` does not match the actual first line of your records. Then no line ever becomes the start of a record, so the warning keeps appearing. Review the pattern.
-* A single `<parse>` section is shared, through a `path` glob, by files whose formats differ. Files that never match `format_firstline` keep producing this warning. Use a separate `in_tail` source for each format instead.
+* If a single `<parse>` section is applied to files with different formats (for example, a `path` glob matches multiple file types), warnings will continue to be emitted for files that do not match `format_firstline`. Use a separate in_tail source for each format instead.
 
 **Note:** these lines are dropped. Because `emit_unmatched_lines` is `false` by default, the warning is the only sign that the data is being lost. Set `emit_unmatched_lines true` to emit them instead; each line is then emitted as `{"unmatched_line" : incoming line}`.
 
