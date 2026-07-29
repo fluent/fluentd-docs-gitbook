@@ -32,7 +32,7 @@ Set the buffer size that Yajl will use when parsing streaming input.
 
 If you specify the smaller buffer size, you could get outcome response instantaneously in exchange for performance penalty.
 
-See also: [Method: Yajl::Parser\#parse](https://www.rubydoc.info/github/brianmario/yajl-ruby/Yajl%2FParser:parse)
+See also: [Method: Yajl::Parser\#parse](https://www.rubydoc.info/gems/yajl-ruby/Yajl%2FParser:parse)
 
 ### `time_type`
 

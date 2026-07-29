@@ -38,14 +38,13 @@ The second command starts Fluentd as a daemon. If you want to stop its daemon, y
 
 It is highly recommended to set up `ntpd` on the node to prevent invalid timestamps in your logs.
 
-For large deployments, you must use [`jemalloc`](http://www.canonware.com/jemalloc/) to avoid memory fragmentation. This is already included in the [`rpm`](install-fluent-package/install-by-rpm-fluent-package.md) and [`deb`](install-fluent-package/install-by-deb-fluent-package.md) packages.
+For large deployments, you must use [`jemalloc`](https://jemalloc.net/) to avoid memory fragmentation. This is already included in the [`rpm`](install-fluent-package/install-by-rpm-fluent-package.md) and [`deb`](install-fluent-package/install-by-deb-fluent-package.md) packages.
 
 The Fluentd gem does not come with `/etc/init.d/` scripts. You should use Process Management tools such as:
 
 * [`daemontools`](https://cr.yp.to/daemontools.html)
 * [`runit`](https://smarden.org/runit/)
 * [`supervisord`](https://supervisord.org/)
-* [`upstart`](http://upstart.ubuntu.com/)
 * `systemd`
 
 ## Next Steps
