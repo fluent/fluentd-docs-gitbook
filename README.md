@@ -6,3 +6,10 @@
 
 [Fluentd](https://www.fluentd.org/) is licensed under the terms of the [Apache License v2.0](https://www.apache.org/licenses/LICENSE-2.0). This project is made and sponsored by [Treasure Data](https://www.treasuredata.com).
 
+## FAQ
+
+* Q. How to update sidebar (Table of Contents) ?
+* A. Update SUMMARY.md
+
+* Q. How to control redirects?
+* A. Update .gitbook.yaml
