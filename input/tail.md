@@ -522,6 +522,24 @@ Maximum number of lines allowed from a group in `rate_period` time interval. The
 
 See also `emit_unmatched_lines` parameter.
 
+### What does the `got incomplete line before first line` warning mean?
+
+This warning appears only when you use a multiline parser (a `<parse>` section with `@type multiline` and `format_firstline`). In multiline mode, `in_tail` starts buffering a record from the line that matches `format_firstline` and appends the following lines to it. If `in_tail` reads a continuation line before it has ever matched a first line, the line cannot be assembled into a complete event, so `in_tail` discards it and prints a warning like this for each such line:
+
+```text
+2023-01-01 00:00:00 +0900 [warn]: #0 got incomplete line before first line from /path/to/file: "    at Foo.bar(Foo.java:42)\n"
+```
+
+The common causes are:
+
+* Reading starts in the middle of a record, for example right after a log rotation, or on startup when `read_from_head` is `false`. In this case the warning is temporary and harmless: only the incomplete head of the record at the starting position is skipped, and the subsequent complete records are processed normally.
+* `format_firstline` does not match the actual first line of your records. Then no line ever becomes the start of a record, so the warning keeps appearing. Review the pattern.
+* If a single `<parse>` section is applied to files with different formats (for example, a `path` glob matches multiple file types), warnings will continue to be emitted for files that do not match `format_firstline`. Use a separate in_tail source for each format instead.
+
+**Note:** these lines are dropped. Because `emit_unmatched_lines` is `false` by default, the warning is the only sign that the data is being lost. Set `emit_unmatched_lines true` to emit them instead; each line is then emitted as `{"unmatched_line" : incoming line}`.
+
+See the [multiline parser](../parser/multiline.md) for the parser configuration.
+
 ### `in_tail` doesn't start to read the log file, why?
 
 `in_tail` follows `tail -F` command's behavior by default, so `in_tail` reads only the new logs. If you want to read the existing lines for the batch use case, set `read_from_head true`.
