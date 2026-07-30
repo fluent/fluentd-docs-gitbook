@@ -6,7 +6,7 @@ uses files to store buffer chunks on disk.
 
 ## Example Config
 
-``` {.CodeRay}
+```text
 <match pattern>
   buffer_type file
   buffer_path /var/log/fluent/myapp.*.buffer
@@ -36,7 +36,7 @@ For example, the following conf doesn't work well. `/var/log/fluent/foo`
 resumes `/var/log/fluent/foo.bar`'s buffer files during start phase and
 it causes `No such file or directory` in `/var/log/fluent/foo.bar` side.
 
-``` {.CodeRay}
+```text
 <match pattern1>
     buffer_path /var/log/fluent/foo
 </match>
@@ -48,7 +48,7 @@ it causes `No such file or directory` in `/var/log/fluent/foo.bar` side.
 
 Here is the correct version to avoid prefix problem.
 
-``` {.CodeRay}
+```text
 <match pattern1>
     buffer_path /var/log/fluent/foo.baz
 </match>

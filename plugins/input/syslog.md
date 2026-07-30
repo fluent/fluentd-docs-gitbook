@@ -11,7 +11,7 @@ syslog protocol on UDP or TCP.
 `in_syslog` is included in Fluentd's core. No additional installation
 process is required.
 
-``` {.CodeRay}
+```text
 <source>
   @type syslog
   port 5140
@@ -30,7 +30,7 @@ by the `tag` parameter (tag prefix), [facility level](http://en.wikipedia.org/wi
 record is parsed by the regexp
 [here](https://github.com/fluent/fluentd/blob/master/lib/fluent/plugin/in_syslog.rb#L25).
 
-``` {.CodeRay}
+```text
 tag = "#{@tag}.#{facility}.#{priority}"
 
 record = {
@@ -82,7 +82,7 @@ Specify protocol format. Supported values are `rfc3164`, `rfc5424` and
 `rfc5424` instead.\
 Here is an example of message:
 
-``` {.CodeRay}
+```text
 # rfc3164
 <6>Feb 28 12:00:00 192.168.0.1 fluentd[11111]: [error] Hello!
 # rfc5424
@@ -98,7 +98,7 @@ prefix and parse it.
 The format of the log. This option is used to parse non-standard syslog
 formats using [parser plugins](/plugins/parser/README.md).
 
-``` {.CodeRay}
+```text
 <source>
   @type syslog
   tag system
@@ -109,13 +109,13 @@ formats using [parser plugins](/plugins/parser/README.md).
 Your `format` regexp should not consider the 'priority' prefix of the
 log. For example, if in\_syslog receives the log below:
 
-``` {.CodeRay}
+```text
  <1>Feb 20 00:00:00 192.168.0.1 fluentd[11111]: [error] hogehoge
 ```
 
 then the format parser receives the following log:
 
-``` {.CodeRay}
+```text
  Feb 20 00:00:00 192.168.0.1 fluentd[11111]: [error] hogehoge
 ```
 

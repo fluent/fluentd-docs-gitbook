@@ -20,7 +20,7 @@ cases are:
 
 It is used with the `<filter>` directive as follows:
 
-``` {.CodeRay}
+```text
 <filter foo.bar>
   @type grep
   regexp1 message cool
@@ -37,7 +37,7 @@ proceeds through the configuration top-down. Hence, if there are
 multiple filters for the same tag, they are applied in descending order.
 Hence, in the following example,
 
-``` {.CodeRay}
+```text
 <filter foo.bar>
   @type grep
   regexp1 message cool

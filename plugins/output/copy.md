@@ -10,7 +10,7 @@ The `copy` output plugin copies events to multiple outputs.
 `out_copy` is included in Fluentd's core. No additional installation
 process is required.
 
-``` {.CodeRay}
+```text
 <match pattern>
   @type copy
   <store>
@@ -35,7 +35,7 @@ MongoDB instance (Please see the [out\_file](/plugins/output/file.md) and
 [out\_mongo](/plugins/output/mongo.md) articles for more details about the
 respective plugins.)
 
-``` {.CodeRay}
+```text
 <match myevent.file_and_mongo>
   @type copy
   <store>

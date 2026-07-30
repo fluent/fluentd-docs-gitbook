@@ -13,7 +13,7 @@ TSV from stdout by default.
 `out_exec_filter` is included in Fluentd's core. No additional
 installation process is required.
 
-``` {.CodeRay}
+```text
 <match pattern>
   @type exec_filter
   command cmd arg arg
@@ -64,7 +64,7 @@ The following formats are supported:
 When using the tsv format, please also specify the comma-separated
 `in_keys` parameter.
 
-``` {.CodeRay}
+```text
 in_keys k1,k2,k3
 ```
 
@@ -82,7 +82,7 @@ The following formats are supported:
 When using the tsv format, please also specify the comma-separated
 `out_keys` parameter.
 
-``` {.CodeRay}
+```text
 out_keys k1,k2,k3,k4
 ```
 
@@ -172,7 +172,7 @@ The threshold for checking chunk flush performance. The default value is
 If chunk flush takes longer time than this threshold, fluentd logs
 warning message like below:
 
-``` {.CodeRay}
+```text
 2016-12-19 12:00:00 +0000 [warn]: buffer flush took longer time than slow_flush_log_threshold: elapsed_time = 15.0031226690043695 slow_flush_log_threshold=10.0 plugin_id="foo"
 ```
 
@@ -188,7 +188,7 @@ Please see the [logging article](/deployment/logging.md) for further details.
 
 Here is an example writtein in ruby.
 
-``` {.CodeRay}
+```text
 require 'json'
 require 'msgpack'
 
@@ -214,7 +214,7 @@ end
 
 Corresponding configuration is below:
 
-``` {.CodeRay}
+```text
 <match test.**>
   @type exec_filter
   command ruby /path/to/ruby_script.rb

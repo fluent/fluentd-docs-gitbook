@@ -18,13 +18,13 @@ numerically or storing data with sensible type information.
 
 The syntax is
 
-``` {.CodeRay}
+```text
 types <field_name_1>:<type_name_1>,<field_name_2>:<type_name_2>,...
 ```
 
 e.g.,
 
-``` {.CodeRay}
+```text
 types user_id:integer,paid:bool,paid_usd_amount:float
 ```
 
@@ -56,7 +56,7 @@ Alternatively, if the value is "Adam\|Alice\|Bob",
 
 This is regexp pattern of this plugin:
 
-``` {.CodeRay}
+```text
 format /^\[[^ ]* (?<time>[^\]]*)\] \[(?<level>[^\]]*)\](?: \[pid (?<pid>[^\]]*)\])? \[client (?<client>[^\]]*)\] (?<message>.*)$/
 ```
 
@@ -65,13 +65,13 @@ format /^\[[^ ]* (?<time>[^\]]*)\] \[(?<level>[^\]]*)\](?: \[pid (?<pid>[^\]]*)\
 
 ## Example
 
-``` {.CodeRay}
+```text
 [Wed Oct 11 14:32:52 2000] [error] [client 127.0.0.1] client denied by server configuration
 ```
 
 This incoming event is parsed as:
 
-``` {.CodeRay}
+```text
 time:
 971242372 (Wed Oct 11 14:32:52 2000)
 

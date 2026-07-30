@@ -54,14 +54,14 @@ not system Ruby.
 
 Please use `td-agent-gem` as shown below.
 
-``` {.CodeRay}
+```text
 $ /usr/sbin/td-agent-gem install <plugin name>
 ```
 
 For example, issue the following command if you are adding
 `fluent-plugin-twitter`.
 
-``` {.CodeRay}
+```text
 $ /usr/sbin/td-agent-gem install fluent-plugin-twitter
 ```
 
@@ -71,7 +71,7 @@ variable, including `PATH`. If you want to make all td-agent/fluentd
 related programs available without writing "/usr/lib/..." every time,
 you can add
 
-``` {.CodeRay}
+```text
 export PATH=$PATH:/opt/td-agent/embedded/bin/
 ```
 
@@ -93,7 +93,7 @@ same event to multiple output destinations.
 
 Use `"#{ENV['YOUR_ENV_VARIABLE']}"`. For example,
 
-``` {.CodeRay}
+```text
 some_field "#{ENV['FOO_HOME']}"
 ```
 

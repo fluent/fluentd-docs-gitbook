@@ -8,7 +8,7 @@ specified fields.
 
 `filter_grep` is included in Fluentd's core. No installation required.
 
-``` {.CodeRay}
+```text
 <filter foo.bar>
   @type grep
   <regexp>
@@ -36,14 +36,14 @@ conditions:
 
 Hence, the following events are kept:
 
-``` {.CodeRay}
+```text
 {"message":"It's cool outside today", "hostname":"web001.example.com"}
 {"message":"That's not cool", "hostname":"web1337.example.com"}
 ```
 
 whereas the following examples are filtered out:
 
-``` {.CodeRay}
+```text
 {"message":"I am cool but you are uncool", "hostname":"db001.example.com"}
 {"hostname":"web001.example.com"}
 {"message":"It's cool outside today"}
@@ -67,7 +67,7 @@ The regular expression.
 For example, the following filters out events unless the field "price"
 is a positive integer.
 
-``` {.CodeRay}
+```text
 <regexp>
   key price
   pattern [1-9]\d*
@@ -77,7 +77,7 @@ is a positive integer.
 The grep filter filters out UNLESS all `<regexp>`s are matched. Hence,
 if you have
 
-``` {.CodeRay}
+```text
 <regexp>
   key price
   pattern [1-9]\d*
@@ -94,7 +94,7 @@ unless the event's "item\_name" field starts with "book\_" and the
 For OR condition, you can use `|` operator of regular expressions. For
 example, if you have
 
-``` {.CodeRay}
+```text
 <regexp>
   key item_name
   pattern (^book_|^article)
@@ -116,7 +116,7 @@ The "N" at the end should be replaced with an integer between 1 and 20
 
 Here is `regexpN` version of `<regexp>` example:
 
-``` {.CodeRay}
+```text
 regexp1 price [1-9]\d*
 regexp2 item_name ^book_
 ```
@@ -137,7 +137,7 @@ The regular expression.
 For example, the following filters out events whose "status\_code" field
 is 5xx.
 
-``` {.CodeRay}
+```text
 <exclude>
   key status_code
   pattern ^5\d\d$
@@ -147,7 +147,7 @@ is 5xx.
 The grep filter filters out if any `<exclude>` is matched. Hence, if you
 have
 
-``` {.CodeRay}
+```text
 <exclude>
   key status_code
   pattern ^5\d\d$
@@ -171,7 +171,7 @@ The "N" at the end should be replaced with an integer between 1 and 20
 
 Here is `excludeN` version of `<exclude>` example:
 
-``` {.CodeRay}
+```text
 exclude1 status_code ^5\d\d$
 exclude2 url \.css$
 ```

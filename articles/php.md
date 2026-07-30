@@ -25,7 +25,7 @@ Please refer to the following documents to install fluentd.
 
 Next, please configure Fluentd to use the [forward Input plugin](/plugins/input/forward.md) as its data source.
 
-``` {.CodeRay}
+```text
 # Unix Domain Socket Input
 <source>
   @type unix
@@ -38,7 +38,7 @@ Next, please configure Fluentd to use the [forward Input plugin](/plugins/input/
 
 Please restart your agent once these lines are in place.
 
-``` {.CodeRay}
+```text
 # for rpm/deb only
 $ sudo /etc/init.d/td-agent restart
 ```
@@ -47,14 +47,14 @@ $ sudo /etc/init.d/td-agent restart
 
 To use fluent-logger-php, copy the library into your project directory.
 
-``` {.CodeRay}
+```text
 $ git clone https://github.com/fluent/fluent-logger-php.git
 $ cp -r src/Fluent <path/to/your_project>
 ```
 
 Next, initialize and post the records as shown below.
 
-``` {.CodeRay}
+```text
 <?php
 require_once __DIR__.'/src/Fluent/Autoloader.php';
 use Fluent\Logger\FluentLogger;
@@ -65,7 +65,7 @@ $logger->post("fluentd.test.follow", array("from"=>"userA", "to"=>"userB"));
 
 Executing the script will send the logs to Fluentd.
 
-``` {.CodeRay}
+```text
 $ php test.php
 ```
 

@@ -24,7 +24,7 @@ At first, generate private CA file on side of input plugin by
 `secure-forward-ca-generate`, then copy that file to output plugin side
 by safe way (scp, or anyway else).
 
-``` {.CodeRay}
+```text
 <match secret.data.**>
   @type secure_forward
   shared_key secret_string
@@ -43,7 +43,7 @@ Without hostname ACL (not yet implemented), \`self\_hostname\` is not
 checked in any state. The \`"\#{Socket.gethostname}"\` placeholder is
 available for such cases.
 
-``` {.CodeRay}
+```text
 <match secret.data.**>
   @type secure_forward
   shared_key secret_string
@@ -68,7 +68,7 @@ servers go down.
 If a server requires username & password, set \`username\` and
 \`password\` in the \`\` section:
 
-``` {.CodeRay}
+```text
 <match secret.data.**>
   @type secure_forward
   shared_key secret_string
@@ -101,7 +101,7 @@ connection every hour. By default, `keepalive` is set to 0 and the
 connection does NOT get disconnected unless there is a connection issue
 (This feature is for DNS name updates and refreshing SSL common keys).
 
-``` {.CodeRay}
+```text
 <match secret.data.**>
   @type secure_forward
   shared_key secret_string
@@ -124,7 +124,7 @@ set to none for simplicity here).
 
 #### Sender
 
-``` {.CodeRay}
+```text
 # td-agent secured client (sender)
 
 <source>
@@ -264,7 +264,7 @@ set to none for simplicity here).
 
 #### Receiver
 
-``` {.CodeRay}
+```text
 # td-agent secured receiver (server)
 
 <source>
@@ -467,7 +467,7 @@ The threshold for checking chunk flush performance. The default value is
 If chunk flush takes longer time than this threshold, fluentd logs
 warning message like below:
 
-``` {.CodeRay}
+```text
 2016-12-19 12:00:00 +0000 [warn]: buffer flush took longer time than slow_flush_log_threshold: elapsed_time = 15.0031226690043695 slow_flush_log_threshold=10.0 plugin_id="foo"
 ```
 

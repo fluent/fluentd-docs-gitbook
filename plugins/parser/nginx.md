@@ -18,13 +18,13 @@ numerically or storing data with sensible type information.
 
 The syntax is
 
-``` {.CodeRay}
+```text
 types <field_name_1>:<type_name_1>,<field_name_2>:<type_name_2>,...
 ```
 
 e.g.,
 
-``` {.CodeRay}
+```text
 types user_id:integer,paid:bool,paid_usd_amount:float
 ```
 
@@ -56,7 +56,7 @@ Alternatively, if the value is "Adam\|Alice\|Bob",
 
 This is regexp and time format patterns of this plugin:
 
-``` {.CodeRay}
+```text
 format /^(?<remote>[^ ]*) (?<host>[^ ]*) (?<user>[^ ]*) \[(?<time>[^\]]*)\] "(?<method>\S+)(?: +(?<path>[^\"]*) +\S*)?" (?<code>[^ ]*) (?<size>[^ ]*)(?: "(?<referer>[^\"]*)" "(?<agent>[^\"]*)")?$/
 time_format %d/%b/%Y:%H:%M:%S %z
 ```
@@ -67,13 +67,13 @@ time.
 
 ## Example
 
-``` {.CodeRay}
+```text
 127.0.0.1 192.168.0.1 - [28/Feb/2013:12:00:00 +0900] "GET / HTTP/1.1" 200 777 "-" "Opera/12.0"
 ```
 
 This incoming event is parsed as:
 
-``` {.CodeRay}
+```text
 time:
 1362020400 (28/Feb/2013:12:00:00 +0900)
 

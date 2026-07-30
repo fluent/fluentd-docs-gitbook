@@ -59,7 +59,7 @@ Please add the following lines to your config file for log forwarders.
 This will configure your log forwarders to transfer logs to log
 aggregators.
 
-``` {.CodeRay}
+```text
 # TCP input
 <source>
   @type forward
@@ -103,7 +103,7 @@ logs are buffered on-disk at the corresponding forwarder nodes.
 Please add the following lines to the config file for log aggregators.
 The input source for the log transfer is TCP.
 
-``` {.CodeRay}
+```text
 # Input
 <source>
   @type forward
@@ -166,7 +166,7 @@ Please make sure that you can communicate with port 24224 using **not
 only TCP, but also UDP**. These commands will be useful for checking the
 network configuration.
 
-``` {.CodeRay}
+```text
 $ telnet host 24224
 $ nmap -p 24224 -sU host
 ```

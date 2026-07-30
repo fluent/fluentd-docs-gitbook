@@ -18,7 +18,7 @@ plugins as examples to describe the events cycle. The following is a
 basic definition on the configuration file to specify an *http* input,
 for short: we will be listening for **HTTP Requests**:
 
-``` {.CodeRay}
+```text
 <source>
   @type http
   port 8888
@@ -31,7 +31,7 @@ port 8888. Now let's define a *Matching* rule and a desired output that
 will just print the data that arrived on each incoming request to
 standard output:
 
-``` {.CodeRay}
+```text
 <match test.cycle>
   @type stdout
 </match>
@@ -42,7 +42,7 @@ that arrives with a **Tag** equal to *test.cycle* will use the *Output*
 plugin type called *stdout*. At this point we have an *Input* type, a
 *Match* and an *Output*. Let's test the setup using *curl*:
 
-``` {.CodeRay}
+```text
 $ curl -i -X POST -d 'json={"action":"login","user":2}' http://localhost:8888/test.cycle
 HTTP/1.1 200 OK
 Content-type: text/plain
@@ -53,7 +53,7 @@ Content-length: 0
 On the Fluentd server side the output should look
 like this:
 
-``` {.CodeRay}
+```text
 $ bin/fluentd -c in_http.conf
 2015-01-19 12:37:41 -0600 [info]: reading config file path="in_http.conf"
 2015-01-19 12:37:41 -0600 [info]: starting fluentd-0.12.3
@@ -85,13 +85,13 @@ specified data sources.\
 For example, `in_tail` generates events from text lines. If you have the
 following line in apache logs:
 
-``` {.CodeRay}
+```text
 192.168.0.1 - - [28/Feb/2013:12:00:00 +0900] "GET / HTTP/1.1" 200 777
 ```
 
 the following event is generated:
 
-``` {.CodeRay}
+```text
 tag: apache.access # set by configuration
 time: 1362020400   # 28/Feb/2013:12:00:00 +0900
 record: {"user":"-","method":"GET","code":200,"size":777,"host":"192.168.0.1","path":"/"}
@@ -112,7 +112,7 @@ this through the new *Filters* implementation.
 A *Filter* aims to behave like a rule to either accept or reject an
 event. The following configuration adds a *Filter* definition:
 
-``` {.CodeRay}
+```text
 <source>
   @type http
   port 8888
@@ -140,7 +140,7 @@ message where the `action` key has the string value "logout".
 From a *Terminal*, run the following two `curl` commands (please note
 that each one contains a different `action` value):
 
-``` {.CodeRay}
+```text
 $ curl -i -X POST -d 'json={"action":"login","user":2}' http://localhost:8888/test.cycle
 HTTP/1.1 200 OK
 Content-type: text/plain
@@ -158,7 +158,7 @@ Now looking at the [Fluentd](http://fluentd.org) service output we can
 see that only the event with `action` equal to "login" is matched. The
 `logout` *Event* was discarded:
 
-``` {.CodeRay}
+```text
 $ bin/fluentd -c in_http.conf
 2015-01-19 12:37:41 -0600 [info]: reading config file path="in_http.conf"
 2015-01-19 12:37:41 -0600 [info]: starting fluentd-0.12.4
@@ -196,7 +196,7 @@ and allows to define new *Routing* sections that do not follow the *top
 to bottom* order, instead acting like linked references. Using the
 previous example we will modify the setup as follows:
 
-``` {.CodeRay}
+```text
 <source>
   @type http
   bind 0.0.0.0

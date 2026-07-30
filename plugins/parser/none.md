@@ -12,13 +12,13 @@ Specify field name to contain logs. Default is `message`.
 
 ## Example
 
-``` {.CodeRay}
+```text
 Hello world. I am a line of log!
 ```
 
 This incoming event is parsed as:
 
-``` {.CodeRay}
+```text
 time:
 1362020400 (current time)
 

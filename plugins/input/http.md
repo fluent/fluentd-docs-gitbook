@@ -12,7 +12,7 @@ POSTed body element becomes the record itself.
 `in_http` is included in Fluentd's core. No additional installation
 process is required.
 
-``` {.CodeRay}
+```text
 <source>
   @type http
   port 8888
@@ -28,7 +28,7 @@ structure and syntax of the configuration file.
 
 The example below posts a record using the `curl` command.
 
-``` {.CodeRay}
+```text
 $ curl -X POST -d 'json={"action":"login","user":2}'
   http://localhost:8888/test.tag.here;
 ```
@@ -68,7 +68,7 @@ client's address. The default is `false`
 If your system set multiple `X-Forwarded-For` headers in the request,
 `in_http` uses first one. For example:
 
-``` {.CodeRay}
+```text
 X-Forwarded-For: host1, host2
 X-Forwarded-For: host3
 ```
@@ -94,19 +94,19 @@ Accept records using `json=` / `msgpack=` style.
 
 Specify body format by regular expression.
 
-``` {.CodeRay}
+```text
 format /^(?<field1>\d+):(?<field2>\w+)$/
 ```
 
 If you execute following command:
 
-``` {.CodeRay}
+```text
 $ curl -X POST -d '123456:awesome' "http://localhost:8888/test.tag.here"
 ```
 
 then got parsed result like below:
 
-``` {.CodeRay}
+```text
 {"field1":"123456","field2":"awesome}
 ```
 
@@ -128,7 +128,7 @@ Please see the [logging article](/deployment/logging.md) for further details.
 If you want to pass the event time from your application, please use the
 `time` query parameter.
 
-``` {.CodeRay}
+```text
 $ curl -X POST -d 'json={"action":"login","user":2}'
   "http://localhost:8888/test.tag.here?time=1392021185"
 ```
@@ -138,7 +138,7 @@ $ curl -X POST -d 'json={"action":"login","user":2}'
 If you use `default` format, then you can send array type of json /
 msgpack to in\_http.
 
-``` {.CodeRay}
+```text
 $ curl -X POST -d 'json=[{"action":"login","user":2,"time":1392021185},{"action":"logout","user":2,"time":1392027356}]'
   http://localhost:8888/test.tag.here;
 ```
@@ -162,7 +162,7 @@ Tested configuration and ruby script is
 This is HTTP spec, not fluentd problem. You need to encode your payload
 properly or use multipart request. Here is ruby example:
 
-``` {.CodeRay}
+```text
 # OK
 URI.encode_www_form({json: {"message" => "foo+bar"}.to_json})
 
@@ -172,7 +172,7 @@ URI.encode_www_form({json: {"message" => "foo+bar"}.to_json})
 
 curl command example:
 
-``` {.CodeRay}
+```text
 # OK
 curl -X POST -H 'Content-Type: multipart/form-data' -F 'json={"message":"foo+bar"}' http://localhost:8888/test.tag.here
 

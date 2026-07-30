@@ -7,7 +7,7 @@ This article describes built-in commands and its options
 
 Invoke fluentd. Here is supported options:
 
-``` {.CodeRay}
+```text
 Usage: fluentd [options]
     -s, --setup [DIR=/etc/fluent]    install sample configuration file to the directory`
     -c, --config PATH                config file path (default: /etc/fluent/fluent.conf)
@@ -74,7 +74,7 @@ file. See [configuration file article](/configuration/config-file.md#4-set-syste
 Send event to fluentd's `in_forward`/`in_unix` plugin. This is useful
 for testing.
 
-``` {.CodeRay}
+```text
 Usage: fluent-cat [options] <tag>
     -p, --port PORT                  fluent tcp port (default: 24224)
     -h, --host HOST                  fluent host (default: 127.0.0.1)
@@ -91,13 +91,13 @@ Usage: fluent-cat [options] <tag>
 
 Send json message with `debug.log` tag to local fluentd:
 
-``` {.CodeRay}
+```text
 % echo '{"message":"hello"}' | fluent-cat debug.log
 ```
 
 Send to other machine:
 
-``` {.CodeRay}
+```text
 % echo '{"message":"hello"}' | fluent-cat debug.log --host testserver --port 24225
 ```
 

@@ -75,7 +75,7 @@ will install Norikra.
 We'll start the Norikra server after installation. The `norikra start`
 command will launch the Norikra server in your console.
 
-``` {.CodeRay}
+```text
 ....
 2014-05-20 20:36:01 +0900 [INFO] : Loading UDF plugins
 2014-05-20 20:36:01 +0900 [INFO] : RPC server 0.0.0.0:26571, 2 threads
@@ -97,7 +97,7 @@ located at /etc/fluentd/fluentd.conf.
 For the input source, we will set up Fluentd to accept records from
 HTTP. The Fluentd configuration file should look like this:
 
-``` {.CodeRay}
+```text
 <source>
   @type http
   port 8888
@@ -109,7 +109,7 @@ HTTP. The Fluentd configuration file should look like this:
 The output destination will be Norikra. The output configuration should
 look like this:
 
-``` {.CodeRay}
+```text
 <match data.*>
   @type    norikra
   norikra localhost:26571
@@ -144,7 +144,7 @@ available, please refer to the [fluent-plugin-norikra documentation](https://git
 To test the configuration, just post the JSON to Fluentd (we use the
 curl command in this example).
 
-``` {.CodeRay}
+```text
 $ curl -X POST -d 'json={"action":"login","user":2}' \
   http://localhost:8888/data.access
 ```
@@ -152,7 +152,7 @@ $ curl -X POST -d 'json={"action":"login","user":2}' \
 Norikra's console log will show that Fluentd has opened the target
 `access` and sent a message with fields of `action` and `user`.
 
-``` {.CodeRay}
+```text
 2014-05-20 20:43:22 +0900 [INFO] : opening target, target:"access", fields:{}, auto_field:true
 2014-05-20 20:43:23 +0900 [INFO] : opening lazy target, target:#<Norikra::Target:0x69c04611 @last_modified=nil, @fields={}, @name="access", @auto_field=true>
 2014-05-20 20:43:23 +0900 [INFO] : target successfully opened (snip)
@@ -161,7 +161,7 @@ Norikra's console log will show that Fluentd has opened the target
 We can check its fields with the `norikra-client` command (from console
 that has the PATH to JRuby).
 
-``` {.CodeRay}
+```text
 $ norikra-client target list
 TARGET  AUTO_FIELD
 access  true
@@ -179,7 +179,7 @@ We can add queries on opened targets via the WebUI or CLI. The following
 query (just SQL!) counts the number of events with a non-zero `user` per
 10 second interval, with a 'group by' `action`.
 
-``` {.CodeRay}
+```text
 SELECT
   action,
   count(*) AS c
@@ -190,7 +190,7 @@ GROUP BY action
 
 To register a query, issue `norikra-client query add` on the CLI.
 
-``` {.CodeRay}
+```text
 $ norikra-client query add test_query "SELECT action, count(*) AS c FROM access.win:time_batch(10 sec) WHERE user != 0 GROUP BY action"
 $ norikra-client query list
 NAME    GROUP   TARGETS QUERY
@@ -200,7 +200,7 @@ test_query  default access  SELECT action, count(*) AS c FROM access.win:time_ba
 
 Once the query has been registered, post the events that you want.
 
-``` {.CodeRay}
+```text
 $ curl -X POST -d 'json={"action":"login","user":2}' \
   http://localhost:8888/data.access
 $ curl -X POST -d 'json={"action":"login","user":0}' \
@@ -219,7 +219,7 @@ $ curl -X POST -d 'json={"action":"login","user":2}' \
 
 And fetch output events from this `test_query` query.
 
-``` {.CodeRay}
+```text
 $ norikra-client event fetch test_query
 {"time":"2014/05/20 21:00:24","c":1,"action":"logout"}
 {"time":"2014/05/20 21:00:24","c":1,"action":"save"}

@@ -61,7 +61,7 @@ Set integer event time instead of stringanized time to `time_key`.
 
 ## Example
 
-``` {.CodeRay}
+```text
 tag:    app.event
 time:   1362020400
 record: {"host":"192.168.0.1","size":777,"method":"PUT"}
@@ -69,7 +69,7 @@ record: {"host":"192.168.0.1","size":777,"method":"PUT"}
 
 This incoming event is formatted to:
 
-``` {.CodeRay}
+```text
 {"host"=>"192.168.0.1","size"=>777,"method"=>"PUT"}
 ```
 

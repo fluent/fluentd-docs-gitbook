@@ -69,7 +69,7 @@ For the input source, we will set up Fluentd to track the recent Apache
 logs (typically found at /var/log/apache2/access\_log) The Fluentd
 configuration file should look like this:
 
-``` {.CodeRay}
+```text
 <source>
   @type tail
   format apache2
@@ -100,7 +100,7 @@ for Fluentd to process.
 The output destination will be MongoDB. The output configuration should
 look like this:
 
-``` {.CodeRay}
+```text
 <match mongo.**>
   # plugin type
   @type mongo
@@ -141,13 +141,13 @@ For additional configuration parameters, please see the [MongoDB Output plugin](
 To test the configuration, just ping the Apache server. This example
 uses the `ab` (Apache Bench) program.
 
-``` {.CodeRay}
+```text
 $ ab -n 100 -c 10 http://localhost/
 ```
 
 Then, access MongoDB and see the stored data.
 
-``` {.CodeRay}
+```text
 $ mongo
 > use apache
 > db["access"].findOne();

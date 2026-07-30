@@ -9,7 +9,7 @@ purposes.
 
 `filter_stdout` is included in Fluentd's core. No installation required.
 
-``` {.CodeRay}
+```text
 <filter pattern>
   @type stdout
 </filter>
@@ -17,7 +17,7 @@ purposes.
 
 A sample output is as follows:
 
-``` {.CodeRay}
+```text
 2015-05-02 12:12:17 +0900 tag: {"field1":"value1","field2":"value2"}
 ```
 
@@ -46,19 +46,19 @@ This is the option of `stdout` format. Configure the format of record
 
 Output time, tag and json record separated by a delimiter:
 
-``` {.CodeRay}
+```text
 time[delimiter]tag[delimiter]record\n
 ```
 
 Example:
 
-``` {.CodeRay}
+```text
 2014-06-08T23:59:40[TAB]file.server.logs[TAB]{"field1":"value1","field2":"value2"}\n
 ```
 
 `out_file` format has several options to customize the format.
 
-``` {.CodeRay}
+```text
 delimiter SPACE   # Optional, SPACE or COMMA. "\t"(TAB) is used by default
 output_tag false  # Optional, defaults to true. Output the tag field if true.
 output_time true  # Optional, defaults to true. Output the time field if true.
@@ -100,7 +100,7 @@ For this format, the following common parameters are also supported.
 
 Output a json record without the time or tag field:
 
-``` {.CodeRay}
+```text
 {"field1":"value1","field2":"value2"}\n
 ```
 
@@ -140,7 +140,7 @@ For this format, the following common parameters are also supported.
 
 Output a record as ruby hash without the time or tag field:
 
-``` {.CodeRay}
+```text
 {"field1"=>"value1","field2"=>"value2"}\n
 ```
 
@@ -180,13 +180,13 @@ For this format, the following common parameters are also supported.
 
 Output the record as [LTSV](http://ltsv.org):
 
-``` {.CodeRay}
+```text
 field1[label_delimiter]value1[delimiter]field2[label_delimiter]value2\n
 ```
 
 `ltsv` format supports `delimiter` and `label_delimiter` options.
 
-``` {.CodeRay}
+```text
 format ltsv
 delimiter SPACE   # Optional. "\t"(TAB) is used by default
 label_delimiter = # Optional. ":" is used by default
@@ -229,14 +229,14 @@ For this format, the following common parameters are also supported.
 Output the value of a single field instead of the whole record. Often
 used in conjunction with [in\_tail](/plugins/input/tail.md)'s `format none`.
 
-``` {.CodeRay}
+```text
 value1\n
 ```
 
 `single_value` format supports the `add_newline` and `message_key`
 options.
 
-``` {.CodeRay}
+```text
 add_newline false # Optional, defaults to true. If there is a trailing "\n" already, set it "false"
 message_key my_field # Optional, defaults to "message". The value of this field is outputted.
 ```
@@ -245,13 +245,13 @@ message_key my_field # Optional, defaults to "message". The value of this field 
 
 Output the record as CSV/TSV:
 
-``` {.CodeRay}
+```text
 "value1"[delimiter]"value2"[delimiter]"value3"\n
 ```
 
 `csv` format supports the `delimiter` and `force_quotes` options.
 
-``` {.CodeRay}
+```text
 format csv
 fields field1,field2,field3
 delimiter \t   # Optional. "," is used by default.
@@ -296,20 +296,20 @@ This format is aimed to be used by stdout plugins.
 
 Output time, tag and formatted record as follows:
 
-``` {.CodeRay}
+```text
 time tag: formatted_record\n
 ```
 
 Example:
 
-``` {.CodeRay}
+```text
 2015-05-02 12:12:17 +0900 tag: {"field1":"value1","field2":"value2"}\n
 ```
 
 `stdout` format has a following option to customize the format of the
 record part.
 
-``` {.CodeRay}
+```text
 output_type format # Optional, defaults to "json". The format of
 `formatted_record`. Any formatter plugins can be specified.
 ```

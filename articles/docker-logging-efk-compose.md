@@ -41,7 +41,7 @@ tool for defining and running multi-container Docker applications.
 With the YAML file below, you can create and start all the services (in
 this case, Apache, Fluentd, Elasticsearch, Kibana) by one command.
 
-``` {.CodeRay}
+```text
 version: '2'
 services:
   web:
@@ -93,7 +93,7 @@ Then, please prepare `fluentd/Dockerfile` with the following content, to
 use Fluentd's [official Docker image](https://hub.docker.com/r/fluent/fluentd/) and additionally
 install Elasticsearch plugin.
 
-``` {.CodeRay}
+```text
 # fluentd/Dockerfile
 FROM fluent/fluentd:v0.12-debian
 RUN ["gem", "install", "fluent-plugin-elasticsearch", "--no-rdoc", "--no-ri", "--version", "1.9.2"]
@@ -104,7 +104,7 @@ Then, please prepare Fluentd's configuration file
 receive logs from Docker logging driver, and out\_elasticsearch is for
 forwarding logs to Elasticsearch.
 
-``` {.CodeRay}
+```text
 # fluentd/conf/fluent.conf
 <source>
   @type forward
@@ -135,13 +135,13 @@ forwarding logs to Elasticsearch.
 
 Let's start all of the containers, with just one command.
 
-``` {.CodeRay}
+```text
 $ docker-compose up
 ```
 
 You can check to see if 4 containers are running by `docker ps` command.
 
-``` {.CodeRay}
+```text
 $ docker ps
 CONTAINER ID        IMAGE                      COMMAND                  CREATED             STATUS              PORTS                                                          NAMES
 2d28323d77a3        httpd                      "httpd-foreground"       About an hour ago   Up 43 seconds       0.0.0.0:80->80/tcp                                             dockercomposeefk_web_1
@@ -155,7 +155,7 @@ b7b439415898        elasticsearch              "/docker-entrypoin..."   About an
 Let's access to `httpd` to generate some access logs. `curl` command is
 always your friend.
 
-``` {.CodeRay}
+```text
 $ repeat 10 curl http://localhost:80/
 <html><body><h1>It works!</h1></body></html>
 <html><body><h1>It works!</h1></body></html>

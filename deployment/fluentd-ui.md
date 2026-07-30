@@ -17,7 +17,7 @@ supports following operations.
 If you've installed td-agent, you can start it by `td-agent-ui start` as
 below:
 
-``` {.CodeRay}
+```text
 $ sudo /usr/sbin/td-agent-ui start
 Puma 2.9.2 starting...
 * Min threads: 0, max threads: 16
@@ -28,7 +28,7 @@ Puma 2.9.2 starting...
 Or if you use fluentd gem, install fluentd-ui via `gem` command at
 first.
 
-``` {.CodeRay}
+```text
 $ gem install -V fluentd-ui
 $ fluentd-ui start
 Puma 2.9.2 starting...

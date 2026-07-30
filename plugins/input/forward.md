@@ -24,7 +24,7 @@ secure connection between nodes, please consider using
 `in_forward` is included in Fluentd's core. No additional installation
 process is required.
 
-``` {.CodeRay}
+```text
 <source>
   @type forward
   port 24224
@@ -100,7 +100,7 @@ is the number of seconds since 1970.
 
 Multiple messages may be sent in the same connection.
 
-``` {.CodeRay}
+```text
 stream:
   message...
 

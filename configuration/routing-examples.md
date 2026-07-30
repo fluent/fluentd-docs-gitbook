@@ -5,7 +5,7 @@ This article shows typical routing examples.
 
 ## Simple Input -\> Filter -\> Output
 
-``` {.CodeRay}
+```text
 <source>
   @type forward
 </source>
@@ -25,7 +25,7 @@ This article shows typical routing examples.
 
 ### Two input cases
 
-``` {.CodeRay}
+```text
 <source>
   @type forward
 </source>
@@ -55,7 +55,7 @@ If you want to separate data pipeline for each sources, use Label.
 
 Label reduces complex tag handling by separating data pipeline.
 
-``` {.CodeRay}
+```text
 <source>
   @type forward
 </source>
@@ -93,7 +93,7 @@ Use
 plugin. `route` plugin rewrites tag and re-emit events to other match or
 Label.
 
-``` {.CodeRay}
+```text
 <match worker.**>
   @type route
   remove_tag_prefix worker
@@ -125,7 +125,7 @@ Label.
 Use
 [fluent-plugin-rewrite-tag-filter](https://github.com/fluent/fluent-plugin-rewrite-tag-filter).
 
-``` {.CodeRay}
+```text
 <source>
   @type forward
 </source>
@@ -156,7 +156,7 @@ See also [out\_rewrite\_tag\_filter](/plugins/output/rewrite_tag_filter.md) arti
 Use [out\_relabel](/plugins/output/relabel.md) plugin. `relabel` plugin simply emits
 events to Label. No tag rewrite.
 
-``` {.CodeRay}
+```text
 <source>
   @type forward
 </source>

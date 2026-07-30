@@ -13,7 +13,7 @@ Treasure Data provides a boilerplate repository to get you started.
 Follow the steps below to create Fluentd (td-agent) as a Heroku
 application.
 
-``` {.CodeRay}
+```text
 # Clone
 $ git clone git://github.com/treasure-data/heroku-td-agent.git
 $ cd heroku-td-agent
@@ -42,7 +42,7 @@ here to stream data to Treasure Data through Fluentd.
 
 If
 
-``` {.CodeRay}
+```text
           http                          
 Your App ------> Heroku-hosted Fluentd ------> Treasure Data
 ```
@@ -65,7 +65,7 @@ This is similar to "With non-Treasure Data Backend", except you do not
 need to edit the config. Instead, simply update the configuration
 variable:
 
-``` {.CodeRay}
+```text
 # Clone
 $ git clone git://github.com/treasure-data/heroku-td-agent.git
 $ cd heroku-td-agent
@@ -96,19 +96,19 @@ http://td-agent-on-heroku.herokuapp.com, as shown below. This will log
 the event { "json": "message" } with a debug.sample tag. Note how the
 JSON-formatted data is passed as a query parameter value.
 
-``` {.CodeRay}
+```text
 $ curl "http://td-agent-on-heroku.herokuapp.com/debug.sample?json=%7B%22json%22%3A%22message%22%7D"
 ```
 
 In general, the URL format is
 
-``` {.CodeRay}
+```text
 http://{YOUR LOG SERVER DOMAIN}/td.{DB_NAME}.{TABLE_NAME}?json={JSON_FORMATTED_DATA}
 ```
 
 The output will be available on STDOUT.
 
-``` {.CodeRay}
+```text
 $ heroku logs --tail
 ```
 

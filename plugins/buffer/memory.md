@@ -7,7 +7,7 @@ logs that can't be written quickly are deleted.
 
 ## Example Config
 
-``` {.CodeRay}
+```text
 <match pattern>
   buffer_type memory
 </match>

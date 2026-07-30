@@ -24,7 +24,7 @@ features, check the Further Reading section.
 `out_geoip` is not included in td-agent. All users must install the
 fluent-plugin-geoip gem using the following command.
 
-``` {.CodeRay}
+```text
 $ fluent-gem install fluent-plugin-geoip
 $ sudo /usr/sbin/td-agent-gem install fluent-plugin-geoip
 ```
@@ -34,7 +34,7 @@ $ sudo /usr/sbin/td-agent-gem install fluent-plugin-geoip
 The configuration shown below adds geolocation information to
 apache.access
 
-``` {.CodeRay}
+```text
 <match test.message>
   @type geoip
   geoip_lookup_key        host
@@ -150,7 +150,7 @@ world map using [Kibana](http://www.elasticsearch.org/overview/kibana/).
 Note: The following plugins are required: \* fluent-plugin-geoip \*
 fluent-plugin-elasticsearch
 
-``` {.CodeRay}
+```text
 <match td.apache.access>
   @type geoip
 

@@ -15,7 +15,7 @@ the `time_slice_format` value.
 `out_file` is included in Fluentd's core. No additional installation
 process is required.
 
-``` {.CodeRay}
+```text
 <match pattern>
   @type file
   path /var/log/fluent/myapp
@@ -54,7 +54,7 @@ you will see the output file without the trailing identifier.
 The flushed chunk is appended to existence file or not. The default is
 `false`. By default, out\_file flushes each chunk to different path.
 
-``` {.CodeRay}
+```text
 # append false
 log.20140608_0.log
 log.20140608_1.log
@@ -65,7 +65,7 @@ log.20140609_1.log
 This makes parallel file processing easy. But if you want to disable
 this behaviour, you can disable it by setting `append true`.
 
-``` {.CodeRay}
+```text
 # append true
 log.20140608.log
 log.20140609.log

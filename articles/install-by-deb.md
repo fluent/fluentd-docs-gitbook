@@ -46,13 +46,13 @@ deb package.
 
 For Bionic,
 
-``` {.CodeRay}
+```text
 curl -L https://toolbelt.treasuredata.com/sh/install-ubuntu-bionic-td-agent2.5.sh | sh
 ```
 
 For Xenial,
 
-``` {.CodeRay}
+```text
 # td-agent 2.5 or later
 curl -L https://toolbelt.treasuredata.com/sh/install-ubuntu-xenial-td-agent2.5.sh | sh
 # td-agent 2.3 or earlier
@@ -61,7 +61,7 @@ curl -L https://toolbelt.treasuredata.com/sh/install-ubuntu-xenial-td-agent2.sh 
 
 For Trusty,
 
-``` {.CodeRay}
+```text
 # td-agent 2.5 or later
 curl -L https://toolbelt.treasuredata.com/sh/install-ubuntu-trusty-td-agent2.5.sh | sh
 # td-agent 2.3 or earlier
@@ -70,37 +70,37 @@ curl -L https://toolbelt.treasuredata.com/sh/install-ubuntu-trusty-td-agent2.sh 
 
 For Precise,
 
-``` {.CodeRay}
+```text
 curl -L https://toolbelt.treasuredata.com/sh/install-ubuntu-precise-td-agent2.sh | sh
 ```
 
 For Lucid,
 
-``` {.CodeRay}
+```text
 curl -L https://toolbelt.treasuredata.com/sh/install-ubuntu-lucid-td-agent2.sh | sh
 ```
 
 For Debian Stretch,
 
-``` {.CodeRay}
+```text
 curl -L https://toolbelt.treasuredata.com/sh/install-debian-stretch-td-agent2.sh | sh
 ```
 
 For Debian Jessie,
 
-``` {.CodeRay}
+```text
 curl -L https://toolbelt.treasuredata.com/sh/install-debian-jessie-td-agent2.sh | sh
 ```
 
 For Debian Wheezy,
 
-``` {.CodeRay}
+```text
 curl -L https://toolbelt.treasuredata.com/sh/install-debian-wheezy-td-agent2.sh | sh
 ```
 
 For Debian Squeeze,
 
-``` {.CodeRay}
+```text
 curl -L https://toolbelt.treasuredata.com/sh/install-debian-squeeze-td-agent2.sh | sh
 ```
 
@@ -112,7 +112,7 @@ invalid timestamps in your logs. Please check the [Preinstallation Guide](/artic
 The `/etc/init.d/td-agent` script is provided to start, stop, or restart
 the agent.
 
-``` {.CodeRay}
+```text
 $ sudo /etc/init.d/td-agent restart
 $ sudo /etc/init.d/td-agent status
 td-agent (pid  21678) is running...
@@ -120,7 +120,7 @@ td-agent (pid  21678) is running...
 
 The following commands are supported:
 
-``` {.CodeRay}
+```text
 $ sudo /etc/init.d/td-agent start
 $ sudo /etc/init.d/td-agent stop
 $ sudo /etc/init.d/td-agent restart
@@ -136,7 +136,7 @@ By default, `/etc/td-agent/td-agent.conf` is configured to take logs
 from HTTP and route them to stdout (`/var/log/td-agent/td-agent.log`).
 You can post sample log records using the curl command.
 
-``` {.CodeRay}
+```text
 $ curl -X POST -d 'json={"json":"message"}' http://localhost:8888/debug.test
 ```
 

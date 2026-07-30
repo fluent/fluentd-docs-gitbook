@@ -13,7 +13,7 @@ Please install Ruby \>= 1.9.3 and bundler on your local environment.
 Fetch the source code from github. The official repository is located
 [here](http://github.com/fluent/fluentd/).
 
-``` {.CodeRay}
+```text
 $ git clone https://github.com/fluent/fluentd.git
 $ cd fluentd
 $ git checkout -b v0.12 origin/v0.12
@@ -26,7 +26,7 @@ branch.
 
 Build the package with `rake` and install it with `gem`.
 
-``` {.CodeRay}
+```text
 $ bundle install
 Fetching gem metadata from https://rubygems.org/.........
 ...
@@ -42,7 +42,7 @@ $ gem install pkg/fluentd-xxx.gem
 Run the following commands to to confirm that Fluentd was installed
 successfully:
 
-``` {.CodeRay}
+```text
 $ fluentd --setup ./fluent
 $ fluentd -c ./fluent/fluent.conf -vv &
 $ echo '{"json":"message"}' | fluent-cat debug.test
@@ -52,7 +52,7 @@ The last command sends Fluentd a message '{"json":"message"}' with a
 "debug.test" tag. If the installation was successful, Fluentd will
 output the following message:
 
-``` {.CodeRay}
+```text
 2011-07-10 16:49:50 +0900 debug.test: {"json":"message"}
 ```
 It's HIGHLY recommended that you set up **ntpd** on the node to prevent

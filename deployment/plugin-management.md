@@ -9,7 +9,7 @@ This article explains how to manage Fluentd plugins, including adding
 The `fluent-gem` command is used to install Fluentd plugins. This is a
 wrapper around the `gem` command.
 
-``` {.CodeRay}
+```text
 fluent-gem install fluent-plugin-grep
 ```
 Ruby doesn't guarantee C extension API compatibility between its major
@@ -32,7 +32,7 @@ install development packages to build it, e.g. gcc, make, autoconf and
 etc. If you see logs like below, install development packages before
 plugin installation.
 
-``` {.CodeRay}
+```text
 Building native extensions.  This could take a while...
 ERROR:  Error installing fluent-plugin-twitter:
         ERROR: Failed to build gem native extension.
@@ -61,7 +61,7 @@ load path. For example, if you put the `out_foo.rb` plugin into
 `/path/to/plugin`, you can load the `out_foo.rb` plugin by specifying
 the `-p` option as shown below.
 
-``` {.CodeRay}
+```text
 fluentd -p /path/to/plugin
 ```
 
@@ -121,7 +121,7 @@ shared gems.
 
 For example, if you have following Gemfile at /etc/fluent/Gemfile:
 
-``` {.CodeRay}
+```text
 source 'https://rubygems.org'
 
 gem 'fluentd', '0.12.43'
@@ -130,7 +130,7 @@ gem 'fluent-plugin-elasticsearch', '1.9.3'
 
 You can pass this Gemfile to Fluentd via the `--gemfile` option.
 
-``` {.CodeRay}
+```text
 fluentd --gemfile /etc/fluent/Gemfile
 ```
 

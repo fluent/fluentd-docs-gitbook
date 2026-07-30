@@ -72,7 +72,7 @@ container image ready to get started:
 
 Please grab a copy of the repository from the command line using GIT:
 
-``` {.CodeRay}
+```text
 $ git clone https://github.com/fluent/fluentd-kubernetes-daemonset
 ```
 
@@ -100,7 +100,7 @@ configuration file:
 
 As an example let's see a part of the file content:
 
-``` {.CodeRay}
+```text
 apiVersion: extensions/v1beta1
 kind: DaemonSet
 metadata:

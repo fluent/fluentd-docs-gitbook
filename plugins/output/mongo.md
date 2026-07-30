@@ -27,13 +27,13 @@ This has the following advantages:
 `out_mongo` is included in td-agent by default. Fluentd gem users will
 need to install the fluent-plugin-mongo gem using the following command.
 
-``` {.CodeRay}
+```text
 $ fluent-gem install fluent-plugin-mongo
 ```
 
 ## Example Configuration
 
-``` {.CodeRay}
+```text
 # Single MongoDB
 <match mongo.**>
   @type mongo
@@ -115,7 +115,7 @@ destination collection. For example, if you generate records with tags
 'mongo.foo', the records will be inserted into the `foo` collection
 within the `fluentd` database.
 
-``` {.CodeRay}
+```text
 <match mongo.*>
   @type mongo
   host fluentd
@@ -200,7 +200,7 @@ The threshold for checking chunk flush performance. The default value is
 If chunk flush takes longer time than this threshold, fluentd logs
 warning message like below:
 
-``` {.CodeRay}
+```text
 2016-12-19 12:00:00 +0000 [warn]: buffer flush took longer time than slow_flush_log_threshold: elapsed_time = 15.0031226690043695 slow_flush_log_threshold=10.0 plugin_id="foo"
 ```
 

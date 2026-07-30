@@ -66,7 +66,7 @@ Extend the **Fluent::Input** class and implement the following methods.
 In `initialize`, `configure` and `start`, `super` should be called to
 call Input plugin default behaviour.
 
-``` {.CodeRay}
+```text
 require 'fluent/input'
 
 module Fluent
@@ -111,7 +111,7 @@ To submit events, use the `router.emit(tag, time, record)` method, where
 `tag` is the String, `time` is the UNIX time integer and `record` is a
 Hash object.
 
-``` {.CodeRay}
+```text
 tag = "myapp.access"
 time = Engine.now
 record = {"message"=>"body"}
@@ -121,7 +121,7 @@ router.emit(tag, time, record)
 To submit multiple events in one call, use the
 `router.emit_stream(tag, es)` and `MultiEventStream` combo instead.
 
-``` {.CodeRay}
+```text
 es = MultiEventStream.new
 records.each { |record|
   es.add(time, record)
@@ -135,7 +135,7 @@ Fluentd plugins assume the record is a JSON so the key should be the
 String, not Symbol. If you emit a symbol keyed record, it may cause a
 problem.
 
-``` {.CodeRay}
+```text
 router.emit(tag, time, {'foo' => 'bar'})  # OK!
 router.emit(tag, time, {:foo => 'bar'})   # NG!
 ```
@@ -146,7 +146,7 @@ Extend the **Fluent::BufferedOutput** class and implement the following
 methods. In `initialize`, `configure` and `start`, `super` should be
 called to call BufferedOutput plugin default behaviour.
 
-``` {.CodeRay}
+```text
 require 'fluent/output'
 
 module Fluent
@@ -224,7 +224,7 @@ the `buffer_path` option is required.
 To implement a Time Sliced Output plugin, extend the
 **Fluent::TimeSlicedOutput** class and implement the following methods.
 
-``` {.CodeRay}
+```text
 require 'fluent/output'
 
 module Fluent
@@ -250,7 +250,7 @@ Extend the **Fluent::Output** class and implement the following methods.
 `initialize`, `configure` and `start`, `super` should be called to call
 non-buffered Output plugin default behaviour.
 
-``` {.CodeRay}
+```text
 require 'fluent/output'
 
 module Fluent
@@ -302,7 +302,7 @@ start with "filter\_" are registered as filter plugins.
 Here is the implementation of the most basic filter that passes through
 all events as-is:
 
-``` {.CodeRay}
+```text
 require 'fluent/filter'
 
 module Fluent
@@ -356,7 +356,7 @@ if you want to mutate the event stream itself, you can override
 
 Here is the default implementation of `filter_stream`.
 
-``` {.CodeRay}
+```text
 def filter_stream(tag, es)
   new_es = MultiEventStream.new
   es.each { |time, record|
@@ -384,13 +384,13 @@ with "parser\_" are registered as Parser Plugins.
 Here is an example of a custom parser that parses the following
 newline-delimited log format:
 
-``` {.CodeRay}
+```text
 <timestamp><SPACE>key1=value1<DELIMITER>key2=value2<DELIMITER>key3=value...
 ```
 
 e.g., something like this
 
-``` {.CodeRay}
+```text
 2014-04-01T00:00:00 name=jake age=100 action=debugging
 ```
 
@@ -403,7 +403,7 @@ which is the delimiter for key-value pairs. It also takes `time_format`
 to parse the time string. In `initialize`, `configure` and `start`,
 `super` should be called to call Parser plugin default behaviour.
 
-``` {.CodeRay}
+```text
 require 'fluent/parser'
 
 module Fluent
@@ -449,7 +449,7 @@ end
 Then, save this code in `parser_time_key_value.rb` in a loadable plugin
 path. Then, if in\_tail is configured as
 
-``` {.CodeRay}
+```text
 # Other lines...
 <source>
   @type tail
@@ -466,7 +466,7 @@ Then, the log line like `2014-01-01T00:00:00 k=v a=b` is parsed as
 Current `Parser#parse` API is called with block. We will remove
 `Parser#parse` with return value API since v0.14 or later.
 
-``` {.CodeRay}
+```text
 # OK
 parser.parse(text) { |time, record| ... }
 # NG. This API will be removed
@@ -485,7 +485,7 @@ It assumes that the values of the fields are already valid CSV fields.
 In `initialize`, `configure` and `start`, `super` should be called to
 call Formatter plugin default behaviour.
 
-``` {.CodeRay}
+```text
 require 'fluent/formatter'
 
 module Fluent
@@ -527,7 +527,7 @@ end
 Then, save this code in `formatter_my_csv.rb` in a loadable plugin path.
 Then, if out\_file is configured as
 
-``` {.CodeRay}
+```text
 # Other lines...
 <match test>
   @type file
@@ -554,7 +554,7 @@ There are several use cases:
 
 ### API
 
-``` {.CodeRay}
+```text
  :::text
  router.emit_error_event(tag, time, record, error)
 ```
@@ -570,7 +570,7 @@ There are several use cases:
 parameters manually. `config_param` syntax is
 `config_param :name, :type, options`. Here is simple example:
 
-``` {.CodeRay}
+```text
 config_param :param1, :string
 config_param :param2, :integer, default: 10
 ```
@@ -587,7 +587,7 @@ type automatically.
 `config_param` sets parsed result to `:name` instance variable after
 `configure` call. See example below:
 
-``` {.CodeRay}
+```text
 config_param :param, :string
 
 def configure(conf)
@@ -601,7 +601,7 @@ end
 
 Fluentd supports following built-in types for plugin parameter:
 
-``` {.CodeRay}
+```text
 # hello, /path/to/file, etc
 config_param :str_param, :string
 # -1, 100, 100000, etc
@@ -636,7 +636,7 @@ config_param :enum_param, :enum, list: [:tcp, :udp]
 
 These options can be combined.
 
-``` {.CodeRay}
+```text
 config_param :param, :array, default: [1, 2], secret: true, deprecated: "Use new_param instead"
 ```
 
@@ -644,7 +644,7 @@ config_param :param, :array, default: [1, 2], secret: true, deprecated: "Use new
 
 Run `fluentd` with the `-vv` option to show debug messages:
 
-``` {.CodeRay}
+```text
 $ fluentd -vv
 ```
 
@@ -652,7 +652,7 @@ The **stdout** and **copy** output plugins are useful for debugging. The
 **stdout** output plugin dumps matched events to the console. It can be
 used as follows:
 
-``` {.CodeRay}
+```text
 # You want to debug this plugin.
 <source>
   @type your_custom_input_plugin
@@ -667,7 +667,7 @@ used as follows:
 The **copy** output plugin copies matched events to multiple output
 plugins. You can use it in conjunction with the stdout plugin:
 
-``` {.CodeRay}
+```text
 <source>
   @type forward
 </source>
@@ -692,7 +692,7 @@ plugins. You can use it in conjunction with the stdout plugin:
 You can use **stdout** filter instead of **copy** and **stdout**
 combination. The result is same as above but more simpler.
 
-``` {.CodeRay}
+```text
 <source>
   @type forward
 </source>
@@ -710,7 +710,7 @@ combination. The result is same as above but more simpler.
 
 Fluentd provides unit test frameworks for plugins:
 
-``` {.CodeRay}
+```text
 Fluent::Test::InputTestDriver
   Test driver for input plugins.
 
@@ -728,14 +728,14 @@ Please see Fluentd's source code for details.
 Fluentd test follows standard gem way and uses test-unit library. Use
 rake command.
 
-``` {.CodeRay}
+```text
 $ bundle install --path vendor/bundle # Install related libraries.
 $ bundle exec rake test
 ```
 
 If you want to run only one file, use `TEST` environment variable:
 
-``` {.CodeRay}
+```text
 $ bundle exec rake test TEST=test/plugin/test_out_foo.rb
 ```
 

@@ -19,7 +19,7 @@ Fluentd events.
 
 If our events looks like
 
-``` {.CodeRay}
+```text
 {
     "code": 200,
     "url": "http://yourdomain.com/page.html",
@@ -31,7 +31,7 @@ If our events looks like
 
 then we can filter out all the requests with status code 200 as follows:
 
-``` {.CodeRay}
+```text
 ...
 <match apache.**>
     @type grep
@@ -45,7 +45,7 @@ By using the `add_tag_prefix` option, we can prepend a tag in front of
 filtered events so that they can be matched to a subsequent section. For
 example, we can send all logs with non-200 status codes to [Treasure Data](http://www.treasuredata.com), as shown below:
 
-``` {.CodeRay}
+```text
 ...
 <match apache.**>
     @type grep
@@ -65,7 +65,7 @@ config below keeps all requests with status code 4xx that are NOT
 referred from yourdomain.com (a real world use case: figuring out how
 many dead links there are in the wild by filtering out internal links)
 
-``` {.CodeRay}
+```text
 ...
 <match apache.**>
     @type grep
@@ -91,13 +91,13 @@ can add a new field to each data record.
 
 If our events looks like
 
-``` {.CodeRay}
+```text
 {"code":200, "url":"http://yourdomain.com", "size":1232}
 ```
 
 then we can add a new field with the hostname information as follows:
 
-``` {.CodeRay}
+```text
 <match foo.bar>
     @type record_modifier
     gen_host "#{Socket.gethostname}"
@@ -111,7 +111,7 @@ then we can add a new field with the hostname information as follows:
 
 The modified events now look like
 
-``` {.CodeRay}
+```text
 {"gen_host": "our_server", code":200, "url":"http://yourdomain.com", "size":1232}
 ```
 

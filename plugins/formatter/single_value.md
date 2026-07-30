@@ -20,7 +20,7 @@ The value of this field is outputted.
 
 ## Example
 
-``` {.CodeRay}
+```text
 tag:    app.event
 time:   1362020400
 record: {"message":"Hello from Fluentd!"}
@@ -28,7 +28,7 @@ record: {"message":"Hello from Fluentd!"}
 
 This incoming event is formatted to:
 
-``` {.CodeRay}
+```text
 Hello from Fluentd!\n
 ```
 

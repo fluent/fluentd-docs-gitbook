@@ -17,13 +17,13 @@ Scribe infrastructure.
 need to install the fluent-plugin-scribe gem using the following
 command.
 
-``` {.CodeRay}
+```text
 $ fluent-gem install fluent-plugin-scribe
 ```
 
 ## Example Configuration
 
-``` {.CodeRay}
+```text
 <source>
   @type scribe
   port 1463
@@ -68,7 +68,7 @@ For `json`, Fluentd's record is organized as follows. Scribe's message
 field must be a valid JSON string representing Hash; otherwise, the
 record is ignored.
 
-``` {.CodeRay}
+```text
 tag: $category
 record: $message
 ```
@@ -77,7 +77,7 @@ For `text`, Fluentd's record is organized as follows. Scribe's message
 can be any arbitrary string, but JSON is recommended for ease of use
 with the subsequent analytics pipeline.
 
-``` {.CodeRay}
+```text
 tag: $category
 record: {'message': $message}
 ```
@@ -86,7 +86,7 @@ For `url_param`, Fluentd's record is organized as follows. Scribe's
 message field must contain URL parameter style key-value pairs with URL
 encoding (e.g. key1=val1&key2=val2).
 
-``` {.CodeRay}
+```text
 tag: $url_param
 record: {$key1: $val1, $key2: $val2, ...}
 ```

@@ -15,7 +15,7 @@ please use the run\_interval parameter.
 `in_exec` is included in Fluentd's core. No additional installation
 process is required.
 
-``` {.CodeRay}
+```text
 <source>
   @type exec
   command cmd arg arg
@@ -53,7 +53,7 @@ The following formats are supported:
 When using the tsv format, please also specify the comma-separated
 `keys` parameter.
 
-``` {.CodeRay}
+```text
 keys k1,k2,k3
 ```
 
@@ -111,7 +111,7 @@ information about each post:
 Suppose that script is called `hn.rb`. Then, you can run it every 5
 minutes with the following configuration
 
-``` {.CodeRay}
+```text
 <source>
   @type exec
   format json
@@ -127,7 +127,7 @@ minutes with the following configuration
 And if you run Fluentd with it, you will see the following output (if
 you are impatient, ctrl-C to flush the stdout buffer)
 
-``` {.CodeRay}
+```text
 2014-05-26 21:51:35 +0000 hackernews: {"time":1401141095,"rank":1,"title":"Rap Genius Co-Founder Moghadam Fired","points":128,"user_name":"obilgic","duration":"2 hours ago  ","num_comments":108}
 2014-05-26 21:51:35 +0000 hackernews: {"time":1401141095,"rank":2,"title":"Whitewood Under Siege: Wooden Shipping Pallets","points":128,"user_name":"drjohnson","duration":"3 hours ago  ","num_comments":20}
 2014-05-26 21:51:35 +0000 hackernews: {"time":1401141095,"rank":3,"title":"Organic Cat Litter Chief Suspect In Nuclear Waste Accident","points":55,"user_name":"timr","duration":"2 hours ago  ","num_comments":12}

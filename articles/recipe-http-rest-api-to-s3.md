@@ -9,7 +9,7 @@ Looking to get data out of http rest api into s3? You can do that with
 
 Here is how:
 
-``` {.CodeRay}
+```text
 $ gem install fluentd
 $ gem install fluent-plugin-s3
 $ touch fluentd.conf
@@ -18,7 +18,7 @@ $ touch fluentd.conf
 `fluentd.conf` should look like this (just copy and paste this into
 fluentd.conf):
 
-``` {.CodeRay}
+```text
 <source>
   @type http
   port 8888
@@ -46,7 +46,7 @@ fluentd.conf):
 
 After that, you can start fluentd and everything should work:
 
-``` {.CodeRay}
+```text
 $ fluentd -c fluentd.conf
 ```
 

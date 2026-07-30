@@ -19,7 +19,7 @@ on. Please follow the steps below.
 2.  Add `-vv` to TD\_AGENT\_OPTIONS.
 3.  Restart td-agent.
 
-    ``` {.CodeRay}
+    ```text
     # Add the following settings to:
     # - /etc/sysconfig/td-agent (CentOS/RedHat)
     # - /etc/default/td-agent (Debian/Ubuntu)
@@ -35,7 +35,7 @@ TD\_AGENT\_ARGS or DAEMON\_ARGS manually.
 
 Please add `-vv` to your command line.
 
-``` {.CodeRay}
+```text
 $ fluentd .. -vv
 ```
 
@@ -67,7 +67,7 @@ useful.
 You sometimes hit unexpected shutdown with non-zero exit status like
 below.
 
-``` {.CodeRay}
+```text
 2016-01-01 00:00:00 +0800 [info]: starting fluentd-0.12.28
 2016-01-01 00:00:00 +0800 [info]: reading config file path="/etc/td-agent/td-agent.conf"
 [...snip...]
@@ -80,7 +80,7 @@ For example, td-agent launches fluentd with `--daemon` option. In
 td-agent case, you can get entire log using following command to
 simulate `/etc/init.d/td-agent start` without daemonize.
 
-``` {.CodeRay}
+```text
 $ sudo LD_PRELOAD=/opt/td-agent/embedded/lib/libjemalloc.so /usr/sbin/td-agent -c /etc/td-agent/td-agent.conf --user td-agent --group td-agent
 ```
 

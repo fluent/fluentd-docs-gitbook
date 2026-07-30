@@ -25,7 +25,7 @@ Please refer to the following documents to install fluentd.
 
 Next, please configure Fluentd to use the [forward Input plugin](/plugins/input/forward.md) as its data source.
 
-``` {.CodeRay}
+```text
 <source>
   @type forward
   port 24224
@@ -37,7 +37,7 @@ Next, please configure Fluentd to use the [forward Input plugin](/plugins/input/
 
 Please restart your agent once these lines are in place.
 
-``` {.CodeRay}
+```text
 # for rpm/deb only
 $ sudo /etc/init.d/td-agent restart
 ```
@@ -48,14 +48,14 @@ First, install the
 *[Fluent::Logger](http://search.cpan.org/dist/Fluent-Logger/)* library
 via CPAN.
 
-``` {.CodeRay}
+```text
 $ cpan
 cpan[1]> install Fluent::Logger
 ```
 
 Next, initialize and post the records as shown below.
 
-``` {.CodeRay}
+```text
 # test.pl
 use Fluent::Logger;
 my $logger = Fluent::Logger->new(
@@ -68,7 +68,7 @@ $logger->post("follow", { "entry1" => "value1", "entry2" => 2 });
 
 Executing the script will send the logs to Fluentd.
 
-``` {.CodeRay}
+```text
 $ perl test.pl
 ```
 

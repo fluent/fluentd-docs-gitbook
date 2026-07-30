@@ -43,13 +43,13 @@ numerically or storing data with sensible type information.
 
 The syntax is
 
-``` {.CodeRay}
+```text
 types <field_name_1>:<type_name_1>,<field_name_2>:<type_name_2>,...
 ```
 
 e.g.,
 
-``` {.CodeRay}
+```text
 types user_id:integer,paid:bool,paid_usd_amount:float
 ```
 
@@ -79,7 +79,7 @@ Alternatively, if the value is "Adam\|Alice\|Bob",
 
 ## Example
 
-``` {.CodeRay}
+```text
 format tsv
 keys time,host,req_id,user
 time_key time
@@ -87,13 +87,13 @@ time_key time
 
 With this configuration:
 
-``` {.CodeRay}
+```text
 2013/02/28 12:00:00\t192.168.0.1\t111\t-
 ```
 
 This incoming event is parsed as:
 
-``` {.CodeRay}
+```text
 time:
 1362020400 (2013/02/28/ 12:00:00)
 

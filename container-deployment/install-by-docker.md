@@ -17,7 +17,7 @@ Please download and install [Docker](https://www.docker.com/) from here.
 
 Then, please download Fluentd v0.12's image by `docker pull` command.
 
-``` {.CodeRay}
+```text
 $ docker pull fluent/fluentd:v0.12-debian
 ```
 Debian and Alpine Linux version is available for Fluentd image. Debian
@@ -30,7 +30,7 @@ To make the test simple, create the example config below at
 `/tmp/fluentd.conf`. This example accepts records from http, and output
 to stdout.
 
-``` {.CodeRay}
+```text
 # /tmp/fluentd.conf
 <source>
   @type http
@@ -44,7 +44,7 @@ to stdout.
 
 Finally, you can run Fluentd with `docker run` command.
 
-``` {.CodeRay}
+```text
 $ docker run -d \
   -p 9880:9880 -v /tmp:/fluentd/etc -e FLUENTD_CONF=fluentd.conf \
   fluent/fluentd
@@ -70,14 +70,14 @@ $ docker run -d \
 Let's post sample logs via HTTP and confirm it's working. `curl` command
 is always your friend.
 
-``` {.CodeRay}
+```text
 $ curl -X POST -d 'json={"json":"message"}' http://localhost:9880/sample.test
 ```
 
 Use `docker ps` command to retrieve container ID, and use `docker logs`
 command to check the specific container's log.
 
-``` {.CodeRay}
+```text
 $ docker ps
 CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                                         NAMES
 b495e527850c        fluent/fluentd      "/bin/sh -c 'exec ..."   2 hours ago         Up 2 hours          5140/tcp, 24224/tcp, 0.0.0.0:9880->9880/tcp   awesome_mcnulty

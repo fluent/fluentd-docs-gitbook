@@ -21,7 +21,7 @@ Two `ruby` processes (parent and child) are executed. Please make sure
 that these processes are running. The example for `td-agent` is shown
 below.
 
-``` {.CodeRay}
+```text
 /opt/td-agent/embedded/bin/ruby /usr/sbin/td-agent
   --daemon /var/run/td-agent/td-agent.pid
   --log /var/log/td-agent/td-agent.log
@@ -30,7 +30,7 @@ below.
 For td-agent on Linux, you can check the process statuses with the
 following command. Two processes should be shown if there are no issues.
 
-``` {.CodeRay}
+```text
 $ ps w -C ruby -C td-agent --no-heading
 32342 ?        Sl     0:00 /opt/td-agent/embedded/bin/ruby /usr/sbin/td-agent --daemon /var/run/td-agent/td-agent.pid --log /var/log/td-agent/td-agent.log
 32345 ?        Sl     0:01 /opt/td-agent/embedded/bin/ruby /usr/sbin/td-agent --daemon /var/run/td-agent/td-agent.pid --log /var/log/td-agent/td-agent.log
@@ -50,7 +50,7 @@ settings are shown below:
 A debug port for local communication is recommended for trouble
 shooting. Please note that the configuration below will be required.
 
-``` {.CodeRay}
+```text
 <source>
   @type debug_agent
   bind 127.0.0.1

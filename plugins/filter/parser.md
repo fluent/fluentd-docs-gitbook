@@ -13,7 +13,7 @@ fluentd versions, need to install `fluent-plugin-parser`.
 `filter_parser` has just same with `in_tail` about `format` and
 `time_format`:
 
-``` {.CodeRay}
+```text
 <filter foo.bar>
   @type parser
   format /^(?<host>[^ ]*) [^ ]* (?<user>[^ ]*) \[(?<time>[^\]]*)\] "(?<method>\S+)(?: +(?<path>[^ ]*) +\S*)?" (?<code>[^ ]*) (?<size>[^ ]*)$/
@@ -40,7 +40,7 @@ This is required parameter. Specify field name in the record to parse.
 
 Keep original key-value pair in parsed result. Default is `false`.
 
-``` {.CodeRay}
+```text
 <filter foo.bar>
   @type parser
   format json
@@ -51,14 +51,14 @@ Keep original key-value pair in parsed result. Default is `false`.
 
 With above configuration, result is below:
 
-``` {.CodeRay}
+```text
 # input data:  {"key":"value","log":"{\"user\":1,\"num\":2}"}
 # output data: {"key":"value","log":"{\"user\":1,\"num\":2}","user":1,"num":2}
 ```
 
 Without `reserve_data`, result is below
 
-``` {.CodeRay}
+```text
 # input data:  {"key":"value","log":"{\"user\":1,\"num\":2}"}
 # output data: {"user":1,"num":2}
 ```
@@ -86,7 +86,7 @@ it. Default is `false`.
 
 Store parsed values with specified key name prefix. Default is `nil`.
 
-``` {.CodeRay}
+```text
 <filter foo.bar>
   @type parser
   format json
@@ -98,7 +98,7 @@ Store parsed values with specified key name prefix. Default is `nil`.
 
 With above configuration, result is below:
 
-``` {.CodeRay}
+```text
 # input data:  {"log": "{\"user\":1,\"num\":2}"}
 # output data: {"log":"{\"user\":1,\"num\":2}","data.user":1, "data.num":2}
 ```
@@ -107,7 +107,7 @@ With above configuration, result is below:
 
 Store parsed values as a hash value in a field. Default is `nil`.
 
-``` {.CodeRay}
+```text
 <filter foo.bar>
   @type parser
   format json
@@ -118,7 +118,7 @@ Store parsed values as a hash value in a field. Default is `nil`.
 
 With above configuration, result is below:
 
-``` {.CodeRay}
+```text
 # input data:  {"log": "{\"user\":1,\"num\":2}"}
 # output data: {"parsed":{"user":1,"num":2}}
 ```

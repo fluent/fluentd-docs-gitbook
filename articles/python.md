@@ -26,7 +26,7 @@ Please refer to the following documents to install fluentd.
 
 Next, please configure Fluentd to use the [forward Input plugin](/plugins/input/forward.md) as its data source.
 
-``` {.CodeRay}
+```text
 <source>
   @type forward
   port 24224
@@ -38,7 +38,7 @@ Next, please configure Fluentd to use the [forward Input plugin](/plugins/input/
 
 Please restart your agent once these lines are in place.
 
-``` {.CodeRay}
+```text
 # for rpm/deb only
 $ sudo /etc/init.d/td-agent restart
 ```
@@ -47,13 +47,13 @@ $ sudo /etc/init.d/td-agent restart
 
 First, install the fluent-logger library via pip.
 
-``` {.CodeRay}
+```text
 $ pip install fluent-logger
 ```
 
 Next, initialize and post the records as shown below.
 
-``` {.CodeRay}
+```text
 # test.py
 from fluent import sender
 from fluent import event
@@ -66,7 +66,7 @@ event.Event('follow', {
 
 Executing the script will send the logs to Fluentd.
 
-``` {.CodeRay}
+```text
 $ python test.py
 ```
 

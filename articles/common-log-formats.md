@@ -7,7 +7,7 @@ the [Tail input plugin](/plugins/input/tail.md).
 
     Use `format apache2` as shown below:
 
-    ``` {.CodeRay}
+    ```text
       <source>
           @type tail
           format apache2
@@ -21,7 +21,7 @@ the [Tail input plugin](/plugins/input/tail.md).
     Use a regular expression. See the `format` field in the following
     sample configuration.
 
-    ``` {.CodeRay}
+    ```text
       <source>
           @type tail
           format /^\[[^ ]* (?<time>[^\]]*)\] \[(?<level>[^\]]*)\] \[pid (?<pid>[^\]]*)\] \[client (?<client>[^\]]*)\] (?<message>.*)$/
@@ -40,7 +40,7 @@ the [Tail input plugin](/plugins/input/tail.md).
     Use a regular expression. See the `format` field in the following
     sample configuration.
 
-    ``` {.CodeRay}
+    ```text
       <source>
           @type tail
           format /^(?<time>[^ ]+) (?<host>[^ ]+) (?<process>[^:]+): (?<message>((?<key>[^ :]+)[ :])? ?((to|from)=<(?<address>[^>]+)>)?.*)$/
@@ -53,7 +53,7 @@ the [Tail input plugin](/plugins/input/tail.md).
 
     Use `format nginx` as shown below:
 
-    ``` {.CodeRay}
+    ```text
       <source>
           @type tail
           format nginx
@@ -69,7 +69,7 @@ the [Tail input plugin](/plugins/input/tail.md).
     output multi-line errors including stack traces, so the multiline
     mode is a good fit.
 
-    ``` {.CodeRay}
+    ```text
       <source>
           @type tail
           tag nginx.error
@@ -85,7 +85,7 @@ the [Tail input plugin](/plugins/input/tail.md).
     If you know your error log will only contain single lines, you can
     use the below simpler configuration with just a `format`.
 
-    ``` {.CodeRay}
+    ```text
       <source>
           @type tail
           format /^(?<time>\d{4}/\d{2}/\d{2} \d{2}:\d{2}:\d{2}) \[(?<log_level>\w+)\] (?<pid>\d+).(?<tid>\d+): (?<message>.*)$/

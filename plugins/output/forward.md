@@ -26,7 +26,7 @@ require a secure connection between nodes, please consider using
 `out_forward` is included in Fluentd's core. No additional installation
 process is required.
 
-``` {.CodeRay}
+```text
 <match pattern>
   @type forward
   send_timeout 60s
@@ -142,7 +142,7 @@ Fluentd nodes. When an active node goes down, the standby node is
 promoted to an active node. The standby node is not used by the
 `out_forward` plugin until then.
 
-``` {.CodeRay}
+```text
 <match pattern>
   @type forward
   ...
@@ -239,7 +239,7 @@ The threshold for checking chunk flush performance. The default value is
 If chunk flush takes longer time than this threshold, fluentd logs
 warning message like below:
 
-``` {.CodeRay}
+```text
 2016-12-19 12:00:00 +0000 [warn]: buffer flush took longer time than slow_flush_log_threshold: elapsed_time = 15.0031226690043695 slow_flush_log_threshold=10.0 plugin_id="foo"
 ```
 
@@ -259,7 +259,7 @@ Please make sure that you can communicate with port 24224 using **not
 only TCP, but also UDP**. These commands will be useful for checking the
 network configuration.
 
-``` {.CodeRay}
+```text
 $ telnet host 24224
 $ nmap -p 24224 -sU host
 ```

@@ -10,7 +10,7 @@ add/delete/modify events, this plugin is the first filter to try.
 `filter_record_transformer` is included in Fluentd's core. No
 installation required.
 
-``` {.CodeRay}
+```text
 <filter foo.bar>
   @type record_transformer
   <record>
@@ -24,20 +24,20 @@ The above filter adds the new field "hostname" with the server's
 hostname as its value (It is taking advantage of Ruby's string
 interpolation) and the new field "tag" with tag value. So, an input like
 
-``` {.CodeRay}
+```text
 {"message":"hello world!"}
 ```
 
 is transformed into
 
-``` {.CodeRay}
+```text
 {"message":"hello world!", "hostname":"db001.internal.example.com", "tag":"foo.bar"}
 ```
 
 Here is another example where the field "total" is divided by the field
 "count" to create a new field "avg":
 
-``` {.CodeRay}
+```text
 <filter foo.bar>
   @type record_transformer
   enable_ruby
@@ -49,13 +49,13 @@ Here is another example where the field "total" is divided by the field
 
 It transforms an event like
 
-``` {.CodeRay}
+```text
 {"total":100, "count":10}
 ```
 
 into
 
-``` {.CodeRay}
+```text
 {"total":100, "count":10, "avg":"10"}
 ```
 
@@ -66,7 +66,7 @@ float.
 
 You can also use this plugin to modify your existing fields as
 
-``` {.CodeRay}
+```text
 <filter foo.bar>
   @type record_transformer
   <record>
@@ -77,13 +77,13 @@ You can also use this plugin to modify your existing fields as
 
 An input like
 
-``` {.CodeRay}
+```text
 {"message":"hello world!"}
 ```
 
 is transformed into
 
-``` {.CodeRay}
+```text
 {"message":"yay, hello world!"}
 ```
 
@@ -91,7 +91,7 @@ Finally, this configuration embeds the value of the second part of the
 tag in the field "service\_name". It might come in handy when
 aggregating data across many services.
 
-``` {.CodeRay}
+```text
 <filter web.*>
   @type record_transformer
   <record>
@@ -111,7 +111,7 @@ So, if an event with the tag "web.auth" and record
 Parameters inside `<record>` directives are considered to be new
 key-value pairs:
 
-``` {.CodeRay}
+```text
 <record>
   NEW_FIELD NEW_VALUE
 </record>
@@ -141,7 +141,7 @@ All indices are zero-based. For example, if you have an incoming event
 tagged `debug.my.app`, then `tag_parts[1]` will represent "my". Also in
 this case, `tag_prefix[N]` and `tag_suffix[N]` will work as follows:
 
-``` {.CodeRay}
+```text
 tag_prefix[0] = debug          tag_suffix[0] = debug.my.app
 tag_prefix[1] = debug.my       tag_suffix[1] = my.app
 tag_prefix[2] = debug.my.app   tag_suffix[2] = app
@@ -160,7 +160,7 @@ With `true`, additional variables could be used inside `${}`.
 
 Here is the examples:
 
-``` {.CodeRay}
+```text
 jsonized_record ${record.to_json}
 avg ${record["total"] / record["count"]}
 formatted_time ${time.strftime('%Y-%m-%dT%H:%M:%S%z')}
@@ -178,13 +178,13 @@ a single placeholder.
 
 Effective Examples:
 
-``` {.CodeRay}
+```text
 foo ${record["foo"]}
 ```
 
 Non-Effective Examples:
 
-``` {.CodeRay}
+```text
 foo ${record["foo"]}${record["bar"]}
 foo ${record["foo"]}bar
 foo 1

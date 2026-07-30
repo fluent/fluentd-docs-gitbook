@@ -7,7 +7,7 @@ regexp. The regexp must have at least one named capture
 configurable, it is used as the time of the event. You can specify the
 time format using the time\_format parameter.
 
-``` {.CodeRay}
+```text
 format /.../ # regexp parser is used
 format json  # json parser is used
 ```
@@ -40,13 +40,13 @@ numerically or storing data with sensible type information.
 
 The syntax is
 
-``` {.CodeRay}
+```text
 types <field_name_1>:<type_name_1>,<field_name_2>:<type_name_2>,...
 ```
 
 e.g.,
 
-``` {.CodeRay}
+```text
 types user_id:integer,paid:bool,paid_usd_amount:float
 ```
 
@@ -76,7 +76,7 @@ Alternatively, if the value is "Adam\|Alice\|Bob",
 
 ## Example
 
-``` {.CodeRay}
+```text
 format /^\[(?<logtime>[^\]]*)\] (?<name>[^ ]*) (?<title>[^ ]*) (?<id>\d*)$/
 time_key logtime
 time_format %Y-%m-%d %H:%M:%S %z
@@ -85,13 +85,13 @@ types id:integer
 
 With this config:
 
-``` {.CodeRay}
+```text
 [2013-02-28 12:00:00 +0900] alice engineer 1
 ```
 
 This incoming log is parsed as:
 
-``` {.CodeRay}
+```text
 time:
 1362020400 (2013-02-28 12:00:00 +0900)
 

@@ -48,7 +48,7 @@ into a MongoDB instance.
 Create a simple file called in\_docker.conf which contains the following
 entries:
 
-``` {.CodeRay}
+```text
 <source>
   @type forward
   port 24224
@@ -64,13 +64,13 @@ entries:
 
 With this simple command start an instance of Fluentd:
 
-``` {.CodeRay}
+```text
 $ fluentd -c in_docker.conf
 ```
 
 If the service started you should see an output like this:
 
-``` {.CodeRay}
+```text
 $ fluentd -c in_docker.conf
 2019-07-22 12:20:36 +0900 [info]: parsing config file is succeeded path="in_docker.conf"
 2019-07-22 12:20:36 +0900 [info]: using configuration file: <ROOT>
@@ -106,7 +106,7 @@ The following command will run a base Ubuntu container and print some
 messages to the standard output, note that we have launched the
 container specifying the Fluentd logging driver:
 
-``` {.CodeRay}
+```text
 $ docker run --log-driver=fluentd ubuntu echo "Hello Fluentd!"
 Hello Fluentd!
 ```
@@ -116,7 +116,7 @@ Hello Fluentd!
 Now on the Fluentd output, you will see the incoming message from the
 container, e.g:
 
-``` {.CodeRay}
+```text
 2019-07-22 03:32:42.000000000 +0000 499e83386347: {"source":"stdout","log":"Hello Fluentd!","container_id":"499e833863479de2c4a3639d0cf5aeb36333d438a42bb0959f6ed104e41354b1","container_name":"/kind_lamarr"}
 ```
 
@@ -132,7 +132,7 @@ parse this log by using
 [filter\_parser](http://docs.fluentd.org/articles/filter_parser) filter
 before send to destinations.
 
-``` {.CodeRay}
+```text
 <filter docker.**>
   @type parser
   format json # apache2, nginx, etc...
@@ -143,13 +143,13 @@ before send to destinations.
 
 Original event:
 
-``` {.CodeRay}
+```text
 2019-07-22 03:36:39.000000000 +0000 6e8a14315069: {"log":"{\"key\":\"value\"}","container_id":"6e8a1431506936b8568a284f2b0dd4853c250ad85ab7a497f05c4d371f6c3ae6","container_name":"/laughing_beaver","source":"stdout"}
 ```
 
 Filtered event:
 
-``` {.CodeRay}
+```text
 2019-07-22 03:35:59.395952500 +0000 bac5426337a6: {"container_id":"bac5426337a611fc3b7a0b318c3c45981d2acd80f5c5651088bebb8f1f962583","container_name":"/nostalgic_euler","source":"stdout","log":"{\"key\":\"value\"}","key":"value"}
 ```
 
@@ -160,7 +160,7 @@ concatenate these logs by using
 [fluent-plugin-concat](https://github.com/fluent-plugins-nursery/fluent-plugin-concat)
 filter before send to destinations.
 
-``` {.CodeRay}
+```text
 <filter docker.**>
   @type concat
   key log
@@ -172,7 +172,7 @@ filter before send to destinations.
 
 Original events:
 
-``` {.CodeRay}
+```text
 2016-04-13 14:45:55 +0900 docker.28cf38e21204: {"container_id":"28cf38e212042225f5f80a56fac08f34c8f0b235e738900c4e0abcf39253a702","container_name":"/romantic_dubinsky","source":"stdout","log":"-e:2:in `/'"}
 2016-04-13 14:45:55 +0900 docker.28cf38e21204: {"source":"stdout","log":"-e:2:in `do_division_by_zero'","container_id":"28cf38e212042225f5f80a56fac08f34c8f0b235e738900c4e0abcf39253a702","container_name":"/romantic_dubinsky"}
 2016-04-13 14:45:55 +0900 docker.28cf38e21204: {"source":"stdout","log":"-e:4:in `<main>'","container_id":"28cf38e212042225f5f80a56fac08f34c8f0b235e738900c4e0abcf39253a702","container_name":"/romantic_dubinsky"}
@@ -180,7 +180,7 @@ Original events:
 
 Filtered events:
 
-``` {.CodeRay}
+```text
 2016-04-13 14:45:55 +0900 docker.28cf38e21204: {"container_id":"28cf38e212042225f5f80a56fac08f34c8f0b235e738900c4e0abcf39253a702","container_name":"/romantic_dubinsky","source":"stdout","log":"-e:2:in `/'\n-e:2:in `do_division_by_zero'\n-e:4:in `<main>'"}
 ```
 
@@ -200,7 +200,7 @@ more options through the *--log-opt* Docker command line argument:
 Specify an optional address for Fluentd, it allows to set the host and
 TCP port, e.g:
 
-``` {.CodeRay}
+```text
 $ docker run --log-driver=fluentd --log-opt fluentd-address=192.168.2.4:24225 ubuntu echo "..."
 ```
 
@@ -212,14 +212,14 @@ and take routing decisions. By default the Fluentd logging driver uses
 the container\_id as a tag (64 character ID), you can change it value
 with the *tag* option as follows:
 
-``` {.CodeRay}
+```text
 $ docker run --log-driver=fluentd --log-opt tag=docker.my_new_tag ubuntu echo "..."
 ```
 
 Additionally this option allows to specify some internal variables:
 \{\{.ID\}\}, \{\{.FullID\}\} or \{\{.Name\}\}. e.g:
 
-``` {.CodeRay}
+```text
 $ docker run --log-driver=fluentd --log-opt tag=docker.{{.ID}} ubuntu echo "..."
 ```
 

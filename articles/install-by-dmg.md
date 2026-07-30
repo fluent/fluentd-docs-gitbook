@@ -31,7 +31,7 @@ You can launch `td-agent` with `launchctl` command. Please make sure the
 daemon started correctly from the log
 (`/var/log/td-agent/td-agent.log`).
 
-``` {.CodeRay}
+```text
 $ sudo launchctl load /Library/LaunchDaemons/td-agent.plist
 $ less /var/log/td-agent/td-agent.log
 2013-04-19 16:55:03 -0700 [info]: starting fluentd-0.10.33
@@ -42,7 +42,7 @@ $ less /var/log/td-agent/td-agent.log
 Your plugin directory is at `/etc/td-agent/plugin`. In case you want to
 stop the agent, please execute the command below.
 
-``` {.CodeRay}
+```text
 $ sudo launchctl unload /Library/LaunchDaemons/td-agent.plist
 ```
 
@@ -52,7 +52,7 @@ By default, `/etc/td-agent/td-agent.conf` is configured to take logs
 from HTTP and route them to stdout (`/var/log/td-agent/td-agent.log`).
 You can post sample log records using the curl command.
 
-``` {.CodeRay}
+```text
 $ curl -X POST -d 'json={"json":"message"}' http://localhost:8888/debug.test
 $ tail -n 1 /var/log/td-agent/td-agent.log
 2013-04-19 16:51:47 -0700 debug.test: {"json":"message"}

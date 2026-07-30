@@ -32,13 +32,13 @@ For this example, we chose Elasticsearch as the backend system.
 
 First, we'll install Fluentd using the following command:
 
-``` {.CodeRay}
+```text
 $ curl -L https://toolbelt.treasuredata.com/sh/install-redhat-td-agent2.sh | sh
 ```
 
 Next, we'll install the Fluentd plugin for GlusterFS:
 
-``` {.CodeRay}
+```text
 $ sudo /usr/sbin/td-agent-gem install fluent-plugin-glusterfs
 Fetching: fluent-plugin-glusterfs-1.0.0.gem (100%)
 Successfully installed fluent-plugin-glusterfs-1.0.0
@@ -52,7 +52,7 @@ Installing RDoc documentation for fluent-plugin-glusterfs-1.0.0...
 By default, only `root` can read the GlusterFS log files. We'll allow
 others to read the file.
 
-``` {.CodeRay}
+```text
 $ ls -alF /var/log/glusterfs/etc-glusterfs-glusterd.vol.log
 -rw------- 1 root root 1385  Feb  3 07:21 2014 /var/log/glusterfs/etc-glusterfs-glusterd.vol.log
 $ sudo chmod +r /var/log/glusterfs/etc-glusterfs-glusterd.vol.log
@@ -66,7 +66,7 @@ Now, modify Fluentd's configuration file. It is located at
 
 This is what the configuration file should look like:
 
-``` {.CodeRay}
+```text
 $ sudo cat /etc/td-agent/td-agent.conf
 
 <source>
@@ -104,7 +104,7 @@ the \... section is for failover (when the aggregator instance at
 
 Finally, start td-agent. Fluentd will started with the updated setup.
 
-``` {.CodeRay}
+```text
 $ sudo service td-agent start
 Starting td-agent:                                         [  OK  ]
 ```
@@ -114,7 +114,7 @@ Starting td-agent:                                         [  OK  ]
 We'll now set up a separate Fluentd instance to aggregate the logs.
 Again, the first step is to install Fluentd.
 
-``` {.CodeRay}
+```text
 $ curl -L https://toolbelt.treasuredata.com/sh/install-redhat.sh | sh
 ```
 
@@ -123,13 +123,13 @@ be indexed and written to local disk for backup.
 
 First, install the Elasticsearch output plugin as follows:
 
-``` {.CodeRay}
+```text
 $ sudo /usr/lib64/fluent/ruby/bin/fluent-gem install fluent-plugin-glusterfs
 ```
 
 Then, configure Fluentd as follows:
 
-``` {.CodeRay}
+```text
 $ sudo cat /etc/td-agent/td-agent.conf
 <source>
   @type forward

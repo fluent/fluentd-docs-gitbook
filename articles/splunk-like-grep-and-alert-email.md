@@ -19,13 +19,13 @@ alternative to Splunk, see the article ["Free Alternative to Splunk Using Fluent
 
 Please install `fluent-plugin-grepcounter` by running:
 
-``` {.CodeRay}
+```text
 $ sudo /usr/sbin/td-agent-gem install fluent-plugin-grepcounter
 ```
 
 Next, please install `fluent-plugin-mail` by running:
 
-``` {.CodeRay}
+```text
 $ sudo /usr/sbin/td-agent-gem install fluent-plugin-mail
 ```
 
@@ -39,7 +39,7 @@ instead of `td-agent-gem`.
 Below shows the full configuration example. You can copy the following
 content and edit it to suit your needs.
 
-``` {.CodeRay}
+```text
 <source>
   @type tail
   path /var/log/apache2/access.log  # Set the location of your log file
@@ -111,14 +111,14 @@ the web service for you.
 
 After saving the configuration, restart the td-agent process:
 
-``` {.CodeRay}
+```text
 $ sudo /etc/init.d/td-agent restart
 ```
 
 If you installed the standalone version of Fluentd, launch the fluentd
 process manually:
 
-``` {.CodeRay}
+```text
 $ fluentd -c alert-email.conf
 ```
 

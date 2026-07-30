@@ -20,13 +20,13 @@ parameter can be used to change the output format.
 
 For example, by default, [out\_file](/plugins/output/file.md) plugin outputs data as
 
-``` {.CodeRay}
+```text
 2014-08-25 00:00:00 +0000<TAB>foo.bar<TAB>{"k1":"v1", "k2":"v2"}
 ```
 
 However, if you set `format json` like this
 
-``` {.CodeRay}
+```text
 <match foo.bar>
   @type file
   path /path/to/file
@@ -36,7 +36,7 @@ However, if you set `format json` like this
 
 The output changes to
 
-``` {.CodeRay}
+```text
 {"time": "2014-08-25 00:00:00 +0000", "tag":"foo.bar", "k1:"v1", "k2":"v2"}
 ```
 

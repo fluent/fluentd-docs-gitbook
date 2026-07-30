@@ -49,7 +49,7 @@ plugin, please use `gem install fluent-plugin-td`.
 Next, please [sign up](https://console.treasure-data.com/users/sign_up)
 to TD and get your apikey using the `td apikey:show` command.
 
-``` {.CodeRay}
+```text
 $ td account -f
 Enter your Treasure Data credentials.
 Email: your.email@gmail.com
@@ -69,7 +69,7 @@ Otherwise, it is located at /etc/fluentd/fluentd.conf.
 For the input source, we will set up Fluentd to accept records from
 HTTP. The Fluentd configuration file should look like this:
 
-``` {.CodeRay}
+```text
 <source>
   @type http
   port 8888
@@ -81,7 +81,7 @@ HTTP. The Fluentd configuration file should look like this:
 The output destination will be Treasure Data. The output configuration
 should look like this:
 
-``` {.CodeRay}
+```text
 # Treasure Data output
 <match td.*.*>
   @type tdlog
@@ -103,7 +103,7 @@ config inside).
 To test the configuration, just post the JSON to Fluentd. Sending a USR1
 signal flushes Fluentd's buffer into TD.
 
-``` {.CodeRay}
+```text
 $ curl -X POST -d 'json={"action":"login","user":2}' \
   http://localhost:8888/td.testdb.www_access
 $ kill -USR1 `cat /var/run/td-agent/td-agent.pid`
@@ -112,7 +112,7 @@ $ kill -USR1 `cat /var/run/td-agent/td-agent.pid`
 Next, please use the `td tables` command. If the count is not zero, the
 data was imported successfully.
 
-``` {.CodeRay}
+```text
 $ td tables
 +----------+------------+------+-------+--------+
 | Database | Table      | Type | Count | Schema |
@@ -123,7 +123,7 @@ $ td tables
 
 You can now issues queries against the imported data.
 
-``` {.CodeRay}
+```text
 $ td query -w -d testdb \
   "SELECT COUNT(1) AS cnt FROM www_access"
 queued...

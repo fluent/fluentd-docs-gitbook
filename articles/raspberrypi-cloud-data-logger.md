@@ -31,13 +31,13 @@ Raspberry Pi by following the instructions in the blog post below:
 Next, we'll install Fluentd on Raspbian. Raspbian bundles Ruby 1.9.3 by
 default, but we need the extra development package to install Fluentd.
 
-``` {.CodeRay}
+```text
 $ sudo aptitude install ruby-dev
 ```
 
 We'll now install Fluentd and the necessary plugins.
 
-``` {.CodeRay}
+```text
 $ sudo gem install fluentd -v "~> 0.12.0"
 $ sudo fluent-gem install fluent-plugin-td
 ```
@@ -51,7 +51,7 @@ account's API key from the [users page](https://console.treasuredata.com/users/c
 Please prepare the `fluentd.conf` file with the following information,
 including your API key.
 
-``` {.CodeRay}
+```text
 <match td.*.*>
   @type tdlog
   apikey YOUR_API_KEY_HERE
@@ -71,7 +71,7 @@ including your API key.
 
 Finally, please launch Fluentd via your terminal.
 
-``` {.CodeRay}
+```text
 $ fluentd -c fluent.conf
 ```
 
@@ -79,7 +79,7 @@ $ fluentd -c fluent.conf
 
 To test the configuration, just post a JSON message to Fluentd via HTTP.
 
-``` {.CodeRay}
+```text
 $ curl -X POST -d 'json={"sensor1":3123.13,"sensor2":321.3}' \
   http://localhost:8888/td.testdb.raspberrypi
 ```
@@ -98,7 +98,7 @@ You can now issue queries against the imported data.
 For example, these queries calculate the average sensor1 value and the
 sum of sensor2 values.
 
-``` {.CodeRay}
+```text
 SELECT AVG(sensor1) FROM raspberrypi;
 SELECT SUM(sensor2) FROM raspberrypi;
 ```

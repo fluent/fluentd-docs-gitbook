@@ -23,7 +23,7 @@ First, install the secure forward plugin.
 
 Then, set up the configuration file as follows:
 
-``` {.CodeRay}
+```text
 <source>
   @type secure_forward
   shared_key YOUR_SHARED_KEY
@@ -54,7 +54,7 @@ First, install the secure forward plugin.
 
 Then, set up the configuration file as follows:
 
-``` {.CodeRay}
+```text
 <source>
   @type forward
 </source>
@@ -90,7 +90,7 @@ On the sender machine, run the following command using `fluent-cat`
 Now, checking the receiver's Fluentd's log (for td-agent, this would be
 `/var/log/td-agent/td-agent.log`), there should be a line like this:
 
-``` {.CodeRay}
+```text
 2014-10-21 18:18:26 -0400 secure.test: {"message":"testing the SSL forwarding"}
 ```
 

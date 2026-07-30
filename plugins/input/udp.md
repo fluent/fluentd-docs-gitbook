@@ -10,7 +10,7 @@ The `in_udp` Input plugin enables Fluentd to accept UDP payload.
 `in_udp` is included in Fluentd's core. No additional installation
 process is required.
 
-``` {.CodeRay}
+```text
 <source>
   @type udp
   tag mytag # required
@@ -54,13 +54,13 @@ hostname).
 
 If you set following configuration:
 
-``` {.CodeRay}
+```text
 source_hostname_key client_host
 ```
 
 then the client's hostname is set to `client_host` field.
 
-``` {.CodeRay}
+```text
 {
     ...
     "foo": "bar",

@@ -12,7 +12,7 @@ Unix Domain Socket. The wire protocol is the same as
 `in_unix` is included in Fluentd's core. No additional installation
 process is required.
 
-``` {.CodeRay}
+```text
 <source>
   @type unix
   path /path/to/socket.sock

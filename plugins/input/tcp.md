@@ -13,7 +13,7 @@ Don't use this plugin for receiving logs from client libraries. Use
 `in_tcp` is included in Fluentd's core. No additional installation
 process is required.
 
-``` {.CodeRay}
+```text
 <source>
   @type tcp
   tag tcp.events # required
@@ -60,13 +60,13 @@ hostname).
 
 If you set following configuration:
 
-``` {.CodeRay}
+```text
 source_hostname_key client_host
 ```
 
 then the client's hostname is set to `client_host` field.
 
-``` {.CodeRay}
+```text
 {
     ...
     "foo": "bar",
@@ -79,19 +79,19 @@ then the client's hostname is set to `client_host` field.
 The format of the TCP payload. Here is the example by regular
 expression.
 
-``` {.CodeRay}
+```text
 format /^(?<field1>\d+):(?<field2>\w+)$/
 ```
 
 If you execute following command:
 
-``` {.CodeRay}
+```text
 $ echo '123456:awesome' | netcat 0.0.0.0 5170
 ```
 
 then got parsed result like below:
 
-``` {.CodeRay}
+```text
 {"field1":"123456","field2":"awesome}
 ```
 

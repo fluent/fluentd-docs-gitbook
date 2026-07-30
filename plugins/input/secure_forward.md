@@ -23,7 +23,7 @@ This section provides some example configurations for
 At first, generate private CA file by `secure-forward-ca-generate`, then
 copy that file to output plugin side by safe way (scp, or anyway else).
 
-``` {.CodeRay}
+```text
 <source>
   @type secure_forward
   shared_key      secret_string
@@ -37,7 +37,7 @@ copy that file to output plugin side by safe way (scp, or anyway else).
 
 ### Check username/password from Clients
 
-``` {.CodeRay}
+```text
 <source>
   @type secure_forward
   shared_key         secret_string
@@ -60,7 +60,7 @@ copy that file to output plugin side by safe way (scp, or anyway else).
 
 ### Deny Unknown Source IP/hosts
 
-``` {.CodeRay}
+```text
 <source>
   @type secure_forward
   shared_key         secret_string
@@ -83,7 +83,7 @@ copy that file to output plugin side by safe way (scp, or anyway else).
 
 You can use the username/password check and client check together:
 
-``` {.CodeRay}
+```text
 <source>
   @type secure_forward
   shared_key         secret_string

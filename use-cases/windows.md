@@ -38,7 +38,7 @@ first.
 4.  Edit td-agent's configuration file located at
     `/etc/td-agent/td-agent.conf` and add the following lines
 
-    ``` {.CodeRay}
+    ```text
      <source>
        @type tcp
        format none
@@ -62,7 +62,7 @@ first.
     default, it should be installed in `C:\Program Files (x86)\nxlog`
 2.  Create an nxlog config file as follows and save it as `nxlog.conf`:
 
-    ``` {.CodeRay}
+    ```text
      #define ROOT C:\Program Files\nxlog
      define ROOT C:\Program Files (x86)\nxlog
 
@@ -99,7 +99,7 @@ first.
 1.  Go to nxlog's directory (in Powershell or Command Prompt) and run
     the following command:
 
-    ``` {.CodeRay}
+    ```text
      \nxlog.exe -f -c  <path to nxlog.conf>
     ```
 
@@ -110,13 +110,13 @@ first.
 2.  Once nxlog is running, add a new line "Windows is awesome" into the
     tailed file like this:
 
-    ``` {.CodeRay}
+    ```text
      echo Windows is awesome >> 'C:\Users\SomeUser\Desktop\nxlog_test.log'
     ```
 
 3.  Now, go to the Linux server and run
 
-    ``` {.CodeRay}
+    ```text
      $ sudo tail -f /var/log/td-agent/td-agent.log
      ...
      ...
@@ -134,7 +134,7 @@ them as they come in. To do, simply change Fluentd's configuration as
 follows. Note the change from `format none` to `format json`. (See [this article](/plugins/parser/README.md) for more details about the parser
 plugins)
 
-``` {.CodeRay}
+```text
 <source>
   @type tcp
   format json
@@ -149,13 +149,13 @@ plugins)
 Then, if you add a new line to the file on your windows machine like
 this:
 
-``` {.CodeRay}
+```text
 echo {"name":"Sadayuki", "age":27} >> 'C:\Users\SomeUser\Desktop\nxlog_test.log'
 ```
 
 On the Linux machine running Fluentd, you see the following line:
 
-``` {.CodeRay}
+```text
 2014-12-20 02:22:44 +0000 windowslog: {"name":"Sadayuki","age":27}
 ```
 

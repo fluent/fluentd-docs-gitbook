@@ -10,7 +10,7 @@ with [fluentd](//fluentd.org) in **10 minutes**!
 
 Here is how:
 
-``` {.CodeRay}
+```text
 $ gem install fluentd
 $ gem install fluent-plugin-elasticsearch
 $ touch fluentd.conf
@@ -19,7 +19,7 @@ $ touch fluentd.conf
 `fluentd.conf` should look like this (just copy and paste this into
 fluentd.conf):
 
-``` {.CodeRay}
+```text
 <source>
   @type tail
   path /var/log/httpd-access.log #...or where you placed your Apache access log
@@ -40,7 +40,7 @@ fluentd.conf):
 
 After that, you can start fluentd and everything should work:
 
-``` {.CodeRay}
+```text
 $ fluentd -c fluentd.conf
 ```
 

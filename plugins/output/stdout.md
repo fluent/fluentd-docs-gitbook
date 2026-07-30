@@ -11,7 +11,7 @@ with daemon mode). This output plugin is useful for debugging purposes.
 `out_stdout` is included in Fluentd's core. No additional installation
 process is required.
 
-``` {.CodeRay}
+```text
 <match pattern>
   @type stdout
 </match>

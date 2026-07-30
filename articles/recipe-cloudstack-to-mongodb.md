@@ -14,7 +14,7 @@ You will need a working `fluentd` installed on your machine. Pick your
 package manager of choice and install `fluentd`, for instance with `gem`
 we would do:
 
-``` {.CodeRay}
+```text
 sudo gem install fluentd
 ```
 
@@ -25,7 +25,7 @@ configuration file in the working directory. The `-c` option will start
 `fluentd` using the specific configuration file. You can then send a
 test log/event message to the running process with `fluent-cat`
 
-``` {.CodeRay}
+```text
 $ fluentd -s conf
 $ fluentd -c conf/fluent.conf &
 $ echo '{"json":"message"}' | fluent-cat debug.test
@@ -48,7 +48,7 @@ the `listEvents` API.
 
 You can install it from source:
 
-``` {.CodeRay}
+```text
 git clone https://github.com/u-ichi/fluent-plugin-cloudstack
 ```
 
@@ -58,7 +58,7 @@ Then build your own gem and install it with
 
 Or you install the gem directly:
 
-``` {.CodeRay}
+```text
 sudo gem install fluent-plugin-cloudstack
 ```
 
@@ -67,7 +67,7 @@ the path to your configuration file. Edit the configuration to define a
 `source` as being from your CloudStack host. For instance if you a
 running a development environment locally:
 
-``` {.CodeRay}
+```text
 <source>
   @type cloudstack
   host localhost
@@ -91,7 +91,7 @@ commented it out. You also want to define the tag explicitly as being
 configuration file. To keep it simple at first, we will simply echo the
 events to `stdout`, therefore just add:
 
-``` {.CodeRay}
+```text
 <match cloudstack.**>
   @type stdout
 </match>
@@ -101,7 +101,7 @@ Run `fluentd` with `fluentd -c conf/fluent.conf &`, browse the
 CloudStack UI, create a VM, create a service offering. Once the interval
 is passed you will see the events being written to `stdout`:
 
-``` {.CodeRay}
+```text
 $ 2013-11-05 12:19:26 +0100 [info]: starting fluentd-0.10.39
 2013-11-05 12:19:26 +0100 [info]: reading config file path="conf/fluent.conf"
 2013-11-05 12:19:26 +0100 [info]: using configuration file: <ROOT>
@@ -178,7 +178,7 @@ use the appropriate package manager. You can then start mongodb with
 database and a `fluentd` user with read/write access to it. In the mongo
 shell do:
 
-``` {.CodeRay}
+```text
 $sudo mongo
 >use fluentd
 >db.AddUser({user:"fluentd", pwd: "foobar", roles: ["readWrite", "dbAdmin"]})
@@ -187,7 +187,7 @@ $sudo mongo
 We then need to install the `fluent-plugin-mongodb`. Still using `gem`
 this will be done like so:
 
-``` {.CodeRay}
+```text
 $sudo gem install fluent-plugin-mongo.
 ```
 
@@ -196,7 +196,7 @@ modify the configuration of `fluentd` to use this backend. Previously we
 used `stdout` as the output backend, to use `mongodb` we just need to
 write a different `<match>` section like so:
 
-``` {.CodeRay}
+```text
 # Single MongoDB
 <match cloudstack.**>
   @type mongo
@@ -225,7 +225,7 @@ To view the events/usages in Mongo, simply start a mongo shell with
 `mongo -u fluentd -p foobar fluentd` and list the collections. You will
 see the `test` collection:
 
-``` {.CodeRay}
+```text
 $ mongo -u fluentd -p foobar fluentd
 MongoDB shell version: 2.4.7
 connecting to: fluentd
@@ -241,7 +241,7 @@ test
 Couple MongoDB commands will get your rolling, `db.getCollection`,
 `count()` and `findOne()`:
 
-``` {.CodeRay}
+```text
 > coll=db.getCollection('test')
 fluentd.test
 > coll.count()
@@ -256,7 +256,7 @@ fluentd.test
 
 The `find()` call returns all entries in the collection.
 
-``` {.CodeRay}
+```text
 > coll.find()
 { "_id" : ObjectId("5278d9822675c98317000001"), "events_flow" : 0, "time" : ISODate("2013-11-05T11:41:47Z") }
 { "_id" : ObjectId("5278d9822675c98317000002"), "vm_sum" : 0, "memory_sum" : 0, "cpu_sum" : 0, "root_volume_sum" : 1500, "data_volume_sum" : 0, "Small Instance" : 1, "time" : ISODate("2013-11-05T11:41:47Z") }

@@ -9,7 +9,7 @@ using a round-robin algorithm.
 `out_roundrobin` is included in Fluentd's core. No additional
 installation process is required.
 
-``` {.CodeRay}
+```text
 <match pattern>
   @type roundrobin
 

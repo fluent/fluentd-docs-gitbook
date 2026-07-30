@@ -16,7 +16,7 @@ of signals.
 RPC is off by default. If you want to enable RPC, set `rpc_endpoint` in
 `<system>` section.
 
-``` {.CodeRay}
+```text
 <system>
   rpc_endpoint 127.0.0.1:24444
 </system>
@@ -24,7 +24,7 @@ RPC is off by default. If you want to enable RPC, set `rpc_endpoint` in
 
 After that, you can access to RPC like below.
 
-``` {.CodeRay}
+```text
 $ curl http://127.0.0.1:24444/api/plugins.flushBuffers
 {"ok":true}
 ```

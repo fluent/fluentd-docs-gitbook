@@ -12,7 +12,7 @@ request-uri, regex-backreference and so on with regular expression.
 It is a sample to arrange the tags by the regexp matched value of
 'message'.
 
-``` {.CodeRay}
+```text
 # Configuration
 <match app.message>
   @type rewrite_tag_filter
@@ -40,7 +40,7 @@ It is a sample to arrange the tags by the regexp matched value of
 later). Fluentd gem users will have to install the
 fluent-plugin-rewrite-tag-filter gem using the following command.
 
-``` {.CodeRay}
+```text
 $ fluent-gem install fluent-plugin-rewrite-tag-filter
 ```
 
@@ -49,7 +49,7 @@ $ fluent-gem install fluent-plugin-rewrite-tag-filter
 Configuration design is dropping some pattern record first, then re-emit
 other matched record as new tag name.
 
-``` {.CodeRay}
+```text
 <match apache.access>
   @type rewrite_tag_filter
   capitalize_regex_backreference yes
@@ -173,7 +173,7 @@ fluent-plugin-rewrite-tag-filter \* fluent-plugin-mongo
 
 ##### \[Config1\] Application Servers
 
-``` {.CodeRay}
+```text
 # Input access log to fluentd with embedded in_tail plugin
 <source>
   @type tail
@@ -197,7 +197,7 @@ fluent-plugin-rewrite-tag-filter \* fluent-plugin-mongo
 
 ##### \[Config2\] Monitoring Server
 
-``` {.CodeRay}
+```text
 # built-in TCP input
 <source>
   @type forward
@@ -247,7 +247,7 @@ fluent-plugin-irc
 
 ##### \[Config1\] Application Servers
 
-``` {.CodeRay}
+```text
 # Input access log to fluentd with embedded in_tail plugin
 # sample results: {"host":"127.0.0.1","user":null,"method":"GET","path":"/","code":500,"size":5039,"referer":null,"agent":"Mozilla"}
 <source>
@@ -272,7 +272,7 @@ fluent-plugin-irc
 
 ##### \[Config2\] Monitoring Server
 
-``` {.CodeRay}
+```text
 # built-in TCP input
 <source>
   @type forward
@@ -387,7 +387,7 @@ fluent-plugin-irc
 
 If you have following configuration, it doesn't work:
 
-``` {.CodeRay}
+```text
 <match app.**>
   @type rewrite_tag_filter
   <rule>
@@ -407,7 +407,7 @@ In this case, `rewrite_tag_filter` causes infinite loop because
 fluentd's routing is executed from top to bottom. So you need to change
 tag like below:
 
-``` {.CodeRay}
+```text
 <match app.**>
   @type rewrite_tag_filter
   <rule>

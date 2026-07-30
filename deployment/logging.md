@@ -33,7 +33,7 @@ own log levels. The global log level can be adjusted up or down.
 The `-v` option sets the verbosity to `debug` while the `-vv` option
 sets the verbosity to `trace`.
 
-``` {.CodeRay}
+```text
 $ fluentd -v  ... # debug level
 $ fluentd -vv ... # trace level
 ```
@@ -45,7 +45,7 @@ These options are useful for debugging purposes.
 The `-q` option sets the verbosity to `warn` while the `-qq` option sets
 the verbosity to `error`.
 
-``` {.CodeRay}
+```text
 $ fluentd -q  ... # warn level
 $ fluentd -qq ... # error level
 ```
@@ -55,7 +55,7 @@ $ fluentd -qq ... # error level
 You can also change the logging level with `<system>` section in the
 config file like below.
 
-``` {.CodeRay}
+```text
 <system>
   # equal to -qq option
   log_level error
@@ -71,7 +71,7 @@ For example, in order to debug [in\_tail](/plugins/input/tail.md) but suppress a
 fatal log messages for [in\_http](/plugins/input/http.md), their respective `log_level`
 options should be set as follows:
 
-``` {.CodeRay}
+```text
 <source>
   @type tail
   @log_level debug
@@ -95,7 +95,7 @@ Fluentd can suppress same stacktrace with
 `--suppress-repeated-stacktrace`. For example, if you pass
 `--suppress-repeated-stacktrace` to fluentd:
 
-``` {.CodeRay}
+```text
 2013-12-04 15:05:53 +0900 [warn]: fluent/engine.rb:154:rescue in emit_stream: emit transaction failed  error_class = RuntimeError error = #<RuntimeError: syslog>
   2013-12-04 15:05:53 +0900 [warn]: fluent/engine.rb:140:emit_stream: /Users/repeatedly/devel/fluent/fluentd/lib/fluent/plugin/out_stdout.rb:43:in `emit'
   [snip]
@@ -108,7 +108,7 @@ Fluentd can suppress same stacktrace with
 
 logs are changed to:
 
-``` {.CodeRay}
+```text
 2013-12-04 15:05:53 +0900 [warn]: fluent/engine.rb:154:rescue in emit_stream: emit transaction failed  error_class = RuntimeError error = #<RuntimeError: syslog>
   2013-12-04 15:05:53 +0900 [warn]: fluent/engine.rb:140:emit_stream: /Users/repeatedly/devel/fluent/fluentd/lib/fluent/plugin/o/2.0.0/gems/cool.io-1.1.1/lib/cool.io/loop.rb:96:in `run'
   [snip]
@@ -126,7 +126,7 @@ until other stacktrace is received.
 Fluentd outputs logs to `STDOUT` by default. To output to a file
 instead, please specify the `-o` option.
 
-``` {.CodeRay}
+```text
 $ fluentd -o /path/to/log_file
 ```
 
@@ -142,7 +142,7 @@ destination. This is useful for monitoring Fluentd logs.
 
 For example, if you have the following `<match fluent.**>`:
 
-``` {.CodeRay}
+```text
 # omit other source / match
 <match fluent.**>
   @type stdout
@@ -151,7 +151,7 @@ For example, if you have the following `<match fluent.**>`:
 
 then Fluentd outputs `fluent.info` logs to stdout like below:
 
-``` {.CodeRay}
+```text
 2014-02-27 00:00:00 +0900 [info]: shutting down fluentd
 2014-02-27 00:00:01 +0900 fluent.info: {"message":"shutting down fluentd"} # by <match fluent.**>
 2014-02-27 00:00:01 +0900 [info]: process finished code = 0
@@ -162,7 +162,7 @@ then Fluentd outputs `fluent.info` logs to stdout like below:
 You can send Fluentd logs to a monitoring service by plugins, e.g.
 datadog, sentry, irc, etc.
 
-``` {.CodeRay}
+```text
 # Add hostname for identifying the server
 <filter fluent.**>
   @type record_transformer
@@ -185,7 +185,7 @@ logs to your notification system: chat, irc, etc.
 
 Leaf server example:
 
-``` {.CodeRay}
+```text
 # Add hostname for identifying the server and tag to filter by log level
 <filter fluent.**>
   @type record_transformer
@@ -205,7 +205,7 @@ Leaf server example:
 
 Monitoring server example:
 
-``` {.CodeRay}
+```text
 <source>
   @type forward
   label @FLUENTD_INTERNAL_LOG
@@ -232,7 +232,7 @@ Monitoring server example:
 If an error occurs, you will get a notification message in your irc
 `notify` channel.
 
-``` {.CodeRay}
+```text
 01:01  fluentd: [11:10:24] notice: fluent.warn [2014/02/27 01:00:00] @leaf.server.domain detached forwarding server 'server.name'
 ```
 

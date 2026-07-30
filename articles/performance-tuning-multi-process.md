@@ -79,7 +79,7 @@ for Fluentd.
 You can simply test with `td-agent`, or directly use Ruby to launch
 Fluentd.
 
-``` {.CodeRay}
+```text
 $ bundle install
 $ bundle exec fluentd -c fluentd.conf
 ```
@@ -110,7 +110,7 @@ and output to the destinations.
 `./tmpl/` directory has the config generation script, in case you'd like
 to increase the processes.
 
-``` {.CodeRay}
+```text
 $ bash gen_out.sh
 ```
 

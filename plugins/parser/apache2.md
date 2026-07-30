@@ -14,7 +14,7 @@ If you want to keep time field in the record, set `true`. Default is
 
 This is regexp and time format patterns of this plugin:
 
-``` {.CodeRay}
+```text
 format /^(?<host>[^ ]*) [^ ]* (?<user>[^ ]*) \[(?<time>[^\]]*)\] "(?<method>\S+)(?: +(?<path>[^ ]*) +\S*)?" (?<code>[^ ]*) (?<size>[^ ]*)(?: "(?<referer>[^\"]*)" "(?<agent>[^\"]*)")?$/
 time_format %d/%b/%Y:%H:%M:%S %z
 ```
@@ -28,13 +28,13 @@ Example".
 
 ## Example
 
-``` {.CodeRay}
+```text
 192.168.0.1 - - [28/Feb/2013:12:00:00 +0900] "GET / HTTP/1.1" 200 777 "-" "Opera/12.0"
 ```
 
 This incoming event is parsed as:
 
-``` {.CodeRay}
+```text
 time:
 1362020400 (28/Feb/2013:12:00:00 +0900)
 

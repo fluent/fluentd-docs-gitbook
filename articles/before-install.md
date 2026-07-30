@@ -19,7 +19,7 @@ Service, AWS hosted NTP server. Please check [AWS EC2: Setting the Time for Your
 Please increase the maximum number of file descriptors. You can check
 the current number using the `ulimit -n` command.
 
-``` {.CodeRay}
+```text
 $ ulimit -n
 65535
 ```
@@ -27,7 +27,7 @@ $ ulimit -n
 If your console shows `1024`, it is insufficient. Please add following
 lines to your `/etc/security/limits.conf` file and reboot your machine.
 
-``` {.CodeRay}
+```text
 root soft nofile 65536
 root hard nofile 65536
 * soft nofile 65536
@@ -50,7 +50,7 @@ For high load environments consisting of many Fluentd instances, please
 add these parameters to your `/etc/sysctl.conf` file. Please either type
 `sysctl -p` or reboot your node to have the changes take effect.
 
-``` {.CodeRay}
+```text
 net.core.somaxconn = 1024
 net.core.netdev_max_backlog = 5000
 net.core.rmem_max = 16777216

@@ -26,7 +26,7 @@ Please refer to the following documents to install fluentd.
 
 Next, please configure Fluentd to use the [forward Input plugin](/plugins/input/forward.md) as its data source.
 
-``` {.CodeRay}
+```text
 <source>
   @type forward
   port 24224
@@ -38,7 +38,7 @@ Next, please configure Fluentd to use the [forward Input plugin](/plugins/input/
 
 Please restart your agent once these lines are in place.
 
-``` {.CodeRay}
+```text
 # for rpm/deb only
 $ sudo /etc/init.d/td-agent restart
 ```
@@ -49,7 +49,7 @@ First, please add the following lines to build.sbt. The logger's
 revision information can be found in the
 [ChangeLog](https://github.com/oza/fluent-logger-scala/blob/master/ChangeLog).
 
-``` {.CodeRay}
+```text
 resolvers += "Apache Maven Central Repository" at "http://repo.maven.apache.org/maven2/"
 
 libraryDependencies += "org.fluentd" %% "fluent-logger-scala" % "0.3.0"
@@ -57,7 +57,7 @@ libraryDependencies += "org.fluentd" %% "fluent-logger-scala" % "0.3.0"
 
 or
 
-``` {.CodeRay}
+```text
 resolvers += "Sonatype Repository" at "http://oss.sonatype.org/content/repositories/releases"
 
 libraryDependencies += "org.fluentd" %% "fluent-logger-scala" % "0.3.0"
@@ -67,7 +67,7 @@ Next, please insert the following lines into your application. Further
 information regarding the API can be found
 [here](https://github.com/oza/fluent-logger-scala).
 
-``` {.CodeRay}
+```text
 import org.fluentd.logger.scala.FluentLoggerFactory
 import scala.collection.mutable.HashMap
 
@@ -89,7 +89,7 @@ object Sample {
 
 Executing the script will send the logs to Fluentd.
 
-``` {.CodeRay}
+```text
 $ sbt
 > run
 ```

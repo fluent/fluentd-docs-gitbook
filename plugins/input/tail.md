@@ -11,7 +11,7 @@ of text files. Its behavior is similar to the `tail -F` command.
 `in_tail` is included in Fluentd's core. No additional installation
 process is required.
 
-``` {.CodeRay}
+```text
 <source>
   @type tail
   path /var/log/httpd-access.log
@@ -47,7 +47,7 @@ The tag of the event.
 replacing '/' with '.'. For example, if you have the following
 configuration
 
-``` {.CodeRay}
+```text
 path /path/to/file
 tag foo.*
 ```
@@ -62,7 +62,7 @@ The paths to read. Multiple paths can be specified, separated by ','.
 dynamically. At interval of `refresh_interval`, Fluentd refreshes the
 list of watch file.
 
-``` {.CodeRay}
+```text
 path /path/to/%Y/%m/%d/*
 ```
 
@@ -78,7 +78,7 @@ configuration.
 The paths to exclude the files from watcher list. For example, if you
 want to remove compressed files, you can use following pattern.
 
-``` {.CodeRay}
+```text
 path /path/to/*
 exclude_path ["/path/to/*.gz", "/path/to/*.zip"]
 ```
@@ -131,7 +131,7 @@ options change it.
 
 You can get supported encoding list by typing following command:
 
-``` {.CodeRay}
+```text
 $ ruby -e 'p Encoding.name_list.sort'
 ```
 
@@ -156,7 +156,7 @@ event after 5 seconds from last emit. This option is useful when you use
 This parameter is highly recommended. Fluentd will record the position
 it last read into this file.
 
-``` {.CodeRay}
+```text
 pos_file /var/log/td-agent/tmp/access.log.pos
 ```
 
@@ -180,7 +180,7 @@ See [parser article](/plugins/parser/README.md) for more detail.
 
 Add watching file path to `path_key` field.
 
-``` {.CodeRay}
+```text
 path /path/to/access.log
 path_key tailed_path
 ```

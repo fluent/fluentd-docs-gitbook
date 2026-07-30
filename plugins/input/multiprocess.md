@@ -19,7 +19,7 @@ must install fluent-plugin-multiprocess manually.
 
 ## Example Configuration
 
-``` {.CodeRay}
+```text
 <source>
   @type multiprocess
 

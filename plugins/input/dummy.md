@@ -11,7 +11,7 @@ testing, debugging, benchmarking and getting started with Fluentd.
 `in_dummy` is included in Fluentd's core. No additional installation
 process is required.
 
-``` {.CodeRay}
+```text
 <source>
   @type dummy
   dummy {"hello":"world"}
@@ -44,7 +44,7 @@ If specified, each generated event has an auto-incremented key field.
 For example, with `auto_increment_key foo_key`, the first couple of
 events look like
 
-``` {.CodeRay}
+```text
 2014-12-14 23:23:38 +0000 test: {"message":"dummy","foo_key":0}
 2014-12-14 23:23:38 +0000 test: {"message":"dummy","foo_key":1}
 2014-12-14 23:23:38 +0000 test: {"message":"dummy","foo_key":2}

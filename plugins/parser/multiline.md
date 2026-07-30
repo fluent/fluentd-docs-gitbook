@@ -52,7 +52,7 @@ If you want to keep time field in the record, set `true`. Default is
 
 ### Rails log
 
-``` {.CodeRay}
+```text
 format multiline
 format_firstline /^Started/
 format1 /Started (?<method>[^ ]+) "(?<path>[^"]+)" for (?<host>[^ ]+) at (?<time>[^ ]+ [^ ]+ [^ ]+)\n/
@@ -64,7 +64,7 @@ format5 /Completed (?<code>[^ ]+) [^ ]+ in (?<runtime>[\d\.]+)ms \(Views: (?<vie
 
 With this configuration:
 
-``` {.CodeRay}
+```text
 Started GET "/users/123/" for 127.0.0.1 at 2013-06-14 12:00:11 +0900
 Processing by UsersController#show as HTML
   Parameters: {"user_id"=>"123"}
@@ -74,7 +74,7 @@ Completed 200 OK in 4ms (Views: 3.2ms | ActiveRecord: 0.0ms)
 
 This incoming event is parsed as:
 
-``` {.CodeRay}
+```text
 time:
 1371178811 (2013-06-14 12:00:11 +0900)
 
@@ -93,7 +93,7 @@ record:
 
 ### Java stacktrace log
 
-``` {.CodeRay}
+```text
 format multiline
 format_firstline /\d{4}-\d{1,2}-\d{1,2}/
 format1 /^(?<time>\d{4}-\d{1,2}-\d{1,2} \d{1,2}:\d{1,2}:\d{1,2}) \[(?<thread>.*)\] (?<level>[^\s]+)(?<message>.*)/
@@ -101,7 +101,7 @@ format1 /^(?<time>\d{4}-\d{1,2}-\d{1,2} \d{1,2}:\d{1,2}:\d{1,2}) \[(?<thread>.*)
 
 With this configuration:
 
-``` {.CodeRay}
+```text
 2013-3-03 14:27:33 [main] INFO  Main - Start
 2013-3-03 14:27:33 [main] ERROR Main - Exception
 javax.management.RuntimeErrorException: null
@@ -111,7 +111,7 @@ javax.management.RuntimeErrorException: null
 
 These incoming events are parsed as:
 
-``` {.CodeRay}
+```text
 time:
 2013-03-03 14:27:33 +0900
 record:

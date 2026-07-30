@@ -23,7 +23,7 @@ is used to output data from a Fluentd node to a Riak node.
 
 Rubygems users can run the command below to install the plugin:
 
-``` {.CodeRay}
+```text
 $ gem install fluent-plugin-riak
 ```
 
@@ -41,7 +41,7 @@ output plugin.
 Create a configuration file called `fluent.conf` and add the following
 lines:
 
-``` {.CodeRay}
+```text
 <source>
   @type tail
   format apache2
@@ -74,7 +74,7 @@ writing `nodes host1 host2 host3` instead.
 
 Launch Fluentd with the following command:
 
-``` {.CodeRay}
+```text
 $ fluentd -c fluentd.conf
 ```
 Please confirm that you have the file access permissions to (1) read the
@@ -84,7 +84,7 @@ Apache log file and (2) write to
 You should now see data coming into your Riak cluster. We can make sure
 that everything is running smoothly by hitting Riak's HTTP API:
 
-``` {.CodeRay}
+```text
 $ curl http://localhost:8098/buckets/fluentlog/keys?keys=true
 {"keys":["2014-01-23-d30b0698-b9de-4290-b8be-a66555497078", ...]}
 $ curl http://localhost:8098/buckets/fluentlog/keys/2014-01-23-d30b0698-b9de-4290-b8be-a66555497078
