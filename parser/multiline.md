@@ -27,7 +27,7 @@ If `format_firstline` is not specified, the input plugin should store the unmatc
 
 | type | default | version |
 | :--- | :--- | :--- |
-| string | `nil` | 0.14.0 |
+| regexp | required parameter | 0.14.0 |
 
 It is a required parameter.
 
