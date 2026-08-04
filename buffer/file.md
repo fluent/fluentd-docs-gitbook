@@ -116,6 +116,48 @@ Changes the suffix of the buffer file.
 
 This parameter is useful when `.log` is not fit for your environment. See also [this issue's comment](https://github.com/fluent/fluentd/issues/2236#issuecomment-514733974).
 
+### `file_permission`
+
+| type | default | version |
+| :--- | :--- | :--- |
+| string | nil | 0.14.0 |
+
+The permission of the buffer chunk files, in the octal format. The same permission is applied to the `.meta` files.
+
+```text
+<match pattern>
+  ...
+  <buffer>
+    @type file
+    path /var/log/fluent/buf
+    file_permission 0600
+  </buffer>
+</match>
+```
+
+If this parameter is not set, [`file_permission`](../deployment/system-config.md#file_permission) in the [system configuration](../deployment/system-config.md) is used. If it is not set either, `0644` is used.
+
+### `dir_permission`
+
+| type | default | version |
+| :--- | :--- | :--- |
+| string | nil | 0.14.0 |
+
+The permission of the directory created to store the buffer chunk files, in the octal format.
+
+```text
+<match pattern>
+  ...
+  <buffer>
+    @type file
+    path /var/log/fluent/buf
+    dir_permission 0700
+  </buffer>
+</match>
+```
+
+If this parameter is not set, [`dir_permission`](../deployment/system-config.md#dir_permission) in the [system configuration](../deployment/system-config.md) is used. If it is not set either, `0755` is used.
+
 ## Tips
 
 ### Customize a filename of the buffer chunk
