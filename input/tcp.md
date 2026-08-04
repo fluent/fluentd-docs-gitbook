@@ -133,6 +133,16 @@ You will get something like below:
 }
 ```
 
+### `source_host_key`
+
+| type | default | version |
+| :--- | :--- | :--- |
+| string | nil | 0.10.51 |
+
+This parameter is deprecated. Use `source_hostname_key` instead.
+
+The field name of the client's hostname.
+
 ### `message_length_limit`
 
 | type | default | version |

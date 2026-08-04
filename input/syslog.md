@@ -286,6 +286,16 @@ The field name of the client's hostname. If set, the client's hostname will be s
 
 The field name of the client's address. If set, the client's address will be set to its key.
 
+### `include_source_host`
+
+| type | default | version |
+| :--- | :--- | :--- |
+| bool | false | 0.10.53 |
+
+This parameter is deprecated. Use `source_hostname_key` or `source_address_key` instead.
+
+If `true`, adds the source host to the event record.
+
 ### `severity_key`
 
 | type | default | version |
