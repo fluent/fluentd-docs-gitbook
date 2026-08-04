@@ -171,7 +171,7 @@ $ docker run --log-driver=fluentd --log-opt fluentd-address=192.168.2.4:24225 ub
 $ docker run --log-driver=fluentd --log-opt tag=docker.my_new_tag ubuntu echo "..."
 ```
 
-Additionally this option allows to specify some internal variables: {{.ID}}, {{.FullID}} or {{.Name}}. e.g:
+Additionally this option allows to specify some internal variables: `{{.ID}}`, `{{.FullID}}` or `{{.Name}}`. e.g:
 
 ```text
 $ docker run --log-driver=fluentd --log-opt tag=docker.{{.ID}} ubuntu echo "..."
