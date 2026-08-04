@@ -85,6 +85,50 @@ Specifies the chunk format for `calc_num_records`.
 
 With `auto`, the plugin decides the chunk format by `formatted_to_msgpack_binary?`. This option is useful when the output plugin does not implement `formatted_to_msgpack_binary?` correctly.
 
+### `file_permission`
+
+| type | required | default | version |
+| :--- | :---: | :--- | :--- |
+| string |  | nil | 1.7.0 |
+
+The permission of the buffer chunk files, in the octal format.
+
+```text
+<match pattern>
+  @type forward
+  # forward parameters
+  <buffer>
+    @type file_single
+    path /var/log/fluent/out_fwd
+    file_permission 0600
+  </buffer>
+</match>
+```
+
+If this parameter is not set, [`file_permission`](../deployment/system-config.md#file_permission) in the [system configuration](../deployment/system-config.md) is used. If it is not set either, `0644` is used.
+
+### `dir_permission`
+
+| type | required | default | version |
+| :--- | :---: | :--- | :--- |
+| string |  | nil | 1.7.0 |
+
+The permission of the directory created to store the buffer chunk files, in the octal format.
+
+```text
+<match pattern>
+  @type forward
+  # forward parameters
+  <buffer>
+    @type file_single
+    path /var/log/fluent/out_fwd
+    dir_permission 0700
+  </buffer>
+</match>
+```
+
+If this parameter is not set, [`dir_permission`](../deployment/system-config.md#dir_permission) in the [system configuration](../deployment/system-config.md) is used. If it is not set either, `0755` is used.
+
 ## Limitation
 
 ### chunk keys
