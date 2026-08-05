@@ -121,6 +121,27 @@ path_timezone "+00"
 
 For timezone format, see [Timezone Section](../configuration/format-section.md#time-parameters).
 
+### `path_delimiter`
+
+| type | default | version |
+| :--- | :--- | :--- |
+| string | `,` | 1.9.1 |
+
+The delimiter used to split the `path` parameter into multiple paths.
+
+Specify another character if your paths contain `,`:
+
+```text
+path /path/to/2014,04,01.log|/path/to/b.log
+path_delimiter |
+```
+
+`/`, `*` and `%` cannot be used because they are reserved for path patterns.
+
+This parameter does not apply to `exclude_path`, which is always separated by `,`.
+
+To use `glob_policy always`, this parameter must be changed from its default. See the `glob_policy` section.
+
 ### `glob_policy`
 
 | type | default | available values | version |

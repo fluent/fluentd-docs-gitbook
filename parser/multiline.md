@@ -33,6 +33,16 @@ It is a required parameter.
 
 Specifies the regexp patterns. For readability, you can separate the regexp patterns into multiple `formatN` parameters. See the Rails Log's example below. These patterns are joined and then construct a regexp pattern with multiline mode.
 
+### `unmatched_lines`
+
+| type | default | version |
+| :--- | :--- | :--- |
+| string | nil | 1.9.3 |
+
+If set, the lines which do not match the patterns are emitted as a record with the `unmatched_line` field instead of being discarded.
+
+With `in_tail`, this parameter is overwritten by the value of [`emit_unmatched_lines`](../input/tail.md#emit_unmatched_lines). Set `emit_unmatched_lines` on `in_tail` instead of setting this parameter in the `<parse>` section.
+
 ## Example
 
 ### Rails Log

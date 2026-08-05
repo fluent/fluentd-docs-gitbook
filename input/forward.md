@@ -51,6 +51,16 @@ The port to listen to.
 
 The bind address to listen to.
 
+### `backlog`
+
+| type | default | version |
+| :--- | :--- | :--- |
+| integer | nil | 0.10.36 |
+
+The maximum length of the queue for pending connections.
+
+If not specified, Ruby's default \(`Socket::SOMAXCONN`\) is used.
+
 ### `tag`
 
 | type | default | version |
@@ -94,7 +104,7 @@ This parameter is deprecated since v1.14.6. Use `<transport>` directive instead.
 | :--- | :--- | :--- |
 | bool | nil | 0.14.10 |
 
-Tries to resolve hostname from IP addresses or not.
+Tries to resolve hostname from IP addresses or not. Cannot set `false` when `source_hostname_key` is set.
 
 ### `deny_keepalive`
 
