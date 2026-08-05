@@ -1,0 +1,212 @@
+/v1.0/articles/quickstart / 301
+
+# Overview
+/quickstart/td-agent-v2-vs-v3 /appendix/td-agent-v2-vs-v3-vs-v4/ 301
+/v1.0/articles/faq /quickstart/faq/ 301
+/v1.0/articles/fluent-package-v5-vs-td-agent-v4 /quickstart/fluent-package-v5-vs-td-agent/ 301
+/v1.0/articles/life-of-a-fluentd-event /quickstart/life-of-a-fluentd-event/ 301
+/v1.0/articles/logo /quickstart/logo/ 301
+/v1.0/articles/support /quickstart/support/ 301
+/v1.0/articles/td-agent-v2-vs-v3 /appendix/td-agent-v2-vs-v3-vs-v4/ 301
+/v1.0/articles/update-from-v0.12 /appendix/update-from-v0.12/ 301
+
+# Install
+/installation/install-by-deb /installation/ 301
+/installation/install-by-dmg /installation/ 301
+/installation/install-by-msi /installation/ 301
+/installation/install-by-rpm /installation/ 301
+/v1.0/articles/before-install /installation/before-install/ 301
+/v1.0/articles/install-by-deb /installation/ 301
+/v1.0/articles/install-by-deb-td-agent-v3 /installation/install-by-deb-td-agent-v3/ 301
+/v1.0/articles/install-by-deb-td-agent-v4 /installation/install-by-deb-td-agent-v4/ 301
+/v1.0/articles/install-by-dmg /installation/ 301
+/v1.0/articles/install-by-dmg-td-agent-v3 /installation/install-by-dmg-td-agent-v3/ 301
+/v1.0/articles/install-by-dmg-td-agent-v4 /installation/install-by-dmg-td-agent-v4/ 301
+/v1.0/articles/install-by-gem /installation/install-by-gem/ 301
+/v1.0/articles/install-by-msi /installation/ 301
+/v1.0/articles/install-by-msi-td-agent-v3 /installation/install-by-msi-td-agent-v3/ 301
+/v1.0/articles/install-by-msi-td-agent-v4 /installation/install-by-msi-td-agent-v4/ 301
+/v1.0/articles/install-by-rpm /installation/ 301
+/v1.0/articles/install-by-rpm-td-agent-v3 /installation/install-by-rpm-td-agent-v3/ 301
+/v1.0/articles/install-by-rpm-td-agent-v4 /installation/install-by-rpm-td-agent-v4/ 301
+/v1.0/articles/install-from-source /installation/install-from-source/ 301
+/v1.0/articles/post-installation-guide /installation/post-installation-guide/ 301
+
+# Configuration
+/v1.0/articles/buffer-section /configuration/buffer-section/ 301
+/v1.0/articles/config-file /configuration/config-file/ 301
+/v1.0/articles/config-file-yaml /configuration/config-file-yaml/ 301
+/v1.0/articles/extract-section /configuration/extract-section/ 301
+/v1.0/articles/format-section /configuration/format-section/ 301
+/v1.0/articles/inject-section /configuration/inject-section/ 301
+/v1.0/articles/parse-section /configuration/parse-section/ 301
+/v1.0/articles/plugin-common-parameters /configuration/plugin-common-parameters/ 301
+/v1.0/articles/routing-examples /configuration/routing-examples/ 301
+/v1.0/articles/storage-section /configuration/storage-section/ 301
+/v1.0/articles/transport-section /configuration/transport-section/ 301
+
+# Deployment
+/v1.0/articles/command-line-option /deployment/command-line-option/ 301
+/v1.0/articles/failure-scenarios /deployment/failure-scenarios/ 301
+/v1.0/articles/fluentd-ui /deployment/fluentd-ui/ 301
+/v1.0/articles/high-availability /deployment/high-availability/ 301
+/v1.0/articles/linux-capability /deployment/linux-capability/ 301
+/v1.0/articles/logging /deployment/logging/ 301
+/v1.0/articles/multi-process-workers /deployment/multi-process-workers/ 301
+/v1.0/articles/performance-tuning-single-process /deployment/performance-tuning-single-process/ 301
+/v1.0/articles/plugin-management /deployment/plugin-management/ 301
+/v1.0/articles/rpc /deployment/rpc/ 301
+/v1.0/articles/signals /deployment/signals/ 301
+/v1.0/articles/system-config /deployment/system-config/ 301
+/v1.0/articles/trouble-shooting /deployment/trouble-shooting/ 301
+
+# Monitoring
+/v1.0/articles/monitoring /monitoring-fluentd/overview/ 301
+/v1.0/articles/monitoring-prometheus /monitoring-fluentd/monitoring-prometheus/ 301
+/v1.0/articles/monitoring-rest-api /monitoring-fluentd/monitoring-rest-api/ 301
+
+# Plugin/Input
+/v1.0/articles/in_dummy /input/dummy/ 301
+/v1.0/articles/in_exec /input/exec/ 301
+/v1.0/articles/in_forward /input/forward/ 301
+/v1.0/articles/in_http /input/http/ 301
+/v1.0/articles/in_monitor_agent /input/monitor_agent/ 301
+/v1.0/articles/in_syslog /input/syslog/ 301
+/v1.0/articles/in_tail /input/tail/ 301
+/v1.0/articles/in_tcp /input/tcp/ 301
+/v1.0/articles/in_udp /input/udp/ 301
+/v1.0/articles/in_unix /input/unix/ 301
+/v1.0/articles/in_windows_eventlog /input/windows_eventlog/ 301
+/v1.0/articles/input-plugin-overview /input/ 301
+
+# Plugin/Output
+/v1.0/articles/out_copy /output/copy/ 301
+/v1.0/articles/out_elasticsearch /output/elasticsearch/ 301
+/v1.0/articles/out_exec /output/exec/ 301
+/v1.0/articles/out_exec_filter /output/exec_filter/ 301
+/v1.0/articles/out_file /output/file/ 301
+/v1.0/articles/out_forward /output/forward/ 301
+/v1.0/articles/out_mongo /output/mongo/ 301
+/v1.0/articles/out_mongo_replset /output/mongo_replset/ 301
+/v1.0/articles/out_null /output/null/ 301
+/v1.0/articles/out_opensearch /output/opensearch/ 301
+/v1.0/articles/out_relabel /output/relabel/ 301
+/v1.0/articles/out_rewrite_tag_filter /output/rewrite_tag_filter/ 301
+/v1.0/articles/out_roundrobin /output/roundrobin/ 301
+/v1.0/articles/out_s3 /output/s3/ 301
+/v1.0/articles/out_stdout /output/stdout/ 301
+/v1.0/articles/out_webhdfs /output/webhdfs/ 301
+/v1.0/articles/output-plugin-overview /output/ 301
+
+# Plugin/Filter
+/v1.0/articles/filter_geoip /filter/geoip/ 301
+/v1.0/articles/filter_parser /filter/parser/ 301
+/v1.0/articles/filter_record_transformer /filter/record_transformer/ 301
+/v1.0/articles/filter_stdout /filter/stdout/ 301
+/v1.0/articles/filter_grep /filter/grep/ 301
+
+# Plugin/Parser
+/v1.0/articles/parser-plugin-overview /parser/ 301
+/v1.0/articles/parser_apache2 /parser/apache2/ 301
+/v1.0/articles/parser_apache_error /parser/apache_error/ 301
+/v1.0/articles/parser_csv /parser/csv/ 301
+/v1.0/articles/parser_json /parser/json/ 301
+/v1.0/articles/parser_ltsv /parser/ltsv/ 301
+/v1.0/articles/parser_multiline /parser/multiline/ 301
+/v1.0/articles/parser_nginx /parser/nginx/ 301
+/v1.0/articles/parser_none /parser/none/ 301
+/v1.0/articles/parser_regexp /parser/regexp/ 301
+/v1.0/articles/parser_syslog /parser/syslog/ 301
+/v1.0/articles/parser_tsv /parser/tsv/ 301
+/v1.0/articles/storage-plugin-overview /storage/ 301
+
+# Plugin/Formatter
+/v1.0/articles/formatter_ltsv /formatter/ltsv/ 301
+/v1.0/articles/formatter_hash /formatter/hash/ 301
+/v1.0/articles/formatter_out_file /formatter/out_file/ 301
+/v1.0/articles/formatter_csv /formatter/csv/ 301
+/v1.0/articles/formatter_msgpack /formatter/msgpack/ 301
+/v1.0/articles/formatter_single_value /formatter/single_value/ 301
+/v1.0/articles/formatter_json /formatter/json/ 301
+/v1.0/articles/formatter_stdout /formatter/stdout/ 301
+/v1.0/articles/formatter_tsv /formatter/tsv/ 301
+
+# Plugin/Buffer
+/v1.0/articles/buffer-plugin-overview /buffer/ 301
+/v1.0/articles/buf_file /buffer/file/ 301
+/v1.0/articles/buf_memory /buffer/memory/ 301
+
+# Plugin/Storage
+/v1.0/articles/storage_local /storage/local/ 301
+
+# Guides
+/v1.0/articles/apache-to-mongodb /how-to-guides/apache-to-mongodb/ 301
+/v1.0/articles/filter-modify-apache /how-to-guides/filter-modify-apache/ 301
+/v1.0/articles/free-alternative-to-splunk-by-fluentd /how-to-guides/free-alternative-to-splunk-by-fluentd/ 301
+/v1.0/articles/http-to-hdfs /how-to-guides/http-to-hdfs/ 301
+/v1.0/articles/http-to-td /how-to-guides/http-to-td/ 301
+/v1.0/articles/kinesis-stream /how-to-guides/kinesis-stream/ 301
+/v1.0/articles/logs-to-sematext /how-to-guides/logs-to-sematext/ 301
+/v1.0/articles/parse-syslog /how-to-guides/parse-syslog/ 301
+# redirect renamed graylog guide
+/v1.0/articles/apache-to-minio /how-to-guides/apache-to-minio/ 301
+/v1.0/articles/apache-to-s3 /how-to-guides/apache-to-s3/ 301
+/v1.0/articles/cep-norikra /how-to-guides/cep-norikra/ 301
+/v1.0/articles/graylog2 /how-to-guides/graylog/ 301
+/v1.0/articles/raspberrypi-cloud-data-logger /how-to-guides/raspberrypi-cloud-data-logger/ 301
+/v1.0/articles/splunk-like-grep-and-alert-email /how-to-guides/splunk-like-grep-and-alert-email/ 301
+/v1.0/articles/syslog-influxdb /how-to-guides/syslog-influxdb/ 301
+
+# Language Bindings
+/v1.0/articles/java /language-bindings/java/ 301
+/v1.0/articles/nodejs /language-bindings/nodejs/ 301
+/v1.0/articles/perl /language-bindings/perl/ 301
+/v1.0/articles/php /language-bindings/php/ 301
+/v1.0/articles/python /language-bindings/python/ 301
+/v1.0/articles/ruby /language-bindings/ruby/ 301
+/v1.0/articles/scala /language-bindings/scala/ 301
+
+# Plugin Development
+/v1.0/articles/api-config-types /plugin-development/api-config-types/ 301
+/v1.0/articles/api-plugin-base /plugin-development/api-plugin-base/ 301
+/v1.0/articles/api-plugin-buffer /plugin-development/api-plugin-buffer/ 301
+/v1.0/articles/api-plugin-filter /plugin-development/api-plugin-filter/ 301
+/v1.0/articles/api-plugin-formatter /plugin-development/api-plugin-formatter/ 301
+/v1.0/articles/api-plugin-input /plugin-development/api-plugin-input/ 301
+/v1.0/articles/api-plugin-output /plugin-development/api-plugin-output/ 301
+/v1.0/articles/api-plugin-parser /plugin-development/api-plugin-parser/ 301
+/v1.0/articles/api-plugin-storage /plugin-development/api-plugin-storage/ 301
+/v1.0/articles/plugin-development /plugin-development/ 301
+/v1.0/articles/plugin-test-code /plugin-development/plugin-test-code/ 301
+/v1.0/articles/plugin-update-from-v12 /plugin-development/plugin-update-from-v0.12/ 301
+
+# Plugin Helper API
+/v1.0/articles/plugin-helper-overview /plugin-helper-overview/ 301
+/v1.0/articles/api-plugin-helper-inject /plugin-helper-overview/api-plugin-helper-inject/ 301
+/v1.0/articles/api-plugin-helper-thread /plugin-helper-overview/api-plugin-helper-thread/ 301
+/v1.0/articles/api-plugin-helper-compat_parameters /plugin-helper-overview/api-plugin-helper-compat_parameters/ 301
+/v1.0/articles/api-plugin-helper-timer /plugin-helper-overview/api-plugin-helper-timer/ 301
+/v1.0/articles/api-plugin-helper-event_loop /plugin-helper-overview/api-plugin-helper-event_loop/ 301
+/v1.0/articles/api-plugin-helper-record_accessor /plugin-helper-overview/api-plugin-helper-record_accessor/ 301
+/v1.0/articles/api-plugin-helper-parser /plugin-helper-overview/api-plugin-helper-parser/ 301
+/v1.0/articles/api-plugin-helper-formatter /plugin-helper-overview/api-plugin-helper-formatter/ 301
+/v1.0/articles/api-plugin-helper-child_process /plugin-helper-overview/api-plugin-helper-child_process/ 301
+/v1.0/articles/api-plugin-helper-event_emitter /plugin-helper-overview/api-plugin-helper-event_emitter/ 301
+/v1.0/articles/api-plugin-helper-server /plugin-helper-overview/api-plugin-helper-server/ 301
+/v1.0/articles/api-plugin-helper-extract /plugin-helper-overview/api-plugin-helper-extract/ 301
+/v1.0/articles/api-plugin-helper-storage /plugin-helper-overview/api-plugin-helper-storage/ 301
+/v1.0/articles/api-plugin-helper-socket /plugin-helper-overview/api-plugin-helper-socket/ 301
+/v1.0/articles/api-plugin-helper-http_server  /plugin-helper-overview/api-plugin-helper-http_server/ 301
+/v1.0/articles/api-plugin-helper-metrics /plugin-helper-overview/api-plugin-helper-metrics/ 301
+
+# Obsolete Pages
+/v1.0/categories/data-analytics / 301
+/v1.0/categories/data-archiving / 301
+/v1.0/categories/installation /installation/ 301
+/v1.0/categories/log-management-and-search / 301
+/v1.0/categories/logging-from-apps / 301
+/v1.0/categories/monitoring-service-logs / 301
+/v1.0/categories/plugin-advanced-sections / 301
+/v1.0/categories/plugin-apis / 301
+/v1.0/categories/plugin-development / 301
+/v1.0/categories/stream-processing / 301
