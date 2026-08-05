@@ -304,7 +304,7 @@ If `true`, adds the source address to the event record. The field name is specif
 
 The field name used when `include_source_host` is `true`. This parameter has no effect on its own.
 
-Since `include_source_host` is deprecated, use `source_address_key` instead. Specifying `source_address_key` and `include_source_host` at the same time causes a configuration error.
+Since 0.14.11, `include_source_host` is deprecated, use `source_address_key` instead. Specifying `source_address_key` and `include_source_host` at the same time causes a configuration error.
 
 ### `severity_key`
 
