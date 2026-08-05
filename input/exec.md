@@ -88,6 +88,24 @@ Control target IO:
 
 `read_with_stderr` is mainly for debug.
 
+### `encoding`
+
+| type | default | version |
+| :--- | :--- | :--- |
+| string | nil | 1.17.1 |
+
+The encoding to receive the result of the command, especially for non-ASCII characters.
+
+By default, the result is read as `ASCII-8BIT`. If this parameter is specified, the result is read with the given encoding and then converted to `UTF-8`.
+
+You can get the list of supported encodings with this command:
+
+```text
+$ ruby -e 'p Encoding.name_list.sort'
+```
+
+An encoding name which Ruby does not know causes a configuration error.
+
 ### `<parse>` section
 
 | required | multi | version |

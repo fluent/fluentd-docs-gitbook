@@ -294,7 +294,17 @@ The field name of the client's address. If set, the client's address will be set
 
 This parameter is deprecated. Use `source_hostname_key` or `source_address_key` instead.
 
-If `true`, adds the source host to the event record.
+If `true`, adds the source address to the event record. The field name is specified by [`source_host_key`](#source_host_key).
+
+### `source_host_key`
+
+| type | default | version |
+| :--- | :--- | :--- |
+| string | `source_host` | 0.10.53 |
+
+The field name used when `include_source_host` is `true`. This parameter has no effect on its own.
+
+Since 0.14.11, `include_source_host` is deprecated, use `source_address_key` instead. Specifying `source_address_key` and `include_source_host` at the same time causes a configuration error.
 
 ### `severity_key`
 
