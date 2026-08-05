@@ -13,7 +13,7 @@ By default, `json` formatter result doesn't contain `tag` and `time` fields.
 
 | type | default | version |
 | :--- | :--- | :--- |
-| string | oj | 0.14.0 |
+| string | oj | 0.12.19 |
 
 Sets the library used to generate JSON. Despite its name, this parameter is for generating JSON, not for parsing it.
 
