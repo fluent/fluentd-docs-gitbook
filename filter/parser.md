@@ -275,6 +275,3 @@ See also `emit_invalid_record_to_error` parameter.
 ## Learn More
 
 * [Filter Plugin Overview](./)
-
-If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open). [Fluentd](https://www.fluentd.org/) is an open-source project under [Cloud Native Computing Foundation \(CNCF\)](https://cncf.io/). All components are available under the Apache 2 License.
-

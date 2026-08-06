@@ -28,5 +28,3 @@ The above configuration will save the internal metrics for plugins on memory. As
 
 Actually, @type local metrics plugin has equivalent functionality for previous single value based Ruby instance variables.
 This behavior will be changed by other 3rd party plugins.
-
-If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open). [Fluentd](https://www.fluentd.org/) is an open-source project under [Cloud Native Computing Foundation \(CNCF\)](https://cncf.io/). All components are available under the Apache 2 License.

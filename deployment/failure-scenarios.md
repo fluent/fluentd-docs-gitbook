@@ -33,6 +33,3 @@ Please note that the data will be lost if the buffer file is broken due to I/O e
 If the storage destination \(e.g. Amazon S3, MongoDB, HDFS, etc.\) goes down, Fluentd will keep trying to resend the buffered data. The retry logic depends on the plugin implementation.
 
 If you're using [`buf_memory`](../buffer/memory.md), the aggregators will stop accepting new logs once they reach their buffer limits. If you are using [`buf_file`](../buffer/file.md), the aggregators will continue accepting logs until they run out of disk space.
-
-If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open). [Fluentd](https://www.fluentd.org/) is an open-source project under [Cloud Native Computing Foundation \(CNCF\)](https://cncf.io/). All components are available under the Apache 2 License.
-

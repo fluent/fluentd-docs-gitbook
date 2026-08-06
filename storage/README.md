@@ -57,6 +57,3 @@ NOTE: This 3rd party plugin list does not fully cover all of them.
 
 * [fluent-plugin-systemd](https://github.com/fluent-plugin-systemd/fluent-plugin-systemd)
 * [fluent-plugin-windows-eventlog](https://github.com/fluent/fluent-plugin-windows-eventlog)
-
-If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open). [Fluentd](https://www.fluentd.org/) is an open-source project under [Cloud Native Computing Foundation \(CNCF\)](https://cncf.io/). All components are available under the Apache 2 License.
-

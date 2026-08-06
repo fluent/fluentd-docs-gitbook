@@ -142,6 +142,3 @@ For common output / buffer parameters, please check the following articles:
 This page does not describe all the possible configurations. If you want to know about other configurations, please check the link below:
 
 * [`fluent-plugin-kafka`](https://github.com/fluent/fluent-plugin-kafka)
-
-If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs/issues?state=open). [Fluentd](https://www.fluentd.org/) is an open-source project under [Cloud Native Computing Foundation \(CNCF\)](https://cncf.io/). All components are available under the Apache 2 License.
-
