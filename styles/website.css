@@ -73,6 +73,11 @@ body {
     color: #c1c6cc;
 }
 
+/* FOOTER.md holds supplementary information, so render it smaller */
+.markdown-section .localized-footer {
+    font-size: 0.75em;
+}
+
 /* accent color of the partial-summary navigation cards */
 :root { --ps-accent: #4183c4; }
 .book.color-theme-1 { --ps-accent: #8b5a2b; }  /* Sepia */
