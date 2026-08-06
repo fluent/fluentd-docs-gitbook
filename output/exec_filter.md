@@ -53,6 +53,8 @@ If the buffering by `Yajl` parser is problematic for you even though you expect 
 
 ## Parameters
 
+[Common Parameters](../configuration/plugin-common-parameters.md)
+
 ### `@type`
 
 The value must be `exec_filter`.
@@ -123,6 +125,68 @@ The format used to map the incoming event to the program input.
 
 The format used to process the program output.
 
+### `remove_prefix`
+
+| type | default | version |
+| :--- | :--- | :--- |
+| string | nil | 0.10.9 |
+
+This parameter is deprecated since v0.14.9. Use [`@label`](../configuration/plugin-common-parameters.md#label) instead for event routing.
+
+Removes the given prefix and the following `.` from the tag of the incoming event before the event is passed to the program.
+
+The shortened tag is also the value which `tag_key` of the [`<inject>`](#less-than-inject-greater-than-section) section adds to the record.
+
+### `add_prefix`
+
+| type | default | version |
+| :--- | :--- | :--- |
+| string | nil | 0.10.9 |
+
+This parameter is deprecated since v0.14.9. Use [`@label`](../configuration/plugin-common-parameters.md#label) instead for event routing.
+
+Prepends the given prefix and a `.` to the tag of the outgoing event.
+
+It applies only to a tag taken from the program output by `tag_key` of the [`<extract>`](#less-than-extract-greater-than-section) section. If the tag falls back to the [`tag`](#tag) parameter, the prefix is not added.
+
+### `tag_key`
+
+| type | default | version |
+| :--- | :--- | :--- |
+| string | nil | 0.14.9 |
+
+This parameter is deprecated since v0.14.9. Use `tag_key` in the [`<inject>`](#less-than-inject-greater-than-section) and [`<extract>`](#less-than-extract-greater-than-section) sections instead.
+
+v0.14.9 is also the version which brought this parameter back. It was dropped during the v0.12 series and reinstated only so that older configurations keep working, which is why it has been deprecated from the start.
+
+Sets `tag_key` of both sections at once.
+
+If the configuration already has one of these sections, this parameter has no effect on that section.
+
+### `time_key`
+
+| type | default | version |
+| :--- | :--- | :--- |
+| string | nil | 0.10.5 |
+
+This parameter is deprecated since v0.14.9. Use `time_key` in the [`<inject>`](#less-than-inject-greater-than-section) and [`<extract>`](#less-than-extract-greater-than-section) sections instead.
+
+Sets `time_key` of both sections at once.
+
+If the configuration already has one of these sections, this parameter has no effect on that section.
+
+### `time_format`
+
+| type | default | version |
+| :--- | :--- | :--- |
+| string | nil | 0.10.5 |
+
+This parameter is deprecated since v0.14.9. Use `time_format` in the [`<inject>`](#less-than-inject-greater-than-section) and [`<extract>`](#less-than-extract-greater-than-section) sections instead.
+
+Sets `time_format` of both sections at once.
+
+If the configuration already has one of these sections, this parameter has no effect on that section.
+
 ### `<format>` Section
 
 The format used to map the incoming events to the program input.
@@ -175,6 +239,14 @@ Overwrites the default value in this plugin.
 
 Overwrites the default value in this plugin.
 
+#### `estimate_current_event`
+
+| type | default | version |
+| :--- | :--- | :--- |
+| bool | false | 0.14.9 |
+
+Overwrites the default value in this plugin.
+
 ### `<inject>` Section
 
 See [Inject Section Configurations](../configuration/inject-section.md) for more details.
@@ -183,9 +255,11 @@ See [Inject Section Configurations](../configuration/inject-section.md) for more
 
 | type | default | version |
 | :--- | :--- | :--- |
-| enum | float | 0.14.9 |
+| enum | unixtime | 0.14.9 |
 
 Overwrites the default value in this plugin.
+
+If `time_format` is set in this section, `time_type` becomes `string` unless it is set explicitly.
 
 ### `<extract>` Section
 
@@ -197,7 +271,9 @@ See [Extract Section Configurations](../configuration/extract-section.md) for mo
 | :--- | :--- | :--- |
 | enum | float | 0.14.9 |
 
-Overwrite default value in this plugin.
+Overwrites the default value in this plugin.
+
+If `time_format` is set in this section, `time_type` becomes `string` unless it is set explicitly.
 
 ### `<buffer>` Section
 
