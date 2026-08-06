@@ -150,6 +150,3 @@ This limitation will be removed by adding the metadata header in the file in the
 {% hint style='warning' %}
 Caution: `file_single` buffer implementation depends on the characteristics of the local file system. Don't use `file_single` buffer on remote file systems e.g. NFS, GlusterFS, HDFS and etc. We observed major data loss by using remote file system.
 {% endhint %}
-
-If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open). [Fluentd](https://www.fluentd.org/) is an open-source project under [Cloud Native Computing Foundation \(CNCF\)](https://cncf.io/). All components are available under the Apache 2 License.
-

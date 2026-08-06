@@ -118,6 +118,3 @@ Also, refer to the following tutorials to learn how to collect data from various
   * [Store Apache Log into Amazon S3](../how-to-guides/apache-to-s3.md)
   * [Store Apache Log into MongoDB](../how-to-guides/apache-to-mongodb.md)
   * [Data Collection into HDFS](../how-to-guides/http-to-hdfs.md)
-
-If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open). [Fluentd](https://www.fluentd.org/) is an open-source project under [Cloud Native Computing Foundation \(CNCF\)](https://cncf.io/). All components are available under the Apache 2 License.
-

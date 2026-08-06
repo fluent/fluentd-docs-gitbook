@@ -212,6 +212,3 @@ In such a case, it must not contain `[` or `]` in the actually evaluated `path`.
 If such a character was included in the path, it might be trouble (ignored) after restarting of Fluentd during resuming buffer handling process.
 As a workaround, override `path` parameter in `<buffer>` section which does not contain such a character.
 {% endhint %}
-
-If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open). [Fluentd](https://www.fluentd.org/) is an open-source project under [Cloud Native Computing Foundation \(CNCF\)](https://cncf.io/). All components are available under the Apache 2 License.
-

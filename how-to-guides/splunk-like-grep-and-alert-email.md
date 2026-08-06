@@ -120,6 +120,3 @@ You can learn more about Fluentd and its plugins by:
 * exploring other [plugins](https://www.fluentd.org/plugins/)
 * asking questions on the [GitHub Discussions](https://github.com/fluent/fluentd/discussions)
 * [signing up for our newsletters](https://www.fluentd.org/newsletter)
-
-If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open). [Fluentd](https://www.fluentd.org/) is an open-source project under [Cloud Native Computing Foundation \(CNCF\)](https://cncf.io/). All components are available under the Apache 2 License.
-

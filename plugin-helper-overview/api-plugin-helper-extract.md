@@ -55,6 +55,3 @@ new_time = extract_time_from_record(record)
 * [`in_tcp`](../input/tcp.md)
 * [`in_udp`](../input/udp.md)
 * [`out_exec_filter`](../output/exec_filter.md)
-
-If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open). [Fluentd](https://www.fluentd.org/) is an open-source project under [Cloud Native Computing Foundation \(CNCF\)](https://cncf.io/). All components are available under the Apache 2 License.
-

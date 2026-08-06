@@ -122,6 +122,3 @@ You need administrator privileges to read these channels. Launch `fluentd`/`td-a
 This page does not describe all the possible configurations. If you want to know about other configurations, please check the link below:
 
 * [`fluent-plugin-windows-eventlog`](https://github.com/fluent/fluent-plugin-windows-eventlog)
-
-If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open). [Fluentd](https://www.fluentd.org/) is an open-source project under [Cloud Native Computing Foundation \(CNCF\)](https://cncf.io/). All components are available under the Apache 2 License.
-

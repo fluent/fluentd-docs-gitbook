@@ -495,5 +495,3 @@ With this configuration, the three \(3\) workers share the port `24224`. No need
 `in_forward` does not provide parsing mechanism unlike `in_tail` or `in_tcp` because `in_forward` is mainly for efficient log transfer. If you want to parse an incoming event, use [parser filter](../filter/parser.md) in your pipeline.
 
 See [Docker Logging](https://www.fluentd.org/guides/recipes/docker-logging) driver use case.
-
-If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open). [Fluentd](https://www.fluentd.org/) is an open-source project under [Cloud Native Computing Foundation \(CNCF\)](https://cncf.io/). All components are available under the Apache 2 License.

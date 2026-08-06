@@ -342,5 +342,3 @@ Fluentd's plug-in mechanism has a merit to extend functionality, but plugin deve
 
 * [Slides: Fluentd v0.14 Plugin API Details](https://www.slideshare.net/tagomoris/fluentd-v014-plugin-api-details)
 * [Slides: Dive into Fluentd Plugin](https://www.slideshare.net/repeatedly/dive-into-fluentd-plugin-v012) (outdated)
-
-If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open). [Fluentd](https://www.fluentd.org/) is an open-source project under [Cloud Native Computing Foundation \(CNCF\)](https://cncf.io/). All components are available under the Apache 2 License.
