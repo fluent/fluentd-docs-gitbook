@@ -86,6 +86,13 @@ req.send(form);
 
 For more advanced usage, please read the [Tips and Tricks](http.md#tips-and-tricks) section.
 
+## Plugin Helpers
+
+* [`parser`](../plugin-helper-overview/api-plugin-helper-parser.md)
+* [`compat_parameters`](../plugin-helper-overview/api-plugin-helper-compat_parameters.md)
+* [`event_loop`](../plugin-helper-overview/api-plugin-helper-event_loop.md)
+* [`server`](../plugin-helper-overview/api-plugin-helper-server.md)
+
 ## Parameters
 
 See [Common Parameters](../configuration/plugin-common-parameters.md).
@@ -135,6 +142,16 @@ This is effective only when the request has the `Content-Encoding` header with `
 | time | 10 \(seconds\) | 0.10.0 |
 
 The timeout limit for keeping the connection alive.
+
+### `backlog`
+
+| type | default | version |
+| :--- | :--- | :--- |
+| integer | nil | 0.10.36 |
+
+The maximum length of the queue for pending connections.
+
+If not specified, Ruby's default \(`Socket::SOMAXCONN`\) is used.
 
 ### `add_http_headers`
 
@@ -207,6 +224,40 @@ Responds with an empty GIF image of 1x1 pixel \(rather than an empty string\).
 | bool | false | v1.8.0 |
 
 Respond status code with 204. This option will be deprecated at v2 because fluentd v2 will respond 204 as default.
+
+### `dump_error_log`
+
+| type | default | version |
+| :--- | :--- | :--- |
+| bool | true | 1.11.1 |
+
+Dumps the error log or not.
+
+If `false`, `in_http` stops logging the errors which it answers with `400 Bad Request` or `500 Internal Server Error`. The response to the client is not affected.
+
+This is useful to keep the log quiet when clients keep sending malformed requests.
+
+### `add_query_params`
+
+| type | default | version |
+| :--- | :--- | :--- |
+| bool | false | 1.12.0 |
+
+Adds `QUERY_` prefix query parameters to the record.
+
+The name of each query parameter is converted to upper case and `-` is replaced with `_`, in the same way as [`add_http_headers`](#add_http_headers) treats header names. For example, `?user-id=1` adds the `QUERY_USER_ID` field.
+
+### `add_tag_prefix`
+
+| type | default | version |
+| :--- | :--- | :--- |
+| string | nil | 1.18.0 |
+
+Adds the given prefix and a `.` to the tag taken from the request path.
+
+For example, with `add_tag_prefix backend`, a request to `/app.log` is tagged as `backend.app.log`.
+
+An empty value causes a configuration error.
 
 ### `<transport>` Section
 
