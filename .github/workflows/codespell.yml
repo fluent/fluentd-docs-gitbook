@@ -20,4 +20,4 @@ jobs:
       - name: Install codespell
         run: pip install codespell
       - name: Run codespell
-        run: codespell
+        run: codespell --exclude-file package-lock.json
