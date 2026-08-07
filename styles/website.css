@@ -1,0 +1,21 @@
+/* highlight table header (mostly used for parameters) */
+.markdown-section table th {
+    background-color: #f5f5fa;
+    color: #000000;
+}
+
+/* put contents center */
+.book {
+    max-width: 1400px;
+    margin: 0 auto;
+    position: relative;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+}
+
+body {
+    background-color: #f9f9f9;
+}
+
+.book-summary, .book-body {
+    background-color: #ffffff;
+}
