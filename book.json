@@ -1,13 +1,6 @@
 {
 	"title": "Fluentd 1.0 Documentation",
 	"plugins": [
-		"addcssjs",
 		"hints"
-	],
-
-	"pluginsConfig": {
-		"addcssjs": {
-			"js": [".gitbook/assets/js/googleanalytics.js"]
-		}
-	}
+	]
 }
