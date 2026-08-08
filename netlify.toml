@@ -1,3 +1,9 @@
 [build]
   command = "./scripts/build.sh"
   publish = "_book"
+
+[[redirects]]
+  from = "/.gitbook/assets/*"
+  to = "/assets/:splat"
+  status = 200
+
