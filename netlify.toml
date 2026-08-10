@@ -78,3 +78,9 @@
   for = "/0.12/styles/*"
   [headers.values]
     Cache-Control = "public, max-age=86400"
+
+# Cache search index, it cover 1.0,0.12 too
+[[headers]]
+  for = "/*.json"
+  [headers.values]
+    Cache-Control = "public, max-age=3600"
