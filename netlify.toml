@@ -7,3 +7,13 @@
   to = "/assets/:splat"
   status = 200
 
+[[redirects]]
+  from = "/0.12/.gitbook/assets/*"
+  to = "/0.12/assets/:splat"
+  status = 200
+
+[[redirects]]
+  from = "/1.0/.gitbook/assets/*"
+  to = "/1.0/assets/:splat"
+  status = 200
+
