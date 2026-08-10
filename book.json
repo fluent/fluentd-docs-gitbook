@@ -9,7 +9,8 @@
 		"intopic-toc",
 		"partial-summary",
 		"localized-footer",
-		"versions-select"
+		"versions-select",
+		"-lunr", "-search", "search-plus"
 	],
 
 	"pluginsConfig": {
