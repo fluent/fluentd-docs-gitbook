@@ -3,4 +3,5 @@
 *.sh
 *.mmd
 #*
+_build
 
