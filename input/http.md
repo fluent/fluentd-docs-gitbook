@@ -245,7 +245,7 @@ This is useful to keep the log quiet when clients keep sending malformed request
 
 Adds `QUERY_` prefix query parameters to the record.
 
-The name of each query parameter is converted to upper case and `-` is replaced with `_`, in the same way as [`add_http_headers`](#add_http_headers) treats header names. For example, `?user-id=1` adds the `QUERY_USER_ID` field.
+The name of each query parameter is converted to upper case and `-` is replaced with `_`, in the same way as [`add_http_headers`](#addhttpheaders) treats header names. For example, `?user-id=1` adds the `QUERY_USER_ID` field.
 
 ### `add_tag_prefix`
 
@@ -420,7 +420,7 @@ $ curl --data-binary @json.gz -H "Content-Encoding: gzip" \
 
 You do not need any configuration to enable this feature.
 
-Since v1.19.3, the decompressed payload size is limited to 256MB by default. A request whose payload exceeds the limit is rejected with `400 Bad Request`. Use [`decompression_size_limit`](#decompression_size_limit) to change the limit.
+Since v1.19.3, the decompressed payload size is limited to 256MB by default. A request whose payload exceeds the limit is rejected with `400 Bad Request`. Use [`decompression_size_limit`](#decompressionsizelimit) to change the limit.
 
 ### Multi-process Environment
 
