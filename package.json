@@ -17,6 +17,6 @@
     "gitbook-plugin-versions-select": "0.1.1",
     "honkit": "6.2.2",
     "honkit-plugin-breadcrumbs": "0.0.3",
-    "honkit-plugin-search-plus": "1.0.0"
+    "@dogatana/honkit-plugin-search-plus": "1.0.2"
   }
 }

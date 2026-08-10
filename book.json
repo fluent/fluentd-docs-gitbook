@@ -10,7 +10,7 @@
 		"partial-summary",
 		"localized-footer",
 		"versions-select",
-		"-lunr", "-search", "search-plus"
+		"-lunr", "-search", "@dogatana/search-plus"
 	],
 
 	"pluginsConfig": {
