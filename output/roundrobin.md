@@ -56,6 +56,3 @@ Specifies the storage destinations. The format is the same as the `<match>` dire
 | integer | 1 | 0.14.1 |
 
 Weight to distribute events to multiple outputs.
-
-If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open). [Fluentd](https://www.fluentd.org/) is an open-source project under [Cloud Native Computing Foundation \(CNCF\)](https://cncf.io/). All components are available under the Apache 2 License.
-

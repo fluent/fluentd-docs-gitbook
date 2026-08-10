@@ -141,6 +141,3 @@ Click on **Submit Query** to get a graph like this:
 Here is another screenshot for the `system.daemon.info` series:
 
 ![Chronograf: Query](../.gitbook/assets/chronograf-query-2.png)
-
-If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open). [Fluentd](https://www.fluentd.org/) is an open-source project under [Cloud Native Computing Foundation \(CNCF\)](https://cncf.io/). All components are available under the Apache 2 License.
-

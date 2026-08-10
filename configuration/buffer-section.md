@@ -603,5 +603,3 @@ With `exponential_backoff`, `retry_wait` interval will be calculated as below:
 * k: number of retry times
 * total retry time: `c + c*b^1 + (...) + c*b^(k-1) = c*(b^k - 1) / (b - 1)`
   * = `2^k - 1` by default
-
-If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open). [Fluentd](https://www.fluentd.org/) is an open-source project under [Cloud Native Computing Foundation \(CNCF\)](https://cncf.io/). All components are available under the Apache 2 License.

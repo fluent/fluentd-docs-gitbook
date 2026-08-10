@@ -66,6 +66,3 @@ See [this section](../plugin-development/api-plugin-formatter.md) to learn how t
 * [`filter_stdout`](../filter/stdout.md)
 * [`out_file`](../output/file.md)
 * [`out_s3`](../output/s3.md)
-
-If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open). [Fluentd](https://www.fluentd.org/) is an open-source project under [Cloud Native Computing Foundation \(CNCF\)](https://cncf.io/). All components are available under the Apache 2 License.
-

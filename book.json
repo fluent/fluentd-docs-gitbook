@@ -1,6 +1,35 @@
 {
 	"title": "Fluentd 1.0 Documentation",
 	"plugins": [
-		"hints"
-	]
+		"anchors",
+		"breadcrumbs",
+		"copy-code-button",
+		"expandable-chapters",
+		"hints",
+		"intopic-toc",
+		"partial-summary",
+		"localized-footer",
+		"versions-select"
+	],
+
+	"pluginsConfig": {
+		"breadcrumbs": {
+			"separator": ">"
+		},
+		"versions": {
+			"options": [
+				{
+					"value": "/1.0/",
+					"text": "1.0"
+				},
+				{
+					"value": "/0.12/",
+					"text": "0.12"
+				}
+			]
+		}
+	},
+	"styles": {
+	    "website": "styles/website.css"
+	}
 }

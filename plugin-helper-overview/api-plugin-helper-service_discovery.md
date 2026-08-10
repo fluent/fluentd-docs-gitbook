@@ -129,6 +129,3 @@ end
 ```
 
 You can also use helper methods such as `service_discovery_services` or `service_discovery_rebalance` instead of `@discovery_manager.services` or `@discovery_manager.rebalance`.
-
-If this article is incorrect or outdated, or omits critical information, please [let us know](https://github.com/fluent/fluentd-docs-gitbook/issues?state=open). [Fluentd](https://www.fluentd.org/) is an open-source project under [Cloud Native Computing Foundation \(CNCF\)](https://cncf.io/). All components are available under the Apache 2 License.
-
