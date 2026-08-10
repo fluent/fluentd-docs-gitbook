@@ -61,7 +61,7 @@ endpoint http://example.com/api/${tag}-${key}
 
 See [Buffer Section Configurations](../configuration/buffer-section.md) for more details.
 
-Since v1.19.3, if a placeholder is used in the host part of the endpoint, [`allowed_hosts`](#allowed_hosts) must also be set. A placeholder used only in the path or the query string is not affected.
+Since v1.19.3, if a placeholder is used in the host part of the endpoint, [`allowed_hosts`](#allowedhosts) must also be set. A placeholder used only in the path or the query string is not affected.
 
 ### `allowed_hosts`
 

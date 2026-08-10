@@ -112,7 +112,7 @@ Invokes a fluentd only with input plugins.
 
 See [Source Only Mode](source-only-mode.md) for details.
 
-See also [source_only_buffer section](#less-than-source_only_buffer-greater-than-section).
+See also [source_only_buffer section](#sourceonlybuffer-section).
 
 ### `rpc_endpoint`
 

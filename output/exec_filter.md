@@ -135,7 +135,7 @@ This parameter is deprecated since v0.14.9. Use [`@label`](../configuration/plug
 
 Removes the given prefix and the following `.` from the tag of the incoming event before the event is passed to the program.
 
-The shortened tag is also the value which `tag_key` of the [`<inject>`](#less-than-inject-greater-than-section) section adds to the record.
+The shortened tag is also the value which `tag_key` of the [`<inject>`](#inject-section) section adds to the record.
 
 ### `add_prefix`
 
@@ -147,7 +147,7 @@ This parameter is deprecated since v0.14.9. Use [`@label`](../configuration/plug
 
 Prepends the given prefix and a `.` to the tag of the outgoing event.
 
-It applies only to a tag taken from the program output by `tag_key` of the [`<extract>`](#less-than-extract-greater-than-section) section. If the tag falls back to the [`tag`](#tag) parameter, the prefix is not added.
+It applies only to a tag taken from the program output by `tag_key` of the [`<extract>`](#extract-section) section. If the tag falls back to the [`tag`](#tag) parameter, the prefix is not added.
 
 ### `tag_key`
 
@@ -155,7 +155,7 @@ It applies only to a tag taken from the program output by `tag_key` of the [`<ex
 | :--- | :--- | :--- |
 | string | nil | 0.14.9 |
 
-This parameter is deprecated since v0.14.9. Use `tag_key` in the [`<inject>`](#less-than-inject-greater-than-section) and [`<extract>`](#less-than-extract-greater-than-section) sections instead.
+This parameter is deprecated since v0.14.9. Use `tag_key` in the [`<inject>`](#inject-section) and [`<extract>`](#extract-section) sections instead.
 
 v0.14.9 is also the version which brought this parameter back. It was dropped during the v0.12 series and reinstated only so that older configurations keep working, which is why it has been deprecated from the start.
 
@@ -169,7 +169,7 @@ If the configuration already has one of these sections, this parameter has no ef
 | :--- | :--- | :--- |
 | string | nil | 0.10.5 |
 
-This parameter is deprecated since v0.14.9. Use `time_key` in the [`<inject>`](#less-than-inject-greater-than-section) and [`<extract>`](#less-than-extract-greater-than-section) sections instead.
+This parameter is deprecated since v0.14.9. Use `time_key` in the [`<inject>`](#inject-section) and [`<extract>`](#extract-section) sections instead.
 
 Sets `time_key` of both sections at once.
 
@@ -181,7 +181,7 @@ If the configuration already has one of these sections, this parameter has no ef
 | :--- | :--- | :--- |
 | string | nil | 0.10.5 |
 
-This parameter is deprecated since v0.14.9. Use `time_format` in the [`<inject>`](#less-than-inject-greater-than-section) and [`<extract>`](#less-than-extract-greater-than-section) sections instead.
+This parameter is deprecated since v0.14.9. Use `time_format` in the [`<inject>`](#inject-section) and [`<extract>`](#extract-section) sections instead.
 
 Sets `time_format` of both sections at once.
 

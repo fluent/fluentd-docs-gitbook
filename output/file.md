@@ -27,7 +27,7 @@ With this configuration, files named `/var/log/fluent/myapp.{%Y%m%d}.log.gz` wil
 
 Please see the [Configuration File](../configuration/config-file.md) article for the basic structure and syntax of the configuration file.
 
-For `<buffer>`, refer to [`<buffer>` Section](#less-than-buffer-greater-than-section).
+For `<buffer>`, refer to [`<buffer>` Section](#buffer-section).
 
 ## Plugin Helpers
 
@@ -60,7 +60,7 @@ path /path/to/${tag}/${key1}/file.%Y%m%d
 </buffer>
 ```
 
-See [`<buffer>` Section](#less-than-buffer-greater-than-section) for more detail.
+See [`<buffer>` Section](#buffer-section) for more detail.
 
 The `path` parameter is used as `<buffer>`'s `path` in this plugin.
 
