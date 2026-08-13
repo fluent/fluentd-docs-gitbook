@@ -423,6 +423,8 @@ The additional CA certificate path for TLS.
 
 This is the new name of [`tls_cert_path`](#tlscertpath), which was renamed in v1.3.1 to clarify its meaning.
 
+If both of this parameter and [`tls_cert_path`](#tlscertpath) are specified, `tls_cert_path` is used and this parameter is NOT used.
+
 ### `tls_cert_path`
 
 | type | default | version |
@@ -433,7 +435,7 @@ The additional certificate path for TLS.
 
 This parameter was the one for the CA certificate until v1.3.0. [`tls_ca_cert_path`](#tlscacertpath) took over that role in v1.3.1.
 
-Both parameters end up in the same certificate store. If both are set, only this parameter is used.
+If both of [`tls_ca_cert_path`](#tlscacertpath) and this parameter are specified, this parameter is used and `tls_ca_cert_path` is NOT used.
 
 ### `tls_client_cert_path`
 
