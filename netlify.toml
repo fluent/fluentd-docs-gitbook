@@ -17,6 +17,22 @@
   to = "/1.0/assets/:splat"
   status = 200
 
+# follow "from .gitbook/assets" rewrite rule
+[[headers]]
+  for = "/.gitbook/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"
+
+[[headers]]
+  for = "/1.0/.gitbook/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"
+
+[[headers]]
+  for = "/0.12/.gitbook/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"
+
 # weekly cache (7 * 86400)
 [[headers]]
   for = "/images/*"
