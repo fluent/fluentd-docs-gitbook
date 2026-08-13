@@ -56,6 +56,7 @@ See [Output Plugin Overview](./) for more details.
 * [`timer`](../plugin-helper-overview/api-plugin-helper-timer.md)
 * [`thread`](../plugin-helper-overview/api-plugin-helper-thread.md)
 * [`compat_parameters`](../plugin-helper-overview/api-plugin-helper-compat_parameters.md)
+* [`service_discovery`](../plugin-helper-overview/api-plugin-helper-service_discovery.md)
 
 ## Parameters
 
@@ -180,8 +181,18 @@ Use service discovery plugin instead of fixed `<server>` list. See also [Service
     @type file
     path /path/to/servers.yaml
   </service_discovery>
-</source>
+</match>
 ```
+
+### `transport`
+
+| type | default | available | version |
+| :--- | :--- | :--- | :--- |
+| enum | tcp | tcp, tls | 0.14.12 |
+
+The transport protocol used to connect to the destination servers.
+
+Set `tls` to use TLS. All the `tls_*` parameters take effect only with `transport tls`. See [How to connect to a TLS/SSL enabled server?](#how-to-connect-to-a-tlsssl-enabled-server) for a complete configuration.
 
 ### `require_ack_response`
 
@@ -200,6 +211,28 @@ Changes the protocol to **at-least-once**. The plugin waits for the ack from des
 This option is used when `require_ack_response` is `true`. This default value is based on popular `tcp_syn_retries`.
 
 If set `0`, this plugin does not wait for the ack response.
+
+### `read_interval_msec`
+
+| type | default | version |
+| :--- | :--- | :--- |
+| integer | 50 | 0.14.5 |
+
+The wait time in milliseconds before retrying to read the handshake response from a server.
+
+The handshake is a part of the authentication, so this parameter takes effect only when the [`<security>`](#security-section) section is configured.
+
+### `read_length`
+
+| type | default | version |
+| :--- | :--- | :--- |
+| size | 512 | 0.14.5 |
+
+The read size for the data which this plugin receives from a server.
+
+It applies to the handshake response of the [`<security>`](#security-section) section, the ack response of [`require_ack_response`](#requireackresponse) and the heartbeat response of `heartbeat_type udp`.
+
+This is a low-level tuning parameter, so you rarely need to change it.
 
 ### `send_timeout`
 
@@ -232,6 +265,10 @@ The wait time before accepting a server fault recovery.
 | enum | transport | transport, tcp, udp, none | 0.14.12 |
 
 Specifies the transport protocol for heartbeats. Set `none` to disable.
+
+The default value `transport` means the protocol which [`transport`](#transport) specifies.
+
+`tcp` is deprecated since v0.14.12. It is treated as `transport`.
 
 ### `heartbeat_interval`
 
@@ -283,7 +320,7 @@ Sets TTL to expire DNS cache in seconds. Set 0 not to use DNS Cache.
 
 Enable client-side DNS round robin. Uniform randomly pick an IP address to send data when a hostname has several IP addresses.
 
-`heartbeat_type udp` is not available with `dns_round_robintrue`. Use `heartbeat_type tcp` or `heartbeat_type none`.
+`heartbeat_type udp` is not available with `dns_round_robin true`. Use `heartbeat_type transport` or `heartbeat_type none`.
 
 ### `ignore_network_errors_at_startup`
 
@@ -376,13 +413,29 @@ If the following conditions are met, you must set `tls_verify_hostname false` ex
 * specify `host` in `<server>` section with IP address, not hostname
 * specify server certificate file with `tls_cert_path` which contains common name (CN) field with IP address, not hostname
 
+### `tls_ca_cert_path`
+
+| type | default | version |
+| :--- | :--- | :--- |
+| array of string | nil | 1.3.1 |
+
+The additional CA certificate path for TLS.
+
+This is the new name of [`tls_cert_path`](#tlscertpath), which was renamed in v1.3.1 to clarify its meaning.
+
+If both of this parameter and [`tls_cert_path`](#tlscertpath) are specified, `tls_cert_path` is used and this parameter is NOT used.
+
 ### `tls_cert_path`
 
 | type | default | version |
 | :--- | :--- | :--- |
 | array of string | nil | 0.14.12 |
 
-The additional CA certificate path for TLS.
+The additional certificate path for TLS.
+
+This parameter was the one for the CA certificate until v1.3.0. [`tls_ca_cert_path`](#tlscacertpath) took over that role in v1.3.1.
+
+If both of [`tls_ca_cert_path`](#tlscacertpath) and this parameter are specified, this parameter is used and `tls_ca_cert_path` is NOT used.
 
 ### `tls_client_cert_path`
 
