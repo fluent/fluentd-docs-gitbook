@@ -92,6 +92,10 @@ Finally, this configuration embeds the value of the second part of the tag in th
 
 So, if an event with the tag `web.auth` and record `{"user_id":1, "status":"ok"}` comes in, it transforms it into `{"user_id":1, "status":"ok", "service_name":"auth"}`.
 
+## Plugin Helpers
+
+* [`record_accessor`](../plugin-helper-overview/api-plugin-helper-record_accessor.md)
+
 ## Parameters
 
 See [Common Parameters](../configuration/plugin-common-parameters.md).

@@ -28,7 +28,13 @@ Please see the [Configuration File](../configuration/config-file.md) article for
 
 For `<buffer>`, refer to [Buffer Section Configuration](../configuration/buffer-section.md).
 
+## Plugin Helpers
+
+* [`formatter`](../plugin-helper-overview/api-plugin-helper-formatter.md)
+
 ## Parameters
+
+[Common Parameters](../configuration/plugin-common-parameters.md)
 
 ### `@type`
 

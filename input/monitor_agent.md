@@ -28,6 +28,12 @@ $ curl http://host:24220/api/plugins
 
 Refer to the [Configuration File](../configuration/config-file.md) article for the basic structure and syntax of the configuration file.
 
+## Plugin Helpers
+
+* [`timer`](../plugin-helper-overview/api-plugin-helper-timer.md)
+* [`thread`](../plugin-helper-overview/api-plugin-helper-thread.md)
+* [`http_server`](../plugin-helper-overview/api-plugin-helper-http_server.md)
+
 ## Parameters
 
 See [Common Parameters](../configuration/plugin-common-parameters.md).

@@ -30,6 +30,10 @@ Here is an example of target list file \(`/etc/fluentd/sd.yaml`\):
   'name': server2
 ```
 
+## Plugin Helpers
+
+* [`event_loop`](../plugin-helper-overview/api-plugin-helper-event_loop.md)
+
 ## Parameters
 
 ### `@type`

@@ -19,6 +19,10 @@ Here is an example of `out_forward` updating the targets to get the SRV record f
 </match>
 ```
 
+## Plugin Helpers
+
+* [`timer`](../plugin-helper-overview/api-plugin-helper-timer.md)
+
 ## Parameters
 
 ### `@type`

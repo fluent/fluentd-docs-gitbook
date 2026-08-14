@@ -15,7 +15,13 @@ It is included in Fluentd's core.
 
 Refer to the [Configuration File](../configuration/config-file.md) article for the basic structure and syntax of the configuration file.
 
+## Plugin Helpers
+
+* [`event_loop`](../plugin-helper-overview/api-plugin-helper-event_loop.md)
+
 ## Parameters
+
+See [Common Parameters](../configuration/plugin-common-parameters.md).
 
 ### `@type` \(required\)
 
