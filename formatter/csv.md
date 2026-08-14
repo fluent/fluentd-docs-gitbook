@@ -6,6 +6,10 @@ The `csv` formatter plugin outputs an event as CSV.
 "value1"[delimiter]"value2"[delimiter]"value3"[newline]
 ```
 
+## Plugin Helpers
+
+* [`record_accessor`](../plugin-helper-overview/api-plugin-helper-record_accessor.md)
+
 ## Parameters
 
 * [Common Parameters](../configuration/plugin-common-parameters.md)
