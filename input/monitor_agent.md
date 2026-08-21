@@ -87,6 +87,13 @@ The port to listen to.
 
 The bind address to listen to.
 
+{% hint style='danger' %}
+The default value `0.0.0.0` makes the monitor agent listen on all network
+interfaces. The monitor agent does not provide an authentication mechanism,
+so restrict access to the monitor port to trusted networks and clients. If
+remote access is not required, set this parameter to `127.0.0.1`.
+{% endhint %}
+
 ### `tag`
 
 | type | default | version |
