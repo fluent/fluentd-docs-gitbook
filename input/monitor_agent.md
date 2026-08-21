@@ -4,6 +4,23 @@ The `in_monitor_agent` Input plugin exports Fluentd's internal metrics via REST 
 
 It is included in Fluentd's core.
 
+## Endpoints
+
+`in_monitor_agent` exposes the following endpoints.
+
+| Endpoint | Format | Description |
+| :--- | :--- | :--- |
+| `/api/config` | LTSV | Process information and startup options |
+| `/api/config.json` | JSON | Process information and startup options |
+| `/api/plugins` | LTSV | Metrics of each plugin |
+| `/api/plugins.json` | JSON | Metrics of each plugin |
+
+Endpoints without the `.json` suffix return the result in LTSV format.
+
+{% hint style='info' %}
+`/api/config.reload` endpoint is a different feature provided by the [RPC](../deployment/rpc.md) interface, not by this plugin.
+{% endhint %}
+
 ## Example Configuration
 
 ```text
@@ -14,7 +31,19 @@ It is included in Fluentd's core.
 </source>
 ```
 
-This configuration launches HTTP server with 24220 port and gets metrics:
+This configuration launches HTTP server with 24220 port and gets process information and startup options:
+
+```text
+$ curl http://host:24220/api/config.json
+```
+
+Also you can fetch the same data in LTSV format:
+
+```text
+$ curl http://host:24220/api/config
+```
+
+And it also exposes metrics:
 
 ```text
 $ curl http://host:24220/api/plugins.json
@@ -81,11 +110,13 @@ The interval time between event emits. This will be used when `tag` is configure
 | bool | false | 0.14.0 |
 
 You can set this option to true to add the `config` field to the response.
+This option is only effective for `/api/plugins` and `/api/plugins.json` endpoints.
 
 Since v1.19.3, the default value is changed to `false`.
 
 {% hint style='danger' %}
-Note that the `config` field may contain sensitive values such as passwords. Enable this option only if you understand the risk.
+* Note that the `config` field may contain sensitive values such as passwords. Enable this option only if you understand the risk.
+* Even though `include_config false` is effective, `/api/config` and `/api/config.json` endpoints are not disabled.
 {% endhint %}
 
 ### `include_retry`
@@ -95,6 +126,7 @@ Note that the `config` field may contain sensitive values such as passwords. Ena
 | bool | false | 0.14.11 |
 
 You can set this option to true to add the `retry` field to the response.
+This option is only effective for `/api/plugins` and `/api/plugins.json` endpoints.
 
 Since v1.19.3, the default value is changed to `false`.
 
@@ -138,7 +170,7 @@ When using this plugin, we strongly recommend setting `@id` on **each** plugin i
 
 ## Output Example
 
-Here is how the output looks like in JSON:
+Here is how the output looks like in JSON for the `/api/plugins.json` endpoint:
 
 ```text
 {
@@ -190,6 +222,25 @@ Here is how the output looks like in JSON:
 ```
 
 If the plugin is an output plugin with the buffer settings, the metrics include the buffer related fields.
+
+Here is how the output looks like in JSON for the `/api/config.json` endpoint:
+
+```text
+{
+  "pid": 114717,
+  "ppid": 114703,
+  "version": "1.19.3",
+  "config_path": "/etc/fluent/fluentd.conf",
+  "pid_file": null,
+  "plugin_dirs": [
+    "/etc/fluent/plugin"
+  ],
+  "log_path": null,
+  "root_dir": null
+}
+```
+
+Note that `/api/config` and `/api/config.json` do not expose the content of config files.
 
 ### `retry`
 
@@ -255,6 +306,9 @@ The following list shows the available query parameters:
 Since v1.19.3, `debug` and `with_ivars` are ignored unless `include_debug_info` is set to `true` in the configuration.
 
 Since v1.19.3, the `with_config` and `with_retry` query parameters are no longer available. The `config` and `retry` fields are controlled only by the `include_config` and `include_retry` parameters in the configuration file.
+
+The `with_ivars` query parameter and the additional internal metrics are only effective for `/api/plugins` and `/api/plugins.json` endpoints.
+For `/api/config.json`, the `debug` query parameter only makes the JSON output pretty-printed.
 
 ### How to emit metrics as events
 
