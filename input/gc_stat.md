@@ -4,7 +4,7 @@ The `in_gc_stat` Input plugin periodically emits the statistics of the Ruby garb
 
 It is included in Fluentd's core.
 
-{% hint style='warning' %}
+{% hint style='danger' %}
 This plugin is a diagnostic tool to investigate a problem of Fluentd itself, such as a memory leak or an unexpected slowdown. Do not configure it in a production environment. Enable it only while you are collecting the data for a specific investigation, and remove it once the investigation is done.
 {% endhint %}
 
