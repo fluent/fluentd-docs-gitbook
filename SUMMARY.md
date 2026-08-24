@@ -87,6 +87,7 @@
   * [sample](input/sample.md)
   * [dummy](input/dummy.md)
   * [monitor\_agent](input/monitor_agent.md)
+  * [gc\_stat](input/gc_stat.md)
   * [windows\_eventlog](input/windows_eventlog.md)
 * [Output Plugins](output/README.md)
   * [file](output/file.md)
