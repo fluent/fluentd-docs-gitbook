@@ -32,6 +32,7 @@ Input plugins extend Fluentd to retrieve and pull event logs from the external s
 * [`in_dummy`](dummy.md)
 * [`in_monitor_agent`](monitor_agent.md)
 * [`in_gc_stat`](gc_stat.md)
+* [`in_object_space`](object_space.md)
 * [`in_windows_eventlog`](windows_eventlog.md)
 
 ## Other Input Plugins
