@@ -190,13 +190,17 @@ it will be loaded without specifying `@include` directive.
 
 If you want to disable this auto-load feature, set `config_include_dir ""` explicitly.
 
-### `enable_jit` (experimental)
+### `enable_jit`
 
 | type | default | version |
 | :--- | :--- | :--- |
-| bool | false | 1.15.2 |
+| bool | true | 1.15.2 |
 
-Enable JIT for worker processes. Internally, this configuration enables Ruby's `--jit` command-line option.
+Enable Ruby's JIT \(YJIT\) for worker processes. Since v1.20.0, the default value is changed to `true`.
+
+JIT increases the memory usage of each worker process. Set `enable_jit false` to restore the previous behavior.
+
+Note that JIT is not available on Windows, and this parameter has no effect there.
 
 ### `enable_input_metrics`
 
