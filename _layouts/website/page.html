@@ -1,5 +1,12 @@
 {% extends template.self %}
 
+{% block head %}
+  {{ super() }}
+  {% if book.markdownAlternate %}
+  <link rel="alternate" type="text/markdown" href="/{{ file.path }}">
+  {% endif %}
+{% endblock %}
+
 {% block page %}
   <header class="custom-global-header"">
     <img src="/images/logo/Fluentd_icon.svg" width=32px height=32px />&nbsp;Fluentd

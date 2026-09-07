@@ -13,6 +13,10 @@
 		"-lunr", "-search", "@dogatana/search-plus"
 	],
 
+	"variables": {
+		"markdownAlternate": true
+	},
+
 	"pluginsConfig": {
 		"breadcrumbs": {
 			"separator": ">"
