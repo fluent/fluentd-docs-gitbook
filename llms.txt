@@ -1,0 +1,288 @@
+# Fluentd
+
+> Fluentd is an open source data collector for a unified logging layer. It collects, filters, buffers and routes event streams to many destinations. This site is the official documentation for Fluentd v1.
+
+A Fluentd configuration file declares a pipeline of plugins. `<source>` sections bring events in, `<filter>` sections transform them and `<match>` sections send them out. Events are routed by tag, and `<label>` sections group a named branch of the pipeline.
+
+Two configuration formats are supported. The classic format is described in Config File Syntax, and an equivalent YAML format is described in Config File Syntax (YAML).
+
+Plugins come in nine types. Input plugins are selected by `@type` inside `<source>`, output plugins by `@type` inside `<match>` and filter plugins by `@type` inside `<filter>`. Parser and formatter plugins are nested as `<parse>` and `<format>` and decode or encode records. Buffer and storage plugins are nested as `<buffer>` and `<storage>` and control how output plugins queue and persist data. Service discovery plugins are nested as `<service_discovery>` and resolve destinations at run time. Metrics plugins back the counters exposed by monitoring.
+
+Every page is also served as Markdown by appending `.md` to its path, for example https://docs.fluentd.org/configuration/config-file.md.
+
+Documentation for the end-of-life v0.12 series is at https://docs.fluentd.org/0.12/.
+
+## Introduction
+
+- [Introduction](https://docs.fluentd.org/README.md): Fluentd is an open-source data collector for a unified logging layer.
+
+## Overview
+
+- [Overview](https://docs.fluentd.org/quickstart/README.md): Let's get started with Fluentd!
+- [Life of a Fluentd event](https://docs.fluentd.org/quickstart/life-of-a-fluentd-event.md): The following article gives a general overview of how events are processed by Fluentd with examples.
+- [Support](https://docs.fluentd.org/quickstart/support.md): Where to ask questions: GitHub Discussions and Slack.
+- [FAQ](https://docs.fluentd.org/quickstart/faq.md): Answers about supported Ruby versions, environment variables, timestamps, buffers and encoding.
+- [Logo](https://docs.fluentd.org/quickstart/logo.md): Feel free to use these logos on your slides, blog posts, etc.
+- [fluent-package v5 vs td-agent v4](https://docs.fluentd.org/quickstart/fluent-package-v5-vs-td-agent.md): Fluentd is written in Ruby for flexibility, with performance-sensitive parts in C.
+
+## Installation
+
+- [Installation](https://docs.fluentd.org/installation/README.md): Index of the installation guides.
+- [Before Installation](https://docs.fluentd.org/installation/before-install.md): Before installing Fluentd, make sure that your environment is properly set up to avoid any inconsistencies at a later stage.
+- [fluent-package](https://docs.fluentd.org/installation/install-fluent-package/README.md): Index of the `fluent-package` installation guides.
+- [Install `fluent-package` by RPM Package (Red Hat Linux)](https://docs.fluentd.org/installation/install-fluent-package/install-by-rpm-fluent-package.md): This article explains how to install stable versions of `fluent-package` rpm packages, the stable Fluentd distribution packages maintained by Fluentd Project.
+- [Install `fluent-package` by DEB Package (Debian/Ubuntu)](https://docs.fluentd.org/installation/install-fluent-package/install-by-deb-fluent-package.md): This article explains how to install stable versions of `fluent-package` deb packages, the stable Fluentd distribution packages maintained by Fluentd Project.
+- [Install `fluent-package` by .dmg Package (macOS)](https://docs.fluentd.org/installation/install-fluent-package/install-by-dmg-fluent-package.md): This article explains how to install stable versions of `fluent-package` dmg packages, the stable Fluentd distribution packages maintained by Fluentd Project on macOS.
+- [Install `fluent-package` by .msi Installer (Windows)](https://docs.fluentd.org/installation/install-fluent-package/install-by-msi-fluent-package.md): The recommended way to install Fluentd on Windows is to use MSI installers of `fluent-package`.
+- [calyptia-fluentd](https://docs.fluentd.org/installation/install-calyptia-fluentd/README.md): Index of the `calyptia-fluentd` installation guides.
+- [Install `calyptia-fluentd` by RPM Package (Red Hat Linux)](https://docs.fluentd.org/installation/install-calyptia-fluentd/install-by-rpm-calyptia-fluentd.md): RPM install for `calyptia-fluentd`, an alternative Fluentd distribution.
+- [Install `calyptia-fluentd` by DEB Package (Debian/Ubuntu)](https://docs.fluentd.org/installation/install-calyptia-fluentd/install-by-deb-calyptia-fluentd.md): DEB install for `calyptia-fluentd`, an alternative Fluentd distribution.
+- [Install `calyptia-fluentd` by .dmg Package (macOS)](https://docs.fluentd.org/installation/install-calyptia-fluentd/install-by-dmg-calyptia-fluentd.md): DMG install for `calyptia-fluentd`, an alternative Fluentd distribution, on macOS.
+- [Install `calyptia-fluentd` by .msi Installer (Windows)](https://docs.fluentd.org/installation/install-calyptia-fluentd/install-by-msi-calyptia-fluentd.md): MSI install for `calyptia-fluentd`, an alternative Fluentd distribution, on Windows.
+- [Install by Ruby Gem](https://docs.fluentd.org/installation/install-by-gem.md): This article explains how to install Fluentd using Ruby `gem`.
+- [Install from Source](https://docs.fluentd.org/installation/install-from-source.md): This article explains how to install Fluentd from source (git repository).
+- [Post Installation Guide](https://docs.fluentd.org/installation/post-installation-guide.md): This article discusses the post-installation steps for new Fluentd users assuming that Fluentd has been installed using the `fluent-package`, `td-agent` and `calyptia-fluentd` packages.
+- [Install `fluent-package` v5 by RPM Package (Red Hat Linux)](https://docs.fluentd.org/installation/install-fluent-package/install-by-rpm-fluent-package-v5.md): RPM install for `fluent-package` v5, which has reached end of life. Use the current version instead.
+- [Install `fluent-package` v5 by DEB Package (Debian/Ubuntu)](https://docs.fluentd.org/installation/install-fluent-package/install-by-deb-fluent-package-v5.md): DEB install for `fluent-package` v5, which has reached end of life. Use the current version instead.
+- [Install `fluent-package` v5 by .msi Installer (Windows)](https://docs.fluentd.org/installation/install-fluent-package/install-by-msi-fluent-package-v5.md): MSI install for `fluent-package` v5, which has reached end of life. Use the current version instead.
+- [Install `td-agent` v4 by RPM Package (Red Hat Linux)](https://docs.fluentd.org/installation/install-by-rpm-td-agent-v4.md): RPM install for `td-agent` v4, which has reached end of life. Use `fluent-package` instead.
+- [Install `td-agent` v4 by DEB Package (Debian/Ubuntu)](https://docs.fluentd.org/installation/install-by-deb-td-agent-v4.md): DEB install for `td-agent` v4, which has reached end of life. Use `fluent-package` instead.
+- [Install `td-agent` v4 by .dmg Package (macOS)](https://docs.fluentd.org/installation/install-by-dmg-td-agent-v4.md): DMG install for `td-agent` v4, which has reached end of life. Use `fluent-package` instead.
+- [Install `td-agent` v4 by .msi Installer (Windows)](https://docs.fluentd.org/installation/install-by-msi-td-agent-v4.md): MSI install for `td-agent` v4, which has reached end of life. Use `fluent-package` instead.
+- [Install `td-agent` v3 by RPM Package (Red Hat Linux)](https://docs.fluentd.org/installation/install-by-rpm-td-agent-v3.md): RPM install for `td-agent` v3, which has reached end of life. Use `fluent-package` instead.
+- [Install `td-agent` v3 by DEB Package (Debian/Ubuntu)](https://docs.fluentd.org/installation/install-by-deb-td-agent-v3.md): DEB install for `td-agent` v3, which has reached end of life. Use `fluent-package` instead.
+- [Install `td-agent` v3 by .dmg Package (macOS)](https://docs.fluentd.org/installation/install-by-dmg-td-agent-v3.md): DMG install for `td-agent` v3, which has reached end of life. Use `fluent-package` instead.
+- [Install `td-agent` v3 by .msi Installer (Windows)](https://docs.fluentd.org/installation/install-by-msi-td-agent-v3.md): MSI install for `td-agent` v3, which has reached end of life. Use `fluent-package` instead.
+
+## Configuration
+
+- [Configuration](https://docs.fluentd.org/configuration/README.md): Index of the configuration file reference.
+- [Config File Syntax](https://docs.fluentd.org/configuration/config-file.md): This article describes the basic concepts of Fluentd configuration file syntax.
+- [Config File Syntax (YAML)](https://docs.fluentd.org/configuration/config-file-yaml.md): This article describes the basic concepts of Fluentd configuration file syntax for yaml format.
+- [Routing Examples](https://docs.fluentd.org/configuration/routing-examples.md): This article shows configuration samples for typical routing scenarios.
+- [Config: Common Parameters](https://docs.fluentd.org/configuration/plugin-common-parameters.md): Some common parameters are available for all or some of the Fluentd plugins.
+- [Config: Parse Section](https://docs.fluentd.org/configuration/parse-section.md): Some of the Fluentd plugins support the `<parse>` section to specify how to parse the raw data.
+- [Config: Buffer Section](https://docs.fluentd.org/configuration/buffer-section.md): Fluentd output plugins support the `<buffer>` section to configure the buffering of events.
+- [Config: Format Section](https://docs.fluentd.org/configuration/format-section.md): Some of the Fluentd plugins support the `<format>` section to specify how to format the record.
+- [Config: Extract Section](https://docs.fluentd.org/configuration/extract-section.md): The extract section can be under `<match>`, `<source>`, or `<filter>` sections.
+- [Config: Inject Section](https://docs.fluentd.org/configuration/inject-section.md): The inject section can be under `<match>` or `<filter>` section.
+- [Config: Transport Section](https://docs.fluentd.org/configuration/transport-section.md): Some Fluentd input, output, and filter plugins, that use `server`/`http_server` plugin helper, also support the `<transport>` section to specify how to handle the connections.
+- [Config: Storage Section](https://docs.fluentd.org/configuration/storage-section.md): Some of the Fluentd plugins support the `<storage>` section to specify how to handle the plugin's internal states.
+- [Config: Service Discovery Section](https://docs.fluentd.org/configuration/service_discovery-section.md): Some of the Fluentd plugins support the `<service_discovery>` section to set the target nodes dynamically.
+
+## Deployment
+
+- [Deployment](https://docs.fluentd.org/deployment/README.md): Index of the operation and deployment guides.
+- [System Configuration](https://docs.fluentd.org/deployment/system-config.md): This article describes Fluentd's system configurations for the `<system>` section and command-line options.
+- [Logging](https://docs.fluentd.org/deployment/logging.md): This article describes the Fluentd logging mechanism.
+- [Signals](https://docs.fluentd.org/deployment/signals.md): This article explains how `fluentd` handles UNIX signals.
+- [RPC](https://docs.fluentd.org/deployment/rpc.md): HTTP RPC enables you to manage your Fluentd instance through HTTP endpoints.
+- [High Availability Config](https://docs.fluentd.org/deployment/high-availability.md): For high-traffic websites, we recommend using a high-availability configuration for `Fluentd`.
+- [Performance Tuning](https://docs.fluentd.org/deployment/performance-tuning-single-process.md): This article describes how to optimize Fluentd performance within a single process.
+- [Multi Process Workers](https://docs.fluentd.org/deployment/multi-process-workers.md): This article describes how to use Fluentd's multi-process workers feature for high traffic.
+- [Failure Scenarios](https://docs.fluentd.org/deployment/failure-scenarios.md): This article describes various Fluentd failure scenarios.
+- [Plugin Management](https://docs.fluentd.org/deployment/plugin-management.md): This article explains how to manage Fluentd plugins, including adding third-party plugins.
+- [Trouble Shooting](https://docs.fluentd.org/deployment/trouble-shooting.md): If things are not happening as expected, please first look at your logs.
+- [Fluentd UI](https://docs.fluentd.org/deployment/fluentd-ui.md): fluentd-ui is a browser-based fluentd and td-agent manager that supports the following operations
+- [Using Linux Capabilities](https://docs.fluentd.org/deployment/linux-capability.md): This article shows configuration and dependent gem installation instructions for enabling Linux capabilities on Fluentd core.
+- [Command Line Option](https://docs.fluentd.org/deployment/command-line-option.md): This article describes the command-line tools and their options in `fluentd` project.
+- [Source Only Mode](https://docs.fluentd.org/deployment/source-only-mode.md): Since v1.18.0, Fluentd can launch with source-only mode.
+- [Zero-downtime restart](https://docs.fluentd.org/deployment/zero-downtime-restart.md): This feature supports a complete restart of Fluentd.
+
+## Container Deployment
+
+- [Container Deployment](https://docs.fluentd.org/container-deployment/README.md): Index of the container deployment guides.
+- [Docker Image](https://docs.fluentd.org/container-deployment/install-by-docker.md): How to run Fluentd from the official Docker image.
+- [Docker Logging Driver](https://docs.fluentd.org/container-deployment/docker-logging-driver.md): The article describes how to implement a unified logging system for your Docker containers.
+- [Docker Compose](https://docs.fluentd.org/container-deployment/docker-compose.md): This article explains how to collect Docker logs and propagate them to EFK (Elasticsearch + Fluentd + Kibana) stack.
+- [Kubernetes](https://docs.fluentd.org/container-deployment/kubernetes.md): Kubernetes provides two logging endpoints for applications and cluster logs
+
+## Monitoring Fluentd
+
+- [Monitoring Fluentd](https://docs.fluentd.org/monitoring-fluentd/README.md): Index of the monitoring guides.
+- [Overview](https://docs.fluentd.org/monitoring-fluentd/overview.md): This article describes how to monitor Fluentd.
+- [Monitoring by Prometheus](https://docs.fluentd.org/monitoring-fluentd/monitoring-prometheus.md): This article describes how to monitor Fluentd via Prometheus.
+- [Monitoring by REST API](https://docs.fluentd.org/monitoring-fluentd/monitoring-rest-api.md): This article describes how to get the internal Fluentd metrics via the REST API.
+
+## Input Plugins
+
+- [Input Plugins](https://docs.fluentd.org/input/README.md): Overview of input plugins and the list of the ones bundled with Fluentd.
+- [tail](https://docs.fluentd.org/input/tail.md): The `in_tail` Input plugin allows Fluentd to read events from the tail of text files.
+- [forward](https://docs.fluentd.org/input/forward.md): The `in_forward` Input plugin listens to a TCP socket to receive the event stream.
+- [udp](https://docs.fluentd.org/input/udp.md): The `in_udp` Input plugin enables Fluentd to accept UDP payload.
+- [tcp](https://docs.fluentd.org/input/tcp.md): The `in_tcp` Input plugin enables Fluentd to accept TCP payload.
+- [unix](https://docs.fluentd.org/input/unix.md): The `in_unix` Input plugin enables Fluentd to retrieve records from the Unix Domain Socket.
+- [http](https://docs.fluentd.org/input/http.md): The `in_http` Input plugin allows you to send events through HTTP requests.
+- [syslog](https://docs.fluentd.org/input/syslog.md): The `in_syslog` Input plugin enables Fluentd to retrieve records via the syslog protocol on UDP or TCP.
+- [exec](https://docs.fluentd.org/input/exec.md): The `in_exec` Input plugin executes external programs to receive or pull event logs.
+- [sample](https://docs.fluentd.org/input/sample.md): The `in_sample` input plugin generates sample events.
+- [dummy](https://docs.fluentd.org/input/dummy.md): `in_dummy` has been renamed `in_sample` since Fluentd v1.11.12.
+- [monitor_agent](https://docs.fluentd.org/input/monitor_agent.md): The `in_monitor_agent` Input plugin exports Fluentd's internal metrics via REST API.
+- [gc_stat](https://docs.fluentd.org/input/gc_stat.md): The `in_gc_stat` Input plugin periodically emits the statistics of the Ruby garbage collector of the running Fluentd process.
+- [object_space](https://docs.fluentd.org/input/object_space.md): The `in_object_space` Input plugin periodically emits the number of the live objects of the running Fluentd process, counted by class with `ObjectSpace.each_object`.
+- [windows_eventlog](https://docs.fluentd.org/input/windows_eventlog.md): The `in_windows_eventlog` Input plugin allows Fluentd to read events from the Windows Event Log.
+
+## Output Plugins
+
+- [Output Plugins](https://docs.fluentd.org/output/README.md): Overview of output plugins and the list of the ones bundled with Fluentd.
+- [file](https://docs.fluentd.org/output/file.md): The `out_file` Output plugin writes events to files.
+- [forward](https://docs.fluentd.org/output/forward.md): The `out_forward` Buffered Output plugin forwards events to other fluentd nodes.
+- [http](https://docs.fluentd.org/output/http.md): The `out_http` Output plugin writes records via HTTP/HTTPS.
+- [exec](https://docs.fluentd.org/output/exec.md): The `out_exec` TimeSliced Output plugin passes events to an external program.
+- [exec_filter](https://docs.fluentd.org/output/exec_filter.md): The `out_exec_filter` Buffered Output plugin 1) executes an external program using an event as input; and, 2) reads a new event from the program output.
+- [secondary_file](https://docs.fluentd.org/output/secondary_file.md): The `out_secondary_file` Output plugin writes chunks to files.
+- [copy](https://docs.fluentd.org/output/copy.md): The `copy` output plugin copies events to multiple outputs.
+- [relabel](https://docs.fluentd.org/output/relabel.md): The `relabel` output plugin re-labels events.
+- [roundrobin](https://docs.fluentd.org/output/roundrobin.md): The `roundrobin` Output plugin distributes events to multiple outputs using a weighted round-robin algorithm.
+- [stdout](https://docs.fluentd.org/output/stdout.md): The `stdout` output plugin prints events to the standard output (or logs if launched as a daemon).
+- [null](https://docs.fluentd.org/output/null.md): The `null` output plugin just throws away events.
+- [s3](https://docs.fluentd.org/output/s3.md): The `out_s3` Output plugin writes records into the Amazon S3 cloud object storage service.
+- [kafka](https://docs.fluentd.org/output/kafka.md): The `out_kafka2` Output plugin writes records into Apache Kafka.
+- [elasticsearch](https://docs.fluentd.org/output/elasticsearch.md): The `out_elasticsearch` Output plugin writes records into Elasticsearch.
+- [opensearch](https://docs.fluentd.org/output/opensearch.md): The `out_opensearch` Output plugin writes records into OpenSearch.
+- [mongo](https://docs.fluentd.org/output/mongo.md): The `out_mongo` Output plugin writes records into MongoDB, the emerging document-oriented database system.
+- [mongo_replset](https://docs.fluentd.org/output/mongo_replset.md): The `out_mongo_replset` Output plugin writes records into MongoDB, the emerging document-oriented database system.
+- [rewrite_tag_filter](https://docs.fluentd.org/output/rewrite_tag_filter.md): The `out_rewrite_tag_filter` Output plugin provides a rule-based mechanism for rewriting tags.
+- [webhdfs](https://docs.fluentd.org/output/webhdfs.md): The `out_webhdfs` Output plugin writes records into HDFS (Hadoop Distributed File System).
+- [buffer](https://docs.fluentd.org/output/buffer.md): The `buffer` output plugin buffers and re-labels events.
+
+## Filter Plugins
+
+- [Filter Plugins](https://docs.fluentd.org/filter/README.md): Overview of filter plugins and the list of the ones bundled with Fluentd.
+- [record_transformer](https://docs.fluentd.org/filter/record_transformer.md): The `filter_record_transformer` filter plugin mutates/transforms incoming event streams in a versatile manner.
+- [grep](https://docs.fluentd.org/filter/grep.md): The `filter_grep` filter plugin "greps" events by the values of specified fields.
+- [parser](https://docs.fluentd.org/filter/parser.md): The `parser` filter plugin "parses" string field in event records and mutates its event record with the parsed result.
+- [geoip](https://docs.fluentd.org/filter/geoip.md): The `filter_geoip` Filter plugin adds geographic location information to logs using the Maxmind GeoIP databases.
+- [stdout](https://docs.fluentd.org/filter/stdout.md): The `filter_stdout` filter plugin prints events to the standard output (or logs if launched as a daemon).
+
+## Parser Plugins
+
+- [Parser Plugins](https://docs.fluentd.org/parser/README.md): Overview of parser plugins and the list of the ones bundled with Fluentd.
+- [regexp](https://docs.fluentd.org/parser/regexp.md): The `regexp` parser plugin parses logs by given regexp pattern.
+- [apache](https://docs.fluentd.org/parser/apache.md): The `apache` parser plugin parses the default Apache logs (Common Log Format with the optional referer and user-agent fields).
+- [apache2](https://docs.fluentd.org/parser/apache2.md): The `apache2` parser plugin parses apache2 logs.
+- [apache_error](https://docs.fluentd.org/parser/apache_error.md): The `apache_error` parser plugin parses apache error logs.
+- [nginx](https://docs.fluentd.org/parser/nginx.md): The `nginx` parser plugin parses the default Nginx logs.
+- [syslog](https://docs.fluentd.org/parser/syslog.md): The `syslog` parser plugin parses `syslog` generated logs.
+- [ltsv](https://docs.fluentd.org/parser/ltsv.md): The `ltsv` parser plugin parses LTSV format.
+- [csv](https://docs.fluentd.org/parser/csv.md): The `csv` parser plugin parses CSV format.
+- [tsv](https://docs.fluentd.org/parser/tsv.md): The `tsv` parser plugin parses the TSV format.
+- [json](https://docs.fluentd.org/parser/json.md): The `json` parser plugin parses JSON logs.
+- [msgpack](https://docs.fluentd.org/parser/msgpack.md): The `msgpack` parser plugin parses the MessagePack data.
+- [multiline](https://docs.fluentd.org/parser/multiline.md): The `multiline` parser plugin parses multiline logs.
+- [none](https://docs.fluentd.org/parser/none.md): The `none` parser plugin parses the line as-is with the single field.
+
+## Formatter Plugins
+
+- [Formatter Plugins](https://docs.fluentd.org/formatter/README.md): Overview of formatter plugins and the list of the ones bundled with Fluentd.
+- [out_file](https://docs.fluentd.org/formatter/out_file.md): The `out_file` formatter plugin outputs time, tag and json record separated by a delimiter.
+- [json](https://docs.fluentd.org/formatter/json.md): The `json` formatter plugin formats an event to JSON.
+- [ltsv](https://docs.fluentd.org/formatter/ltsv.md): The `ltsv` formatter plugin outputs an event as LTSV.
+- [csv](https://docs.fluentd.org/formatter/csv.md): The `csv` formatter plugin outputs an event as CSV.
+- [msgpack](https://docs.fluentd.org/formatter/msgpack.md): The `msgpack` formatter plugin converts an event to the msgpack binary.
+- [hash](https://docs.fluentd.org/formatter/hash.md): The `hash` formatter plugin converts an event to the Ruby hash.
+- [single_value](https://docs.fluentd.org/formatter/single_value.md): The `single_value` formatter plugin outputs the value of a single field instead of the whole record.
+- [stdout](https://docs.fluentd.org/formatter/stdout.md): The `stdout` formatter plugin converts an event to the stdout format.
+- [tsv](https://docs.fluentd.org/formatter/tsv.md): The `tsv` formatter plugin converts an event to TSV.
+
+## Buffer Plugins
+
+- [Buffer Plugins](https://docs.fluentd.org/buffer/README.md): Overview of buffer plugins and the list of the ones bundled with Fluentd.
+- [memory](https://docs.fluentd.org/buffer/memory.md): The `memory` buffer plugin provides a fast buffer implementation.
+- [file](https://docs.fluentd.org/buffer/file.md): The `file` buffer plugin provides a persistent buffer implementation.
+- [file_single](https://docs.fluentd.org/buffer/file_single.md): The `file_single` buffer plugin provides a persistent buffer implementation.
+
+## Storage Plugins
+
+- [Storage Plugins](https://docs.fluentd.org/storage/README.md): Overview of storage plugins and the list of the ones bundled with Fluentd.
+- [local](https://docs.fluentd.org/storage/local.md): The `local` storage plugin stores the key-value pair into a JSON file on local storage.
+
+## Service Discovery Plugins
+
+- [Service Discovery Plugins](https://docs.fluentd.org/service_discovery/README.md): Overview of service discovery plugins and the list of the ones bundled with Fluentd.
+- [static](https://docs.fluentd.org/service_discovery/static.md): The `static` service discovery plugin sets the list of targets.
+- [file](https://docs.fluentd.org/service_discovery/file.md): The `file` service discovery plugin updates the targets by reading the local file.
+- [srv](https://docs.fluentd.org/service_discovery/srv.md): The `srv` service discovery plugin updates the targets by SRV Record.
+
+## Metrics Plugins
+
+- [Metrics Plugins](https://docs.fluentd.org/metrics/README.md): Overview of metrics plugins and the list of the ones bundled with Fluentd.
+- [local](https://docs.fluentd.org/metrics/local.md): The `local` metrics plugin stores the values on memory.
+
+## How-to Guides
+
+- [How-to Guides](https://docs.fluentd.org/how-to-guides/README.md): Index of the end-to-end how-to guides.
+- [Stream Analytics with Materialize](https://docs.fluentd.org/how-to-guides/stream-analytics-with-materialize.md): Fluentd and Fluent bit are vendor-neutral open-source log and metric collectors that are used throughout enterprises today.
+- [Send Apache Logs to S3](https://docs.fluentd.org/how-to-guides/apache-to-s3.md): This article explains how to use Fluentd's Amazon S3 Output plugin (`out_s3`) to aggregate semi-structured logs in realtime.
+- [Send Apache Logs to Minio](https://docs.fluentd.org/how-to-guides/apache-to-minio.md): This article explains how to use Fluentd to aggregate and transport Apache logs to a Minio server.
+- [Send Apache Logs to Mongodb](https://docs.fluentd.org/how-to-guides/apache-to-mongodb.md): This article explains how to use Fluentd's MongoDB Output plugin (`out_mongo`) to aggregate semi-structured logs in realtime.
+- [Send Syslog Data to Graylog](https://docs.fluentd.org/how-to-guides/graylog.md): This article explains how to set up Fluentd with Graylog.
+- [Send Syslog Data to InfluxDB](https://docs.fluentd.org/how-to-guides/syslog-influxdb.md): This article shows how to collect `syslog` data into InfluxDB using Fluentd.
+- [Send Syslog Data to Sematext](https://docs.fluentd.org/how-to-guides/logs-to-sematext.md): Sematext is a tool for managing logs, and considered an alternative to Splunk, but with cheaper and more flexible pricing.
+- [Data Analytics with Treasure Data](https://docs.fluentd.org/how-to-guides/http-to-td.md): This article explains how to use Treasure Data with Fluentd to aggregate semi-structured logs into Treasure Data (TD), which offers Cloud Data Service.
+- [Data Collection with Hadoop (HDFS)](https://docs.fluentd.org/how-to-guides/http-to-hdfs.md): This article explains how to use Fluentd's WebHDFS Output plugin to aggregate semi-structured logs into Hadoop HDFS.
+- [Simple Stream Processing with Fluentd](https://docs.fluentd.org/how-to-guides/filter-modify-apache.md): Sometimes, you need to transform the data stream in a certain way.
+- [Stream Processing with Norikra](https://docs.fluentd.org/how-to-guides/cep-norikra.md): This article explains how to use Fluentd and Norikra to create a SQL-based realtime complex event processing platform.
+- [Stream Processing with Kinesis](https://docs.fluentd.org/how-to-guides/kinesis-stream.md): This article explains how to use Fluentd's Amazon Kinesis Output plugin (`out_kinesis`) to aggregate semi-structured logs in real-time.
+- [Free Alternative To Splunk](https://docs.fluentd.org/how-to-guides/free-alternative-to-splunk-by-fluentd.md): Splunk is a great tool for searching logs, but its high cost makes it prohibitive for many teams.
+- [Email Alerting like Splunk](https://docs.fluentd.org/how-to-guides/splunk-like-grep-and-alert-email.md): How to send an alert email when a 5xx status code appears in an Apache access log.
+- [How to Parse Syslog Messages](https://docs.fluentd.org/how-to-guides/parse-syslog.md): Syslog is a popular protocol that virtually runs on every server.
+- [Cloud Data Logging with Raspberry Pi](https://docs.fluentd.org/how-to-guides/raspberrypi-cloud-data-logger.md): Raspberry Pi is a credit-card-sized single-board computer.
+
+## Language Bindings
+
+- [Language Bindings](https://docs.fluentd.org/language-bindings/README.md): Index of the client libraries that send events to Fluentd.
+- [Java](https://docs.fluentd.org/language-bindings/java.md): The `fluent-logger-java` library is used to post records from Java applications to Fluentd.
+- [Ruby](https://docs.fluentd.org/language-bindings/ruby.md): The `fluent-logger-ruby` library is used to post records from Ruby applications to Fluentd.
+- [Python](https://docs.fluentd.org/language-bindings/python.md): The `fluent-logger-python` library is used to post records from Python applications to Fluentd.
+- [Perl](https://docs.fluentd.org/language-bindings/perl.md): The `Fluent::Logger` library is used to post records from Perl applications to Fluentd.
+- [PHP](https://docs.fluentd.org/language-bindings/php.md): The `fluent-logger-php` library is used to post records from PHP applications to Fluentd.
+- [Nodejs](https://docs.fluentd.org/language-bindings/nodejs.md): The `@fluent-org/logger` library is used to post records from Node.js applications to Fluentd.
+- [Scala](https://docs.fluentd.org/language-bindings/scala.md): The `fluent-logger-scala` library is used to post records from Scala applications to Fluentd.
+
+## Plugin Development
+
+- [Plugin Development](https://docs.fluentd.org/plugin-development/README.md): With fluentd, you can install and create custom plugins.
+- [How to Write Input Plugin](https://docs.fluentd.org/plugin-development/api-plugin-input.md): Extend `Fluent::Plugin::Input` class and implement its methods.
+- [How to Write Base Plugin](https://docs.fluentd.org/plugin-development/api-plugin-base.md): All plugin types are subclasses of `Fluent::Plugin::Base` in Fluentd v1 or later.
+- [How to Write Buffer Plugin](https://docs.fluentd.org/plugin-development/api-plugin-buffer.md): Methods to implement when writing a buffer plugin.
+- [How to Write Filter Plugin](https://docs.fluentd.org/plugin-development/api-plugin-filter.md): This section shows how to write a custom filter plugin in addition to the core ones.
+- [How to Write Formatter Plugin](https://docs.fluentd.org/plugin-development/api-plugin-formatter.md): Fluentd supports pluggable, customizable formats for output plugins.
+- [How to Write Output Plugin](https://docs.fluentd.org/plugin-development/api-plugin-output.md): Extend `Fluent::Plugin::Output` class and implement its methods.
+- [How to Write Parser Plugin](https://docs.fluentd.org/plugin-development/api-plugin-parser.md): Fluentd supports pluggable and customizable formats for input plugins.
+- [How to Write Storage Plugin](https://docs.fluentd.org/plugin-development/api-plugin-storage.md)
+- [How to Write Service Discovery Plugin](https://docs.fluentd.org/plugin-development/api-plugin-service_discovery.md)
+- [How to Write Tests for Plugin](https://docs.fluentd.org/plugin-development/plugin-test-code.md): This article explains how to write Fluentd plugin test code using `test-unit`.
+- [Configuration Parameter Types](https://docs.fluentd.org/plugin-development/api-config-types.md): The `config_param` data types: string, regexp, integer, float, size, time, bool, enum, array and hash.
+- [Upgrade Plugin from v0.12](https://docs.fluentd.org/plugin-development/plugin-update-from-v0.12.md): This guide is for plugin authors to show how to update input/output/filter plugins written for Fluentd v0.12 or earlier.
+
+## Plugin Helper API
+
+- [Plugin Helper API](https://docs.fluentd.org/plugin-helper-overview/README.md): Fluentd provides plugin helpers to encapsulate and make commonly implemented features available such as timer, threading, formatting, parsing, ensuring configuration syntax's backward compatibility, etc.
+- [Plugin Helper: Child Process](https://docs.fluentd.org/plugin-helper-overview/api-plugin-helper-child_process.md): The `child_process` helper manages the child processes' lifecycle.
+- [Plugin Helper: Compat Parameters](https://docs.fluentd.org/plugin-helper-overview/api-plugin-helper-compat_parameters.md): `compat_parameters` helper converts parameters from v0.12 to v1.0 style.
+- [Plugin Helper: Event Emitter](https://docs.fluentd.org/plugin-helper-overview/api-plugin-helper-event_emitter.md): The `event_emitter` plugin helper introduces the `router` method to the plugin.
+- [Plugin Helper: Event Loop](https://docs.fluentd.org/plugin-helper-overview/api-plugin-helper-event_loop.md): The `event_loop` plugin helper manages event loops.
+- [Plugin Helper: Extract](https://docs.fluentd.org/plugin-helper-overview/api-plugin-helper-extract.md): The `extract` plugin helper extracts `tag` or `time` from the event `record` according to the configuration.
+- [Plugin Helper: Formatter](https://docs.fluentd.org/plugin-helper-overview/api-plugin-helper-formatter.md): The `formatter` plugin helper manages the lifecycle of the formatter plugin.
+- [Plugin Helper: Metrics](https://docs.fluentd.org/plugin-helper-overview/api-plugin-helper-metrics.md): The `metrics` plugin helper manages the metrics values in plugins.
+- [Plugin Helper: Inject](https://docs.fluentd.org/plugin-helper-overview/api-plugin-helper-inject.md): The `inject` plugin helper injects values into events according to the configuration.
+- [Plugin Helper: Parser](https://docs.fluentd.org/plugin-helper-overview/api-plugin-helper-parser.md): The `parser` plugin helper manages the lifecycle of the parser plugin.
+- [Plugin Helper: Record Accessor](https://docs.fluentd.org/plugin-helper-overview/api-plugin-helper-record_accessor.md): The `record_accessor` plugin helper provides unified access to the event record.
+- [Plugin Helper: Server](https://docs.fluentd.org/plugin-helper-overview/api-plugin-helper-server.md): The `server` plugin helper manages various types of servers.
+- [Plugin Helper: Socket](https://docs.fluentd.org/plugin-helper-overview/api-plugin-helper-socket.md): The `socket` plugin helper creates various types of socket instances.
+- [Plugin Helper: Storage](https://docs.fluentd.org/plugin-helper-overview/api-plugin-helper-storage.md): The `storage` plugin helper manages the plugin's internal states.
+- [Plugin Helper: Thread](https://docs.fluentd.org/plugin-helper-overview/api-plugin-helper-thread.md): The `thread` plugin helper manages threads and these threads are integrated with plugins.
+- [Plugin Helper: Timer](https://docs.fluentd.org/plugin-helper-overview/api-plugin-helper-timer.md): The `timer` plugin helper manages event timers.
+- [Plugin Helper: Http Server](https://docs.fluentd.org/plugin-helper-overview/api-plugin-helper-http_server.md): The `http_server` helper creates an HTTP server.
+- [Plugin Helper: Service Discovery](https://docs.fluentd.org/plugin-helper-overview/api-plugin-helper-service_discovery.md): The `service_discovery` plugin helper provides users with the service discovery functionality.
+
+## Troubleshooting Guide
+
+- [Troubleshooting Guide](https://docs.fluentd.org/troubleshooting-guide.md): Fluentd has thousands of plugins and tons of configuration options to read from various different data sources.
+
+## Appendix
+
+- [Appendix](https://docs.fluentd.org/appendix/README.md): This section collects supplementary articles that do not fit into the other sections, such as migration guides and comparisons between the discontinued `td-agent` versions.
+- [Update from v0.12 to v1](https://docs.fluentd.org/appendix/update-from-v0.12.md): This user guide describes how to update Fluentd to v1.0 from v0.12 or earlier.
+- [td-agent v2 vs v3 vs v4](https://docs.fluentd.org/appendix/td-agent-v2-vs-v3-vs-v4.md): The series of td-agent had already reached End of Life (EOL).

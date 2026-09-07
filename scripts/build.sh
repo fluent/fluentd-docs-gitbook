@@ -46,6 +46,9 @@ sed -i -e 's/Fluentd 1.0/Fluentd 0.12/' _build/0.12/book.json
 cp -r styles _layouts _build/0.12/
 cp -f book.json _build/1.0
 
+# Markdown pages are generated for the root site only.
+sed -i -e 's/"markdownAlternate": true/"markdownAlternate": false/' _build/0.12/book.json _build/1.0/book.json
+
 info "Building latest branch"
 npx honkit build
 info "Building 0.12 branch"
@@ -57,5 +60,12 @@ info "Copy assets to visible directory"
 rsync -avzi _build/0.12/.gitbook/assets/ _book/0.12/assets/
 rsync -avzi _build/1.0/.gitbook/assets/ _book/1.0/assets/
 rsync -avzi .gitbook/assets/ _book/assets/
+
+info "Copy Markdown sources for the .md URLs"
+# Every tracked Markdown file except the two that are not pages.
+git ls-files '*.md' | grep -vE '^(SUMMARY|FOOTER)\.md$' | rsync -a --files-from=- ./ _book/
+
+info "Check llms.txt links"
+./scripts/check-llms-txt.sh
 
 info "Done"
