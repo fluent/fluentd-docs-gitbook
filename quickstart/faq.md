@@ -2,9 +2,9 @@
 
 ## Which version of Ruby does `fluentd` support?
 
-The latest fluentd works on Ruby 3.2 or later.
+The latest fluentd works on Ruby 3.3 or later.
 
-Though the minimum required version is Ruby 3.2 or later, we recommend using `fluentd` with a
+Though the minimum required version is Ruby 3.3 or later, we recommend using `fluentd` with a
 newer stable version.
 
 ## What is the difference between v1 and v0.14?

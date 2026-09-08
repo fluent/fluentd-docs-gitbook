@@ -4,7 +4,7 @@ This article explains how to install Fluentd from source \(git repository\). Thi
 
 ## Step 1: Install Ruby Interpreter
 
-Install Ruby `>= 3.2` and `bundler` on your local environment.
+Install Ruby `>= 3.3` and `bundler` on your local environment.
 
 ## Step 2: Fetch Source Code
 
