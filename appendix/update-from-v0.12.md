@@ -83,4 +83,4 @@ Fluentd v1 changes buffer mechanism for flexibility. The new buffer consists of 
 
 ### Log Forwarding from v1.0 to v0.12
 
-Log forwarding from v0.12 to v1.0 is no problem but log forwarding from v1.0 to v0.12 has a problem due to timestamp change. See [`in_forward`'s FAQ](https://fluentd.gitbook.io/manual/v/0.12/input/forward#i-got-messagepack-unknownexttypeerror-error-why)
+Log forwarding from v0.12 to v1.0 is no problem but log forwarding from v1.0 to v0.12 has a problem due to timestamp change. See [`in_forward`'s FAQ](https://docs.fluentd.org/0.12/input/forward#i-got-messagepackunknownexttypeerror-error-why)
