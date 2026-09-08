@@ -70,15 +70,17 @@ This method executes storage with the given parameters and routine.
 * `usage`: unique string value \(default: `''`\)
 * `type`: storage plugin type \(default: `nil`\)
 * `conf`: storage plugin configuration \(default: `nil`\)
-* `default_conf`: storage plugin default configuration \(default: `nil`\)
+* `default_type`: storage plugin type used when neither `type` nor `conf` is given \(default: `nil`\)
 
 ### Storage Plugin Helper Instance Types
 
-| Instance Type | Attributes |
+The helper does not always hand the storage plugin instance itself to the owner plugin. It may wrap the instance, depending on the `persistent` parameter and on what the plugin reports about itself:
+
+| Instance Type | Condition |
 | :--- | :--- |
-
-
-Raw \| `persistent && persistent_always? || otherwise` \| Persistent Wrapper \| `persistent` \| Synchronized Wrapper \| `!synchronized?` \|
+| Raw | `persistent && persistent_always?`, or `!persistent && synchronized?` |
+| Persistent Wrapper | `persistent && !persistent_always?` |
+| Synchronized Wrapper | `!persistent && !synchronized?` |
 
 #### Raw
 
