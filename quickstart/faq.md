@@ -108,6 +108,6 @@ Please refer to the [Plugin Development Guide](../plugin-development/).
 
 ### How can I parse `<my complex text log>`?
 
-If you are willing to write Regexp, [fluentd-ui's `in_tail` editor](../deployment/fluentd-ui.md#in_tail-setting) or [Fluentular](https://fluentular.herokuapp.com) is a great tool to verify your Regexps.
+If you are willing to write Regexp, [Fluentular](https://fluentular.herokuapp.com) is a great tool to verify your Regexps.
 
 If you do NOT want to write any Regexp, look at [the Grok parser](https://github.com/kiyoto/fluent-plugin-grok-parser).

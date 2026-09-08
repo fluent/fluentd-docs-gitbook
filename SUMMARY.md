@@ -61,7 +61,7 @@
   * [Failure Scenarios](deployment/failure-scenarios.md)
   * [Plugin Management](deployment/plugin-management.md)
   * [Trouble Shooting](deployment/trouble-shooting.md)
-  * [Fluentd UI](deployment/fluentd-ui.md)
+  * [Fluentd UI \(unmaintained\)](deployment/fluentd-ui.md)
   * [Linux Capability](deployment/linux-capability.md)
   * [Command Line Option](deployment/command-line-option.md)
   * [Source Only Mode](deployment/source-only-mode.md)
