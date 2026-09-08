@@ -105,6 +105,6 @@ record:
 
 ### How to debug my regexp pattern?
 
-[fluentd-ui's `in_tail` editor](../deployment/fluentd-ui.md#in_tail-setting) helps your regexp testing. Another way, [Fluentular](https://fluentular.herokuapp.com/) is a great website to test your regexp for Fluentd configuration.
+[Fluentular](https://fluentular.herokuapp.com/) is a great website to test your regexp for Fluentd configuration.
 
-NOTE: You may hit Application Error at Fluentular due to [heroku's free plan limitation](https://www.heroku.com/pricing). Retry a few hours later or use `fluentd-ui` instead.
+NOTE: You may hit Application Error at Fluentular due to [heroku's free plan limitation](https://www.heroku.com/pricing). Retry a few hours later.

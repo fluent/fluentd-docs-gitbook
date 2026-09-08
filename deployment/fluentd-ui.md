@@ -1,79 +1,18 @@
 # Fluentd UI
 
-[fluentd-ui](https://github.com/fluent/fluentd-ui) is a browser-based [fluentd](https://fluentd.org/) and [td-agent](https://docs.treasuredata.com/display/public/PD/About+Treasure+Data%27s+Server-Side+Agent) manager that supports the following operations:
-
-* Install, uninstall, and upgrade Fluentd plugins
-* Start/stop/restart fluentd process
-* Configure Fluentd settings such as config file, pid file path, etc.
-* View Fluentd log with simple error viewer
-
 {% hint style='danger' %}
-`fluentd-ui` is not maintained anymore. It won't work with `fluent-package`. This content is for v0.12 for now.
+**`fluentd-ui` is no longer maintained.** The last release, 1.2.1, was published in November 2018. It depends on Rails 5.2 and does not work with current versions of Ruby or Fluentd. It is not included in `fluent-package`. Do not install it on new systems.
 {% endhint %}
 
-## Enterprise
+`fluentd-ui` was a browser-based management interface for Fluentd and `td-agent`. It allowed users to edit the configuration file, install plugins and view logs from a web browser. This page is kept for reference only. If you are still running Fluentd v0.12, the setup instructions remain on [the v0.12 version of this page](https://docs.fluentd.org/0.12/deployment/fluentd-ui).
 
-[Chronosphere Telemetry Pipeline](https://chronosphere.io/platform/telemetry-pipeline/) provides an enterprise UI on top of Fluentd and Fluent Bit. Please visit their site for more information.
+For monitoring and operating Fluentd today, use the following instead:
 
+* [Monitoring Fluentd](../monitoring-fluentd/overview.md): overview of the monitoring options
+* [Monitoring by REST API](../monitoring-fluentd/monitoring-rest-api.md): `in_monitor_agent` exposes internal metrics over HTTP
+* [Monitoring by Prometheus](../monitoring-fluentd/monitoring-prometheus.md): metrics for Prometheus and Grafana
+* [RPC](rpc.md): HTTP RPC endpoints for reloading the configuration and other operations
+* [Plugin Management](plugin-management.md): installing and managing plugins with `fluent-gem`
+* [Logging](logging.md): where Fluentd writes its own logs
 
-## Getting Started
-
-For `td-agent`, you can start it by `td-agent-ui start` like this:
-
-```text
-$ sudo /usr/sbin/td-agent-ui start
-Puma 2.9.2 starting...
-* Min threads: 0, max threads: 16
-* Environment: production
-* Listening on tcp://0.0.0.0:9292
-```
-
-For `fluentd` gem installation, install `fluentd-ui` via `gem` command:
-
-```text
-$ gem install -V fluentd-ui
-$ fluentd-ui start
-Puma 2.9.2 starting...
-* Min threads: 0, max threads: 16
-* Environment: production
-* Listening on tcp://0.0.0.0:9292
-```
-
-Then, open [http://localhost:9292/](http://localhost:9292/) in your browser.
-
-The default account credentials are:
-
-* `username="admin"`
-* `password="changeme"`
-
-![Fluentd UI](../.gitbook/assets/fluentd-ui%20%281%29%20%282%29.gif)
-
-## Screenshots
-
-\(v0.3.9\)
-
-### Dashboard
-
-![Fluentd UI: Dashboard](../.gitbook/assets/dashboard%20%281%29%20%281%29%20%281%29.gif)
-
-### Setting
-
-![Fluentd UI: Settings](../.gitbook/assets/setting.gif)
-
-### `in_tail` setting
-
-![Fluentd UI: \`in\_tail\` Settings](../.gitbook/assets/in_tail%20%282%29.gif)
-
-### Plugin
-
-![Plugin](../.gitbook/assets/plugin.gif)
-
-![](../.gitbook/assets/01%20%282%29.png)
-
-![](../.gitbook/assets/02%20%281%29.png)
-
-![](../.gitbook/assets/03%20%281%29.png)
-
-![](../.gitbook/assets/04.png)
-
-![](../.gitbook/assets/05.png)
+The source code remains available at [https://github.com/fluent/fluentd-ui](https://github.com/fluent/fluentd-ui).

@@ -83,7 +83,6 @@ Documentation for the end-of-life v0.12 series is at https://docs.fluentd.org/0.
 - [Failure Scenarios](https://docs.fluentd.org/deployment/failure-scenarios.md): This article describes various Fluentd failure scenarios.
 - [Plugin Management](https://docs.fluentd.org/deployment/plugin-management.md): This article explains how to manage Fluentd plugins, including adding third-party plugins.
 - [Trouble Shooting](https://docs.fluentd.org/deployment/trouble-shooting.md): If things are not happening as expected, please first look at your logs.
-- [Fluentd UI](https://docs.fluentd.org/deployment/fluentd-ui.md): fluentd-ui is a browser-based fluentd and td-agent manager that supports the following operations
 - [Using Linux Capabilities](https://docs.fluentd.org/deployment/linux-capability.md): This article shows configuration and dependent gem installation instructions for enabling Linux capabilities on Fluentd core.
 - [Command Line Option](https://docs.fluentd.org/deployment/command-line-option.md): This article describes the command-line tools and their options in `fluentd` project.
 - [Source Only Mode](https://docs.fluentd.org/deployment/source-only-mode.md): Since v1.18.0, Fluentd can launch with source-only mode.
