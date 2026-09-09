@@ -250,7 +250,7 @@ Documentation for the end-of-life v0.12 series is at https://docs.fluentd.org/0.
 - [How to Write Output Plugin](https://docs.fluentd.org/plugin-development/api-plugin-output.md): Extend `Fluent::Plugin::Output` class and implement its methods.
 - [How to Write Parser Plugin](https://docs.fluentd.org/plugin-development/api-plugin-parser.md): Fluentd supports pluggable and customizable formats for input plugins.
 - [How to Write Storage Plugin](https://docs.fluentd.org/plugin-development/api-plugin-storage.md): Fluentd supports pluggable storage which lets a plugin keep its internal state as key-value pairs.
-- [How to Write Service Discovery Plugin](https://docs.fluentd.org/plugin-development/api-plugin-service_discovery.md)
+- [How to Write Service Discovery Plugin](https://docs.fluentd.org/plugin-development/api-plugin-service_discovery.md): Fluentd supports pluggable service discovery which lets an output plugin resolve its destinations at run time.
 - [How to Write Tests for Plugin](https://docs.fluentd.org/plugin-development/plugin-test-code.md): This article explains how to write Fluentd plugin test code using `test-unit`.
 - [Configuration Parameter Types](https://docs.fluentd.org/plugin-development/api-config-types.md): The `config_param` data types: string, regexp, integer, float, size, time, bool, enum, array and hash.
 - [Upgrade Plugin from v0.12](https://docs.fluentd.org/plugin-development/plugin-update-from-v0.12.md): This guide is for plugin authors to show how to update input/output/filter plugins written for Fluentd v0.12 or earlier.
