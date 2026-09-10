@@ -20,28 +20,28 @@ NOTE: If your OS is not supported, consider [gem installation](../install-by-gem
 
 A shell script is provided to automate the installation process for each version. The shell script registers a new apt repository at `/etc/apt/sources.list.d/calyptia-fluentd.sources` and installs the `calyptia-fluentd` deb package.
 
-For Ubuntu Focal:
+For Ubuntu Focal (Ubuntu 20.04):
 
 ```bash
 # calyptia-fluentd 1
 curl -fsSL https://calyptia-fluentd.s3.us-east-2.amazonaws.com/calyptia-fluentd-1-ubuntu-focal.sh | sh
 ```
 
-For Ubuntu Bionic:
+For Ubuntu Bionic (Ubuntu 18.04):
 
 ```bash
 # calyptia-fluentd 1
 curl -fsSL https://calyptia-fluentd.s3.us-east-2.amazonaws.com/calyptia-fluentd-1-ubuntu-bionic.sh | sh
 ```
 
-For Ubuntu Xenial:
+For Ubuntu Xenial (Ubuntu 16.04):
 
 ```bash
 # calyptia-fluentd 1
 curl -fsSL https://calyptia-fluentd.s3.us-east-2.amazonaws.com/calyptia-fluentd-1-ubuntu-xenial.sh | sh
 ```
 
-For Debian Buster:
+For Debian Buster (Debian 10):
 
 ```bash
 # calyptia-fluentd 1

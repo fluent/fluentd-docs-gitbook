@@ -33,7 +33,7 @@ NOTE: If your OS is not supported, consider [gem installation](../install-by-gem
 
 A shell script is provided to automate the installation process for each version. The shell script registers a new apt repository at `/etc/apt/sources.list.d/fluent.sources` (or `/etc/apt/sources.list.d/fluent-lts.sources`) and installs the `fluent-package` deb package.
 
-#### For Ubuntu Noble:
+#### For Ubuntu Noble (Ubuntu 24.04):
 
 ##### fluent-package 5 (LTS)
 
@@ -47,7 +47,7 @@ curl -fsSL https://fluentd.cdn.cncf.io/sh/install-ubuntu-noble-fluent-package5-l
 curl -fsSL https://fluentd.cdn.cncf.io/sh/install-ubuntu-noble-fluent-package5.sh | sh
 ```
 
-#### For Ubuntu Jammy:
+#### For Ubuntu Jammy (Ubuntu 22.04):
 
 ##### fluent-package 5 (LTS)
 
@@ -61,7 +61,7 @@ curl -fsSL https://fluentd.cdn.cncf.io/sh/install-ubuntu-jammy-fluent-package5-l
 curl -fsSL https://fluentd.cdn.cncf.io/sh/install-ubuntu-jammy-fluent-package5.sh | sh
 ```
 
-#### For Ubuntu Focal:
+#### For Ubuntu Focal (Ubuntu 20.04):
 
 {% hint style='info' %}
 fluent-package v6 will not be shipped for Ubuntu Focal.
@@ -79,7 +79,7 @@ curl -fsSL https://fluentd.cdn.cncf.io/sh/install-ubuntu-focal-fluent-package5-l
 curl -fsSL https://fluentd.cdn.cncf.io/sh/install-ubuntu-focal-fluent-package5.sh | sh
 ```
 
-#### For Debian Bookworm:
+#### For Debian Bookworm (Debian 12):
 
 ##### fluent-package 5 (LTS)
 
@@ -93,7 +93,7 @@ curl -fsSL https://fluentd.cdn.cncf.io/sh/install-debian-bookworm-fluent-package
 curl -fsSL https://fluentd.cdn.cncf.io/sh/install-debian-bookworm-fluent-package5.sh | sh
 ```
 
-#### For Debian Bullseye:
+#### For Debian Bullseye (Debian 11):
 
 {% hint style='info' %}
 fluent-package v6 will not be shipped for Debian Bullseye.
