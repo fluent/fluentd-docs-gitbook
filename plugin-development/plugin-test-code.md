@@ -18,7 +18,7 @@ Test::Unit::TestCase.include(Fluent::Test::Helpers)
 Test::Unit::TestCase.extend(Fluent::Test::Helpers)
 ```
 
-Note that Fluentd provides useful Test Drivers for `input`, `output`, `filter`, `parser` and `formatter`.
+Note that Fluentd provides useful Test Drivers for `input`, `output`, `multi_output`, `filter`, `parser`, `formatter` and `storage`.
 
 The recommended fluentd plugin project structure is:
 
@@ -233,6 +233,7 @@ Returns the plugin instance managed by this Test Driver.
 
 ## Test Driver Base Owner API
 
+* `input`
 * `filter`
 * `output`
 * `multi_output`
@@ -313,6 +314,10 @@ Returns error events filtered by the given tag.
 * `tag`: filter by this tag. If omitted, it returns all error events.
 
 ## Test Driver Base owned API
+
+* `parser`
+* `formatter`
+* `storage`
 
 ### `configure(conf, syntax: :v1)`
 
