@@ -28,21 +28,21 @@ NOTE: If your OS is not supported, consider [gem installation](install-by-gem.md
 
 A shell script is provided to automate the installation process for each version. The shell script registers a new apt repository at `/etc/apt/sources.list.d/treasure-data.list` and installs the `td-agent` deb package.
 
-For Ubuntu Bionic:
+For Ubuntu Bionic (Ubuntu 18.04):
 
 ```bash
 # td-agent 3 (EOL)
 curl -fsSL https://toolbelt.treasuredata.com/sh/install-ubuntu-bionic-td-agent3.sh | sh
 ```
 
-For Ubuntu Xenial:
+For Ubuntu Xenial (Ubuntu 16.04):
 
 ```bash
 # td-agent 3 (EOL)
 curl -fsSL https://toolbelt.treasuredata.com/sh/install-ubuntu-xenial-td-agent3.sh | sh
 ```
 
-For Debian Buster:
+For Debian Buster (Debian 10):
 
 ```bash
 # td-agent 3 (EOL)
