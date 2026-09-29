@@ -23,6 +23,7 @@ It is included in Fluentd's core.
     time_format %Y-%m-%d %H:%M:%S
   </extract>
   run_interval 10s
+  command_timeout 60s
 </source>
 ```
 
@@ -66,6 +67,14 @@ The tag of the output events.
 | time | nil | 0.14.0 |
 
 The interval time between periodic program runs. If not specified, command script runs only once.
+
+### `command_timeout`
+
+| type | default | version |
+| :--- | :--- | :--- |
+| time | nil | 1.20.0 |
+
+Command (program) execution timeout. If the command runs longer than this value, the child process is killed.
 
 ### `read_block_size`
 
