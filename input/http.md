@@ -259,6 +259,95 @@ For example, with `add_tag_prefix backend`, a request to `/app.log` is tagged as
 
 An empty value causes a configuration error.
 
+### `<auth>` Section
+
+| required | multi | version |
+| :--- | :--- | :--- |
+| false | false | 1.19.4 |
+
+Requires HTTP authentication on every request. A request without valid credentials is rejected with `401 Unauthorized` and a `WWW-Authenticate: Basic realm="fluentd"` header, and Fluentd logs `authentication failed` at the `warn` level.
+
+```text
+<source>
+  @type http
+  port 9880
+  <auth>
+    method basic
+    username fluentd
+    password s3cret
+  </auth>
+</source>
+```
+
+Basic authentication sends the credentials without encryption. Use it together with `<transport tls>` \(see [How to Enable TLS Encryption](#how-to-enable-tls-encryption)\) unless the network between the clients and Fluentd is trusted.
+
+A CORS preflight request \(`OPTIONS`\) is accepted without credentials, since browsers never attach them to it. The `Authorization` header is not added to the record, even with [`add_http_headers`](#addhttpheaders).
+
+#### `method`
+
+| type | default | available values | version |
+| :--- | :--- | :--- | :--- |
+| enum | basic | basic | 1.19.4 |
+
+The method for HTTP authentication. Only `basic` is supported.
+
+#### `username`
+
+| type | default | version |
+| :--- | :--- | :--- |
+| string | required parameter | 1.19.4 |
+
+The username for basic authentication.
+
+#### `password`
+
+| type | default | version |
+| :--- | :--- | :--- |
+| string | required parameter | 1.19.4 |
+
+The password for basic authentication.
+
+### `<security>` Section
+
+| required | multi | version |
+| :--- | :--- | :--- |
+| false | false | 1.19.4 |
+
+Restricts the clients which can connect to `in_http` by their address. A connection from any other address is closed without a response, and Fluentd logs `client address does not match any allowed network` at the `warn` level.
+
+```text
+<source>
+  @type http
+  port 9880
+  <security>
+    <client>
+      network 192.168.0.0/16
+    </client>
+    <client>
+      network 127.0.0.1
+    </client>
+  </security>
+</source>
+```
+
+`<security>` can be used together with `<auth>`. The address is checked when a client connects, and the credentials are checked on each request.
+
+#### `<client>` Section
+
+| required | multi | version |
+| :--- | :--- | :--- |
+| false | true | 1.19.4 |
+
+A client address or network which is allowed to connect. A connection is accepted if its address matches any one of the `<client>` sections. Without any `<client>` section, all addresses are accepted.
+
+##### `network`
+
+| type | default | version |
+| :--- | :--- | :--- |
+| string | required parameter | 1.19.4 |
+
+An IPv4 or IPv6 address, or a network in CIDR notation, e.g. `192.168.1.10`, `192.168.0.0/16` or `fd00::/8`. An invalid value causes a configuration error.
+
 ### `<transport>` Section
 
 | type | default | available values | version |
