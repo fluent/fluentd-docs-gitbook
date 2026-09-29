@@ -110,9 +110,19 @@ See **How to Enable TLS Encryption** section for how to use and see [Configurati
 
 | type | default | version |
 | :--- | :--- | :--- |
-| size | 2048 | 0.14.2 |
+| size | 8192 | 0.14.2 |
 
 The maximum length of a syslog message in bytes. If you send a larger message, change this parameter.
+
+What happens to a larger message depends on the transport:
+
+* `udp`: The message is dropped.
+* `tcp` and `tls` with [`frame_type`](#frametype) `traditional`: The message is dropped. When the data received before the next [`delimiter`](#delimiter) already exceeds the limit, the buffer is cleared and the bytes up to the next delimiter are discarded. The connection is kept, and the following messages are handled as usual.
+* `tcp` and `tls` with [`frame_type`](#frametype) `octet_count`: The connection is closed, since the stream cannot be resynchronized after a broken frame. This also happens when the length prefix is not a valid number or is negative, and when more than this size arrives without a length prefix.
+
+With `tcp` and `tls`, Fluentd logs the dropped messages and the closed connections at the `info` level.
+
+Since v1.19.4, the limit is also applied to `tcp` and `tls`, and the default value is changed from `2048` to `8192`. Before v1.19.4, only `udp` was limited. If you receive messages larger than 8192 bytes over `tcp` or `tls`, set this parameter before upgrading.
 
 ### `frame_type`
 
