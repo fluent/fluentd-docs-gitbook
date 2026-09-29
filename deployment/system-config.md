@@ -162,6 +162,21 @@ Specifies the file permission in the octal format.
 
 Specifies the directory permission in the octal format.
 
+### `umask`
+
+| type | default | version |
+| :--- | :--- | :--- |
+| string | nil | 1.20.0 |
+
+Specifies the umask in the octal format. 
+This is the configuration-file equivalent of the `--umask` command-line option. 
+If `--umask` is also given on the command line, the command-line value takes precedence.
+
+The `umask` affects the permission of files that Fluentd creates (such as buffer files).
+Whether it applies to worker-created files depends on the run mode:
+* `--no-supervisor` (standalone) or daemonized (`--daemon`): applied.
+* Supervisor in the foreground (without `--daemon`): not applied.
+
 ### `strict_config_value`
 
 | type | default | version |
