@@ -114,6 +114,8 @@ For more information about buffer options checkout the [Buffer Section Configura
 
 If `true`, Fluentd uses the conventional index name format `logstash-%Y.%m.%d` \(default: `false`\). This option supersedes the `index_name` option.
 
+When `true`, the plugin also adds a `@timestamp` field to records that do not already have one, which Kibana can use as the time field. With the default `false`, this field is only added if [`include_timestamp`](https://github.com/uken/fluent-plugin-elasticsearch#include_timestamp) is `true`.
+
 #### `@log_level` option
 
 The `@log_level` option allows the user to set different levels of logging for each plugin.
