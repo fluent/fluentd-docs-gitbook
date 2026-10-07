@@ -168,7 +168,9 @@ Required plugins:
   port            9200
   type_name       apache
   logstash_format true
-  flush_interval  10s
+  <buffer>
+    flush_interval 10s
+  </buffer>
 </match>
 ```
 

@@ -66,7 +66,7 @@ Now you'll configure the `fluent-package` \(Fluentd\) to interface properly with
     chunk_limit_size 250k
     flush_interval 50s
     flush_thread_count 1
-    retry_limit 5
+    retry_max_times 5
     retry_wait 60
   </buffer>
 </match>

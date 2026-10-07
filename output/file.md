@@ -198,7 +198,7 @@ Default: `false`
 
 ### `symlink_path`
 
-Creates symlink to temporary buffered file when `buffer_type` is `file`. No symlink is created by default. This is useful for tailing file content to check logs.
+Creates symlink to temporary buffered file. This requires a file buffer, which is the default buffer of `out_file`. No symlink is created by default. This is useful for tailing file content to check logs.
 
 This is disabled on Windows.
 

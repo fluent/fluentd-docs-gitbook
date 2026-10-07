@@ -33,9 +33,11 @@ In this example, we use the access log file as an input source, so save the foll
 ```text
 <source>
   @type tail
-  format apache2
   path /var/log/apache2/access.log
   pos_file /var/log/fluent/apache.access.log.pos
+  <parse>
+    @type apache2
+  </parse>
   tag minio.apache.access
 </source>
 ```
@@ -59,7 +61,6 @@ Now let's add settings for storing the incoming data in your Minio server. Since
   s3_endpoint ENDPOINT          # The endpoint URL (like "http://localhost:9000/")
   s3_region us-east-1           # See the region settings of your Minio server
   path logs/                    # This prefix is added to each file
-  time_slice_format %Y%m%d%H%M  # This timestamp is added to each file name
 
   <buffer time>
     @type file

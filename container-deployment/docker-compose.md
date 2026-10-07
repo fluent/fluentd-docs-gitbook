@@ -126,7 +126,9 @@ Then, create the Fluentd configuration file `fluentd/conf/fluent.conf`. The [`fo
     include_tag_key true
     type_name access_log
     tag_key @log_name
-    flush_interval 1s
+    <buffer>
+      flush_interval 1s
+    </buffer>
   </store>
 
   <store>
