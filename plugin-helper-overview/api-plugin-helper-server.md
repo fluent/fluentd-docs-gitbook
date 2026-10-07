@@ -67,7 +67,7 @@ The `&block` is invoked with the new connection as a parameter.
   * `linger_timeout`: the timeout \(seconds\) to set `SO_LINGER`
   * `recv_timeout`: the timeout \(seconds\) to set `SO_RECVTIMEO`
   * `send_timeout`: the timeout \(seconds\) to set `SO_SNDTIMEO`
-  * `send_keepalive_packet`: if `true`, enable TCP keep-alive via `SO_KEEPALIVE`. See also [socket article](api-plugin-helper-socket.md#send_keepalive_packet-use-case).
+  * `send_keepalive_packet`: if `true`, enable TCP keep-alive via `SO_KEEPALIVE`. See also [socket article](api-plugin-helper-socket.md#sendkeepalivepacket-use-case).
 
 Example:
 
@@ -119,7 +119,7 @@ The `&block` is invoked with parameter\(s\) on data.
   * `linger_timeout`: the timeout \(seconds\) to set `SO_LINGER`
   * `recv_timeout`: the timeout \(seconds\) to set `SO_RECVTIMEO`
   * `send_timeout`: the timeout \(seconds\) to set `SO_SNDTIMEO`
-  * `send_keepalive_packet`: if `true`, enable TCP keep-alive via `SO_KEEPALIVE`. See also [socket article](api-plugin-helper-socket.md#send_keepalive_packet-use-case).
+  * `send_keepalive_packet`: if `true`, enable TCP keep-alive via `SO_KEEPALIVE`. See also [socket article](api-plugin-helper-socket.md#sendkeepalivepacket-use-case).
 
 Code example:
 

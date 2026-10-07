@@ -19,7 +19,7 @@ Sets the library used to generate JSON. Despite its name, this parameter is for 
 
 If `oj` is specified, the [`oj`](https://github.com/ohler55/oj) gem is used. The gem must be installed separately because Fluentd does not require it by default. If it is not installed, the `json` standard library is used as a fallback and it is reported in the log at the info level.
 
-Any other value, including `yajl`, selects the `json` standard library. Unlike [`json_parser`](../parser/json.md#json_parser) of the `json` parser plugin, this parameter is not restricted to a fixed list of values.
+Any other value, including `yajl`, selects the `json` standard library. Unlike [`json_parser`](../parser/json.md#jsonparser) of the `json` parser plugin, this parameter is not restricted to a fixed list of values.
 
 ### `add_newline`
 

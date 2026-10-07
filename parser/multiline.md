@@ -41,7 +41,7 @@ Specifies the regexp patterns. For readability, you can separate the regexp patt
 
 If set, the lines which do not match the patterns are emitted as a record with the `unmatched_line` field instead of being discarded.
 
-With `in_tail`, this parameter is overwritten by the value of [`emit_unmatched_lines`](../input/tail.md#emit_unmatched_lines). Set `emit_unmatched_lines` on `in_tail` instead of setting this parameter in the `<parse>` section.
+With `in_tail`, this parameter is overwritten by the value of [`emit_unmatched_lines`](../input/tail.md#emitunmatchedlines). Set `emit_unmatched_lines` on `in_tail` instead of setting this parameter in the `<parse>` section.
 
 ## Example
 

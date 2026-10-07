@@ -40,4 +40,4 @@ You can use this feature in the following ways.
 
 ## Plugins: how to support this feature
 
-See [How to Write Input Plugin - zero_downtime_restart_ready?](../plugin-development/api-plugin-input.md#zero_downtime_restart_ready).
+See [How to Write Input Plugin - zero_downtime_restart_ready?](../plugin-development/api-plugin-input.md#zerodowntimerestartready).

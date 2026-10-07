@@ -64,7 +64,7 @@ Specifies the time value of the emitting of error log interval.
 
 Specify interval to ignore repeated log/stacktrace messages.
 
-See also [Logging article](logging.md#ignore_repeated_log_interval).
+See also [Logging article](logging.md#ignorerepeatedloginterval).
 
 ### `ignore_same_log_interval`
 
@@ -74,7 +74,7 @@ See also [Logging article](logging.md#ignore_repeated_log_interval).
 
 Specify interval to ignore same log/stacktrace messages.
 
-See also [Logging article](logging.md#ignore_same_log_interval).
+See also [Logging article](logging.md#ignoresameloginterval).
 
 ### `suppress_config_dump`
 
@@ -312,7 +312,7 @@ The temporary buffer setting for [Source Only Mode](source-only-mode.md).
 | :---    | :---    | :---    |
 | integer | 1       | 1.18.0  |
 
-See [Output Plugins - flush_thread_count](../output#flush_thread_count) for details.
+See [Output Plugins - flush_thread_count](../output#flushthreadcount) for details.
 
 #### `overflow_action`
 
@@ -320,7 +320,7 @@ See [Output Plugins - flush_thread_count](../output#flush_thread_count) for deta
 | :--- | :---              | :---    |
 | enum | drop_oldest_chunk | 1.18.0  |
 
-See [Output Plugins - overflow_action](../output#overflow_action) for details.
+See [Output Plugins - overflow_action](../output#overflowaction) for details.
 
 #### `path`
 
@@ -338,7 +338,7 @@ See [Buffer Plugins - file - path](../buffer/file.md#path) for details.
 | :---    | :---    | :---    |
 | integer | 10      | 1.18.0  |
 
-See [Output Plugins - flush_interval](../output#flush_interval) for details.
+See [Output Plugins - flush_interval](../output#flushinterval) for details.
 
 #### `chunk_limit_size`
 

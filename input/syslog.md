@@ -278,7 +278,7 @@ Tries to resolve hostname from IP addresses or not. Cannot set `false` when `sou
 | :--- | :--- | :--- |
 | bool | false | 1.14.0 |
 
-Enables the TCP keepalive for sockets. See [socket article](../plugin-helper-overview/api-plugin-helper-socket.md#send_keepalive_packet-use-case) for more details.
+Enables the TCP keepalive for sockets. See [socket article](../plugin-helper-overview/api-plugin-helper-socket.md#sendkeepalivepacket-use-case) for more details.
 
 ### `source_hostname_key`
 

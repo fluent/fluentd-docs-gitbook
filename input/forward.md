@@ -120,7 +120,7 @@ The connections will be disconnected right after receiving a message, if `true`.
 | :--- | :--- | :--- |
 | bool | false | 1.4.2 |
 
-Enables the TCP keepalive for sockets. See [socket article](../plugin-helper-overview/api-plugin-helper-socket.md#send_keepalive_packet-use-case) for more details.
+Enables the TCP keepalive for sockets. See [socket article](../plugin-helper-overview/api-plugin-helper-socket.md#sendkeepalivepacket-use-case) for more details.
 
 ### `chunk_size_limit`
 
@@ -421,7 +421,7 @@ $ echo -e '\x93\xa9debug.tls\xceZr\xbc1\x81\xa3foo\xa3bar' | \
   openssl s_client -connect localhost:24224
 ```
 
-If you can confirm TLS encryption has been set up correctly, please proceed to the configuration of the [`out_forward`](../output/forward.md#how-to-connect-to-a-tls-ssl-enabled-server) server.
+If you can confirm TLS encryption has been set up correctly, please proceed to the configuration of the [`out_forward`](../output/forward.md#how-to-connect-to-a-tlsssl-enabled-server) server.
 
 ### How to Enable TLS Mutual Authentication
 
