@@ -183,7 +183,7 @@ It can be configured through `<log>` directive under `<system>`:
 </system>
 ```
 
-You need to specify [`rotate_age`](system-config.md#rotate_age) or [`rotate_size`](system-config.md#rotate_size) options explicitly to enable log rotation.
+You need to specify [`rotate_age`](system-config.md#rotateage) or [`rotate_size`](system-config.md#rotatesize) options explicitly to enable log rotation.
 
 NOTE: You can omit one of these 2 options to use the default value, but if you omit both of them, log rotation is disabled.
 Actually, an external library manages these default values, resulting in this complication.

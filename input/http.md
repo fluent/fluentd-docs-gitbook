@@ -448,7 +448,7 @@ curl -X POST -d "$msgpack" -H 'Content-Type: application/msgpack' \
 ```
 
 Also, you can use `multipart/form-data`.
-For more details about `multipart/form-data`, please see [Why `in_http` removes '+' from my log](http.md#why-in_http-removes--from-my-log).
+For more details about `multipart/form-data`, please see [Why `in_http` removes '+' from my log](http.md#why-inhttp-removes--from-my-log).
 
 ### Handle Other Formats using Parser Plugins
 

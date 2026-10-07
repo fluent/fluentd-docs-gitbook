@@ -105,7 +105,7 @@ The permission of the buffer chunk files, in the octal format.
 </match>
 ```
 
-If this parameter is not set, [`file_permission`](../deployment/system-config.md#file_permission) in the [system configuration](../deployment/system-config.md) is used. If it is not set either, `0644` is used.
+If this parameter is not set, [`file_permission`](../deployment/system-config.md#filepermission) in the [system configuration](../deployment/system-config.md) is used. If it is not set either, `0644` is used.
 
 ### `dir_permission`
 
@@ -127,7 +127,7 @@ The permission of the directory created to store the buffer chunk files, in the 
 </match>
 ```
 
-If this parameter is not set, [`dir_permission`](../deployment/system-config.md#dir_permission) in the [system configuration](../deployment/system-config.md) is used. If it is not set either, `0755` is used.
+If this parameter is not set, [`dir_permission`](../deployment/system-config.md#dirpermission) in the [system configuration](../deployment/system-config.md) is used. If it is not set either, `0755` is used.
 
 ## Limitation
 

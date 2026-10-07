@@ -13,7 +13,7 @@ Since v1.18.0, Fluentd can launch with source-only mode.
 You can launch Fluentd with source-only mode in the following ways.
 
 * [Command Line Option - --with-source-only](command-line-option.md)
-* [System Configuration - with_source_only](system-config.md#with_source_only)
+* [System Configuration - with_source_only](system-config.md#withsourceonly)
 
 ## Temporary file buffer
 
@@ -41,7 +41,7 @@ It works with the default settings of `out_buffer` except for the following poin
 If needed, you can configure some options for the buffer in System Configuration.
 Please see the following for details.
 
-* [System Configuration - source_only_buffer section](system-config.md#less-than-source_only_buffer-greater-than-section).
+* [System Configuration - source_only_buffer section](system-config.md#sourceonlybuffer-section).
 
 ### Recovery
 
