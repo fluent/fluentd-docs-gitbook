@@ -443,7 +443,7 @@ The plugins are required to be installed:
 # sample results: {"message":"HTTP Status warn [5xx_count] apache.access: 1.0 (threshold 1.0)"}
 <match alert.http_5xx_error>
   @type deparser
-  tag irc.http_5xx_error>
+  tag irc.http_5xx_error
   format_key_names level,target_key,target_tag,value,threshold
   format HTTP Status %s [%s] %s: %s (threshold %s)
   key_name message
