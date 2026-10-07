@@ -104,8 +104,6 @@ The output destination will be Amazon S3. The output configuration should look l
     timekey_wait 10m
     chunk_limit_size 256m
   </buffer>
-
-  time_slice_format %Y%m%d%H
 </match>
 ```
 

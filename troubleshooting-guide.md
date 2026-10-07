@@ -63,7 +63,7 @@ Missing data in your backend destination can also be a wildcard error that needs
 
 * Check that configuration is set correctly. For example, if you are reading from a file and you do not see records from the beginning of the file check if `read_from_head` is true
 * Check your log file for BufferOverflowError. You may be sending data at high throughput and data might be dropped due to a number of issues. Follow troubleshooting steps in BufferOverflowError section
-* Check existing buffers that have not flushed yet. If you are using a file buffer check if there is data that is present in `buffer_path` and has not been flushed
+* Check existing buffers that have not flushed yet. If you are using a file buffer check if there is data that is present in the `path` of the `<buffer>` section and has not been flushed
 
 ## My logs are being parsed incorrectly
 

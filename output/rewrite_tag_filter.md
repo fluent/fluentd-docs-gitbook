@@ -264,11 +264,13 @@ The plugins are required to be installed:
 # Forward to monitoring server
 <match apache.access>
   @type forward
-  flush_interval 5s
   <server>
     name server_name
     host 10.100.1.20
   </server>
+  <buffer>
+    flush_interval 5s
+  </buffer>
 </match>
 ```
 
@@ -348,11 +350,13 @@ The plugins are required to be installed:
 # Forward to monitoring server
 <match apache.access>
   @type forward
-  flush_interval 5s
   <server>
     name server_name
     host 10.100.1.20
   </server>
+  <buffer>
+    flush_interval 5s
+  </buffer>
 </match>
 ```
 
