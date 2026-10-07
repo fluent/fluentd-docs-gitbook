@@ -86,7 +86,7 @@ Finally, configure `/etc/fluent/fluentd.conf` as follows:
   use_ssl false
   <buffer>
     flush_interval 10s # for testing
-  <buffer>
+  </buffer>
 </match>
 ```
 
