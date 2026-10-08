@@ -2,6 +2,9 @@
   command = "./scripts/build.sh"
   publish = "_book"
 
+[build.processing.html]
+  pretty_urls = false
+
 [[redirects]]
   from = "/.gitbook/assets/*"
   to = "/assets/:splat"
