@@ -30,14 +30,11 @@ Configure Fluentd to use the [`forward`](../input/forward.md) input plugin as it
 </match>
 ```
 
-Restart agent after configuring.
+Restart Fluentd after configuring.
 
 ```text
-# for rpm/deb only
-$ sudo /etc/init.d/td-agent restart
-
-# or systemd
-$ sudo systemctl restart td-agent.service
+# for fluent-package (rpm/deb)
+$ sudo systemctl restart fluentd
 ```
 
 ## Using `fluent-logger-java`
@@ -85,7 +82,7 @@ Executing the above program will send the logs to Fluentd:
 $ java -jar test.jar
 ```
 
-The logs should be output to `/var/log/td-agent/td-agent.log` or the standard output of the Fluentd process via [`stdout`](../output/stdout.md) output plugin.
+The logs should be output to `/var/log/fluent/fluentd.log` or the standard output of the Fluentd process via [`stdout`](../output/stdout.md) output plugin.
 
 ## Production Deployments
 
@@ -106,12 +103,12 @@ Various [output plugins](../output/) are available for writing records to other 
 
 ### High-Availability Configurations of Fluentd
 
-For high-traffic websites \(more than 5 application nodes\), we recommend using the high-availability configuration for `td-agent`. This will improve the reliability of data transfer and query performance.
+For high-traffic websites \(more than 5 application nodes\), we recommend using the high-availability configuration for Fluentd. This will improve the reliability of data transfer and query performance.
 
 * [High-Availability Configurations of Fluentd](../deployment/high-availability.md)
 
 ### Monitoring
 
-Monitoring Fluentd itself is also important. The article below describes the general monitoring methods for `td-agent`:
+Monitoring Fluentd itself is also important. The article below describes the general monitoring methods for Fluentd:
 
 * [Monitoring Fluentd](../monitoring-fluentd/overview.md)
