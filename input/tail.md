@@ -12,7 +12,7 @@ It is included in Fluentd's core.
 <source>
   @type tail
   path /var/log/httpd-access.log
-  pos_file /var/log/td-agent/httpd-access.log.pos
+  pos_file /var/log/fluent/httpd-access.log.pos
   tag apache.access
   <parse>
     @type apache2
@@ -312,7 +312,7 @@ If you set `multiline_flush_interval 5s`, `in_tail` flushes buffered event after
 Fluentd will record the position it last read from this file:
 
 ```text
-pos_file /var/log/td-agent/tmp/access.log.pos
+pos_file /var/log/fluent/tmp/access.log.pos
 ```
 
 `pos_file` handles multiple positions in one file so no need to have multiple `pos_file` parameters per `source`.
@@ -335,7 +335,7 @@ The interval of doing compaction of pos file.
 The targets of compaction are unwatched, unparsable, and the duplicated line. You can use this value when `pos_file` option is set:
 
 ```text
-pos_file /var/log/td-agent/tmp/access.log.pos
+pos_file /var/log/fluent/tmp/access.log.pos
 pos_file_compaction_interval 72h
 ```
 

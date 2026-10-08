@@ -258,7 +258,7 @@ In `buffered` mode, the user can specify `<secondary>` with any output plugin in
 
 `<secondary>` is useful for backup when destination servers are unavailable, e.g. `forward`, `mongo`, etc. We strongly recommend `out_secondary_file` plugin for `<secondary>`.
 
-This example sends logs to Elasticsearch using a file buffer `/var/log/td-agent/buffer/elasticsearch`, and any failure will be sent to `/var/log/td-agent/error/` using `my.logs` for file names:
+This example sends logs to Elasticsearch using a file buffer `/var/log/fluent/buffer/elasticsearch`, and any failure will be sent to `/var/log/fluent/error/` using `my.logs` for file names:
 
 ```text
 <match my.logs>
@@ -268,11 +268,11 @@ This example sends logs to Elasticsearch using a file buffer `/var/log/td-agent/
   logstash_format true
   <buffer>
     @type file
-    path /var/log/td-agent/buffer/elasticsearch
+    path /var/log/fluent/buffer/elasticsearch
   </buffer>
   <secondary>
     @type secondary_file
-    directory /var/log/td-agent/error
+    directory /var/log/fluent/error
     basename my.logs
   </secondary>
 </match>

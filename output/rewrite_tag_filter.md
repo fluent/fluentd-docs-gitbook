@@ -258,7 +258,7 @@ The plugins are required to be installed:
     time_format %d/%b/%Y:%H:%M:%S %z
   </parse>
   tag apache.access
-  pos_file /var/log/td-agent/apache_access.pos
+  pos_file /var/log/fluent/apache_access.pos
 </source>
 
 # Forward to monitoring server
@@ -344,7 +344,7 @@ The plugins are required to be installed:
     time_format %d/%b/%Y:%H:%M:%S %z
   </parse>
   tag apache.access
-  pos_file /var/log/td-agent/apache_access.pos
+  pos_file /var/log/fluent/apache_access.pos
 </source>
 
 # Forward to monitoring server
