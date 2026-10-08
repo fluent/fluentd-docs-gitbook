@@ -26,7 +26,7 @@ $ fluent-gem install fluent-plugin-windows-eventlog
   <storage>
     @type local
     persistent true
-    path C:\opt\td-agent\winevt.pos
+    path C:\opt\fluent\winevt.pos
   </storage>
 </source>
 ```
@@ -102,8 +102,8 @@ If you set `root_dir` in `<section>` and set `@id` in the plugin configuration, 
 ```text
 <storage>
   persistent true
-  path C:\opt\td-agent\winevt.pos # This is required when persistent is true.
-                                  # Or, use <system> section's root_dir parameter.      
+  path C:\opt\fluent\winevt.pos # This is required when persistent is true.
+                                # Or, use <system> section's root_dir parameter.      
 </storage>
 ```
 

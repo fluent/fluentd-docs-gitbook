@@ -30,7 +30,7 @@ $ fluent-gem install fluent-plugin-kafka
   # buffer settings
   <buffer topic>
     @type file
-    path /var/log/td-agent/buffer/td
+    path /var/log/fluent/buffer/td
     flush_interval 3s
   </buffer>
 
