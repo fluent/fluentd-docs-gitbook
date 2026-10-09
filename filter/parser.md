@@ -97,7 +97,7 @@ Above incoming event is parsed as:
 
 ```text
 time:
-2021-06-01 00:00:00.000000000 +0900
+2021-06-24 14:33:35.475115751 +0900 (It varies — original event time)
 
 record:
 {
@@ -105,7 +105,7 @@ record:
 }
 ```
 
-The value of `time` field \(`1622473200`\) is reserved as event time \(`2021-06-01 00:00:00.000000000 +0900`\).
+The original event time is kept. The value of the parsed `time` field \(`1622473200`\) is discarded as event time.
 
 Without `reserve_time`, the result is:
 
@@ -117,7 +117,7 @@ Above incoming event is parsed as:
 
 ```text
 time:
-2021-06-24 14:33:35.475115751 +0900 (It varies on parsed timestamp)
+2021-06-01 00:00:00.000000000 +0900
 
 record:
 {
@@ -125,7 +125,7 @@ record:
 }
 ```
 
-The value of parsed timestamp is set as event time. The value of `time` field is discarded.
+The value of the `time` field \(`1622473200`\) is set as event time \(`2021-06-01 00:00:00.000000000 +0900`\).
 
 ### `reserve_data`
 
