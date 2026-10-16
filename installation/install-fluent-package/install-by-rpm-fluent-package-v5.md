@@ -40,13 +40,13 @@ Download and execute the install script with `curl`:
 ##### fluent-package 5 (LTS)
 
 ```bash
-curl -fsSL https://fluentd.cdn.cncf.io/sh/install-redhat-fluent-package5-lts.sh | sh
+curl -fsSL https://packages.fluentd.org/sh/install-redhat-fluent-package5-lts.sh | sh
 ```
 
 ##### fluent-package 5
 
 ```bash
-curl -fsSL https://fluentd.cdn.cncf.io/sh/install-redhat-fluent-package5.sh | sh
+curl -fsSL https://packages.fluentd.org/sh/install-redhat-fluent-package5.sh | sh
 ```
 
 Executing this script will automatically install `fluent-package` on your machine. This shell script registers a new `rpm` repository at `/etc/yum.repos.d/fluent-package.repo` (or `/etc/yum.repos.d/fluent-package-lts.repo`) and installs `fluent-package`.
@@ -64,13 +64,13 @@ Since v5.0.4, RHEL 7 / CentOS 7 is not supported anymore because CentOS 7 has re
 ###### fluent-package 5 (LTS)
 
 ```bash
-curl -fsSL https://fluentd.cdn.cncf.io/sh/install-amazon2023-fluent-package5-lts.sh | sh
+curl -fsSL https://packages.fluentd.org/sh/install-amazon2023-fluent-package5-lts.sh | sh
 ```
 
 ###### fluent-package 5
 
 ```bash
-curl -fsSL https://fluentd.cdn.cncf.io/sh/install-amazon2023-fluent-package5.sh | sh
+curl -fsSL https://packages.fluentd.org/sh/install-amazon2023-fluent-package5.sh | sh
 ```
 
 ##### For Amazon Linux 2:
@@ -82,13 +82,13 @@ fluent-package v6 will not be shipped for Amazon Linux 2.
 ###### fluent-package 5 (LTS)
 
 ```bash
-curl -fsSL https://fluentd.cdn.cncf.io/sh/install-amazon2-fluent-package5-lts.sh | sh
+curl -fsSL https://packages.fluentd.org/sh/install-amazon2-fluent-package5-lts.sh | sh
 ```
 
 ###### fluent-package 5
 
 ```bash
-curl -fsSL https://fluentd.cdn.cncf.io/sh/install-amazon2-fluent-package5.sh | sh
+curl -fsSL https://packages.fluentd.org/sh/install-amazon2-fluent-package5.sh | sh
 ```
 
 ### Step 2: Launch Daemon
