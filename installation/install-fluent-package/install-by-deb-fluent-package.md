@@ -39,7 +39,7 @@ A shell script is provided to automate the installation process for each version
 ##### fluent-package 6 (LTS)
 
 ```bash
-curl -fsSL https://fluentd.cdn.cncf.io/sh/install-ubuntu-resolute-fluent-package6-lts.sh | sh
+curl -fsSL https://packages.fluentd.org/sh/install-ubuntu-resolute-fluent-package6-lts.sh | sh
 ```
 
 {% hint style='info' %}
@@ -51,13 +51,13 @@ fluent-package for normal release version is not ready yet. LTS version is recom
 ##### fluent-package 6 (LTS)
 
 ```bash
-curl -fsSL https://fluentd.cdn.cncf.io/sh/install-ubuntu-noble-fluent-package6-lts.sh | sh
+curl -fsSL https://packages.fluentd.org/sh/install-ubuntu-noble-fluent-package6-lts.sh | sh
 ```
 
 ##### fluent-package 6
 
 ```bash
-curl -fsSL https://fluentd.cdn.cncf.io/sh/install-ubuntu-noble-fluent-package6.sh | sh
+curl -fsSL https://packages.fluentd.org/sh/install-ubuntu-noble-fluent-package6.sh | sh
 ```
 
 #### For Ubuntu Jammy (Ubuntu 22.04):
@@ -65,13 +65,13 @@ curl -fsSL https://fluentd.cdn.cncf.io/sh/install-ubuntu-noble-fluent-package6.s
 ##### fluent-package 6 (LTS)
 
 ```bash
-curl -fsSL https://fluentd.cdn.cncf.io/sh/install-ubuntu-jammy-fluent-package6-lts.sh | sh
+curl -fsSL https://packages.fluentd.org/sh/install-ubuntu-jammy-fluent-package6-lts.sh | sh
 ```
 
 ##### fluent-package 6
 
 ```bash
-curl -fsSL https://fluentd.cdn.cncf.io/sh/install-ubuntu-jammy-fluent-package6.sh | sh
+curl -fsSL https://packages.fluentd.org/sh/install-ubuntu-jammy-fluent-package6.sh | sh
 ```
 
 #### For Debian Trixie (Debian 13):
@@ -79,13 +79,13 @@ curl -fsSL https://fluentd.cdn.cncf.io/sh/install-ubuntu-jammy-fluent-package6.s
 ##### fluent-package 6 (LTS)
 
 ```bash
-curl -fsSL https://fluentd.cdn.cncf.io/sh/install-debian-trixie-fluent-package6-lts.sh | sh
+curl -fsSL https://packages.fluentd.org/sh/install-debian-trixie-fluent-package6-lts.sh | sh
 ```
 
 ##### fluent-package 6
 
 ```bash
-curl -fsSL https://fluentd.cdn.cncf.io/sh/install-debian-trixie-fluent-package6.sh | sh
+curl -fsSL https://packages.fluentd.org/sh/install-debian-trixie-fluent-package6.sh | sh
 ```
 
 #### For Debian Bookworm (Debian 12):
@@ -93,13 +93,13 @@ curl -fsSL https://fluentd.cdn.cncf.io/sh/install-debian-trixie-fluent-package6.
 ##### fluent-package 6 (LTS)
 
 ```bash
-curl -fsSL https://fluentd.cdn.cncf.io/sh/install-debian-bookworm-fluent-package6-lts.sh | sh
+curl -fsSL https://packages.fluentd.org/sh/install-debian-bookworm-fluent-package6-lts.sh | sh
 ```
 
 ##### fluent-package 6
 
 ```bash
-curl -fsSL https://fluentd.cdn.cncf.io/sh/install-debian-bookworm-fluent-package6.sh | sh
+curl -fsSL https://packages.fluentd.org/sh/install-debian-bookworm-fluent-package6.sh | sh
 ```
 
 ### Step 2: Launch Daemon
