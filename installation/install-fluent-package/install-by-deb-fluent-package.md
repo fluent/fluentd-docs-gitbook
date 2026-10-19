@@ -57,7 +57,7 @@ curl -fsSL https://packages.fluentd.org/sh/install-ubuntu-noble-fluent-package6-
 ##### fluent-package 6
 
 ```bash
-curl -fsSL https://packages.fluentd.org/sh/install-ubuntu-noble-fluent-package6.sh | sh
+curl -fsSL https://packages.fluentd.org/sh/install-ubuntu-noble-fluent-package6-std.sh | sh
 ```
 
 #### For Ubuntu Jammy (Ubuntu 22.04):
@@ -71,7 +71,7 @@ curl -fsSL https://packages.fluentd.org/sh/install-ubuntu-jammy-fluent-package6-
 ##### fluent-package 6
 
 ```bash
-curl -fsSL https://packages.fluentd.org/sh/install-ubuntu-jammy-fluent-package6.sh | sh
+curl -fsSL https://packages.fluentd.org/sh/install-ubuntu-jammy-fluent-package6-std.sh | sh
 ```
 
 #### For Debian Trixie (Debian 13):
@@ -85,7 +85,7 @@ curl -fsSL https://packages.fluentd.org/sh/install-debian-trixie-fluent-package6
 ##### fluent-package 6
 
 ```bash
-curl -fsSL https://packages.fluentd.org/sh/install-debian-trixie-fluent-package6.sh | sh
+curl -fsSL https://packages.fluentd.org/sh/install-debian-trixie-fluent-package6-std.sh | sh
 ```
 
 #### For Debian Bookworm (Debian 12):
@@ -99,7 +99,7 @@ curl -fsSL https://packages.fluentd.org/sh/install-debian-bookworm-fluent-packag
 ##### fluent-package 6
 
 ```bash
-curl -fsSL https://packages.fluentd.org/sh/install-debian-bookworm-fluent-package6.sh | sh
+curl -fsSL https://packages.fluentd.org/sh/install-debian-bookworm-fluent-package6-std.sh | sh
 ```
 
 ### Step 2: Launch Daemon
