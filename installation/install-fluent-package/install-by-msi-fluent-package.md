@@ -24,9 +24,9 @@ The following are deprecated (EOL) fluent-package and td-agent information:
 
 ### Step 1: Install `fluent-package`
 
-Download the latest version of MSI installer from [the download page for Long Term Support version](https://fluentd.cdn.cncf.io/lts/6/windows/index.html).
+Download the latest version of MSI installer from [the download page for Long Term Support version](https://packages.fluentd.org/lts/6/windows/index.html).
 Run the installer and follow the wizard.
-If you want to use the normal release version, use [the download page for normal release version](https://fluentd.cdn.cncf.io/6/windows/index.html).
+If you want to use the normal release version, use [the download page for normal release version](https://packages.fluentd.org/6/windows/index.html).
 
 ![fluent-package installation wizard](../../.gitbook/assets/fluent-package6-wizard.png)
 

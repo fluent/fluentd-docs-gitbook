@@ -38,13 +38,13 @@ A shell script is provided to automate the installation process for each version
 ##### fluent-package 5 (LTS)
 
 ```bash
-curl -fsSL https://fluentd.cdn.cncf.io/sh/install-ubuntu-noble-fluent-package5-lts.sh | sh
+curl -fsSL https://packages.fluentd.org/sh/install-ubuntu-noble-fluent-package5-lts.sh | sh
 ```
 
 ##### fluent-package 5
 
 ```bash
-curl -fsSL https://fluentd.cdn.cncf.io/sh/install-ubuntu-noble-fluent-package5.sh | sh
+curl -fsSL https://packages.fluentd.org/sh/install-ubuntu-noble-fluent-package5.sh | sh
 ```
 
 #### For Ubuntu Jammy (Ubuntu 22.04):
@@ -52,13 +52,13 @@ curl -fsSL https://fluentd.cdn.cncf.io/sh/install-ubuntu-noble-fluent-package5.s
 ##### fluent-package 5 (LTS)
 
 ```bash
-curl -fsSL https://fluentd.cdn.cncf.io/sh/install-ubuntu-jammy-fluent-package5-lts.sh | sh
+curl -fsSL https://packages.fluentd.org/sh/install-ubuntu-jammy-fluent-package5-lts.sh | sh
 ```
 
 ##### fluent-package 5
 
 ```bash
-curl -fsSL https://fluentd.cdn.cncf.io/sh/install-ubuntu-jammy-fluent-package5.sh | sh
+curl -fsSL https://packages.fluentd.org/sh/install-ubuntu-jammy-fluent-package5.sh | sh
 ```
 
 #### For Ubuntu Focal (Ubuntu 20.04):
@@ -70,13 +70,13 @@ fluent-package v6 will not be shipped for Ubuntu Focal.
 ##### fluent-package 5 (LTS)
 
 ```bash
-curl -fsSL https://fluentd.cdn.cncf.io/sh/install-ubuntu-focal-fluent-package5-lts.sh | sh
+curl -fsSL https://packages.fluentd.org/sh/install-ubuntu-focal-fluent-package5-lts.sh | sh
 ```
 
 ##### fluent-package 5
 
 ```bash
-curl -fsSL https://fluentd.cdn.cncf.io/sh/install-ubuntu-focal-fluent-package5.sh | sh
+curl -fsSL https://packages.fluentd.org/sh/install-ubuntu-focal-fluent-package5.sh | sh
 ```
 
 #### For Debian Bookworm (Debian 12):
@@ -84,13 +84,13 @@ curl -fsSL https://fluentd.cdn.cncf.io/sh/install-ubuntu-focal-fluent-package5.s
 ##### fluent-package 5 (LTS)
 
 ```bash
-curl -fsSL https://fluentd.cdn.cncf.io/sh/install-debian-bookworm-fluent-package5-lts.sh | sh
+curl -fsSL https://packages.fluentd.org/sh/install-debian-bookworm-fluent-package5-lts.sh | sh
 ```
 
 ##### fluent-package 5
 
 ```bash
-curl -fsSL https://fluentd.cdn.cncf.io/sh/install-debian-bookworm-fluent-package5.sh | sh
+curl -fsSL https://packages.fluentd.org/sh/install-debian-bookworm-fluent-package5.sh | sh
 ```
 
 #### For Debian Bullseye (Debian 11):
@@ -102,13 +102,13 @@ fluent-package v6 will not be shipped for Debian Bullseye.
 ##### fluent-package 5 (LTS)
 
 ```bash
-curl -fsSL https://fluentd.cdn.cncf.io/sh/install-debian-bullseye-fluent-package5-lts.sh | sh
+curl -fsSL https://packages.fluentd.org/sh/install-debian-bullseye-fluent-package5-lts.sh | sh
 ```
 
 ##### fluent-package 5
 
 ```bash
-curl -fsSL https://fluentd.cdn.cncf.io/sh/install-debian-bullseye-fluent-package5.sh | sh
+curl -fsSL https://packages.fluentd.org/sh/install-debian-bullseye-fluent-package5.sh | sh
 ```
 
 ### Step 2: Launch Daemon

@@ -41,13 +41,13 @@ Download and execute the install script with `curl`:
 ##### fluent-package 6 (LTS)
 
 ```bash
-curl -fsSL https://fluentd.cdn.cncf.io/sh/install-redhat-fluent-package6-lts.sh | sh
+curl -fsSL https://packages.fluentd.org/sh/install-redhat-fluent-package6-lts.sh | sh
 ```
 
 ##### fluent-package 6
 
 ```bash
-curl -fsSL https://fluentd.cdn.cncf.io/sh/install-redhat-fluent-package6.sh | sh
+curl -fsSL https://packages.fluentd.org/sh/install-redhat-fluent-package6.sh | sh
 ```
 
 Executing this script will automatically install `fluent-package` on your machine. This shell script registers a new `rpm` repository at `/etc/yum.repos.d/fluent-package.repo` (or `/etc/yum.repos.d/fluent-package-lts.repo`) and installs `fluent-package`.
@@ -61,13 +61,13 @@ We use `$releasever` for repository path in the script and `$releasever` should 
 ###### fluent-package 6 (LTS)
 
 ```bash
-curl -fsSL https://fluentd.cdn.cncf.io/sh/install-amazon2023-fluent-package6-lts.sh | sh
+curl -fsSL https://packages.fluentd.org/sh/install-amazon2023-fluent-package6-lts.sh | sh
 ```
 
 ###### fluent-package 6
 
 ```bash
-curl -fsSL https://fluentd.cdn.cncf.io/sh/install-amazon2023-fluent-package6.sh | sh
+curl -fsSL https://packages.fluentd.org/sh/install-amazon2023-fluent-package6.sh | sh
 ```
 
 ### Step 2: Launch Daemon
