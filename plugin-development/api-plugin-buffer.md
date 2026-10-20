@@ -24,3 +24,9 @@ rescue => e
   log.error "unexpected error while evacuating chunk files.", error: e
 end
 ```
+
+Since v1.20.0, the base class decides which chunks to pass to this method by `evacuate_limit_size`.
+It counts the files directly under the directory used in the sample code above, so evacuate the chunk files to this directory.
+Since v1.20.0, `evacuate_dir` returns this directory.
+The base class subtracts only `chunk.bytesize` from the remaining capacity, so other files written by this method are not counted until the next evacuation.
+The base class ignores `evacuate_limit_size` if `persistent?` of the buffer plugin returns `false`.

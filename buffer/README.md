@@ -109,6 +109,56 @@ Please see [How to Write Buffer Plugin](../plugin-development/api-plugin-buffer.
 Please note that [`buf_memory`](memory.md) does not support this feature.
 {% endhint %}
 
+#### Limiting the size of evacuated chunk files
+
+Since v1.20.0, you can limit the total size of the evacuated chunk files with `evacuate_limit_size` in the `<buffer>` section.
+It prevents the evacuated chunk files from filling the disk when the retry limit is reached again and again during a long outage.
+`buf_memory` ignores this parameter.
+
+```text
+<match app.**>
+  @type forward
+  @id forward_app
+  <server>
+    host 192.168.1.3
+  </server>
+  <buffer>
+    @type file
+    path /var/log/fluent/buf
+    evacuate_limit_size 1g
+  </buffer>
+</match>
+```
+
+When the retry limit is reached, Fluentd evacuates the queued chunks that fit within the remaining capacity, in the order of the queue.
+This is usually from the oldest chunk.
+The chunks that do not fit are discarded without being evacuated.
+If `evacuate_limit_size` is smaller than `chunk_limit_size`, full chunks may not be evacuated, and Fluentd warns about it at startup.
+
+All files directly under the directory are counted, including the ones evacuated before.
+Files in subdirectories are not counted.
+So once the directory reaches the limit, newer chunks are not evacuated until you move or remove the evacuated chunk files.
+If Fluentd cannot get the size of the evacuated chunk files, for example because the directory is not readable, it discards the queued chunks without evacuating them.
+
+Set `0` to disable the evacuation.
+The default is no limit.
+
+{% hint style='warning' %}
+`evacuate_limit_size` is an approximate limit.
+Fluentd counts the size of the directory only when the evacuation starts, so the total size may exceed the limit in the following cases.
+
+* `buf_file` also evacuates the `.meta` file of each chunk. These files are not counted until the next evacuation.
+* All workers of the same plugin share the directory. If their evacuations overlap, the total size can reach about the number of workers times the limit.
+
+The total size is counted again at the next retry limit.
+If it already exceeds the limit, no chunks are evacuated.
+{% endhint %}
+
+{% hint style='info' %}
+Configure [@id](../configuration/plugin-common-parameters.md#id) for the output plugin.
+Without `@id`, `${plugin_id}` can change when the configuration is changed or reloaded, and the chunk files evacuated before are not counted.
+{% endhint %}
+
 ### Handling Unrecoverable Errors
 
 Not all errors are recoverable in nature. For example, if the content of a chunk file gets corrupted, you obviously cannot fix anything just by redoing the write operation. Rather, a blind retry attempt will just make the situation worse.
