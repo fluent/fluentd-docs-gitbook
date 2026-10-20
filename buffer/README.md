@@ -140,7 +140,7 @@ Files in subdirectories are not counted.
 So once the directory reaches the limit, newer chunks are not evacuated until you move or remove the evacuated chunk files.
 If Fluentd cannot get the size of the evacuated chunk files, for example because the directory is not readable, it discards the queued chunks without evacuating them.
 
-Set `0` to disable the evacuation.
+Set `0` to discard the queued chunks without evacuating them, the same as the behavior before v1.19.0.
 The default is no limit.
 
 {% hint style='warning' %}
