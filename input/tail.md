@@ -282,6 +282,46 @@ This value should be equal or greater than 8192.
 
 If you work with a big cluster with high volume of log, you can use this parameter to avoid network saturation and make it easier to calculate the max throughput per node. To restrict shipping log volumes per second, set a positive number.
 
+### `num_threads`
+
+| type | default | version |
+| :--- | :--- | :--- |
+| integer | 1 | 1.20.0 |
+
+Controls how `in_tail` parses log lines. The default, `1`, parses lines on the event loop. Set this to `2` or more to parse them on worker threads.
+
+This can reduce delays in processing other files while a large or fast-growing file is parsed. It does not guarantee a higher overall throughput.
+
+```text
+<source>
+  @type tail
+  path /var/log/app/*.log
+  pos_file /var/log/fluentd/app.log.pos
+  tag app
+  num_threads 2
+  <parse>
+    @type json
+  </parse>
+</source>
+```
+
+Worker parsing is enabled only when all of the following conditions are met. Otherwise, `in_tail` logs `in_tail worker parsing is unavailable; using synchronous parsing` at startup and parses lines on the event loop.
+
+* The `<parse>` type is one of `none`, `regexp`, `json`, `csv`, `tsv`, `ltsv`, `msgpack`, `apache`, `apache2`, `apache_error`, `nginx` and `syslog`.
+* The parser is not a multiline parser.
+* `open_on_every_update` is `false`.
+* The internal hooks of `in_tail`, such as `receive_lines`, are not overridden. A plugin that inherits from `in_tail` keeps worker parsing as long as it leaves these hooks unchanged.
+
+With worker parsing, `in_tail` reads lines on the event loop and groups them into batches for parsing (see [`read_lines_limit`](#readlineslimit)). A worker thread parses each batch with its own parser instance. The events are emitted and the position file is updated on the event loop after the batch has been parsed. At most one batch per file is in flight at a time, so the order of the events within a file is preserved.
+
+The worker threads accept a limited amount of work. Up to `num_threads * 2` batches can be in flight at a time, counting the batches being parsed and the ones whose events are not emitted yet. Each batch is accounted for at three times the total byte size of its lines. Regular batches share a 64 MiB budget. One additional batch exceeding this budget can be accepted, subject to the same batch-count limit. When a batch is not accepted, its file waits until another batch completes. No lines are skipped.
+
+Lines that the parser cannot parse, such as a malformed JSON line, are handled in the same way as on the event loop (see [`emit_unmatched_lines`](#emitunmatchedlines)). If a worker thread raises an error while processing a batch, the batch is parsed again on the event loop.
+
+At shutdown, `in_tail` waits for the batches that are still in flight and applies the results that complete in time. The position of a batch that does not complete is left unchanged, so its lines are read again at the next start.
+
+While worker parsing is active, `in_monitor_agent` reports `worker_pending_batch_count`, `worker_pending_bytes` and `worker_parse_error_count` for the plugin.
+
 ### `max_line_size`
 
 | type | default | version |
