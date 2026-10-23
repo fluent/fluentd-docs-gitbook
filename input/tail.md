@@ -290,7 +290,7 @@ If you work with a big cluster with high volume of log, you can use this paramet
 
 Controls how `in_tail` parses log lines. The default, `1`, parses lines on the event loop. Set this to `2` or more to parse them on worker threads.
 
-This can reduce delays in processing other files while a large or fast-growing file is parsed. It does not guarantee a higher overall throughput.
+This can reduce delays in processing other files while a large or fast-growing file is parsed. If all worker threads are busy, other files may still experience processing delays. This option does not guarantee an upper bound on latency, and it does not guarantee a higher overall throughput.
 
 ```text
 <source>
@@ -310,7 +310,10 @@ Worker parsing is enabled only when all of the following conditions are met. Oth
 * The `<parse>` type is one of `none`, `regexp`, `json`, `csv`, `tsv`, `ltsv`, `msgpack`, `apache`, `apache2`, `apache_error`, `nginx` and `syslog`.
 * The parser is not a multiline parser.
 * `open_on_every_update` is `false`.
-* The internal hooks of `in_tail`, such as `receive_lines`, are not overridden. A plugin that inherits from `in_tail` keeps worker parsing as long as it leaves these hooks unchanged.
+* The internal hooks of `in_tail`, such as `receive_lines`, are not overridden.
+* The configured parser instance has not been replaced by a subclass.
+
+A plugin that inherits from `in_tail` keeps worker parsing as long as it leaves these hooks and the parser instance unchanged.
 
 With worker parsing, `in_tail` reads lines on the event loop and groups them into batches for parsing (see [`read_lines_limit`](#readlineslimit)). A worker thread parses each batch with its own parser instance. The events are emitted and the position file is updated on the event loop after the batch has been parsed. At most one batch per file is in flight at a time, so the order of the events within a file is preserved.
 
@@ -318,7 +321,7 @@ The worker threads accept a limited amount of work. Up to `num_threads * 2` batc
 
 Lines that the parser cannot parse, such as a malformed JSON line, are handled in the same way as on the event loop (see [`emit_unmatched_lines`](#emitunmatchedlines)). If a worker thread raises an error while processing a batch, the batch is parsed again on the event loop.
 
-At shutdown, `in_tail` waits for the batches that are still in flight and applies the results that complete in time. The position of a batch that does not complete is left unchanged, so its lines are read again at the next start.
+At shutdown, `in_tail` waits for the batches that are still in flight and applies the results that complete in time. The position of an unfinished batch is not advanced. Its lines can be read again on restart if the position is persisted with `pos_file` and the file remains available for tailing.
 
 While worker parsing is active, `in_monitor_agent` reports `worker_pending_batch_count`, `worker_pending_bytes` and `worker_parse_error_count` for the plugin.
 
