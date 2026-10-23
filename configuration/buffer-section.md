@@ -595,6 +595,9 @@ Following are the flushing parameters for chunks to optimize performance \(laten
   * Instead of storing unrecoverable chunks in the backup directory, just
 
     discard them. This option is new in Fluentd v1.2.6.
+* `evacuate_limit_size` \[size\]
+  * Default: `nil` \(no limit\)
+  * The approximate size limit of the evacuated chunk files in the evacuation directory. When the retry limit is reached, queued chunks that fit within the remaining capacity are evacuated, and the others are discarded without being evacuated. Set `0` to discard the queued chunks without evacuating them, the same as the behavior before v1.19.0. It is available for `buf_file` and `buf_file_single`. This option is new in Fluentd v1.20.0. See [Limiting the size of evacuated chunk files](../buffer/#limiting-the-size-of-evacuated-chunk-files).
 
 With `exponential_backoff`, `retry_wait` interval will be calculated as below:
 
