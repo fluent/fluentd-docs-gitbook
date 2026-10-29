@@ -42,9 +42,11 @@ A shell script is provided to automate the installation process for each version
 curl -fsSL https://packages.fluentd.org/sh/install-ubuntu-resolute-fluent-package6-lts.sh | sh
 ```
 
-{% hint style='info' %}
-fluent-package for normal release version is not ready yet. LTS version is recommended now.
-{% endhint %}
+##### fluent-package 6
+
+```bash
+curl -fsSL https://packages.fluentd.org/sh/install-ubuntu-resolute-fluent-package6-std.sh | sh
+```
 
 #### For Ubuntu Noble (Ubuntu 24.04):
 
