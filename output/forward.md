@@ -202,6 +202,14 @@ Set `tls` to use TLS. All the `tls_*` parameters take effect only with `transpor
 
 Changes the protocol to **at-least-once**. The plugin waits for the ack from destination's `in_forward` plugin.
 
+The ack of a chunk fails when it does not arrive within [`ack_response_timeout`](#ackresponsetimeout) or when the server closes the connection before sending it. Then the chunk is sent again, and the server is handled as follows:
+
+* If another available server with a positive `weight` can take the chunk, the server whose ack failed is detached for at least [`recover_wait`](#recoverwait), and the chunk is sent to the other servers. A [`standby`](#standby) server is used if needed. No retry is counted for the chunk. With `heartbeat_type transport` or `udp`, the server also needs successful heartbeats after `recover_wait` to come back. With [`heartbeat_type none`](#heartbeattype), it comes back when `recover_wait` has passed.
+* If no other server can take the chunk, for example when there is only one server, the server is not detached. A retry is counted with `Fluent::Plugin::ForwardOutput::AckResponseError`, so the chunk is sent again after `retry_wait`, and `retry_max_times`, `retry_timeout` and [`<secondary>`](#secondary) apply as for other errors.
+* If `recover_wait` is `0`, the server is not detached, and a retry is counted in the same way.
+
+If a send of a chunk takes longer than the delayed commit timeout \(`ack_response_timeout` + 2 seconds\), the chunk is rolled back and a retry is counted before the ack fails. The failure of that ack does not count another retry, even if the chunk is being sent again by then.
+
 ### `ack_response_timeout`
 
 | type | default | version |
@@ -258,6 +266,8 @@ The connection timeout for the socket. When the connection is timed out during t
 
 The wait time before accepting a server fault recovery.
 
+With [`require_ack_response`](#requireackresponse), a server whose ack fails is also detached for at least this long while another available server can take its chunks. See [`require_ack_response`](#requireackresponse) for details.
+
 ### `heartbeat_type`
 
 | type | default | available | version |
@@ -265,6 +275,8 @@ The wait time before accepting a server fault recovery.
 | enum | transport | transport, tcp, udp, none | 0.14.12 |
 
 Specifies the transport protocol for heartbeats. Set `none` to disable.
+
+With `none`, the servers are not checked by heartbeats and are always regarded as available, except that a server whose ack fails with [`require_ack_response`](#requireackresponse) is kept out for [`recover_wait`](#recoverwait) while another server can take its chunks. A `standby` server is used while an active server is kept out, and the active server is used again after `recover_wait`.
 
 The default value `transport` means the protocol which [`transport`](#transport) specifies.
 
