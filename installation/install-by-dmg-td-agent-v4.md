@@ -15,7 +15,7 @@ For macOS, `td-agent` is distributed as a `.dmg` installer.
 {% hint style='danger' %}
 This article contains deprecated td-agent (EOL) information: SHOULD NOT use td-agent anymore.
 
-* `fluent-package` (successor of `td-agent`) for macOS is not shipped yet, we plan to migrate to homebrew ecosystem in the future.
+* The successor, `fluent-package`, is available for Apple Silicon Macs through [Homebrew](install-fluent-package/install-by-homebrew-fluent-package.md).
 * Package archive was migrated from [packages.treasuredata.com](https://packages.treasuredata.com) to [fluentd.cdn.cncf.io](https://fluentd.cdn.cncf.io/index.html).
 {% endhint %}
 
