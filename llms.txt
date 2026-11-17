@@ -244,7 +244,7 @@ Documentation for the end-of-life v0.12 series is at https://docs.fluentd.org/0.
 - [Plugin Development](https://docs.fluentd.org/plugin-development/README.md): With fluentd, you can install and create custom plugins.
 - [How to Write Input Plugin](https://docs.fluentd.org/plugin-development/api-plugin-input.md): Extend `Fluent::Plugin::Input` class and implement its methods.
 - [How to Write Base Plugin](https://docs.fluentd.org/plugin-development/api-plugin-base.md): All plugin types are subclasses of `Fluent::Plugin::Base` in Fluentd v1 or later.
-- [How to Write Buffer Plugin](https://docs.fluentd.org/plugin-development/api-plugin-buffer.md): Methods to implement when writing a buffer plugin.
+- [How to Write Buffer Plugin](https://docs.fluentd.org/plugin-development/api-plugin-buffer.md): Fluentd supports pluggable buffers which keep the events of an output plugin until they are written to the destination.
 - [How to Write Filter Plugin](https://docs.fluentd.org/plugin-development/api-plugin-filter.md): This section shows how to write a custom filter plugin in addition to the core ones.
 - [How to Write Formatter Plugin](https://docs.fluentd.org/plugin-development/api-plugin-formatter.md): Fluentd supports pluggable, customizable formats for output plugins.
 - [How to Write Output Plugin](https://docs.fluentd.org/plugin-development/api-plugin-output.md): Extend `Fluent::Plugin::Output` class and implement its methods.
