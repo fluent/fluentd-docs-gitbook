@@ -131,6 +131,70 @@ As of Fluentd v1.4.0, `<worker N-M>` syntax has been introduced:
 
 With this directive, you can specify multiple workers per worker directive.
 
+### Sections inside and outside `<worker>` directives
+
+A configuration can have `<source>`, `<filter>`, `<match>` and `<label>` sections both inside and outside `<worker>` directives. In this case, each worker loads the configuration as follows:
+
+* The sections outside `<worker>` directives are loaded in every worker.
+* The sections inside a `<worker>` directive are loaded only in the workers specified by the directive.
+* The sections inside `<worker>` directives are placed **after** all the sections outside them, regardless of where the `<worker>` directives are written in the configuration file.
+
+The last point matters because `<filter>` and `<match>` sections are evaluated in the order they appear and an event goes to the first matching `<match>` section \(see [Note on Match Order](../configuration/config-file.md#note-on-match-order)\). So, a `<match>` section outside `<worker>` directives takes precedence over a `<match>` section inside a `<worker>` directive when both of them match the tag, even if the `<worker>` directive is written first.
+
+In the following example, the events from `in_sample` on worker 0 go to `<match app.**>`, not to `<match app.access>`:
+
+```text
+<system>
+  workers 2
+</system>
+
+<worker 0>
+  <source>
+    @type sample
+    tag app.access
+  </source>
+
+  # never used: <match app.**> below is evaluated first
+  <match app.access>
+    @type file
+    path /var/log/fluent/access
+  </match>
+</worker>
+
+<match app.**>
+  @type stdout
+</match>
+```
+
+To send the events of a `<source>` inside a `<worker>` directive to a `<match>` inside the same directive, avoid patterns which overlap with the sections outside `<worker>` directives, or route the events to a `<label>` section with `@label`:
+
+```text
+<system>
+  workers 2
+</system>
+
+<worker 0>
+  <source>
+    @type sample
+    tag app.access
+    @label @ACCESS
+  </source>
+
+  <label @ACCESS>
+    <match app.access>
+      @type file
+      path /var/log/fluent/access
+    </match>
+  </label>
+</worker>
+
+<match app.**>
+  @type stdout
+</match>
+```
+
+A `<source>` section outside `<worker>` directives also runs in every worker. For example, if it is an input plugin which shares its port between workers such as `in_forward`, every worker accepts events on the port. See [Input Plugin](#input-plugin) section.
+
 ## Operation
 
 Each worker consumes memory and disk space separately. Take care while configuring buffer spaces and monitoring memory/disk consumption.
