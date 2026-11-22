@@ -15,8 +15,8 @@ Here is an example of a custom buffer plugin that keeps each chunk in two files 
 
 ```ruby
 require 'fileutils'
-require 'json'
 
+require 'fluent/msgpack_factory'
 require 'fluent/plugin/buffer'
 require 'fluent/plugin/buffer/chunk'
 
@@ -44,8 +44,9 @@ module Fluent::Plugin
       stage = {}
       queue = []
 
-      Dir.glob(File.join(@path, '*.meta')) do |meta_path|
-        chunk = MyDirChunk.restore(meta_path, compress: @compress)
+      Dir.glob('*.meta', base: @path) do |name|
+        meta_path = File.join(@path, name)
+        chunk = MyDirChunk.restore(meta_path, compress: @compress, decompression_size_limit: @decompression_size_limit)
         if chunk.queued?
           queue << chunk
         elsif stage.key?(chunk.metadata)
@@ -65,22 +66,28 @@ module Fluent::Plugin
     end
 
     def generate_chunk(metadata)
-      MyDirChunk.new(metadata, @path, compress: @compress)
+      MyDirChunk.new(metadata, @path, compress: @compress, decompression_size_limit: @decompression_size_limit)
     end
   end
 
   # Keeps the data in "<id>.data" and its metadata in "<id>.meta".
   class MyDirChunk < Buffer::Chunk
-    def self.restore(meta_path, compress:)
-      meta = JSON.parse(File.read(meta_path), symbolize_names: true)
+    def self.restore(meta_path, compress:, decompression_size_limit:)
+      meta = Fluent::MessagePackFactory.msgpack_unpacker(symbolize_keys: true).feed(File.binread(meta_path)).read
+      # Check the data file before creating the chunk, which would create it.
+      data_path = File.join(File.dirname(meta_path), "#{meta[:id]}.data")
+      unless File.exist?(data_path) && File.size(data_path) >= meta[:bytesize]
+        raise "#{data_path} is missing or shorter than the committed data"
+      end
+
       metadata = Buffer::Metadata.new(meta[:timekey], meta[:tag], meta[:variables])
-      chunk = new(metadata, File.dirname(meta_path), compress: compress, unique_id: [meta[:id]].pack('H*'))
+      chunk = new(metadata, File.dirname(meta_path), compress: compress, decompression_size_limit: decompression_size_limit, unique_id: [meta[:id]].pack('H*'))
       chunk.restore_state(meta)
       chunk
     end
 
-    def initialize(metadata, dir, compress:, unique_id: nil)
-      super(metadata, compress: compress)
+    def initialize(metadata, dir, compress:, decompression_size_limit:, unique_id: nil)
+      super(metadata, compress: compress, decompression_size_limit: decompression_size_limit)
       @unique_id = unique_id if unique_id
       id = dump_unique_id_hex(@unique_id)
       @data_path = File.join(dir, "#{id}.data")
@@ -110,12 +117,15 @@ module Fluent::Plugin
 
     def commit
       @file.flush
+      modified_at = Fluent::Clock.real_now
+      # Write the meta file first. If it fails, #rollback still drops the
+      # added data.
+      write_meta(bytesize, size, modified_at)
       @committed_bytesize += @adding_bytesize
       @size += @adding_size
       @adding_bytesize = @adding_size = 0
-      @modified_at = Fluent::Clock.real_now
+      @modified_at = modified_at
       @modified_at_object = nil
-      write_meta
       true
     end
 
@@ -164,26 +174,28 @@ module Fluent::Plugin
 
     private
 
-    def write_meta
+    def write_meta(bytesize = @committed_bytesize, size = @size, modified_at = @modified_at)
       meta = {
         id: dump_unique_id_hex(@unique_id),
         state: queued? ? 'queued' : 'staged',
-        size: @size,
-        bytesize: @committed_bytesize,
+        size: size,
+        bytesize: bytesize,
         created_at: @created_at,
-        modified_at: @modified_at,
+        modified_at: modified_at,
         timekey: @metadata.timekey,
         tag: @metadata.tag,
         variables: @metadata.variables,
       }
       # Renames a temporary file so that a crash in the middle of the write
       # does not leave a half-written file behind.
-      File.write("#{@meta_path}.tmp", JSON.generate(meta))
+      File.binwrite("#{@meta_path}.tmp", Fluent::MessagePackFactory.thread_local_msgpack_packer.pack(meta).full_pack)
       File.rename("#{@meta_path}.tmp", @meta_path)
     end
 
     def remove_files
-      [@data_path, @meta_path].each do |path|
+      # Remove the meta file first, so that a crash in between does not leave
+      # a meta file without its data file.
+      [@meta_path, @data_path].each do |path|
         File.unlink(path)
       rescue Errno::ENOENT
         # The meta file is not written until the first commit.
@@ -214,18 +226,18 @@ With `out_stdout` output plugin:
 </match>
 ```
 
-The chunk files look like this:
+The chunk files look like this. The meta file is in MessagePack, as `buf_file` does, so that any tag and chunk key value can be kept. Decode it to read:
 
 ```text
 $ ls /path/to/buffer
-6607e1a24e93dcf39443601c8727fd1d.data  6607e1a24e93dcf39443601c8727fd1d.meta
-$ cat /path/to/buffer/6607e1a24e93dcf39443601c8727fd1d.meta
-{"id":"6607e1a24e93dcf39443601c8727fd1d","state":"staged","size":8,"bytesize":720,"created_at":1794944581,"modified_at":1794944588,"timekey":null,"tag":"test","variables":null}
+660d66de1fa3469a85da1181c2ae47e7.data  660d66de1fa3469a85da1181c2ae47e7.meta
+$ ruby -rfluent/msgpack_factory -e 'p Fluent::MessagePackFactory.msgpack_unpacker(symbolize_keys: true).feed(File.binread(ARGV[0])).read' /path/to/buffer/660d66de1fa3469a85da1181c2ae47e7.meta
+{:id=>"660d66de1fa3469a85da1181c2ae47e7", :state=>"staged", :size=>8, :bytesize=>504, :created_at=>1795323943, :modified_at=>1795323950, :timekey=>nil, :tag=>"test", :variables=>nil}
 ```
 
 If you stop Fluentd before the chunk is flushed, the files are kept, and the events in them are written out after Fluentd starts again. `out_stdout` sets `flush_at_shutdown` to `true` by default, so the example sets it to `false` to show this.
 
-The example above is kept short. A buffer plugin for real use should also check in `#configure` that `path` is a writable directory, and raise `Fluent::ConfigError` if it is not. It should also decide what to do with a broken chunk on `#resume`, instead of only logging it, and with a data file left without its meta file by a crash before the first commit. It also has to decide what to do under [multiple workers](../deployment/multi-process-workers.md): the example uses the same directory in every worker, so every worker restores the chunks of the others, and Fluentd does not warn about it because `#multi_workers_ready?` returns `true` by default. See [`buf_file`](https://github.com/fluent/fluentd/blob/master/lib/fluent/plugin/buf_file.rb) and [`Fluent::Plugin::Buffer::FileChunk`](https://github.com/fluent/fluentd/blob/master/lib/fluent/plugin/buffer/file_chunk.rb), the built-in implementation, for all of them.
+The example above is kept short. A buffer plugin for real use should also check in `#configure` that `path` is a writable directory, and raise `Fluent::ConfigError` if it is not. It should also decide what to do with a broken chunk on `#resume`, instead of only logging it, and with a data file left without its meta file by a crash before the first commit. It should reject a `path` that another buffer already uses, because two buffers on the same directory restore the same chunks. It should create the files and the directory with the `file_permission` and `dir_permission` of [`<system>`](../deployment/system-config.md). It also has to decide what to do under [multiple workers](../deployment/multi-process-workers.md): the example uses the same directory in every worker, so every worker restores the chunks of the others, and Fluentd accepts this configuration because `#multi_workers_ready?` returns `true` by default. See [`buf_file`](https://github.com/fluent/fluentd/blob/master/lib/fluent/plugin/buf_file.rb) and [`Fluent::Plugin::Buffer::FileChunk`](https://github.com/fluent/fluentd/blob/master/lib/fluent/plugin/buffer/file_chunk.rb), the built-in implementation, for all of them.
 
 To keep the chunks in memory, use [`Fluent::Plugin::Buffer::MemoryChunk`](https://github.com/fluent/fluentd/blob/master/lib/fluent/plugin/buffer/memory_chunk.rb) in `#generate_chunk`, as [`buf_memory`](../buffer/memory.md) does, instead of writing a chunk class.
 
@@ -245,7 +257,7 @@ Each chunk in the stage must be in the `staged` state, and the stage can have on
 
 It returns a new chunk for `metadata`. The chunk is empty, and `Fluent::Plugin::Buffer` sets its state.
 
-Pass the `compress` parameter of the buffer, `@compress`, to the chunk. `Fluent::Plugin::Buffer::Chunk` handles `compress gzip` and `compress zstd` by itself, so a chunk class stores and returns the compressed data as it is, and can ignore the keyword arguments of `#read`, `#open` and `#write_to`.
+Pass the `compress` parameter of the buffer, `@compress`, to the chunk. Since v1.20.0, also pass its `decompression_size_limit` parameter, `@decompression_size_limit`, as the keyword argument of the same name. v1.19.0 rejects this keyword with `ArgumentError`, so omit it there. `Fluent::Plugin::Buffer::Chunk` handles `compress gzip` and `compress zstd` by itself, so a chunk class stores and returns the compressed data as it is, and can ignore the keyword arguments of `#read`, `#open` and `#write_to`.
 
 The following methods have working default implementations, and a plugin overrides them only when it needs another behavior.
 
@@ -316,7 +328,7 @@ It returns the committed data as a `String`.
 
 It calls `&block` with an `IO` object to read the committed data from.
 
-The following methods have working default implementations. A plugin overrides them only when it needs another behavior, and calls `super` in them to update the state of the chunk.
+The following methods have working default implementations. A plugin overrides them only when it needs another behavior, and calls `super` in `#staged!`, `#enqueued!`, `#close` and `#purge` to update the state of the chunk.
 
 #### `#empty?`
 
@@ -423,13 +435,15 @@ class MyDirBufferTest < Test::Unit::TestCase
     chunk = buffer.stage[m]
     chunk.append(["b\n"])
     chunk.rollback
-    assert_equal("a\n", chunk.read)
-    chunk.append(["c\n"]) # not committed
+    chunk.append(["c\n"])
+    chunk.commit
+    assert_equal("a\nc\n", chunk.read)
+    chunk.append(["d\n"]) # not committed
     shutdown_buffer(buffer)
 
     buffer = create_buffer
-    assert_equal("a\n", buffer.stage[m].read)
-    assert_equal(1, buffer.stage[m].size)
+    assert_equal("a\nc\n", buffer.stage[m].read)
+    assert_equal(2, buffer.stage[m].size)
     shutdown_buffer(buffer)
   end
 
