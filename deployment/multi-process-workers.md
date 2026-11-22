@@ -139,7 +139,7 @@ A configuration can have `<source>`, `<filter>`, `<match>` and `<label>` section
 * The sections inside a `<worker>` directive are loaded only in the workers specified by the directive.
 * The sections inside `<worker>` directives are placed **after** all the sections outside them, regardless of where the `<worker>` directives are written in the configuration file.
 
-The last point matters because `<filter>` and `<match>` sections are evaluated in the order they appear and an event goes to the first matching `<match>` section \(see [Note on Match Order](../configuration/config-file.md#note-on-match-order)\). So, a `<match>` section outside `<worker>` directives takes precedence over a `<match>` section inside a `<worker>` directive when both of them match the tag, even if the `<worker>` directive is written first.
+The last point matters because `<filter>` and `<match>` sections are evaluated in the resulting order, which can differ from the order written in the configuration file, and an event goes to the first matching `<match>` section \(see [Note on Match Order](../configuration/config-file.md#note-on-match-order)\). So, a `<match>` section outside `<worker>` directives takes precedence over a `<match>` section inside a `<worker>` directive when both of them match the tag, even if the `<worker>` directive is written first. In the same way, a `<filter>` section inside a `<worker>` directive is not applied to the events which a `<match>` section outside `<worker>` directives takes.
 
 In the following example, the events from `in_sample` on worker 0 go to `<match app.**>`, not to `<match app.access>`:
 
@@ -166,7 +166,7 @@ In the following example, the events from `in_sample` on worker 0 go to `<match 
 </match>
 ```
 
-To send the events of a `<source>` inside a `<worker>` directive to a `<match>` inside the same directive, avoid patterns which overlap with the sections outside `<worker>` directives, or route the events to a `<label>` section with `@label`:
+To send the events of a `<source>` inside a `<worker>` directive to a `<match>` inside the same directive, give them a tag which no `<match>` section outside `<worker>` directives matches, or route the events to a `<label>` section with `@label`:
 
 ```text
 <system>
@@ -192,6 +192,8 @@ To send the events of a `<source>` inside a `<worker>` directive to a `<match>` 
   @type stdout
 </match>
 ```
+
+Fluentd configures the sections of all `<worker>` directives together at startup. So, if you copy this `<worker>` directive for another worker, change the label name and the `path` of the file output in the copy, for example to `@ACCESS1` and `/var/log/fluent/access1`. If the plugins have `@id`, change them too. Otherwise, Fluentd fails to start. If the workers can share the same sections, use one `<worker N-M>` directive such as `<worker 0-1>` instead.
 
 A `<source>` section outside `<worker>` directives also runs in every worker. For example, if it is an input plugin which shares its port between workers such as `in_forward`, every worker accepts events on the port. See [Input Plugin](#input-plugin) section.
 
