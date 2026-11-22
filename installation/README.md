@@ -54,9 +54,9 @@ You can build and install Fluentd from [its git repository](https://github.com/f
 
 ## Which Method Should I Choose?
 
-* To run Fluentd on a Linux or Windows server, use `fluent-package`. Choose the LTS version if you prefer stability to new features.
+* To run Fluentd on a Linux or Windows server, use `fluent-package`. Choose the LTS version if you prefer stability to new features. If `fluent-package` does not support your OS or its version, consider the Ruby gem.
 * To run Fluentd in containers or on Kubernetes, use the Docker image or the Fluentd DaemonSet.
-* To run Fluentd on macOS, use the Docker image or the Ruby gem, because `fluent-package` for macOS is not shipped yet. `calyptia-fluentd` also provides a .dmg package.
+* To run Fluentd on macOS, use the Docker image or the Ruby gem, because `fluent-package` for macOS is not shipped yet.
 * To run Fluentd on a Ruby installation which you manage by yourself, use the Ruby gem.
 * To develop Fluentd itself or to try a change which is not released yet, install from source.
 
@@ -70,4 +70,4 @@ If you need a lightweight log forwarder for edge devices or containers, consider
 
 ## After Installation
 
-See [Post Installation Guide](post-installation-guide.md) for the next steps, such as where the configuration file is and how to install plugins.
+If you installed an RPM or DEB package, see [Post Installation Guide](post-installation-guide.md) for the next steps, such as where the configuration file is and how to install plugins. For other installations, see the guide for your platform and installation method.
