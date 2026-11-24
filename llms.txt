@@ -27,7 +27,7 @@ Documentation for the end-of-life v0.12 series is at https://docs.fluentd.org/0.
 
 ## Installation
 
-- [Installation](https://docs.fluentd.org/installation/README.md): Index of the installation guides.
+- [Installation](https://docs.fluentd.org/installation/README.md): Overview of the ways to install Fluentd, and which one to choose.
 - [Before Installation](https://docs.fluentd.org/installation/before-install.md): Before installing Fluentd, make sure that your environment is properly set up to avoid any inconsistencies at a later stage.
 - [fluent-package](https://docs.fluentd.org/installation/install-fluent-package/README.md): Index of the `fluent-package` installation guides.
 - [Install `fluent-package` by RPM Package (Red Hat Linux)](https://docs.fluentd.org/installation/install-fluent-package/install-by-rpm-fluent-package.md): This article explains how to install stable versions of `fluent-package` rpm packages, the stable Fluentd distribution packages maintained by Fluentd Project.
