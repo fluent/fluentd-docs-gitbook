@@ -256,7 +256,7 @@ The shared key for authentication.
 | :--- | :--- | :--- |
 | array | `[]` | 1.21.0 |
 
-Extra shared keys accepted alongside `shared_key`. A client that authenticates with any of these keys is accepted, and the PONG response is signed with the key the client used, so senders need no change. This lets you rotate the shared key without dropping clients that still use the old one. See [How to Rotate the Shared Key](#how-to-rotate-the-shared-key).
+Extra shared keys accepted alongside `shared_key`. A client that uses any of these keys passes the shared key check, unless it matches a `<client>` with its own `shared_key`. Such a `<client>` uses only its own `shared_key` and `additional_shared_keys`. The PONG response is signed with the key the client used, so a sender that still uses an old key keeps working without any change. This lets you rotate the shared key without dropping clients that still use the old one. See [How to Rotate the Shared Key](#how-to-rotate-the-shared-key).
 
 Empty entries are rejected at startup.
 
@@ -514,7 +514,9 @@ First, add the new key and keep the old one in `additional_shared_keys`:
 </source>
 ```
 
-Then switch each `out_forward` sender to `NEW_PASSWORD`. Senders with either key are accepted in the meantime. Once all of them use the new key, remove `additional_shared_keys`.
+A `<client>` with its own `shared_key` does not use the keys in `<security>`. For such a `<client>`, make the same change inside it: set its `shared_key` to the new key and keep the old one in its `additional_shared_keys`.
+
+Once every receiver accepts both keys, switch each `out_forward` sender to the new key, including any `shared_key` in its `<server>` sections. Senders with either key are accepted in the meantime. After all of them use the new key, remove the old key from `additional_shared_keys`, including the ones in `<client>`.
 
 ### Multi-process Environment
 
