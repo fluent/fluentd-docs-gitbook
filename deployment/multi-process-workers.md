@@ -193,7 +193,13 @@ To send the events of a `<source>` inside a `<worker>` directive to a `<match>` 
 </match>
 ```
 
-Fluentd configures the sections of all `<worker>` directives together at startup. So, if you copy this `<worker>` directive for another worker, change the label name and the `path` of the file output in the copy, for example to `@ACCESS1` and `/var/log/fluent/access1`. If the plugins have `@id`, change them too. Otherwise, Fluentd fails to start. If the workers can share the same sections, use one `<worker N-M>` directive such as `<worker 0-1>` instead.
+At startup, the supervisor checks the sections of all `<worker>` directives together, although each worker runs only the sections for it. So, to copy this `<worker 0>` directive for worker 1, change the copy to `<worker 1>` and make the following changes in it. Without them, Fluentd or the copied worker fails to start.
+
+* Change the label name in both `@label` and `<label>`, for example to `@ACCESS1`.
+* Change the `path` of the file output, for example to `/var/log/fluent/access1`. In this example, the file output also uses this value as its buffer path.
+* If the plugins have `@id`, change them too.
+
+If the workers can share the same sections, use one `<worker N-M>` directive such as `<worker 0-1>` instead.
 
 A `<source>` section outside `<worker>` directives also runs in every worker. For example, if it is an input plugin which shares its port between workers such as `in_forward`, every worker accepts events on the port. See [Input Plugin](#input-plugin) section.
 
