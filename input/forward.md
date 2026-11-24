@@ -266,6 +266,12 @@ The value is split on commas, even inside quotes, so `additional_shared_keys "ol
 additional_shared_keys ["old,key"]
 ```
 
+A value that starts with `[` is parsed as JSON, even inside quotes, so `additional_shared_keys "[oldkey"` fails at startup. Use the JSON array form for a key that starts with `[` too:
+
+```text
+additional_shared_keys ["[oldkey"]
+```
+
 #### `user_auth`
 
 | type | default | version |
