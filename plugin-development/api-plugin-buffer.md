@@ -188,7 +188,7 @@ module Fluent::Plugin
       }
       # Renames a temporary file so that a crash in the middle of the write
       # does not leave a half-written file behind.
-      File.binwrite("#{@meta_path}.tmp", Fluent::MessagePackFactory.thread_local_msgpack_packer.pack(meta).full_pack)
+      File.binwrite("#{@meta_path}.tmp", Fluent::MessagePackFactory.msgpack_packer.pack(meta).full_pack)
       File.rename("#{@meta_path}.tmp", @meta_path)
     end
 
@@ -257,7 +257,7 @@ Each chunk in the stage must be in the `staged` state, and the stage can have on
 
 It returns a new chunk for `metadata`. The chunk is empty, and `Fluent::Plugin::Buffer` sets its state.
 
-Pass the `compress` parameter of the buffer, `@compress`, to the chunk. Since v1.20.0, also pass its `decompression_size_limit` parameter, `@decompression_size_limit`, as the keyword argument of the same name. v1.19.0 rejects this keyword with `ArgumentError`, so omit it there. `Fluent::Plugin::Buffer::Chunk` handles `compress gzip` and `compress zstd` by itself, so a chunk class stores and returns the compressed data as it is, and can ignore the keyword arguments of `#read`, `#open` and `#write_to`.
+Pass the `compress` parameter of the buffer, `@compress`, to the chunk. Since v1.19.3, also pass its `decompression_size_limit` parameter, `@decompression_size_limit`, as the keyword argument of the same name. v1.19.2 and older reject this keyword with `ArgumentError`, so omit it there. `Fluent::Plugin::Buffer::Chunk` handles `compress gzip` and `compress zstd` by itself, so a chunk class stores and returns the compressed data as it is, and can ignore the keyword arguments of `#read`, `#open` and `#write_to`.
 
 The following methods have working default implementations, and a plugin overrides them only when it needs another behavior.
 
