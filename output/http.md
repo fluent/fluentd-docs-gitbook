@@ -413,7 +413,9 @@ This parameter is optional when you specify `aws_sigv4` for `method`. If you pro
 
 Set exactly one of `token` and `token_path`. In both of them, non-ASCII characters are rejected, surrounding whitespace (including a trailing newline) is removed, and an empty value, or one that still has a CR or LF in it, is rejected. These errors stop Fluentd at startup. `token_path` must also be readable at startup.
 
-If `token` or `token_path` is set while `method` is not `bearer`, Fluentd warns that it is ignored.
+With an `http` endpoint, the token is sent in plain text. Use `https` to protect it in transit.
+
+The default `method` is `basic`, so set `method bearer` explicitly. If `token` or `token_path` is set while `method` is not `bearer`, Fluentd warns that it is ignored and does not send the token.
 
 ##### `token`
 
