@@ -12,7 +12,7 @@
   * [Install fluent-package](installation/install-fluent-package/README.md)
     * [RPM Package \(Red Hat Linux\)](installation/install-fluent-package/install-by-rpm-fluent-package.md)
     * [DEB Package \(Debian/Ubuntu\)](installation/install-fluent-package/install-by-deb-fluent-package.md)
-    * [.dmg Package \(macOS\)](installation/install-fluent-package/install-by-dmg-fluent-package.md)
+    * [Homebrew \(macOS\)](installation/install-fluent-package/install-by-homebrew-fluent-package.md)
     * [.msi Installer \(Windows\)](installation/install-fluent-package/install-by-msi-fluent-package.md)
   * [Install calyptia-fluentd](installation/install-calyptia-fluentd/README.md)
     * [RPM Package \(Red Hat Linux\)](installation/install-calyptia-fluentd/install-by-rpm-calyptia-fluentd.md)
