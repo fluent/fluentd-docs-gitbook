@@ -242,6 +242,10 @@ This is a low-level tuning parameter, so you rarely need to change it.
 
 The timeout time when sending event logs.
 
+A send fails when it makes no progress for this time, for example when the server stops reading. It is not a limit on the whole send, so a large chunk can take longer than this time while the server keeps reading. A server that reads very slowly can also make a send fail. `0` disables the timeout.
+
+Before v1.21.0, this timeout did not stop a send. A send to a server that stopped reading blocked the flush thread until the server read again or closed the connection.
+
 ### `connect_timeout`
 
 | type | default | version |
