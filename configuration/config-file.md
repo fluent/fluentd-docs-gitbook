@@ -530,28 +530,28 @@ Each Fluentd plugin has its own specific set of parameters. For example, [`in_ta
 
 * `integer`: the field is parsed as an integer.
 * `float`: the field is parsed as a float.
-* `size`: the field is parsed as the number of bytes. There are several
+* `size`: the field is parsed as the number of bytes. There are several notational variations:
+  * `<NUMBER>k` or `<NUMBER>K`: number of kilobytes
+  * `<NUMBER>m` or `<NUMBER>M`: number of megabytes
+  * `<NUMBER>g` or `<NUMBER>G`: number of gigabytes
+  * `<NUMBER>t` or `<NUMBER>T`: number of terabytes
+  * Otherwise, the field is parsed as an integer, and that integer is the **number of bytes**.
 
-  notational variations:
+  Since v1.21.0, `<NUMBER>` can be a decimal number. For example, `1.5k` is 1536 bytes. A fraction of a byte is truncated. Do not omit the leading zero. `.5k` is read as 5120 bytes.
 
-  * `<INTEGER>k` or `<INTEGER>K`: number of kilobytes
-  * `<INTEGER>m` or `<INTEGER>M`: number of megabytes
-  * `<INTEGER>g` or `<INTEGER>G`: number of gigabytes
-  * `<INTEGER>t` or `<INTEGER>T`: number of terabytes
-  * Otherwise, the field is parsed as an integer, and that integer is the
-
-    **number of bytes**.
+  Before v1.21.0, use an integer for `<NUMBER>`. With a decimal number, only the digits after the decimal point are read, so `1.5k` is 5120 bytes. Write the number of bytes without a unit instead, such as `1536` for 1.5 kilobytes.
 
 * `time`: the field is parsed as a time duration.
-  * `<INTEGER>s`: seconds
-  * `<INTEGER>m`: minutes
-  * `<INTEGER>h`: hours
-  * `<INTEGER>d`: days
-  * Otherwise, the field is parsed as **float**, and that float is the
+  * `<NUMBER>s`: seconds
+  * `<NUMBER>m`: minutes
+  * `<NUMBER>h`: hours
+  * `<NUMBER>d`: days
+  * Otherwise, the field is parsed as **float**, and that float is the **number of seconds**. This option is useful for specifying sub-second time durations such as 0.1 \(0.1 second = 100 milliseconds\).
 
-    **number of seconds**. This option is useful for specifying sub-second
+  Since v1.21.0, `<NUMBER>` can be a decimal number. For example, `0.5s` is 0.5 seconds and `1.5m` is 90 seconds. Do not omit the leading zero. `.5s` is read as 5 seconds.
 
-    time durations such as 0.1 \(0.1 second = 100 milliseconds\).
+  Before v1.21.0, use an integer for `<NUMBER>`. With a decimal number, only the digits after the decimal point are read, so `0.5s` is 5 seconds and `1.5m` is 5 minutes. Write the number of seconds without a unit instead, such as `0.5` for half a second or `90` for a minute and a half.
+
 * `array`: the field is parsed as a JSON array. It also supports the shorthand
 
   syntax. These are the same values:
