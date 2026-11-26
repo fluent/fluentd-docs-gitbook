@@ -325,12 +325,13 @@ Specifies HTTP authentication.
 
 | type | default | available values | version |
 | :--- | :--- | :--- | :--- |
-| enum | basic | basic/aws\_sigv4 | basic:1.7.0 / aws\_sigv4:1.17.0 |
+| enum | basic | basic/aws\_sigv4/bearer | basic:1.7.0 / aws\_sigv4:1.17.0 / bearer:1.21.0 |
 
 The method for HTTP authentication.
 
 * `basic`: basic authentication
 * `aws_sigv4`: [AWS Signature Version 4](https://docs.aws.amazon.com/AmazonS3/latest/API/sig-v4-authenticating-requests.html)
+* `bearer`: bearer token authentication. `out_http` sends the `Authorization: Bearer <token>` header.
 
 #### Parameters for `method basic`
 
@@ -400,6 +401,37 @@ This parameter is required when you specify `aws_sigv4` for `method`.
 The AWS role ARN to assume when authenticating.
 
 This parameter is optional when you specify `aws_sigv4` for `method`. If you provide it, Fluentd will assume that AWS role and send requests signing from that role. Otherwise, Fluentd will use the credentials found by the [credential provider chain](https://docs.aws.amazon.com/sdk-for-ruby/v3/developer-guide/setup-config.html) as defined in the AWS documentation.
+
+#### Parameters for `method bearer`
+
+```text
+<auth>
+  method bearer
+  token_path /etc/fluentd/token
+</auth>
+```
+
+Set exactly one of `token` and `token_path`. In both of them, non-ASCII characters are rejected, surrounding whitespace (including a trailing newline) is removed, and an empty value, or one that still has a CR or LF in it, is rejected. These errors stop Fluentd at startup. `token_path` must also be readable at startup.
+
+With an `http` endpoint, the token is sent in plain text. Use `https` to protect it in transit.
+
+The default `method` is `basic`, so set `method bearer` explicitly. If `token` or `token_path` is set while `method` is not `bearer`, Fluentd warns that it is ignored and does not send the token.
+
+##### `token`
+
+| type | default | version |
+| :--- | :--- | :--- |
+| string | nil | 1.21.0 |
+
+The bearer token. The value is masked in the configuration dump.
+
+##### `token_path`
+
+| type | default | version |
+| :--- | :--- | :--- |
+| string | nil | 1.21.0 |
+
+The path of a file that holds the bearer token. The file is read on every request, so a rotated token is used without a restart. If the file goes missing later, or the new content fails the checks above, the flush fails and is retried.
 
 ## Common Output / Buffer parameters
 
