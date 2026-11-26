@@ -230,6 +230,7 @@ This section contains parameters related to authentication:
 
 * `self_hostname`
 * `shared_key`
+* `additional_shared_keys`
 * `user_auth`
 * `allow_anonymous_source`
 
@@ -248,6 +249,28 @@ The hostname.
 | string | required parameter | 0.14.5 |
 
 The shared key for authentication.
+
+#### `additional_shared_keys`
+
+| type | default | version |
+| :--- | :--- | :--- |
+| array | `[]` | 1.21.0 |
+
+Extra shared keys accepted alongside `shared_key`. A client that uses any of these keys passes the shared key check, unless it matches a `<client>` with its own `shared_key`. Such a `<client>` uses only its own `shared_key` and `additional_shared_keys`. The PONG response is signed with the key the client used, so a sender that still uses an old key keeps working without any change. This lets you rotate the shared key without dropping clients that still use the old one. See [How to Rotate the Shared Key](#how-to-rotate-the-shared-key).
+
+Empty entries are rejected at startup.
+
+The value is split on commas, even inside quotes, so `additional_shared_keys "old,key"` means two keys, `old` and `key`. Use the JSON array form for a key that contains a comma:
+
+```text
+additional_shared_keys ["old,key"]
+```
+
+A value that starts with `[` is parsed as JSON, even inside quotes, so `additional_shared_keys "[oldkey"` fails at startup. Use the JSON array form for a key that starts with `[` too:
+
+```text
+additional_shared_keys ["[oldkey"]
+```
 
 #### `user_auth`
 
@@ -305,6 +328,7 @@ This section contains client IP/Network authentication and shared key per host:
 * `host`
 * `network`
 * `shared_key`
+* `additional_shared_keys`
 * `users`
 
 This section can be used in `<security>`
@@ -336,6 +360,14 @@ This is exclusive with `host`.
 | string | nil | 0.14.5 |
 
 The shared key per client.
+
+**additional\_shared\_keys**
+
+| type | default | version |
+| :--- | :--- | :--- |
+| array | `[]` | 1.21.0 |
+
+Extra shared keys accepted for this client. If the client has no `shared_key`, they are added to the keys from `<security>`.
 
 **users**
 
@@ -470,6 +502,27 @@ To enable this feature, you need to add a `<security>` section to your configura
 ```
 
 Once the setup is complete, you have to configure your clients accordingly. For example, if you have an `out_forward` instance running on another server, configure it by following these [instructions](../output/forward.md#how-to-enable-password-authentication).
+
+### How to Rotate the Shared Key
+
+Since v1.21.0, `in_forward` can accept more than one shared key, so you can change the key without a window where senders are rejected.
+
+First, add the new key and keep the old one in `additional_shared_keys`:
+
+```text
+<source>
+  @type forward
+  <security>
+    self_hostname YOUR_SERVER_NAME
+    shared_key NEW_PASSWORD
+    additional_shared_keys OLD_PASSWORD
+  </security>
+</source>
+```
+
+A `<client>` with its own `shared_key` does not use the keys in `<security>`. For such a `<client>`, make the same change inside it: set its `shared_key` to the new key and keep the old one in its `additional_shared_keys`.
+
+Once every receiver accepts both keys, switch each `out_forward` sender to the new key, including any `shared_key` in its `<server>` sections. Senders with either key are accepted in the meantime. After all of them use the new key, remove the old key from `additional_shared_keys`, including the ones in `<client>`.
 
 ### Multi-process Environment
 
