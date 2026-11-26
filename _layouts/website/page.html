@@ -1,5 +1,25 @@
 {% extends template.self %}
 
+{% block style %}
+  <script>
+    // Relative links need the URL that matches the output file. Netlify also serves
+    // this page at the other form, and redirect rules cannot tell the two apart.
+    // This runs before the stylesheets so they are not fetched from the wrong URL.
+    (function () {
+      var path = location.pathname;
+      {% if file.path == "README.md" or file.path.endsWith("/README.md") %}
+      var fixed = /(\/|\.html)$/.test(path) ? path : path + "/";
+      {% else %}
+      var fixed = path.replace(/(\.html)?\/+$/, ".html");
+      {% endif %}
+      if (fixed !== path) {
+        location.replace(fixed + location.search + location.hash);
+      }
+    })();
+  </script>
+  {{ super() }}
+{% endblock %}
+
 {% block head %}
   {{ super() }}
   {% if book.markdownAlternate %}
