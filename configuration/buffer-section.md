@@ -414,9 +414,7 @@ Following are the configuration parameters for buffer plugin and its chunks:
 * `total_limit_size` \[size\]
   * Default: 512MB \(memory\) / 64GB \(file\)
   * The size limitation of this buffer plugin instance
-  * Once the total size of stored buffer reaches this threshold, all append
-
-    operations will fail with error \(and data will be lost\)
+  * The limit applies to the staged and queued chunks together. Once their total size reaches this threshold, the buffer does not accept new events, and what happens to them depends on `overflow_action`
 * `queue_limit_length` \[integer\]
   * Default: `nil`
   * The queue length limitation of this buffer plugin instance
@@ -525,19 +523,23 @@ Following are the flushing parameters for chunks to optimize performance \(laten
     operation has failed
 * `overflow_action` \[enum: `throw_exception`/`block`/`drop_oldest_chunk`\]
   * Default: `throw_exception`
-  * How does output plugin behave when its buffer queue is full?
-    * `throw_exception`: raises an exception to show the error in log
+  * How does output plugin behave when the total size of the staged and queued chunks reaches `total_limit_size`?
+    * `throw_exception`: raises `BufferOverflowError` to the input plugin that emitted the events, and the events are not written to the buffer.
+
+      Whether they are lost depends on the input plugin. See [Output Plugins - overflow\_action](../output/README.md#overflowaction).
     * `block`: wait until buffer can store more data.
 
-      After buffer is ready for storing more data, writing buffer is retried.
+      After buffer is ready for storing more data, writing buffer is retried, so the events are not lost. If Fluentd is shut down while waiting, it stops waiting and raises `BufferOverflowError`.
 
       Because of such behavior, `block` is suitable for processing batch execution,
 
       so do not use for improving processing throughput or performance.
 
-    * `drop_oldest_chunk`: drops/purges the oldest chunk to accept newly
+    * `drop_oldest_chunk`: drops/purges the oldest chunk in the queue to accept newly
 
       incoming chunk
+
+      Staged chunks and chunks being flushed are not dropped. If there is no chunk in the queue, or dropping the oldest one does not free enough space, the events are rejected in the same way as `throw_exception`.
 
 ### Retries Parameters
 
