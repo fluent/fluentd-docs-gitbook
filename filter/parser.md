@@ -160,6 +160,8 @@ Without `reserve_data`, the result is:
 # output data: {"user":1,"num":2}
 ```
 
+`reserve_data` also changes what happens to a record that cannot be parsed. See [`emit_invalid_record_to_error`](#emitinvalidrecordtoerror) for details.
+
 ### remove\_key\_name\_field
 
 | type | default | version |
@@ -263,6 +265,39 @@ Emits invalid record to `@ERROR` label. Invalid cases are:
 You can rescue unexpected format logs in the `@ERROR` label.
 
 If you want to ignore these errors, set `false`.
+
+Whether an invalid record is also passed to the next filter or output depends on [`reserve_data`](#reservedata) and on the case:
+
+| invalid case | `reserve_data false` | `reserve_data true` |
+| :--- | :--- | :--- |
+| key does not exist | record is discarded | original record is passed through |
+| the format is not matched | record is discarded | original record is passed through, unparsed |
+| an unexpected error | record is discarded | record is discarded |
+
+"The format is not matched" means that the parser returns no record, as the `json` and `regexp` parsers do for a value they cannot parse. "An unexpected error" means that the parser raises an error, for example when the time field does not match `time_format`, or on an invalid byte sequence while [`replace_invalid_sequence`](#replaceinvalidsequence) is `false`. In this case, the record is discarded even with `reserve_data true`.
+
+`emit_invalid_record_to_error` does not change this. Since it is `true` by default, a record passed through with `reserve_data true` is also emitted to the `@ERROR` label, so the same record goes to both. If you only want to pass such records through, set `emit_invalid_record_to_error false`:
+
+```text
+<filter foo.bar>
+  @type parser
+  key_name log
+  reserve_data true
+  emit_invalid_record_to_error false
+  <parse>
+    @type json
+  </parse>
+</filter>
+```
+
+With above configuration, here is the result for a value which is not JSON:
+
+```text
+# input data:  {"key":"value","log":"not json"}
+# output data: {"key":"value","log":"not json"}
+```
+
+If [`hash_value_field`](#hashvaluefield) is set, an empty hash is stored in that field of a record passed through.
 
 ## FAQ
 
