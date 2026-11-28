@@ -157,7 +157,7 @@ If chunk flush takes longer time than this threshold, fluentd logs warning messa
 
 #### `overflow_action`
 
-Controls the buffer behavior when the queue becomes full.
+Controls the buffer behavior when the total size of the staged and queued chunks reaches [`total_limit_size`](../configuration/buffer-section.md#buffering-parameters). The limit covers the stage as well as the queue, so it can be reached even when only a few chunks are queued.
 
 Supported modes:
 
