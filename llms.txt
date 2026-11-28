@@ -231,7 +231,7 @@ Documentation for the end-of-life v0.12 series is at https://docs.fluentd.org/0.
 ## Language Bindings
 
 - [Language Bindings](https://docs.fluentd.org/language-bindings/README.md): Index of the client libraries that send events to Fluentd.
-- [Java](https://docs.fluentd.org/language-bindings/java.md): The `fluent-logger-java` library is used to post records from Java applications to Fluentd.
+- [Java](https://docs.fluentd.org/language-bindings/java.md): How to post records from Java applications to Fluentd with Fluency or the `fluent-logger-java` library, which is not actively maintained.
 - [Ruby](https://docs.fluentd.org/language-bindings/ruby.md): The `fluent-logger-ruby` library is used to post records from Ruby applications to Fluentd.
 - [Python](https://docs.fluentd.org/language-bindings/python.md): The `fluent-logger-python` library is used to post records from Python applications to Fluentd.
 - [Perl](https://docs.fluentd.org/language-bindings/perl.md): The `Fluent::Logger` library is used to post records from Perl applications to Fluentd.

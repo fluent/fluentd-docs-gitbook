@@ -2,13 +2,17 @@
 
 The [`fluent-logger-java`](https://github.com/fluent/fluent-logger-java) library is used to post records from Java applications to Fluentd.
 
-This article explains how to use it.
+{% hint style='warning' %}
+`fluent-logger-java` is not actively maintained. It has not been updated since 2019, and the Fluentd maintainers are looking for someone to maintain it \(see [fluent/fluent-logger-java#99](https://github.com/fluent/fluent-logger-java/issues/99)\). For new applications, consider [Fluency](https://github.com/komamitsu/fluency) instead.
+{% endhint %}
+
+This article explains how to use Fluency and `fluent-logger-java`.
 
 ## Prerequisites
 
 * Basic knowledge of Java
 * Basic knowledge of Fluentd
-* Java 7 or higher
+* Java 8 or higher \(Fluency\) or Java 7 or higher \(`fluent-logger-java`\)
 
 ## Installing Fluentd
 
@@ -36,6 +40,60 @@ Restart Fluentd after configuring.
 # for fluent-package (rpm/deb)
 $ sudo systemctl restart fluentd
 ```
+
+## Using Fluency
+
+[Fluency](https://github.com/komamitsu/fluency) is a logger which sends records to Fluentd with the [forward protocol](../input/forward.md). It buffers the records in memory and sends them asynchronously. It also supports failover between multiple Fluentd instances, ack responses, and TLS.
+
+Add the following dependency configuration to `pom.xml`. The latest version can be found in [CHANGELOG.md](https://github.com/komamitsu/fluency/blob/master/CHANGELOG.md):
+
+```text
+<dependencies>
+  ...
+  <dependency>
+    <groupId>org.komamitsu</groupId>
+    <artifactId>fluency-core</artifactId>
+    <version>${fluency.version}</version>
+  </dependency>
+  <dependency>
+    <groupId>org.komamitsu</groupId>
+    <artifactId>fluency-fluentd</artifactId>
+    <version>${fluency.version}</version>
+  </dependency>
+  ...
+</dependencies>
+```
+
+Here's a sample Java test application:
+
+```text
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
+import org.komamitsu.fluency.Fluency;
+import org.komamitsu.fluency.fluentd.FluencyBuilderForFluentd;
+
+public class Main {
+    public static void main(String[] args) throws IOException {
+        // Sends records to localhost:24224
+        Fluency fluency = new FluencyBuilderForFluentd().build();
+
+        Map<String, Object> data = new HashMap<String, Object>();
+        data.put("from", "userA");
+        data.put("to", "userB");
+        fluency.emit("fluentd.test.follow", data);
+
+        // Flushes the buffered records and releases the resources
+        fluency.close();
+    }
+}
+```
+
+Executing the above program will send the record with the `fluentd.test.follow` tag to Fluentd, and it will be output via the [`stdout`](../output/stdout.md) output plugin.
+
+`Fluency#emit` does not send the record at once. Call `Fluency#close` before the application exits, or the buffered records may be lost. If the buffer is full, `Fluency#emit` throws `org.komamitsu.fluency.BufferFullException`.
+
+More information on Fluency, such as the buffer and retry settings, can be found [here](https://github.com/komamitsu/fluency).
 
 ## Using `fluent-logger-java`
 
